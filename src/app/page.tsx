@@ -2,19 +2,28 @@
 import { AppSidebar } from '@/components/navigation/AppSidebar';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { SectionContainer } from '@/components/sections/SectionContainer';
-import { WaterDroplets, BrushStroke } from '@/components/brand/VisualElements';
+import { WaterDroplets } from '@/components/brand/VisualElements';
 import Image from 'next/image';
 import { ChevronDown } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
+// Import new content sections
+import { StrategicOverview } from '@/components/sections/StrategicOverview';
+import { DualActivationModel } from '@/components/sections/DualModel';
+import { VisualIdentitySection } from '@/components/sections/VisualIdentity';
+import { ContentSocialSection } from '@/components/sections/ContentProduction';
+import { CommunityGrowthSection } from '@/components/sections/CommunityBuilding';
+import { AttendanceDemandSection } from '@/components/sections/Attendance';
+import { MusicProgrammingSection } from '@/components/sections/MusicProgramming';
+
 const sectionsData = [
-  { id: 'strategic-overview', label: '01 — STRATEGIC OVERVIEW', title: 'OWN EVERY SUNDAY — THE VISION', variant: 'dark' as const },
-  { id: 'dual-model', label: '02 — Dual Activation Model', title: 'The Lifestyle Synergy', variant: 'light' as const },
-  { id: 'visual-identity', label: '03 — Visual Identity', title: 'Brand Presence & Perception', variant: 'light' as const },
-  { id: 'content-social', label: '04 — Content Production', title: 'Social Media Domination', variant: 'light' as const },
-  { id: 'community', label: '05 — Community Building', title: 'Audience Growth Strategy', variant: 'light' as const },
-  { id: 'attendance', label: '06 — Attendance', title: 'Demand Generation Mechanics', variant: 'light' as const },
-  { id: 'music', label: '07 — Music Programming', title: 'Curating the Vibe', variant: 'light' as const },
+  { id: 'strategic-overview', label: '01 — STRATEGIC OVERVIEW', title: 'OWN EVERY SUNDAY — THE VISION', variant: 'dark' as const, component: <StrategicOverview /> },
+  { id: 'dual-model', label: '02 — Dual Activation Model', title: 'The Lifestyle Synergy', variant: 'light' as const, component: <DualActivationModel /> },
+  { id: 'visual-identity', label: '03 — Visual Identity', title: 'Brand Presence & Perception', variant: 'light' as const, component: <VisualIdentitySection /> },
+  { id: 'content-social', label: '04 — Content Production', title: 'Social Media Domination', variant: 'light' as const, component: <ContentSocialSection /> },
+  { id: 'community', label: '05 — Community Building', title: 'Audience Growth Strategy', variant: 'light' as const, component: <CommunityGrowthSection /> },
+  { id: 'attendance', label: '06 — Attendance', title: 'Demand Generation Mechanics', variant: 'light' as const, component: <AttendanceDemandSection /> },
+  { id: 'music', label: '07 — Music Programming', title: 'Curating the Vibe', variant: 'light' as const, component: <MusicProgrammingSection /> },
   { id: 'experience', label: '08 — Experience Design', title: 'On-Site Brand Activations', variant: 'light' as const },
   { id: 'revenue', label: '09 — Revenue Generation', title: 'Brand Sponsorship Alignment', variant: 'light' as const },
   { id: 'digital', label: '10 — Digital Infrastructure', title: 'Data-Driven Engagement', variant: 'light' as const },
@@ -99,7 +108,9 @@ export default function Home() {
             label={section.label}
             title={section.title}
             variant={section.variant}
-          />
+          >
+            {section.component}
+          </SectionContainer>
         ))}
 
         {/* Footer */}
