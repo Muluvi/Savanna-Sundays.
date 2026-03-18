@@ -1,0 +1,48 @@
+
+import React from 'react';
+
+export const BrushStroke = ({ className, color = "#F4C542", opacity = 0.85 }: { className?: string; color?: string; opacity?: number }) => (
+  <svg viewBox="0 0 200 60" className={className} style={{ position: 'absolute', zIndex: 0 }}>
+    <path 
+      d="M6 40 C35 10, 85 8, 128 20 C165 30, 190 22, 196 18" 
+      stroke={color} 
+      strokeWidth="24" 
+      strokeLinecap="round" 
+      fill="none" 
+      opacity={opacity} 
+    />
+    <path 
+      d="M6 40 C35 10, 85 8, 128 20 C165 30, 190 22, 196 18" 
+      stroke="#FFFFFF" 
+      strokeWidth="5" 
+      strokeLinecap="round" 
+      fill="none" 
+      opacity=".2" 
+    />
+  </svg>
+);
+
+export const LiquidSplash = ({ className, color = "#F4C542" }: { className?: string; color?: string }) => (
+  <div className={`absolute pointer-events-none opacity-40 blur-3xl ${className}`}>
+    <div className="w-64 h-64 rounded-full" style={{ backgroundColor: color }}></div>
+  </div>
+);
+
+export const WaterDroplets = ({ className }: { className?: string }) => (
+  <div className={`absolute inset-0 pointer-events-none ${className}`}>
+    {[...Array(20)].map((_, i) => (
+      <div 
+        key={i} 
+        className="absolute rounded-full"
+        style={{
+          width: `${Math.random() * 6 + 2}px`,
+          height: `${Math.random() * 6 + 2}px`,
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          backgroundColor: Math.random() > 0.5 ? '#F4C542' : '#2D8C7F',
+          opacity: Math.random() * 0.35 + 0.3
+        }}
+      />
+    ))}
+  </div>
+);

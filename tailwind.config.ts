@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -10,13 +11,27 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
+        body: ['Source Sans 3', 'sans-serif'],
+        headline: ['Bebas Neue', 'sans-serif'],
+        serif: ['Libre Baskerville', 'serif'],
         code: ['monospace'],
       },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        brand: {
+          gold: '#F4C542',
+          'gold-dark': '#D4A017',
+          green: '#1F4D3A',
+          'green-mid': '#2A6B4E',
+          teal: '#2D8C7F',
+          cream: '#F8F5E6',
+          parchment: '#EDE8D0',
+          'light-yellow': '#FEF3C7',
+          white: '#FFFFFF',
+          ink: '#0E1A10',
+          'ink-soft': '#1A2E1C',
+        },
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
@@ -73,25 +88,27 @@ export default {
       },
       keyframes: {
         'accordion-down': {
-          from: {
-            height: '0',
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)',
-          },
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
         },
         'accordion-up': {
-          from: {
-            height: 'var(--radix-accordion-content-height)',
-          },
-          to: {
-            height: '0',
-          },
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+        'fade-in-up': {
+          '0%': { opacity: '0', transform: 'translateY(22px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'pulse-gold': {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(244, 197, 66, 0.4)' },
+          '50%': { boxShadow: '0 0 0 15px rgba(244, 197, 66, 0)' },
         },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'fade-in-up': 'fade-in-up 0.7s ease-out forwards',
+        'pulse-gold': 'pulse-gold 2s infinite',
       },
     },
   },

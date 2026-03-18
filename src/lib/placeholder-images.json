@@ -1,3 +1,10 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "firefly-logo",
+      "description": "Firefly Management Logo",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1768407396/Horizontal_logo_clear_png_v0cjbd.png",
+      "imageHint": "company logo"
+    }
+  ]
 }
