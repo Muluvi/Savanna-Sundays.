@@ -24,8 +24,12 @@ export const SectionContainer = ({ id, label, title, variant = 'light', children
       <div className="max-w-5xl mx-auto w-full animate-fade-in-up">
         <span className="section-label">{label}</span>
         <h2 className="section-title">{title}</h2>
-        <div className="font-body text-lg font-light opacity-80 max-w-2xl leading-relaxed">
-          {children || <p>Strategic presentation content loading for this segment...</p>}
+        <div className="w-full">
+          {children || (
+            <div className="font-body text-lg font-light opacity-80 max-w-2xl leading-relaxed">
+              <p>Strategic presentation content loading for this segment...</p>
+            </div>
+          )}
         </div>
       </div>
     </section>
