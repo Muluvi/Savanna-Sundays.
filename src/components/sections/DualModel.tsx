@@ -5,7 +5,8 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { UserCheck, Trophy, MapPin, Users, Calendar as CalendarIcon, Star } from 'lucide-react';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { UserCheck, Trophy, MapPin, Users, Calendar as CalendarIcon, Star, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 
 const venues = [
@@ -19,9 +20,16 @@ const venues = [
 
 export const DualActivationModel = () => {
   return (
-    <div className="space-y-24">
-      {/* Model Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="space-y-16">
+      {/* Intro Narrative */}
+      <div className="font-body text-[15px] text-brand-green/55 max-w-[680px] leading-[1.7] mb-12 animate-fade-in-up">
+        <p>
+          The dual model is the strategic core of Savanna Sundays. Owned editions build the brand’s creative DNA and community depth; title sponsorships extend its geographic reach and frequency. Neither model alone achieves what KWAL needs—but together, they create a presence architecture that saturates Nairobi’s Sunday landscape without saturating Savanna’s production budget.
+        </p>
+      </div>
+
+      {/* High Level Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in-up [animation-delay:200ms]">
         <Card className="p-8 bg-white border-l-4 border-brand-gold rounded-[20px] shadow-sm">
           <div className="flex items-center gap-4 mb-6">
             <UserCheck className="text-brand-gold" size={32} />
@@ -54,15 +62,34 @@ export const DualActivationModel = () => {
       </div>
 
       {/* Tabs Section */}
-      <div className="py-8">
+      <div className="py-8 animate-fade-in-up [animation-delay:400ms]">
         <Tabs defaultValue="network" className="w-full">
           <TabsList className="w-full bg-brand-green p-1 h-auto grid grid-cols-1 md:grid-cols-3 mb-12 rounded-2xl">
             <TabsTrigger value="network" className="py-3 font-headline tracking-widest text-white/50 data-[state=active]:text-brand-gold data-[state=active]:bg-white/5 uppercase rounded-xl">Venue Network</TabsTrigger>
-            <TabsTrigger value="sponsorship" className="py-3 font-headline tracking-widest text-white/50 data-[state=active]:text-brand-gold data-[state=active]:bg-white/5 uppercase rounded-xl">Sponsorship Focus</TabsTrigger>
+            <TabsTrigger value="sponsorship" className="py-3 font-headline tracking-widest text-white/50 data-[state=active]:text-brand-gold data-[state=active]:bg-white/5 uppercase rounded-xl">Sponsorship Model</TabsTrigger>
             <TabsTrigger value="calendar" className="py-3 font-headline tracking-widest text-white/50 data-[state=active]:text-brand-gold data-[state=active]:bg-white/5 uppercase rounded-xl">Combined Calendar</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="network">
+          <TabsContent value="network" className="space-y-12">
+            <div className="space-y-8">
+              <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 mb-6 uppercase">
+                2A: Fully Owned Savanna Sundays Editions
+              </h3>
+              <div className="font-body text-base text-brand-green/70 space-y-4 max-w-3xl">
+                <p>
+                  Owned editions are where the Savanna Sundays identity is built, tested, and perfected. Firefly controls every detail—from the moment the first social media teaser drops to the moment the last golden-hour photograph is color-graded. These events are Savanna’s creative incubator and content factory.
+                </p>
+                
+                <h4 className="font-headline text-xl text-brand-green mt-8 mb-4">Format & Experience</h4>
+                <ul className="space-y-0">
+                  <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> Daytime-to-evening format: doors open at 2:00 PM, energy builds through sunset, and the final set closes at 9:00 PM.</li>
+                  <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> Capacity range of 400–800 pax per edition, sized to feel full at 60–70% capacity.</li>
+                  <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> Outdoor or semi-outdoor settings with natural light and photogenic architectural character.</li>
+                  <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> Premium positioning: curated food vendors and signature Savanna serves.</li>
+                </ul>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {venues.map((venue, i) => (
                 <Card key={i} className="group p-6 bg-white border border-brand-green/5 rounded-[20px] hover:-translate-y-2 transition-all text-center">
@@ -98,7 +125,36 @@ export const DualActivationModel = () => {
             </div>
           </TabsContent>
 
-          <TabsContent value="sponsorship">
+          <TabsContent value="sponsorship" className="space-y-12">
+            <div className="space-y-8">
+              <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 mb-6 uppercase">
+                2B: Title Sponsorship of Existing Sunday Events
+              </h3>
+              <div className="font-body text-base text-brand-green/70 space-y-4 max-w-3xl">
+                <p>
+                  Title sponsorships extend Savanna’s Sunday presence to events Savanna doesn’t need to produce—multiplying reach while conserving production resources. The key is not quantity but curation: Savanna should be present only where the brand is elevated.
+                </p>
+                
+                <h4 className="font-headline text-xl text-brand-green mt-8 mb-4">Sponsorship Scorecard</h4>
+                <div className="bg-brand-cream p-6 rounded-2xl border border-brand-green/5">
+                   <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                      {[
+                        { label: "Audience Fit", weight: "30%" },
+                        { label: "Visual Quality", weight: "20%" },
+                        { label: "Content Potential", weight: "20%" },
+                        { label: "Credibility", weight: "15%" },
+                        { label: "Exclusivity", weight: "15%" },
+                      ].map((item, i) => (
+                        <div key={i} className="text-center">
+                          <div className="font-headline text-2xl text-brand-gold">{item.weight}</div>
+                          <div className="text-[10px] font-bold uppercase tracking-widest opacity-40">{item.label}</div>
+                        </div>
+                      ))}
+                   </div>
+                </div>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                <Card className="p-8 bg-brand-green text-white relative overflow-hidden group">
                   <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
@@ -130,7 +186,28 @@ export const DualActivationModel = () => {
             </div>
           </TabsContent>
 
-          <TabsContent value="calendar">
+          <TabsContent value="calendar" className="space-y-12">
+            <div className="space-y-8">
+              <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 mb-6 uppercase">
+                2C: The Combined Sunday Calendar
+              </h3>
+              <div className="font-body text-base text-brand-green/70 space-y-4 max-w-3xl">
+                <p>
+                  The calendar is the operational brain of the dual model. By mapping owned and sponsored events across weeks, neighborhoods, and audience segments, Firefly ensures maximum reach with minimal overlap.
+                </p>
+                <div className="flex flex-col gap-4 mt-6">
+                  <div className="flex gap-4 items-center">
+                    <div className="w-4 h-4 rounded-full bg-brand-green" />
+                    <span className="text-sm font-bold uppercase tracking-widest">Phase 1 (Month 1-3): 2 Owned / Month</span>
+                  </div>
+                  <div className="flex gap-4 items-center">
+                    <div className="w-4 h-4 rounded-full bg-brand-teal" />
+                    <span className="text-sm font-bold uppercase tracking-widest">Sponsored Reach: 6-8 Events / Month (Phase 3)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="bg-white p-8 rounded-[30px] border border-brand-green/5 shadow-sm">
               <div className="flex justify-between items-center mb-8">
                 <h5 className="font-headline text-2xl text-brand-green">MARCH 2024 ACTIVATION</h5>
