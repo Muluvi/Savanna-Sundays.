@@ -152,6 +152,60 @@ export const DigitalInfrastructureSection = () => {
         </div>
       </div>
 
+      {/* 10D: The Dynamic QR Tracking System */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          10D: The Dynamic QR Tracking System
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              We move beyond generic entry tickets to a **Unique QR Identity System**. Every RSVP generates a dynamic, non-transferable code that serves as the attendee's digital passport for the duration of the event.
+            </p>
+            <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2 bg-brand-gold/5">
+              "A QR code isn't just a key; it's a sensor. By tracking scans at entry, VIP zones, and activation hubs, we map the physical movement of the crowd in real-time."
+            </div>
+            <p className="text-sm font-bold text-brand-green uppercase tracking-wider mt-4">The Forecasting Advantage</p>
+            <p className="text-xs italic leading-relaxed">
+              Because we track 'RSVP-to-Scan' ratios across different neighborhoods and ambassador links, we can forecast exact attendance volumes with 90% accuracy 48 hours before doors open.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <QrCode size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Unique Identity Mapping</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Every code is tied to a specific phone number and email, preventing ticket fraud and ensuring data integrity.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Activity size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Real-Time Inflow Metrics</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Live monitoring of entry speed allows us to adjust security staffing and bar readiness on the fly.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <BarChart3 size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Behavioral Heat-Mapping</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Tracking which activation zones attract the highest unique scans to determine sponsor ROI and future layout optimizations.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
       {/* Platform Integration Stack */}
       <div className="py-12 flex flex-col items-center">
         <div className="section-label mb-16">The Digital Hub Ecosystem</div>
