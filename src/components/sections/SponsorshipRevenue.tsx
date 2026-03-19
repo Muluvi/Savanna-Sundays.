@@ -4,7 +4,8 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { TrendingUp, DollarSign, PieChart, ArrowRight, Target, Users, Gem, RefreshCcw, Landmark, Music, HardHat, Camera, Sparkles, UserPlus } from 'lucide-react';
+import { TrendingUp, DollarSign, PieChart, ArrowRight, Target, Users, Gem, RefreshCcw, Landmark, Music, HardHat, Camera, Sparkles, UserPlus, Zap, Box, ShoppingBag } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 const tiers = [
   { name: "Title Sponsor", price: "5,000,000+", touchpoints: "Exclusive Naming, Main Stage, Digital Takeover", exclusivity: "Full Category", border: "4px" },
@@ -20,6 +21,13 @@ const costs = [
   { category: "Staff & Ambassadors", range: "100,000 – 250,000", icon: <UserPlus size={18} />, notes: "Security detail, bar crew, and brand ambassadors." },
   { category: "Content Harvest", range: "80,000 – 200,000", icon: <Camera size={18} />, notes: "Photo, cinematic video, drone, and social shooter." },
   { category: "Activations & Decor", range: "150,000 – 500,000", icon: <Sparkles size={18} />, notes: "Photo-booths, branded furniture, and interactive hubs." },
+];
+
+const sponsoredCosts = [
+  { category: "Title Sponsorship Fee", range: "500,000 – 1,500,000", icon: <DollarSign size={18} />, notes: "Access to existing audience and venue infrastructure." },
+  { category: "Modular Brand Materials", range: "100,000 – 300,000", icon: <Box size={18} />, notes: "Portable bars, signage, and branded DJ booth fascia." },
+  { category: "Staff & Ambassadors", range: "50,000 – 150,000", icon: <Users size={18} />, notes: "Core team to maintain the Savanna 'Crisp' energy." },
+  { category: "Sampling & Stock", range: "100,000 – 250,000", icon: <ShoppingBag size={18} />, notes: "Initial trial units and signature serve garnishes." },
 ];
 
 export const SponsorshipRevenueSection = () => {
@@ -75,10 +83,10 @@ export const SponsorshipRevenueSection = () => {
       {/* 9B: Production Cost Framework */}
       <div className="space-y-12 animate-fade-in-up">
         <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          9B: The Production Cost Framework
+          9B: The Production Cost Framework (Owned Editions)
         </h3>
         <p className="font-body text-base text-brand-green/70 max-w-3xl leading-relaxed">
-          Operational excellence requires transparent investment. We scale production based on the specific edition type (Owned vs. Sponsored) and expected capacity, adhering to these indicative cost ranges:
+          Operational excellence requires transparent investment. We scale production based on the specific edition type and expected capacity, adhering to these indicative cost ranges:
         </p>
 
         <div className="bg-white rounded-[30px] overflow-hidden border border-brand-green/5 shadow-xl">
@@ -110,15 +118,12 @@ export const SponsorshipRevenueSection = () => {
             </TableBody>
           </Table>
         </div>
-        <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-6 py-2 bg-brand-teal/5 rounded-r-xl">
-          *Costs are indicative and scale with venue capacity and headliner complexity. Firefly manages all procurement for maximum efficiency.
-        </div>
       </div>
 
-      {/* 9.3 — Commercial Partnership Matrix */}
+      {/* 9C — Commercial Partnership Matrix */}
       <div className="space-y-8 animate-fade-in-up">
         <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          9C: Commercial Partnership Matrix
+          9C: Commercial Partnership Matrix (Revenue Gen)
         </h3>
         <div className="bg-white rounded-[30px] overflow-hidden border border-brand-green/5 shadow-xl">
           <Table>
@@ -155,6 +160,62 @@ export const SponsorshipRevenueSection = () => {
               </TableRow>
             </TableBody>
           </Table>
+        </div>
+      </div>
+
+      {/* 9D: Sponsored Event Cost Structure */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          9D: Sponsored Event Cost Structure (The Efficiency Model)
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              The title sponsorship model is Savanna’s efficiency engine. By leveraging the existing infrastructure and audience of Nairobi’s established Sunday properties, we significantly lower the cost-per-impression. This model focuses investment on **brand visibility and product trial** rather than logistics and production.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "We don't build the house; we own the vibe within it. This model allows for high-frequency saturation without the burden of full-scale production costs."
+            </div>
+            <p className="text-sm font-bold text-brand-green uppercase tracking-wider mt-4">Why is this lower cost?</p>
+            <ul className="space-y-2 text-xs italic leading-relaxed">
+              <li>• No venue hire fees or security clearance costs.</li>
+              <li>• Shared talent costs with the primary promoter.</li>
+              <li>• No full AV or stage rig requirements (modular branding only).</li>
+              <li>• Zero cleaning or municipal permit overheads.</li>
+            </ul>
+          </div>
+
+          <div className="bg-white rounded-[30px] overflow-hidden border border-brand-green/5 shadow-xl">
+            <Table>
+              <TableHeader className="bg-brand-teal">
+                <TableRow className="hover:bg-transparent border-none">
+                  <TableHead className="text-white font-headline tracking-widest py-6 text-sm">Category</TableHead>
+                  <TableHead className="text-white font-headline tracking-widest text-sm text-right">Range (KSh)</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {sponsoredCosts.map((cost, i) => (
+                  <TableRow key={i} className={i % 2 !== 0 ? 'bg-brand-teal/5' : ''}>
+                    <TableCell className="py-6 space-y-1">
+                       <div className="flex items-center gap-3 font-headline text-lg text-brand-green">
+                         <div className="text-brand-teal">{cost.icon}</div>
+                         {cost.category}
+                       </div>
+                       <div className="font-body text-xs text-brand-green/50 italic pl-8">{cost.notes}</div>
+                    </TableCell>
+                    <TableCell className="font-body font-bold text-lg text-brand-teal text-right">
+                      {cost.range}
+                    </TableCell>
+                  </TableRow>
+                ))}
+                <TableRow className="bg-brand-green">
+                  <TableCell className="font-headline text-xl text-brand-gold py-6 pl-10">TOTAL ESTIMATE</TableCell>
+                  <TableCell className="font-body font-bold text-xl text-brand-gold text-right pr-6">750,000 – 2,200,000</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
         </div>
       </div>
 
