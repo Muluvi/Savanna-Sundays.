@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Music, Sun, Sunset, Moon, Star, Mic2, Palette, Smile, CheckCircle2, Clock, Zap, Coffee } from 'lucide-react';
+import { Music, Sun, Sunset, Moon, Star, Mic2, Palette, Smile, CheckCircle2, Clock, Zap, Coffee, Disc } from 'lucide-react';
 import Image from 'next/image';
 
 const labels = [
@@ -15,6 +15,37 @@ const labels = [
   { name: "Boiler Room", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1769203531/Boiler_Room_s9kvwq.jpg" },
   { name: "Mixmag", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1769203530/Mixmag_xlnckz.png" },
   { name: "The Balcony Mix", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1768410458/3085e5d1-651e-404e-8cc9-240365f9ad11_20260114_200656_0000_sstsmb.png" },
+];
+
+const djRoles = [
+  { 
+    role: "Opening DJ", 
+    title: "THE ARCHITECT", 
+    icon: <Coffee size={24} />, 
+    duty: "Foundation building. Responsible for frictionless entry and setting the ambient state through low-BPM, high-texture grooves.", 
+    intent: "Allow conversation & photography" 
+  },
+  { 
+    role: "Mid-Set DJ", 
+    title: "THE CONNECTOR", 
+    icon: <Zap size={24} />, 
+    duty: "Energy transition. Driving the physical shift from lounge to floor during the critical Golden Hour window.", 
+    intent: "Increase BPM & pulse" 
+  },
+  { 
+    role: "Headliner", 
+    title: "THE PEAK", 
+    icon: <Star size={24} />, 
+    duty: "Brand anchoring. Delivering the anthemic peak and maximum crowd density through high-impact global sounds.", 
+    intent: "Sonic celebration & energy" 
+  },
+  { 
+    role: "Closing DJ", 
+    title: "THE RESOLUTION", 
+    icon: <Moon size={24} />, 
+    duty: "Safe departure. Curating a soulful cool-down that ensures guests leave feeling premium and satisfied.", 
+    intent: "Memorable & gentle finish" 
+  },
 ];
 
 export const MusicProgrammingSection = () => {
@@ -128,6 +159,35 @@ export const MusicProgrammingSection = () => {
         </div>
       </div>
 
+      {/* 7C: Artist Roles & Operational Intent */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          7C: Artist Roles & Operational Intent
+        </h3>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {djRoles.map((dj, i) => (
+            <Card key={i} className="p-8 bg-white border border-brand-green/5 rounded-[30px] flex flex-col gap-6 hover:border-brand-gold transition-all group">
+              <div className="w-14 h-14 rounded-full bg-brand-cream flex items-center justify-center text-brand-gold group-hover:scale-110 transition-transform">
+                {dj.icon}
+              </div>
+              <div className="space-y-1">
+                <span className="font-body font-bold text-[10px] tracking-widest text-brand-teal uppercase">{dj.role}</span>
+                <h4 className="font-headline text-2xl text-brand-green">{dj.title}</h4>
+              </div>
+              <p className="font-body text-sm text-brand-green/60 leading-relaxed flex-1">
+                {dj.duty}
+              </p>
+              <div className="pt-4 border-t border-brand-green/5">
+                <Badge variant="outline" className="border-brand-gold/30 text-brand-gold text-[10px] uppercase px-3 py-1">
+                  {dj.intent}
+                </Badge>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+
       {/* Ecosystem Credentials */}
       <div className="bg-brand-green rounded-[30px] p-10 md:p-16 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
@@ -180,27 +240,6 @@ export const MusicProgrammingSection = () => {
              <span className="font-headline text-brand-green">7PM - 9PM</span>
           </div>
         </div>
-      </div>
-
-      {/* DJ Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          { name: "THE RESIDENT", role: "Resident", genre: "Afro Tech", tier: "Gold" },
-          { name: "THE HEADLINER", role: "Headline", genre: "Amapiano", tier: "Green" },
-          { name: "THE DISCOVERED", role: "Guest", genre: "Deep House", tier: "Outline" },
-        ].map((dj, i) => (
-          <Card key={i} className="p-8 text-center bg-white rounded-[30px] border border-brand-green/5 hover:border-brand-gold transition-all group">
-            <div className="w-32 h-32 rounded-full border-4 border-brand-gold/20 mx-auto mb-6 flex items-center justify-center bg-brand-cream relative">
-               <Music className="text-brand-gold opacity-20 group-hover:scale-110 transition-transform" size={48} />
-               <div className="absolute -bottom-2 right-4"><Badge className="bg-brand-gold text-brand-green">VIP</Badge></div>
-            </div>
-            <h6 className="font-headline text-3xl text-brand-green mb-2">{dj.name}</h6>
-            <div className="flex flex-col gap-3 items-center">
-              <Badge variant="secondary" className="bg-brand-teal/10 text-brand-teal border-none">{dj.genre}</Badge>
-              <Badge className={dj.role === 'Headline' ? 'bg-brand-gold text-brand-green' : 'bg-brand-green text-white'}>{dj.role}</Badge>
-            </div>
-          </Card>
-        ))}
       </div>
 
       {/* Beyond DJs */}
