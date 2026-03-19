@@ -24,8 +24,9 @@ import {
 export const ExperienceDesignSection = () => {
   return (
     <div className="space-y-12 md:space-y-24">
+      {/* 03A: Arrival Sequence */}
       <div className="space-y-8 animate-fade-in-up">
-        <div className="section-label">03B: The Arrival Sequence</div>
+        <div className="section-label">03A: The Arrival Sequence</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           <Card className="p-8 bg-white border border-brand-green/5 rounded-[32px] space-y-4 hover:border-brand-gold transition-all group shadow-sm">
             <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-green transition-colors">
@@ -64,8 +65,9 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
+      {/* 03B: Energy Arc - MOVED FROM SECTION 06 */}
       <div className="space-y-8 animate-fade-in-up [animation-delay:200ms]">
-        <div className="section-label">03C: The Sonic Energy Arc</div>
+        <div className="section-label">03B: The Sonic Energy Arc</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 relative py-12">
           <div className="absolute top-1/2 left-0 w-full h-[1px] bg-brand-green/10 hidden md:block -translate-y-12" />
           {[
@@ -89,6 +91,7 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
+      {/* 03C: Advantage */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 animate-fade-in-up [animation-delay:400ms]">
         <div className="bg-brand-teal rounded-[40px] p-8 md:p-12 text-white relative overflow-hidden flex flex-col justify-center shadow-xl">
           <div className="absolute top-0 right-0 p-8 opacity-5">
@@ -128,6 +131,7 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
+      {/* 03E: Lifecycle Icons */}
       <div className="space-y-8 animate-fade-in-up [animation-delay:600ms]">
         <div className="section-label">03E: The Attendee Lifecycle</div>
         <div className="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4">

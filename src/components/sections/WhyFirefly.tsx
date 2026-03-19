@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -66,7 +67,7 @@ export const WhyFireflySection = () => {
            ))}
         </div>
 
-        {/* 07D: The Emotional Climax (Moved from Section 01) */}
+        {/* 07D: THE EMOTIONAL CLIMAX - MOVED FROM SECTION 01 */}
         <div className="relative py-12 md:py-24 flex flex-col items-center justify-center animate-fade-in-up [animation-delay:600ms]">
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
             <span className="font-headline text-[120px] md:text-[220px] text-brand-gold opacity-[0.03] select-none leading-none">

@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -67,7 +68,7 @@ export const DualActivationModel = () => {
         </Card>
       </div>
 
-      {/* 02C: Strategic Pull Quote */}
+      {/* 02C: Strategic Pull Quote - THE CLIMAX */}
       <div className="relative py-16 flex flex-col items-center justify-center animate-fade-in-up [animation-delay:400ms]">
         <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
           <span className="font-headline text-[120px] md:text-[220px] text-brand-gold opacity-[0.05] select-none leading-none">

@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -30,7 +31,7 @@ export const TheGap = () => {
         </Card>
       </div>
 
-      {/* 01B: Strategic Subheading */}
+      {/* 01B: Strategic Tension Subheading */}
       <div className="max-w-3xl animate-fade-in-up [animation-delay:200ms]">
         <p className="font-serif italic text-xl md:text-2xl lg:text-3xl text-brand-cream/60 leading-relaxed">
           Every Sunday, Nairobi's most valuable consumers choose where to go, what to drink, and what to post. No brand owns that moment.

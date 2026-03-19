@@ -1,3 +1,4 @@
+
 import { AppSidebar } from '@/components/navigation/AppSidebar';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { SectionContainer } from '@/components/sections/SectionContainer';
@@ -12,7 +13,6 @@ import { DualActivationModel } from '@/components/sections/DualModel';
 import { VisualIdentitySection } from '@/components/sections/VisualIdentity';
 import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
 import { ContentSocialSection } from '@/components/sections/ContentProduction';
-import { CommunityGrowthSection } from '@/components/sections/CommunityBuilding';
 import { AttendanceDemandSection } from '@/components/sections/Attendance';
 import { DigitalInfrastructureSection } from '@/components/sections/DigitalInfrastructure';
 import { SponsorshipRevenueSection } from '@/components/sections/SponsorshipRevenue';
