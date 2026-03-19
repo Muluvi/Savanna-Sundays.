@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { QrCode, Wifi, CreditCard, Activity, Smartphone, Share2, Database, BarChart3, CheckCircle2, Ticket, Users, Layers } from 'lucide-react';
+import { QrCode, Wifi, CreditCard, Activity, Smartphone, Share2, Database, BarChart3, CheckCircle2, Ticket, Users, Layers, MousePointerClick, MessageSquare, BellRing } from 'lucide-react';
 import Image from 'next/image';
 
 const platforms = [
@@ -72,10 +72,6 @@ export const DigitalInfrastructureSection = () => {
             <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2 bg-brand-gold/5">
               "We don't just count heads; we build a database. Structured data allows KWAL to retarget with 100% precision across future Sunday cycles."
             </div>
-            <p className="text-sm font-bold text-brand-green uppercase tracking-wider mt-4">The CRM Value Stack</p>
-            <p className="text-xs italic leading-relaxed">
-              By mandating fields for phone, email, and neighborhood, we build a heat-map of Savanna's urban strongholds, allowing for hyper-local optimization of future activations.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 gap-6">
@@ -95,17 +91,61 @@ export const DigitalInfrastructureSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Mandatory Data Fields</h4>
-                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Collection of Name, Email, Phone, and Primary Neighborhood (Kilimani, Karen, etc.) at the point of RSVP or purchase.</p>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Collection of Name, Email, Phone, and Primary Neighborhood (Kilimani, Karen, etc.) at the point of RSVP.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* 10C: The RSVP Conversion Engine */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          10C: The RSVP Conversion Engine (Landing Page)
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              The transition from social media discovery to physical commitment happens on the **Savanna Sundays RSVP Landing Page**. We design this experience to be ultra-fast, mobile-native, and psychologically rewarding.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "Every field is a friction point. We optimize for 'Instant Gratification'—trading 30 seconds of user time for a premium, digital-first welcome."
+            </div>
+            <p className="text-sm font-bold text-brand-green uppercase tracking-wider mt-4">Conversion Tracking Logic</p>
+            <p className="text-xs italic leading-relaxed">
+              By deploying Meta and TikTok pixels alongside unique UTM parameters for every ambassador, we map exactly which content pieces drive the highest conversion ROI.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <MousePointerClick size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Smart Data Capture</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Frictionless 3-field entry (Name, Phone, Area). Syncs instantly to the master community database.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <BellRing size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Automated Confirmations</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Instant SMS 'Welcome' followed by a rich-media WhatsApp push containing the digital ticket and entry rules.</p>
               </div>
             </Card>
 
             <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
               <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <Database size={24} />
+                <MessageSquare size={24} />
               </div>
               <div>
-                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">CRM Synchronization</h4>
-                <p className="font-body text-sm text-white/70 leading-relaxed">Automated export to KWAL's central database for cross-brand retargeting and long-term community life-cycle management.</p>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">WhatsApp Onboarding</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">The final confirmation step triggers a prompt to join the neighborhood-specific WhatsApp sub-group.</p>
               </div>
             </Card>
           </div>
