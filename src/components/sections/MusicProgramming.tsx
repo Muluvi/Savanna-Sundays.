@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Music, Sun, Sunset, Moon, Star, Mic2, Palette, Smile, CheckCircle2, Clock, Zap, Coffee, Disc, Sparkles, MessageSquare, Shirt, Gavel } from 'lucide-react';
+import { Music, Sun, Sunset, Moon, Star, Mic2, Palette, Smile, CheckCircle2, Clock, Zap, Coffee, Disc, Sparkles, MessageSquare, Shirt, Gavel, Radio } from 'lucide-react';
 import Image from 'next/image';
 
 const labels = [
@@ -465,6 +465,56 @@ export const MusicProgrammingSection = () => {
               <div>
                 <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Live Art & Charity Auction</h4>
                 <p className="font-body text-sm text-white/70 leading-relaxed">Real-time creation of a signature canvas or mural during the Golden Hour, culminating in a fast-paced charity auction at the event's peak. Benefits: High-engagement content and social impact anchoring.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* 7J: Music Control for Sponsored Events */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          7J: Music Control for Sponsored Events
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              In the title sponsorship model, creative control is shared with the primary venue or event owner. To prevent brand dilution and ensure that the Savanna 'Crisp' energy is present, we mandate specific musical interventions that preserve the brand Sound.
+            </p>
+            <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2">
+              "Continuity is the key to memory. Even in a sponsored space, the crowd must recognize the Savanna sound to anchor the brand identity."
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Gavel size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Network DJ Mandate</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Negotiating at least one peak-hour slot for a DJ from the Savanna network to anchor the sonic identity of the sponsored edition.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Disc size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Branded "Savanna Set"</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">A dedicated performance window where the musical palette shifts exclusively to Savanna's warm analog textures and rhythmic core.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Radio size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Audio Capture Rights</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Securing direct mixer-feed recording rights to ensure content continuity for the digital mix series across all event types.</p>
               </div>
             </Card>
           </div>
