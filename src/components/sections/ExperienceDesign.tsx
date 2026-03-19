@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, CheckCircle2, GlassWater, MapPin, Sparkles, Trophy, Camera, Utensils, Beer, DoorOpen, QrCode, Clock, Smartphone, Info, Soup, ChefHat, LogOut, Gift, Tv, Share2, Target, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle2, GlassWater, MapPin, Sparkles, Trophy, Camera, Utensils, Beer, DoorOpen, QrCode, Clock, Smartphone, Info, Soup, ChefHat, LogOut, Gift, Tv, Share2, Target, Zap, Video, Layers } from 'lucide-react';
 
 export const ExperienceDesignSection = () => {
   return (
@@ -342,6 +342,56 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
+      {/* 8J: Content-First Installations */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          8J: Content-First Installations
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              We deploy "Content-First" installations that prioritize shareable outputs and repeat engagement. These aren't just photo backdrops; they are high-tech, platform-optimized stations that ensure Savanna Sundays dominates the Nairobi digital landscape for 48 hours following every edition.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "We don't just provide lighting; we provide content assets. Every installation is built to produce the highest possible resolution and engagement for the attendee's personal feed."
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Camera size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Vintage Polaroid Booths</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Physical memory anchors. Attendees receive a Savanna-stamped Polaroid photo, creating a tangible lifestyle artifact that lives on their fridge or desk, long after the event ends.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Video size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">360° Cinematic Video Booths</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">High-energy, high-fidelity vertical video content. Guests record a 15-second dynamic loop with Savanna branding, delivered instantly to their phone via QR for immediate Reels/TikTok posting.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Layers size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Themed Green Screens</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Virtual "Savanna World" environments. Attendees "teleport" to surreal, high-aesthetic landscapes that reinforce the brand's creative DNA and dry wit through clever digital storytelling.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
       {/* 8I: The Exit Journey */}
       <div className="space-y-12 animate-fade-in-up">
         <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
@@ -394,3 +444,5 @@ export const ExperienceDesignSection = () => {
     </div>
   );
 };
+
+const Volume2Icon = ({ size }: { size: number }) => <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-volume-2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>;
