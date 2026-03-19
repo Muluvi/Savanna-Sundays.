@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { QrCode, Wifi, CreditCard, Activity, Smartphone, Share2, Database, BarChart3, CheckCircle2, Ticket, Users, Layers, MousePointerClick, MessageSquare, BellRing } from 'lucide-react';
+import { QrCode, Wifi, CreditCard, Activity, Smartphone, Share2, Database, BarChart3, CheckCircle2, Ticket, Users, Layers, MousePointerClick, MessageSquare, BellRing, Utensils, Globe, Vote } from 'lucide-react';
 import Image from 'next/image';
 
 const platforms = [
@@ -200,6 +200,60 @@ export const DigitalInfrastructureSection = () => {
               <div>
                 <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Behavioral Heat-Mapping</h4>
                 <p className="font-body text-sm text-white/70 leading-relaxed">Tracking which activation zones attract the highest unique scans to determine sponsor ROI and future layout optimizations.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* 10E: The QR Ecosystem (On-Site Engagement) */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          10E: The QR Ecosystem (On-Site Engagement)
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              The QR code is the attendee's primary interface with the brand on-site. We transform a simple scan into a multi-layered interaction engine that enhances the guest experience while providing KWAL with granular preference data.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "We move beyond static signage. The QR code turns every surface into a digital touchpoint—allowing for frictionless service and real-time community participation."
+            </div>
+            <p className="text-sm font-bold text-brand-green uppercase tracking-wider">Driving High-Value Interaction</p>
+            <p className="text-xs italic leading-relaxed">
+              By removing the friction of manual searching or queuing for information, we increase the frequency of digital interactions per attendee by an estimated **3.5x**.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Utensils size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Digital Menus & Ordering</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Dynamic menu access showing real-time variant availability, pricing, and signature serves. Reduces bar congestion and increases order frequency.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Globe size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">One-Tap Social Hub</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Instant links to follow Savanna on IG/TikTok and a 'Tap to Tag' button that pre-loads #SavannaSundays into their social apps.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Vote size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Real-Time Pulse Polls</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Interactive polls asking for feedback on DJs or venue preferences. Engagement results are mapped directly to individual CRM profiles.</p>
               </div>
             </Card>
           </div>
