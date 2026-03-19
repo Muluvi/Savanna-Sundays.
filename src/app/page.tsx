@@ -56,12 +56,12 @@ export default function Home() {
           <div className="absolute top-8 left-8 md:top-12 md:left-12 flex flex-col items-start z-20">
             <span className="text-[8px] md:text-[10px] tracking-[5px] text-brand-teal uppercase mb-2 font-bold">Presented by</span>
             {logo && (
-              <div className="relative w-[120px] h-[32px] md:w-[180px] md:h-[48px]">
+              <div className="relative w-[160px] h-[44px] md:w-[220px] md:h-[60px]">
                 <Image 
                   src={logo.imageUrl} 
                   alt="Firefly Management" 
                   fill
-                  className="brightness-0 invert opacity-80 object-contain object-left"
+                  className="object-contain object-left"
                   priority
                 />
               </div>
@@ -127,12 +127,12 @@ export default function Home() {
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 md:gap-12 relative z-10">
             <div className="flex flex-col items-center md:items-start">
               {logo && (
-                <div className="relative w-[100px] h-[28px] mb-6">
+                <div className="relative w-[140px] h-[40px] mb-6">
                   <Image 
                     src={logo.imageUrl} 
                     alt="Firefly Management" 
                     fill
-                    className="brightness-0 invert opacity-30 object-contain"
+                    className="object-contain"
                   />
                 </div>
               )}
