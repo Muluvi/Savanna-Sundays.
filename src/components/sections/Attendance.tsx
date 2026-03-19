@@ -5,7 +5,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Users, Volume2, TrendingUp, CheckCircle2, Ticket, Mail, Clock, Smartphone, Share2, Award, Link as LinkIcon, LineChart, QrCode, MessageSquare } from 'lucide-react';
+import { Users, Volume2, TrendingUp, CheckCircle2, Ticket, Mail, Clock, Smartphone, Share2, Award, Link as LinkIcon, LineChart, QrCode, MessageSquare, XCircle, Zap } from 'lucide-react';
 
 export const AttendanceDemandSection = () => {
   return (
@@ -88,12 +88,10 @@ export const AttendanceDemandSection = () => {
                 <div className="w-10 h-10 rounded-full bg-brand-gold text-brand-green flex items-center justify-center font-headline text-xl">03</div>
                 <h4 className="font-headline text-xl text-brand-green uppercase">Day 03: Conversion Peak</h4>
               </div>
+              <h5 className="font-headline text-brand-green text-sm">Lineup + RSVP + Ambassadors</h5>
               <p className="font-body text-sm text-brand-green/70">
-                Full lineup reveal + Ticket launch + Ambassador blast.
+                Commitment. Translates hype into immediate ticket action.
               </p>
-              <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
-                Intent: Commitment. Translates hype into immediate action.
-              </div>
             </Card>
 
             <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl space-y-4">
@@ -102,11 +100,8 @@ export const AttendanceDemandSection = () => {
                 <h4 className="font-headline text-xl text-brand-green uppercase">Day 02: Proof of Vibe</h4>
               </div>
               <p className="font-body text-sm text-brand-green/70">
-                FOMO content from previous editions. "Remember this?"
+                FOMO content from previous editions. Social Validation.
               </p>
-              <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
-                Intent: Social Validation. Reminds the audience of the quality level.
-              </div>
             </Card>
 
             <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl space-y-4">
@@ -115,11 +110,8 @@ export const AttendanceDemandSection = () => {
                 <h4 className="font-headline text-xl text-brand-green uppercase">Day 01: Final Push</h4>
               </div>
               <p className="font-body text-sm text-brand-green/70">
-                Polls, countdowns, and "Last Tickets" urgency messaging.
+                Polls, countdowns, and urgency messaging captures laggards.
               </p>
-              <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
-                Intent: Urgency. Captures the procrastinators and laggards.
-              </div>
             </Card>
 
             <Card className="p-6 bg-brand-green text-white border-none rounded-2xl space-y-4 shadow-xl">
@@ -128,11 +120,8 @@ export const AttendanceDemandSection = () => {
                 <h4 className="font-headline text-xl text-brand-gold uppercase">Day 00: Live Harvest</h4>
               </div>
               <p className="font-body text-sm text-white/70">
-                Real-time content from setup to peak energy.
+                Real-time content turns the event into a 7-hour advertisement.
               </p>
-              <div className="font-serif italic text-sm text-brand-gold border-l-2 border-brand-gold pl-3">
-                Intent: Presence. Turns the event into a 7-hour advertisement.
-              </div>
             </Card>
           </div>
         </div>
@@ -147,12 +136,12 @@ export const AttendanceDemandSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6 font-body text-base text-brand-green/70">
             <p>
-              Scarcity is the primary driver of premium perception. We manage it through three layers of psychological friction:
+              Scarcity is the primary driver of premium perception. We manage it through tiered pricing and capped capacity to ensure the brand remains aspirational.
             </p>
             <ul className="space-y-0">
-              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Tiered Ticketing:</strong> Moving from Early Bird to Advance prices creates a psychological nudge to commit early.</li>
-              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Capped Capacity:</strong> We strictly cap ticket sales at 80% of fire-safety capacity. A 'Sold Out' badge is more valuable than overcrowding.</li>
-              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Priority Access:</strong> The WhatsApp Community gets a 24-hour head start on tickets, rewarding loyalty and driving sign-ups.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Tiered Ticketing:</strong> Moving from Early Bird to Advance prices creates a psychological nudge.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Capped Capacity:</strong> We strictly cap ticket sales at 80% of fire-safety capacity to avoid overcrowding.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Priority Access:</strong> The WhatsApp Community gets a 24-hour head start on tickets.</li>
             </ul>
           </div>
 
@@ -201,9 +190,6 @@ export const AttendanceDemandSection = () => {
             <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2">
               "When a friend invites a friend, the barrier to entry vanishes. We reward this trust with immediate status."
             </div>
-            <p className="text-sm leading-relaxed">
-              By gamifying the invitation process, we achieve exponential growth: 1 guest recruits 3, those 3 recruit 9, and the community scales organically without increasing paid media spend.
-            </p>
           </div>
 
           <Card className="p-8 bg-brand-gold/10 border-2 border-brand-gold rounded-[32px] relative overflow-hidden group">
@@ -220,44 +206,84 @@ export const AttendanceDemandSection = () => {
               <div className="space-y-4">
                 <div className="flex gap-4 items-start">
                   <div className="w-6 h-6 rounded-full bg-brand-green text-brand-gold flex items-center justify-center font-headline text-xs shrink-0 mt-1">1</div>
-                  <p className="font-body text-sm text-brand-green/80"><strong>Unique Code Generation:</strong> Every ticket purchase generates a personalized referral link synced to the buyer's WhatsApp number.</p>
+                  <p className="font-body text-sm text-brand-green/80">Every ticket generates a unique referral link synced to WhatsApp.</p>
                 </div>
                 <div className="flex gap-4 items-start">
                   <div className="w-6 h-6 rounded-full bg-brand-green text-brand-gold flex items-center justify-center font-headline text-xs shrink-0 mt-1">2</div>
-                  <p className="font-body text-sm text-brand-green/80"><strong>Automated Tracking:</strong> As friends use the code, the original buyer receives real-time progress notifications.</p>
+                  <p className="font-body text-sm text-brand-green/80">Original buyer receives real-time notifications as friends join.</p>
                 </div>
                 <div className="flex gap-4 items-start">
                   <div className="w-6 h-6 rounded-full bg-brand-green text-brand-gold flex items-center justify-center font-headline text-xs shrink-0 mt-1">3</div>
-                  <p className="font-body text-sm text-brand-green/80"><strong>Status Upgrade:</strong> Upon the 3rd successful referral, the buyer's ticket is automatically upgraded to VIP, granting table access and priority entry.</p>
+                  <p className="font-body text-sm text-brand-green/80">3rd referral triggers an automatic VIP status upgrade.</p>
                 </div>
-              </div>
-              <div className="pt-4 border-t border-brand-gold/20 flex flex-wrap gap-2">
-                <Badge className="bg-brand-green text-white">1 Referral: Free Drink</Badge>
-                <Badge className="bg-brand-teal text-white">3 Referrals: VIP Upgrade</Badge>
-                <Badge className="bg-brand-gold text-brand-green">5+ Referrals: Merch Bundle</Badge>
               </div>
             </div>
           </Card>
         </div>
       </div>
 
-      {/* 6D: Venue Capacity Perception */}
+      {/* 6D: Venue Capacity Perception & Density Strategy */}
       <div className="space-y-12 animate-fade-in-up">
         <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          6D: Venue Capacity Perception
+          6D: Venue Capacity Perception & Density Strategy
         </h3>
 
-        <div className="space-y-8">
-          <p className="font-body text-base text-brand-green/70 max-w-3xl">
-            An event’s energy depends on crowd density. We manage this through 'Adaptive Zoning' and intentional staging:
-          </p>
-          <div className="font-serif italic text-xl md:text-2xl text-brand-green border-l-[3px] border-brand-gold pl-6 py-2">
-            "Every edition acts as visual proof of demand. If Nairobi doesn't see a crowd on their feed, they don't believe the vibe."
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              An event’s energy depends on crowd density, not just absolute numbers. We treat venue selection as a psychological choice: a smaller venue that is 75% full creates a "sell-out" atmosphere, whereas a larger venue at 40% capacity creates a "failed" atmosphere, even with the same number of attendees.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "Every edition acts as visual proof of demand. If Nairobi doesn't see a crowd on their feed, they don't believe the vibe."
+            </div>
+            <p className="text-sm font-bold text-brand-green uppercase tracking-wider mt-4">The Rule of Density: Target 60–75% Capacity</p>
+            <p className="text-xs italic leading-relaxed">
+              This range is the "Goldilocks Zone": enough people to create high energy and great photography, but enough space for premium service and comfortable movement.
+            </p>
           </div>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 font-body text-base text-brand-green/70">
-            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Staged Density:</strong> Modular furniture keeps active areas tight during early hours, expanding as peak energy builds.</li>
-            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Visual Validation:</strong> Photography is briefed to capture 'packed' frames—tight shots that communicate high demand.</li>
-          </ul>
+
+          <div className="space-y-6">
+            <div className="section-label">Case Study: Perception of 400 Pax</div>
+            <div className="grid grid-cols-1 gap-4">
+              <Card className="p-6 bg-white border-2 border-brand-gold rounded-2xl relative overflow-hidden group">
+                <div className="flex justify-between items-start mb-4">
+                  <div className="space-y-1">
+                    <h4 className="font-headline text-xl text-brand-green uppercase">SCENARIO A: 500 CAPACITY</h4>
+                    <Badge className="bg-brand-gold text-brand-green">80% Full · The Win</Badge>
+                  </div>
+                  <CheckCircle2 className="text-brand-gold" size={32} />
+                </div>
+                <div className="flex items-center gap-4 py-4 border-y border-brand-green/5">
+                  <div className="flex-1 h-3 bg-brand-green/5 rounded-full overflow-hidden">
+                    <div className="h-full w-[80%] bg-brand-gold" />
+                  </div>
+                  <span className="font-headline text-lg text-brand-green">Packed</span>
+                </div>
+                <p className="font-body text-xs text-brand-green/60 mt-2">
+                  Result: Energy is high, bars are busy, and social media content looks like a "Sold Out" success. Drives high FOMO.
+                </p>
+              </Card>
+
+              <Card className="p-6 bg-white border border-brand-green/10 rounded-2xl relative opacity-60 grayscale group">
+                <div className="flex justify-between items-start mb-4">
+                  <div className="space-y-1">
+                    <h4 className="font-headline text-xl text-brand-green uppercase">SCENARIO B: 1,000 CAPACITY</h4>
+                    <Badge variant="outline" className="text-brand-green/40 border-brand-green/20">40% Full · The Risk</Badge>
+                  </div>
+                  <XCircle className="text-brand-green/20" size={32} />
+                </div>
+                <div className="flex items-center gap-4 py-4 border-y border-brand-green/5">
+                  <div className="flex-1 h-3 bg-brand-green/5 rounded-full overflow-hidden">
+                    <div className="h-full w-[40%] bg-brand-green/20" />
+                  </div>
+                  <span className="font-headline text-lg text-brand-green/20">Sparse</span>
+                </div>
+                <p className="font-body text-xs text-brand-green/40 mt-2">
+                  Result: Despite having 400 people, the room feels empty. Content captures "gaps" instead of energy. Dilutes brand premium.
+                </p>
+              </Card>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -281,8 +307,8 @@ export const AttendanceDemandSection = () => {
               <Badge className="bg-brand-teal text-white">Data Focus</Badge>
             </div>
             <div className="space-y-4 font-body text-sm text-brand-green/70">
-              <p><strong>When to use:</strong> Neighborhood launches, community recruitment phases, or Monday-afternoon "thank you" editions.</p>
-              <p><strong>Strategic Why:</strong> Maximizes the top-of-funnel reach. We trade entry for 100% data capture (email + phone), allowing us to retarget these attendees for future paid editions.</p>
+              <p><strong>When to use:</strong> Neighborhood launches, community recruitment phases.</p>
+              <p><strong>Strategic Why:</strong> Maximizes reach. We trade entry for 100% data capture (email + phone).</p>
             </div>
           </Card>
 
@@ -295,8 +321,8 @@ export const AttendanceDemandSection = () => {
               <Badge className="bg-brand-gold text-brand-green">Exclusivity Focus</Badge>
             </div>
             <div className="space-y-4 font-body text-sm text-brand-green/70">
-              <p><strong>When to use:</strong> High-demand venues (Rooftops), major headliner sets, or holiday milestone editions.</p>
-              <p><strong>Strategic Why:</strong> Filters for a highly intentional, premium audience. Revenue offsets high production costs while reinforcing the event as an "earned" experience.</p>
+              <p><strong>When to use:</strong> High-demand venues (Rooftops), major headliner sets.</p>
+              <p><strong>Strategic Why:</strong> Filters for a highly intentional, premium audience. Offsets high costs.</p>
             </div>
           </Card>
 
@@ -310,7 +336,7 @@ export const AttendanceDemandSection = () => {
             </div>
             <div className="space-y-4 font-body text-sm text-brand-green/70">
               <p><strong>When to use:</strong> Standard owned editions where we need early crowd density for content capture.</p>
-              <p><strong>Strategic Why:</strong> "Free entry before 4PM" incentivizes early arrival, ensuring the venue looks "packed" for the golden-hour content window, while late arrivals pay full price.</p>
+              <p><strong>Strategic Why:</strong> "Free before 4PM" incentivizes early arrival for golden-hour content.</p>
             </div>
           </Card>
         </div>
@@ -325,34 +351,23 @@ export const AttendanceDemandSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
            <div className="space-y-6 font-body text-base text-brand-green/70">
              <p>
-               In Kenya, the transition from discovery to purchase must be frictionless. We mandate **M-Pesa integration** as the primary payment rail. Any barrier—be it a complex signup or a non-mobile payment method—results in a 40-60% drop-off in the Nairobi market.
+               In Kenya, the transition from discovery to purchase must be frictionless. We mandate **M-Pesa integration** as the primary payment rail.
              </p>
              <h4 className="font-headline text-xl text-brand-green">Why Mobile Payments?</h4>
              <p className="text-sm leading-relaxed">
-               Nairobi is a mobile-first economy. M-Pesa isn't just a convenience; it's the cultural standard for trust and speed. By utilizing native M-Pesa STK push prompts, we capture the "impulse buy" during the peak hype cycle (Days 3-1).
+               Nairobi is a mobile-first economy. By utilizing native M-Pesa STK push prompts, we capture the "impulse buy" during peak hype.
              </p>
-             <div className="bg-brand-gold/10 p-4 rounded-xl border-l-4 border-brand-gold">
-               <p className="text-xs font-bold text-brand-green uppercase tracking-wider">Market Insight</p>
-               <p className="text-sm italic">"80%+ of our target audience (23-35) uses M-Pesa as their primary transacting tool for leisure and entertainment."</p>
-             </div>
            </div>
 
            <div className="space-y-6">
-             <h4 className="font-headline text-xl text-brand-green">Recommended Platform Partners</h4>
+             <h4 className="font-headline text-xl text-brand-green">Recommended Partners</h4>
              <div className="grid grid-cols-1 gap-4">
-               {[
-                 { name: "TicketSasa", description: "The industry standard for mass-market events in Kenya. Strong database reach." },
-                 { name: "Hustlesasa", description: "Creator-focused, ultra-fast mobile checkout. Ideal for 'RSVP-Gated' and 'Hybrid' models." },
-                 { name: "Tokea Africa", description: "Excellent data analytics and scanning infrastructure for high-capacity venue management." },
-               ].map((platform, i) => (
-                 <Card key={i} className="p-4 bg-white border border-brand-green/5 rounded-xl flex items-center gap-4 group hover:border-brand-gold transition-colors">
+               {["TicketSasa", "Hustlesasa", "Tokea Africa"].map((name, i) => (
+                 <Card key={i} className="p-4 bg-white border border-brand-green/5 rounded-xl flex items-center gap-4 hover:border-brand-gold transition-colors">
                    <div className="w-10 h-10 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0">
                      <Smartphone size={20} />
                    </div>
-                   <div>
-                     <span className="font-headline text-lg text-brand-green block leading-none mb-1">{platform.name}</span>
-                     <p className="font-body text-xs text-brand-green/60">{platform.description}</p>
-                   </div>
+                   <span className="font-headline text-lg text-brand-green block leading-none">{name}</span>
                  </Card>
                ))}
              </div>
@@ -369,13 +384,7 @@ export const AttendanceDemandSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6 font-body text-base text-brand-green/70">
             <p>
-              Every founding ambassador is more than a guest; they are a node in our decentralized marketing network. We empower them with the tools to fill the room organically through high-trust social circles.
-            </p>
-            <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2">
-              "A recommendation from a trusted peer carries 10x the weight of a sponsored advertisement. We build for the recommendation."
-            </div>
-            <p className="text-sm leading-relaxed">
-              By decentralizing our promotion, we bypass the 'Ad Blindness' of traditional social media. Every shared invite is an endorsement of the brand's premium status.
+              Every founding ambassador is a node in our decentralized marketing network. We empower them with the tools to fill the room organically.
             </p>
           </div>
 
@@ -386,9 +395,7 @@ export const AttendanceDemandSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-green uppercase mb-2">2 Complimentary Tickets</h4>
-                <p className="font-body text-sm text-brand-green/70 leading-relaxed">
-                  Each ambassador receives two personal tickets per owned edition. These are used strategically to bring high-influence guests into the core circle, seeding the crowd with style-leaders.
-                </p>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Personal tickets to bring high-influence guests into the core circle.</p>
               </div>
             </Card>
 
@@ -398,9 +405,7 @@ export const AttendanceDemandSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Unique Tracking Links</h4>
-                <p className="font-body text-sm text-brand-green/70 leading-relaxed">
-                  Every digital invite shared by an ambassador contains a unique ID. This allows Firefly to monitor the "Network Effect" in real-time, identifying which nodes are most effective at driving attendance.
-                </p>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Monitor the "Network Effect" in real-time through personalized IDs.</p>
               </div>
             </Card>
 
@@ -410,9 +415,7 @@ export const AttendanceDemandSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-green uppercase mb-2">ROI Attribution</h4>
-                <p className="font-body text-sm text-brand-green/70 leading-relaxed">
-                  We attribute every attendee back to the specific ambassador who influenced their purchase. This data informs our quarterly ambassador retention and reward programs, prioritizing impact over follower count.
-                </p>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Attribute every attendee back to the specific ambassador who influenced them.</p>
               </div>
             </Card>
           </div>
@@ -428,75 +431,33 @@ export const AttendanceDemandSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6 font-body text-base text-brand-green/70">
             <p>
-              WhatsApp is the primary discovery engine in Nairobi. For an invite to convert, it must be optimized for the "chat preview" experience. We move beyond generic flyers to "thumb-stopping" digital assets that prioritize immediate clarity and aesthetic appeal.
+              WhatsApp is the primary discovery engine in Nairobi. We move beyond generic flyers to "thumb-stopping" assets.
             </p>
-            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
-              "In dark social, the invite is the brand. If it looks cluttered, the event feels chaotic. If it looks clean, the event feels premium."
-            </div>
-            
-            <div className="space-y-4 pt-4">
-              <h4 className="font-headline text-xl text-brand-green">Technical Optimization Standards</h4>
-              <ul className="space-y-4">
-                <li className="flex gap-4 items-start">
-                  <div className="w-6 h-6 rounded-full bg-brand-gold text-brand-green flex items-center justify-center font-headline text-xs shrink-0 mt-1">1</div>
-                  <p className="text-sm"><strong>Minimal Text Hierarchy:</strong> Only 4 key data points allowed: Date, Venue, Key Lineup, and QR. Secondary info is for the landing page, not the invite.</p>
-                </li>
-                <li className="flex gap-4 items-start">
-                  <div className="w-6 h-6 rounded-full bg-brand-gold text-brand-green flex items-center justify-center font-headline text-xs shrink-0 mt-1">2</div>
-                  <p className="text-sm"><strong>Bold Visual Anchor:</strong> 70% of the graphic is dedicated to a high-contrast lifestyle image or 3D brand element. It must be recognizable in a tiny thumbnail.</p>
-                </li>
-                <li className="flex gap-4 items-start">
-                  <div className="w-6 h-6 rounded-full bg-brand-gold text-brand-green flex items-center justify-center font-headline text-xs shrink-0 mt-1">3</div>
-                  <p className="text-sm"><strong>Anti-Crop Dimensions:</strong> We utilize 1:1 (Square) or 4:5 (Portrait) ratios to ensure no critical info (like the QR or Date) is cut off by the WhatsApp UI.</p>
-                </li>
-              </ul>
-            </div>
+            <ul className="space-y-4">
+              <li className="flex gap-4 items-start">
+                <div className="w-6 h-6 rounded-full bg-brand-gold text-brand-green flex items-center justify-center font-headline text-xs shrink-0 mt-1">1</div>
+                <p className="text-sm"><strong>Minimal Text:</strong> Only 4 key data points allowed: Date, Venue, Lineup, QR.</p>
+              </li>
+              <li className="flex gap-4 items-start">
+                <div className="w-6 h-6 rounded-full bg-brand-gold text-brand-green flex items-center justify-center font-headline text-xs shrink-0 mt-1">2</div>
+                <p className="text-sm"><strong>Bold Visual Anchor:</strong> recognizable lifestyle image even in a tiny thumbnail.</p>
+              </li>
+              <li className="flex gap-4 items-start">
+                <div className="w-6 h-6 rounded-full bg-brand-gold text-brand-green flex items-center justify-center font-headline text-xs shrink-0 mt-1">3</div>
+                <p className="text-sm"><strong>Anti-Crop Dimensions:</strong> 1:1 or 4:5 ratios ensuring no info is cut by UI.</p>
+              </li>
+            </ul>
           </div>
 
           <div className="flex justify-center">
             {/* WhatsApp Invite Mockup */}
             <div className="relative w-[320px] aspect-[4/5] bg-brand-green rounded-[40px] p-6 shadow-2xl overflow-hidden border-8 border-brand-ink/20 group">
-               {/* Background Texture */}
-               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[size:20px_20px]" />
-               
                <div className="relative h-full flex flex-col justify-between z-10">
-                 <div className="space-y-2">
-                   <div className="section-label text-brand-gold border-none p-0 mb-0">Presented by Firefly</div>
-                   <h5 className="font-headline text-5xl text-white leading-[0.85]">SAVANNA<br/><span className="text-brand-gold">SUNDAYS</span></h5>
+                 <h5 className="font-headline text-5xl text-white leading-[0.85]">SAVANNA<br/><span className="text-brand-gold">SUNDAYS</span></h5>
+                 <div className="flex items-center gap-4 bg-brand-gold p-4 rounded-2xl">
+                    <QrCode className="text-brand-green" size={48} />
+                    <span className="font-headline text-brand-green text-sm leading-none">SCAN TO RSVP</span>
                  </div>
-
-                 <div className="space-y-6">
-                    <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-                       <div className="flex justify-between items-end">
-                         <div>
-                            <span className="block font-headline text-brand-gold text-sm tracking-widest">VENUE</span>
-                            <span className="font-headline text-2xl text-white">THE ALCHEMIST</span>
-                         </div>
-                         <div className="text-right">
-                            <span className="block font-headline text-brand-gold text-sm tracking-widest">DATE</span>
-                            <span className="font-headline text-2xl text-white">MAR 24</span>
-                         </div>
-                       </div>
-                    </div>
-
-                    <div className="flex items-center gap-4 bg-brand-gold p-4 rounded-2xl">
-                       <div className="bg-white p-1 rounded-lg">
-                          <QrCode className="text-brand-green" size={48} />
-                       </div>
-                       <div className="flex-1">
-                          <span className="block font-headline text-brand-green text-sm leading-none">SCAN TO RSVP</span>
-                          <span className="block font-body text-[10px] font-bold text-brand-green/60 uppercase tracking-tighter">Limited Capacity · 23+</span>
-                       </div>
-                    </div>
-                 </div>
-               </div>
-
-               {/* Mock WhatsApp Overlay */}
-               <div className="absolute inset-0 bg-brand-ink/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
-                  <div className="bg-white px-6 py-3 rounded-full flex items-center gap-3 shadow-xl">
-                    <MessageSquare className="text-brand-green" size={20} />
-                    <span className="font-headline text-brand-green text-lg">SEND VIA WHATSAPP</span>
-                  </div>
                </div>
             </div>
           </div>
@@ -512,50 +473,35 @@ export const AttendanceDemandSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6 font-body text-base text-brand-green/70">
             <p>
-              The event doesn’t end when the music stops. The 24-hour window following an edition is critical for anchoring "regret" in non-attendees and "pride" in attendees. We leverage the psychological triggers of experience scarcity and social validation to ensure future editions are perceived as "unmissable" moments.
+              The event doesn’t end when the music stops. The 24-hour window following an edition is critical for anchoring "regret" in non-attendees and "pride" in attendees.
             </p>
             <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2">
-              "We don't just show what happened; we show what was missed. Regret is the strongest driver of early commitment."
+              "We don't just show what happened; we show what was missed. Regret drives early commitment."
             </div>
-            <p className="text-sm leading-relaxed">
-              By flooding the feed with high-velocity, high-energy content while the adrenaline is still high, we transform a past event into a future sales engine.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 gap-6">
             <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
-              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <Clock size={24} />
-              </div>
+              <Clock className="text-brand-gold shrink-0" size={24} />
               <div>
-                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">The 10AM Highlight Reel</h4>
-                <p className="font-body text-sm text-brand-green/70 leading-relaxed">
-                  A high-octane 30-second edit delivered the morning after. It captures the peak energy, the fashion, and the "vibe" while it's still top-of-mind for Nairobi's social circle.
-                </p>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">10AM Highlight Reel</h4>
+                <p className="font-body text-sm text-brand-green/70">A high-octane 30-second edit delivered the morning after.</p>
               </div>
             </Card>
 
             <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
-              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <Users size={24} />
-              </div>
+              <Users className="text-brand-teal shrink-0" size={24} />
               <div>
                 <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Crowd-Energy Clips</h4>
-                <p className="font-body text-sm text-brand-green/70 leading-relaxed">
-                  Raw, vertical clips of the dance floor at peak capacity. Unpolished, authentic content that proves the demand was real and the energy was unmatched.
-                </p>
+                <p className="font-body text-sm text-brand-green/70">Raw vertical proof of demand and peak atmosphere.</p>
               </div>
             </Card>
 
             <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
-              <div className="w-12 h-12 rounded-full bg-brand-gold text-brand-green flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <TrendingUp size={24} />
-              </div>
+              <TrendingUp className="text-brand-gold shrink-0" size={24} />
               <div>
                 <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">"You Had To Be There"</h4>
-                <p className="font-body text-sm text-white/70 leading-relaxed">
-                  Intentional messaging that shifts from "Thank you for coming" to "You had to be there." This creates a psychological barrier that can only be resolved by attending the next edition.
-                </p>
+                <p className="font-body text-sm text-white/70">Anchors the psychological triggers of experience scarcity.</p>
               </div>
             </Card>
           </div>
