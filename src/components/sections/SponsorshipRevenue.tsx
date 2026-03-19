@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { TrendingUp, DollarSign, PieChart, ArrowRight, Target, Users, Gem, RefreshCcw, Landmark, Music, HardHat, Camera, Sparkles, UserPlus, Zap, Box, ShoppingBag } from 'lucide-react';
+import { TrendingUp, DollarSign, PieChart, ArrowRight, Target, Users, Gem, RefreshCcw, Landmark, Music, HardHat, Camera, Sparkles, UserPlus, Zap, Box, ShoppingBag, Briefcase, Settings, MessageSquare, BarChart3 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 const tiers = [
@@ -28,6 +28,14 @@ const sponsoredCosts = [
   { category: "Modular Brand Materials", range: "100,000 – 300,000", icon: <Box size={18} />, notes: "Portable bars, signage, and branded DJ booth fascia." },
   { category: "Staff & Ambassadors", range: "50,000 – 150,000", icon: <Users size={18} />, notes: "Core team to maintain the Savanna 'Crisp' energy." },
   { category: "Sampling & Stock", range: "100,000 – 250,000", icon: <ShoppingBag size={18} />, notes: "Initial trial units and signature serve garnishes." },
+];
+
+const retainerServices = [
+  { service: "Strategic Planning", icon: <Settings size={18} />, description: "Annual roadmap management, venue negotiations, and campaign conceptualization." },
+  { service: "Community Management", icon: <MessageSquare size={18} />, description: "Moderating WhatsApp groups, ambassador recruitment, and daily social engagement." },
+  { service: "Content Post-Production", icon: <Camera size={18} />, description: "Editing 30+ days of social assets, mix-series mastering, and archive management." },
+  { service: "Commercial Procurement", icon: <Briefcase size={18} />, description: "Sourcing and managing 3rd party sponsors to offset KWAL's production investment." },
+  { service: "Data & ROI Reporting", icon: <BarChart3 size={18} />, description: "Real-time impact tracking, consumer data processing, and monthly KPI audits." },
 ];
 
 export const SponsorshipRevenueSection = () => {
@@ -177,13 +185,6 @@ export const SponsorshipRevenueSection = () => {
             <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
               "We don't build the house; we own the vibe within it. This model allows for high-frequency saturation without the burden of full-scale production costs."
             </div>
-            <p className="text-sm font-bold text-brand-green uppercase tracking-wider mt-4">Why is this lower cost?</p>
-            <ul className="space-y-2 text-xs italic leading-relaxed">
-              <li>• No venue hire fees or security clearance costs.</li>
-              <li>• Shared talent costs with the primary promoter.</li>
-              <li>• No full AV or stage rig requirements (modular branding only).</li>
-              <li>• Zero cleaning or municipal permit overheads.</li>
-            </ul>
           </div>
 
           <div className="bg-white rounded-[30px] overflow-hidden border border-brand-green/5 shadow-xl">
@@ -215,6 +216,43 @@ export const SponsorshipRevenueSection = () => {
                 </TableRow>
               </TableBody>
             </Table>
+          </div>
+        </div>
+      </div>
+
+      {/* 9E: The Firefly Strategic Retainer Model */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          9E: The Firefly Strategic Retainer Model
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              Firefly operates on a fixed-fee retainer model to ensure continuous brand stewardship between physical activations. While events are the peaks of the campaign, the retainer powers the daily community engine and content pipeline that maintains Savanna's cultural relevance 365 days a year.
+            </p>
+            <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2 bg-brand-gold/5">
+              "The retainer isn't a management fee; it's the investment in the brand's digital nervous system. It ensures that Section 4 (Content Extraction) actually delivers its ROI."
+            </div>
+            <p className="text-sm font-bold text-brand-green uppercase tracking-wider mt-4">Retainer Investment Range</p>
+            <p className="text-2xl font-headline text-brand-teal">450,000 – 850,000 KSh / Month</p>
+            <p className="text-xs italic leading-relaxed text-brand-green/50">
+              *Scalable based on the number of owned editions and depth of community management required.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4">
+            {retainerServices.map((item, i) => (
+              <Card key={i} className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+                <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </div>
+                <div>
+                  <h4 className="font-headline text-lg text-brand-green uppercase mb-1">{item.service}</h4>
+                  <p className="font-body text-xs text-brand-green/60 leading-relaxed">{item.description}</p>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </div>
