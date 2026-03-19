@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { QrCode, Wifi, CreditCard, Activity, Smartphone, Share2, Database, BarChart3, CheckCircle2 } from 'lucide-react';
+import { QrCode, Wifi, CreditCard, Activity, Smartphone, Share2, Database, BarChart3, CheckCircle2, Ticket, Users, Layers } from 'lucide-react';
 import Image from 'next/image';
 
 const platforms = [
@@ -58,6 +58,60 @@ export const DigitalInfrastructureSection = () => {
         </div>
       </div>
 
+      {/* 10B: The Ticketing & Data Architecture */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          10B: The Ticketing & Data Architecture
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              In Kenya, unstructured data is a wasted asset. We utilize **TicketSasa** as our primary ticketing partner to ensure that every attendee is converted into a structured CRM entry. This moves beyond "vanity metrics" (likes and follows) to actionable first-party data.
+            </p>
+            <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2 bg-brand-gold/5">
+              "We don't just count heads; we build a database. Structured data allows KWAL to retarget with 100% precision across future Sunday cycles."
+            </div>
+            <p className="text-sm font-bold text-brand-green uppercase tracking-wider mt-4">The CRM Value Stack</p>
+            <p className="text-xs italic leading-relaxed">
+              By mandating fields for phone, email, and neighborhood, we build a heat-map of Savanna's urban strongholds, allowing for hyper-local optimization of future activations.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Ticket size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Primary Partner: TicketSasa</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Kenya's most reliable ticketing rail, providing native M-Pesa integration and robust real-time reporting APIs.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Layers size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Mandatory Data Fields</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Collection of Name, Email, Phone, and Primary Neighborhood (Kilimani, Karen, etc.) at the point of RSVP or purchase.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Database size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">CRM Synchronization</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Automated export to KWAL's central database for cross-brand retargeting and long-term community life-cycle management.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
       {/* Platform Integration Stack */}
       <div className="py-12 flex flex-col items-center">
         <div className="section-label mb-16">The Digital Hub Ecosystem</div>
@@ -71,7 +125,6 @@ export const DigitalInfrastructureSection = () => {
              <span className="font-headline text-brand-gold leading-none text-xl">SAVANNA<br/>DIGITAL HUB</span>
           </div>
 
-          {/* trigonometric calculations can vary slightly in precision between server and client */}
           {mounted && platforms.map((p, i) => {
             const angle = (i * (360 / platforms.length)) * (Math.PI / 180);
             const x = Math.cos(angle) * 160;
