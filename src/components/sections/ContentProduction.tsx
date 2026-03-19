@@ -5,22 +5,8 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { BrushStroke } from '@/components/brand/VisualElements';
 import Image from 'next/image';
-import { Play, AudioLines, Share2, ArrowRight, CheckCircle2, Camera, Video, Smartphone, Mic2 } from 'lucide-react';
+import { Play, AudioLines, Share2, ArrowRight, Camera, Video, Smartphone, Mic2 } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-
-const platformsLeft = [
-  { name: "Instagram", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1768409776/Instagram_Glyph_Gradient_kvn0tu.png", role: "Reels & Live" },
-  { name: "TikTok", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1765720754/TikTok-logo-RGB-Horizontal-black_avux4m.png", role: "Clips & Live" },
-  { name: "Facebook", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1765889247/AZsnL4dMdfGc81To27QzCg-AZsnL4dMtdFVyuKofEOY6Q_20251216_154319_0000_nq9hvp.png", role: "Event Pages" },
-  { name: "X", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1763590344/X_idVRwaKp9b_4_vpw8j2.png", role: "Recaps" },
-];
-
-const platformsRight = [
-  { name: "YouTube", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1764351543/YouTube_Icon_18_lal2zf.jpg", role: "Full DJ Sets" },
-  { name: "Spotify", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1764344747/Spotify_Primary_Logo_RGB_Green_hpueq3.png", role: "Playlists" },
-  { name: "SoundCloud", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1765721100/686243c90161ea53ca36dd68_01-primary-white-transparent-p-1600_y4btv4.png", role: "Mixes" },
-  { name: "Mixcloud", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1767368053/6e028600-2341-4632-9e46-78fffdae5809_20260102_183329_0000_araocz.png", role: "DJ Sets" },
-];
 
 export const ContentSocialSection = () => {
   return (
@@ -30,16 +16,16 @@ export const ContentSocialSection = () => {
         <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-110 transition-transform">
           <Camera size={120} />
         </div>
-        <div className="relative z-10 max-w-2xl">
+        <div className="relative z-10 max-w-3xl">
           <span className="font-body font-bold text-[10px] tracking-[4px] uppercase text-brand-gold mb-4 block">The Deliverable</span>
           <h3 className="font-headline text-3xl md:text-5xl mb-6 leading-tight uppercase">Every event is a content harvest.</h3>
-          <p className="font-body text-sm md:text-lg text-white/70 leading-relaxed">
-            We treat events as production sets. Every Sunday produces raw material that feeds 30+ days of social media, deepens the community narrative, and builds a permanent digital archive for Savanna.
+          <p className="font-body text-sm md:text-lg text-white/70 leading-relaxed italic font-serif">
+            "The event is the harvest. Content is the crop. Community is the soil."
           </p>
         </div>
       </Card>
 
-      {/* 4A: The Content Squad (Replaces long text) */}
+      {/* 04A: The Content Squad */}
       <div className="space-y-8 animate-fade-in-up">
         <div className="section-label">04A: The Production Unit</div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -49,7 +35,7 @@ export const ContentSocialSection = () => {
             { label: "Social Shooter", icon: <Smartphone />, desc: "Vertical IG/TikTok native." },
             { label: "Sonic Eng", icon: <Mic2 />, desc: "Direct mixer-feed capture." },
           ].map((role, i) => (
-            <Card key={i} className="p-5 bg-white border border-brand-green/5 rounded-2xl space-y-3 hover:border-brand-gold transition-all">
+            <Card key={i} className="p-5 bg-white border border-brand-green/5 rounded-2xl space-y-3 hover:border-brand-gold transition-all shadow-sm">
               <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center">{role.icon}</div>
               <h4 className="font-headline text-lg text-brand-green uppercase leading-none">{role.label}</h4>
               <p className="font-body text-[10px] text-brand-green/50 leading-tight">{role.desc}</p>
@@ -68,7 +54,7 @@ export const ContentSocialSection = () => {
         </div>
       </div>
 
-      {/* 4B: Sonic Pipeline Visual */}
+      {/* 04B: Sonic Pipeline Visual */}
       <div className="space-y-8 animate-fade-in-up">
         <div className="section-label">04B: The Sonic Pipeline</div>
         <div className="bg-brand-cream/50 border border-brand-green/5 rounded-[32px] p-8 md:p-12">
@@ -96,7 +82,7 @@ export const ContentSocialSection = () => {
         </div>
       </div>
 
-      {/* 4C: Extraction Table */}
+      {/* 04C: Extraction Table */}
       <div className="space-y-8 animate-fade-in-up">
         <div className="section-label">04C: 30-Day Extraction Strategy</div>
         <div className="bg-white rounded-[32px] overflow-hidden border border-brand-green/5 shadow-xl">

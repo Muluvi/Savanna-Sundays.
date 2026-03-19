@@ -24,8 +24,20 @@ import { GrowthRoadmapSection } from '@/components/sections/GrowthRoadmap';
 import { WhyFireflySection } from '@/components/sections/WhyFirefly';
 
 const sectionsData = [
-  { id: 'the-gap', label: '01 — THE GAP', title: '300,000 DECISIONS. ZERO BRAND LOYALTY.', variant: 'dark' as const, component: <TheGap /> },
-  { id: 'dual-model', label: '02 — THE CONCEPT', title: 'THE DUAL ACTIVATION MODEL', variant: 'light' as const, component: <DualActivationModel /> },
+  { 
+    id: 'the-gap', 
+    label: '01 — THE GAP', 
+    title: '300,000 DECISIONS. ZERO BRAND LOYALTY.', 
+    variant: 'dark' as const, 
+    component: <TheGap /> 
+  },
+  { 
+    id: 'dual-model', 
+    label: '02 — THE CONCEPT', 
+    title: 'THE DUAL ACTIVATION MODEL', 
+    variant: 'light' as const, 
+    component: <DualActivationModel /> 
+  },
   { 
     id: 'the-experience', 
     label: '03 — THE EXPERIENCE', 
@@ -41,8 +53,8 @@ const sectionsData = [
   },
   { 
     id: 'digital-ecosystem', 
-    label: '04 — DIGITAL ECOSYSTEM', 
-    title: 'Content & Community Loop', 
+    label: '04 — THE CONTENT ENGINE', 
+    title: 'ONE SUNDAY. 30 DAYS OF CONTENT.', 
     variant: 'light' as const, 
     component: (
       <div className="space-y-24">
