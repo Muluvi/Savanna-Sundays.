@@ -17,7 +17,7 @@ export const SectionContainer = ({ id, label, title, variant = 'light', children
     <section 
       id={id} 
       className={cn(
-        "min-h-[50vh] py-24 px-6 md:px-12 lg:px-24 flex flex-col justify-center",
+        "min-h-[50vh] py-16 md:py-24 px-6 md:px-12 lg:px-24 flex flex-col justify-center",
         variant === 'dark' ? "dark-section" : "bg-brand-cream"
       )}
     >

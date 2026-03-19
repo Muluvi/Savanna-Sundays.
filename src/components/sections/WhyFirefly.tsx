@@ -5,377 +5,93 @@ import React from 'react';
 import Image from 'next/image';
 import { WaterDroplets } from '@/components/brand/VisualElements';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ArrowRight, Zap, Target, Share2, ShieldCheck, CheckCircle2, TrendingUp, Layers, MapPin, Globe, Network, BarChart3, Clock, Rocket } from 'lucide-react';
+import { ArrowRight, Zap, Target, ShieldCheck, CheckCircle2, TrendingUp, Layers, Globe } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 export const WhyFireflySection = () => {
   const logo = PlaceHolderImages.find(img => img.id === 'firefly-logo');
 
   return (
-    <div className="relative space-y-24 py-12">
+    <div className="relative space-y-12 md:space-y-24 py-8 md:py-12">
       <WaterDroplets />
       
-      <div className="relative z-10 space-y-24">
+      <div className="relative z-10 space-y-12 md:space-y-24">
         {/* Strategic Pull Quote */}
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h3 className="font-serif italic text-[clamp(24px,4vw,46px)] leading-tight text-white animate-fade-in-up">
-            "<span className="text-brand-gold">Savanna Sundays</span> doesn't need another agency. It needs a partner who builds communities, not campaigns — and content engines, not one-off recaps."
+        <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
+          <h3 className="font-serif italic text-[clamp(20px,4vw,46px)] leading-tight text-white animate-fade-in-up">
+            "<span className="text-brand-gold">Savanna Sundays</span> needs a partner who builds communities, not campaigns — and content engines, not recaps."
           </h3>
         </div>
 
-        {/* 14A: The Content-First Mandate */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6 font-body text-base text-brand-cream/60">
+        {/* 14A: Content-First */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
+          <div className="space-y-4 md:space-y-6 font-body text-sm md:text-base text-brand-cream/60">
             <h4 className="font-headline text-2xl md:text-3xl text-brand-gold border-l-[3px] border-brand-gold pl-4 uppercase">
-              14A: The Content-First Mandate
+              14A: Content-First Mandate
             </h4>
             <p className="leading-relaxed">
               Firefly is not an events company that does social media. We are a **content-first activation agency** that uses events as our primary production set. 
             </p>
-            <p className="leading-relaxed">
-              Our philosophy is simple: if a physical moment doesn't translate into a high-value digital asset, it is a wasted brand investment. We move beyond "hosting parties" to managing a content harvest that feeds Savanna’s digital hegemony for 30+ days between every Sunday.
-            </p>
           </div>
 
-          <Card className="p-8 bg-white/5 border border-white/10 rounded-[32px] space-y-6 shadow-2xl backdrop-blur-sm">
+          <Card className="p-6 md:p-8 bg-white/5 border border-white/10 rounded-[24px] md:rounded-[32px] space-y-4 md:space-y-6 shadow-2xl backdrop-blur-sm">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center">
-                <Zap size={24} />
-              </div>
-              <h5 className="font-headline text-2xl text-white uppercase">The Shift in Mindset</h5>
+              <Zap className="text-brand-gold" size={24} />
+              <h5 className="font-headline text-xl md:text-2xl text-white uppercase">The Shift</h5>
             </div>
-            <div className="space-y-4">
-              <div className="p-4 bg-brand-gold/10 rounded-xl border-l-4 border-brand-gold">
-                <span className="font-body text-[10px] uppercase font-bold tracking-widest text-brand-gold block mb-1">Traditional View</span>
-                <p className="text-white/60 text-sm italic">"Let's fill the room and take some photos."</p>
+            <div className="space-y-3">
+              <div className="p-3 md:p-4 bg-brand-gold/10 rounded-xl border-l-4 border-brand-gold">
+                <span className="font-body text-[8px] uppercase font-bold tracking-widest text-brand-gold block">Traditional View</span>
+                <p className="text-white/60 text-xs italic">"Let's fill the room and take some photos."</p>
               </div>
-              <div className="p-4 bg-brand-teal/10 rounded-xl border-l-4 border-brand-teal">
-                <span className="font-body text-[10px] uppercase font-bold tracking-widest text-brand-teal block mb-1">Firefly View</span>
-                <p className="text-white text-sm font-bold">"Let's build a set that produces 150+ high-fidelity assets to own the feed for a month."</p>
+              <div className="p-3 md:p-4 bg-brand-teal/10 rounded-xl border-l-4 border-brand-teal">
+                <span className="font-body text-[8px] uppercase font-bold tracking-widest text-brand-teal block">Firefly View</span>
+                <p className="text-white text-xs font-bold">"Let's build a set that produces 150+ high-fidelity assets."</p>
               </div>
             </div>
           </Card>
         </div>
 
-        {/* 14B: Events as Distribution Channels */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <Card className="p-8 bg-brand-green/40 border border-brand-gold/20 rounded-[32px] space-y-6 shadow-2xl order-2 lg:order-1">
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: "Every Ticket", sub: "A Data Node", icon: <Target className="text-brand-gold" /> },
-                { label: "Every Drink", sub: "A Content Prop", icon: <Layers className="text-brand-teal" /> },
-                { label: "Every Venue", sub: "A Soundstage", icon: <Share2 className="text-brand-gold" /> },
-                { label: "Every Sunday", sub: "A Media Asset", icon: <TrendingUp className="text-brand-teal" /> },
-              ].map((item, i) => (
-                <div key={i} className="p-4 bg-white/5 rounded-2xl flex flex-col items-center text-center gap-2 border border-white/5 group hover:border-brand-gold transition-colors">
-                  <div className="group-hover:scale-110 transition-transform">{item.icon}</div>
-                  <div>
-                    <div className="font-headline text-lg text-white leading-none">{item.label}</div>
-                    <div className="font-body text-[10px] uppercase tracking-widest text-white/40">{item.sub}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Card>
-
-          <div className="space-y-6 font-body text-base text-brand-cream/60 order-1 lg:order-2">
-            <h4 className="font-headline text-2xl md:text-3xl text-brand-gold border-l-[3px] border-brand-gold pl-4 uppercase">
-              14B: Events as Distribution
-            </h4>
-            <p className="leading-relaxed">
-              We treat the physical activation as a **distribution network** for the brand's culture. 
-            </p>
-            <p className="leading-relaxed">
-              In Nairobi's fragmented media landscape, standard advertising is being ignored. Savanna Sundays succeeds because it doesn't look like an ad—it looks like a lifestyle people want to join. We use physical proximity to distribute the "Savanna Vibe" directly into the social feeds of the city’s most influential consumers.
-            </p>
-          </div>
-        </div>
-
-        {/* 14D: The Strategic Moat */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6 font-body text-base text-brand-cream/60">
+        {/* 14D: The Moat */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
+          <div className="space-y-4 md:space-y-6 font-body text-sm md:text-base text-brand-cream/60">
             <h4 className="font-headline text-2xl md:text-3xl text-brand-gold border-l-[3px] border-brand-gold pl-4 uppercase">
               14D: The Strategic Moat
             </h4>
-            <p className="leading-relaxed">
-              Firefly's competitive advantage is built on the integration of three specialized domains. This "moat" ensures that the Savanna Sundays ecosystem becomes more defensible and valuable with every activation.
-            </p>
-            <ul className="space-y-4">
-              <li className="flex gap-4 items-start">
-                <div className="w-6 h-6 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 mt-1">
-                  <CheckCircle2 size={14} />
-                </div>
-                <p className="text-sm leading-relaxed">
-                  <strong>High-Yield Content Production:</strong> We don't just record; we manufacture narrative assets that competitors struggle to replicate in volume, aesthetic, or quality.
-                </p>
-              </li>
-              <li className="flex gap-4 items-start">
-                <div className="w-6 h-6 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center shrink-0 mt-1">
-                  <CheckCircle2 size={14} />
-                </div>
-                <p className="text-sm leading-relaxed">
-                  <strong>Deep Community Building:</strong> We move beyond followers to members. Our ambassador network acts as an organic distribution layer that no amount of media spend can buy.
-                </p>
-              </li>
-              <li className="flex gap-4 items-start">
-                <div className="w-6 h-6 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 mt-1">
-                  <CheckCircle2 size={14} />
-                </div>
-                <p className="text-sm leading-relaxed">
-                  <strong>Proprietary Data Systems:</strong> We own the data loop. Our intelligence systems convert physical vibes into digital targeting assets, making Savanna's marketing uniquely efficient.
-                </p>
-              </li>
+            <ul className="space-y-3 md:space-y-4">
+              {[
+                "High-Yield Content Production: Narrative assets competitors can't replicate.",
+                "Deep Community Building: Organic distribution layer.",
+                "Proprietary Data Systems: Converting vibes into targeting assets."
+              ].map((item, i) => (
+                <li key={i} className="flex gap-3 md:gap-4 items-start">
+                  <CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={14} />
+                  <p className="text-xs md:text-sm leading-relaxed">{item}</p>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div className="relative h-[320px] bg-white/5 rounded-[32px] border border-white/10 flex flex-col items-center justify-center p-8 text-center shadow-inner group overflow-hidden">
-             <div className="absolute inset-0 bg-brand-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-             <ShieldCheck className="text-brand-gold mb-6 relative z-10" size={64} />
-             <h5 className="font-headline text-3xl text-white mb-2 relative z-10">THE INTEGRATED MOAT</h5>
-             <p className="font-body text-xs text-white/40 uppercase tracking-widest relative z-10">Defensible Advantage by Design</p>
-             
-             {/* Decorative Ring */}
-             <div className="absolute w-64 h-64 border border-brand-gold/20 rounded-full animate-spin [animation-duration:30s]" />
-             <div className="absolute w-48 h-48 border border-brand-teal/20 rounded-full animate-spin [animation-duration:20s] [animation-direction:reverse]" />
+          <div className="relative h-[240px] md:h-[320px] bg-white/5 rounded-[24px] md:rounded-[32px] border border-white/10 flex flex-col items-center justify-center p-6 md:p-8 text-center shadow-inner group overflow-hidden">
+             <ShieldCheck className="text-brand-gold mb-4 md:mb-6 w-12 h-12 md:w-16 md:h-16" />
+             <h5 className="font-headline text-2xl md:text-3xl text-white uppercase">Integrated Moat</h5>
           </div>
         </div>
 
-        {/* 14E: The Nairobi Advantage */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div className="relative h-[400px] bg-brand-gold/5 rounded-[32px] border border-brand-gold/10 overflow-hidden group p-8 flex flex-col justify-between order-2 lg:order-1">
-             <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform duration-700">
-               <Globe size={200} className="text-brand-gold" />
-             </div>
-             <div className="relative z-10 space-y-4">
-               <div className="w-12 h-12 rounded-full bg-brand-gold text-brand-green flex items-center justify-center shadow-lg">
-                 <MapPin size={24} />
-               </div>
-               <h5 className="font-headline text-4xl text-white uppercase leading-none">Nairobi<br/><span className="text-brand-gold">Intelligence</span></h5>
-             </div>
-             <div className="relative z-10 grid grid-cols-2 gap-4">
-                <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
-                  <div className="text-brand-gold font-headline text-xl">100%</div>
-                  <div className="text-[10px] text-white/40 uppercase tracking-widest">Local Context</div>
-                </div>
-                <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
-                  <div className="text-brand-teal font-headline text-xl">24/7</div>
-                  <div className="text-[10px] text-white/40 uppercase tracking-widest">Cultural Sync</div>
-                </div>
-             </div>
-          </div>
-
-          <div className="space-y-6 font-body text-base text-brand-cream/60 order-1 lg:order-2">
-            <h4 className="font-headline text-2xl md:text-3xl text-brand-gold border-l-[3px] border-brand-gold pl-4 uppercase">
-              14E: The Nairobi Advantage
-            </h4>
-            <p className="leading-relaxed">
-              Execution edge is born from local fluency. Firefly doesn't operate on global templates applied to local markets; we build from the Nairobi street up.
-            </p>
-            <div className="space-y-8 mt-8">
-              <div className="flex gap-6 items-start">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                  <Globe className="text-brand-gold" size={20} />
-                </div>
-                <div>
-                  <h6 className="font-headline text-xl text-white uppercase mb-1">Market Knowledge</h6>
-                  <p className="text-sm leading-relaxed">We know exactly which WhatsApp communities drive the vibe and which influencers actually convert. Our knowledge of Nairobi's fragmented social landscape ensures zero wasted spend.</p>
-                </div>
-              </div>
-              <div className="flex gap-6 items-start">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                  <Network className="text-brand-teal" size={20} />
-                </div>
-                <div>
-                  <h6 className="font-headline text-xl text-white uppercase mb-1">Cultural Insight</h6>
-                  <p className="text-sm leading-relaxed">Understanding the 'Nairobi State of Mind'—the importance of lighting, the nuances of neighborhood status, and the precise social hierarchies of Sunday leisure.</p>
-                </div>
-              </div>
-              <div className="flex gap-6 items-start">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                  <Zap className="text-brand-gold" size={20} />
-                </div>
-                <div>
-                  <h6 className="font-headline text-xl text-white uppercase mb-1">Execution Edge</h6>
-                  <p className="text-sm leading-relaxed">A battle-tested network of localized vendors who understand our 'Broadcast Precision' mandate and can deliver in Nairobi's unique operational environment.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 14F: Strategic Brand Alignment */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6 font-body text-base text-brand-cream/60">
-            <h4 className="font-headline text-2xl md:text-3xl text-brand-gold border-l-[3px] border-brand-gold pl-4 uppercase">
-              14F: Strategic Brand Alignment
-            </h4>
-            <p className="leading-relaxed">
-              Firefly’s operational DNA is a mirror of Savanna’s brand personality. We don't just "manage" the brand; we inhabit its register.
-            </p>
-            <p className="leading-relaxed">
-              Our alignment is rooted in two core synergies:
-            </p>
-            <ul className="space-y-4">
-              <li className="flex gap-4 items-start">
-                <div className="w-6 h-6 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 mt-1">
-                  <CheckCircle2 size={14} />
-                </div>
-                <p className="text-sm leading-relaxed">
-                  <strong>Tonal Precision:</strong> We have mastered Savanna’s signature 'Dry Wit'—ensuring that every caption, MC announcement, and community interaction feels sophisticated, self-aware, and unmistakably crisp.
-                </p>
-              </li>
-              <li className="flex gap-4 items-start">
-                <div className="w-6 h-6 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center shrink-0 mt-1">
-                  <CheckCircle2 size={14} />
-                </div>
-                <p className="text-sm leading-relaxed">
-                  <strong>Market Positioning:</strong> We share Savanna's 'Anti-Corporate' premium ethos. We build activations that look and feel like organic culture, avoiding the 'billboard party' trap that dilutes premium brands.
-                </p>
-              </li>
-            </ul>
-          </div>
-
-          <Card className="p-8 bg-white/5 border border-white/10 rounded-[32px] space-y-6 shadow-2xl relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:scale-110 transition-transform">
-              <Zap size={120} className="text-brand-gold" />
-            </div>
-            <div className="relative z-10 space-y-4">
-              <h5 className="font-headline text-2xl text-white uppercase">The Synergy of Wit</h5>
-              <div className="font-serif italic text-lg text-brand-gold border-l-2 border-brand-gold pl-6 py-2">
-                "We don't try to be cool; we are crisp. Our partnership works because we believe in the same brand truth: that intelligence is the ultimate premium attribute."
-              </div>
-            </div>
-          </Card>
-        </div>
-
-        {/* 14G: The Institutional Engine */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <Card className="p-8 bg-brand-teal/10 border border-brand-teal/20 rounded-[32px] space-y-8 shadow-2xl">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center">
-                <BarChart3 size={24} />
-              </div>
-              <h5 className="font-headline text-3xl text-white uppercase">The Performance Engine</h5>
-            </div>
-            
-            <div className="space-y-6">
-              <div className="flex gap-4 items-start">
-                <Clock className="text-brand-gold shrink-0 mt-1" size={20} />
-                <div>
-                  <h6 className="font-headline text-xl text-white leading-none mb-1">Systematic Execution</h6>
-                  <p className="text-brand-cream/50 text-sm">Industrial-strength operational rigor applied to every Sunday cycle.</p>
-                </div>
-              </div>
-              <div className="flex gap-4 items-start">
-                <TrendingUp className="text-brand-teal shrink-0 mt-1" size={20} />
-                <div>
-                  <h6 className="font-headline text-xl text-white leading-none mb-1">Compounding ROI</h6>
-                  <p className="text-brand-cream/50 text-sm">Every edition increases the value of the digital archive and consumer database.</p>
-                </div>
-              </div>
-              <div className="flex gap-4 items-start">
-                <Rocket className="text-brand-gold shrink-0 mt-1" size={20} />
-                <div>
-                  <h6 className="font-headline text-xl text-white leading-none mb-1">Market Hegemony</h6>
-                  <p className="text-brand-cream/50 text-sm">Moving from "participating" in Sundays to "owning" the commercial outcome.</p>
-                </div>
-              </div>
-            </div>
-          </Card>
-
-          <div className="space-y-6 font-body text-base text-brand-cream/60">
-            <h4 className="font-headline text-2xl md:text-3xl text-brand-gold border-l-[3px] border-brand-gold pl-4 uppercase">
-              14G: The Institutional Engine
-            </h4>
-            <p className="leading-relaxed">
-              Savanna Sundays is not an experiment; it is an **operating system**. By applying weekly execution rigor to a long-term strategic framework, we move beyond "event management" to **ROI engineering**.
-            </p>
-            <p className="leading-relaxed">
-              Firefly delivers a predictable, scalable, and highly efficient marketing instrument. We don't just clear the room at 9:00 PM; we deliver a comprehensive impact audit that ensures KWAL's investment is anchored in hard data and permanent brand equity.
-            </p>
-            <div className="font-serif italic text-lg text-brand-teal border-l-2 border-brand-teal pl-6 py-2 mt-4">
-              "We apply industrial-strength systems to the fluidity of culture. Our goal is to ensure that Savanna's weekly execution is as reliable as its brand promise."
-            </div>
-          </div>
-        </div>
-
-        {/* 14C: The Firefly Differentiator */}
-        <div className="space-y-12">
-          <div className="text-center space-y-4">
-            <h4 className="font-headline text-3xl md:text-4xl text-white uppercase tracking-widest">The Firefly Standard</h4>
-            <div className="w-24 h-1 bg-brand-gold mx-auto" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="space-y-6">
-              <div className="w-12 h-12 rounded-full bg-brand-gold text-brand-green flex items-center justify-center mx-auto shadow-lg">
-                <ShieldCheck size={24} />
-              </div>
-              <div className="text-center space-y-2">
-                <h5 className="font-headline text-2xl text-brand-gold">UNIFIED STEWARDSHIP</h5>
-                <p className="font-body text-sm text-white/50 leading-relaxed">We manage the full cycle: Strategy → Production → Content → Community → Data. No fragmented vendor hand-offs.</p>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="w-12 h-12 rounded-full bg-brand-gold text-brand-green flex items-center justify-center mx-auto shadow-lg">
-                <CheckCircle2 size={24} />
-              </div>
-              <div className="text-center space-y-2">
-                <h5 className="font-headline text-2xl text-brand-gold">BROADCAST STANDARDS</h5>
-                <p className="font-body text-sm text-white/50 leading-relaxed">We apply TV-production rigor to live events. Every moment is timed, every light is mapped, every set is recorded.</p>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="w-12 h-12 rounded-full bg-brand-gold text-brand-green flex items-center justify-center mx-auto shadow-lg">
-                <TrendingUp size={24} />
-              </div>
-              <div className="text-center space-y-2">
-                <h5 className="font-headline text-2xl text-brand-gold">DATA-DRIVEN ROI</h5>
-                <p className="font-body text-sm text-white/50 leading-relaxed">We trade "Estimated Reach" for hard data. Every scan, every bottle, and every community member is tracked and reported.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Closing Contact & Action */}
-        <div className="flex flex-col items-center gap-12 pt-12">
-          <div className="max-w-3xl mx-auto text-center space-y-6 mb-8">
-            <h4 className="font-headline text-4xl text-white uppercase tracking-wider">The Ambition is Simple. The Cider is Dry.</h4>
-            <p className="font-serif italic text-2xl text-brand-gold leading-relaxed">
-              "Together, we will define the next decade of Nairobi's social life, ensuring that when the sun dips on a Sunday afternoon, only one brand is in the hand, on the feed, and in the heart of the city."
+        {/* Closing Action */}
+        <div className="flex flex-col items-center gap-8 md:gap-12 pt-8 md:pt-12">
+          <div className="max-w-2xl mx-auto text-center space-y-4 md:space-y-6 mb-4 md:mb-8">
+            <h4 className="font-headline text-2xl md:text-4xl text-white uppercase tracking-wider">The Cider is Dry.</h4>
+            <p className="font-serif italic text-lg md:text-2xl text-brand-gold leading-relaxed">
+              "Together, we will define the next decade of Nairobi's social life."
             </p>
           </div>
 
-          <div className="relative group">
-             {/* Breathing Gold Ring */}
-             <div className="absolute inset-0 rounded-full border-4 border-brand-gold animate-pulse-gold opacity-50 -inset-4" />
-             <div className="relative w-56 h-56 bg-white/5 rounded-full backdrop-blur-md border border-white/10 flex items-center justify-center p-10 shadow-2xl transition-transform hover:scale-105 duration-500">
-                {logo && (
-                  <Image 
-                    src={logo.imageUrl} 
-                    alt="Firefly Management" 
-                    width={200} 
-                    height={56} 
-                    className="brightness-0 invert opacity-90"
-                  />
-                )}
-             </div>
-          </div>
-
-          <div className="space-y-4 text-center">
-            <p className="font-body font-bold text-sm tracking-[8px] text-brand-gold uppercase">Firefly Management</p>
-            <p className="font-body text-[12px] tracking-[2px] uppercase text-brand-cream/35">
-              NextGen Mall, Mombasa Road, Nairobi · Kenya
-            </p>
-          </div>
-
-          <div className="flex justify-center pb-12">
-             <button className="btn-primary flex items-center gap-6 group scale-110 hover:scale-115 transition-all shadow-2xl">
-               <span className="font-headline text-xl tracking-wider uppercase">LET'S OWN EVERY SUNDAY TOGETHER</span>
-               <div className="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center group-hover:translate-x-2 transition-transform">
-                 <ArrowRight className="text-brand-green" size={20} />
+          <div className="flex justify-center pb-8 md:pb-12">
+             <button className="btn-primary flex items-center gap-4 md:gap-6 group scale-105 md:scale-110 hover:scale-115 transition-all shadow-2xl">
+               <span className="font-headline text-lg md:text-xl tracking-wider uppercase">LET'S OWN SUNDAY</span>
+               <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-green/20 flex items-center justify-center group-hover:translate-x-2 transition-transform">
+                 <ArrowRight className="text-brand-green w-[18px] h-[18px] md:w-5 md:h-5" />
                </div>
              </button>
           </div>

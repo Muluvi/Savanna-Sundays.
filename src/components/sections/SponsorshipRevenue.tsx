@@ -4,123 +4,67 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { TrendingUp, DollarSign, PieChart, ArrowRight, Target, Users, Gem, RefreshCcw, Landmark, Music, HardHat, Camera, Sparkles, UserPlus, Zap, Box, ShoppingBag, Briefcase, Settings, MessageSquare, BarChart3, Rocket, Flag } from 'lucide-react';
+import { Target, Users, Gem, RefreshCcw, Landmark, Music, HardHat, Camera, Rocket, Flag } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
-const tiers = [
-  { name: "Title Sponsor", price: "5,000,000+", touchpoints: "Exclusive Naming, Main Stage, Digital Takeover", exclusivity: "Full Category", border: "4px" },
-  { name: "Presenting Partner", price: "2,500,000", touchpoints: "Zone Ownership, Co-branded Content", exclusivity: "Limited", border: "3px" },
-  { name: "Category Sponsor", price: "1,200,000", touchpoints: "Product Placement, 1x Activation Hub", exclusivity: "Non-Exclusive", border: "2px" },
-  { name: "Activation Partner", price: "500,000", touchpoints: "Pop-up Station, Sampling Rights", exclusivity: "Open", border: "1px" },
-];
-
 const costs = [
-  { category: "Venue & Exclusivity", range: "150,000 – 450,000", icon: <Landmark size={18} />, notes: "Location, security clearance, and layout prep." },
-  { category: "Talent (DJs & MCs)", range: "300,000 – 800,000", icon: <Music size={18} />, notes: "Network DJs, Vocal Guides, and Headliner support." },
-  { category: "AV & Stage Production", range: "400,000 – 1,200,000", icon: <HardHat size={18} />, notes: "Pro-sound, amber lighting, and modular staging." },
-  { category: "Staff & Ambassadors", range: "100,000 – 250,000", icon: <UserPlus size={18} />, notes: "Security detail, bar crew, and brand ambassadors." },
-  { category: "Content Harvest", range: "80,000 – 200,000", icon: <Camera size={18} />, notes: "Photo, cinematic video, drone, and social shooter." },
-  { category: "Activations & Decor", range: "150,000 – 500,000", icon: <Sparkles size={18} />, notes: "Photo-booths, branded furniture, and interactive hubs." },
-];
-
-const sponsoredCosts = [
-  { category: "Title Sponsorship Fee", range: "500,000 – 1,500,000", icon: <DollarSign size={18} />, notes: "Access to existing audience and venue infrastructure." },
-  { category: "Modular Brand Materials", range: "100,000 – 300,000", icon: <Box size={18} />, notes: "Portable bars, signage, and branded DJ booth fascia." },
-  { category: "Staff & Ambassadors", range: "50,000 – 150,000", icon: <Users size={18} />, notes: "Core team to maintain the Savanna 'Crisp' energy." },
-  { category: "Sampling & Stock", range: "100,000 – 250,000", icon: <ShoppingBag size={18} />, notes: "Initial trial units and signature serve garnishes." },
-];
-
-const retainerServices = [
-  { service: "Strategic Planning", icon: <Settings size={18} />, description: "Annual roadmap management, venue negotiations, and campaign conceptualization." },
-  { service: "Community Management", icon: <MessageSquare size={18} />, description: "Moderating WhatsApp groups, ambassador recruitment, and daily social engagement." },
-  { service: "Content Post-Production", icon: <Camera size={18} />, description: "Editing 30+ days of social assets, mix-series mastering, and archive management." },
-  { service: "Commercial Procurement", icon: <Briefcase size={18} />, description: "Sourcing and managing 3rd party sponsors to offset KWAL's production investment." },
-  { service: "Data & ROI Reporting", icon: <BarChart3 size={18} />, description: "Real-time impact tracking, consumer data processing, and monthly KPI audits." },
+  { category: "Venue & Permits", range: "150k – 450k", icon: <Landmark size={16} /> },
+  { category: "Talent (DJs/MC)", range: "300k – 800k", icon: <Music size={16} /> },
+  { category: "AV & Stage", range: "400k – 1.2M", icon: <HardHat size={16} /> },
+  { category: "Content Harvest", range: "80k – 200k", icon: <Camera size={16} /> },
 ];
 
 export const SponsorshipRevenueSection = () => {
   return (
-    <div className="space-y-24">
+    <div className="space-y-12 md:space-y-24">
       {/* Strategic Intro */}
       <div className="font-body font-light text-[15px] text-brand-green/55 max-w-[680px] leading-[1.7] animate-fade-in-up">
         <p>
-          Savanna Sundays is engineered as a high-performance revenue engine. We move beyond the "cost-center" model of traditional event marketing to create a multi-layered profit platform. By diversifying income across ticketing, tiered sponsorships, premium VIP table sales, and strategic cross-brand integrations, we ensure that every edition is not only self-sustaining but generates significant ROI for KWAL. We don't just host guests; we manage a commercial ecosystem.
+          Savanna Sundays is engineered as a high-performance revenue engine. We move beyond the "cost-center" model to create a multi-layered profit platform.
         </p>
       </div>
 
-      {/* 9A: The Revenue Pillar Model */}
-      <div className="space-y-12 animate-fade-in-up">
-        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          9A: The Revenue Pillar Model
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="p-8 bg-white border border-brand-green/5 rounded-[24px] space-y-4 hover:border-brand-gold transition-colors group">
-            <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Users size={24} />
+      {/* 9A: Revenue Pillars */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 animate-fade-in-up">
+        {[
+          { label: "Ticketing", icon: <Users /> },
+          { label: "Sponsorships", icon: <Target /> },
+          { label: "VIP Sales", icon: <Gem /> },
+          { label: "Portfolio", icon: <RefreshCcw /> },
+        ].map((pillar, i) => (
+          <Card key={i} className="p-4 md:p-8 bg-white border border-brand-green/5 rounded-2xl md:rounded-[24px] flex flex-col items-center text-center gap-2 md:gap-4 hover:border-brand-gold transition-colors group">
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
+              {pillar.icon}
             </div>
-            <h4 className="font-headline text-2xl text-brand-green uppercase">1. Ticketing</h4>
-            <p className="font-body text-xs text-brand-green/60 leading-relaxed">Tiered demand management (Early Bird to Advance) ensures early cash flow and baseline production coverage.</p>
+            <h4 className="font-headline text-xs md:text-xl text-brand-green uppercase">{pillar.label}</h4>
           </Card>
-
-          <Card className="p-8 bg-white border border-brand-green/5 rounded-[24px] space-y-4 hover:border-brand-gold transition-colors group">
-            <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Target size={24} />
-            </div>
-            <h4 className="font-headline text-2xl text-brand-green uppercase">2. Sponsorships</h4>
-            <p className="font-body text-xs text-brand-green/60 leading-relaxed">Monetizing the "Audience Attention" through category-exclusive partnerships and title-sponsor rights.</p>
-          </Card>
-
-          <Card className="p-8 bg-white border border-brand-green/5 rounded-[24px] space-y-4 hover:border-brand-gold transition-colors group">
-            <div className="w-12 h-12 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Gem size={24} />
-            </div>
-            <h4 className="font-headline text-2xl text-brand-green uppercase">3. VIP Sales</h4>
-            <p className="font-body text-xs text-brand-green/60 leading-relaxed">High-margin table service and premium bottle packages catering to Nairobi's high-net-worth social elite.</p>
-          </Card>
-
-          <Card className="p-8 bg-white border border-brand-green/5 rounded-[24px] space-y-4 hover:border-brand-gold transition-colors group">
-            <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
-              <RefreshCcw size={24} />
-            </div>
-            <h4 className="font-headline text-2xl text-brand-green uppercase">4. Cross-Brand</h4>
-            <p className="font-body text-xs text-brand-green/60 leading-relaxed">Integrating KWAL's wider portfolio and strategic lifestyle partners to maximize per-attendee spend.</p>
-          </Card>
-        </div>
+        ))}
       </div>
 
-      {/* 9B: Production Cost Framework */}
-      <div className="space-y-12 animate-fade-in-up">
+      {/* 9B: Costs Table */}
+      <div className="space-y-8 md:space-y-12 animate-fade-in-up">
         <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          9B: The Production Cost Framework (Owned Editions)
+          9B: Production Framework
         </h3>
-        <p className="font-body text-base text-brand-green/70 max-w-3xl leading-relaxed">
-          Operational excellence requires transparent investment. We scale production based on the specific edition type and expected capacity, adhering to these indicative cost ranges:
-        </p>
 
-        <div className="bg-white rounded-[30px] overflow-hidden border border-brand-green/5 shadow-xl">
+        <div className="bg-white rounded-[24px] md:rounded-[30px] overflow-hidden border border-brand-green/5 shadow-xl">
           <Table>
             <TableHeader className="bg-brand-green">
               <TableRow className="hover:bg-transparent border-none">
-                <TableHead className="text-white font-headline tracking-widest py-6 text-sm">Category</TableHead>
-                <TableHead className="text-white font-headline tracking-widest text-sm text-right">Range (KSh)</TableHead>
-                <TableHead className="text-white font-headline tracking-widest text-sm">Strategic Intent</TableHead>
+                <TableHead className="text-white font-headline tracking-widest py-4 md:py-6 text-xs md:text-sm">Category</TableHead>
+                <TableHead className="text-white font-headline tracking-widest text-right text-xs md:text-sm">Range (KSh)</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {costs.map((cost, i) => (
                 <TableRow key={i} className={i % 2 !== 0 ? 'bg-brand-light-yellow/10' : ''}>
-                  <TableCell className="font-headline text-xl py-6 flex items-center gap-4 text-brand-green">
-                    <div className="w-8 h-8 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center">
-                      {cost.icon}
-                    </div>
+                  <TableCell className="font-headline text-lg md:text-xl py-4 md:py-6 flex items-center gap-3 text-brand-green">
+                    <div className="text-brand-gold">{cost.icon}</div>
                     {cost.category}
                   </TableCell>
-                  <TableCell className="font-body font-bold text-lg text-brand-teal text-right">
+                  <TableCell className="font-body font-bold text-base md:text-lg text-brand-teal text-right">
                     {cost.range}
                   </TableCell>
-                  <TableCell className="font-body text-sm text-brand-green/60 italic">
-                    {cost.notes}
-                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -128,226 +72,29 @@ export const SponsorshipRevenueSection = () => {
         </div>
       </div>
 
-      {/* 9C — Commercial Partnership Matrix */}
-      <div className="space-y-8 animate-fade-in-up">
-        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          9C: Commercial Partnership Matrix (Revenue Gen)
-        </h3>
-        <div className="bg-white rounded-[30px] overflow-hidden border border-brand-green/5 shadow-xl">
-          <Table>
-            <TableHeader className="bg-brand-gold">
-              <TableRow className="hover:bg-transparent border-none">
-                <TableHead className="text-brand-green font-headline tracking-widest py-6 text-xl">Tier</TableHead>
-                <TableHead className="text-brand-green font-headline tracking-widest text-xl text-right">Investment (KSh)</TableHead>
-                <TableHead className="text-brand-green font-headline tracking-widest text-xl">Touchpoints</TableHead>
-                <TableHead className="text-brand-green font-headline tracking-widest text-xl">Exclusivity</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {tiers.map((tier, i) => (
-                <TableRow key={i} className="group hover:bg-brand-cream/50 transition-colors">
-                  <TableCell className="font-headline text-2xl py-8 text-brand-green flex items-center gap-4">
-                    <div className="h-10 bg-brand-gold" style={{ width: tier.border }} />
-                    {tier.name}
-                  </TableCell>
-                  <TableCell className="font-body font-bold text-xl text-brand-green text-right">
-                    {tier.price}
-                  </TableCell>
-                  <TableCell className="font-body text-sm text-brand-green/60 max-w-xs">
-                    {tier.touchpoints}
-                  </TableCell>
-                  <TableCell className="font-body text-sm font-bold text-brand-teal uppercase tracking-widest">
-                    {tier.exclusivity}
-                  </TableCell>
-                </TableRow>
-              ))}
-              <TableRow className="bg-brand-green">
-                <TableCell className="font-headline text-2xl text-brand-gold py-6 pl-10">TOTAL POTENTIAL</TableCell>
-                <TableCell className="font-body font-bold text-2xl text-brand-gold text-right pr-10">10,000,000+ / EDITION</TableCell>
-                <TableCell colSpan={2} />
-              </TableRow>
-            </TableBody>
-          </Table>
-        </div>
-      </div>
-
-      {/* 9D: Sponsored Event Cost Structure */}
-      <div className="space-y-12 animate-fade-in-up">
-        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          9D: Sponsored Event Cost Structure (The Efficiency Model)
-        </h3>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6 font-body text-base text-brand-green/70">
-            <p>
-              The title sponsorship model is Savanna’s efficiency engine. By leveraging the existing infrastructure and audience of Nairobi’s established Sunday properties, we significantly lower the cost-per-impression. This model focuses investment on **brand visibility and product trial** rather than logistics and production.
-            </p>
-            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
-              "We don't build the house; we own the vibe within it. This model allows for high-frequency saturation without the burden of full-scale production costs."
-            </div>
+      {/* 9F: Financial Growth */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 animate-fade-in-up">
+        <Card className="p-6 md:p-8 bg-brand-light-yellow/10 border-2 border-brand-gold/20 rounded-[24px] md:rounded-[32px] space-y-4">
+          <div className="flex items-center gap-3">
+            <Rocket className="text-brand-gold" size={20} />
+            <h4 className="font-headline text-lg md:text-2xl text-brand-green uppercase">Ignition</h4>
           </div>
-
-          <div className="bg-white rounded-[30px] overflow-hidden border border-brand-green/5 shadow-xl">
-            <Table>
-              <TableHeader className="bg-brand-teal">
-                <TableRow className="hover:bg-transparent border-none">
-                  <TableHead className="text-white font-headline tracking-widest py-6 text-sm">Category</TableHead>
-                  <TableHead className="text-white font-headline tracking-widest text-sm text-right">Range (KSh)</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {sponsoredCosts.map((cost, i) => (
-                  <TableRow key={i} className={i % 2 !== 0 ? 'bg-brand-teal/5' : ''}>
-                    <TableCell className="py-6 space-y-1">
-                       <div className="flex items-center gap-3 font-headline text-lg text-brand-green">
-                         <div className="text-brand-teal">{cost.icon}</div>
-                         {cost.category}
-                       </div>
-                       <div className="font-body text-xs text-brand-green/50 italic pl-8">{cost.notes}</div>
-                    </TableCell>
-                    <TableCell className="font-body font-bold text-lg text-brand-teal text-right">
-                      {cost.range}
-                    </TableCell>
-                  </TableRow>
-                ))}
-                <TableRow className="bg-brand-green">
-                  <TableCell className="font-headline text-xl text-brand-gold py-6 pl-10">TOTAL ESTIMATE</TableCell>
-                  <TableCell className="font-body font-bold text-xl text-brand-gold text-right pr-6">750,000 – 2,200,000</TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
+          <div className="h-1.5 bg-brand-green/5 rounded-full overflow-hidden">
+            <div className="h-full w-[40%] bg-brand-gold" />
           </div>
-        </div>
-      </div>
+          <p className="font-body text-[10px] md:text-sm text-brand-green/70">Focus on brand infrastructure and recruitment.</p>
+        </Card>
 
-      {/* 9E: The Firefly Strategic Retainer Model */}
-      <div className="space-y-12 animate-fade-in-up">
-        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          9E: The Firefly Strategic Retainer Model
-        </h3>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6 font-body text-base text-brand-green/70">
-            <p>
-              Firefly operates on a fixed-fee retainer model to ensure continuous brand stewardship between physical activations. While events are the peaks of the campaign, the retainer powers the daily community engine and content pipeline that maintains Savanna's cultural relevance 365 days a year.
-            </p>
-            <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2 bg-brand-gold/5">
-              "The retainer isn't a management fee; it's the investment in the brand's digital nervous system. It ensures that Section 4 (Content Extraction) actually delivers its ROI."
-            </div>
-            <p className="text-sm font-bold text-brand-green uppercase tracking-wider mt-4">Retainer Investment Range</p>
-            <p className="text-2xl font-headline text-brand-teal">450,000 – 850,000 KSh / Month</p>
-            <p className="text-xs italic leading-relaxed text-brand-green/50">
-              *Scalable based on the number of owned editions and depth of community management required.
-            </p>
+        <Card className="p-6 md:p-8 bg-brand-green text-white border-none rounded-[24px] md:rounded-[32px] shadow-xl">
+          <div className="flex items-center gap-3">
+            <Flag className="text-brand-gold" size={20} />
+            <h4 className="font-headline text-lg md:text-2xl text-brand-gold uppercase">Institution</h4>
           </div>
-
-          <div className="grid grid-cols-1 gap-4">
-            {retainerServices.map((item, i) => (
-              <Card key={i} className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
-                <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                  {item.icon}
-                </div>
-                <div>
-                  <h4 className="font-headline text-lg text-brand-green uppercase mb-1">{item.service}</h4>
-                  <p className="font-body text-xs text-brand-green/60 leading-relaxed">{item.description}</p>
-                </div>
-              </Card>
-            ))}
+          <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+            <div className="h-full w-full bg-brand-gold" />
           </div>
-        </div>
-      </div>
-
-      {/* 9F: Financial Growth & Scalability Phases */}
-      <div className="space-y-12 animate-fade-in-up">
-        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          9F: Financial Growth & Scalability Phases
-        </h3>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <Card className="p-8 bg-brand-light-yellow/10 border-2 border-brand-gold/20 rounded-[32px] space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center">
-                <Rocket size={24} />
-              </div>
-              <h4 className="font-headline text-2xl text-brand-green uppercase">PHASE 1: IGNITION</h4>
-            </div>
-            <div className="space-y-4">
-              <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-brand-green/40">
-                <span>Rev vs Cost</span>
-                <span className="text-brand-gold">40% Coverage</span>
-              </div>
-              <div className="h-2 bg-brand-green/5 rounded-full overflow-hidden">
-                <div className="h-full w-[40%] bg-brand-gold" />
-              </div>
-              <p className="font-body text-sm text-brand-green/70">KWAL-led investment focusing on brand infrastructure and community recruitment. Primary focus: Data capture and market entry.</p>
-            </div>
-          </Card>
-
-          <Card className="p-8 bg-brand-teal/5 border-2 border-brand-teal/20 rounded-[32px] space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center">
-                <TrendingUp size={24} />
-              </div>
-              <h4 className="font-headline text-2xl text-brand-green uppercase">PHASE 2: TRACTION</h4>
-            </div>
-            <div className="space-y-4">
-              <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-brand-green/40">
-                <span>Rev vs Cost</span>
-                <span className="text-brand-teal">85% Coverage</span>
-              </div>
-              <div className="h-2 bg-brand-green/5 rounded-full overflow-hidden">
-                <div className="h-full w-[85%] bg-brand-teal" />
-              </div>
-              <p className="font-body text-sm text-brand-green/70">Break-even pathway through high-margin VIP table sales and 3rd party category sponsors. Scalability through sponsorship growth.</p>
-            </div>
-          </Card>
-
-          <Card className="p-8 bg-brand-green text-white border-none rounded-[32px] space-y-6 shadow-xl">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center">
-                <Flag size={24} />
-              </div>
-              <h4 className="font-headline text-2xl text-brand-gold uppercase">PHASE 3: INSTITUTION</h4>
-            </div>
-            <div className="space-y-4">
-              <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-white/40">
-                <span>Rev vs Cost</span>
-                <span className="text-brand-gold">140% ROI</span>
-              </div>
-              <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                <div className="h-full w-full bg-brand-gold" />
-              </div>
-              <p className="font-body text-sm text-white/70">A self-sustaining profit center. Savanna Sundays operates as an independent brand with diverse revenue streams and regional franchise potential.</p>
-            </div>
-          </Card>
-        </div>
-      </div>
-
-      {/* Revenue Mix & ROI */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 animate-fade-in-up">
-        <div className="space-y-8">
-          <div className="section-label">Revenue Mix Proportion</div>
-          <div className="flex h-16 w-full rounded-2xl overflow-hidden shadow-inner border border-brand-green/5">
-            <div className="h-full w-[40%] bg-brand-gold flex items-center justify-center font-headline text-brand-green text-xs md:text-sm">40% Tickets</div>
-            <div className="h-full w-[30%] bg-brand-teal flex items-center justify-center font-headline text-white text-xs md:text-sm">30% Sponsors</div>
-            <div className="h-full w-[20%] bg-brand-green flex items-center justify-center font-headline text-brand-gold text-xs md:text-sm">20% Sales</div>
-            <div className="h-full w-[10%] bg-brand-light-yellow flex items-center justify-center font-headline text-brand-green text-xs md:text-sm">10% Fees</div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          <Card className="p-8 bg-brand-cream border border-brand-green/5 text-center flex flex-col gap-2">
-            <span className="font-body font-bold text-[10px] tracking-widest text-brand-green/40 uppercase">Before Firefly</span>
-            <span className="font-headline text-2xl text-brand-green/30 line-through">Organic Growth</span>
-            <span className="text-[10px] text-brand-green/40 font-bold uppercase tracking-tighter">Fragmented Data</span>
-          </Card>
-          <Card className="p-8 bg-white border-2 border-brand-gold text-center flex flex-col gap-2 relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-2"><TrendingUp size={12} className="text-brand-gold" /></div>
-            <span className="font-body font-bold text-[10px] tracking-widest text-brand-gold uppercase">After Firefly</span>
-            <span className="font-headline text-2xl text-brand-green">Unified Engine</span>
-            <span className="text-[10px] text-brand-teal font-bold uppercase tracking-tighter">100% Retained Audience</span>
-          </Card>
-        </div>
+          <p className="font-body text-[10px] md:text-sm text-white/70">Self-sustaining profit center with 140% ROI.</p>
+        </Card>
       </div>
     </div>
   );
