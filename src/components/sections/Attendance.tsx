@@ -503,6 +503,65 @@ export const AttendanceDemandSection = () => {
         </div>
       </div>
 
+      {/* 6I: Post-Event FOMO Content Strategy */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          6I: Post-Event FOMO Content Strategy
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              The event doesn’t end when the music stops. The 24-hour window following an edition is critical for anchoring "regret" in non-attendees and "pride" in attendees. We leverage the psychological triggers of experience scarcity and social validation to ensure future editions are perceived as "unmissable" moments.
+            </p>
+            <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2">
+              "We don't just show what happened; we show what was missed. Regret is the strongest driver of early commitment."
+            </div>
+            <p className="text-sm leading-relaxed">
+              By flooding the feed with high-velocity, high-energy content while the adrenaline is still high, we transform a past event into a future sales engine.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Clock size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">The 10AM Highlight Reel</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">
+                  A high-octane 30-second edit delivered the morning after. It captures the peak energy, the fashion, and the "vibe" while it's still top-of-mind for Nairobi's social circle.
+                </p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Users size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Crowd-Energy Clips</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">
+                  Raw, vertical clips of the dance floor at peak capacity. Unpolished, authentic content that proves the demand was real and the energy was unmatched.
+                </p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold text-brand-green flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <TrendingUp size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">"You Had To Be There"</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">
+                  Intentional messaging that shifts from "Thank you for coming" to "You had to be there." This creates a psychological barrier that can only be resolved by attending the next edition.
+                </p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
       {/* Stats Counters */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="text-center group p-8 bg-brand-cream rounded-3xl border border-brand-green/5 hover:bg-white transition-colors">
