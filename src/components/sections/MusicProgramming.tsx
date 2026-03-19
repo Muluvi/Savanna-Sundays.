@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Music, Sun, Sunset, Moon, Star, Mic2, Palette, Smile } from 'lucide-react';
+import { Music, Sun, Sunset, Moon, Star, Mic2, Palette, Smile, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 
 const labels = [
@@ -20,6 +20,39 @@ const labels = [
 export const MusicProgrammingSection = () => {
   return (
     <div className="space-y-24">
+      {/* Strategic Intro */}
+      <div className="space-y-12 animate-fade-in-up">
+        <div className="font-body font-light text-[15px] text-brand-green/55 max-w-[680px] leading-[1.7]">
+          <p>
+            Music isn't background noise for Savanna Sundays; it's the architecture of the vibe. It is the primary tool for emotional engineering—taking a crowd from a relaxed afternoon arrival to a peak-energy sunset celebration. We don't just hire DJs; we curate a sonic narrative that reinforces Savanna’s premium, crisp positioning.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="space-y-6">
+            <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+              7A: The Savanna Sonic Identity
+            </h3>
+            <p className="font-body text-base text-brand-green/70">
+              Our sonic landscape is governed by four non-negotiable pillars that ensure the music feels like the brand:
+            </p>
+            <ul className="space-y-0">
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Warm:</strong> Analog textures, rich bass, and soul-inflected vocals that match the Savanna Gold aesthetic.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Rhythmic:</strong> Afro-centric patterns (Afro Tech, Amapiano, Deep House) that invite movement without being aggressive.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Culturally Fluent:</strong> Music that speaks to Nairobi's global-yet-local tastes—recognizing heritage while pushing boundaries.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Emotionally Precise:</strong> Curating the right energy for the light. As the sun dips, the music deepens and builds.</li>
+            </ul>
+          </div>
+
+          <div className="bg-brand-cream/50 p-8 rounded-[32px] border border-brand-green/5 flex flex-col justify-center">
+            <h4 className="font-headline text-xl text-brand-green mb-4">Impact on Perception</h4>
+            <div className="font-serif italic text-lg text-brand-teal leading-relaxed border-l-2 border-brand-teal pl-6 py-2">
+              "A precise sonic identity transforms Savanna from a cider you drink into a culture you feel. It creates a 'memory anchor'—when people hear these rhythms later, they are mentally transported back to that crisp golden-hour moment."
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Ecosystem Credentials */}
       <div className="bg-brand-green rounded-[30px] p-10 md:p-16 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
@@ -101,7 +134,7 @@ export const MusicProgrammingSection = () => {
           { label: "Live Instruments", icon: <Mic2 size={20} /> },
           { label: "Live Comedy", icon: <Smile size={20} /> },
           { label: "Fashion Hub", icon: <Palette size={20} /> },
-          { label: "MC Energy", icon: <Volume2 size={20} /> },
+          { label: "MC Energy", icon: <Volume2Icon size={20} /> },
           { label: "Live Art", icon: <Palette size={20} /> },
         ].map((item, i) => (
           <div key={i} className="flex flex-col items-center gap-3 p-6 bg-white rounded-3xl border border-brand-green/5 text-center group hover:bg-brand-teal/5 transition-colors">
@@ -116,4 +149,4 @@ export const MusicProgrammingSection = () => {
   );
 };
 
-const Volume2 = ({ size }: { size: number }) => <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-volume-2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>;
+const Volume2Icon = ({ size }: { size: number }) => <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-volume-2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>;
