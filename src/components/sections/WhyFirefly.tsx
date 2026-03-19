@@ -91,10 +91,59 @@ export const WhyFireflySection = () => {
           </div>
         </div>
 
+        {/* 14D: The Strategic Moat */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-cream/60">
+            <h4 className="font-headline text-2xl md:text-3xl text-brand-gold border-l-[3px] border-brand-gold pl-4 uppercase">
+              14D: The Strategic Moat
+            </h4>
+            <p className="leading-relaxed">
+              Firefly's competitive advantage is built on the integration of three specialized domains. This "moat" ensures that the Savanna Sundays ecosystem becomes more defensible and valuable with every activation.
+            </p>
+            <ul className="space-y-4">
+              <li className="flex gap-4 items-start">
+                <div className="w-6 h-6 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 mt-1">
+                  <CheckCircle2 size={14} />
+                </div>
+                <p className="text-sm leading-relaxed">
+                  <strong>High-Yield Content Production:</strong> We don't just record; we manufacture narrative assets that competitors struggle to replicate in volume, aesthetic, or quality.
+                </p>
+              </li>
+              <li className="flex gap-4 items-start">
+                <div className="w-6 h-6 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center shrink-0 mt-1">
+                  <CheckCircle2 size={14} />
+                </div>
+                <p className="text-sm leading-relaxed">
+                  <strong>Deep Community Building:</strong> We move beyond followers to members. Our ambassador network acts as an organic distribution layer that no amount of media spend can buy.
+                </p>
+              </li>
+              <li className="flex gap-4 items-start">
+                <div className="w-6 h-6 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 mt-1">
+                  <CheckCircle2 size={14} />
+                </div>
+                <p className="text-sm leading-relaxed">
+                  <strong>Proprietary Data Systems:</strong> We own the data loop. Our intelligence systems convert physical vibes into digital targeting assets, making Savanna's marketing uniquely efficient.
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <div className="relative h-[320px] bg-white/5 rounded-[32px] border border-white/10 flex flex-col items-center justify-center p-8 text-center shadow-inner group overflow-hidden">
+             <div className="absolute inset-0 bg-brand-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+             <ShieldCheck className="text-brand-gold mb-6 relative z-10" size={64} />
+             <h5 className="font-headline text-3xl text-white mb-2 relative z-10">THE INTEGRATED MOAT</h5>
+             <p className="font-body text-xs text-white/40 uppercase tracking-widest relative z-10">Defensible Advantage by Design</p>
+             
+             {/* Decorative Ring */}
+             <div className="absolute w-64 h-64 border border-brand-gold/20 rounded-full animate-spin [animation-duration:30s]" />
+             <div className="absolute w-48 h-48 border border-brand-teal/20 rounded-full animate-spin [animation-duration:20s] [animation-direction:reverse]" />
+          </div>
+        </div>
+
         {/* 14C: The Firefly Differentiator */}
         <div className="space-y-12">
           <div className="text-center space-y-4">
-            <h4 className="font-headline text-3xl md:text-4xl text-white uppercase tracking-widest">Why Choose Firefly?</h4>
+            <h4 className="font-headline text-3xl md:text-4xl text-white uppercase tracking-widest">The Firefly Standard</h4>
             <div className="w-24 h-1 bg-brand-gold mx-auto" />
           </div>
 
