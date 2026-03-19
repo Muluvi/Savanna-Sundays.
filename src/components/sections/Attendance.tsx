@@ -5,7 +5,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Users, Volume2, TrendingUp, CheckCircle2, Calendar, Zap, Rocket, Bell, Play } from 'lucide-react';
+import { Users, Volume2, TrendingUp, CheckCircle2, Calendar, Zap, Rocket, Bell, Play, Ticket, Mail, Clock } from 'lucide-react';
 
 export const AttendanceDemandSection = () => {
   return (
@@ -71,13 +71,13 @@ export const AttendanceDemandSection = () => {
             <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center font-headline text-xl">05</div>
-                <h4 className="font-headline text-xl text-brand-green uppercase">Day 05: Staggered Reveal</h4>
+                <h4 className="font-headline text-xl text-brand-green uppercase">Day 05: Frequency Stagger</h4>
               </div>
               <p className="font-body text-sm text-brand-green/70">
                 Morning and evening DJ reveals to maximize feed visibility.
               </p>
               <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
-                Intent: Frequency. Dominates the feed during peak commute/leisure hours.
+                Intent: Frequency. Dominates the feed during peak leisure hours.
               </div>
             </Card>
           </div>
@@ -92,7 +92,7 @@ export const AttendanceDemandSection = () => {
                 Full lineup reveal + Ticket launch + Ambassador blast.
               </p>
               <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
-                Intent: Commitment. Translates hype into immediate ticket sales.
+                Intent: Commitment. Translates hype into immediate action.
               </div>
             </Card>
 
@@ -112,10 +112,10 @@ export const AttendanceDemandSection = () => {
             <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center font-headline text-xl">01</div>
-                <h4 className="font-headline text-xl text-brand-green uppercase">Day 01: The Final Push</h4>
+                <h4 className="font-headline text-xl text-brand-green uppercase">Day 01: Final Push</h4>
               </div>
               <p className="font-body text-sm text-brand-green/70">
-                Polls, countdowns, and "90% sold" urgency messaging.
+                Polls, countdowns, and "Last Tickets" urgency messaging.
               </p>
               <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
                 Intent: Urgency. Captures the procrastinators and laggards.
@@ -128,33 +128,12 @@ export const AttendanceDemandSection = () => {
                 <h4 className="font-headline text-xl text-brand-gold uppercase">Day 00: Live Harvest</h4>
               </div>
               <p className="font-body text-sm text-white/70">
-                Real-time content from setup to sunset to peak energy.
+                Real-time content from setup to peak energy.
               </p>
               <div className="font-serif italic text-sm text-brand-gold border-l-2 border-brand-gold pl-3">
-                Intent: Presence. Turns the event itself into a 7-hour advertisement.
+                Intent: Presence. Turns the event into a 7-hour advertisement.
               </div>
             </Card>
-          </div>
-
-          <div className="relative pt-12 pb-8">
-            <div className="section-label mb-8">2-Week Launch Countdown Timeline</div>
-            <div className="h-2 w-full bg-brand-green/10 rounded-full relative">
-              <div className="absolute h-full w-full bg-gradient-to-r from-brand-gold via-brand-teal to-brand-green rounded-full" />
-              {[0, 25, 50, 75, 100].map((step) => (
-                <div 
-                  key={step} 
-                  className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-4 border-brand-cream bg-brand-gold shadow-sm"
-                  style={{ left: `${step}%` }}
-                />
-              ))}
-            </div>
-            <div className="grid grid-cols-5 gap-4 mt-6">
-              <div className="text-[9px] font-bold uppercase tracking-widest text-brand-green/40">Teasers</div>
-              <div className="text-[9px] font-bold uppercase tracking-widest text-brand-green/60">Venue Reveal</div>
-              <div className="text-[9px] font-bold uppercase tracking-widest text-brand-teal">Artist reveals</div>
-              <div className="text-[9px] font-bold uppercase tracking-widest text-brand-gold">Ticket Launch</div>
-              <div className="text-[9px] font-bold uppercase tracking-widest text-brand-green">EVENT DAY</div>
-            </div>
           </div>
         </div>
       </div>
@@ -205,6 +184,61 @@ export const AttendanceDemandSection = () => {
               </TableBody>
             </Table>
           </div>
+        </div>
+      </div>
+
+      {/* 6E: Ticketing Models & Strategic Intent */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          6E: Ticketing Models & Strategic Intent
+        </h3>
+        
+        <p className="font-body text-base text-brand-green/70 max-w-3xl leading-relaxed">
+          We deploy three distinct entry models depending on the specific edition's goal—whether we are focused on market penetration, data capture, or direct revenue.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <Card className="p-8 bg-white border border-brand-green/5 rounded-[24px] space-y-6 hover:border-brand-gold transition-colors group">
+            <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Mail size={24} />
+            </div>
+            <div className="space-y-2">
+              <h4 className="font-headline text-2xl text-brand-green uppercase">1. RSVP-Gated Free Entry</h4>
+              <Badge className="bg-brand-teal text-white">Data Focus</Badge>
+            </div>
+            <div className="space-y-4 font-body text-sm text-brand-green/70">
+              <p><strong>When to use:</strong> Neighborhood launches, community recruitment phases, or Monday-afternoon "thank you" editions.</p>
+              <p><strong>Strategic Why:</strong> Maximizes the top-of-funnel reach. We trade entry for 100% data capture (email + phone), allowing us to retarget these attendees for future paid editions.</p>
+            </div>
+          </Card>
+
+          <Card className="p-8 bg-white border border-brand-green/5 rounded-[24px] space-y-6 hover:border-brand-gold transition-colors group">
+            <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Ticket size={24} />
+            </div>
+            <div className="space-y-2">
+              <h4 className="font-headline text-2xl text-brand-green uppercase">2. Fully Ticketed (Paid)</h4>
+              <Badge className="bg-brand-gold text-brand-green">Exclusivity Focus</Badge>
+            </div>
+            <div className="space-y-4 font-body text-sm text-brand-green/70">
+              <p><strong>When to use:</strong> High-demand venues (Rooftops), major headliner sets, or holiday milestone editions.</p>
+              <p><strong>Strategic Why:</strong> Filters for a highly intentional, premium audience. Revenue offsets high production costs while reinforcing the event as an "earned" experience.</p>
+            </div>
+          </Card>
+
+          <Card className="p-8 bg-white border border-brand-green/5 rounded-[24px] space-y-6 hover:border-brand-gold transition-colors group">
+            <div className="w-12 h-12 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Clock size={24} />
+            </div>
+            <div className="space-y-2">
+              <h4 className="font-headline text-2xl text-brand-green uppercase">3. Hybrid (Early Bird Free)</h4>
+              <Badge className="bg-brand-green text-white">Crowd Density Focus</Badge>
+            </div>
+            <div className="space-y-4 font-body text-sm text-brand-green/70">
+              <p><strong>When to use:</strong> Standard owned editions where we need early crowd density for content capture.</p>
+              <p><strong>Strategic Why:</strong> "Free entry before 4PM" incentivizes early arrival, ensuring the venue looks "packed" for the golden-hour content window, while late arrivals pay full price.</p>
+            </div>
+          </Card>
         </div>
       </div>
 
