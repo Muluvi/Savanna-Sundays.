@@ -53,10 +53,10 @@ export default function Home() {
         <section id="hero" className="relative min-h-screen dark-section flex flex-col items-center justify-center text-center px-6 py-12 overflow-hidden">
           <WaterDroplets className="opacity-20" />
           
-          <div className="relative z-20 flex flex-col items-center mb-12 animate-fade-in-up">
-            <span className="text-[10px] tracking-[4px] md:tracking-[6px] text-brand-gold uppercase mb-6 font-bold opacity-60">Presented by</span>
+          <div className="relative z-20 flex flex-col items-center mb-16 animate-fade-in-up">
+            <span className="text-[10px] tracking-[4px] md:tracking-[8px] text-brand-gold uppercase mb-8 font-bold opacity-60">Presented by</span>
             {logo && (
-              <div className="relative w-[300px] h-[75px] md:w-[500px] md:h-[125px]">
+              <div className="relative w-[360px] h-[100px] md:w-[720px] md:h-[200px]">
                 <Image 
                   src={logo.imageUrl} 
                   alt="Firefly Management" 
@@ -103,12 +103,12 @@ export default function Home() {
         ))}
 
         {/* Footer */}
-        <footer className="bg-brand-ink py-16 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
+        <footer className="bg-brand-ink py-20 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
           <WaterDroplets className="opacity-10" />
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 md:gap-12 relative z-10">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
             <div className="flex flex-col items-center md:items-start">
               {logo && (
-                <div className="relative w-[260px] h-[65px] mb-8">
+                <div className="relative w-[320px] h-[90px] mb-8">
                   <Image 
                     src={logo.imageUrl} 
                     alt="Firefly Management" 
