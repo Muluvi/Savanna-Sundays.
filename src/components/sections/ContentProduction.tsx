@@ -111,10 +111,10 @@ export const ContentSocialSection = () => {
             <h5 className="font-headline text-2xl md:text-3xl mb-8 md:mb-12 text-center tracking-widest uppercase">Sonic Pipeline</h5>
             <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
               {[
-                { label: "Live Set", icon: <Play size={16} /> },
-                { label: "Audio Capture", icon: <AudioLines size={16} /> },
-                { label: "Post-Prod", icon: <Share2 size={16} /> },
-                { label: "Upload", icon: <ArrowRight size={16} /> },
+                { label: "Live Set", icon: <Play className="w-4 h-4" /> },
+                { label: "Audio Capture", icon: <AudioLines className="w-4 h-4" /> },
+                { label: "Post-Prod", icon: <Share2 className="w-4 h-4" /> },
+                { label: "Upload", icon: <ArrowRight className="w-4 h-4" /> },
               ].map((step, i, arr) => (
                 <React.Fragment key={i}>
                   <div className="flex flex-col items-center gap-2">
@@ -124,7 +124,7 @@ export const ContentSocialSection = () => {
                     <span className="font-body text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-white/50">{step.label}</span>
                   </div>
                   {i < arr.length - 1 && (
-                    <ArrowRight className="hidden md:block text-brand-gold/40" size={14} />
+                    <ArrowRight className="hidden md:block text-brand-gold/40 w-3.5 h-3.5" />
                   )}
                 </React.Fragment>
               ))}

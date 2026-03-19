@@ -5,7 +5,6 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { UserCheck, Trophy, Star, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
@@ -33,7 +32,7 @@ export const DualActivationModel = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 animate-fade-in-up [animation-delay:200ms]">
         <Card className="p-6 md:p-8 bg-white border-l-4 border-brand-gold rounded-[20px] shadow-sm">
           <div className="flex items-center gap-4 mb-4 md:mb-6">
-            <UserCheck className="text-brand-gold" size={32} />
+            <UserCheck className="text-brand-gold w-8 h-8" />
             <h4 className="font-headline text-2xl md:text-3xl text-brand-green">FULLY OWNED EDITIONS</h4>
           </div>
           <p className="font-body text-sm md:text-base text-brand-green/70 mb-6">
@@ -48,7 +47,7 @@ export const DualActivationModel = () => {
 
         <Card className="p-6 md:p-8 bg-white border-l-4 border-brand-teal rounded-[20px] shadow-sm">
           <div className="flex items-center gap-4 mb-4 md:mb-6">
-            <Trophy className="text-brand-teal" size={32} />
+            <Trophy className="text-brand-teal w-8 h-8" />
             <h4 className="font-headline text-2xl md:text-3xl text-brand-green">TITLE SPONSORSHIP</h4>
           </div>
           <p className="font-body text-sm md:text-base text-brand-green/70 mb-6">
@@ -83,10 +82,10 @@ export const DualActivationModel = () => {
                 
                 <h4 className="font-headline text-lg md:text-xl mt-6 mb-2">Format & Experience</h4>
                 <ul className="space-y-0">
-                  <li className="py-1.5 md:py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={14} /> Daytime-to-evening format: doors open at 2:00 PM, energy builds through sunset, and the final set closes at 9:00 PM.</li>
-                  <li className="py-1.5 md:py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={14} /> Capacity range of 400–800 pax per edition, sized to feel full at 60–70% capacity.</li>
-                  <li className="py-1.5 md:py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={14} /> Outdoor or semi-outdoor settings with natural light and photogenic architectural character.</li>
-                  <li className="py-1.5 md:py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={14} /> Premium positioning: curated food vendors and signature Savanna serves.</li>
+                  <li className="py-1.5 md:py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1 w-3.5 h-3.5" /> Daytime-to-evening format: doors open at 2:00 PM, energy builds through sunset, and the final set closes at 9:00 PM.</li>
+                  <li className="py-1.5 md:py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1 w-3.5 h-3.5" /> Capacity range of 400–800 pax per edition, sized to feel full at 60–70% capacity.</li>
+                  <li className="py-1.5 md:py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1 w-3.5 h-3.5" /> Outdoor or semi-outdoor settings with natural light and photogenic architectural character.</li>
+                  <li className="py-1.5 md:py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1 w-3.5 h-3.5" /> Premium positioning: curated food vendors and signature Savanna serves.</li>
                 </ul>
               </div>
             </div>
@@ -100,7 +99,7 @@ export const DualActivationModel = () => {
                         <div className="relative flex flex-col items-center">
                           <span className="font-headline text-3xl md:text-4xl text-brand-green">G</span>
                           <div className="absolute -top-1 -right-1 bg-brand-gold p-1 rounded-full shadow-sm">
-                            <Star size={8} className="fill-brand-green text-brand-green" />
+                            <Star className="fill-brand-green text-brand-green w-2 h-2" />
                           </div>
                         </div>
                       ) : venue.logo ? (
