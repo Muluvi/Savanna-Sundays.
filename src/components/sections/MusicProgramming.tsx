@@ -371,6 +371,56 @@ export const MusicProgrammingSection = () => {
         </div>
       </div>
 
+      {/* 7H: Integrated Comedy Segments */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          7H: Integrated Comedy Segments
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              Savanna's brand legacy is built on dry wit. We leverage this by integrating short, high-impact comedy sets during key technical transitions (e.g., DJ changeovers). This strategy removes "dead air" and ensures that even the pauses between musical energy peaks are programmed with high-value brand entertainment.
+            </p>
+            <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2">
+              "We don't wait for the next DJ to start the vibe. We bridge the gap with the sharpest minds in Nairobi comedy."
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Smile size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">10–15 Minute "Sharp" Sets</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Precision-timed segments that maintain the room's energy level while the stage is being reset or the DJ booth is transitioning.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Mic2 size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Nairobi Comedy Ecosystem</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Curating talent from Nairobi's thriving stand-up and improv scenes who match Savanna's sophisticated and self-aware brand register.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <MessageSquare size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Eliminating Dead Air</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Transforming a potential experience 'dip' into a signature 'Savanna Moment' that creates unique conversational content for the community.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
       {/* Ecosystem Credentials */}
       <div className="bg-brand-green rounded-[30px] p-10 md:p-16 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
