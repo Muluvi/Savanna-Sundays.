@@ -4,17 +4,17 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Share2, UserPlus, MessageCircle, Twitter, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const ambassadorRoles = [
   { perk: "Guaranteed free entry + 1 guest at all owned editions", duty: "Share event invites via WhatsApp to 10+ contacts per edition" },
   { perk: "VIP access at owned and sponsored events", duty: "Post 2+ Instagram Stories on event day tagging @SavannaSundays" },
-  { perk: "Exclusive Savanna Sundays merch (not available to public)", duty: "Bring 3+ new attendees per edition from personal network" },
-  { perk: "Early lineup and venue reveals before announcement", duty: "Represent Savanna's brand values on-site (stylish, welcoming)" },
+  { perk: "Exclusive Savanna Sundays merch (not available to general public)", duty: "Bring 3+ new attendees per edition from personal network" },
+  { perk: "Early lineup and venue reveals before public announcement", duty: "Represent Savanna’s brand values on-site (visible, welcoming, stylish)" },
   { perk: "Backstage/DJ booth access at select editions", duty: "Provide post-event feedback to community management team" },
-  { perk: "Featured in community spotlight content", duty: "Attend quarterly ambassador meetup/briefing" },
+  { perk: "Featured in community spotlight content on official channels", duty: "Attend quarterly ambassador meetup/briefing" },
 ];
 
 export const CommunityGrowthSection = () => {
@@ -36,12 +36,12 @@ export const CommunityGrowthSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6 font-body text-base text-brand-green/70">
             <p>
-              The Nairobi adaptation of the #SiyavannaSA model: not a hashtag campaign, but a community identity. People don't just attend Savanna Sundays—they identify as "Savanna Sundays people." The identity is earned through repeated attendance, shared experiences, and cultural fluency.
+              The Nairobi adaptation of the #SiyavannaSA model: not a hashtag campaign, but a community identity. People don’t just attend Savanna Sundays—they identify as “Savanna Sundays people.” The identity is earned through repeated attendance, shared experiences, and cultural fluency.
             </p>
             <ul className="space-y-0">
-              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Shared language:</strong> inside references to memorable moments and community-specific vocabulary that signals belonging.</li>
-              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Dry Wit Register:</strong> modeling the Savanna tone in comment sections and WhatsApp groups to cultivate a shared warmth.</li>
-              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Cultural Rituals:</strong> traditions like signature drink rituals or golden-hour group photographs that build a shared story.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Shared language:</strong> develops organically over editions and is amplified by the content team: inside references to memorable moments and community-specific vocabulary that signals belonging.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Tonal Register:</strong> Savanna’s dry wit becomes the community’s register. The comment section and WhatsApp groups carry the same deadpan warmth.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Cultural rituals:</strong> traditions like signature drink order rituals or golden-hour crowd photographs that build a shared story.</li>
             </ul>
           </div>
 
@@ -87,14 +87,14 @@ export const CommunityGrowthSection = () => {
         </h3>
 
         <div className="space-y-8">
-          <h4 className="font-headline text-xl text-brand-green border-l-[3px] border-brand-gold/30 pl-4 uppercase">Superfan Identification</h4>
+          <h4 className="font-headline text-xl text-brand-green">Superfan Identification</h4>
           <p className="font-body text-base text-brand-green/70 max-w-3xl leading-relaxed">
             Firefly identifies potential ambassadors through three data sources: repeat attendance (3+ editions attended), social media engagement (frequently tagging, commenting, sharing Savanna Sundays content), and on-site energy. Candidates are approached personally—never through mass forms.
           </p>
         </div>
 
         <div className="space-y-8">
-          <h4 className="font-headline text-xl text-brand-green border-l-[3px] border-brand-gold/30 pl-4 uppercase">Ambassador Perks & Responsibilities</h4>
+          <h4 className="font-headline text-xl text-brand-green">Ambassador Perks & Responsibilities</h4>
           <div className="bg-white rounded-[30px] overflow-hidden border border-brand-green/5 shadow-lg">
             <Table>
               <TableHeader className="bg-brand-green">
@@ -106,17 +106,33 @@ export const CommunityGrowthSection = () => {
               <TableBody>
                 {ambassadorRoles.map((row, i) => (
                   <TableRow key={i} className={i % 2 !== 0 ? 'bg-brand-light-yellow/10' : ''}>
-                    <TableCell className="font-body text-sm py-5 text-brand-green/80 flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-brand-gold shrink-0" />
+                    <TableCell className="font-body text-sm py-5 text-brand-green/80">
                       {row.perk}
                     </TableCell>
-                    <TableCell className="font-body text-sm py-5 text-brand-teal font-medium">
+                    <TableCell className="font-body text-sm py-5 text-brand-teal font-bold text-right">
                       {row.duty}
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="space-y-6">
+            <h4 className="font-headline text-xl text-brand-green">Street Team Activation</h4>
+            <p className="font-body text-base text-brand-green/70 leading-relaxed">
+              Pre-event street teams deploy in target neighborhoods 3–5 days before each owned edition. Teams of 2–3 ambassadors visit high-traffic social spots in Westlands, Kilimani, Karen, and Lavington—distributing branded invite cards and having genuine conversations.
+            </p>
+          </div>
+          <div className="space-y-6">
+            <h4 className="font-headline text-xl text-brand-green">Program Growth Roadmap</h4>
+            <ul className="space-y-0 font-body text-base text-brand-green/70">
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Phase 1:</strong> 15–25 founding ambassadors, hand-selected.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Phase 2:</strong> 50–80 active ambassadors recruited from the growing community.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Phase 3:</strong> 100–150+ ambassadors operating as a distributed network.</li>
+            </ul>
           </div>
         </div>
 
@@ -152,6 +168,52 @@ export const CommunityGrowthSection = () => {
             </ul>
             <Badge className="bg-brand-gold text-brand-green">Super-Advocate</Badge>
           </Card>
+        </div>
+      </div>
+
+      {/* 5C: Audience Participation & Co-Creation */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          5C: Audience Participation & Co-Creation
+        </h3>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 font-body text-base text-brand-green/70">
+          <ul className="space-y-0">
+            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>DJ lineup votes:</strong> for select editions, the community votes on 1 of 3 DJ options for a set slot.</li>
+            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Curated UGC gallery:</strong> top 10–15 fan-shot photos and videos are reposted with full credit.</li>
+          </ul>
+          <ul className="space-y-0">
+            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>“Best Dressed” feature:</strong> lead photographer selects 5–10 standout-style attendees for a carousel post.</li>
+            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Interactive activations:</strong> designed to produce personalized, participant-driven content.</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* 5D: Digital Community Infrastructure */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          5D: Digital Community Infrastructure
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="space-y-6">
+            <h4 className="font-headline text-xl text-brand-green">WhatsApp Architecture</h4>
+            <p className="font-body text-sm text-brand-green/70 mb-4">A single Savanna Sundays WhatsApp Community group with multiple sub-groups:</p>
+            <ul className="space-y-0 font-body text-sm text-brand-green/70">
+              <li className="py-1 flex gap-2"><strong>Announcements:</strong> one-way broadcast for edition dates and lineups.</li>
+              <li className="py-1 flex gap-2"><strong>General Chat:</strong> moderated conversation with Savanna’s tone.</li>
+              <li className="py-1 flex gap-2"><strong>Music Channel:</strong> DJ mix drops and recommendations.</li>
+              <li className="py-1 flex gap-2"><strong>VIP / Ambassador:</strong> exclusive channel for active ambassadors.</li>
+            </ul>
+          </div>
+          <div className="space-y-6">
+            <h4 className="font-headline text-xl text-brand-green">Email & SMS Infrastructure</h4>
+            <ul className="space-y-0 font-body text-base text-brand-green/70">
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Email list:</strong> built through ticketing, Wi-Fi portals, and QR codes.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Email cadence:</strong> monthly newsletter + pre-event invite + post-event thank-you.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>SMS:</strong> reserved for high-impact moments only (ticket launches, sold-out alerts).</li>
+            </ul>
+          </div>
         </div>
 
         {/* Growth Tactics */}
