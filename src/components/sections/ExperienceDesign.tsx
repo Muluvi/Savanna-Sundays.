@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, CheckCircle2, GlassWater, MapPin, Sparkles, Trophy, Camera, Utensils, Beer, DoorOpen, QrCode } from 'lucide-react';
+import { ArrowRight, CheckCircle2, GlassWater, MapPin, Sparkles, Trophy, Camera, Utensils, Beer, DoorOpen, QrCode, Clock, Smartphone, Info } from 'lucide-react';
 
 export const ExperienceDesignSection = () => {
   return (
@@ -57,9 +57,6 @@ export const ExperienceDesignSection = () => {
             <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2 bg-brand-gold/5">
               "Arrival isn't a logistics hurdle; it's the brand's first handshake. If the entry feels premium, the drink tastes better."
             </div>
-            <p className="text-sm">
-              The arrival sequence sets the tone for the entire day—transitioning guests from the chaos of the city into the 'Savanna Sundays state of mind' through sensory cues and frictionless onboarding.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 gap-6">
@@ -69,7 +66,7 @@ export const ExperienceDesignSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Branded Entry Portal</h4>
-                <p className="font-body text-sm text-brand-green/70 leading-relaxed">A timber-framed archway with backlit gold acrylic establishing the 'Wood + Gold' premium aesthetic from street-view.</p>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">A timber-framed archway establish the 'Wood + Gold' premium aesthetic from street-view.</p>
               </div>
             </Card>
 
@@ -79,7 +76,7 @@ export const ExperienceDesignSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-green uppercase mb-2">The 'First Crisp' Station</h4>
-                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Immediate welcome serve: a chilled Savanna Dry or 0.0 with a signature lemon wedge, served from a bespoke wooden ice cart.</p>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Immediate welcome serve: chilled Savanna Dry or 0.0 with a signature lemon wedge.</p>
               </div>
             </Card>
 
@@ -89,17 +86,71 @@ export const ExperienceDesignSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Onboarding Card</h4>
-                <p className="font-body text-sm text-white/70 leading-relaxed">A physical 'First-Timer' card with a smart QR code triggering immediate WhatsApp enrollment and providing Wi-Fi credentials.</p>
+                <p className="font-body text-sm text-white/70 leading-relaxed">A physical card with a smart QR code triggering immediate WhatsApp enrollment.</p>
               </div>
             </Card>
           </div>
         </div>
       </div>
 
-      {/* 8C: Venue Zone Map */}
+      {/* 8C: The Bar Experience & Discovery-Driven Consumption */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          8C: The Bar Experience & Discovery-Driven Consumption
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              The bar is the primary site of revenue and brand trial. We engineer this space for discovery, ensuring that every interaction increases the attendee's knowledge of the Savanna range while maintaining the frictionless speed required for high-energy Sundays.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "We don't just sell drinks; we curate choices. By making the full range visible and easy to buy, we drive multi-product trial."
+            </div>
+            <p className="text-sm font-bold text-brand-green uppercase tracking-wider">The 3-Minute Service Mandate</p>
+            <p className="text-xs italic leading-relaxed">
+              We monitor throughput to ensure no guest waits longer than 3 minutes. Speed is a premium attribute.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Info size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Variant Discovery Hub</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Back-lit bottle display featuring Dry, Light, Angry Lemon, and 0.0 with clear, witty tasting notes for each.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Sparkles size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">"Sunday Specials" (Exclusive Serves)</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Signature cider cocktails and 0.0 mocktails exclusive to Savanna Sundays, served in branded high-aesthetic glassware.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Smartphone size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Native M-Pesa POS Rails</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Native STK push integration at every service point. Frictionless 'Tap & Go' or QR payment flow to eliminate cash-handling delays.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* 8D: Venue Zone Map */}
       <div className="space-y-8 animate-fade-in-up">
         <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          8C: On-Site Spatial Strategy
+          8D: On-Site Spatial Strategy
         </h3>
         <div className="bg-brand-green/5 rounded-[40px] p-8 border border-brand-green/5 relative overflow-hidden">
           <svg viewBox="0 0 800 500" className="w-full h-auto drop-shadow-2xl">
@@ -112,42 +163,25 @@ export const ExperienceDesignSection = () => {
             <rect width="800" height="500" fill="url(#grid-pattern)" rx="20" />
 
             {/* Zones */}
-            {/* Dance Floor */}
             <path d="M150,150 L450,150 L450,450 L150,450 Z" fill="#F4C542" opacity="0.15" stroke="#F4C542" strokeWidth="2" strokeDasharray="5,5" />
             <text x="300" y="300" textAnchor="middle" className="font-headline text-2xl fill-brand-gold">DANCE FLOOR</text>
 
-            {/* Chill Zone */}
             <circle cx="650" cy="120" r="90" fill="#2D8C7F" opacity="0.15" stroke="#2D8C7F" strokeWidth="2" strokeDasharray="5,5" />
             <text x="650" y="120" textAnchor="middle" className="font-headline text-xl fill-brand-teal">CHILL ZONE</text>
 
-            {/* VIP Lounge */}
             <rect x="550" y="280" width="200" height="180" rx="10" fill="#1F4D3A" opacity="0.2" stroke="#1F4D3A" strokeWidth="2" strokeDasharray="5,5" />
             <text x="650" y="370" textAnchor="middle" className="font-headline text-xl fill-brand-green">VIP LOUNGE</text>
 
-            {/* Food Court */}
             <rect x="50" y="50" width="150" height="120" rx="10" fill="#FEF3C7" opacity="0.5" stroke="#F4C542" strokeWidth="1" />
             <text x="125" y="115" textAnchor="middle" className="font-headline text-lg fill-brand-gold">FOOD COURT</text>
-
-            {/* Markers */}
-            <circle cx="300" cy="300" r="8" fill="#F4C542" className="animate-pulse" />
-            <circle cx="650" cy="120" r="8" fill="#2D8C7F" className="animate-pulse" />
-            <circle cx="650" cy="370" r="8" fill="#1F4D3A" className="animate-pulse" />
-            
-            {/* Icons */}
-            <foreignObject x="288" y="260" width="24" height="24">
-              <Sparkles className="text-brand-gold" size={24} />
-            </foreignObject>
-            <foreignObject x="638" y="80" width="24" height="24">
-              <Camera className="text-brand-teal" size={24} />
-            </foreignObject>
           </svg>
         </div>
       </div>
 
-      {/* 8D: Attendee Journey */}
+      {/* 8E: Attendee Journey */}
       <div className="space-y-8 animate-fade-in-up">
         <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          8D: The Attendee Journey
+          8E: The Attendee Journey
         </h3>
         <div className="relative flex flex-col md:flex-row justify-between items-center gap-4 py-8">
           <div className="absolute top-1/2 left-0 w-full h-0.5 bg-brand-gold/20 -translate-y-1/2 hidden md:block" />
@@ -176,7 +210,7 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* 8E & 8F: Savanna 0.0 & Games */}
+      {/* 8F & 8G: Savanna 0.0 & Games */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in-up">
         <Card className="p-8 bg-white border-l-4 border-brand-teal rounded-[24px] shadow-sm flex flex-col gap-6">
           <div className="flex items-center gap-4">
@@ -184,17 +218,17 @@ export const ExperienceDesignSection = () => {
               <GlassWater size={24} />
             </div>
             <div>
-              <h4 className="font-headline text-3xl text-brand-green">8E: SAVANNA 0.0 INTEGRATION</h4>
+              <h4 className="font-headline text-3xl text-brand-green">8F: SAVANNA 0.0 INTEGRATION</h4>
               <Badge className="bg-brand-teal text-white border-none mt-1">Non-Alcoholic Track</Badge>
             </div>
           </div>
           <p className="font-body text-brand-green/60 leading-relaxed text-sm">
-            A dedicated experience track for the mindful consumer. We ensure the Savanna 0.0 crispness is as celebrated as the original, with specific branded glassware and dedicated non-alc mixology stations that maintain the premium aesthetic.
+            A dedicated experience track for the mindful consumer. We ensure the Savanna 0.0 crispness is as celebrated as the original, with specific branded glassware and stations.
           </p>
         </Card>
 
         <div className="space-y-6">
-          <h4 className="font-headline text-xl text-brand-green uppercase tracking-wider mb-2">8F: Interactive Activations</h4>
+          <h4 className="font-headline text-xl text-brand-green uppercase tracking-wider mb-2">8G: Interactive Activations</h4>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { title: "Spin-the-Wheel", icon: <Sparkles />, color: "bg-brand-light-yellow/40" },
