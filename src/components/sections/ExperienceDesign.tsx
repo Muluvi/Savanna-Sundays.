@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, CheckCircle2, GlassWater, MapPin, Sparkles, Trophy, Camera, Utensils, Beer, DoorOpen, QrCode, Clock, Smartphone, Info, Soup, ChefHat, LogOut, Gift, Tv, Share2, Target, Zap, Video, Layers } from 'lucide-react';
+import { ArrowRight, CheckCircle2, GlassWater, MapPin, Sparkles, Trophy, Camera, Utensils, Beer, DoorOpen, QrCode, Clock, Smartphone, Info, Soup, ChefHat, LogOut, Gift, Tv, Share2, Target, Zap, Video, Layers, Car, ShieldCheck } from 'lucide-react';
 
 export const ExperienceDesignSection = () => {
   return (
@@ -278,9 +278,6 @@ export const ExperienceDesignSection = () => {
             <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
               "We don't offer an alternative; we offer a choice. By elevating 0.0 to the same visual standard as Dry, we remove the social friction of non-drinking."
             </div>
-            <p className="text-sm">
-              Our inclusive drinking strategy ensures that the Savanna "Crisp" identity is a universal experience across the entire attendee base.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 gap-6">
@@ -306,11 +303,11 @@ export const ExperienceDesignSection = () => {
 
             <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
               <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <ShieldCheckIcon size={24} />
+                <ShieldCheck size={24} />
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Premium Presentation Standards</h4>
-                <p className="font-body text-sm text-white/70 leading-relaxed">Served in the same high-aesthetic glassware with signature garnishes. From a social distance (and on camera), the 0.0 experience is indistinguishable from the premium original.</p>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Served in the same high-aesthetic glassware with signature garnishes. The 0.0 experience is indistinguishable from the premium original.</p>
               </div>
             </Card>
           </div>
@@ -326,10 +323,10 @@ export const ExperienceDesignSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6 font-body text-base text-brand-green/70">
             <p>
-              We don't just host guests; we recruit participants. Interactive activations are designed to break the "passive observer" barrier, turning every attendee into an active micro-influencer. By rewarding engagement with unbuyable status and rewards, we ensure a constant stream of high-fidelity User Generated Content (UGC).
+              We don't just host guests; we recruit participants. Interactive activations are designed to break the "passive observer" barrier, turning every attendee into an active micro-influencer.
             </p>
             <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2 bg-brand-gold/5">
-              "Engagement is the currency of community. If they aren't interacting with the brand, they are just in the room. We want them in the story."
+              "Engagement is the currency of community. If they aren't interacting with the brand, they are just in the room."
             </div>
           </div>
 
@@ -340,7 +337,7 @@ export const ExperienceDesignSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Spin-the-Wheel Prizes</h4>
-                <p className="font-body text-xs text-brand-green/60 leading-relaxed">A high-visibility physical wheel near the main bar. Every 6th bottle purchase triggers a spin for limited-edition merchandise or VIP upgrades.</p>
+                <p className="font-body text-xs text-brand-green/60 leading-relaxed">High-visibility wheel triggers for limited-edition merchandise or VIP upgrades on volume purchases.</p>
               </div>
             </Card>
 
@@ -350,7 +347,7 @@ export const ExperienceDesignSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Blind Tasting Challenge</h4>
-                <p className="font-body text-xs text-brand-green/60 leading-relaxed">A sensory station where guests identify variants. Correct identifications are recorded for "Savanna Expert" status in the digital hub.</p>
+                <p className="font-body text-xs text-brand-green/60 leading-relaxed">A sensory station where guests identify variants to earn "Savanna Expert" status.</p>
               </div>
             </Card>
 
@@ -360,7 +357,7 @@ export const ExperienceDesignSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-green uppercase mb-2">#SavannaSundays Contest</h4>
-                <p className="font-body text-xs text-brand-green/60 leading-relaxed">Real-time incentivized social media contest. Top 3 posts using the hashtag by 6PM win a "Savanna Gold" hamper delivered to their table.</p>
+                <p className="font-body text-xs text-brand-green/60 leading-relaxed">Real-time incentivized social media contests rewarding the best content captured before 6PM.</p>
               </div>
             </Card>
 
@@ -370,7 +367,7 @@ export const ExperienceDesignSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Interactive Installations</h4>
-                <p className="font-body text-xs text-white/70 leading-relaxed">Mirrored 'infinity' platforms and timber-framed booths designed specifically for high-lighting Reels and fashion-focused Stories.</p>
+                <p className="font-body text-xs text-white/70 leading-relaxed">Platforms and booths designed specifically for high-lighting Reels and fashion-focused Stories.</p>
               </div>
             </Card>
           </div>
@@ -386,10 +383,10 @@ export const ExperienceDesignSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6 font-body text-base text-brand-green/70">
             <p>
-              We deploy "Content-First" installations that prioritize shareable outputs and repeat engagement. These aren't just photo backdrops; they are high-tech, platform-optimized stations that ensure Savanna Sundays dominates the Nairobi digital landscape for 48 hours following every edition.
+              We deploy installations that prioritize shareable outputs and repeat engagement, ensuring Savanna Sundays dominates the Nairobi digital landscape.
             </p>
             <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
-              "We don't just provide lighting; we provide content assets. Every installation is built to produce the highest possible resolution and engagement for the attendee's personal feed."
+              "We provide content assets. Every installation is built to produce the highest possible resolution and engagement for the attendee's feed."
             </div>
           </div>
 
@@ -400,7 +397,7 @@ export const ExperienceDesignSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Vintage Polaroid Booths</h4>
-                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Physical memory anchors. Attendees receive a Savanna-stamped Polaroid photo, creating a tangible lifestyle artifact that lives on their fridge or desk, long after the event ends.</p>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Physical memory anchors. Attendees receive a Savanna-stamped Polaroid photo, creating a tangible lifestyle artifact.</p>
               </div>
             </Card>
 
@@ -410,7 +407,7 @@ export const ExperienceDesignSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-green uppercase mb-2">360° Cinematic Video Booths</h4>
-                <p className="font-body text-sm text-brand-green/70 leading-relaxed">High-energy, high-fidelity vertical video content. Guests record a 15-second dynamic loop with Savanna branding, delivered instantly to their phone via QR for immediate Reels/TikTok posting.</p>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">High-energy, high-fidelity vertical video content delivered instantly to phones via QR for immediate posting.</p>
               </div>
             </Card>
 
@@ -420,7 +417,60 @@ export const ExperienceDesignSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Themed Green Screens</h4>
-                <p className="font-body text-sm text-white/70 leading-relaxed">Virtual "Savanna World" environments. Attendees "teleport" to surreal, high-aesthetic landscapes that reinforce the brand's creative DNA and dry wit through clever digital storytelling.</p>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Virtual environments where attendees "teleport" to high-aesthetic landscapes reinforcing the brand's dry wit.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* 8K: The Designated Driver Incentive System */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          8K: The Designated Driver Incentive System
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              Premium lifestyle brands are responsible brands. We implement an incentive system that rewards safety and shapes behavior through status and rewards rather than just compliance.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "Responsibility is a premium value. By rewarding the designated driver, we turn safety into a status symbol within the community."
+            </div>
+            <p className="text-sm">
+              This system ensures that Savanna Sundays is recognized not only for its vibe but for its commitment to the well-being of its community.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Car size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Unique 'Driver' Identification</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">A distinct Gold/Teal wristband issued at entry for self-identified drivers, signaling their elite status as a community guardian.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <GlassWater size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Complimentary 0.0 Rewards</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Drivers receive 2x vouchers for chilled Savanna 0.0, ensuring they enjoy the 'First Crisp' moment without alcohol.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Zap size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Priority 'Fast-Track' Perks</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Driver wristbands grant 'Fast-Track' access to food vendor queues and hydration stations, valuing their time and contribution.</p>
               </div>
             </Card>
           </div>
@@ -436,10 +486,10 @@ export const ExperienceDesignSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6 font-body text-base text-brand-green/70">
             <p>
-              The event doesn't end when the music stops; it ends when the guest reflects on their day. We design the final 30 minutes to reinforce positive brand recall, distribute physical anchors, and bridge the emotional gap between "Goodbye" and "See you at the next one."
+              The event ends when the guest reflects on their day. We design the final 30 minutes to reinforce positive brand recall and bridge the emotional gap.
             </p>
             <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
-              "We don't just clear the room; we resolve the experience. The last impression is the one that lives on the group chat the next morning."
+              "We don't just clear the room; we resolve the experience. The last impression lives on the group chat the next morning."
             </div>
           </div>
 
@@ -450,7 +500,7 @@ export const ExperienceDesignSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-green uppercase mb-2">"The Night in Review" Screen</h4>
-                <p className="font-body text-sm text-brand-green/70 leading-relaxed">A digital screen near the primary exit looping the best 60 seconds of captured content from the day. Guests see themselves and their community in real-time.</p>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">A digital screen looping the best 60 seconds of captured content from the day. Guests see their community in real-time.</p>
               </div>
             </Card>
 
@@ -460,7 +510,7 @@ export const ExperienceDesignSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-green uppercase mb-2">"Crisp Departure" Keepsakes</h4>
-                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Distribution of small, high-aesthetic branded artifacts (e.g., custom timber coasters or bottle-shaped magnets) that move the brand from the event into the home.</p>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Distribution of small, high-aesthetic branded artifacts like custom coasters or bottle magnets for home recall.</p>
               </div>
             </Card>
 
@@ -470,7 +520,7 @@ export const ExperienceDesignSection = () => {
               </div>
               <div>
                 <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">The "Next Sunday" Teaser</h4>
-                <p className="font-body text-sm text-white/70 leading-relaxed">Strategic exit signage and staff verbal prompts anchoring the date and venue of the next edition, securing the mental commitment before they leave.</p>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Strategic exit signage anchoring the date and venue of the next edition, securing the mental commitment.</p>
               </div>
             </Card>
           </div>
@@ -479,5 +529,3 @@ export const ExperienceDesignSection = () => {
     </div>
   );
 };
-
-const ShieldCheckIcon = ({ size }: { size: number }) => <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>;
