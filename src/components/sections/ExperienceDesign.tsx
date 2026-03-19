@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, CheckCircle2, GlassWater, MapPin, Sparkles, Trophy, Camera, Utensils, Beer, DoorOpen, QrCode, Clock, Smartphone, Info, Soup, ChefHat, LogOut, Gift, Tv } from 'lucide-react';
+import { ArrowRight, CheckCircle2, GlassWater, MapPin, Sparkles, Trophy, Camera, Utensils, Beer, DoorOpen, QrCode, Clock, Smartphone, Info, Soup, ChefHat, LogOut, Gift, Tv, Share2, Target, Zap } from 'lucide-react';
 
 export const ExperienceDesignSection = () => {
   return (
@@ -264,7 +264,7 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* 8G & 8H: Savanna 0.0 & Games */}
+      {/* 8G: Savanna 0.0 Integration */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in-up">
         <Card className="p-8 bg-white border-l-4 border-brand-teal rounded-[24px] shadow-sm flex flex-col gap-6">
           <div className="flex items-center gap-4">
@@ -280,20 +280,64 @@ export const ExperienceDesignSection = () => {
             A dedicated experience track for the mindful consumer. We ensure the Savanna 0.0 crispness is as celebrated as the original, with specific branded glassware and stations.
           </p>
         </Card>
+      </div>
 
-        <div className="space-y-6">
-          <h4 className="font-headline text-xl text-brand-green uppercase tracking-wider mb-2">8H: Interactive Activations</h4>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              { title: "Spin-the-Wheel", icon: <Sparkles />, color: "bg-brand-light-yellow/40" },
-              { title: "Blind Tasting", icon: <Beer />, color: "bg-brand-light-yellow/40" },
-              { title: "Social Challenge", icon: <Camera />, color: "bg-brand-light-yellow/40" },
-            ].map((game, i) => (
-              <Card key={i} className={`p-6 ${game.color} border border-brand-gold/20 rounded-2xl flex flex-col items-center justify-center text-center gap-3 hover:scale-105 transition-transform`}>
-                <div className="text-brand-gold">{game.icon}</div>
-                <span className="font-headline text-xs text-brand-green uppercase tracking-wider">{game.title}</span>
-              </Card>
-            ))}
+      {/* 8H: Interactive Activations & UGC Mechanics */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          8H: Interactive Activations & UGC Mechanics
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              We don't just host guests; we recruit participants. Interactive activations are designed to break the "passive observer" barrier, turning every attendee into an active micro-influencer. By rewarding engagement with unbuyable status and rewards, we ensure a constant stream of high-fidelity User Generated Content (UGC).
+            </p>
+            <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2 bg-brand-gold/5">
+              "Engagement is the currency of community. If they aren't interacting with the brand, they are just in the room. We want them in the story."
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex flex-col gap-4 hover:border-brand-gold transition-all group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Sparkles size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Spin-the-Wheel Prizes</h4>
+                <p className="font-body text-xs text-brand-green/60 leading-relaxed">A high-visibility physical wheel near the main bar. Every 6th bottle purchase triggers a spin for limited-edition merchandise or VIP upgrades.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex flex-col gap-4 hover:border-brand-gold transition-all group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Target size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Blind Tasting Challenge</h4>
+                <p className="font-body text-xs text-brand-green/60 leading-relaxed">A sensory station where guests identify variants. Correct identifications are recorded for "Savanna Expert" status in the digital hub.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex flex-col gap-4 hover:border-brand-gold transition-all group">
+              <div className="w-12 h-12 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Share2 size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">#SavannaSundays Contest</h4>
+                <p className="font-body text-xs text-brand-green/60 leading-relaxed">Real-time incentivized social media contest. Top 3 posts using the hashtag by 6PM win a "Savanna Gold" hamper delivered to their table.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex flex-col gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Camera size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Interactive Installations</h4>
+                <p className="font-body text-xs text-white/70 leading-relaxed">Mirrored 'infinity' platforms and timber-framed booths designed specifically for high-lighting Reels and fashion-focused Stories.</p>
+              </div>
+            </Card>
           </div>
         </div>
       </div>
@@ -350,5 +394,3 @@ export const ExperienceDesignSection = () => {
     </div>
   );
 };
-
-const Volume2Icon = ({ size }: { size: number }) => <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-volume-2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>;
