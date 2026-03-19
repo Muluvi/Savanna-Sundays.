@@ -5,93 +5,115 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { UserCheck, Trophy, Star, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
+import { UserCheck, Trophy, Star, ShieldCheck, Zap, MapPin } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { BrushStroke } from '@/components/brand/VisualElements';
 
 const venues = [
-  { name: "Geco", area: "Westlands", capacity: "300", type: "Owned", special: true },
+  { name: "Geco Cafe", area: "Westlands", capacity: "300", type: "Owned", special: true },
+  { name: "The Alchemist", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1768848344/8367e513-9c35-4276-97b8-7ae60597091e_20260119_214311_0000_numq8q.png", area: "Westlands", capacity: "600", type: "Sponsor" },
+  { name: "Waterfront", area: "Karen", capacity: "1500", type: "Sponsor" },
+  { name: "K1 Klub House", area: "Parklands", capacity: "800", type: "Sponsor" },
   { name: "Muze", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1768848344/ac208aa5-8292-4543-a7ca-719fd61a3c46_20260119_214138_0000_ikxc7g.png", area: "Westlands", capacity: "400", type: "Owned" },
-  { name: "Alchemist", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1768848344/8367e513-9c35-4276-97b8-7ae60597091e_20260119_214311_0000_numq8q.png", area: "Westlands", capacity: "600", type: "Sponsor" },
   { name: "KODA", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1768848344/ee064dd8-0e0b-4c61-9469-dd6fe46a1572_20260119_214214_0000_r494od.png", area: "Kilimani", capacity: "350", type: "Owned" },
-  { name: "Black Samurai", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1768848344/44699495-0ab1-43b0-bc11-b97b6d79c266_20260119_214246_0000_yko4eb.png", area: "Westlands", capacity: "500", type: "Sponsor" },
-  { name: "Masshouse", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1768407223/419b98e1-eb0d-4198-b3d8-618a79ef3641_20260114_191325_0000_ebdjee.png", area: "Kilimani", capacity: "800", type: "Sponsor" },
 ];
 
 export const DualActivationModel = () => {
   return (
-    <div className="space-y-12 md:space-y-16">
-      {/* 01: Core Logic Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 animate-fade-in-up">
-        <Card className="p-6 bg-white border-l-4 border-brand-gold rounded-2xl flex flex-col justify-between group hover:-translate-y-1 transition-all">
-          <div className="space-y-4">
-            <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-green transition-colors">
-              <ShieldCheck size={24} />
+    <div className="space-y-12 md:space-y-24">
+      {/* Introduction Subheading */}
+      <div className="max-w-3xl animate-fade-in-up">
+        <p className="font-serif italic text-xl md:text-2xl lg:text-3xl text-brand-green/60 leading-relaxed">
+          One engine builds the brand. The other covers the city. Together, they make Savanna synonymous with Sunday.
+        </p>
+      </div>
+
+      {/* 01: Core Logic Row - Split Screen Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 animate-fade-in-up [animation-delay:200ms]">
+        <Card className="p-8 bg-white border-l-4 border-brand-gold rounded-[32px] flex flex-col justify-between group hover:shadow-xl transition-all shadow-sm">
+          <div className="space-y-6">
+            <div className="w-14 h-14 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-green transition-colors">
+              <ShieldCheck size={28} />
             </div>
-            <h4 className="font-headline text-2xl text-brand-green uppercase">01: OWNED EDITIONS</h4>
-            <p className="font-body text-brand-green/70 text-sm leading-relaxed">
-              Proprietary boutique events. 100% brand control, exclusive content harvest, and deep data ownership.
-            </p>
+            <div className="space-y-2">
+              <h4 className="font-headline text-3xl text-brand-green uppercase">OWNED EDITIONS</h4>
+              <p className="font-body text-brand-green/70 text-base leading-relaxed">
+                Proprietary boutique events. 100% brand control, exclusive content harvest, and deep data ownership.
+              </p>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-2 mt-6">
-            <Badge variant="outline" className="border-brand-gold/30 text-brand-gold text-[9px] uppercase tracking-widest">Brand Focus</Badge>
-            <Badge variant="outline" className="border-brand-gold/30 text-brand-gold text-[9px] uppercase tracking-widest">Data Mastery</Badge>
+          <div className="flex flex-wrap gap-2 mt-8">
+            <Badge className="bg-brand-gold text-brand-green text-[10px] uppercase tracking-widest px-4 py-1.5 border-none">Brand Focus</Badge>
+            <Badge className="bg-brand-gold/10 text-brand-gold text-[10px] uppercase tracking-widest px-4 py-1.5 border-none">Data Mastery</Badge>
           </div>
         </Card>
         
-        <Card className="p-6 bg-white border-l-4 border-brand-teal rounded-2xl flex flex-col justify-between group hover:-translate-y-1 transition-all">
-          <div className="space-y-4">
-            <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center group-hover:bg-brand-teal group-hover:text-white transition-colors">
-              <Zap size={24} />
+        <Card className="p-8 bg-white border-l-4 border-brand-teal rounded-[32px] flex flex-col justify-between group hover:shadow-xl transition-all shadow-sm">
+          <div className="space-y-6">
+            <div className="w-14 h-14 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center group-hover:bg-brand-teal group-hover:text-white transition-colors">
+              <Zap size={28} />
             </div>
-            <h4 className="font-headline text-2xl text-brand-green uppercase">02: TITLE SPONSORSHIP</h4>
-            <p className="font-body text-brand-green/70 text-sm leading-relaxed">
-              Strategic reach mapping. Scaling Savanna’s visual layer onto Nairobi’s existing premium Sunday properties.
-            </p>
+            <div className="space-y-2">
+              <h4 className="font-headline text-3xl text-brand-green uppercase">TITLE SPONSORSHIP</h4>
+              <p className="font-body text-brand-green/70 text-base leading-relaxed">
+                Strategic reach mapping. Scaling Savanna’s visual layer onto Nairobi’s existing premium Sunday properties.
+              </p>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-2 mt-6">
-            <Badge variant="outline" className="border-brand-teal/30 text-brand-teal text-[9px] uppercase tracking-widest">Mass Reach</Badge>
-            <Badge variant="outline" className="border-brand-teal/30 text-brand-teal text-[9px] uppercase tracking-widest">Culture Cred</Badge>
+          <div className="flex flex-wrap gap-2 mt-8">
+            <Badge className="bg-brand-teal text-white text-[10px] uppercase tracking-widest px-4 py-1.5 border-none">Mass Reach</Badge>
+            <Badge className="bg-brand-teal/10 text-brand-teal text-[10px] uppercase tracking-widest px-4 py-1.5 border-none">Culture Cred</Badge>
           </div>
         </Card>
       </div>
 
-      {/* 02: Visual Synergy Pull Quote */}
-      <div className="relative py-8 flex flex-col items-center justify-center animate-fade-in-up [animation-delay:200ms]">
+      {/* 02: Visual Synergy Pull Quote - Highly Prominent */}
+      <div className="relative py-16 flex flex-col items-center justify-center animate-fade-in-up [animation-delay:400ms]">
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+          <span className="font-headline text-[120px] md:text-[220px] text-brand-gold opacity-[0.05] select-none leading-none">
+            SYNERGY
+          </span>
+        </div>
         <div className="relative z-10 max-w-4xl text-center">
-          <BrushStroke className="w-48 h-auto opacity-10 -rotate-1 mx-auto" color="#2D8C7F" />
-          <h3 className="font-serif italic text-2xl md:text-3xl text-brand-green/80 leading-relaxed px-4">
+          <BrushStroke className="w-64 h-auto opacity-10 -rotate-1 mx-auto" color="#2D8C7F" />
+          <h3 className="font-serif italic text-3xl md:text-5xl lg:text-6xl text-brand-green/90 leading-tight px-4">
             "We saturate the landscape without saturating the budget."
           </h3>
+          <div className="w-24 h-[2px] bg-brand-gold/40 mx-auto mt-12" />
         </div>
       </div>
 
       {/* 03: Interactive Detail Tabs */}
-      <div className="animate-fade-in-up [animation-delay:400ms]">
+      <div className="animate-fade-in-up [animation-delay:600ms]">
         <Tabs defaultValue="network" className="w-full">
-          <TabsList className="w-full bg-brand-green p-1 h-auto grid grid-cols-3 mb-8 rounded-2xl">
-            <TabsTrigger value="network" className="py-2.5 font-headline tracking-widest text-white/50 data-[state=active]:text-brand-gold data-[state=active]:bg-white/5 uppercase rounded-xl text-[10px] md:text-sm">Network</TabsTrigger>
-            <TabsTrigger value="scorecard" className="py-2.5 font-headline tracking-widest text-white/50 data-[state=active]:text-brand-gold data-[state=active]:bg-white/5 uppercase rounded-xl text-[10px] md:text-sm">Curation</TabsTrigger>
-            <TabsTrigger value="calendar" className="py-2.5 font-headline tracking-widest text-white/50 data-[state=active]:text-brand-gold data-[state=active]:bg-white/5 uppercase rounded-xl text-[10px] md:text-sm">Calendar</TabsTrigger>
+          <TabsList className="w-full bg-brand-green p-1.5 h-auto grid grid-cols-3 mb-10 rounded-2xl shadow-lg">
+            <TabsTrigger value="network" className="py-3.5 font-headline tracking-[2px] text-white/50 data-[state=active]:text-brand-gold data-[state=active]:bg-white/5 uppercase rounded-xl text-xs md:text-base">Venue Network</TabsTrigger>
+            <TabsTrigger value="scorecard" className="py-3.5 font-headline tracking-[2px] text-white/50 data-[state=active]:text-brand-gold data-[state=active]:bg-white/5 uppercase rounded-xl text-xs md:text-base">Curation Matrix</TabsTrigger>
+            <TabsTrigger value="calendar" className="py-3.5 font-headline tracking-[2px] text-white/50 data-[state=active]:text-brand-gold data-[state=active]:bg-white/5 uppercase rounded-xl text-xs md:text-base">Sunday Sprint</TabsTrigger>
           </TabsList>
 
           <TabsContent value="network" className="space-y-8">
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
               {venues.map((venue, i) => (
-                <Card key={i} className="group p-4 md:p-6 bg-white border border-brand-green/5 rounded-2xl hover:border-brand-gold transition-all text-center">
-                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-brand-cream border border-brand-green/5 flex items-center justify-center mx-auto mb-4 overflow-hidden group-hover:scale-105 transition-transform">
+                <Card key={i} className="group p-6 md:p-8 bg-white border border-brand-green/5 rounded-[24px] hover:border-brand-gold hover:shadow-md transition-all text-center flex flex-col items-center justify-between">
+                  <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-brand-cream border border-brand-green/5 flex items-center justify-center mb-6 overflow-hidden group-hover:scale-105 transition-transform shadow-sm">
                     {venue.special ? (
-                      <span className="font-headline text-2xl text-brand-green">G</span>
+                      <span className="font-headline text-4xl text-brand-green">G</span>
                     ) : venue.logo ? (
-                      <Image src={venue.logo} alt={venue.name} width={40} height={40} className="object-contain" />
+                      <Image src={venue.logo} alt={venue.name} width={60} height={60} className="object-contain" />
                     ) : (
-                      <Star size={20} className="text-brand-gold" />
+                      <MapPin size={32} className="text-brand-gold" />
                     )}
                   </div>
-                  <h5 className="font-headline text-sm md:text-base text-brand-green mb-1">{venue.name}</h5>
-                  <p className="font-body text-[8px] md:text-[10px] text-brand-green/40 uppercase tracking-widest font-bold mb-3">{venue.area}</p>
-                  <Badge className={cn("text-[7px] md:text-[9px] uppercase tracking-tighter", venue.type === 'Owned' ? 'bg-brand-gold text-brand-green' : 'bg-brand-teal text-white')}>
+                  <div className="space-y-2 mb-4">
+                    <h5 className="font-headline text-lg md:text-xl text-brand-green">{venue.name}</h5>
+                    <p className="font-body text-[10px] md:text-xs text-brand-green/40 uppercase tracking-[3px] font-bold">{venue.area}</p>
+                  </div>
+                  <Badge className={cn(
+                    "text-[8px] md:text-[10px] uppercase tracking-widest px-4 py-1", 
+                    venue.type === 'Owned' ? 'bg-brand-gold text-brand-green' : 'bg-brand-teal text-white'
+                  )}>
                     {venue.type}
                   </Badge>
                 </Card>
@@ -100,22 +122,21 @@ export const DualActivationModel = () => {
           </TabsContent>
 
           <TabsContent value="scorecard" className="space-y-6">
-            <div className="bg-brand-cream/50 p-6 rounded-3xl border border-brand-green/5">
-              <h5 className="font-headline text-lg text-brand-green mb-6 text-center tracking-widest uppercase">Sponsorship Selection Matrix</h5>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div className="bg-brand-cream/50 p-10 md:p-16 rounded-[40px] border border-brand-green/5 shadow-inner">
+              <h5 className="font-headline text-2xl text-brand-green mb-12 text-center tracking-widest uppercase">Strategic Selection Matrix</h5>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
                 {[
-                  { label: "Audience Fit", weight: "30%", icon: <UserCheck className="w-4 h-4" /> },
-                  { label: "Visual Quality", weight: "20%", icon: <Trophy className="w-4 h-4" /> },
-                  { label: "Content Potential", weight: "20%", icon: <Zap className="w-4 h-4" /> },
-                  { label: "Credibility", weight: "15%", icon: <Star className="w-4 h-4" /> },
-                  { label: "Exclusivity", weight: "15%", icon: <ShieldCheck className="w-4 h-4" /> },
+                  { label: "Audience Fit", icon: <UserCheck className="w-6 h-6" /> },
+                  { label: "Visual Quality", icon: <Trophy className="w-6 h-6" /> },
+                  { label: "Content Potential", icon: <Zap className="w-6 h-6" /> },
+                  { label: "Credibility", icon: <Star className="w-6 h-6" /> },
+                  { label: "Exclusivity", icon: <ShieldCheck className="w-6 h-6" /> },
                 ].map((item, i) => (
-                  <div key={i} className="text-center space-y-2">
-                    <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center mx-auto text-brand-gold shadow-sm">
+                  <div key={i} className="text-center space-y-4 group">
+                    <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto text-brand-gold shadow-md group-hover:scale-110 transition-transform">
                       {item.icon}
                     </div>
-                    <div className="font-headline text-xl text-brand-green">{item.weight}</div>
-                    <div className="text-[7px] md:text-[9px] font-bold uppercase tracking-widest opacity-40 leading-tight">{item.label}</div>
+                    <div className="text-[10px] md:text-xs font-bold uppercase tracking-[3px] text-brand-green leading-tight opacity-70 group-hover:opacity-100 transition-opacity">{item.label}</div>
                   </div>
                 ))}
               </div>
@@ -123,25 +144,28 @@ export const DualActivationModel = () => {
           </TabsContent>
 
           <TabsContent value="calendar" className="space-y-6">
-            <div className="bg-white p-6 rounded-3xl border border-brand-green/5 shadow-sm">
-              <div className="flex justify-between items-center mb-6">
-                <h5 className="font-headline text-sm md:text-base text-brand-green uppercase tracking-wider">The Sunday Sprint Loop</h5>
-                <div className="flex gap-2">
-                  <div className="flex items-center gap-1"><div className="w-2 h-2 bg-brand-green rounded-full" /><span className="text-[7px] font-bold uppercase opacity-40">Owned</span></div>
-                  <div className="flex items-center gap-1"><div className="w-2 h-2 bg-brand-teal rounded-full" /><span className="text-[7px] font-bold uppercase opacity-40">Sponsor</span></div>
+            <div className="bg-white p-10 rounded-[40px] border border-brand-green/5 shadow-xl">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-10">
+                <div className="space-y-1 text-center md:text-left">
+                  <h5 className="font-headline text-xl md:text-2xl text-brand-green uppercase tracking-wider">The Sunday Sprint Loop</h5>
+                  <p className="font-body text-xs text-brand-green/40 uppercase tracking-widest">A 4-Week Recurring Momentum Cycle</p>
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex items-center gap-2"><div className="w-3 h-3 bg-brand-green rounded-full shadow-sm" /><span className="text-[10px] font-bold uppercase tracking-widest opacity-60">Owned Edition</span></div>
+                  <div className="flex items-center gap-2"><div className="w-3 h-3 bg-brand-teal rounded-full shadow-sm" /><span className="text-[10px] font-bold uppercase tracking-widest opacity-60">Title Sponsor</span></div>
                 </div>
               </div>
-              <div className="grid grid-cols-7 gap-1.5">
+              <div className="grid grid-cols-7 gap-2 md:gap-4">
                 {[...Array(28)].map((_, i) => {
                   const isSunday = (i + 1) % 7 === 0;
                   const isOwned = isSunday && ((i + 1) === 7 || (i + 1) === 21);
                   const isSponsor = isSunday && ((i + 1) === 14 || (i + 1) === 28);
                   return (
                     <div key={i} className={cn(
-                      "aspect-square rounded-lg flex items-center justify-center text-[9px] font-bold",
-                      isOwned ? "bg-brand-green text-white" : 
-                      isSponsor ? "bg-brand-teal text-white" : 
-                      "bg-brand-cream/30 text-brand-green/10"
+                      "aspect-square rounded-xl flex items-center justify-center text-[10px] md:text-sm font-bold shadow-sm transition-all",
+                      isOwned ? "bg-brand-green text-white scale-105 shadow-md" : 
+                      isSponsor ? "bg-brand-teal text-white scale-105 shadow-md" : 
+                      "bg-brand-cream/40 text-brand-green/10 border border-brand-green/5"
                     )}>
                       {i + 1}
                     </div>

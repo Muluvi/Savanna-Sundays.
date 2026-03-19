@@ -8,7 +8,7 @@ import { ChevronUp } from 'lucide-react';
 const sections = [
   { id: 'hero', label: '00 — START' },
   { id: 'the-gap', label: '01 — THE GAP' },
-  { id: 'dual-model', label: '02 — BUSINESS MODEL' },
+  { id: 'dual-model', label: '02 — THE CONCEPT' },
   { id: 'brand-experience', label: '03 — EXPERIENCE' },
   { id: 'digital-ecosystem', label: '04 — ECOSYSTEM' },
   { id: 'demand-data', label: '05 — DEMAND & DATA' },

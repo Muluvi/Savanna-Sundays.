@@ -25,7 +25,7 @@ import { WhyFireflySection } from '@/components/sections/WhyFirefly';
 
 const sectionsData = [
   { id: 'the-gap', label: '01 — THE GAP', title: '300,000 DECISIONS. ZERO BRAND LOYALTY.', variant: 'dark' as const, component: <TheGap /> },
-  { id: 'dual-model', label: '02 — BUSINESS MODEL', title: 'The Lifestyle Synergy', variant: 'light' as const, component: <DualActivationModel /> },
+  { id: 'dual-model', label: '02 — THE CONCEPT', title: 'THE DUAL ACTIVATION MODEL', variant: 'light' as const, component: <DualActivationModel /> },
   { 
     id: 'brand-experience', 
     label: '03 — BRAND EXPERIENCE', 
