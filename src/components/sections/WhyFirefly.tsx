@@ -5,7 +5,7 @@ import React from 'react';
 import Image from 'next/image';
 import { WaterDroplets } from '@/components/brand/VisualElements';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ArrowRight, Zap, Target, Share2, ShieldCheck, CheckCircle2, TrendingUp, Layers, MapPin, Globe, Network } from 'lucide-react';
+import { ArrowRight, Zap, Target, Share2, ShieldCheck, CheckCircle2, TrendingUp, Layers, MapPin, Globe, Network, BarChart3, Clock, Rocket } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 export const WhyFireflySection = () => {
@@ -248,6 +248,57 @@ export const WhyFireflySection = () => {
           </Card>
         </div>
 
+        {/* 14G: The Institutional Engine */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <Card className="p-8 bg-brand-teal/10 border border-brand-teal/20 rounded-[32px] space-y-8 shadow-2xl">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center">
+                <BarChart3 size={24} />
+              </div>
+              <h5 className="font-headline text-3xl text-white uppercase">The Performance Engine</h5>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="flex gap-4 items-start">
+                <Clock className="text-brand-gold shrink-0 mt-1" size={20} />
+                <div>
+                  <h6 className="font-headline text-xl text-white leading-none mb-1">Systematic Execution</h6>
+                  <p className="text-brand-cream/50 text-sm">Industrial-strength operational rigor applied to every Sunday cycle.</p>
+                </div>
+              </div>
+              <div className="flex gap-4 items-start">
+                <TrendingUp className="text-brand-teal shrink-0 mt-1" size={20} />
+                <div>
+                  <h6 className="font-headline text-xl text-white leading-none mb-1">Compounding ROI</h6>
+                  <p className="text-brand-cream/50 text-sm">Every edition increases the value of the digital archive and consumer database.</p>
+                </div>
+              </div>
+              <div className="flex gap-4 items-start">
+                <Rocket className="text-brand-gold shrink-0 mt-1" size={20} />
+                <div>
+                  <h6 className="font-headline text-xl text-white leading-none mb-1">Market Hegemony</h6>
+                  <p className="text-brand-cream/50 text-sm">Moving from "participating" in Sundays to "owning" the commercial outcome.</p>
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <div className="space-y-6 font-body text-base text-brand-cream/60">
+            <h4 className="font-headline text-2xl md:text-3xl text-brand-gold border-l-[3px] border-brand-gold pl-4 uppercase">
+              14G: The Institutional Engine
+            </h4>
+            <p className="leading-relaxed">
+              Savanna Sundays is not an experiment; it is an **operating system**. By applying weekly execution rigor to a long-term strategic framework, we move beyond "event management" to **ROI engineering**.
+            </p>
+            <p className="leading-relaxed">
+              Firefly delivers a predictable, scalable, and highly efficient marketing instrument. We don't just clear the room at 9:00 PM; we deliver a comprehensive impact audit that ensures KWAL's investment is anchored in hard data and permanent brand equity.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-2 border-brand-teal pl-6 py-2 mt-4">
+              "We apply industrial-strength systems to the fluidity of culture. Our goal is to ensure that Savanna's weekly execution is as reliable as its brand promise."
+            </div>
+          </div>
+        </div>
+
         {/* 14C: The Firefly Differentiator */}
         <div className="space-y-12">
           <div className="text-center space-y-4">
@@ -290,6 +341,13 @@ export const WhyFireflySection = () => {
 
         {/* Closing Contact & Action */}
         <div className="flex flex-col items-center gap-12 pt-12">
+          <div className="max-w-3xl mx-auto text-center space-y-6 mb-8">
+            <h4 className="font-headline text-4xl text-white uppercase tracking-wider">The Ambition is Simple. The Cider is Dry.</h4>
+            <p className="font-serif italic text-2xl text-brand-gold leading-relaxed">
+              "Together, we will define the next decade of Nairobi's social life, ensuring that when the sun dips on a Sunday afternoon, only one brand is in the hand, on the feed, and in the heart of the city."
+            </p>
+          </div>
+
           <div className="relative group">
              {/* Breathing Gold Ring */}
              <div className="absolute inset-0 rounded-full border-4 border-brand-gold animate-pulse-gold opacity-50 -inset-4" />
