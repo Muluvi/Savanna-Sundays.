@@ -203,6 +203,51 @@ export const WhyFireflySection = () => {
           </div>
         </div>
 
+        {/* 14F: Strategic Brand Alignment */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-cream/60">
+            <h4 className="font-headline text-2xl md:text-3xl text-brand-gold border-l-[3px] border-brand-gold pl-4 uppercase">
+              14F: Strategic Brand Alignment
+            </h4>
+            <p className="leading-relaxed">
+              Firefly’s operational DNA is a mirror of Savanna’s brand personality. We don't just "manage" the brand; we inhabit its register.
+            </p>
+            <p className="leading-relaxed">
+              Our alignment is rooted in two core synergies:
+            </p>
+            <ul className="space-y-4">
+              <li className="flex gap-4 items-start">
+                <div className="w-6 h-6 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 mt-1">
+                  <CheckCircle2 size={14} />
+                </div>
+                <p className="text-sm leading-relaxed">
+                  <strong>Tonal Precision:</strong> We have mastered Savanna’s signature 'Dry Wit'—ensuring that every caption, MC announcement, and community interaction feels sophisticated, self-aware, and unmistakably crisp.
+                </p>
+              </li>
+              <li className="flex gap-4 items-start">
+                <div className="w-6 h-6 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center shrink-0 mt-1">
+                  <CheckCircle2 size={14} />
+                </div>
+                <p className="text-sm leading-relaxed">
+                  <strong>Market Positioning:</strong> We share Savanna's 'Anti-Corporate' premium ethos. We build activations that look and feel like organic culture, avoiding the 'billboard party' trap that dilutes premium brands.
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <Card className="p-8 bg-white/5 border border-white/10 rounded-[32px] space-y-6 shadow-2xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:scale-110 transition-transform">
+              <Zap size={120} className="text-brand-gold" />
+            </div>
+            <div className="relative z-10 space-y-4">
+              <h5 className="font-headline text-2xl text-white uppercase">The Synergy of Wit</h5>
+              <div className="font-serif italic text-lg text-brand-gold border-l-2 border-brand-gold pl-6 py-2">
+                "We don't try to be cool; we are crisp. Our partnership works because we believe in the same brand truth: that intelligence is the ultimate premium attribute."
+              </div>
+            </div>
+          </Card>
+        </div>
+
         {/* 14C: The Firefly Differentiator */}
         <div className="space-y-12">
           <div className="text-center space-y-4">
