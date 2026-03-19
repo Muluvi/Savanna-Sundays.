@@ -1,4 +1,3 @@
-
 import { AppSidebar } from '@/components/navigation/AppSidebar';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { SectionContainer } from '@/components/sections/SectionContainer';
@@ -58,6 +57,11 @@ const sectionsData = [
     variant: 'light' as const, 
     component: (
       <div className="space-y-24">
+        <div className="max-w-3xl animate-fade-in-up">
+          <p className="font-serif italic text-xl md:text-2xl lg:text-3xl text-brand-green/60 leading-relaxed mb-12">
+            The event is the harvest. Content is the crop. Community is the soil.
+          </p>
+        </div>
         <ContentSocialSection />
         <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
         <CommunityGrowthSection />
@@ -65,12 +69,17 @@ const sectionsData = [
     )
   },
   { 
-    id: 'demand-data', 
-    label: '05 — DEMAND & DATA', 
-    title: 'Hype Mechanics & Intelligence', 
+    id: 'demand-machine', 
+    label: '05 — THE DEMAND MACHINE', 
+    title: 'HOW EVERY EDITION SELLS OUT', 
     variant: 'light' as const, 
     component: (
       <div className="space-y-24">
+        <div className="max-w-3xl animate-fade-in-up">
+          <p className="font-serif italic text-xl md:text-2xl lg:text-3xl text-brand-green/60 leading-relaxed mb-12">
+            Engineered scarcity, 14-day hype cycles, dark social distribution, and a referral engine that compounds with every Sunday.
+          </p>
+        </div>
         <AttendanceDemandSection />
         <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
         <DigitalInfrastructureSection />

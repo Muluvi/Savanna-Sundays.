@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from 'react';
@@ -9,8 +8,9 @@ const sections = [
   { id: 'hero', label: '00 — START' },
   { id: 'the-gap', label: '01 — THE GAP' },
   { id: 'dual-model', label: '02 — CONCEPT' },
-  { id: 'brand-experience', label: '03 — EXPERIENCE' },
+  { id: 'the-experience', label: '03 — EXPERIENCE' },
   { id: 'digital-ecosystem', label: '04 — ECOSYSTEM' },
+  { id: 'demand-machine', label: '05 — MACHINE' },
   { id: 'roadmap-partnership', label: '08 — PARTNER' },
 ];
 
