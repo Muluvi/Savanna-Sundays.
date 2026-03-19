@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { ClipboardCheck, ShieldCheck, Clock, Users, ArrowRight, Zap, Heart, CheckCircle2 } from 'lucide-react';
+import { ClipboardCheck, ShieldCheck, Clock, Users, ArrowRight, Zap, Heart, CheckCircle2, Calendar, HardHat, Radio, Target, Construction } from 'lucide-react';
 
 const staff = [
   { role: "Brand Ambassadors", count: "12", costume: "Yellow Savanna Polos", notes: "Product knowledge focus" },
@@ -13,13 +13,29 @@ const staff = [
   { role: "Cleaning Crew", count: "6", costume: "High-vis (Backstage)", notes: "Zero-waste goal" },
 ];
 
+const productionTimeline = [
+  { day: "T-14", task: "Venue Recon & Permits", detail: "Final site-visit to lock layout vs capacity. Clearing MCSK and county permits." },
+  { day: "T-10", task: "Technical Specs Locked", detail: "Finalizing AV requirements, secondary power (generator), and staging modules." },
+  { day: "T-07", task: "Talent & Staff Sync", detail: "Distribution of 'Savanna Sonic' briefs to DJs and 'Crisp Personality' briefs to BAs." },
+  { day: "T-03", task: "Logistics Load-Dispatch", detail: "Moving branded furniture and physical assets into central Nairobi storage." },
+  { day: "T-01", task: "Dry Load-In", detail: "Installing non-technical decor, signage, and branded bar fascias at the venue." },
+];
+
+const setupProtocol = [
+  { time: "06:00 AM", task: "Technical Load-In", detail: "Rigging sound systems and amber lighting arrays. Power stability testing." },
+  { time: "09:00 AM", task: "Aesthetic Audit", detail: "Detailed brand installation. Ensuring every surface is 'Camera Ready'." },
+  { time: "11:00 AM", task: "Product Chilling", detail: "Delivery of ice and variants. Ensuring Dry and 0.0 reach optimal serve temp." },
+  { time: "01:00 PM", task: "Full Walkthrough", detail: "Final BA briefing, mic checks, and 'vibe-check' dress rehearsal." },
+  { time: "09:30 PM", task: "The Strike (Breakdown)", detail: "Rapid site-clearing and inventory reconciliation within 120 minutes of close." },
+];
+
 export const EventProductionSection = () => {
   return (
     <div className="space-y-24">
       {/* Strategic Intro */}
       <div className="font-body font-light text-[15px] text-brand-green/55 max-w-[680px] leading-[1.7] animate-fade-in-up">
         <p>
-          Execution excellence is where strategy meets reality. At Firefly, we operate with a dual-mindset: <strong>Broadcast-Level Precision</strong> meeting <strong>House-Party Warmth</strong>. We treat every Sunday as a high-stakes live broadcast—where timing, technical redundancy, and operational flow are non-negotiable—while ensuring the attendee feels the effortless intimacy of a private gathering. This balance is the hallmark of Savanna Sundays’ operational standard.
+          Execution excellence is where strategy meets reality. At Firefly, we operate with a dual-mindset: <strong>Broadcast-Level Precision</strong> meeting <strong>House-Party Warmth</strong>. We treat every Sunday as a high-stakes live broadcast—where timing, technical redundancy, and operational flow are non-negotiable—while ensuring the attendee feels the effortless intimacy of a private gathering.
         </p>
       </div>
 
@@ -35,9 +51,9 @@ export const EventProductionSection = () => {
               We move beyond "event management" to high-fidelity experience production. Our methodology ensures that the complexity of the operation never interrupts the simplicity of the vibe.
             </p>
             <ul className="space-y-0">
-              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Broadcast Precision:</strong> Rigorous technical checks, secondary power redundancies, and 15-minute "Call Sheets" for all key staff.</li>
-              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>House-Party Warmth:</strong> A service culture that prioritizes names over numbers, eye-contact over checklists, and proactive hospitality.</li>
-              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>The Invisible Hand:</strong> Management that is omnipresent in impact but invisible in presence, ensuring the 'Savanna Crispness' is felt everywhere.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Broadcast Precision:</strong> Rigorous technical checks, secondary power redundancies, and 15-minute "Call Sheets" for all staff.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>House-Party Warmth:</strong> A service culture that prioritizes names over numbers and proactive hospitality.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>The Invisible Hand:</strong> Management that is omnipresent in impact but invisible in presence.</li>
             </ul>
           </div>
 
@@ -48,47 +64,115 @@ export const EventProductionSection = () => {
                 <h4 className="font-headline text-2xl text-brand-green uppercase">Broadcast Precision</h4>
               </div>
               <p className="font-serif italic text-base text-brand-green leading-relaxed">
-                "We treat the dancefloor as a set and the event as a live show. Every light cue and transition is mapped to ensure the content harvest is flawless."
-              </p>
-            </Card>
-
-            <Card className="p-8 bg-brand-teal/10 border-2 border-brand-teal rounded-[32px] space-y-4">
-              <div className="flex items-center gap-4">
-                <Heart className="text-brand-teal" size={32} />
-                <h4 className="font-headline text-2xl text-brand-green uppercase">House-Party Warmth</h4>
-              </div>
-              <p className="font-serif italic text-base text-brand-green leading-relaxed">
-                "We remove the corporate wall. If the guest feels like they are in a branded venue, we've failed. If they feel like they are in their best friend's backyard, we've won."
+                "We treat the dancefloor as a set and the event as a live show. Every light cue is mapped to ensure the content harvest is flawless."
               </p>
             </Card>
           </div>
         </div>
       </div>
 
-      {/* Run of Show Timeline */}
-      <div className="space-y-8 animate-fade-in-up">
+      {/* 11D: The 14-Day Production Countdown */}
+      <div className="space-y-12 animate-fade-in-up">
         <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          11B: The Production Pulse (Run of Show)
+          11D: The 14-Day Production Countdown
         </h3>
-        <div className="relative pt-12">
-          <div className="h-4 w-full bg-brand-green/5 rounded-full relative overflow-hidden">
-             <div className="absolute top-0 left-0 h-full w-[65%] bg-gradient-to-r from-brand-teal to-brand-gold" />
-             <div className="absolute top-1/2 left-[65%] -translate-y-1/2 w-5 h-5 bg-brand-gold rounded-full border-4 border-white animate-pulse" />
+        
+        <div className="bg-white rounded-[30px] overflow-hidden border border-brand-green/5 shadow-lg">
+          <Table>
+            <TableHeader className="bg-brand-green">
+              <TableRow className="hover:bg-transparent border-none">
+                <TableHead className="text-white font-headline tracking-widest py-6">Milestone</TableHead>
+                <TableHead className="text-white font-headline tracking-widest">Task</TableHead>
+                <TableHead className="text-white font-headline tracking-widest">Detail</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {productionTimeline.map((row, i) => (
+                <TableRow key={i} className={i % 2 !== 0 ? 'bg-brand-light-yellow/10' : ''}>
+                  <TableCell className="font-headline text-xl py-6 text-brand-teal">{row.day}</TableCell>
+                  <TableCell className="font-body font-bold text-brand-green">{row.task}</TableCell>
+                  <TableCell className="font-body text-sm text-brand-green/60">{row.detail}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+
+      {/* 11E: Technical Load-In & Strike Protocol */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          11E: Technical Load-In & Strike Protocol (Event Day)
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              On-site operations are governed by a strict "T-Minus" clock. We prioritize technical stability and aesthetic perfection early in the day to ensure the "Golden Hour" transition is entirely focused on the attendee experience.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "We don't build in front of the guest. The brand is fully materialised 60 minutes before the first door opens."
+            </div>
           </div>
-          <div className="grid grid-cols-6 gap-2 mt-8">
-            {["2PM", "3PM", "4PM", "5PM", "7PM", "9PM"].map((time, i) => (
-              <div key={i} className="text-center group">
-                <span className="font-headline text-lg text-brand-green mb-2 block">{time}</span>
-                <div className="p-3 bg-white border border-brand-green/5 rounded-xl text-[9px] font-bold uppercase tracking-widest text-brand-green/40 group-hover:border-brand-gold transition-colors">
-                  {i === 0 ? "Doors Open" : i === 1 ? "Warm-up" : i === 2 ? "Peak energy" : i === 3 ? "Headline" : i === 4 ? "Golden Hour" : "Close"}
-                </div>
-              </div>
-            ))}
+
+          <div className="bg-white rounded-[30px] overflow-hidden border border-brand-green/5 shadow-lg">
+            <Table>
+              <TableHeader className="bg-brand-teal">
+                <TableRow className="hover:bg-transparent border-none">
+                  <TableHead className="text-white font-headline tracking-widest py-6">Time</TableHead>
+                  <TableHead className="text-white font-headline tracking-widest">Action</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {setupProtocol.map((row, i) => (
+                  <TableRow key={i} className="group hover:bg-brand-teal/5 transition-colors">
+                    <TableCell className="font-headline text-lg py-6 text-brand-teal">{row.time}</TableCell>
+                    <TableCell className="py-6">
+                      <div className="font-body font-bold text-brand-green">{row.task}</div>
+                      <div className="font-body text-xs text-brand-green/50 italic">{row.detail}</div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </div>
         </div>
       </div>
 
-      {/* Staffing Matrix */}
+      {/* 11F: The Unified Command Structure */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          11F: The Unified Command Structure
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <Card className="p-8 bg-white border border-brand-green/5 rounded-[24px] space-y-4 hover:border-brand-gold transition-colors group">
+            <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Radio size={24} />
+            </div>
+            <h4 className="font-headline text-2xl text-brand-green uppercase">Central Producer</h4>
+            <p className="font-body text-xs text-brand-green/60 leading-relaxed">The single point of accountability. Manages the 'Run of Show' clock and resolves all cross-departmental conflicts.</p>
+          </Card>
+
+          <Card className="p-8 bg-white border border-brand-green/5 rounded-[24px] space-y-4 hover:border-brand-gold transition-colors group">
+            <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Target size={24} />
+            </div>
+            <h4 className="font-headline text-2xl text-brand-green uppercase">Department Leads</h4>
+            <p className="font-body text-xs text-brand-green/60 leading-relaxed">Dedicated leads for AV, F&B, Security, and Content. Each operates with autonomous checklists within the Producer's frame.</p>
+          </Card>
+
+          <Card className="p-8 bg-brand-green text-white border-none rounded-[24px] space-y-4 shadow-xl group">
+            <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
+              <ShieldCheck size={24} />
+            </div>
+            <h4 className="font-headline text-2xl text-brand-gold uppercase">Crisis Protocol</h4>
+            <p className="font-body text-xs text-white/70 leading-relaxed">Pre-defined responses for technical failure, medical needs, or capacity surges. Every lead is trained on 'The Quiet Resolution'.</p>
+          </Card>
+        </div>
+      </div>
+
+      {/* Staffing Matrix (Existing 11C) */}
       <div className="space-y-8 animate-fade-in-up">
         <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
           11C: The Human Infrastructure (Staffing Matrix)
@@ -117,7 +201,6 @@ export const EventProductionSection = () => {
             </Table>
           </div>
 
-          {/* Compliance Checklist */}
           <Card className="p-8 bg-brand-green text-white rounded-[30px] flex flex-col gap-8 shadow-xl">
             <h5 className="font-headline text-2xl text-brand-gold border-b border-white/10 pb-4">COMPLIANCE PROTOCOL</h5>
             <ul className="space-y-6">
