@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -19,7 +18,7 @@ export const MeasurementROInSection = () => {
       {/* Strategic Intro - Proportional Anchor */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center animate-fade-in-up">
         <div className="space-y-6">
-          <div className="section-label">12A: Data Accountability</div>
+          <div className="section-label">06C: Data Accountability</div>
           <h3 className="font-headline text-3xl md:text-5xl text-brand-green uppercase leading-tight">
             Measured energy, <br/>calculated returns.
           </h3>

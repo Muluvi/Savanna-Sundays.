@@ -26,7 +26,7 @@ const sectionsData = [
   { 
     id: 'the-gap', 
     label: '01 — THE GAP', 
-    title: '300,000 DECISIONS. ZERO BRAND LOYALTY.', 
+    title: "300,000 DECISIONS. ZERO BRAND LOYALTY.", 
     variant: 'dark' as const, 
     component: <TheGap /> 
   },
@@ -87,8 +87,26 @@ const sectionsData = [
     )
   },
   { 
+    id: 'commercial-performance', 
+    label: '06 — THE NUMBERS', 
+    title: 'A REVENUE PLATFORM, NOT A COST LINE', 
+    variant: 'light' as const, 
+    component: (
+      <div className="space-y-24">
+        <div className="max-w-3xl animate-fade-in-up">
+          <p className="font-serif italic text-xl md:text-2xl lg:text-3xl text-brand-green/60 leading-relaxed mb-12">
+            Secondary sponsors, ticket revenue, VIP packages, and KWAL cross-portfolio integration turn every Sunday into a return.
+          </p>
+        </div>
+        <SponsorshipRevenueSection />
+        <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
+        <MeasurementROInSection />
+      </div>
+    )
+  },
+  { 
     id: 'creative-execution', 
-    label: '06 — CREATIVE EXECUTION', 
+    label: '07 — CREATIVE EXECUTION', 
     title: 'Sonic & Technical Standards', 
     variant: 'light' as const, 
     component: (
@@ -96,19 +114,6 @@ const sectionsData = [
         <MusicProgrammingSection />
         <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
         <EventProductionSection />
-      </div>
-    )
-  },
-  { 
-    id: 'commercial-performance', 
-    label: '07 — PERFORMANCE', 
-    title: 'Revenue & ROI Framework', 
-    variant: 'light' as const, 
-    component: (
-      <div className="space-y-24">
-        <SponsorshipRevenueSection />
-        <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
-        <MeasurementROInSection />
       </div>
     )
   },

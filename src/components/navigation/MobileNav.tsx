@@ -9,8 +9,10 @@ const sections = [
   { id: 'the-gap', label: '01 — THE GAP' },
   { id: 'dual-model', label: '02 — CONCEPT' },
   { id: 'the-experience', label: '03 — EXPERIENCE' },
-  { id: 'digital-ecosystem', label: '04 — ECOSYSTEM' },
+  { id: 'digital-ecosystem', label: '04 — CONTENT' },
   { id: 'demand-machine', label: '05 — MACHINE' },
+  { id: 'commercial-performance', label: '06 — NUMBERS' },
+  { id: 'creative-execution', label: '07 — EXECUTION' },
   { id: 'roadmap-partnership', label: '08 — PARTNER' },
 ];
 

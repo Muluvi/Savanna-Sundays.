@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -20,7 +19,7 @@ export const SponsorshipRevenueSection = () => {
       {/* Strategic Intro - Proportional Anchor */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center animate-fade-in-up">
         <div className="space-y-6">
-          <div className="section-label">09A: The Profit Engine</div>
+          <div className="section-label">06A: The Profit Engine</div>
           <h3 className="font-headline text-3xl md:text-5xl text-brand-green uppercase leading-tight">
             Moving beyond <br/>the cost-center.
           </h3>
@@ -61,7 +60,7 @@ export const SponsorshipRevenueSection = () => {
 
       {/* 9C: Production Framework Table */}
       <div className="space-y-8 animate-fade-in-up [animation-delay:400ms]">
-        <div className="section-label">09B: Production Investment Matrix</div>
+        <div className="section-label">06B: Production Investment Matrix</div>
         <div className="bg-white rounded-[32px] overflow-hidden border border-brand-green/5 shadow-xl">
           <Table>
             <TableHeader className="bg-brand-green">
