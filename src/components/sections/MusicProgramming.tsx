@@ -188,6 +188,43 @@ export const MusicProgrammingSection = () => {
         </div>
       </div>
 
+      {/* 7D: Recommended Artist Network */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          7D: Recommended Artist Network
+        </h3>
+        
+        <p className="font-body text-base text-brand-green/70 max-w-3xl leading-relaxed">
+          We select artists based on three criteria: technical excellence, cultural relevance, and "brand fit." The following list represents the core network capable of delivering the Savanna sonic identity.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { name: "DJ Nosh 254", role: "Commercial Peak", strength: "High-octane performance and massive commercial appeal. The engine for sunset sets." },
+            { name: "Suraj", role: "Afro-Tech Anchor", strength: "Global electronic music credibility. Anchors Savanna in the international Afro-house conversation." },
+            { name: "Jinku", role: "Rhythmic Innovator", strength: "Experimental and culturally deep. Perfect for the Golden Hour transition and brand storytelling." },
+            { name: "DJ Hypnotiq", role: "Technical Master", strength: "Elite technical precision and high brand recognition. Delivers consistent, high-fidelity sets." },
+            { name: "DJ Kace", role: "Vibe Specialist", strength: "The ultimate crowd reader. Expert at managing the transition from lounge energy to peak floor." },
+            { name: "Euggy", role: "Melodic Resolution", strength: "Specialized in deep, sophisticated Afro sounds. Ideal for premium cool-down or VIP lounge sets." },
+          ].map((dj, i) => (
+            <Card key={i} className="p-6 bg-white border border-brand-green/5 rounded-2xl flex flex-col gap-4 hover:border-brand-gold transition-all group">
+              <div className="flex justify-between items-start">
+                <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center">
+                  <Disc size={20} />
+                </div>
+                <Badge variant="outline" className="text-[10px] uppercase border-brand-teal/30 text-brand-teal px-2 py-0.5">{dj.role}</Badge>
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-headline text-xl text-brand-green uppercase">{dj.name}</h4>
+                <p className="font-body text-sm text-brand-green/60 leading-relaxed">
+                  {dj.strength}
+                </p>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+
       {/* Ecosystem Credentials */}
       <div className="bg-brand-green rounded-[30px] p-10 md:p-16 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
