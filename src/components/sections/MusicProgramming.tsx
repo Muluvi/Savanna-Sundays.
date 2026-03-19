@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Music, Sun, Sunset, Moon, Star, Mic2, Palette, Smile, CheckCircle2 } from 'lucide-react';
+import { Music, Sun, Sunset, Moon, Star, Mic2, Palette, Smile, CheckCircle2, Clock, Zap, Coffee } from 'lucide-react';
 import Image from 'next/image';
 
 const labels = [
@@ -53,6 +53,81 @@ export const MusicProgrammingSection = () => {
         </div>
       </div>
 
+      {/* 7B: The Energy Progression Schedule */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          7B: The Energy Progression Schedule
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              We engineer the energy arc to mirror the physical environment. As the venue transitions from natural daylight to golden hour and finally to night, the music follows a strictly curated BPM and intensity ladder.
+            </p>
+            <div className="font-serif italic text-lg text-brand-green border-l-4 border-brand-gold pl-6 py-2 bg-brand-gold/5">
+              "We don't peak too early. The build-up is where the brand loyalty is earned; the peak is where it's celebrated."
+            </div>
+            <p className="text-sm">
+              Each time slot is defined by a specific emotional intent, ensuring that the music never fights the setting, but enhances it.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-center gap-6 hover:border-brand-teal transition-colors group">
+              <div className="w-16 h-16 rounded-full bg-brand-teal/10 text-brand-teal flex flex-col items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Coffee size={20} />
+                <span className="font-headline text-xs mt-1">2–4 PM</span>
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-headline text-xl text-brand-green">THE ARRIVAL (DEEP HOUSE & NEO-SOUL)</h4>
+                <p className="font-body text-xs text-brand-green/60 leading-relaxed">
+                  Low BPM, high texture. Intent: Frictionless entry. Allows for conversation, photography, and the first signature serve.
+                </p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-center gap-6 hover:border-brand-gold transition-colors group">
+              <div className="w-16 h-16 rounded-full bg-brand-gold/10 text-brand-gold flex flex-col items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Sun size={20} />
+                <span className="font-headline text-xs mt-1">4–6 PM</span>
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-headline text-xl text-brand-green uppercase">THE GLOW (AFRO-HOUSE & MELODIC AMAPIANO)</h4>
+                <p className="font-body text-xs text-brand-green/60 leading-relaxed">
+                  The Golden Hour build. Rhythms become more physical as the sun begins to dip. Content capture reaches its highest value here.
+                </p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-center gap-6 shadow-xl group">
+              <div className="w-16 h-16 rounded-full bg-brand-gold text-brand-green flex flex-col items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Zap size={20} />
+                <span className="font-headline text-xs mt-1">6–8 PM</span>
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-headline text-xl text-brand-gold uppercase">THE PEAK (AMAPIANO & AFROBEAT)</h4>
+                <p className="font-body text-xs text-white/70 leading-relaxed">
+                  The Sunset Celebration. Maximum crowd density and energy. High-impact anthems that anchor the "Savanna Sunday" memory.
+                </p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-center gap-6 hover:border-brand-green transition-colors group opacity-60">
+              <div className="w-16 h-16 rounded-full bg-brand-green/10 text-brand-green flex flex-col items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Moon size={20} />
+                <span className="font-headline text-xs mt-1">8–9 PM</span>
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-headline text-xl text-brand-green uppercase">THE RESOLUTION (COOL-DOWN SETS)</h4>
+                <p className="font-body text-xs text-brand-green/60 leading-relaxed">
+                  A gentle decline in energy. Soulful edits and classic grooves encouraging a safe and premium departure experience.
+                </p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
       {/* Ecosystem Credentials */}
       <div className="bg-brand-green rounded-[30px] p-10 md:p-16 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
@@ -88,7 +163,7 @@ export const MusicProgrammingSection = () => {
         </div>
       </div>
 
-      {/* Energy Arc */}
+      {/* Energy Arc Visualization */}
       <div className="space-y-8">
         <div className="section-label">THE EVENT ENERGY ARC</div>
         <div className="relative h-24 w-full bg-white rounded-3xl overflow-hidden shadow-inner flex border border-brand-green/5">
