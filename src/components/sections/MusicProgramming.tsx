@@ -225,6 +225,46 @@ export const MusicProgrammingSection = () => {
         </div>
       </div>
 
+      {/* 7E: International Headliner Strategy */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          7E: International Headliner Strategy
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              To maintain Savanna’s position as a premium global brand, we implement a quarterly "SA-to-KE" bridge—bringing peak South African talent to Nairobi. This strategy anchors our most significant milestone events and provides the "big room" energy that justifies premium ticketing and maximum sponsor visibility.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "International headliners don't just sell tickets; they buy prestige. They validate Savanna Sundays as a world-class platform."
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4">
+            {[
+              { name: "Shimza", event: "Q1: Anniversary Edition", style: "Afro-Tech Master", icon: <Star size={20} /> },
+              { name: "Sun-El Musician", event: "Q2: Garden Gala", style: "Soulful Melodic", icon: <Star size={20} /> },
+              { name: "Da Capo", event: "Q3: Deep Tech Special", style: "Global Tribal", icon: <Star size={20} /> },
+              { name: "DJ Zinhle", event: "Q4: Year-End Finale", style: "Lifestyle & Energy", icon: <Star size={20} /> },
+            ].map((artist, i) => (
+              <Card key={i} className="p-5 bg-white border border-brand-green/5 rounded-2xl flex items-center justify-between hover:border-brand-gold transition-colors group">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-brand-gold text-brand-green flex items-center justify-center group-hover:scale-110 transition-transform">
+                    {artist.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-headline text-xl text-brand-green uppercase">{artist.name}</h4>
+                    <p className="font-body text-xs text-brand-green/40">{artist.style}</p>
+                  </div>
+                </div>
+                <Badge className="bg-brand-teal text-white border-none text-[10px]">{artist.event}</Badge>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Ecosystem Credentials */}
       <div className="bg-brand-green rounded-[30px] p-10 md:p-16 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
