@@ -7,13 +7,12 @@ import { cn } from '@/lib/utils';
 const sections = [
   { id: 'hero', label: '00 — START' },
   { id: 'the-gap', label: '01 — THE GAP' },
-  { id: 'dual-model', label: '02 — CONCEPT' },
+  { id: 'the-concept', label: '02 — CONCEPT' },
   { id: 'the-experience', label: '03 — EXPERIENCE' },
-  { id: 'digital-ecosystem', label: '04 — CONTENT' },
-  { id: 'demand-machine', label: '05 — MACHINE' },
-  { id: 'commercial-performance', label: '06 — NUMBERS' },
-  { id: 'creative-execution', label: '07 — EXECUTION' },
-  { id: 'roadmap-partnership', label: '08 — PARTNER' },
+  { id: 'the-content-engine', label: '04 — CONTENT' },
+  { id: 'the-demand-machine', label: '05 — MACHINE' },
+  { id: 'the-numbers', label: '06 — NUMBERS' },
+  { id: 'the-partnership', label: '07 — PARTNER' },
 ];
 
 export const MobileNav = () => {

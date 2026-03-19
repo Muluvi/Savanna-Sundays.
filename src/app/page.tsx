@@ -10,14 +10,12 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { TheGap } from '@/components/sections/TheGap';
 import { DualActivationModel } from '@/components/sections/DualModel';
 import { VisualIdentitySection } from '@/components/sections/VisualIdentity';
+import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
 import { ContentSocialSection } from '@/components/sections/ContentProduction';
 import { CommunityGrowthSection } from '@/components/sections/CommunityBuilding';
 import { AttendanceDemandSection } from '@/components/sections/Attendance';
-import { MusicProgrammingSection } from '@/components/sections/MusicProgramming';
-import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
-import { SponsorshipRevenueSection } from '@/components/sections/SponsorshipRevenue';
 import { DigitalInfrastructureSection } from '@/components/sections/DigitalInfrastructure';
-import { EventProductionSection } from '@/components/sections/EventProduction';
+import { SponsorshipRevenueSection } from '@/components/sections/SponsorshipRevenue';
 import { MeasurementROInSection } from '@/components/sections/MeasurementROI';
 import { GrowthRoadmapSection } from '@/components/sections/GrowthRoadmap';
 import { WhyFireflySection } from '@/components/sections/WhyFirefly';
@@ -31,7 +29,7 @@ const sectionsData = [
     component: <TheGap /> 
   },
   { 
-    id: 'dual-model', 
+    id: 'the-concept', 
     label: '02 — THE CONCEPT', 
     title: 'THE DUAL ACTIVATION MODEL', 
     variant: 'light' as const, 
@@ -51,17 +49,12 @@ const sectionsData = [
     ) 
   },
   { 
-    id: 'digital-ecosystem', 
+    id: 'the-content-engine', 
     label: '04 — THE CONTENT ENGINE', 
     title: 'ONE SUNDAY. 30 DAYS OF CONTENT.', 
     variant: 'light' as const, 
     component: (
       <div className="space-y-24">
-        <div className="max-w-3xl animate-fade-in-up">
-          <p className="font-serif italic text-xl md:text-2xl lg:text-3xl text-brand-green/60 leading-relaxed mb-12">
-            The event is the harvest. Content is the crop. Community is the soil.
-          </p>
-        </div>
         <ContentSocialSection />
         <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
         <CommunityGrowthSection />
@@ -69,17 +62,12 @@ const sectionsData = [
     )
   },
   { 
-    id: 'demand-machine', 
+    id: 'the-demand-machine', 
     label: '05 — THE DEMAND MACHINE', 
     title: 'HOW EVERY EDITION SELLS OUT', 
     variant: 'light' as const, 
     component: (
       <div className="space-y-24">
-        <div className="max-w-3xl animate-fade-in-up">
-          <p className="font-serif italic text-xl md:text-2xl lg:text-3xl text-brand-green/60 leading-relaxed mb-12">
-            Engineered scarcity, 14-day hype cycles, dark social distribution, and a referral engine that compounds with every Sunday.
-          </p>
-        </div>
         <AttendanceDemandSection />
         <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
         <DigitalInfrastructureSection />
@@ -87,17 +75,12 @@ const sectionsData = [
     )
   },
   { 
-    id: 'commercial-performance', 
+    id: 'the-numbers', 
     label: '06 — THE NUMBERS', 
     title: 'A REVENUE PLATFORM, NOT A COST LINE', 
     variant: 'light' as const, 
     component: (
       <div className="space-y-24">
-        <div className="max-w-3xl animate-fade-in-up">
-          <p className="font-serif italic text-xl md:text-2xl lg:text-3xl text-brand-green/60 leading-relaxed mb-12">
-            Secondary sponsors, ticket revenue, VIP packages, and KWAL cross-portfolio integration turn every Sunday into a return.
-          </p>
-        </div>
         <SponsorshipRevenueSection />
         <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
         <MeasurementROInSection />
@@ -105,22 +88,9 @@ const sectionsData = [
     )
   },
   { 
-    id: 'creative-execution', 
-    label: '07 — CREATIVE EXECUTION', 
-    title: 'Sonic & Technical Standards', 
-    variant: 'light' as const, 
-    component: (
-      <div className="space-y-24">
-        <MusicProgrammingSection />
-        <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
-        <EventProductionSection />
-      </div>
-    )
-  },
-  { 
-    id: 'roadmap-partnership', 
-    label: '08 — PARTNERSHIP', 
-    title: 'Growth & Agency Credibility', 
+    id: 'the-partnership', 
+    label: '07 — THE PARTNERSHIP', 
+    title: 'WHY FIREFLY. WHY NOW.', 
     variant: 'dark' as const, 
     component: (
       <div className="space-y-24">

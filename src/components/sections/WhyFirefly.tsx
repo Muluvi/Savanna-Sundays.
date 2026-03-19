@@ -1,9 +1,8 @@
-
 "use client";
 
 import React from 'react';
 import Image from 'next/image';
-import { WaterDroplets } from '@/components/brand/VisualElements';
+import { BrushStroke, WaterDroplets } from '@/components/brand/VisualElements';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight, Zap, ShieldCheck, CheckCircle2, Award } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -16,19 +15,27 @@ export const WhyFireflySection = () => {
       <WaterDroplets className="opacity-10" />
       
       <div className="relative z-10 space-y-16 md:space-y-32">
-        {/* 14A: Strategic Pull Quote - Law of Proportions */}
-        <div className="max-w-5xl mx-auto text-center space-y-8 animate-fade-in-up">
-           <div className="w-12 h-[1px] bg-brand-gold/30 mx-auto mb-12" />
-          <h3 className="font-serif italic text-[clamp(24px,5vw,56px)] leading-tight text-white px-6">
-            "Savanna Sundays needs a partner who builds <span className="text-brand-gold">communities</span>, not campaigns — and <span className="text-brand-gold">content engines</span>, not recaps."
-          </h3>
-          <div className="w-12 h-[1px] bg-brand-gold/30 mx-auto mt-12" />
+        {/* The Emotional Climax Pull Quote */}
+        <div className="relative py-12 md:py-24 flex flex-col items-center justify-center animate-fade-in-up">
+          <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+            <span className="font-headline text-[120px] md:text-[220px] text-brand-gold opacity-[0.03] select-none leading-none">
+              VISION
+            </span>
+          </div>
+          
+          <div className="relative z-10 max-w-4xl text-center">
+            <BrushStroke className="w-48 h-auto opacity-20 -rotate-2 -translate-y-6 mx-auto" color="#F4C542" />
+            <h3 className="font-serif italic text-3xl md:text-5xl lg:text-6xl text-brand-gold leading-[1.15] px-4">
+              "When Nairobi thinks Sunday, they should think Savanna."
+            </h3>
+            <div className="w-16 h-[2px] bg-brand-gold/30 mx-auto mt-10" />
+          </div>
         </div>
 
         {/* 14B: The Firefly Shift - Visual Aids */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start animate-fade-in-up [animation-delay:200ms]">
           <div className="space-y-6">
-            <div className="section-label">14B: The Content-First Mandate</div>
+            <div className="section-label">07B: The Content-First Mandate</div>
             <h4 className="font-headline text-3xl md:text-5xl text-brand-gold uppercase leading-tight">We aren't an events company.</h4>
             <p className="font-body text-sm md:text-lg text-brand-cream/60 leading-relaxed">
               Firefly is a <strong>content-first activation agency</strong>. We use physical events as our primary production set to generate the narrative assets that define premium culture.
