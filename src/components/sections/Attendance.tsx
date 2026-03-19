@@ -5,7 +5,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Users, Volume2, TrendingUp, CheckCircle2, Ticket, Mail, Clock, Smartphone, Share2, Award, Link as LinkIcon, LineChart } from 'lucide-react';
+import { Users, Volume2, TrendingUp, CheckCircle2, Ticket, Mail, Clock, Smartphone, Share2, Award, Link as LinkIcon, LineChart, QrCode, MessageSquare } from 'lucide-react';
 
 export const AttendanceDemandSection = () => {
   return (
@@ -415,6 +415,90 @@ export const AttendanceDemandSection = () => {
                 </p>
               </div>
             </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* 6H: WhatsApp-Optimized Digital Invites */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          6H: WhatsApp-Optimized Digital Invites
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              WhatsApp is the primary discovery engine in Nairobi. For an invite to convert, it must be optimized for the "chat preview" experience. We move beyond generic flyers to "thumb-stopping" digital assets that prioritize immediate clarity and aesthetic appeal.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "In dark social, the invite is the brand. If it looks cluttered, the event feels chaotic. If it looks clean, the event feels premium."
+            </div>
+            
+            <div className="space-y-4 pt-4">
+              <h4 className="font-headline text-xl text-brand-green">Technical Optimization Standards</h4>
+              <ul className="space-y-4">
+                <li className="flex gap-4 items-start">
+                  <div className="w-6 h-6 rounded-full bg-brand-gold text-brand-green flex items-center justify-center font-headline text-xs shrink-0 mt-1">1</div>
+                  <p className="text-sm"><strong>Minimal Text Hierarchy:</strong> Only 4 key data points allowed: Date, Venue, Key Lineup, and QR. Secondary info is for the landing page, not the invite.</p>
+                </li>
+                <li className="flex gap-4 items-start">
+                  <div className="w-6 h-6 rounded-full bg-brand-gold text-brand-green flex items-center justify-center font-headline text-xs shrink-0 mt-1">2</div>
+                  <p className="text-sm"><strong>Bold Visual Anchor:</strong> 70% of the graphic is dedicated to a high-contrast lifestyle image or 3D brand element. It must be recognizable in a tiny thumbnail.</p>
+                </li>
+                <li className="flex gap-4 items-start">
+                  <div className="w-6 h-6 rounded-full bg-brand-gold text-brand-green flex items-center justify-center font-headline text-xs shrink-0 mt-1">3</div>
+                  <p className="text-sm"><strong>Anti-Crop Dimensions:</strong> We utilize 1:1 (Square) or 4:5 (Portrait) ratios to ensure no critical info (like the QR or Date) is cut off by the WhatsApp UI.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            {/* WhatsApp Invite Mockup */}
+            <div className="relative w-[320px] aspect-[4/5] bg-brand-green rounded-[40px] p-6 shadow-2xl overflow-hidden border-8 border-brand-ink/20 group">
+               {/* Background Texture */}
+               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[size:20px_20px]" />
+               
+               <div className="relative h-full flex flex-col justify-between z-10">
+                 <div className="space-y-2">
+                   <div className="section-label text-brand-gold border-none p-0 mb-0">Presented by Firefly</div>
+                   <h5 className="font-headline text-5xl text-white leading-[0.85]">SAVANNA<br/><span className="text-brand-gold">SUNDAYS</span></h5>
+                 </div>
+
+                 <div className="space-y-6">
+                    <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+                       <div className="flex justify-between items-end">
+                         <div>
+                            <span className="block font-headline text-brand-gold text-sm tracking-widest">VENUE</span>
+                            <span className="font-headline text-2xl text-white">THE ALCHEMIST</span>
+                         </div>
+                         <div className="text-right">
+                            <span className="block font-headline text-brand-gold text-sm tracking-widest">DATE</span>
+                            <span className="font-headline text-2xl text-white">MAR 24</span>
+                         </div>
+                       </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 bg-brand-gold p-4 rounded-2xl">
+                       <div className="bg-white p-1 rounded-lg">
+                          <QrCode className="text-brand-green" size={48} />
+                       </div>
+                       <div className="flex-1">
+                          <span className="block font-headline text-brand-green text-sm leading-none">SCAN TO RSVP</span>
+                          <span className="block font-body text-[10px] font-bold text-brand-green/60 uppercase tracking-tighter">Limited Capacity · 23+</span>
+                       </div>
+                    </div>
+                 </div>
+               </div>
+
+               {/* Mock WhatsApp Overlay */}
+               <div className="absolute inset-0 bg-brand-ink/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
+                  <div className="bg-white px-6 py-3 rounded-full flex items-center gap-3 shadow-xl">
+                    <MessageSquare className="text-brand-green" size={20} />
+                    <span className="font-headline text-brand-green text-lg">SEND VIA WHATSAPP</span>
+                  </div>
+               </div>
+            </div>
           </div>
         </div>
       </div>
