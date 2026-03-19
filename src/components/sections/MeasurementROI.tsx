@@ -5,32 +5,127 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { ArrowRight, TrendingUp, BarChart3, Wallet, Heart, Target } from 'lucide-react';
+import { ArrowRight, TrendingUp, BarChart3, Wallet, Target, Users, Zap, ShoppingBag, Share2, Search, CheckCircle2, Clock } from 'lucide-react';
+
+const primaryKPIs = [
+  { 
+    label: "Attendance Metrics", 
+    value: "800+ PAX", 
+    sub: "90% Scan Accuracy", 
+    icon: <Users size={20} />,
+    metrics: ["Unique QR Scans", "Arrival Velocity", "Dwell Time"]
+  },
+  { 
+    label: "Digital Engagement", 
+    value: "1.2M+", 
+    sub: "Monthly Reach", 
+    icon: <Share2 size={20} />,
+    metrics: ["UGC Posts", "Reels Impressions", "WhatsApp Shares"]
+  },
+  { 
+    label: "Sales Velocity", 
+    value: "2.8 Units", 
+    sub: "Avg. Per Attendee", 
+    icon: <ShoppingBag size={20} />,
+    metrics: ["Variant Mix ROI", "VIP Spend Index", "Sampling Conversion"]
+  },
+  { 
+    label: "Content Output", 
+    value: "150+ Assets", 
+    sub: "Per Edition Harvest", 
+    icon: <Zap size={20} />,
+    metrics: ["High-Res Photos", "Cinematic Reels", "Mix Series Plays"]
+  },
+];
 
 export const MeasurementROInSection = () => {
   return (
     <div className="space-y-24">
-      {/* KPI ROI Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {[
-          { label: "Cost Per Attendee", value: "KSh 850", trend: "-5% vs Industry", color: "text-brand-teal" },
-          { label: "Earned Media Value", value: "KSh 2.4M", trend: "7.4x Multiple", color: "text-brand-teal" },
-          { label: "Content Shelf-Life", value: "45 Days", trend: "High Impact", color: "text-brand-teal" },
-          { label: "Community Growth", value: "18%", trend: "MoM Compound", color: "text-brand-teal" },
-          { label: "Sponsor Revenue", value: "KSh 4.2M", trend: "Edition Avg", color: "text-brand-teal" },
-          { label: "Retainer Multiple", value: "12x", trend: "Annualized ROI", color: "text-brand-teal" },
-          { label: "Brand Recall Score", value: "92/100", trend: "Premium Tier", color: "text-brand-teal" },
-          { label: "Retention Rate", value: "64%", trend: "Loyal Core", color: "text-brand-teal" },
-        ].map((item, i) => (
-          <Card key={i} className="p-6 bg-white border border-brand-green/5 rounded-2xl flex flex-col gap-2 hover:border-brand-gold transition-colors">
-            <span className="font-body font-bold text-[10px] tracking-widest text-brand-green/40 uppercase">{item.label}</span>
-            <div className="font-headline text-3xl text-brand-green leading-none">{item.value}</div>
-            <div className="flex items-center gap-2">
-              <TrendingUp size={12} className={item.color} />
-              <span className={`text-[10px] font-bold ${item.color} uppercase`}>{item.trend}</span>
+      {/* Strategic Intro */}
+      <div className="font-body font-light text-[15px] text-brand-green/55 max-w-[680px] leading-[1.7] animate-fade-in-up">
+        <p>
+          At Firefly, we believe that if it isn't measured, it didn't happen. We move beyond "vanity metrics" to a rigorous data-driven accountability framework. Every edition of Savanna Sundays is backed by a comprehensive ROI report that links physical attendance and content capture directly to KWAL's commercial objectives. Measurement is our primary tool for continuous optimization and strategic transparency.
+        </p>
+      </div>
+
+      {/* 12A: The Real-Time KPI Dashboard */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          12A: The Real-Time KPI Dashboard
+        </h3>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {primaryKPIs.map((kpi, i) => (
+            <Card key={i} className="p-8 bg-white border border-brand-green/5 rounded-[32px] flex flex-col gap-6 hover:border-brand-gold transition-all group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
+                {kpi.icon}
+              </div>
+              <div className="space-y-1">
+                <span className="font-body font-bold text-[10px] tracking-[2px] text-brand-teal uppercase">{kpi.label}</span>
+                <div className="font-headline text-4xl text-brand-green leading-none">{kpi.value}</div>
+                <p className="font-body text-xs text-brand-green/40">{kpi.sub}</p>
+              </div>
+              <div className="pt-4 border-t border-brand-green/5 space-y-2">
+                {kpi.metrics.map((m, mi) => (
+                  <div key={mi} className="flex items-center gap-2">
+                    <div className="w-1 h-1 rounded-full bg-brand-gold" />
+                    <span className="font-body text-[10px] uppercase font-bold text-brand-green/60">{m}</span>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      {/* 12B: The Reporting Mandate */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          12B: The Post-Event Reporting Mandate
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              Accountability doesn't end when the event stops. Firefly delivers a **Comprehensive Post-Event ROI Audit** within 72 hours of every owned edition. This report serves as KWAL's primary strategic asset for internal stakeholders.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "Data-driven reporting transforms marketing spend into a strategic investment. We provide the proof of impact that validates Savanna's market hegemony."
             </div>
-          </Card>
-        ))}
+          </div>
+
+          <div className="grid grid-cols-1 gap-4">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0">
+                <BarChart3 size={20} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-1">Commercial Impact Audit</h4>
+                <p className="font-body text-xs text-brand-green/60">Precise breakdown of bottles sold, variant performance, and VIP table ROI.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-10 h-10 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0">
+                <Search size={20} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-1">Sentiment & Data Mapping</h4>
+                <p className="font-body text-xs text-brand-green/60">Processing of consumer poll data and community feedback to map brand perception.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-10 h-10 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center shrink-0">
+                <Clock size={20} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-1">Optimization Insights</h4>
+                <p className="font-body text-xs text-brand-green/60">Actionable recommendations for the next Sunday cycle based on real-time learnings.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
       </div>
 
       {/* ROI Flow Cards */}
