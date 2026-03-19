@@ -5,7 +5,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Users, Volume2, TrendingUp, CheckCircle2, Ticket, Mail, Clock, Smartphone, Share2, Award, Link as LinkIcon, LineChart, QrCode, MessageSquare, XCircle, Zap } from 'lucide-react';
+import { Users, Volume2, TrendingUp, CheckCircle2, Ticket, Mail, Clock, Smartphone, Share2, Award, Link as LinkIcon, LineChart, QrCode, MessageSquare, XCircle, Zap, DoorOpen, Hourglass, Signal } from 'lucide-react';
 
 export const AttendanceDemandSection = () => {
   return (
@@ -502,6 +502,60 @@ export const AttendanceDemandSection = () => {
               <div>
                 <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">"You Had To Be There"</h4>
                 <p className="font-body text-sm text-white/70">Anchors the psychological triggers of experience scarcity.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* 6J: Controlled Entry & Queue Management */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          6J: Controlled Entry & Queue Management
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              Perception of demand is often more important than actual numbers. We manage entry flow to ensure that Savanna Sundays always looks like the most sought-after destination in the city.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "A visible line is an 8-hour live advertisement. It validates the brand's prestige to every passerby."
+            </div>
+            <p className="text-sm font-bold text-brand-green uppercase tracking-wider mt-4">The Logic of the Line</p>
+            <p className="text-xs italic leading-relaxed">
+              Visible lines create immediate social proof. In Nairobi's competitive Sunday landscape, a queue signals exclusivity and high-quality entertainment before a guest even hears the first beat.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <DoorOpen size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Open Entry Early</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Zero-friction inflow from 2PM to 4PM to ensure the floor is 'camera-ready' for Golden Hour content.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Hourglass size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Peak Pulse Queueing</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Strategic 'holding' of entry once 60% capacity is reached to create a visible external queue during peak hours.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Signal size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Visible Demand Signal</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Transforming the wait time into a status symbol that anchors Savanna's position as Nairobi's top Sunday choice.</p>
               </div>
             </Card>
           </div>
