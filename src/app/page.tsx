@@ -50,18 +50,18 @@ export default function Home() {
       
       <main className="md:ml-64 transition-all">
         {/* Hero Section */}
-        <section id="hero" className="relative min-h-screen dark-section flex flex-col items-center justify-center text-center px-6 py-20 overflow-hidden">
-          <WaterDroplets />
+        <section id="hero" className="relative min-h-screen dark-section flex flex-col items-center justify-center text-center px-6 py-12 overflow-hidden">
+          <WaterDroplets className="opacity-20" />
           
-          <div className="absolute top-8 left-8 md:top-12 md:left-12 flex flex-col items-start z-20">
-            <span className="text-[8px] md:text-[10px] tracking-[5px] text-brand-teal uppercase mb-2 font-bold">Presented by</span>
+          <div className="relative z-20 flex flex-col items-center mb-12 animate-fade-in-up">
+            <span className="text-[10px] tracking-[4px] md:tracking-[6px] text-brand-gold uppercase mb-4 font-bold opacity-60">Presented by</span>
             {logo && (
-              <div className="relative w-[160px] h-[44px] md:w-[220px] md:h-[60px]">
+              <div className="relative w-[220px] h-[55px] md:w-[320px] md:h-[80px]">
                 <Image 
                   src={logo.imageUrl} 
                   alt="Firefly Management" 
                   fill
-                  className="object-contain object-left"
+                  className="object-contain"
                   priority
                 />
               </div>
@@ -69,41 +69,22 @@ export default function Home() {
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto w-full">
-            <div className="animate-fade-in-up">
-              <h1 className="leading-[0.85] mb-6">
-                <span className="block text-white text-[clamp(48px,12vw,120px)] font-headline">SAVANNA</span>
-                <span className="block text-brand-gold text-[clamp(48px,12vw,120px)] font-headline">SUNDAYS</span>
+            <div className="animate-fade-in-up [animation-delay:200ms]">
+              <h1 className="leading-[0.85] mb-8">
+                <span className="block text-white text-[clamp(56px,14vw,160px)] font-headline tracking-tighter">SAVANNA</span>
+                <span className="block text-brand-gold text-[clamp(56px,14vw,160px)] font-headline tracking-tighter">SUNDAYS</span>
               </h1>
               
-              <div className="max-w-md md:max-w-xl mx-auto mt-6 md:mt-8 border-l-2 md:border-l-4 border-brand-gold pl-4 md:pl-6 text-left">
-                <p className="font-serif italic text-lg md:text-2xl text-brand-cream/70 leading-relaxed">
-                  Own Every Sunday in Nairobi — A Comprehensive Activation Proposal
+              <div className="max-w-2xl mx-auto space-y-6">
+                <p className="font-serif italic text-xl md:text-3xl text-brand-cream/80 leading-relaxed">
+                  Own Every Sunday in Nairobi
                 </p>
-              </div>
-            </div>
-
-            {/* Stats Row */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-16 md:mt-24 animate-fade-in-up [animation-delay:200ms]">
-              <div className="flex flex-col items-center">
-                <span className="font-headline text-3xl md:text-5xl text-brand-gold">14</span>
-                <span className="font-body text-[8px] md:text-[10px] tracking-widest text-brand-cream/40 uppercase font-bold">Sections</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="font-headline text-3xl md:text-5xl text-brand-gold">6</span>
-                <span className="font-body text-[8px] md:text-[10px] tracking-widest text-brand-cream/40 uppercase font-bold">Venues</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="font-headline text-3xl md:text-5xl text-brand-gold">30+</span>
-                <span className="font-body text-[8px] md:text-[10px] tracking-widest text-brand-cream/40 uppercase font-bold">Content Days</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="font-headline text-3xl md:text-5xl text-brand-gold">5</span>
-                <span className="font-body text-[8px] md:text-[10px] tracking-widest text-brand-cream/40 uppercase font-bold">Solutions</span>
+                <div className="w-16 h-[2px] bg-brand-gold mx-auto opacity-30" />
               </div>
             </div>
           </div>
 
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce z-10 opacity-30">
             <ChevronDown className="text-brand-gold" size={32} />
           </div>
         </section>
@@ -122,12 +103,12 @@ export default function Home() {
         ))}
 
         {/* Footer */}
-        <footer className="bg-brand-ink py-16 md:py-24 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
-          <WaterDroplets />
+        <footer className="bg-brand-ink py-16 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
+          <WaterDroplets className="opacity-10" />
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 md:gap-12 relative z-10">
             <div className="flex flex-col items-center md:items-start">
               {logo && (
-                <div className="relative w-[140px] h-[40px] mb-6">
+                <div className="relative w-[180px] h-[45px] mb-6">
                   <Image 
                     src={logo.imageUrl} 
                     alt="Firefly Management" 
