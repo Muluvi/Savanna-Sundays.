@@ -1,5 +1,7 @@
 
-import React from 'react';
+"use client";
+
+import React, { useEffect, useState } from 'react';
 
 export const BrushStroke = ({ className, color = "#F4C542", opacity = 0.85 }: { className?: string; color?: string; opacity?: number }) => (
   <svg viewBox="0 0 200 60" className={className} style={{ position: 'absolute', zIndex: 0 }}>
@@ -28,21 +30,38 @@ export const LiquidSplash = ({ className, color = "#F4C542" }: { className?: str
   </div>
 );
 
-export const WaterDroplets = ({ className }: { className?: string }) => (
-  <div className={`absolute inset-0 pointer-events-none ${className}`}>
-    {[...Array(20)].map((_, i) => (
-      <div 
-        key={i} 
-        className="absolute rounded-full"
-        style={{
-          width: `${Math.random() * 6 + 2}px`,
-          height: `${Math.random() * 6 + 2}px`,
-          top: `${Math.random() * 100}%`,
-          left: `${Math.random() * 100}%`,
-          backgroundColor: Math.random() > 0.5 ? '#F4C542' : '#2D8C7F',
-          opacity: Math.random() * 0.35 + 0.3
-        }}
-      />
-    ))}
-  </div>
-);
+export const WaterDroplets = ({ className }: { className?: string }) => {
+  const [droplets, setDroplets] = useState<{
+    width: string;
+    height: string;
+    top: string;
+    left: string;
+    backgroundColor: string;
+    opacity: number;
+  }[]>([]);
+
+  useEffect(() => {
+    // Generate random values only on the client to avoid hydration mismatch
+    const generated = [...Array(20)].map(() => ({
+      width: `${Math.random() * 6 + 2}px`,
+      height: `${Math.random() * 6 + 2}px`,
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      backgroundColor: Math.random() > 0.5 ? '#F4C542' : '#2D8C7F',
+      opacity: Math.random() * 0.35 + 0.3
+    }));
+    setDroplets(generated);
+  }, []);
+
+  return (
+    <div className={`absolute inset-0 pointer-events-none ${className}`}>
+      {droplets.map((style, i) => (
+        <div 
+          key={i} 
+          className="absolute rounded-full"
+          style={style}
+        />
+      ))}
+    </div>
+  );
+};

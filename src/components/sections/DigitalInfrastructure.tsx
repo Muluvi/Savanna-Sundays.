@@ -1,7 +1,7 @@
 
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { QrCode, Wifi, CreditCard, Activity, Smartphone, Share2, Database, BarChart3 } from 'lucide-react';
@@ -16,6 +16,12 @@ const platforms = [
 ];
 
 export const DigitalInfrastructureSection = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className="space-y-24">
       {/* Platform Integration Stack */}
@@ -31,7 +37,8 @@ export const DigitalInfrastructureSection = () => {
              <span className="font-headline text-brand-gold leading-none text-xl">SAVANNA<br/>DIGITAL HUB</span>
           </div>
 
-          {platforms.map((p, i) => {
+          {/* trigonometric calculations can vary slightly in precision between server and client */}
+          {mounted && platforms.map((p, i) => {
             const angle = (i * (360 / platforms.length)) * (Math.PI / 180);
             const x = Math.cos(angle) * 160;
             const y = Math.sin(angle) * 160;
