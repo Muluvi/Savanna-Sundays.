@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { QrCode, Wifi, CreditCard, Activity, Smartphone, Share2, Database, BarChart3, CheckCircle2, Ticket, Users, Layers, MousePointerClick, MessageSquare, BellRing, Utensils, Globe, Vote } from 'lucide-react';
+import { QrCode, Wifi, CreditCard, Activity, Smartphone, Share2, Database, BarChart3, CheckCircle2, Ticket, Users, Layers, MousePointerClick, MessageSquare, BellRing, Utensils, Globe, Vote, Filter, Target, Search } from 'lucide-react';
 import Image from 'next/image';
 
 const platforms = [
@@ -254,6 +254,60 @@ export const DigitalInfrastructureSection = () => {
               <div>
                 <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Real-Time Pulse Polls</h4>
                 <p className="font-body text-sm text-white/70 leading-relaxed">Interactive polls asking for feedback on DJs or venue preferences. Engagement results are mapped directly to individual CRM profiles.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* 10F: The CRM Intelligence System */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          10F: The CRM Intelligence System (Lifecycle Marketing)
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              The data captured through TicketSasa and the QR Ecosystem is funneled into a centralized CRM. We don't just store names; we build behavioral profiles. This allows Savanna to transition from mass-market broadcasting to **precision cohort targeting**.
+            </p>
+            <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2 bg-brand-gold/5">
+              "A database is only as valuable as its segments. By understanding 'Who' is attending and 'Why,' we turn every Sunday into a targeted recruitment drive for the next."
+            </div>
+            <p className="text-sm font-bold text-brand-green uppercase tracking-wider mt-4">The Personalization Mandate</p>
+            <p className="text-xs italic leading-relaxed">
+              We ensure that a 'First-Time' attendee receives a different post-event sequence than a 'Silver-Tier' Ambassador.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Filter size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Dynamic Segmentation</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Categorizing the community by geographic neighborhood, cider variant preference, and musical taste based on QR poll data.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Target size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Cohort-Based Targeting</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Executing micro-campaigns. For example: sending a 'Free 0.0' voucher to the 'Designated Driver' cohort to drive repeat attendance.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Search size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Churn Prediction Analytics</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Identifying members who haven't attended in 2+ cycles and triggering automated re-engagement offers through WhatsApp.</p>
               </div>
             </Card>
           </div>
