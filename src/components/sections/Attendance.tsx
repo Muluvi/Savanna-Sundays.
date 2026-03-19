@@ -5,7 +5,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Users, Volume2, TrendingUp, CheckCircle2, Calendar, Zap, Rocket, Bell, Play, Ticket, Mail, Clock, Smartphone } from 'lucide-react';
+import { Users, Volume2, TrendingUp, CheckCircle2, Calendar, Zap, Rocket, Bell, Play, Ticket, Mail, Clock, Smartphone, Share2, Award, Gift } from 'lucide-react';
 
 export const AttendanceDemandSection = () => {
   return (
@@ -13,7 +13,7 @@ export const AttendanceDemandSection = () => {
       {/* Strategic Intro */}
       <div className="font-body font-light text-[15px] text-brand-green/55 max-w-[680px] leading-[1.7] animate-fade-in-up">
         <p>
-          Engineering attendance is a repeatable system of demand management. We treat every Sunday as a high-stakes launch, using a precise 14-day sequence that transforms passive awareness into urgent action. We don’t just fill rooms; we build queues that validate the brand’s premium status.
+          Engineering attendance is a repeatable system of demand management. We treat every Sunday as a high-stakes launch, using a precise 14-day sequence that transforms passive awareness into urgent action. We don’t just fill rooms; we build queues that validate the brand’s premium status through psychological triggers and viral loops.
         </p>
       </div>
 
@@ -187,6 +187,80 @@ export const AttendanceDemandSection = () => {
         </div>
       </div>
 
+      {/* 6C: Viral Growth & Referral Loops */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          6C: Viral Growth & Referral Loops
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              Social proof is the most effective sales tool. We transform every ticket holder into a micro-promoter through an automated referral engine that leverages Nairobi's dense WhatsApp culture.
+            </p>
+            <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2">
+              "When a friend invites a friend, the barrier to entry vanishes. We reward this trust with immediate status."
+            </div>
+            <p className="text-sm leading-relaxed">
+              By gamifying the invitation process, we achieve exponential growth: 1 guest recruits 3, those 3 recruit 9, and the community scales organically without increasing paid media spend.
+            </p>
+          </div>
+
+          <Card className="p-8 bg-brand-gold/10 border-2 border-brand-gold rounded-[32px] relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:scale-110 transition-transform">
+              <Share2 size={120} className="text-brand-gold" />
+            </div>
+            <div className="relative z-10 space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-brand-gold text-brand-green flex items-center justify-center">
+                  <Award size={24} />
+                </div>
+                <h4 className="font-headline text-3xl text-brand-green">"BRING 3, GET VIP"</h4>
+              </div>
+              <div className="space-y-4">
+                <div className="flex gap-4 items-start">
+                  <div className="w-6 h-6 rounded-full bg-brand-green text-brand-gold flex items-center justify-center font-headline text-xs shrink-0 mt-1">1</div>
+                  <p className="font-body text-sm text-brand-green/80"><strong>Unique Code Generation:</strong> Every ticket purchase generates a personalized referral link synced to the buyer's WhatsApp number.</p>
+                </div>
+                <div className="flex gap-4 items-start">
+                  <div className="w-6 h-6 rounded-full bg-brand-green text-brand-gold flex items-center justify-center font-headline text-xs shrink-0 mt-1">2</div>
+                  <p className="font-body text-sm text-brand-green/80"><strong>Automated Tracking:</strong> As friends use the code, the original buyer receives real-time progress notifications.</p>
+                </div>
+                <div className="flex gap-4 items-start">
+                  <div className="w-6 h-6 rounded-full bg-brand-green text-brand-gold flex items-center justify-center font-headline text-xs shrink-0 mt-1">3</div>
+                  <p className="font-body text-sm text-brand-green/80"><strong>Status Upgrade:</strong> Upon the 3rd successful referral, the buyer's ticket is automatically upgraded to VIP, granting table access and priority entry.</p>
+                </div>
+              </div>
+              <div className="pt-4 border-t border-brand-gold/20 flex flex-wrap gap-2">
+                <Badge className="bg-brand-green text-white">1 Referral: Free Drink</Badge>
+                <Badge className="bg-brand-teal text-white">3 Referrals: VIP Upgrade</Badge>
+                <Badge className="bg-brand-gold text-brand-green">5+ Referrals: Merch Bundle</Badge>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </div>
+
+      {/* 6D: Venue Capacity Perception */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          6D: Venue Capacity Perception
+        </h3>
+
+        <div className="space-y-8">
+          <p className="font-body text-base text-brand-green/70 max-w-3xl">
+            An event’s energy depends on crowd density. We manage this through 'Adaptive Zoning' and intentional staging:
+          </p>
+          <div className="font-serif italic text-xl md:text-2xl text-brand-green border-l-[3px] border-brand-gold pl-6 py-2">
+            "Every edition acts as visual proof of demand. If Nairobi doesn't see a crowd on their feed, they don't believe the vibe."
+          </div>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 font-body text-base text-brand-green/70">
+            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Staged Density:</strong> Modular furniture keeps active areas tight during early hours, expanding as peak energy builds.</li>
+            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Visual Validation:</strong> Photography is briefed to capture 'packed' frames—tight shots that communicate high demand.</li>
+          </ul>
+        </div>
+      </div>
+
       {/* 6E: Ticketing Models & Strategic Intent */}
       <div className="space-y-12 animate-fade-in-up">
         <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
@@ -283,50 +357,6 @@ export const AttendanceDemandSection = () => {
                ))}
              </div>
            </div>
-        </div>
-      </div>
-
-      {/* 6C: Referral-Driven Distribution */}
-      <div className="space-y-12 animate-fade-in-up">
-        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          6C: Referral-Driven Distribution
-        </h3>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 font-body text-base text-brand-green/70">
-          <div className="space-y-4">
-            <p>Social proof is the most effective sales tool. We leverage the ambassador network to turn attendance into a viral loop:</p>
-            <ul className="space-y-0">
-              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Ambassador Recruitment:</strong> Each ambassador is incentivized to bring 3+ new faces per edition.</li>
-              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Social Pods:</strong> Bundled ticket offers for groups of 4 or 6 ensure entire friendship circles attend together.</li>
-            </ul>
-          </div>
-          <div className="space-y-4">
-            <p>UGC acts as our primary recruitment advertisement for the next edition:</p>
-            <ul className="space-y-0">
-              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Visual Testimony:</strong> High-fi photos of attendees validated by the community drive peer-to-peer desire.</li>
-              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Archive Depth:</strong> A growing library of 'proof of vibe' makes every Sunday look like an institution.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* 6D: Venue Capacity Perception */}
-      <div className="space-y-12 animate-fade-in-up">
-        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          6D: Venue Capacity Perception
-        </h3>
-
-        <div className="space-y-8">
-          <p className="font-body text-base text-brand-green/70 max-w-3xl">
-            An event’s energy depends on crowd density. We manage this through 'Adaptive Zoning' and intentional staging:
-          </p>
-          <div className="font-serif italic text-xl md:text-2xl text-brand-green border-l-[3px] border-brand-gold pl-6 py-2">
-            "Every edition acts as visual proof of demand. If Nairobi doesn't see a crowd on their feed, they don't believe the vibe."
-          </div>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 font-body text-base text-brand-green/70">
-            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Staged Density:</strong> Modular furniture keeps active areas tight during early hours, expanding as peak energy builds.</li>
-            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Visual Validation:</strong> Photography is briefed to capture 'packed' frames—tight shots that communicate high demand.</li>
-          </ul>
         </div>
       </div>
 
