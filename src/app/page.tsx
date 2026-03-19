@@ -50,60 +50,61 @@ export default function Home() {
       
       <main className="md:ml-64 transition-all">
         {/* Hero Section */}
-        <section id="hero" className="relative min-h-screen dark-section flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+        <section id="hero" className="relative min-h-screen dark-section flex flex-col items-center justify-center text-center px-6 py-20 overflow-hidden">
           <WaterDroplets />
           
-          <div className="absolute top-12 left-12 flex flex-col items-start">
-            <span className="text-[10px] tracking-[5px] text-brand-teal uppercase mb-2 font-bold">Presented by</span>
+          <div className="absolute top-8 left-8 md:top-12 md:left-12 flex flex-col items-start z-20">
+            <span className="text-[8px] md:text-[10px] tracking-[5px] text-brand-teal uppercase mb-2 font-bold">Presented by</span>
             {logo && (
-              <Image 
-                src={logo.imageUrl} 
-                alt="Firefly Management" 
-                width={180} 
-                height={48} 
-                className="brightness-0 invert opacity-80"
-                priority
-              />
+              <div className="relative w-[120px] h-[32px] md:w-[180px] md:h-[48px]">
+                <Image 
+                  src={logo.imageUrl} 
+                  alt="Firefly Management" 
+                  fill
+                  className="brightness-0 invert opacity-80 object-contain object-left"
+                  priority
+                />
+              </div>
             )}
           </div>
 
-          <div className="relative z-10 max-w-5xl mx-auto">
+          <div className="relative z-10 max-w-5xl mx-auto w-full">
             <div className="animate-fade-in-up">
-              <h1 className="leading-[0.85] mb-4">
-                <span className="block text-white text-[clamp(56px,10vw,120px)] font-headline">SAVANNA</span>
-                <span className="block text-brand-gold text-[clamp(56px,10vw,120px)] font-headline">SUNDAYS</span>
+              <h1 className="leading-[0.85] mb-6">
+                <span className="block text-white text-[clamp(48px,12vw,120px)] font-headline">SAVANNA</span>
+                <span className="block text-brand-gold text-[clamp(48px,12vw,120px)] font-headline">SUNDAYS</span>
               </h1>
               
-              <div className="max-w-xl mx-auto mt-8 border-l-4 border-brand-gold pl-6 text-left">
-                <p className="font-serif italic text-2xl text-brand-cream/70 leading-relaxed">
+              <div className="max-w-md md:max-w-xl mx-auto mt-6 md:mt-8 border-l-2 md:border-l-4 border-brand-gold pl-4 md:pl-6 text-left">
+                <p className="font-serif italic text-lg md:text-2xl text-brand-cream/70 leading-relaxed">
                   Own Every Sunday in Nairobi — A Comprehensive Activation Proposal
                 </p>
               </div>
             </div>
 
             {/* Stats Row */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 animate-fade-in-up [animation-delay:200ms]">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-16 md:mt-24 animate-fade-in-up [animation-delay:200ms]">
               <div className="flex flex-col items-center">
-                <span className="font-headline text-5xl text-brand-gold">14</span>
-                <span className="font-body text-[10px] tracking-widest text-brand-cream/40 uppercase font-bold">Sections</span>
+                <span className="font-headline text-3xl md:text-5xl text-brand-gold">14</span>
+                <span className="font-body text-[8px] md:text-[10px] tracking-widest text-brand-cream/40 uppercase font-bold">Sections</span>
               </div>
               <div className="flex flex-col items-center">
-                <span className="font-headline text-5xl text-brand-gold">6</span>
-                <span className="font-body text-[10px] tracking-widest text-brand-cream/40 uppercase font-bold">Venues</span>
+                <span className="font-headline text-3xl md:text-5xl text-brand-gold">6</span>
+                <span className="font-body text-[8px] md:text-[10px] tracking-widest text-brand-cream/40 uppercase font-bold">Venues</span>
               </div>
               <div className="flex flex-col items-center">
-                <span className="font-headline text-5xl text-brand-gold">30+</span>
-                <span className="font-body text-[10px] tracking-widest text-brand-cream/40 uppercase font-bold">Content Days</span>
+                <span className="font-headline text-3xl md:text-5xl text-brand-gold">30+</span>
+                <span className="font-body text-[8px] md:text-[10px] tracking-widest text-brand-cream/40 uppercase font-bold">Content Days</span>
               </div>
               <div className="flex flex-col items-center">
-                <span className="font-headline text-5xl text-brand-gold">5</span>
-                <span className="font-body text-[10px] tracking-widest text-brand-cream/40 uppercase font-bold">Solutions</span>
+                <span className="font-headline text-3xl md:text-5xl text-brand-gold">5</span>
+                <span className="font-body text-[8px] md:text-[10px] tracking-widest text-brand-cream/40 uppercase font-bold">Solutions</span>
               </div>
             </div>
           </div>
 
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-            <ChevronDown className="text-brand-gold" size={40} />
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
+            <ChevronDown className="text-brand-gold" size={32} />
           </div>
         </section>
 
@@ -121,26 +122,27 @@ export default function Home() {
         ))}
 
         {/* Footer */}
-        <footer className="bg-brand-ink py-24 px-12 border-t border-white/5 relative overflow-hidden">
+        <footer className="bg-brand-ink py-16 md:py-24 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
           <WaterDroplets />
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 md:gap-12 relative z-10">
             <div className="flex flex-col items-center md:items-start">
               {logo && (
-                <Image 
-                  src={logo.imageUrl} 
-                  alt="Firefly Management" 
-                  width={120} 
-                  height={32} 
-                  className="brightness-0 invert opacity-30 mb-6"
-                />
+                <div className="relative w-[100px] h-[28px] mb-6">
+                  <Image 
+                    src={logo.imageUrl} 
+                    alt="Firefly Management" 
+                    fill
+                    className="brightness-0 invert opacity-30 object-contain"
+                  />
+                </div>
               )}
-              <p className="font-body text-[11px] tracking-[1.5px] uppercase text-brand-cream/30 text-center md:text-left">
+              <p className="font-body text-[9px] md:text-[11px] tracking-[1.5px] uppercase text-brand-cream/30 text-center md:text-left">
                 &copy; 2024 Firefly Management. All Rights Reserved.
               </p>
             </div>
 
             <div className="max-w-md text-center md:text-right">
-              <p className="font-body text-[11px] tracking-[1.5px] uppercase text-brand-cream/30 leading-relaxed">
+              <p className="font-body text-[9px] md:text-[11px] tracking-[1.5px] uppercase text-brand-cream/30 leading-relaxed">
                 Excessive alcohol consumption is harmful to your health · Not for sale to persons under the age of 18 years.
               </p>
             </div>
