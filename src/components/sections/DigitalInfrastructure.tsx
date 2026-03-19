@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { QrCode, Wifi, CreditCard, Activity, Smartphone, Share2, Database, BarChart3 } from 'lucide-react';
+import { QrCode, Wifi, CreditCard, Activity, Smartphone, Share2, Database, BarChart3, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 
 const platforms = [
@@ -24,6 +24,40 @@ export const DigitalInfrastructureSection = () => {
 
   return (
     <div className="space-y-24">
+      {/* Strategic Intro */}
+      <div className="font-body font-light text-[15px] text-brand-green/55 max-w-[680px] leading-[1.7] animate-fade-in-up">
+        <p>
+          We treat digital infrastructure as an intelligence system, not just a technical requirement. At Savanna Sundays, every physical interaction—from a ticket scan to a bar order—is a discrete data point that feeds into a continuous optimization loop. This allows KWAL to move beyond "estimated reach" to precise consumer understanding, turning the activation into a high-fidelity market research instrument.
+        </p>
+      </div>
+
+      {/* 10A: The Data Intelligence Framework */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          10A: The Data Intelligence Framework
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              Our infrastructure is designed to bridge the gap between physical experience and digital CRM. We don't just host people; we map their journey.
+            </p>
+            <ul className="space-y-0">
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>100% Data Capture:</strong> RSVP-gating ensures we own the email and phone number of every attendee.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Behavioral Tracking:</strong> Analyzing arrival times, beverage preferences, and dwell zones to optimize future editions.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Attribution Loops:</strong> Linking social media engagement directly to on-site attendance through unique tracking IDs.</li>
+            </ul>
+          </div>
+
+          <div className="bg-brand-cream/50 p-8 rounded-[32px] border border-brand-green/5 flex flex-col justify-center">
+            <h4 className="font-headline text-xl text-brand-green mb-4">The Optimization Loop</h4>
+            <div className="font-serif italic text-lg text-brand-teal leading-relaxed border-l-2 border-brand-teal pl-6 py-2">
+              "Data is the foundation of institutionalization. By treating every event as a learning cycle, we ensure that Savanna's marketing spend becomes more efficient with every Sunday."
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Platform Integration Stack */}
       <div className="py-12 flex flex-col items-center">
         <div className="section-label mb-16">The Digital Hub Ecosystem</div>
