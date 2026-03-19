@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -6,7 +7,7 @@ import { ChevronUp } from 'lucide-react';
 
 const sections = [
   { id: 'hero', label: '00 — START' },
-  { id: 'strategic-overview', label: '01 — VISION' },
+  { id: 'the-gap', label: '01 — THE GAP' },
   { id: 'dual-model', label: '02 — BUSINESS MODEL' },
   { id: 'brand-experience', label: '03 — EXPERIENCE' },
   { id: 'digital-ecosystem', label: '04 — ECOSYSTEM' },

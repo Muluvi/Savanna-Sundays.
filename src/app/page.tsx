@@ -1,3 +1,4 @@
+
 import { AppSidebar } from '@/components/navigation/AppSidebar';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { SectionContainer } from '@/components/sections/SectionContainer';
@@ -7,7 +8,7 @@ import { ChevronDown } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 // Content sections
-import { StrategicOverview } from '@/components/sections/StrategicOverview';
+import { TheGap } from '@/components/sections/TheGap';
 import { DualActivationModel } from '@/components/sections/DualModel';
 import { VisualIdentitySection } from '@/components/sections/VisualIdentity';
 import { ContentSocialSection } from '@/components/sections/ContentProduction';
@@ -23,7 +24,7 @@ import { GrowthRoadmapSection } from '@/components/sections/GrowthRoadmap';
 import { WhyFireflySection } from '@/components/sections/WhyFirefly';
 
 const sectionsData = [
-  { id: 'strategic-overview', label: '01 — VISION', title: 'OWN EVERY SUNDAY — THE VISION', variant: 'dark' as const, component: <StrategicOverview /> },
+  { id: 'the-gap', label: '01 — THE GAP', title: '300,000 DECISIONS. ZERO BRAND LOYALTY.', variant: 'dark' as const, component: <TheGap /> },
   { id: 'dual-model', label: '02 — BUSINESS MODEL', title: 'The Lifestyle Synergy', variant: 'light' as const, component: <DualActivationModel /> },
   { 
     id: 'brand-experience', 
