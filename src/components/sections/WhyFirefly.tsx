@@ -5,7 +5,7 @@ import React from 'react';
 import Image from 'next/image';
 import { WaterDroplets } from '@/components/brand/VisualElements';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ArrowRight, Zap, Target, Share2, ShieldCheck, CheckCircle2, TrendingUp, Layers } from 'lucide-react';
+import { ArrowRight, Zap, Target, Share2, ShieldCheck, CheckCircle2, TrendingUp, Layers, MapPin, Globe, Network } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 export const WhyFireflySection = () => {
@@ -137,6 +137,69 @@ export const WhyFireflySection = () => {
              {/* Decorative Ring */}
              <div className="absolute w-64 h-64 border border-brand-gold/20 rounded-full animate-spin [animation-duration:30s]" />
              <div className="absolute w-48 h-48 border border-brand-teal/20 rounded-full animate-spin [animation-duration:20s] [animation-direction:reverse]" />
+          </div>
+        </div>
+
+        {/* 14E: The Nairobi Advantage */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="relative h-[400px] bg-brand-gold/5 rounded-[32px] border border-brand-gold/10 overflow-hidden group p-8 flex flex-col justify-between order-2 lg:order-1">
+             <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform duration-700">
+               <Globe size={200} className="text-brand-gold" />
+             </div>
+             <div className="relative z-10 space-y-4">
+               <div className="w-12 h-12 rounded-full bg-brand-gold text-brand-green flex items-center justify-center shadow-lg">
+                 <MapPin size={24} />
+               </div>
+               <h5 className="font-headline text-4xl text-white uppercase leading-none">Nairobi<br/><span className="text-brand-gold">Intelligence</span></h5>
+             </div>
+             <div className="relative z-10 grid grid-cols-2 gap-4">
+                <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
+                  <div className="text-brand-gold font-headline text-xl">100%</div>
+                  <div className="text-[10px] text-white/40 uppercase tracking-widest">Local Context</div>
+                </div>
+                <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
+                  <div className="text-brand-teal font-headline text-xl">24/7</div>
+                  <div className="text-[10px] text-white/40 uppercase tracking-widest">Cultural Sync</div>
+                </div>
+             </div>
+          </div>
+
+          <div className="space-y-6 font-body text-base text-brand-cream/60 order-1 lg:order-2">
+            <h4 className="font-headline text-2xl md:text-3xl text-brand-gold border-l-[3px] border-brand-gold pl-4 uppercase">
+              14E: The Nairobi Advantage
+            </h4>
+            <p className="leading-relaxed">
+              Execution edge is born from local fluency. Firefly doesn't operate on global templates applied to local markets; we build from the Nairobi street up.
+            </p>
+            <div className="space-y-8 mt-8">
+              <div className="flex gap-6 items-start">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <Globe className="text-brand-gold" size={20} />
+                </div>
+                <div>
+                  <h6 className="font-headline text-xl text-white uppercase mb-1">Market Knowledge</h6>
+                  <p className="text-sm leading-relaxed">We know exactly which WhatsApp communities drive the vibe and which influencers actually convert. Our knowledge of Nairobi's fragmented social landscape ensures zero wasted spend.</p>
+                </div>
+              </div>
+              <div className="flex gap-6 items-start">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <Network className="text-brand-teal" size={20} />
+                </div>
+                <div>
+                  <h6 className="font-headline text-xl text-white uppercase mb-1">Cultural Insight</h6>
+                  <p className="text-sm leading-relaxed">Understanding the 'Nairobi State of Mind'—the importance of lighting, the nuances of neighborhood status, and the precise social hierarchies of Sunday leisure.</p>
+                </div>
+              </div>
+              <div className="flex gap-6 items-start">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <Zap className="text-brand-gold" size={20} />
+                </div>
+                <div>
+                  <h6 className="font-headline text-xl text-white uppercase mb-1">Execution Edge</h6>
+                  <p className="text-sm leading-relaxed">A battle-tested network of localized vendors who understand our 'Broadcast Precision' mandate and can deliver in Nairobi's unique operational environment.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
