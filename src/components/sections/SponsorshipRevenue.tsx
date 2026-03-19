@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { TrendingUp, DollarSign, PieChart, ArrowRight } from 'lucide-react';
+import { TrendingUp, DollarSign, PieChart, ArrowRight, Target, Users, Gem, RefreshCcw } from 'lucide-react';
 
 const tiers = [
   { name: "Title Sponsor", price: "5,000,000+", touchpoints: "Exclusive Naming, Main Stage, Digital Takeover", exclusivity: "Full Category", border: "4px" },
@@ -16,9 +16,51 @@ const tiers = [
 export const SponsorshipRevenueSection = () => {
   return (
     <div className="space-y-24">
+      {/* Strategic Intro */}
+      <div className="font-body font-light text-[15px] text-brand-green/55 max-w-[680px] leading-[1.7] animate-fade-in-up">
+        <p>
+          Savanna Sundays is engineered as a high-performance revenue engine. We move beyond the "cost-center" model of traditional event marketing to create a multi-layered profit platform. By diversifying income across ticketing, tiered sponsorships, premium VIP table sales, and strategic cross-brand integrations, we ensure that every edition is not only self-sustaining but generates significant ROI for KWAL. We don't just host guests; we manage a commercial ecosystem.
+        </p>
+      </div>
+
+      {/* 9A: The Revenue Pillar Model */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in-up">
+        <Card className="p-8 bg-white border border-brand-green/5 rounded-[24px] space-y-4 hover:border-brand-gold transition-colors group">
+          <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
+            <Users size={24} />
+          </div>
+          <h4 className="font-headline text-2xl text-brand-green uppercase">1. Ticketing</h4>
+          <p className="font-body text-xs text-brand-green/60 leading-relaxed">Tiered demand management (Early Bird to Advance) ensures early cash flow and baseline production coverage.</p>
+        </Card>
+
+        <Card className="p-8 bg-white border border-brand-green/5 rounded-[24px] space-y-4 hover:border-brand-gold transition-colors group">
+          <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center group-hover:scale-110 transition-transform">
+            <Target size={24} />
+          </div>
+          <h4 className="font-headline text-2xl text-brand-green uppercase">2. Sponsorships</h4>
+          <p className="font-body text-xs text-brand-green/60 leading-relaxed">Monetizing the "Audience Attention" through category-exclusive partnerships and title-sponsor rights.</p>
+        </Card>
+
+        <Card className="p-8 bg-white border border-brand-green/5 rounded-[24px] space-y-4 hover:border-brand-gold transition-colors group">
+          <div className="w-12 h-12 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center group-hover:scale-110 transition-transform">
+            <Gem size={24} />
+          </div>
+          <h4 className="font-headline text-2xl text-brand-green uppercase">3. VIP Sales</h4>
+          <p className="font-body text-xs text-brand-green/60 leading-relaxed">High-margin table service and premium bottle packages catering to Nairobi's high-net-worth social elite.</p>
+        </Card>
+
+        <Card className="p-8 bg-white border border-brand-green/5 rounded-[24px] space-y-4 hover:border-brand-gold transition-colors group">
+          <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
+            <RefreshCcw size={24} />
+          </div>
+          <h4 className="font-headline text-2xl text-brand-green uppercase">4. Cross-Brand</h4>
+          <p className="font-body text-xs text-brand-green/60 leading-relaxed">Integrating KWAL's wider portfolio and strategic lifestyle partners to maximize per-attendee spend.</p>
+        </Card>
+      </div>
+
       {/* Sponsor Tier Table */}
-      <div className="space-y-8">
-        <div className="section-label">09.1 — Commercial Partnership Matrix</div>
+      <div className="space-y-8 animate-fade-in-up">
+        <div className="section-label">09.2 — Commercial Partnership Matrix</div>
         <div className="bg-white rounded-[30px] overflow-hidden border border-brand-green/5 shadow-xl">
           <Table>
             <TableHeader className="bg-brand-gold">
@@ -58,7 +100,7 @@ export const SponsorshipRevenueSection = () => {
       </div>
 
       {/* Revenue Mix & ROI */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 animate-fade-in-up">
         <div className="space-y-8">
           <div className="section-label">Revenue Mix Proportion</div>
           <div className="flex h-16 w-full rounded-2xl overflow-hidden shadow-inner border border-brand-green/5">
