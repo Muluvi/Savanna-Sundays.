@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Music, Sun, Sunset, Moon, Star, Mic2, Palette, Smile, CheckCircle2, Clock, Zap, Coffee, Disc, Sparkles, MessageSquare } from 'lucide-react';
+import { Music, Sun, Sunset, Moon, Star, Mic2, Palette, Smile, CheckCircle2, Clock, Zap, Coffee, Disc, Sparkles, MessageSquare, Shirt, Gavel } from 'lucide-react';
 import Image from 'next/image';
 
 const labels = [
@@ -421,6 +421,56 @@ export const MusicProgrammingSection = () => {
         </div>
       </div>
 
+      {/* 7I: Cultural & Lifestyle Add-ons */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          7I: Cultural & Lifestyle Add-ons
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              Nairobi's Sunday culture is multi-dimensional. By integrating fashion, design, and live art into the musical narrative, Savanna Sundays moves from being an event to becoming a lifestyle incubator. These 'Cultural Add-ons' are specifically engineered to produce high-value, diverse social media content while anchoring the brand in the city's creative economy.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "We don't just program a stage; we curate a culture. Fashion and art aren't additions—they are the visual proof of Savanna's premium position."
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Shirt size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Fashion "Dry Walks"</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">High-impact fashion segments where local designers showcase upcoming collections through curated crowd-walks rather than a distant runway. Benefits: High-fashion UGC and designer network reach.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Sparkles size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Designer Collaborations</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Collaborating with Nairobi's 'Cool Kids' designers for limited-edition Savanna Sundays apparel and site-specific installations. Benefits: Cultural credibility and unbuyable status symbols.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Palette size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Live Art & Charity Auction</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Real-time creation of a signature canvas or mural during the Golden Hour, culminating in a fast-paced charity auction at the event's peak. Benefits: High-engagement content and social impact anchoring.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
       {/* Ecosystem Credentials */}
       <div className="bg-brand-green rounded-[30px] p-10 md:p-16 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
@@ -480,7 +530,7 @@ export const MusicProgrammingSection = () => {
         {[
           { label: "Live Instruments", icon: <Mic2 size={20} /> },
           { label: "Live Comedy", icon: <Smile size={20} /> },
-          { label: "Fashion Hub", icon: <Palette size={20} /> },
+          { label: "Fashion Hub", icon: <Shirt size={20} /> },
           { label: "MC Energy", icon: <Volume2Icon size={20} /> },
           { label: "Live Art", icon: <Palette size={20} /> },
         ].map((item, i) => (
