@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -25,7 +24,7 @@ import { BrushStroke } from '@/components/brand/VisualElements';
 export const ExperienceDesignSection = () => {
   return (
     <div className="space-y-12 md:space-y-24">
-      {/* 08B: The Arrival Rituals */}
+      {/* 03B: The Arrival Rituals */}
       <div className="space-y-8 animate-fade-in-up">
         <div className="section-label">03B: The Arrival Sequence</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
@@ -66,7 +65,7 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* Energy Progression - The Sonic Energy Arc */}
+      {/* 03C: The Sonic Energy Arc */}
       <div className="space-y-8 animate-fade-in-up [animation-delay:200ms]">
         <div className="section-label">03C: The Sonic Energy Arc</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 relative py-12">
@@ -94,7 +93,7 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* 8C: Savanna 0.0 & Inclusivity */}
+      {/* 03D: Savanna 0.0 & Inclusivity */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 animate-fade-in-up [animation-delay:400ms]">
         <div className="bg-brand-teal rounded-[40px] p-8 md:p-12 text-white relative overflow-hidden flex flex-col justify-center shadow-xl">
           <div className="absolute top-0 right-0 p-8 opacity-5">
@@ -119,7 +118,7 @@ export const ExperienceDesignSection = () => {
           <div className="section-label">03D: Growth Dynamics</div>
           <h4 className="font-headline text-2xl md:text-4xl text-brand-green uppercase leading-tight">9.3% CAGR Market Growth</h4>
           <p className="font-body text-sm md:text-lg text-brand-green/60 leading-relaxed">
-            By embedding Savanna 0.0 into the primary event flow (rather than a side-table), we ensure brand relevance to a health-conscious Gen-Z and professional audience.
+            By embedding Savanna 0.0 into the primary event flow, we ensure brand relevance to a health-conscious Gen-Z and professional audience.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <div className="p-6 bg-white border border-brand-green/5 rounded-2xl shadow-sm">
@@ -134,7 +133,7 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* 8D: The Journey Timeline */}
+      {/* 03E: The Attendee Lifecycle */}
       <div className="space-y-8 animate-fade-in-up [animation-delay:600ms]">
         <div className="section-label">03E: The Attendee Lifecycle</div>
         <div className="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4">

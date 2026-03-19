@@ -7,7 +7,7 @@ import { ChevronUp } from 'lucide-react';
 const sections = [
   { id: 'hero', label: '00 — START' },
   { id: 'the-gap', label: '01 — THE GAP' },
-  { id: 'the-concept', label: '02 — THE CONCEPT' },
+  { id: 'the-concept', label: '02 — CONCEPT' },
   { id: 'the-experience', label: '03 — EXPERIENCE' },
   { id: 'the-content-engine', label: '04 — CONTENT' },
   { id: 'the-demand-machine', label: '05 — MACHINE' },
@@ -82,7 +82,6 @@ export const AppSidebar = () => {
         </div>
       </aside>
 
-      {/* Floating Back to Top */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         className={cn(

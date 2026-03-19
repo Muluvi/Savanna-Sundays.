@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -22,14 +21,14 @@ const venues = [
 export const DualActivationModel = () => {
   return (
     <div className="space-y-12 md:space-y-24">
-      {/* Introduction Subheading */}
+      {/* 02A: Intro */}
       <div className="max-w-3xl animate-fade-in-up">
         <p className="font-serif italic text-xl md:text-2xl lg:text-3xl text-brand-green/60 leading-relaxed">
           One engine builds the brand. The other covers the city. Together, they make Savanna synonymous with Sunday.
         </p>
       </div>
 
-      {/* 01: Core Logic Row - Split Screen Cards */}
+      {/* 02B: Core Logic Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 animate-fade-in-up [animation-delay:200ms]">
         <Card className="p-8 bg-white border-l-4 border-brand-gold rounded-[32px] flex flex-col justify-between group hover:shadow-xl transition-all shadow-sm">
           <div className="space-y-6">
@@ -44,8 +43,8 @@ export const DualActivationModel = () => {
             </div>
           </div>
           <div className="flex flex-wrap gap-2 mt-8">
-            <Badge className="bg-brand-gold text-brand-green text-[10px] uppercase tracking-widest px-4 py-1.5 border-none">Brand Focus</Badge>
-            <Badge className="bg-brand-gold/10 text-brand-gold text-[10px] uppercase tracking-widest px-4 py-1.5 border-none">Data Mastery</Badge>
+            <Badge className="bg-brand-gold text-brand-green text-[10px] uppercase tracking-widest px-4 py-1.5 border-none font-bold">Brand Focus</Badge>
+            <Badge className="bg-brand-gold/10 text-brand-gold text-[10px] uppercase tracking-widest px-4 py-1.5 border-none font-bold">Data Mastery</Badge>
           </div>
         </Card>
         
@@ -62,13 +61,13 @@ export const DualActivationModel = () => {
             </div>
           </div>
           <div className="flex flex-wrap gap-2 mt-8">
-            <Badge className="bg-brand-teal text-white text-[10px] uppercase tracking-widest px-4 py-1.5 border-none">Mass Reach</Badge>
-            <Badge className="bg-brand-teal/10 text-brand-teal text-[10px] uppercase tracking-widest px-4 py-1.5 border-none">Culture Cred</Badge>
+            <Badge className="bg-brand-teal text-white text-[10px] uppercase tracking-widest px-4 py-1.5 border-none font-bold">Mass Reach</Badge>
+            <Badge className="bg-brand-teal/10 text-brand-teal text-[10px] uppercase tracking-widest px-4 py-1.5 border-none font-bold">Culture Cred</Badge>
           </div>
         </Card>
       </div>
 
-      {/* 02: Visual Synergy Pull Quote - Highly Prominent */}
+      {/* 02C: Strategic Pull Quote */}
       <div className="relative py-16 flex flex-col items-center justify-center animate-fade-in-up [animation-delay:400ms]">
         <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
           <span className="font-headline text-[120px] md:text-[220px] text-brand-gold opacity-[0.05] select-none leading-none">
@@ -84,7 +83,7 @@ export const DualActivationModel = () => {
         </div>
       </div>
 
-      {/* 03: Interactive Detail Tabs */}
+      {/* 02D: Details */}
       <div className="animate-fade-in-up [animation-delay:600ms]">
         <Tabs defaultValue="network" className="w-full">
           <TabsList className="w-full bg-brand-green p-1.5 h-auto grid grid-cols-3 mb-10 rounded-2xl shadow-lg">
@@ -93,7 +92,7 @@ export const DualActivationModel = () => {
             <TabsTrigger value="calendar" className="py-3.5 font-headline tracking-[2px] text-white/50 data-[state=active]:text-brand-gold data-[state=active]:bg-white/5 uppercase rounded-xl text-xs md:text-base">Sunday Sprint</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="network" className="space-y-8">
+          <TabsContent value="network">
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
               {venues.map((venue, i) => (
                 <Card key={i} className="group p-6 md:p-8 bg-white border border-brand-green/5 rounded-[24px] hover:border-brand-gold hover:shadow-md transition-all text-center flex flex-col items-center justify-between">
@@ -111,7 +110,7 @@ export const DualActivationModel = () => {
                     <p className="font-body text-[10px] md:text-xs text-brand-green/40 uppercase tracking-[3px] font-bold">{venue.area}</p>
                   </div>
                   <Badge className={cn(
-                    "text-[8px] md:text-[10px] uppercase tracking-widest px-4 py-1", 
+                    "text-[8px] md:text-[10px] uppercase tracking-widest px-4 py-1 border-none font-bold", 
                     venue.type === 'Owned' ? 'bg-brand-gold text-brand-green' : 'bg-brand-teal text-white'
                   )}>
                     {venue.type}
@@ -121,7 +120,7 @@ export const DualActivationModel = () => {
             </div>
           </TabsContent>
 
-          <TabsContent value="scorecard" className="space-y-6">
+          <TabsContent value="scorecard">
             <div className="bg-brand-cream/50 p-10 md:p-16 rounded-[40px] border border-brand-green/5 shadow-inner">
               <h5 className="font-headline text-2xl text-brand-green mb-12 text-center tracking-widest uppercase">Strategic Selection Matrix</h5>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
@@ -143,12 +142,12 @@ export const DualActivationModel = () => {
             </div>
           </TabsContent>
 
-          <TabsContent value="calendar" className="space-y-6">
+          <TabsContent value="calendar">
             <div className="bg-white p-10 rounded-[40px] border border-brand-green/5 shadow-xl">
               <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-10">
                 <div className="space-y-1 text-center md:text-left">
                   <h5 className="font-headline text-xl md:text-2xl text-brand-green uppercase tracking-wider">The Sunday Sprint Loop</h5>
-                  <p className="font-body text-xs text-brand-green/40 uppercase tracking-widest">A 4-Week Recurring Momentum Cycle</p>
+                  <p className="font-body text-xs text-brand-green/40 uppercase tracking-widest font-bold">A 4-Week Recurring Momentum Cycle</p>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex items-center gap-2"><div className="w-3 h-3 bg-brand-green rounded-full shadow-sm" /><span className="text-[10px] font-bold uppercase tracking-widest opacity-60">Owned Edition</span></div>

@@ -17,7 +17,6 @@ import { AttendanceDemandSection } from '@/components/sections/Attendance';
 import { DigitalInfrastructureSection } from '@/components/sections/DigitalInfrastructure';
 import { SponsorshipRevenueSection } from '@/components/sections/SponsorshipRevenue';
 import { MeasurementROInSection } from '@/components/sections/MeasurementROI';
-import { GrowthRoadmapSection } from '@/components/sections/GrowthRoadmap';
 import { WhyFireflySection } from '@/components/sections/WhyFirefly';
 
 const sectionsData = [
@@ -53,13 +52,7 @@ const sectionsData = [
     label: '04 — THE CONTENT ENGINE', 
     title: 'ONE SUNDAY. 30 DAYS OF CONTENT.', 
     variant: 'light' as const, 
-    component: (
-      <div className="space-y-24">
-        <ContentSocialSection />
-        <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
-        <CommunityGrowthSection />
-      </div>
-    )
+    component: <ContentSocialSection />
   },
   { 
     id: 'the-demand-machine', 
@@ -92,13 +85,7 @@ const sectionsData = [
     label: '07 — THE PARTNERSHIP', 
     title: 'WHY FIREFLY. WHY NOW.', 
     variant: 'dark' as const, 
-    component: (
-      <div className="space-y-24">
-        <GrowthRoadmapSection />
-        <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto opacity-20" />
-        <WhyFireflySection />
-      </div>
-    )
+    component: <WhyFireflySection />
   },
 ];
 
@@ -115,7 +102,6 @@ export default function Home() {
         <section id="hero" className="relative h-screen dark-section flex flex-col px-6 py-20 overflow-hidden">
           <WaterDroplets className="opacity-10" />
           
-          {/* Main Focal Point (Upper 2/3) */}
           <div className="flex-1 flex flex-col items-center justify-center text-center">
             <div className="max-w-6xl mx-auto w-full animate-fade-in-up">
               <h1 className="leading-[0.85] mb-6 md:mb-10">
@@ -131,12 +117,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Attribution Anchor (Bottom 1/4) */}
           <div className="relative z-20 flex flex-col items-center animate-fade-in-up [animation-delay:600ms]">
             <div className="w-12 h-[1px] bg-brand-gold/30 mb-12" />
-            
             <span className="text-[10px] tracking-[8px] md:tracking-[12px] text-brand-gold uppercase mb-10 font-bold opacity-50">Presented by</span>
-            
             {logo && (
               <div className="relative w-[300px] h-[80px] md:w-[600px] md:h-[160px] opacity-90 transition-opacity hover:opacity-100">
                 <Image 
@@ -148,14 +131,12 @@ export default function Home() {
                 />
               </div>
             )}
-            
             <div className="mt-16 animate-bounce opacity-20">
               <ChevronDown className="text-brand-gold" size={24} />
             </div>
           </div>
         </section>
 
-        {/* Dynamic Sections */}
         {sectionsData.map((section) => (
           <SectionContainer 
             key={section.id}
@@ -168,7 +149,6 @@ export default function Home() {
           </SectionContainer>
         ))}
 
-        {/* Footer */}
         <footer className="bg-brand-ink py-24 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
           <WaterDroplets className="opacity-10" />
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-16 relative z-10">
