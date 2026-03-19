@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Music, Sun, Sunset, Moon, Star, Mic2, Palette, Smile, CheckCircle2, Clock, Zap, Coffee, Disc, Sparkles } from 'lucide-react';
+import { Music, Sun, Sunset, Moon, Star, Mic2, Palette, Smile, CheckCircle2, Clock, Zap, Coffee, Disc, Sparkles, MessageSquare } from 'lucide-react';
 import Image from 'next/image';
 
 const labels = [
@@ -312,6 +312,59 @@ export const MusicProgrammingSection = () => {
               <div>
                 <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Percussionists (Energy Bridge)</h4>
                 <p className="font-body text-sm text-white/70 leading-relaxed">Traditional and electronic percussion that amplifies the rhythm. Percussionists move through the crowd to bridge the gap between stage and audience.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* 7G: The Vocal Guide - MC Protocols */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          7G: The Vocal Guide - MC Protocols
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              The Savanna Sundays MC is not a 'hype-man.' We move away from the high-decibel, high-energy club MC toward a sophisticated 'Vocal Guide.' Their role is to provide a narrative thread that connects the audience to the brand’s dry, crisp personality.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "The MC should be the smartest person in the room who says the least. One witty observation is worth more than ten shouted instructions."
+            </div>
+            <p className="text-sm">
+              We mandate a strict 'Music-First' protocol: the MC never speaks over a drop, never interrupts a vocal hook, and never uses repetitive catchphrases that dilute the premium atmosphere.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Mic2 size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">The Guide, Not the Hype</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Serving as a navigator for the experience—announcing transitions, acknowledging milestone moments, and guiding the crowd through the energy progression with minimal intrusion.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <MessageSquare size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Witty & Self-Aware Tone</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Mirroring Savanna's 'Dry Wit' brand voice. Observations are clever, slightly cheeky, and always culturally sharp, reinforcing the brand's premium intelligence.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <CheckCircle2 size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Non-Intrusive Engagement</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Engaging the crowd through shared moments rather than shouted orders. We value silence between sets as much as energy during them.</p>
               </div>
             </Card>
           </div>
