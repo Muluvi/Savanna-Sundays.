@@ -1,4 +1,3 @@
-
 import { AppSidebar } from '@/components/navigation/AppSidebar';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { SectionContainer } from '@/components/sections/SectionContainer';
@@ -50,13 +49,27 @@ export default function Home() {
       
       <main className="md:ml-64 transition-all">
         {/* Hero Section */}
-        <section id="hero" className="relative min-h-screen dark-section flex flex-col items-center justify-center text-center px-6 py-12 overflow-hidden">
+        <section id="hero" className="relative min-h-screen dark-section flex flex-col items-center justify-center text-center px-6 py-24 overflow-hidden">
           <WaterDroplets className="opacity-20" />
           
-          <div className="relative z-20 flex flex-col items-center mb-16 animate-fade-in-up">
-            <span className="text-[10px] tracking-[4px] md:tracking-[8px] text-brand-gold uppercase mb-8 font-bold opacity-60">Presented by</span>
+          <div className="relative z-10 max-w-5xl mx-auto w-full mb-12 animate-fade-in-up">
+            <h1 className="leading-[0.85] mb-8">
+              <span className="block text-white text-[clamp(64px,16vw,180px)] font-headline tracking-tighter">SAVANNA</span>
+              <span className="block text-brand-gold text-[clamp(64px,16vw,180px)] font-headline tracking-tighter">SUNDAYS</span>
+            </h1>
+            
+            <div className="max-w-2xl mx-auto">
+              <p className="font-serif italic text-2xl md:text-4xl text-brand-cream/80 leading-relaxed">
+                Own Every Sunday in Nairobi
+              </p>
+            </div>
+          </div>
+
+          {/* Presented by at the bottom */}
+          <div className="relative z-20 flex flex-col items-center mt-12 animate-fade-in-up [animation-delay:400ms]">
+            <span className="text-[10px] tracking-[6px] md:tracking-[10px] text-brand-gold uppercase mb-8 font-bold opacity-60">Presented by</span>
             {logo && (
-              <div className="relative w-[360px] h-[100px] md:w-[720px] md:h-[200px]">
+              <div className="relative w-[500px] h-[140px] md:w-[1000px] md:h-[280px]">
                 <Image 
                   src={logo.imageUrl} 
                   alt="Firefly Management" 
@@ -66,22 +79,6 @@ export default function Home() {
                 />
               </div>
             )}
-          </div>
-
-          <div className="relative z-10 max-w-5xl mx-auto w-full">
-            <div className="animate-fade-in-up [animation-delay:200ms]">
-              <h1 className="leading-[0.85] mb-8">
-                <span className="block text-white text-[clamp(56px,14vw,160px)] font-headline tracking-tighter">SAVANNA</span>
-                <span className="block text-brand-gold text-[clamp(56px,14vw,160px)] font-headline tracking-tighter">SUNDAYS</span>
-              </h1>
-              
-              <div className="max-w-2xl mx-auto space-y-6">
-                <p className="font-serif italic text-xl md:text-3xl text-brand-cream/80 leading-relaxed">
-                  Own Every Sunday in Nairobi
-                </p>
-                <div className="w-16 h-[2px] bg-brand-gold mx-auto opacity-30" />
-              </div>
-            </div>
           </div>
 
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce z-10 opacity-30">
@@ -108,7 +105,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
             <div className="flex flex-col items-center md:items-start">
               {logo && (
-                <div className="relative w-[320px] h-[90px] mb-8">
+                <div className="relative w-[400px] h-[120px] mb-8">
                   <Image 
                     src={logo.imageUrl} 
                     alt="Firefly Management" 
