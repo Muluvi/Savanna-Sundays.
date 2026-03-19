@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { ClipboardCheck, ShieldCheck, Clock, Users, ArrowRight, Zap, Heart, CheckCircle2, Calendar, HardHat, Radio, Target, Construction } from 'lucide-react';
+import { ClipboardCheck, ShieldCheck, Clock, Users, ArrowRight, Zap, Heart, CheckCircle2, Calendar, HardHat, Radio, Target, Construction, Timer, Camera, Sparkles } from 'lucide-react';
 
 const staff = [
   { role: "Brand Ambassadors", count: "12", costume: "Yellow Savanna Polos", notes: "Product knowledge focus" },
@@ -27,6 +27,15 @@ const setupProtocol = [
   { time: "11:00 AM", task: "Product Chilling", detail: "Delivery of ice and variants. Ensuring Dry and 0.0 reach optimal serve temp." },
   { time: "01:00 PM", task: "Full Walkthrough", detail: "Final BA briefing, mic checks, and 'vibe-check' dress rehearsal." },
   { time: "09:30 PM", task: "The Strike (Breakdown)", detail: "Rapid site-clearing and inventory reconciliation within 120 minutes of close." },
+];
+
+const runOfShow = [
+  { time: "02:00 PM", milestone: "Doors Open / Arrival", intent: "The 'First Crisp' moment. Activation hubs (QR onboarding) active." },
+  { time: "04:30 PM", milestone: "Golden Hour Activation", intent: "Primary content harvest. Content team moves to 'Peak Positioning'." },
+  { time: "06:00 PM", milestone: "Sunset Transition", intent: "Lighting shift to Amber Peak. Headliner arrival. High-energy clip capture." },
+  { time: "07:30 PM", milestone: "The High Peak", intent: "Maximum crowd density. Merchandise drops and special 'Savanna Moments' trigger." },
+  { time: "08:30 PM", milestone: "Resolution Phase", intent: "Music cool-down. Exit keepsakes distributed. CRM feedback prompts triggered." },
+  { time: "09:00 PM", milestone: "Event Close", intent: "Safe departure protocol. Site clearing initiates." },
 ];
 
 export const EventProductionSection = () => {
@@ -102,7 +111,7 @@ export const EventProductionSection = () => {
       {/* 11E: Technical Load-In & Strike Protocol */}
       <div className="space-y-12 animate-fade-in-up">
         <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          11E: Technical Load-In & Strike Protocol (Event Day)
+          11E: Technical Load-In & Strike Protocol (Setup/Breakdown)
         </h3>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -130,6 +139,50 @@ export const EventProductionSection = () => {
                     <TableCell className="py-6">
                       <div className="font-body font-bold text-brand-green">{row.task}</div>
                       <div className="font-body text-xs text-brand-green/50 italic">{row.detail}</div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        </div>
+      </div>
+
+      {/* 11G: The 'Run of Show' (High-Fidelity Event Day Schedule) */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          11G: The 'Run of Show' (Timing Precision)
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              During the live window (2 PM – 9 PM), we manage the experience with minute-by-minute precision. This ensures that peak moments—such as the Golden Hour content harvest—are flawlessly captured and that the energy build-up remains consistent across editions.
+            </p>
+            <div className="font-serif italic text-lg text-brand-green border-l-4 border-brand-gold pl-6 py-2 bg-brand-gold/5">
+              "Timing is our most valuable asset. We engineer the 'Peak Pulse' so that Savanna dominates the digital conversation at exactly the right moment."
+            </div>
+            <p className="text-sm font-bold text-brand-green uppercase tracking-wider">The 15-Minute Rule</p>
+            <p className="text-xs italic leading-relaxed">
+              Every department (AV, Bar, Content, Security) operates on synchronized 15-minute checkpoints during the event window.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-[30px] overflow-hidden border border-brand-green/5 shadow-lg">
+            <Table>
+              <TableHeader className="bg-brand-green">
+                <TableRow className="hover:bg-transparent border-none">
+                  <TableHead className="text-white font-headline tracking-widest py-6">Event Time</TableHead>
+                  <TableHead className="text-white font-headline tracking-widest">Milestone & Intent</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {runOfShow.map((row, i) => (
+                  <TableRow key={i} className="group hover:bg-brand-cream/50 transition-colors">
+                    <TableCell className="font-headline text-lg py-6 text-brand-gold">{row.time}</TableCell>
+                    <TableCell className="py-6">
+                      <div className="font-body font-bold text-brand-green">{row.milestone}</div>
+                      <div className="font-body text-xs text-brand-green/60">{row.intent}</div>
                     </TableCell>
                   </TableRow>
                 ))}
