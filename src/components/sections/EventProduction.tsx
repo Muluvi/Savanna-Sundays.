@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { ClipboardCheck, ShieldCheck, Clock, Users, ArrowRight, Zap, Heart, CheckCircle2, Calendar, HardHat, Radio, Target, Construction, Timer, Camera, Sparkles } from 'lucide-react';
+import { ClipboardCheck, ShieldCheck, Clock, Users, ArrowRight, Zap, Heart, CheckCircle2, Calendar, HardHat, Radio, Target, Construction, Timer, Camera, Sparkles, Volume2, Disc, Headphones, Lightbulb, Settings } from 'lucide-react';
 
 const staff = [
   { role: "Brand Ambassadors", count: "12", costume: "Yellow Savanna Polos", notes: "Product knowledge focus" },
@@ -75,6 +75,70 @@ export const EventProductionSection = () => {
               <p className="font-serif italic text-base text-brand-green leading-relaxed">
                 "We treat the dancefloor as a set and the event as a live show. Every light cue is mapped to ensure the content harvest is flawless."
               </p>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* 11B: The Savanna AV Technical Standard */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          11B: The Savanna AV Technical Standard
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              The sonic and visual layer of Savanna Sundays must match the 'crisp' brand promise. We move away from generic club sound toward a broadcast-ready audio and lighting environment that prioritizes clarity, analog warmth, and cinematic texture.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "We don't just provide sound; we provide a soundstage. Quality is the non-negotiable floor upon which the experience is built."
+            </div>
+            <p className="text-sm font-bold text-brand-green uppercase tracking-wider mt-4">The Quality Control Protocol</p>
+            <p className="text-xs italic leading-relaxed">
+              Mandatory sound-check at 12:00 PM. Decibel monitoring remains active throughout the event to ensure 'conversational energy' during arrival and 'peak floor energy' after sunset.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Volume2 size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-1">High-Fidelity PA Specs</h4>
+                <p className="font-body text-xs text-brand-green/60 leading-relaxed">Pro-grade active line arrays (L-Acoustics/RCF) tuned for mid-range clarity and rich analog sub-frequencies. Distribution designed for zero-feedback zones.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Disc size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-1">Standard DJ Monitoring</h4>
+                <p className="font-body text-xs text-brand-green/60 leading-relaxed">Mandatory Pioneer CDJ-3000s + DJM-A9 Mixer setup. Booth monitors pole-mounted at ear-level to ensure artist precision and comfort.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Radio size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-1">Direct Audio Capture</h4>
+                <p className="font-body text-xs text-brand-green/60 leading-relaxed">Mandatory board-feed XLR out to digital Tascam recorders. Ensuring broadcast-quality audio for the 'Savanna Sundays Mix Series'.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Lightbulb size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-1">Amber Lighting Array</h4>
+                <p className="font-body text-xs text-white/70 leading-relaxed">Programmed 3-phase lighting transition. Focus on warm amber PAR washes and golden-hour accentuation rather than strobe-heavy club effects.</p>
+              </div>
             </Card>
           </div>
         </div>
