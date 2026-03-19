@@ -4,7 +4,35 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, CheckCircle2, GlassWater, MapPin, Sparkles, Trophy, Camera, Utensils, Beer, DoorOpen, QrCode, Clock, Smartphone, Info, Soup, ChefHat, LogOut, Gift, Tv, Share2, Target, Zap, Video, Layers, Car, ShieldCheck } from 'lucide-react';
+import { 
+  ArrowRight, 
+  CheckCircle2, 
+  GlassWater, 
+  MapPin, 
+  Sparkles, 
+  Trophy, 
+  Camera, 
+  Utensils, 
+  Beer, 
+  DoorOpen, 
+  QrCode, 
+  Clock, 
+  Smartphone, 
+  Info, 
+  Soup, 
+  ChefHat, 
+  LogOut, 
+  Gift, 
+  Tv, 
+  Share2, 
+  Target, 
+  Zap, 
+  Video, 
+  Layers, 
+  Car, 
+  ShieldCheck,
+  TrendingUp
+} from 'lucide-react';
 
 export const ExperienceDesignSection = () => {
   return (
@@ -311,6 +339,34 @@ export const ExperienceDesignSection = () => {
               </div>
             </Card>
           </div>
+        </div>
+      </div>
+
+      {/* 8L: The Non-Alcoholic Market Opportunity */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          8L: The Non-Alcoholic Market Opportunity
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              Savanna 0.0 is not just a variant; it is a future-proofing instrument. Global beverage trends show a significant shift toward moderation, with the non-alcoholic segment in Africa projected to grow at a <strong>9.3% CAGR</strong> through 2028.
+            </p>
+            <p>
+              By integrating 0.0 into the core of Savanna Sundays, we are positioning KWAL at the forefront of the "mindful consumption" movement. This early-mover advantage secures a competitive positioning among Nairobi's health-conscious urban elite.
+            </p>
+          </div>
+
+          <Card className="p-8 bg-brand-teal/5 border-2 border-brand-teal rounded-[32px] space-y-6">
+            <div className="flex items-center gap-4">
+              <TrendingUp className="text-brand-teal" size={32} />
+              <h4 className="font-headline text-3xl text-brand-green uppercase">9.3% CAGR Growth</h4>
+            </div>
+            <p className="font-serif italic text-lg text-brand-green leading-relaxed">
+              "We aren't just reacting to a trend; we are leading a cultural shift. Savanna 0.0 ensures the brand remains relevant to the next generation of consumers who prioritize wellness alongside social connection."
+            </p>
+          </Card>
         </div>
       </div>
 
