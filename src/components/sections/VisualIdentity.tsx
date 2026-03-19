@@ -3,21 +3,18 @@
 
 import React from 'react';
 import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { GlassWater, Mic2, ShieldCheck, CheckCircle2, Camera, Palette, Sun, Zap } from 'lucide-react';
+import { Camera, Palette, Sun, GlassWater, Zap } from 'lucide-react';
 import { BrushStroke } from '@/components/brand/VisualElements';
 
 export const VisualIdentitySection = () => {
   return (
     <div className="space-y-12 md:space-y-20">
-      {/* 01: Strategic Intro */}
       <div className="max-w-3xl animate-fade-in-up">
         <p className="font-serif italic text-xl md:text-2xl lg:text-3xl text-brand-green/60 leading-relaxed">
           Every surface, every serve, every photograph — designed to be the most shareable activation in Nairobi.
         </p>
       </div>
 
-      {/* 01: Visual Philosophy Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 animate-fade-in-up [animation-delay:200ms]">
         <Card className="p-6 bg-white border-l-4 border-brand-gold rounded-2xl flex items-center gap-5 group hover:bg-brand-gold/5 transition-all shadow-sm">
           <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
@@ -40,7 +37,6 @@ export const VisualIdentitySection = () => {
         </Card>
       </div>
 
-      {/* 02: Visual Pull Quote (Law of Proportions) */}
       <div className="relative py-12 md:py-24 flex flex-col items-center justify-center animate-fade-in-up [animation-delay:400ms]">
         <div className="relative z-10 max-w-4xl text-center">
           <BrushStroke className="w-48 h-auto opacity-10 -rotate-1 mx-auto" color="#2D8C7F" />
@@ -51,7 +47,6 @@ export const VisualIdentitySection = () => {
         </div>
       </div>
 
-      {/* 03: Physical Setup & Environment Design */}
       <div className="space-y-8 animate-fade-in-up [animation-delay:600ms]">
         <div className="section-label">03A: Physical Activation Standards</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">

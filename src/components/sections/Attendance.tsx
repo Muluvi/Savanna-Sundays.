@@ -11,10 +11,9 @@ import { BrushStroke } from '@/components/brand/VisualElements';
 export const AttendanceDemandSection = () => {
   return (
     <div className="space-y-12 md:space-y-24">
-      {/* Strategic Intro - Proportional Anchor */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center animate-fade-in-up">
         <div className="space-y-6">
-          <div className="section-label">06A: Engineering Scarcity</div>
+          <div className="section-label">05A: Engineering Scarcity</div>
           <h3 className="font-headline text-3xl md:text-5xl text-brand-green uppercase leading-tight">
             Demand isn't found; <br/>it's manufactured.
           </h3>
@@ -33,13 +32,10 @@ export const AttendanceDemandSection = () => {
         </div>
       </div>
 
-      {/* 14-Day Hype Cycle Visual */}
       <div className="space-y-8 animate-fade-in-up [animation-delay:200ms]">
-        <div className="section-label">06B: The 14-Day Hype Sequence</div>
+        <div className="section-label">05B: The 14-Day Hype Sequence</div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 relative">
-          {/* Connector Line (Desktop) */}
           <div className="absolute top-1/2 left-0 w-full h-[1px] bg-brand-green/10 hidden md:block -translate-y-12" />
-          
           {[
             { day: "14", label: "Date Anchor", sub: "Announcement", icon: <Zap size={16} /> },
             { day: "10", label: "Spatial Reveal", sub: "Venue Drop", icon: <Zap size={16} /> },
@@ -60,7 +56,6 @@ export const AttendanceDemandSection = () => {
         </div>
       </div>
 
-      {/* Scarcity Mechanics & Referral */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 animate-fade-in-up [animation-delay:400ms]">
         <div className="bg-white rounded-[32px] overflow-hidden border border-brand-green/5 shadow-xl">
           <Table>
@@ -104,7 +99,6 @@ export const AttendanceDemandSection = () => {
         </Card>
       </div>
 
-      {/* KPI Counters */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 animate-fade-in-up [animation-delay:600ms]">
         {[
           { label: "Attendance Cap", value: "800+", icon: <Users />, color: "gold" },

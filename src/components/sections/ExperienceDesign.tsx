@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -19,12 +20,10 @@ import {
   Sunset,
   Coffee
 } from 'lucide-react';
-import { BrushStroke } from '@/components/brand/VisualElements';
 
 export const ExperienceDesignSection = () => {
   return (
     <div className="space-y-12 md:space-y-24">
-      {/* 03B: The Arrival Rituals */}
       <div className="space-y-8 animate-fade-in-up">
         <div className="section-label">03B: The Arrival Sequence</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
@@ -65,13 +64,10 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* 03C: The Sonic Energy Arc */}
       <div className="space-y-8 animate-fade-in-up [animation-delay:200ms]">
         <div className="section-label">03C: The Sonic Energy Arc</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 relative py-12">
-          {/* Connector Line (Desktop) */}
           <div className="absolute top-1/2 left-0 w-full h-[1px] bg-brand-green/10 hidden md:block -translate-y-12" />
-          
           {[
             { time: "2PM - 4PM", label: "The Arrival", sub: "Deep House & Neo-Soul", icon: <Coffee size={24} />, color: "teal" },
             { time: "4PM - 6PM", label: "The Build", sub: "Afro-House & Soulful", icon: <Sunset size={24} />, color: "gold" },
@@ -93,7 +89,6 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* 03D: Savanna 0.0 & Inclusivity */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 animate-fade-in-up [animation-delay:400ms]">
         <div className="bg-brand-teal rounded-[40px] p-8 md:p-12 text-white relative overflow-hidden flex flex-col justify-center shadow-xl">
           <div className="absolute top-0 right-0 p-8 opacity-5">
@@ -133,7 +128,6 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* 03E: The Attendee Lifecycle */}
       <div className="space-y-8 animate-fade-in-up [animation-delay:600ms]">
         <div className="section-label">03E: The Attendee Lifecycle</div>
         <div className="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4">

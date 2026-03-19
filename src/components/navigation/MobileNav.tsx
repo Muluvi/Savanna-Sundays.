@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from 'react';
@@ -5,14 +6,14 @@ import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const sections = [
-  { id: 'hero', label: '00 — START' },
+  { id: 'hero', label: '00 — HERO' },
   { id: 'the-gap', label: '01 — THE GAP' },
-  { id: 'the-concept', label: '02 — CONCEPT' },
-  { id: 'the-experience', label: '03 — EXPERIENCE' },
-  { id: 'the-content-engine', label: '04 — CONTENT' },
-  { id: 'the-demand-machine', label: '05 — MACHINE' },
-  { id: 'the-numbers', label: '06 — NUMBERS' },
-  { id: 'the-partnership', label: '07 — PARTNER' },
+  { id: 'the-concept', label: '02 — THE CONCEPT' },
+  { id: 'the-experience', label: '03 — THE EXPERIENCE' },
+  { id: 'the-content-engine', label: '04 — THE CONTENT ENGINE' },
+  { id: 'the-demand-machine', label: '05 — THE DEMAND MACHINE' },
+  { id: 'the-numbers', label: '06 — THE NUMBERS' },
+  { id: 'the-partnership', label: '07 — THE PARTNERSHIP' },
 ];
 
 export const MobileNav = () => {

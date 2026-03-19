@@ -4,16 +4,15 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { QrCode, Activity, Ticket, Layers, Database, Zap, ShieldCheck } from 'lucide-react';
+import { QrCode, Activity, Ticket, Layers, Database, Zap } from 'lucide-react';
 import { BrushStroke } from '@/components/brand/VisualElements';
 
 export const DigitalInfrastructureSection = () => {
   return (
     <div className="space-y-12 md:space-y-24">
-      {/* Strategic Intro - Proportional Anchor */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center animate-fade-in-up">
         <div className="space-y-6">
-          <div className="section-label">10A: The Intelligence Loop</div>
+          <div className="section-label">05C: The Intelligence Loop</div>
           <h3 className="font-headline text-3xl md:text-5xl text-brand-green uppercase leading-tight">
             Vibes are fleeting; <br/>data is permanent.
           </h3>
@@ -32,7 +31,6 @@ export const DigitalInfrastructureSection = () => {
         </div>
       </div>
 
-      {/* 10B: The Tech Stack Matrix */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 animate-fade-in-up [animation-delay:200ms]">
         <Card className="p-8 bg-white border border-brand-green/5 rounded-[32px] flex items-start gap-6 group hover:border-brand-gold transition-all">
           <div className="w-14 h-14 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
@@ -59,9 +57,8 @@ export const DigitalInfrastructureSection = () => {
         </Card>
       </div>
 
-      {/* 10C: QR Tracking Visual */}
       <div className="space-y-8 animate-fade-in-up [animation-delay:400ms]">
-        <div className="section-label">10B: QR Tracking & Sensing</div>
+        <div className="section-label">05D: QR Tracking & Sensing</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {[
             { label: "Identity", icon: <QrCode />, sub: "Profile mapping." },
@@ -81,7 +78,6 @@ export const DigitalInfrastructureSection = () => {
         </div>
       </div>
 
-      {/* 10D: Live Optimization Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-fade-in-up [animation-delay:600ms]">
         {[
           { metric: "Capture Rate", value: "100%", progress: 100 },
