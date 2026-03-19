@@ -5,7 +5,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Users, Volume2, TrendingUp, CheckCircle2, Calendar, Zap, Rocket, Bell, Play, Ticket, Mail, Clock } from 'lucide-react';
+import { Users, Volume2, TrendingUp, CheckCircle2, Calendar, Zap, Rocket, Bell, Play, Ticket, Mail, Clock, Smartphone } from 'lucide-react';
 
 export const AttendanceDemandSection = () => {
   return (
@@ -239,6 +239,50 @@ export const AttendanceDemandSection = () => {
               <p><strong>Strategic Why:</strong> "Free entry before 4PM" incentivizes early arrival, ensuring the venue looks "packed" for the golden-hour content window, while late arrivals pay full price.</p>
             </div>
           </Card>
+        </div>
+      </div>
+
+      {/* 6F: Ticketing Infrastructure & Payment Flow */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          6F: Ticketing Infrastructure & Payment Flow
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+           <div className="space-y-6 font-body text-base text-brand-green/70">
+             <p>
+               In Kenya, the transition from discovery to purchase must be frictionless. We mandate **M-Pesa integration** as the primary payment rail. Any barrier—be it a complex signup or a non-mobile payment method—results in a 40-60% drop-off in the Nairobi market.
+             </p>
+             <h4 className="font-headline text-xl text-brand-green">Why Mobile Payments?</h4>
+             <p className="text-sm leading-relaxed">
+               Nairobi is a mobile-first economy. M-Pesa isn't just a convenience; it's the cultural standard for trust and speed. By utilizing native M-Pesa STK push prompts, we capture the "impulse buy" during the peak hype cycle (Days 3-1).
+             </p>
+             <div className="bg-brand-gold/10 p-4 rounded-xl border-l-4 border-brand-gold">
+               <p className="text-xs font-bold text-brand-green uppercase tracking-wider">Market Insight</p>
+               <p className="text-sm italic">"80%+ of our target audience (23-35) uses M-Pesa as their primary transacting tool for leisure and entertainment."</p>
+             </div>
+           </div>
+
+           <div className="space-y-6">
+             <h4 className="font-headline text-xl text-brand-green">Recommended Platform Partners</h4>
+             <div className="grid grid-cols-1 gap-4">
+               {[
+                 { name: "TicketSasa", description: "The industry standard for mass-market events in Kenya. Strong database reach." },
+                 { name: "Hustlesasa", description: "Creator-focused, ultra-fast mobile checkout. Ideal for 'RSVP-Gated' and 'Hybrid' models." },
+                 { name: "Tokea Africa", description: "Excellent data analytics and scanning infrastructure for high-capacity venue management." },
+               ].map((platform, i) => (
+                 <Card key={i} className="p-4 bg-white border border-brand-green/5 rounded-xl flex items-center gap-4 group hover:border-brand-gold transition-colors">
+                   <div className="w-10 h-10 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0">
+                     <Smartphone size={20} />
+                   </div>
+                   <div>
+                     <span className="font-headline text-lg text-brand-green block leading-none mb-1">{platform.name}</span>
+                     <p className="font-body text-xs text-brand-green/60">{platform.description}</p>
+                   </div>
+                 </Card>
+               ))}
+             </div>
+           </div>
         </div>
       </div>
 
