@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, CheckCircle2, GlassWater, MapPin, Sparkles, Trophy, Camera, Utensils, Beer, DoorOpen, QrCode, Clock, Smartphone, Info } from 'lucide-react';
+import { ArrowRight, CheckCircle2, GlassWater, MapPin, Sparkles, Trophy, Camera, Utensils, Beer, DoorOpen, QrCode, Clock, Smartphone, Info, Soup, ChefHat } from 'lucide-react';
 
 export const ExperienceDesignSection = () => {
   return (
@@ -147,10 +147,64 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* 8D: Venue Zone Map */}
+      {/* 8D: The Culinary Layer & Vendor Curation */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          8D: The Culinary Layer & Vendor Curation
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              Food is not a separate service; it is a critical sensory layer of the Savanna experience. We curate 3–5 rotating vendors who match Nairobi's premium lifestyle tastes, ensuring high visual appeal and flavor profiles that specifically complement the crispness of Savanna.
+            </p>
+            <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2 bg-brand-gold/5">
+              "We don't host food stalls; we curate a culinary experience. If the food doesn't look as premium as the cider, it doesn't serve the brand."
+            </div>
+            <p className="text-sm font-bold text-brand-green uppercase tracking-wider">The Pairing Strategy</p>
+            <p className="text-xs italic leading-relaxed">
+              Each vendor is required to offer at least one "Savanna Sunday Special"—a signature dish designed to pair perfectly with chilled Savanna Dry or Light.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <ChefHat size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Curation over Capacity</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Selection based on quality, plating aesthetic, and speed of service. Vendors rotate to keep the community experience fresh across editions.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Utensils size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">The Visual Plating Standard</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Mandatory vendor brief on branding and plating. Food must be 'camera-ready' to drive high-value UGC from diners.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Soup size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Integrated Menu Items</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Strategic collaborations for Savanna-infused sauces or pairings, anchoring the brand directly in the attendee's culinary memory.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* 8E: Venue Zone Map */}
       <div className="space-y-8 animate-fade-in-up">
         <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          8D: On-Site Spatial Strategy
+          8E: On-Site Spatial Strategy
         </h3>
         <div className="bg-brand-green/5 rounded-[40px] p-8 border border-brand-green/5 relative overflow-hidden">
           <svg viewBox="0 0 800 500" className="w-full h-auto drop-shadow-2xl">
@@ -178,10 +232,10 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* 8E: Attendee Journey */}
+      {/* 8F: Attendee Journey */}
       <div className="space-y-8 animate-fade-in-up">
         <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          8E: The Attendee Journey
+          8F: The Attendee Journey
         </h3>
         <div className="relative flex flex-col md:flex-row justify-between items-center gap-4 py-8">
           <div className="absolute top-1/2 left-0 w-full h-0.5 bg-brand-gold/20 -translate-y-1/2 hidden md:block" />
@@ -210,7 +264,7 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* 8F & 8G: Savanna 0.0 & Games */}
+      {/* 8G & 8H: Savanna 0.0 & Games */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in-up">
         <Card className="p-8 bg-white border-l-4 border-brand-teal rounded-[24px] shadow-sm flex flex-col gap-6">
           <div className="flex items-center gap-4">
@@ -218,7 +272,7 @@ export const ExperienceDesignSection = () => {
               <GlassWater size={24} />
             </div>
             <div>
-              <h4 className="font-headline text-3xl text-brand-green">8F: SAVANNA 0.0 INTEGRATION</h4>
+              <h4 className="font-headline text-3xl text-brand-green uppercase">8G: SAVANNA 0.0 INTEGRATION</h4>
               <Badge className="bg-brand-teal text-white border-none mt-1">Non-Alcoholic Track</Badge>
             </div>
           </div>
@@ -228,7 +282,7 @@ export const ExperienceDesignSection = () => {
         </Card>
 
         <div className="space-y-6">
-          <h4 className="font-headline text-xl text-brand-green uppercase tracking-wider mb-2">8G: Interactive Activations</h4>
+          <h4 className="font-headline text-xl text-brand-green uppercase tracking-wider mb-2">8H: Interactive Activations</h4>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { title: "Spin-the-Wheel", icon: <Sparkles />, color: "bg-brand-light-yellow/40" },
