@@ -264,22 +264,57 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* 8G: Savanna 0.0 Integration */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in-up">
-        <Card className="p-8 bg-white border-l-4 border-brand-teal rounded-[24px] shadow-sm flex flex-col gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center">
-              <GlassWater size={24} />
+      {/* 8G: Savanna 0.0 & Inclusive Drinking Strategy */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          8G: Savanna 0.0 & Inclusive Drinking Strategy
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              Mindful consumption is a cornerstone of the premium lifestyle. We position Savanna 0.0 as a first-class choice, ensuring that guests choosing non-alcoholic options experience the same level of branding, aesthetic, and sophistication as those consuming alcohol.
+            </p>
+            <div className="font-serif italic text-lg text-brand-teal border-l-4 border-brand-teal pl-6 py-2 bg-brand-teal/5">
+              "We don't offer an alternative; we offer a choice. By elevating 0.0 to the same visual standard as Dry, we remove the social friction of non-drinking."
             </div>
-            <div>
-              <h4 className="font-headline text-3xl text-brand-green uppercase">8G: SAVANNA 0.0 INTEGRATION</h4>
-              <Badge className="bg-brand-teal text-white border-none mt-1">Non-Alcoholic Track</Badge>
-            </div>
+            <p className="text-sm">
+              Our inclusive drinking strategy ensures that the Savanna "Crisp" identity is a universal experience across the entire attendee base.
+            </p>
           </div>
-          <p className="font-body text-brand-green/60 leading-relaxed text-sm">
-            A dedicated experience track for the mindful consumer. We ensure the Savanna 0.0 crispness is as celebrated as the original, with specific branded glassware and stations.
-          </p>
-        </Card>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <GlassWater size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Dedicated Savanna 0.0 Hub</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">A standalone service station focusing exclusively on Savanna 0.0 and signature mocktails, signaling its importance as a featured brand variant.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Sparkles size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Equal Brand Visibility</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">0.0 is integrated into all primary bar displays and signage with the same warm lighting and premium positioning as the alcoholic range.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <ShieldCheckIcon size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Premium Presentation Standards</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Served in the same high-aesthetic glassware with signature garnishes. From a social distance (and on camera), the 0.0 experience is indistinguishable from the premium original.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
       </div>
 
       {/* 8H: Interactive Activations & UGC Mechanics */}
@@ -392,7 +427,7 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* 8I: The Exit Journey */}
+      {/* 8I: The Exit Journey (8:30–9:00 PM) */}
       <div className="space-y-12 animate-fade-in-up">
         <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
           8I: The Exit Journey (8:30–9:00 PM)
@@ -445,4 +480,4 @@ export const ExperienceDesignSection = () => {
   );
 };
 
-const Volume2Icon = ({ size }: { size: number }) => <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-volume-2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>;
+const ShieldCheckIcon = ({ size }: { size: number }) => <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>;
