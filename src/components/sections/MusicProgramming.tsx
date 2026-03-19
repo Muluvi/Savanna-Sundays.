@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Music, Sun, Sunset, Moon, Star, Mic2, Palette, Smile, CheckCircle2, Clock, Zap, Coffee, Disc } from 'lucide-react';
+import { Music, Sun, Sunset, Moon, Star, Mic2, Palette, Smile, CheckCircle2, Clock, Zap, Coffee, Disc, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 
 const labels = [
@@ -261,6 +261,59 @@ export const MusicProgrammingSection = () => {
                 <Badge className="bg-brand-teal text-white border-none text-[10px]">{artist.event}</Badge>
               </Card>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* 7F: Live Performance Enhancement */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          7F: Live Performance Enhancement
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              To differentiate Savanna Sundays from standard DJ-led club nights, we integrate live performers during key transition moments. These musicians don't replace the DJ; they act as a "physical layer" that enhances both the on-site atmosphere and the production of high-value social content.
+            </p>
+            <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2">
+              "Live performance provides the 'visual hook' that raw DJing lacks. It transforms a sonic moment into a cinematic one, perfectly optimized for short-form video."
+            </div>
+            <p className="text-sm">
+              Performers are scheduled to appear during peak "Golden Hour" and "Headliner" windows to ensure maximum visual impact when the most content is being captured.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Music size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Saxophonists (The Glow Phase)</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Improvisational sets during sunset. The analog brass textures complement the "Savanna Gold" lighting, creating a premium lifestyle aesthetic.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Mic2 size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Vocalists (The Peak Phase)</h4>
+                <p className="font-body text-sm text-brand-green/70 leading-relaxed">Live PA performances of anthemic Afro-house tracks. These moments drive crowd interaction and create "sing-along" clips for social media.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Zap size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Percussionists (Energy Bridge)</h4>
+                <p className="font-body text-sm text-white/70 leading-relaxed">Traditional and electronic percussion that amplifies the rhythm. Percussionists move through the crowd to bridge the gap between stage and audience.</p>
+              </div>
+            </Card>
           </div>
         </div>
       </div>
