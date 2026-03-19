@@ -9,9 +9,45 @@ import { ArrowRight, CheckCircle2, GlassWater, MapPin, Sparkles, Trophy, Camera,
 export const ExperienceDesignSection = () => {
   return (
     <div className="space-y-24">
-      {/* Venue Zone Map */}
-      <div className="space-y-8">
-        <div className="section-label">08.1 — On-Site Spatial Strategy</div>
+      {/* Strategic Intro */}
+      <div className="font-body font-light text-[15px] text-brand-green/55 max-w-[680px] leading-[1.7] animate-fade-in-up">
+        <p>
+          Experience design is the process of earning brand equity through physical interaction. We treat Savanna Sundays as an experience system, not just entertainment. Every touchpoint—from the arrival greeting to the signature serve—is engineered to create a specific memory, produce a high-value digital asset, and deepen community connection. Our goal is to give attendees something remarkable to talk about.
+        </p>
+      </div>
+
+      {/* 8A: The Experience Philosophy */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          8A: The Experience Philosophy
+        </h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              In a fragmented social landscape, brand equity is won or lost on-site. We move beyond "hosting an event" to managing an ecosystem of high-value interactions.
+            </p>
+            <ul className="space-y-0">
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Conversational Currency:</strong> We design moments that are specifically intended to be described to friends the next day.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Content-First Zoning:</strong> Every area of the venue is evaluated for its background quality and lighting potential.</li>
+              <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Emotional Anchoring:</strong> Connecting the crispness of Savanna to positive social milestones.</li>
+            </ul>
+          </div>
+
+          <div className="bg-brand-cream/50 p-8 rounded-[32px] border border-brand-green/5 flex flex-col justify-center">
+            <h4 className="font-headline text-xl text-brand-green mb-4">Impact on Recall</h4>
+            <div className="font-serif italic text-lg text-brand-teal leading-relaxed border-l-2 border-brand-teal pl-6 py-2">
+              "An event is temporary; an experience system is permanent. By engineering the connection between the brand and the moment, we ensure Savanna owns the memory."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 8B: Venue Zone Map */}
+      <div className="space-y-8 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          8B: On-Site Spatial Strategy
+        </h3>
         <div className="bg-brand-green/5 rounded-[40px] p-8 border border-brand-green/5 relative overflow-hidden">
           <svg viewBox="0 0 800 500" className="w-full h-auto drop-shadow-2xl">
             {/* Background Grid */}
@@ -55,9 +91,11 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* Attendee Journey */}
-      <div className="space-y-8">
-        <div className="section-label">08.2 — The Attendee Journey</div>
+      {/* 8C: Attendee Journey */}
+      <div className="space-y-8 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          8C: The Attendee Journey
+        </h3>
         <div className="relative flex flex-col md:flex-row justify-between items-center gap-4 py-8">
           <div className="absolute top-1/2 left-0 w-full h-0.5 bg-brand-gold/20 -translate-y-1/2 hidden md:block" />
           {[
@@ -85,15 +123,15 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* Savanna 0.0 & Games */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* 8D & 8E: Savanna 0.0 & Games */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in-up">
         <Card className="p-8 bg-white border-l-4 border-brand-teal rounded-[24px] shadow-sm flex flex-col gap-6">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center">
               <GlassWater size={24} />
             </div>
             <div>
-              <h4 className="font-headline text-3xl text-brand-green">SAVANNA 0.0 INTEGRATION</h4>
+              <h4 className="font-headline text-3xl text-brand-green">8D: SAVANNA 0.0 INTEGRATION</h4>
               <Badge className="bg-brand-teal text-white border-none mt-1">Non-Alcoholic Track</Badge>
             </div>
           </div>
@@ -102,17 +140,20 @@ export const ExperienceDesignSection = () => {
           </p>
         </Card>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {[
-            { title: "Spin-the-Wheel", icon: <Sparkles />, color: "bg-brand-light-yellow/40" },
-            { title: "Blind Tasting", icon: <Beer />, color: "bg-brand-light-yellow/40" },
-            { title: "Social Challenge", icon: <Camera />, color: "bg-brand-light-yellow/40" },
-          ].map((game, i) => (
-            <Card key={i} className={`p-6 ${game.color} border border-brand-gold/20 rounded-2xl flex flex-col items-center justify-center text-center gap-3 hover:scale-105 transition-transform`}>
-              <div className="text-brand-gold">{game.icon}</div>
-              <span className="font-headline text-xs text-brand-green uppercase tracking-wider">{game.title}</span>
-            </Card>
-          ))}
+        <div className="space-y-6">
+          <h4 className="font-headline text-xl text-brand-green uppercase tracking-wider mb-2">8E: Interactive Activations</h4>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { title: "Spin-the-Wheel", icon: <Sparkles />, color: "bg-brand-light-yellow/40" },
+              { title: "Blind Tasting", icon: <Beer />, color: "bg-brand-light-yellow/40" },
+              { title: "Social Challenge", icon: <Camera />, color: "bg-brand-light-yellow/40" },
+            ].map((game, i) => (
+              <Card key={i} className={`p-6 ${game.color} border border-brand-gold/20 rounded-2xl flex flex-col items-center justify-center text-center gap-3 hover:scale-105 transition-transform`}>
+                <div className="text-brand-gold">{game.icon}</div>
+                <span className="font-headline text-xs text-brand-green uppercase tracking-wider">{game.title}</span>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </div>
