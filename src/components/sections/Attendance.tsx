@@ -5,7 +5,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Users, Volume2, TrendingUp, CheckCircle2 } from 'lucide-react';
+import { Users, Volume2, TrendingUp, CheckCircle2, Calendar } from 'lucide-react';
 
 export const AttendanceDemandSection = () => {
   return (
@@ -28,8 +28,49 @@ export const AttendanceDemandSection = () => {
             Every owned edition follows a rigid two-week countdown sequence designed to build cumulative momentum and drive ticket conversions:
           </p>
           
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center font-headline text-xl">14</div>
+                <h4 className="font-headline text-xl text-brand-green uppercase">Day 14: The Date Anchor</h4>
+              </div>
+              <p className="font-body text-sm text-brand-green/70">
+                Date-only announcement with no venue or lineup reveal. 
+              </p>
+              <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
+                Psychological Intent: Awareness & Curiosity. Anchors the date in the user's social calendar before they commit to alternatives.
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center font-headline text-xl">10</div>
+                <h4 className="font-headline text-xl text-brand-green uppercase">Day 10: The Spatial Reveal</h4>
+              </div>
+              <p className="font-body text-sm text-brand-green/70">
+                Venue announcement using cinematic walkthrough content.
+              </p>
+              <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
+                Psychological Intent: Materialization. Let the audience visualize themselves in the space, shifting the event from abstract to real.
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center font-headline text-xl">07</div>
+                <h4 className="font-headline text-xl text-brand-green uppercase">Day 07: The Sonic Hook</h4>
+              </div>
+              <p className="font-body text-sm text-brand-green/70">
+                First DJ reveal accompanied by a high-energy audio teaser.
+              </p>
+              <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
+                Psychological Intent: Desire & Anticipation. Connects visual expectations to sound, moving the user toward ticket purchase.
+              </div>
+            </Card>
+          </div>
+
           <div className="relative pt-12 pb-8">
-            <div className="section-label mb-8">2-Week Launch Countdown</div>
+            <div className="section-label mb-8">2-Week Launch Countdown Timeline</div>
             <div className="h-2 w-full bg-brand-green/10 rounded-full relative">
               <div className="absolute h-full w-2/3 bg-brand-gold rounded-full" />
               {[0, 25, 50, 75, 100].map((step) => (
@@ -48,15 +89,6 @@ export const AttendanceDemandSection = () => {
               <div className="text-[9px] font-bold uppercase tracking-widest text-brand-green/20">EVENT DAY</div>
             </div>
           </div>
-
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 font-body text-base text-brand-green/70">
-            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Day 14–11: The Tease.</strong> Cryptic visual content and 'Save the Date' WhatsApp drops.</li>
-            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Day 10: The Reveal.</strong> Venue and theme announcement. Early Bird launch.</li>
-            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Day 7: The Lineup.</strong> Artist reveal and Phase 1 general ticket launch.</li>
-            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Day 4: The Reminder.</strong> Recap moments from previous editions to drive FOMO.</li>
-            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Day 2: The Final Call.</strong> Urgent video content from ambassadors. Sold-out alerts.</li>
-            <li className="py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={16} /> <strong>Day 0: Event Day.</strong> Live coverage validates the hype in real-time.</li>
-          </ul>
         </div>
       </div>
 
