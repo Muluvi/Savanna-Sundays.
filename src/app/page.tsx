@@ -54,9 +54,9 @@ export default function Home() {
           <WaterDroplets className="opacity-20" />
           
           <div className="relative z-20 flex flex-col items-center mb-12 animate-fade-in-up">
-            <span className="text-[10px] tracking-[4px] md:tracking-[6px] text-brand-gold uppercase mb-4 font-bold opacity-60">Presented by</span>
+            <span className="text-[10px] tracking-[4px] md:tracking-[6px] text-brand-gold uppercase mb-6 font-bold opacity-60">Presented by</span>
             {logo && (
-              <div className="relative w-[220px] h-[55px] md:w-[320px] md:h-[80px]">
+              <div className="relative w-[300px] h-[75px] md:w-[500px] md:h-[125px]">
                 <Image 
                   src={logo.imageUrl} 
                   alt="Firefly Management" 
@@ -108,7 +108,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 md:gap-12 relative z-10">
             <div className="flex flex-col items-center md:items-start">
               {logo && (
-                <div className="relative w-[180px] h-[45px] mb-6">
+                <div className="relative w-[260px] h-[65px] mb-8">
                   <Image 
                     src={logo.imageUrl} 
                     alt="Firefly Management" 
