@@ -5,7 +5,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Users, Volume2, TrendingUp, CheckCircle2, Calendar } from 'lucide-react';
+import { Users, Volume2, TrendingUp, CheckCircle2, Calendar, Zap, Rocket, Bell, Play } from 'lucide-react';
 
 export const AttendanceDemandSection = () => {
   return (
@@ -23,48 +23,115 @@ export const AttendanceDemandSection = () => {
           6A: The 14-Day Hype Cycle
         </h3>
         
-        <div className="space-y-8">
+        <div className="space-y-12">
           <p className="font-body text-base text-brand-green/70 max-w-3xl">
             Every owned edition follows a rigid two-week countdown sequence designed to build cumulative momentum and drive ticket conversions:
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center font-headline text-xl">14</div>
-                <h4 className="font-headline text-xl text-brand-green uppercase">Day 14: The Date Anchor</h4>
+                <h4 className="font-headline text-xl text-brand-green uppercase">Day 14: Date Anchor</h4>
               </div>
               <p className="font-body text-sm text-brand-green/70">
                 Date-only announcement with no venue or lineup reveal. 
               </p>
               <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
-                Psychological Intent: Awareness & Curiosity. Anchors the date in the user's social calendar before they commit to alternatives.
+                Intent: Anchors the date in social calendars before alternatives appear.
               </div>
             </Card>
 
             <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center font-headline text-xl">10</div>
-                <h4 className="font-headline text-xl text-brand-green uppercase">Day 10: The Spatial Reveal</h4>
+                <h4 className="font-headline text-xl text-brand-green uppercase">Day 10: Spatial Reveal</h4>
               </div>
               <p className="font-body text-sm text-brand-green/70">
                 Venue announcement using cinematic walkthrough content.
               </p>
               <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
-                Psychological Intent: Materialization. Let the audience visualize themselves in the space, shifting the event from abstract to real.
+                Intent: Materialization. Audience visualizes themselves in the space.
               </div>
             </Card>
 
             <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center font-headline text-xl">07</div>
-                <h4 className="font-headline text-xl text-brand-green uppercase">Day 07: The Sonic Hook</h4>
+                <h4 className="font-headline text-xl text-brand-green uppercase">Day 07: Sonic Hook</h4>
               </div>
               <p className="font-body text-sm text-brand-green/70">
-                First DJ reveal accompanied by a high-energy audio teaser.
+                First DJ reveal with a high-energy teaser audio clip.
               </p>
               <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
-                Psychological Intent: Desire & Anticipation. Connects visual expectations to sound, moving the user toward ticket purchase.
+                Intent: Connects visual expectations to sound, building desire.
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center font-headline text-xl">05</div>
+                <h4 className="font-headline text-xl text-brand-green uppercase">Day 05: Staggered Reveal</h4>
+              </div>
+              <p className="font-body text-sm text-brand-green/70">
+                Morning and evening DJ reveals to maximize feed visibility.
+              </p>
+              <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
+                Intent: Frequency. Dominates the feed during peak commute/leisure hours.
+              </div>
+            </Card>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="p-6 bg-brand-gold/5 border border-brand-gold/20 rounded-2xl space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-brand-gold text-brand-green flex items-center justify-center font-headline text-xl">03</div>
+                <h4 className="font-headline text-xl text-brand-green uppercase">Day 03: Conversion Peak</h4>
+              </div>
+              <p className="font-body text-sm text-brand-green/70">
+                Full lineup reveal + Ticket launch + Ambassador blast.
+              </p>
+              <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
+                Intent: Commitment. Translates hype into immediate ticket sales.
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center font-headline text-xl">02</div>
+                <h4 className="font-headline text-xl text-brand-green uppercase">Day 02: Proof of Vibe</h4>
+              </div>
+              <p className="font-body text-sm text-brand-green/70">
+                FOMO content from previous editions. "Remember this?"
+              </p>
+              <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
+                Intent: Social Validation. Reminds the audience of the quality level.
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center font-headline text-xl">01</div>
+                <h4 className="font-headline text-xl text-brand-green uppercase">Day 01: The Final Push</h4>
+              </div>
+              <p className="font-body text-sm text-brand-green/70">
+                Polls, countdowns, and "90% sold" urgency messaging.
+              </p>
+              <div className="font-serif italic text-sm text-brand-teal border-l-2 border-brand-teal pl-3">
+                Intent: Urgency. Captures the procrastinators and laggards.
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl space-y-4 shadow-xl">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-brand-gold text-brand-green flex items-center justify-center font-headline text-xl">00</div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase">Day 00: Live Harvest</h4>
+              </div>
+              <p className="font-body text-sm text-white/70">
+                Real-time content from setup to sunset to peak energy.
+              </p>
+              <div className="font-serif italic text-sm text-brand-gold border-l-2 border-brand-gold pl-3">
+                Intent: Presence. Turns the event itself into a 7-hour advertisement.
               </div>
             </Card>
           </div>
@@ -72,21 +139,21 @@ export const AttendanceDemandSection = () => {
           <div className="relative pt-12 pb-8">
             <div className="section-label mb-8">2-Week Launch Countdown Timeline</div>
             <div className="h-2 w-full bg-brand-green/10 rounded-full relative">
-              <div className="absolute h-full w-2/3 bg-brand-gold rounded-full" />
+              <div className="absolute h-full w-full bg-gradient-to-r from-brand-gold via-brand-teal to-brand-green rounded-full" />
               {[0, 25, 50, 75, 100].map((step) => (
                 <div 
                   key={step} 
-                  className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-4 border-brand-cream transition-colors ${step <= 66 ? 'bg-brand-gold' : 'bg-brand-green/20'}`}
+                  className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-4 border-brand-cream bg-brand-gold shadow-sm"
                   style={{ left: `${step}%` }}
                 />
               ))}
             </div>
             <div className="grid grid-cols-5 gap-4 mt-6">
               <div className="text-[9px] font-bold uppercase tracking-widest text-brand-green/40">Teasers</div>
-              <div className="text-[9px] font-bold uppercase tracking-widest text-brand-green/40">Phase 1 Tickets</div>
-              <div className="text-[9px] font-bold uppercase tracking-widest text-brand-gold">Artist reveal</div>
-              <div className="text-[9px] font-bold uppercase tracking-widest text-brand-green/20">Final Call</div>
-              <div className="text-[9px] font-bold uppercase tracking-widest text-brand-green/20">EVENT DAY</div>
+              <div className="text-[9px] font-bold uppercase tracking-widest text-brand-green/60">Venue Reveal</div>
+              <div className="text-[9px] font-bold uppercase tracking-widest text-brand-teal">Artist reveals</div>
+              <div className="text-[9px] font-bold uppercase tracking-widest text-brand-gold">Ticket Launch</div>
+              <div className="text-[9px] font-bold uppercase tracking-widest text-brand-green">EVENT DAY</div>
             </div>
           </div>
         </div>
