@@ -5,7 +5,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { BrushStroke } from '@/components/brand/VisualElements';
 import Image from 'next/image';
-import { Play, AudioLines, Share2, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Play, AudioLines, Share2, ArrowRight, CheckCircle2, Camera, Video, Smartphone, Mic2 } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const platformsLeft = [
@@ -25,141 +25,100 @@ const platformsRight = [
 export const ContentSocialSection = () => {
   return (
     <div className="space-y-12 md:space-y-24">
-      {/* Strategic Intro */}
-      <div className="font-body font-light text-[15px] text-brand-green/55 max-w-[680px] leading-[1.7] animate-fade-in-up">
-        <p>
-          Content is Firefly’s core deliverable and Savanna Sundays’ most valuable compounding asset. Every edition is a content harvest—producing raw material that feeds 30+ days of social media, a growing DJ mix library, and a community narrative that deepens with every Sunday.
-        </p>
-      </div>
-
-      {/* 4A: Real-Time Content Capture */}
-      <div className="space-y-8 md:space-y-12 animate-fade-in-up">
-        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          4A: Real-Time Content Capture (Event Day)
-        </h3>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-          <div className="space-y-6 md:space-y-8">
-            <h4 className="font-headline text-xl text-brand-green">The Content Capture Team</h4>
-            <ul className="space-y-0 font-body text-sm md:text-base text-brand-green/70">
-              <li className="py-1.5 md:py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={14} /> <strong>Lead Photographer (1):</strong> Editorial stills—lifestyle, fashion, product.</li>
-              <li className="py-1.5 md:py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={14} /> <strong>Videographer (1):</strong> Multi-angle cinematic footage on gimbal.</li>
-              <li className="py-1.5 md:py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={14} /> <strong>Social Shooter (1):</strong> Vertical phone-native content for IG/TikTok.</li>
-              <li className="py-1.5 md:py-2 flex gap-3 items-start"><CheckCircle2 className="text-brand-gold shrink-0 mt-1" size={14} /> <strong>Audio Engineer (1):</strong> Manages direct board-feed recording.</li>
-            </ul>
-          </div>
-
-          <div className="bg-brand-cream/50 p-6 md:p-8 rounded-2xl border border-brand-green/5">
-            <h4 className="font-headline text-lg md:text-xl text-brand-green mb-3 md:mb-4">Real-Time Posting Workflow</h4>
-            <p className="font-body text-xs md:text-sm text-brand-green/70 leading-relaxed">
-              The phone-native shooter handles live posting. Stories go live as doors open, with hourly cadence increases. High-priority Reels are posted within 60 minutes of Golden Hour capture to leverage peak engagement.
-            </p>
-          </div>
+      {/* Strategic Intro Card */}
+      <Card className="p-6 md:p-10 border-none bg-brand-green text-white rounded-[32px] shadow-2xl relative overflow-hidden group">
+        <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-110 transition-transform">
+          <Camera size={120} />
         </div>
+        <div className="relative z-10 max-w-2xl">
+          <span className="font-body font-bold text-[10px] tracking-[4px] uppercase text-brand-gold mb-4 block">The Deliverable</span>
+          <h3 className="font-headline text-3xl md:text-5xl mb-6 leading-tight uppercase">Every event is a content harvest.</h3>
+          <p className="font-body text-sm md:text-lg text-white/70 leading-relaxed">
+            We treat events as production sets. Every Sunday produces raw material that feeds 30+ days of social media, deepens the community narrative, and builds a permanent digital archive for Savanna.
+          </p>
+        </div>
+      </Card>
 
-        {/* Platform Ecosystem Visual */}
-        <div className="relative mt-8 md:mt-12 pt-8 md:pt-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-24 items-start">
-            <div className="space-y-6 md:space-y-8">
-              <div className="relative inline-block mb-2 md:mb-4">
-                <BrushStroke className="w-full h-6 md:h-8 opacity-40 -translate-y-1" color="#F4C542" />
-                <h5 className="font-headline text-2xl md:text-3xl text-brand-green relative z-10 px-4 uppercase">REAL-TIME</h5>
-              </div>
-              <div className="grid grid-cols-2 gap-3 md:gap-4">
-                {platformsLeft.map((p, i) => (
-                  <Card key={i} className="p-3 md:p-4 bg-white rounded-2xl border border-brand-green/5 flex flex-col items-center text-center group hover:border-brand-gold transition-colors">
-                    <div className="w-10 h-10 md:w-12 md:h-12 mb-2 md:mb-3 flex items-center justify-center">
-                      <Image src={p.logo} alt={p.name} width={32} height={32} className={`object-contain ${p.name === 'X' ? 'brightness-0' : ''}`} />
-                    </div>
-                    <span className="font-body font-bold text-[8px] md:text-[10px] uppercase tracking-widest text-brand-green/40">{p.role}</span>
-                  </Card>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-6 md:space-y-8">
-              <div className="relative inline-block mb-2 md:mb-4">
-                <BrushStroke className="w-full h-6 md:h-8 opacity-40 -translate-y-1" color="#2D8C7F" />
-                <h5 className="font-headline text-2xl md:text-3xl text-brand-green relative z-10 px-4 uppercase">BETWEEN SUNDAYS</h5>
-              </div>
-              <div className="grid grid-cols-2 gap-3 md:gap-4">
-                {platformsRight.map((p, i) => (
-                  <Card key={i} className="p-3 md:p-4 bg-white rounded-2xl border border-brand-green/5 flex flex-col items-center text-center group hover:border-brand-teal transition-colors">
-                    <div className="w-10 h-10 md:w-12 md:h-12 mb-2 md:mb-3 flex items-center justify-center">
-                      <Image src={p.logo} alt={p.name} width={32} height={32} className="object-contain" />
-                    </div>
-                    <span className="font-body font-bold text-[8px] md:text-[10px] uppercase tracking-widest text-brand-green/40">{p.role}</span>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </div>
+      {/* 4A: The Content Squad (Replaces long text) */}
+      <div className="space-y-8 animate-fade-in-up">
+        <div className="section-label">04A: The Production Unit</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { label: "Lead Stills", icon: <Camera />, desc: "Editorial fashion & product." },
+            { label: "Cinema Unit", icon: <Video />, desc: "Gimbal-native cinematic recap." },
+            { label: "Social Shooter", icon: <Smartphone />, desc: "Vertical IG/TikTok native." },
+            { label: "Sonic Eng", icon: <Mic2 />, desc: "Direct mixer-feed capture." },
+          ].map((role, i) => (
+            <Card key={i} className="p-5 bg-white border border-brand-green/5 rounded-2xl space-y-3 hover:border-brand-gold transition-all">
+              <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center">{role.icon}</div>
+              <h4 className="font-headline text-lg text-brand-green uppercase leading-none">{role.label}</h4>
+              <p className="font-body text-[10px] text-brand-green/50 leading-tight">{role.desc}</p>
+            </Card>
+          ))}
         </div>
       </div>
 
-      {/* 4B: DJ Set Content Pipeline */}
-      <div className="space-y-8 md:space-y-12 animate-fade-in-up">
-        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          4B: DJ Set Content Pipeline
-        </h3>
-        <p className="font-body text-sm md:text-base text-brand-green/70 max-w-3xl leading-relaxed">
-          Every set is recorded via direct mixer feed for broadcast-quality audio. Full sets are uploaded within 7 days to YouTube and SoundCloud as the “Savanna Sundays Mix Series.”
-        </p>
+      {/* Proportional Pull Quote */}
+      <div className="relative py-12 flex flex-col items-center justify-center">
+        <div className="relative z-10 max-w-4xl text-center">
+          <BrushStroke className="w-48 h-auto opacity-10 -rotate-1 mx-auto" color="#2D8C7F" />
+          <h3 className="font-serif italic text-3xl md:text-5xl text-brand-green/80 leading-relaxed px-4">
+            "If it wasn't captured, it didn't happen."
+          </h3>
+        </div>
+      </div>
 
-        <div className="py-8 md:py-12 bg-brand-green rounded-[24px] md:rounded-[30px] p-6 md:p-10 text-white relative overflow-hidden">
-          <div className="relative z-10">
-            <h5 className="font-headline text-2xl md:text-3xl mb-8 md:mb-12 text-center tracking-widest uppercase">Sonic Pipeline</h5>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
-              {[
-                { label: "Live Set", icon: <Play className="w-4 h-4" /> },
-                { label: "Audio Capture", icon: <AudioLines className="w-4 h-4" /> },
-                { label: "Post-Prod", icon: <Share2 className="w-4 h-4" /> },
-                { label: "Upload", icon: <ArrowRight className="w-4 h-4" /> },
-              ].map((step, i, arr) => (
-                <React.Fragment key={i}>
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-brand-gold/30 flex items-center justify-center bg-white/5">
-                      {step.icon}
-                    </div>
-                    <span className="font-body text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-white/50">{step.label}</span>
-                  </div>
-                  {i < arr.length - 1 && (
-                    <ArrowRight className="hidden md:block text-brand-gold/40 w-3.5 h-3.5" />
-                  )}
-                </React.Fragment>
-              ))}
-            </div>
+      {/* 4B: Sonic Pipeline Visual */}
+      <div className="space-y-8 animate-fade-in-up">
+        <div className="section-label">04B: The Sonic Pipeline</div>
+        <div className="bg-brand-cream/50 border border-brand-green/5 rounded-[32px] p-8 md:p-12">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 relative">
+             {/* Connector Line (Desktop) */}
+            <div className="absolute top-1/2 left-0 w-full h-[1px] bg-brand-green/10 hidden md:block -translate-y-6" />
+            
+            {[
+              { label: "Capture", icon: <AudioLines />, sub: "Direct Board Feed" },
+              { label: "Polish", icon: <Play />, sub: "Post-Production" },
+              { label: "Distribute", icon: <Share2 />, sub: "YT / Mixcloud" },
+              { label: "Loop", icon: <ArrowRight />, sub: "Social Extraction" },
+            ].map((step, i) => (
+              <div key={i} className="relative z-10 flex flex-col items-center text-center space-y-4">
+                <div className="w-14 h-14 rounded-full bg-white border border-brand-green/5 shadow-md flex items-center justify-center text-brand-teal group-hover:scale-110 transition-transform">
+                  {step.icon}
+                </div>
+                <div className="space-y-1">
+                  <h5 className="font-headline text-xl text-brand-green uppercase">{step.label}</h5>
+                  <p className="font-body text-[10px] tracking-widest text-brand-green/40 font-bold uppercase">{step.sub}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* 4C: Post-Event Content Calendar */}
-      <div className="space-y-8 md:space-y-12 animate-fade-in-up">
-        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
-          4C: 30-Day Content Extraction
-        </h3>
-        
-        <div className="bg-white rounded-[24px] md:rounded-[30px] overflow-hidden border border-brand-green/5 shadow-lg">
+      {/* 4C: Extraction Table */}
+      <div className="space-y-8 animate-fade-in-up">
+        <div className="section-label">04C: 30-Day Extraction Strategy</div>
+        <div className="bg-white rounded-[32px] overflow-hidden border border-brand-green/5 shadow-xl">
           <Table>
             <TableHeader className="bg-brand-green">
               <TableRow className="hover:bg-transparent border-none">
-                <TableHead className="text-white font-headline tracking-widest py-4 md:py-6 text-xs md:text-sm">Days</TableHead>
-                <TableHead className="text-white font-headline tracking-widest text-xs md:text-sm">Content Type</TableHead>
-                <TableHead className="text-white font-headline tracking-widest text-xs md:text-sm">Platform</TableHead>
+                <TableHead className="text-white font-headline tracking-widest py-6 px-8 text-sm">Timeframe</TableHead>
+                <TableHead className="text-white font-headline tracking-widest text-sm">Asset Type</TableHead>
+                <TableHead className="text-white font-headline tracking-widest text-sm text-right px-8">Channel</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {[
-                { time: "Day 1–2", type: "Recap & Highlights", plat: "IG, TikTok, X" },
-                { time: "Day 3–7", type: "Crowd Energy & DJ Sets", plat: "YouTube, Feed" },
-                { time: "Day 8–14", type: "Community Spotlights", plat: "Reels, WhatsApp" },
-                { time: "Day 15–21", type: "Product & Lifestyle", plat: "Feed, YouTube" },
-                { time: "Day 22–30", type: "Next Edition Hype", plat: "All, Email" },
+                { time: "Day 1–3", type: "Viral Recaps & Golden Hour Reels", plat: "IG / TikTok" },
+                { time: "Day 4–10", type: "Full Mixes & Community Portraits", plat: "YouTube / X" },
+                { time: "Day 11–20", type: "Product Focus & Lifestyle Cuts", plat: "Meta / Web" },
+                { time: "Day 21–30", type: "Next Sunday Teasers", plat: "Email / WA" },
               ].map((row, i) => (
-                <TableRow key={i} className={i % 2 !== 0 ? 'bg-brand-light-yellow/10' : ''}>
-                  <TableCell className="font-headline text-lg md:text-xl py-4 md:py-6 text-brand-teal">{row.time}</TableCell>
-                  <TableCell className="font-body font-bold text-xs md:text-sm text-brand-green/70">{row.type}</TableCell>
-                  <TableCell className="font-body text-[10px] md:text-xs text-brand-teal font-bold uppercase tracking-wider">{row.plat}</TableCell>
+                <TableRow key={i} className="hover:bg-brand-gold/5 transition-colors border-brand-green/5">
+                  <TableCell className="font-headline text-xl py-6 px-8 text-brand-teal">{row.time}</TableCell>
+                  <TableCell className="font-body font-bold text-sm text-brand-green/70">{row.type}</TableCell>
+                  <TableCell className="font-body text-[10px] text-brand-green/40 font-bold uppercase tracking-widest text-right px-8">{row.plat}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
