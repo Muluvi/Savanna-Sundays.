@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -7,20 +6,14 @@ import { ChevronUp } from 'lucide-react';
 
 const sections = [
   { id: 'hero', label: '00 — START' },
-  { id: 'strategic-overview', label: '01 — STRATEGIC OVERVIEW' },
-  { id: 'dual-model', label: '02 — DUAL MODEL' },
-  { id: 'visual-identity', label: '03 — VISUAL IDENTITY' },
-  { id: 'content-social', label: '04 — CONTENT & SOCIAL' },
-  { id: 'community', label: '05 — COMMUNITY' },
-  { id: 'attendance', label: '06 — ATTENDANCE' },
-  { id: 'music', label: '07 — MUSIC' },
-  { id: 'experience', label: '08 — EXPERIENCE' },
-  { id: 'revenue', label: '09 — REVENUE' },
-  { id: 'digital', label: '10 — DIGITAL' },
-  { id: 'production', label: '11 — PRODUCTION' },
-  { id: 'measurement', label: '12 — MEASUREMENT' },
-  { id: 'roadmap', label: '13 — ROADMAP' },
-  { id: 'why-firefly', label: '14 — WHY FIREFLY' },
+  { id: 'strategic-overview', label: '01 — VISION' },
+  { id: 'dual-model', label: '02 — BUSINESS MODEL' },
+  { id: 'brand-experience', label: '03 — EXPERIENCE' },
+  { id: 'digital-ecosystem', label: '04 — ECOSYSTEM' },
+  { id: 'demand-data', label: '05 — DEMAND & DATA' },
+  { id: 'creative-execution', label: '06 — EXECUTION' },
+  { id: 'commercial-performance', label: '07 — PERFORMANCE' },
+  { id: 'roadmap-partnership', label: '08 — PARTNERSHIP' },
 ];
 
 export const AppSidebar = () => {

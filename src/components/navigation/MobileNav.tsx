@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from 'react';
@@ -7,11 +6,11 @@ import { cn } from '@/lib/utils';
 
 const sections = [
   { id: 'hero', label: '00 — START' },
-  { id: 'strategic-overview', label: '01 — OVERVIEW' },
-  { id: 'dual-model', label: '02 — DUAL MODEL' },
-  { id: 'visual-identity', label: '03 — VISUAL IDENTITY' },
-  { id: 'content-social', label: '04 — CONTENT' },
-  { id: 'why-firefly', label: '14 — WHY FIREFLY' },
+  { id: 'strategic-overview', label: '01 — VISION' },
+  { id: 'dual-model', label: '02 — MODEL' },
+  { id: 'brand-experience', label: '03 — EXPERIENCE' },
+  { id: 'digital-ecosystem', label: '04 — ECOSYSTEM' },
+  { id: 'roadmap-partnership', label: '08 — PARTNER' },
 ];
 
 export const MobileNav = () => {

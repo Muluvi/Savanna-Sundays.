@@ -23,20 +23,86 @@ import { GrowthRoadmapSection } from '@/components/sections/GrowthRoadmap';
 import { WhyFireflySection } from '@/components/sections/WhyFirefly';
 
 const sectionsData = [
-  { id: 'strategic-overview', label: '01 — STRATEGIC OVERVIEW', title: 'OWN EVERY SUNDAY — THE VISION', variant: 'dark' as const, component: <StrategicOverview /> },
-  { id: 'dual-model', label: '02 — Dual Activation Model', title: 'The Lifestyle Synergy', variant: 'light' as const, component: <DualActivationModel /> },
-  { id: 'visual-identity', label: '03 — Visual Identity', title: 'Brand Presence & Perception', variant: 'light' as const, component: <VisualIdentitySection /> },
-  { id: 'content-social', label: '04 — Content Production', title: 'Social Media Domination', variant: 'light' as const, component: <ContentSocialSection /> },
-  { id: 'community', label: '05 — Community Building', title: 'Audience Growth Strategy', variant: 'light' as const, component: <CommunityGrowthSection /> },
-  { id: 'attendance', label: '06 — Attendance', title: 'Demand Generation Mechanics', variant: 'light' as const, component: <AttendanceDemandSection /> },
-  { id: 'music', label: '07 — Music Programming', title: 'Curating the Vibe', variant: 'light' as const, component: <MusicProgrammingSection /> },
-  { id: 'experience', label: '08 — Experience Design', title: 'On-Site Brand Activations', variant: 'light' as const, component: <ExperienceDesignSection /> },
-  { id: 'revenue', label: '09 — Revenue Generation', title: 'Brand Sponsorship Alignment', variant: 'light' as const, component: <SponsorshipRevenueSection /> },
-  { id: 'digital', label: '10 — Digital Infrastructure', title: 'Data-Driven Engagement', variant: 'light' as const, component: <DigitalInfrastructureSection /> },
-  { id: 'production', label: '11 — Event Production', title: 'Execution Excellence', variant: 'light' as const, component: <EventProductionSection /> },
-  { id: 'measurement', label: '12 — Measurement & ROI', title: 'Reporting & KPIs', variant: 'light' as const, component: <MeasurementROInSection /> },
-  { id: 'roadmap', label: '13 — Growth Roadmap', title: 'Future Expansion', variant: 'light' as const, component: <GrowthRoadmapSection /> },
-  { id: 'why-firefly', label: '14 — Why Firefly Management', title: 'The Partner of Choice', variant: 'dark' as const, component: <WhyFireflySection /> },
+  { id: 'strategic-overview', label: '01 — VISION', title: 'OWN EVERY SUNDAY — THE VISION', variant: 'dark' as const, component: <StrategicOverview /> },
+  { id: 'dual-model', label: '02 — BUSINESS MODEL', title: 'The Lifestyle Synergy', variant: 'light' as const, component: <DualActivationModel /> },
+  { 
+    id: 'brand-experience', 
+    label: '03 — BRAND EXPERIENCE', 
+    title: 'Identity & Behavioral Design', 
+    variant: 'light' as const, 
+    component: (
+      <div className="space-y-24">
+        <VisualIdentitySection />
+        <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
+        <ExperienceDesignSection />
+      </div>
+    ) 
+  },
+  { 
+    id: 'digital-ecosystem', 
+    label: '04 — DIGITAL ECOSYSTEM', 
+    title: 'Content & Community Loop', 
+    variant: 'light' as const, 
+    component: (
+      <div className="space-y-24">
+        <ContentSocialSection />
+        <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
+        <CommunityGrowthSection />
+      </div>
+    )
+  },
+  { 
+    id: 'demand-data', 
+    label: '05 — DEMAND & DATA', 
+    title: 'Hype Mechanics & Intelligence', 
+    variant: 'light' as const, 
+    component: (
+      <div className="space-y-24">
+        <AttendanceDemandSection />
+        <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
+        <DigitalInfrastructureSection />
+      </div>
+    )
+  },
+  { 
+    id: 'creative-execution', 
+    label: '06 — CREATIVE EXECUTION', 
+    title: 'Sonic & Technical Standards', 
+    variant: 'light' as const, 
+    component: (
+      <div className="space-y-24">
+        <MusicProgrammingSection />
+        <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
+        <EventProductionSection />
+      </div>
+    )
+  },
+  { 
+    id: 'commercial-performance', 
+    label: '07 — PERFORMANCE', 
+    title: 'Revenue & ROI Framework', 
+    variant: 'light' as const, 
+    component: (
+      <div className="space-y-24">
+        <SponsorshipRevenueSection />
+        <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto" />
+        <MeasurementROInSection />
+      </div>
+    )
+  },
+  { 
+    id: 'roadmap-partnership', 
+    label: '08 — PARTNERSHIP', 
+    title: 'Growth & Agency Credibility', 
+    variant: 'dark' as const, 
+    component: (
+      <div className="space-y-24">
+        <GrowthRoadmapSection />
+        <div className="w-12 h-[1px] bg-brand-gold/20 mx-auto opacity-20" />
+        <WhyFireflySection />
+      </div>
+    )
+  },
 ];
 
 export default function Home() {
