@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { TrendingUp, DollarSign, PieChart, ArrowRight, Target, Users, Gem, RefreshCcw, Landmark, Music, HardHat, Camera, Sparkles, UserPlus, Zap, Box, ShoppingBag, Briefcase, Settings, MessageSquare, BarChart3 } from 'lucide-react';
+import { TrendingUp, DollarSign, PieChart, ArrowRight, Target, Users, Gem, RefreshCcw, Landmark, Music, HardHat, Camera, Sparkles, UserPlus, Zap, Box, ShoppingBag, Briefcase, Settings, MessageSquare, BarChart3, Rocket, Flag } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 const tiers = [
@@ -254,6 +254,72 @@ export const SponsorshipRevenueSection = () => {
               </Card>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* 9F: Financial Growth & Scalability Phases */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          9F: Financial Growth & Scalability Phases
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <Card className="p-8 bg-brand-light-yellow/10 border-2 border-brand-gold/20 rounded-[32px] space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center">
+                <Rocket size={24} />
+              </div>
+              <h4 className="font-headline text-2xl text-brand-green uppercase">PHASE 1: IGNITION</h4>
+            </div>
+            <div className="space-y-4">
+              <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-brand-green/40">
+                <span>Rev vs Cost</span>
+                <span className="text-brand-gold">40% Coverage</span>
+              </div>
+              <div className="h-2 bg-brand-green/5 rounded-full overflow-hidden">
+                <div className="h-full w-[40%] bg-brand-gold" />
+              </div>
+              <p className="font-body text-sm text-brand-green/70">KWAL-led investment focusing on brand infrastructure and community recruitment. Primary focus: Data capture and market entry.</p>
+            </div>
+          </Card>
+
+          <Card className="p-8 bg-brand-teal/5 border-2 border-brand-teal/20 rounded-[32px] space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center">
+                <TrendingUp size={24} />
+              </div>
+              <h4 className="font-headline text-2xl text-brand-green uppercase">PHASE 2: TRACTION</h4>
+            </div>
+            <div className="space-y-4">
+              <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-brand-green/40">
+                <span>Rev vs Cost</span>
+                <span className="text-brand-teal">85% Coverage</span>
+              </div>
+              <div className="h-2 bg-brand-green/5 rounded-full overflow-hidden">
+                <div className="h-full w-[85%] bg-brand-teal" />
+              </div>
+              <p className="font-body text-sm text-brand-green/70">Break-even pathway through high-margin VIP table sales and 3rd party category sponsors. Scalability through sponsorship growth.</p>
+            </div>
+          </Card>
+
+          <Card className="p-8 bg-brand-green text-white border-none rounded-[32px] space-y-6 shadow-xl">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center">
+                <Flag size={24} />
+              </div>
+              <h4 className="font-headline text-2xl text-brand-gold uppercase">PHASE 3: INSTITUTION</h4>
+            </div>
+            <div className="space-y-4">
+              <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-white/40">
+                <span>Rev vs Cost</span>
+                <span className="text-brand-gold">140% ROI</span>
+              </div>
+              <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                <div className="h-full w-full bg-brand-gold" />
+              </div>
+              <p className="font-body text-sm text-white/70">A self-sustaining profit center. Savanna Sundays operates as an independent brand with diverse revenue streams and regional franchise potential.</p>
+            </div>
+          </Card>
         </div>
       </div>
 
