@@ -5,7 +5,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Users, Volume2, TrendingUp, CheckCircle2, Ticket, Mail, Clock, Smartphone, Share2, Award, Link as LinkIcon, LineChart, QrCode, MessageSquare, XCircle, Zap, DoorOpen, Hourglass, Signal } from 'lucide-react';
+import { Users, Volume2, TrendingUp, CheckCircle2, Ticket, Mail, Clock, Smartphone, Share2, Award, Link as LinkIcon, LineChart, QrCode, MessageSquare, XCircle, Zap, DoorOpen, Hourglass, Signal, Sun, Camera } from 'lucide-react';
 
 export const AttendanceDemandSection = () => {
   return (
@@ -556,6 +556,59 @@ export const AttendanceDemandSection = () => {
               <div>
                 <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Visible Demand Signal</h4>
                 <p className="font-body text-sm text-white/70 leading-relaxed">Transforming the wait time into a status symbol that anchors Savanna's position as Nairobi's top Sunday choice.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* 6K: The Golden Hour Arrival Window */}
+      <div className="space-y-12 animate-fade-in-up">
+        <h3 className="font-headline text-2xl md:text-3xl text-brand-green border-l-[3px] border-brand-gold pl-4 uppercase">
+          6K: The Golden Hour Arrival Window
+        </h3>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 font-body text-base text-brand-green/70">
+            <p>
+              The most critical period for any edition is the window between **4:30 PM and 6:00 PM**. This is not just a scheduling choice; it is a strategic branding decision where physical attendance peak perfectly intersects with the "Golden Hour" lighting.
+            </p>
+            <div className="font-serif italic text-lg text-brand-green border-l-[3px] border-brand-gold pl-6 py-2">
+              "Visual branding is captured in the light. If the crowd doesn't peak when the light is perfect, the brand loses its most valuable asset."
+            </div>
+            <p className="text-sm">
+              We engineer arrival times so that the venue reaches 70% capacity exactly as the sun begins to set, ensuring all captured content radiates the warm, premium energy of Savanna Gold.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Clock size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">4:30–6:00 PM Peak</h4>
+                <p className="font-body text-sm text-brand-green/70">Targeting maximum occupancy during Nairobi's most photogenic lighting transition.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white border border-brand-green/5 rounded-2xl flex items-start gap-4 hover:border-brand-gold transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Sun size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-green uppercase mb-2">Atmospheric Glow</h4>
+                <p className="font-body text-sm text-brand-green/70">Natural warm tones eliminate the need for artificial lighting, reinforcing the 'crisp' brand aesthetic.</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-brand-green text-white border-none rounded-2xl flex items-start gap-4 shadow-xl group">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Camera size={24} />
+              </div>
+              <div>
+                <h4 className="font-headline text-xl text-brand-gold uppercase mb-2">Content Optimization</h4>
+                <p className="font-body text-sm text-white/70">All key 'brand moments' and ambassador shots are scheduled within this 90-minute high-value window.</p>
               </div>
             </Card>
           </div>
