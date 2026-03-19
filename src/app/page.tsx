@@ -27,9 +27,9 @@ const sectionsData = [
   { id: 'the-gap', label: '01 — THE GAP', title: '300,000 DECISIONS. ZERO BRAND LOYALTY.', variant: 'dark' as const, component: <TheGap /> },
   { id: 'dual-model', label: '02 — THE CONCEPT', title: 'THE DUAL ACTIVATION MODEL', variant: 'light' as const, component: <DualActivationModel /> },
   { 
-    id: 'brand-experience', 
-    label: '03 — BRAND EXPERIENCE', 
-    title: 'Identity & Behavioral Design', 
+    id: 'the-experience', 
+    label: '03 — THE EXPERIENCE', 
+    title: 'WHAT A SAVANNA SUNDAY LOOKS LIKE', 
     variant: 'light' as const, 
     component: (
       <div className="space-y-24">
