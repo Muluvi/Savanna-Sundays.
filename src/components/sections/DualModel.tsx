@@ -13,19 +13,11 @@ import {
   Zap, 
   MapPin, 
   Activity,
-  Maximize2
 } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { BrushStroke } from '@/components/brand/VisualElements';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
 const venueData = [
   { name: "Muze", area: "Westlands", capacity: "400", type: "Owned", imageId: "venue-muze" },
@@ -33,15 +25,17 @@ const venueData = [
   { name: "KODA", area: "Kilimani", capacity: "350", type: "Owned", imageId: "venue-koda" },
   { name: "Black Samurai", area: "Westlands", capacity: "500", type: "Sponsor", imageId: "venue-black-samurai" },
   { name: "Masshouse", area: "Industrial Area", capacity: "1200", type: "Sponsor", imageId: "venue-masshouse" },
-  { name: "Geco Cafe", area: "Lavington", capacity: "300", type: "Owned", imageId: null },
+  { name: "Muze", area: "Westlands", capacity: "400", type: "Owned", imageId: "venue-muze" },
+  { name: "The Alchemist", area: "Westlands", capacity: "600", type: "Sponsor", imageId: "venue-alchemist" },
+  { name: "KODA", area: "Kilimani", capacity: "350", type: "Owned", imageId: "venue-koda" },
 ];
 
 const matrixCriteria = [
-  { label: "Audience Fit", score: 95, icon: <UserCheck className="w-4 h-4" />, desc: "Demographic alignment." },
-  { label: "Visual Quality", score: 90, icon: <Trophy className="w-4 h-4" />, desc: "Architectural potential." },
-  { label: "Content Yield", score: 88, icon: <Zap className="w-4 h-4" />, desc: "Shareability surfaces." },
-  { label: "Credibility", score: 92, icon: <Star className="w-4 h-4" />, desc: "Local cultural weight." },
-  { label: "Exclusivity", score: 85, icon: <ShieldCheck className="w-4 h-4" />, desc: "Brand presence control." },
+  { label: "Audience Fit", score: 95, icon: <UserCheck className="w-4 h-4" /> },
+  { label: "Visual Quality", score: 90, icon: <Trophy className="w-4 h-4" /> },
+  { label: "Content Yield", score: 88, icon: <Zap className="w-4 h-4" /> },
+  { label: "Credibility", score: 92, icon: <Star className="w-4 h-4" /> },
+  { label: "Exclusivity", score: 85, icon: <ShieldCheck className="w-4 h-4" /> },
 ];
 
 export const DualActivationModel = () => {
@@ -106,54 +100,50 @@ export const DualActivationModel = () => {
             <TabsTrigger value="calendar" className="py-2.5 font-headline tracking-[1px] text-xs uppercase rounded-lg">Sunday Sprint</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="network" className="mt-0">
-            <div className="relative px-12">
-              <Carousel 
-                opts={{ align: "start", loop: true }}
-                className="w-full"
-              >
-                <CarouselContent className="-ml-4">
-                  {venueData.map((venue, i) => {
-                    const img = venue.imageId ? PlaceHolderImages.find(p => p.id === venue.imageId) : null;
-                    return (
-                      <CarouselItem key={i} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
-                        <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-brand-green/5 bg-brand-cream/10">
-                          {img ? (
-                            <Image 
-                              src={img.imageUrl} 
-                              alt={venue.name} 
-                              fill 
-                              className="object-contain p-8 transition-transform duration-700 group-hover:scale-110"
-                            />
-                          ) : (
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="w-24 h-24 rounded-full bg-brand-green flex items-center justify-center">
-                                <span className="font-headline text-4xl text-brand-gold">{venue.name.charAt(0)}</span>
-                              </div>
-                            </div>
-                          )}
-                          <div className="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-transparent to-transparent opacity-60" />
-                          <div className="absolute bottom-0 left-0 p-5 w-full">
-                            <Badge className={cn(
-                              "mb-2 text-[8px] uppercase tracking-widest border-none",
-                              venue.type === 'Owned' ? 'bg-brand-gold text-brand-green' : 'bg-brand-teal text-white'
-                            )}>
-                              {venue.type}
-                            </Badge>
-                            <h5 className="font-headline text-2xl text-white leading-none mb-1">{venue.name}</h5>
-                            <div className="flex items-center gap-2 text-white/60">
-                              <MapPin size={10} className="text-brand-gold" />
-                              <span className="font-body text-[10px] uppercase tracking-widest font-bold">{venue.area}</span>
-                            </div>
+          <TabsContent value="network" className="mt-0 overflow-hidden">
+            <div className="relative w-full">
+              {/* Marquee Animation Container */}
+              <div className="flex animate-marquee whitespace-nowrap gap-4">
+                {[...venueData, ...venueData].map((venue, i) => {
+                  const img = venue.imageId ? PlaceHolderImages.find(p => p.id === venue.imageId) : null;
+                  return (
+                    <div key={i} className="inline-block min-w-[300px] md:min-w-[400px]">
+                      <div className="group relative aspect-[16/10] rounded-2xl overflow-hidden shadow-xl border border-brand-green/5 bg-brand-cream/10">
+                        {img ? (
+                          <Image 
+                            src={img.imageUrl} 
+                            alt={venue.name} 
+                            fill 
+                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            priority={i < 4}
+                          />
+                        ) : (
+                          <div className="absolute inset-0 flex items-center justify-center bg-brand-green">
+                            <span className="font-headline text-4xl text-brand-gold">{venue.name.charAt(0)}</span>
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-transparent to-transparent opacity-60" />
+                        <div className="absolute bottom-0 left-0 p-5 w-full">
+                          <Badge className={cn(
+                            "mb-2 text-[8px] uppercase tracking-widest border-none",
+                            venue.type === 'Owned' ? 'bg-brand-gold text-brand-green' : 'bg-brand-teal text-white'
+                          )}>
+                            {venue.type}
+                          </Badge>
+                          <h5 className="font-headline text-2xl text-white leading-none mb-1">{venue.name}</h5>
+                          <div className="flex items-center gap-2 text-white/60">
+                            <MapPin size={10} className="text-brand-gold" />
+                            <span className="font-body text-[10px] uppercase tracking-widest font-bold">{venue.area}</span>
                           </div>
                         </div>
-                      </CarouselItem>
-                    );
-                  })}
-                </CarouselContent>
-                <CarouselPrevious className="absolute -left-6 bg-brand-green text-brand-gold border-brand-gold/20" />
-                <CarouselNext className="absolute -right-6 bg-brand-green text-brand-gold border-brand-gold/20" />
-              </Carousel>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              {/* Fade masks for the edges */}
+              <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-brand-cream to-transparent z-10 pointer-events-none" />
+              <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-brand-cream to-transparent z-10 pointer-events-none" />
             </div>
           </TabsContent>
 
@@ -163,9 +153,20 @@ export const DualActivationModel = () => {
                 {matrixCriteria.map((item, i) => (
                   <div key={i} className="flex flex-col items-center text-center space-y-4 p-4 rounded-2xl bg-brand-cream/30 group hover:bg-white transition-all hover:shadow-lg border border-transparent hover:border-brand-gold/20">
                     <div className="relative w-16 h-16 flex items-center justify-center">
+                      {/* Radial Gauge SVG */}
                       <svg className="w-full h-full transform -rotate-90">
                         <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" strokeWidth="2" className="text-brand-green/5" />
-                        <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray={2 * Math.PI * 28} strokeDashoffset={2 * Math.PI * 28 * (1 - item.score / 100)} className="text-brand-gold transition-all duration-1000 group-hover:text-brand-teal" />
+                        <circle 
+                          cx="32" 
+                          cy="32" 
+                          r="28" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          strokeWidth="3" 
+                          strokeDasharray={2 * Math.PI * 28} 
+                          strokeDashoffset={2 * Math.PI * 28 * (1 - item.score / 100)} 
+                          className="text-brand-gold transition-all duration-1000 group-hover:text-brand-teal" 
+                        />
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center text-brand-green">{item.icon}</div>
                     </div>

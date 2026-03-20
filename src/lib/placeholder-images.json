@@ -77,6 +77,18 @@
       "description": "The Balcony Mix",
       "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1768410458/3085e5d1-651e-404e-8cc9-240365f9ad11_20260114_200656_0000_sstsmb.png",
       "imageHint": "music property"
+    },
+    {
+      "id": "social-ig",
+      "description": "Instagram",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1768409776/Instagram_Glyph_Gradient_kvn0tu.png",
+      "imageHint": "social logo"
+    },
+    {
+      "id": "social-tt",
+      "description": "TikTok",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1765720754/TikTok-logo-RGB-Horizontal-black_avux4m.png",
+      "imageHint": "social logo"
     }
   ]
 }
