@@ -35,7 +35,7 @@ export const ExperienceDesignSection = () => {
       <div className="space-y-4 animate-fade-in-up">
         <div className="section-label">03A: The Arrival Sequence</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-          <Card className="p-5 bg-white border border-brand-green/5 rounded-[24px] space-y-2 hover:border-brand-gold transition-all shadow-sm group">
+          <Card className="p-4 bg-white border border-brand-green/5 rounded-[24px] space-y-2 hover:border-brand-gold transition-all shadow-sm group">
             <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
               <DoorOpen size={20} />
             </div>
@@ -45,7 +45,7 @@ export const ExperienceDesignSection = () => {
             </p>
           </Card>
 
-          <Card className="p-5 bg-white border border-brand-green/5 rounded-[24px] space-y-2 hover:border-brand-teal transition-all shadow-sm group">
+          <Card className="p-4 bg-white border border-brand-green/5 rounded-[24px] space-y-2 hover:border-brand-teal transition-all shadow-sm group">
             <div className="w-10 h-10 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center group-hover:scale-110 transition-transform">
               <GlassWater size={20} />
             </div>
@@ -55,7 +55,7 @@ export const ExperienceDesignSection = () => {
             </p>
           </Card>
 
-          <Card className="p-5 bg-brand-green text-white border-none rounded-[24px] space-y-2 shadow-xl relative overflow-hidden group">
+          <Card className="p-4 bg-brand-green text-white border-none rounded-[24px] space-y-2 shadow-xl relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
               <QrCode size={40} />
             </div>

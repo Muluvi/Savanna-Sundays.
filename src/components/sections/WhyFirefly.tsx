@@ -30,7 +30,7 @@ export const WhyFireflySection = () => {
             </p>
           </div>
 
-          <Card className="p-6 bg-white/5 border border-white/10 rounded-[24px] space-y-4 backdrop-blur-md group hover:border-brand-gold transition-all">
+          <Card className="p-4 bg-white/5 border border-white/10 rounded-[24px] space-y-4 backdrop-blur-md group hover:border-brand-gold transition-all">
             <div className="flex items-center gap-3">
               <Zap className="text-brand-gold group-hover:animate-pulse" size={24} />
               <h5 className="font-headline text-xl text-white uppercase leading-none">The Value Shift</h5>
@@ -93,7 +93,7 @@ export const WhyFireflySection = () => {
              { label: "Community Layer", desc: "Organic distribution at scale.", icon: <CheckCircle2 size={18} /> },
              { label: "Data Mastery", desc: "Targetable CRM infrastructure.", icon: <ShieldCheck size={18} /> },
            ].map((moat, i) => (
-             <Card key={i} className="p-5 bg-white/5 border border-white/10 rounded-2xl flex flex-col items-center text-center gap-2 group hover:bg-white/10 transition-all">
+             <Card key={i} className="p-4 bg-white/5 border border-white/10 rounded-2xl flex flex-col items-center text-center gap-2 group hover:bg-white/10 transition-all">
                 <div className="text-brand-gold group-hover:scale-110 transition-transform">{moat.icon}</div>
                 <div>
                   <h4 className="font-headline text-base text-white uppercase mb-1">{moat.label}</h4>
