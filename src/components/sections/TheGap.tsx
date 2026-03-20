@@ -1,7 +1,7 @@
 
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { RefreshCcw, Layers, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -23,7 +23,41 @@ const insightCards = [
   }
 ];
 
+const activationTypes = [
+  "Rooftop Brunch", "Garden Day Party", "Poolside Session", "Hotel Sunday",
+  "Outdoor DJ Event", "Neighbourhood Social", "Brunch Series", "Sundowner Session",
+  "Weekend Market", "Afternoon Lounge", "Compound Party", "Terrace Session"
+];
+
+const mutedColors = [
+  "bg-slate-500/20 border-slate-500/20",
+  "bg-zinc-500/20 border-zinc-500/20",
+  "bg-stone-500/20 border-stone-500/20",
+  "bg-teal-700/10 border-teal-700/20",
+  "bg-emerald-700/10 border-emerald-700/20",
+  "bg-blue-700/10 border-blue-700/20",
+  "bg-indigo-700/10 border-indigo-700/20",
+  "bg-slate-600/20 border-slate-600/20",
+  "bg-zinc-600/20 border-zinc-600/20",
+  "bg-cyan-700/10 border-cyan-700/20",
+  "bg-stone-600/20 border-stone-600/20",
+  "bg-gray-600/20 border-gray-600/20"
+];
+
 export const TheGap = () => {
+  const [mounted, setMounted] = useState(false);
+  const [randomData, setRandomData] = useState<{ delay: string; rotation: string; offset: string }[]>([]);
+
+  useEffect(() => {
+    setMounted(true);
+    const data = activationTypes.map(() => ({
+      delay: `${Math.random() * 1.5}s`,
+      rotation: `${(Math.random() - 0.5) * 6}deg`,
+      offset: `${(Math.random() - 0.5) * 15}px`
+    }));
+    setRandomData(data);
+  }, []);
+
   return (
     <div className="space-y-12 animate-fade-in-up">
       {/* Strategic Narrative */}
@@ -35,7 +69,7 @@ export const TheGap = () => {
           moments to capture and share across social platforms. These are not passive consumption choices. 
           They are identity-signalling acts — each one a public declaration of taste, social positioning, and 
           cultural fluency. They unfold in WhatsApp group chats, manifest at venues across the city between 
-          midday and sundown, and are broadcast to wider networks through Instagram Stories and TikTok posts 
+          middown and sundown, and are broadcast to wider networks through Instagram Stories and TikTok posts 
           within hours. For any premium beverage brand, this weekly cycle represents an extraordinarily dense 
           and recurring window of influence — a moment when brand association, venue presence, and social 
           visibility converge at scale.
@@ -124,6 +158,53 @@ export const TheGap = () => {
             &ldquo;Distribution puts Savanna on the shelf. <br className="hidden md:block" /> Cultural ownership puts Savanna in the conversation.&rdquo;
           </p>
         </div>
+      </div>
+
+      {/* Nairobi Sunday Landscape Visual */}
+      <div className="pt-12 space-y-8 opacity-0 animate-in fade-in duration-1000 fill-mode-forwards [animation-delay:1500ms]">
+        <h4 className="font-headline text-2xl text-[#F0EBE0] tracking-widest uppercase">Nairobi&apos;s Sunday Landscape</h4>
+        
+        <div className="relative min-h-[300px] md:min-h-[400px] w-full bg-white/5 rounded-[40px] border border-white/10 p-8 md:p-12 overflow-hidden">
+          {/* Scatter Field */}
+          <div className="flex flex-wrap gap-3 md:gap-5 items-start justify-start max-w-4xl">
+            {activationTypes.map((type, i) => (
+              <div
+                key={i}
+                className={cn(
+                  "px-5 py-2 rounded-full border text-[11px] md:text-xs font-bold uppercase tracking-wider text-white/50 transition-all duration-1000 opacity-0",
+                  mutedColors[i % mutedColors.length],
+                  mounted && "opacity-100"
+                )}
+                style={{
+                  transform: mounted ? `rotate(${randomData[i]?.rotation}) translateY(${randomData[i]?.offset})` : 'none',
+                  transitionDelay: mounted ? randomData[i]?.delay : '0s'
+                }}
+              >
+                {type}
+              </div>
+            ))}
+          </div>
+
+          {/* Dotted Gold Placeholder (The Void) */}
+          <div className={cn(
+            "absolute bottom-8 right-8 md:bottom-12 md:right-12 w-32 h-32 md:w-48 md:h-48 border-2 border-dashed border-brand-gold rounded-full transition-opacity duration-1000 opacity-0",
+            mounted && "opacity-20"
+          )} 
+          style={{ transitionDelay: '2s' }}
+          />
+
+          {/* Overlay Decoration */}
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-brand-green/80 via-transparent to-transparent opacity-40" />
+        </div>
+
+        <p className={cn(
+          "font-body text-[13px] md:text-sm text-[#F0EBE0]/40 italic leading-relaxed transition-opacity duration-1000 opacity-0",
+          mounted && "opacity-100"
+        )}
+        style={{ transitionDelay: '2s' }}
+        >
+          Every label is an activation without a brand behind it. The space that remains is the opportunity.
+        </p>
       </div>
     </div>
   );
