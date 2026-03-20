@@ -1,4 +1,3 @@
-
 'use client';
 
 import { AppSidebar } from '@/components/navigation/AppSidebar';
@@ -23,6 +22,7 @@ import { SponsorshipRevenueSection } from '@/components/sections/SponsorshipReve
 import { MeasurementROInSection } from '@/components/sections/MeasurementROI';
 import { WhyFireflySection } from '@/components/sections/WhyFirefly';
 import { LeadCapture } from '@/components/sections/LeadCapture';
+import { StrategicAdvisor } from '@/components/ai/StrategicAdvisor';
 
 const sectionsData = [
   { 
@@ -93,8 +93,15 @@ const sectionsData = [
     component: <WhyFireflySection />
   },
   { 
+    id: 'strategic-advisor', 
+    label: '08 — STRATEGIC INTELLIGENCE', 
+    title: 'QUERY THE ENGINE', 
+    variant: 'dark' as const, 
+    component: <StrategicAdvisor />
+  },
+  { 
     id: 'lead-capture', 
-    label: '08 — NEXT STEPS', 
+    label: '09 — NEXT STEPS', 
     title: 'SECURE THE MOMENTUM', 
     variant: 'dark' as const, 
     component: <LeadCapture />
