@@ -1,21 +1,46 @@
+
 "use client";
 
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { UserCheck, Trophy, Star, ShieldCheck, Zap, MapPin } from 'lucide-react';
+import { 
+  UserCheck, 
+  Trophy, 
+  Star, 
+  ShieldCheck, 
+  Zap, 
+  MapPin, 
+  Activity,
+  Maximize2
+} from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { BrushStroke } from '@/components/brand/VisualElements';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const venues = [
-  { name: "Geco Cafe", area: "Westlands", capacity: "300", type: "Owned", special: true },
-  { name: "The Alchemist", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1768848344/8367e513-9c35-4276-97b8-7ae60597091e_20260119_214311_0000_numq8q.png", area: "Westlands", capacity: "600", type: "Sponsor" },
-  { name: "Waterfront", area: "Karen", capacity: "1500", type: "Sponsor" },
-  { name: "K1 Klub House", area: "Parklands", capacity: "800", type: "Sponsor" },
-  { name: "Muze", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1768848344/ac208aa5-8292-4543-a7ca-719fd61a3c46_20260119_214138_0000_ikxc7g.png", area: "Westlands", capacity: "400", type: "Owned" },
-  { name: "KODA", logo: "https://res.cloudinary.com/da5j0zjok/image/upload/v1768848344/ee064dd8-0e0b-4c61-9469-dd6fe46a1572_20260119_214214_0000_r494od.png", area: "Kilimani", capacity: "350", type: "Owned" },
+  { name: "Geco Cafe", area: "Westlands", capacity: "300", type: "Owned", image: "https://picsum.photos/seed/geco-venue/800/600", hint: "premium garden" },
+  { name: "The Alchemist", area: "Westlands", capacity: "600", type: "Sponsor", image: "https://picsum.photos/seed/alchemist-venue/800/600", hint: "urban lounge" },
+  { name: "Waterfront", area: "Karen", capacity: "1500", type: "Sponsor", image: "https://picsum.photos/seed/waterfront-venue/800/600", hint: "lake terrace" },
+  { name: "K1 Klub House", area: "Parklands", capacity: "800", type: "Sponsor", image: "https://picsum.photos/seed/k1-venue/800/600", hint: "vintage lounge" },
+  { name: "Muze", area: "Westlands", capacity: "400", type: "Owned", image: "https://picsum.photos/seed/muze-venue/800/600", hint: "modern club" },
+  { name: "KODA", area: "Kilimani", capacity: "350", type: "Owned", image: "https://picsum.photos/seed/koda-venue/800/600", hint: "rooftop bar" },
+];
+
+const matrixCriteria = [
+  { label: "Audience Fit", score: 95, icon: <UserCheck className="w-4 h-4" />, desc: "Demographic alignment with Savanna core." },
+  { label: "Visual Quality", score: 90, icon: <Trophy className="w-4 h-4" />, desc: "Architectural & lighting potential." },
+  { label: "Content Yield", score: 88, icon: <Zap className="w-4 h-4" />, desc: "Shareability & photogenic surfaces." },
+  { label: "Credibility", score: 92, icon: <Star className="w-4 h-4" />, desc: "Local cultural weight & influence." },
+  { label: "Exclusivity", score: 85, icon: <ShieldCheck className="w-4 h-4" />, desc: "Competitive brand presence control." },
 ];
 
 export const DualActivationModel = () => {
@@ -30,43 +55,43 @@ export const DualActivationModel = () => {
 
       {/* 02B: Core Logic Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in-up [animation-delay:200ms]">
-        <Card className="p-5 bg-white border-l-4 border-brand-gold rounded-[24px] flex flex-col justify-between group hover:shadow-lg transition-all">
-          <div className="space-y-4">
-            <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center">
-              <ShieldCheck size={24} />
+        <Card className="p-4 bg-white border-l-4 border-brand-gold rounded-[24px] flex flex-col justify-between group hover:shadow-lg transition-all">
+          <div className="space-y-3">
+            <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center">
+              <ShieldCheck size={20} />
             </div>
             <div className="space-y-1">
               <h4 className="font-headline text-2xl text-brand-green uppercase">OWNED EDITIONS</h4>
-              <p className="font-body text-brand-green/70 text-sm leading-relaxed">
+              <p className="font-body text-brand-green/70 text-xs leading-relaxed">
                 Proprietary boutique events. 100% brand control, exclusive content harvest, and deep data ownership.
               </p>
             </div>
           </div>
-          <div className="flex flex-wrap gap-2 mt-4">
+          <div className="flex flex-wrap gap-2 mt-3">
             <Badge className="bg-brand-gold text-brand-green text-[9px] uppercase tracking-widest border-none font-bold">Brand Focus</Badge>
           </div>
         </Card>
         
-        <Card className="p-5 bg-white border-l-4 border-brand-teal rounded-[24px] flex flex-col justify-between group hover:shadow-lg transition-all">
-          <div className="space-y-4">
-            <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center">
-              <Zap size={24} />
+        <Card className="p-4 bg-white border-l-4 border-brand-teal rounded-[24px] flex flex-col justify-between group hover:shadow-lg transition-all">
+          <div className="space-y-3">
+            <div className="w-10 h-10 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center">
+              <Zap size={20} />
             </div>
             <div className="space-y-1">
               <h4 className="font-headline text-2xl text-brand-green uppercase">TITLE SPONSORSHIP</h4>
-              <p className="font-body text-brand-green/70 text-sm leading-relaxed">
+              <p className="font-body text-brand-green/70 text-xs leading-relaxed">
                 Strategic reach mapping. Scaling Savanna’s visual layer onto Nairobi’s existing premium Sunday properties.
               </p>
             </div>
           </div>
-          <div className="flex flex-wrap gap-2 mt-4">
+          <div className="flex flex-wrap gap-2 mt-3">
             <Badge className="bg-brand-teal text-white text-[9px] uppercase tracking-widest border-none font-bold">Mass Reach</Badge>
           </div>
         </Card>
       </div>
 
       {/* 02C: Strategic Pull Quote - Prominent pause */}
-      <div className="relative py-8 flex flex-col items-center justify-center animate-fade-in-up [animation-delay:400ms]">
+      <div className="relative py-6 flex flex-col items-center justify-center animate-fade-in-up [animation-delay:400ms]">
         <div className="relative z-10 max-w-4xl text-center">
           <BrushStroke className="w-40 h-auto opacity-10 -rotate-1 mx-auto" color="#2D8C7F" />
           <h3 className="font-serif italic text-2xl md:text-4xl text-brand-green/90 leading-tight px-4">
@@ -75,7 +100,7 @@ export const DualActivationModel = () => {
         </div>
       </div>
 
-      {/* 02D: Details - Denser Tabs */}
+      {/* 02D: Details - Interactive Visuals */}
       <div className="animate-fade-in-up [animation-delay:600ms]">
         <Tabs defaultValue="network" className="w-full">
           <TabsList className="w-full bg-brand-green p-1 h-auto grid grid-cols-3 mb-6 rounded-xl">
@@ -84,47 +109,94 @@ export const DualActivationModel = () => {
             <TabsTrigger value="calendar" className="py-2.5 font-headline tracking-[1px] text-xs uppercase rounded-lg">Sunday Sprint</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="network">
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
-              {venues.map((venue, i) => (
-                <Card key={i} className="group p-4 bg-white border border-brand-green/5 rounded-xl hover:shadow-md transition-all text-center flex flex-col items-center justify-between">
-                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-brand-cream flex items-center justify-center mb-3 overflow-hidden shadow-sm">
-                    {venue.special ? (
-                      <span className="font-headline text-2xl text-brand-green">G</span>
-                    ) : venue.logo ? (
-                      <Image src={venue.logo} alt={venue.name} width={40} height={40} className="object-contain" />
-                    ) : (
-                      <MapPin size={24} className="text-brand-gold" />
-                    )}
-                  </div>
-                  <div className="mb-2">
-                    <h5 className="font-headline text-sm text-brand-green">{venue.name}</h5>
-                    <p className="font-body text-[8px] text-brand-green/40 uppercase tracking-[2px] font-bold">{venue.area}</p>
-                  </div>
-                  <Badge className={cn("text-[8px] uppercase tracking-widest px-2 py-0.5 border-none", venue.type === 'Owned' ? 'bg-brand-gold text-brand-green' : 'bg-brand-teal text-white')}>
-                    {venue.type}
-                  </Badge>
-                </Card>
-              ))}
+          <TabsContent value="network" className="mt-0">
+            <div className="relative px-12">
+              <Carousel 
+                opts={{ align: "start", loop: true }}
+                className="w-full"
+              >
+                <CarouselContent className="-ml-4">
+                  {venues.map((venue, i) => (
+                    <CarouselItem key={i} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                      <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-brand-green/5">
+                        <Image 
+                          src={venue.image} 
+                          alt={venue.name} 
+                          fill 
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                          data-ai-hint={venue.hint}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-brand-green/20 to-transparent" />
+                        <div className="absolute bottom-0 left-0 p-5 w-full">
+                          <Badge className={cn(
+                            "mb-2 text-[8px] uppercase tracking-widest border-none",
+                            venue.type === 'Owned' ? 'bg-brand-gold text-brand-green' : 'bg-brand-teal text-white'
+                          )}>
+                            {venue.type}
+                          </Badge>
+                          <h5 className="font-headline text-2xl text-white leading-none mb-1">{venue.name}</h5>
+                          <div className="flex items-center gap-2 text-white/60">
+                            <MapPin size={10} className="text-brand-gold" />
+                            <span className="font-body text-[10px] uppercase tracking-widest font-bold">{venue.area}</span>
+                          </div>
+                        </div>
+                        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white">
+                            <Maximize2 size={14} />
+                          </div>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="absolute -left-6 bg-brand-green text-brand-gold border-brand-gold/20" />
+                <CarouselNext className="absolute -right-6 bg-brand-green text-brand-gold border-brand-gold/20" />
+              </Carousel>
             </div>
           </TabsContent>
 
           <TabsContent value="scorecard">
-            <div className="bg-brand-cream/50 p-6 rounded-2xl border border-brand-green/5">
-              <h5 className="font-headline text-lg text-brand-green mb-6 text-center tracking-wider">Selection Criteria</h5>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                {[
-                  { label: "Audience Fit", icon: <UserCheck className="w-5 h-5" /> },
-                  { label: "Visual Quality", icon: <Trophy className="w-5 h-5" /> },
-                  { label: "Content Potential", icon: <Zap className="w-5 h-5" /> },
-                  { label: "Credibility", icon: <Star className="w-5 h-5" /> },
-                  { label: "Exclusivity", icon: <ShieldCheck className="w-5 h-5" /> },
-                ].map((item, i) => (
-                  <div key={i} className="text-center group">
-                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center mx-auto text-brand-gold shadow-sm mb-2">
-                      {item.icon}
+            <div className="bg-white rounded-[32px] p-6 md:p-8 border border-brand-green/5 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none">
+                <Activity size={200} />
+              </div>
+              <div className="relative z-10 grid grid-cols-1 md:grid-cols-5 gap-4">
+                {matrixCriteria.map((item, i) => (
+                  <div key={i} className="flex flex-col items-center text-center space-y-4 p-4 rounded-2xl bg-brand-cream/30 group hover:bg-white transition-all hover:shadow-lg border border-transparent hover:border-brand-gold/20">
+                    <div className="relative w-16 h-16 flex items-center justify-center">
+                      <svg className="w-full h-full transform -rotate-90">
+                        <circle
+                          cx="32"
+                          cy="32"
+                          r="28"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          className="text-brand-green/5"
+                        />
+                        <circle
+                          cx="32"
+                          cy="32"
+                          r="28"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          strokeDasharray={2 * Math.PI * 28}
+                          strokeDashoffset={2 * Math.PI * 28 * (1 - item.score / 100)}
+                          className="text-brand-gold transition-all duration-1000 group-hover:text-brand-teal"
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center text-brand-green">
+                        {item.icon}
+                      </div>
                     </div>
-                    <div className="text-[8px] font-bold uppercase tracking-[2px] text-brand-green leading-tight opacity-70">{item.label}</div>
+                    <div className="space-y-1">
+                      <h6 className="font-headline text-base text-brand-green uppercase leading-none">{item.label}</h6>
+                      <div className="font-headline text-xl text-brand-gold leading-none">{item.score}%</div>
+                      <p className="font-body text-[9px] text-brand-green/40 font-bold uppercase tracking-widest leading-tight">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -140,8 +212,8 @@ export const DualActivationModel = () => {
                   const isSponsor = isSunday && ((i + 1) === 14 || (i + 1) === 28);
                   return (
                     <div key={i} className={cn(
-                      "aspect-square rounded-md flex items-center justify-center text-[9px] font-bold shadow-sm",
-                      isOwned ? "bg-brand-green text-white" : 
+                      "aspect-square rounded-md flex items-center justify-center text-[9px] font-bold shadow-sm border border-transparent",
+                      isOwned ? "bg-brand-green text-brand-gold border-brand-gold/30" : 
                       isSponsor ? "bg-brand-teal text-white" : 
                       "bg-brand-cream/40 text-brand-green/10"
                     )}>
@@ -149,6 +221,16 @@ export const DualActivationModel = () => {
                     </div>
                   );
                 })}
+              </div>
+              <div className="mt-4 flex justify-center gap-6">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-brand-green" />
+                  <span className="font-body text-[8px] uppercase tracking-widest font-bold opacity-40">Owned Edition</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-brand-teal" />
+                  <span className="font-body text-[8px] uppercase tracking-widest font-bold opacity-40">Sponsor Tier</span>
+                </div>
               </div>
             </div>
           </TabsContent>
