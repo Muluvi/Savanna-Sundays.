@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from 'react';
@@ -13,6 +14,7 @@ const sections = [
   { id: 'the-demand-machine', label: '05 — THE DEMAND MACHINE' },
   { id: 'the-numbers', label: '06 — THE NUMBERS' },
   { id: 'the-partnership', label: '07 — THE PARTNERSHIP' },
+  { id: 'lead-capture', label: '08 — NEXT STEPS' },
 ];
 
 export const MobileNav = () => {
@@ -37,7 +39,6 @@ export const MobileNav = () => {
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      {/* Mobile Menu Overlay - Glassmorphism */}
       <div className={cn(
         "fixed inset-0 bg-brand-green/95 backdrop-blur-xl z-[-1] transition-all duration-500 p-8 flex flex-col justify-center items-center pointer-events-auto",
         isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
@@ -48,7 +49,7 @@ export const MobileNav = () => {
               <li key={section.id} className={cn(
                 "transition-all duration-500",
                 isOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0",
-                `delay-[${i * 100}ms]`
+                `delay-[${i * 50}ms]`
               )}>
                 <button
                   onClick={() => scrollTo(section.id)}

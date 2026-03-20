@@ -14,6 +14,7 @@ const sections = [
   { id: 'the-demand-machine', label: '05 — THE DEMAND MACHINE' },
   { id: 'the-numbers', label: '06 — THE NUMBERS' },
   { id: 'the-partnership', label: '07 — THE PARTNERSHIP' },
+  { id: 'lead-capture', label: '08 — NEXT STEPS' },
 ];
 
 export const AppSidebar = () => {
