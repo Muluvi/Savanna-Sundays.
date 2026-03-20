@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
-import { RefreshCcw, Layers, Lock, Check, Circle } from 'lucide-react';
+import { RefreshCcw, Lock, Check, Circle, HelpCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 /**
@@ -70,9 +70,22 @@ const RadialGauge = ({
   );
 };
 
+const activationPills = [
+  { label: "Rooftop Brunch", color: "bg-slate-500/30", border: "border-solid", pos: { top: '10%', left: '5%' }, rot: '1deg', duration: '3s' },
+  { label: "Garden Day Party", color: "bg-teal-700/20", border: "border-dashed", pos: { top: '25%', left: '35%' }, rot: '-2deg', duration: '4s' },
+  { label: "Poolside Session", color: "bg-sky-700/20", border: "border-none", pos: { top: '5%', left: '55%' }, rot: '2deg', duration: '3.5s' },
+  { label: "Hotel Sunday", color: "bg-gray-600/30", border: "border-solid", pos: { top: '42%', left: '10%' }, rot: '-1deg', duration: '4.2s' },
+  { label: "DJ Event", color: "bg-stone-600/30", border: "border-dashed", pos: { top: '55%', left: '45%' }, rot: '3deg', duration: '3.8s' },
+  { label: "Brunch Series", color: "bg-zinc-700/20", border: "border-none", pos: { top: '22%', left: '72%' }, rot: '-3deg', duration: '4.5s' },
+  { label: "Sundowner Session", color: "bg-cyan-700/20", border: "border-solid", pos: { top: '72%', left: '8%' }, rot: '1deg', duration: '3.2s' },
+  { label: "Weekend Market", color: "bg-emerald-800/20", border: "border-dashed", pos: { top: '82%', left: '32%' }, rot: '-2deg', duration: '3.9s' },
+  { label: "Compound Party", color: "bg-neutral-600/30", border: "border-none", pos: { top: '48%', left: '78%' }, rot: '2deg', duration: '4.1s' },
+  { label: "Terrace Session", color: "bg-blue-700/20", border: "border-solid", pos: { top: '78%', left: '62%' }, rot: '-1deg', duration: '3.6s' },
+];
+
 /**
  * Section 01: THE GAP
- * High-fidelity strategic context module with interactive footprint analysis.
+ * Strategic context module with high-fidelity visual argumentation.
  */
 export const TheGap = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -91,7 +104,7 @@ export const TheGap = () => {
 
   return (
     <div ref={sectionRef} className="space-y-12 py-4">
-      {/* 01: Headline Treatment */}
+      {/* Headline & Underline Animation */}
       <div className="space-y-4">
         <div className="relative inline-block">
           <h2 className="font-headline text-5xl md:text-7xl lg:text-8xl text-brand-cream uppercase leading-none tracking-tighter">
@@ -120,223 +133,189 @@ export const TheGap = () => {
         </div>
       </div>
 
-      {/* 02: Strategic Insight Blocks */}
-      <div className="space-y-12 md:space-y-16">
+      {/* Strategic Narrative Blocks */}
+      <div className="space-y-4 text-brand-cream/90 font-body text-base md:text-lg leading-[1.7] max-w-4xl">
+        <p className="mb-4">
+          Sunday in Nairobi is not merely a day off — it is the city's most concentrated brand-building occasion. Every week, the 21-to-35 professional demographic makes a tightly clustered set of lifestyle decisions: which venue to spend the afternoon at, which drinks to order, which people to be seen with, and which moments to capture and share across social platforms. These are not passive consumption choices. They are identity-signalling acts — each one a public declaration of taste, social positioning, and cultural fluency.
+        </p>
+        <p className="mb-4">
+          The current landscape serving this occasion, however, is structurally incapable of delivering that brand value. Nairobi's Sunday social scene is populated by dozens of independent activations operating without coordination, without shared visual identity, and without brand-level recognition beyond their immediate attendee circles. Each event generates a burst of social content that dissipates within 48 hours, building no cumulative equity for any organizer or beverage partner.
+        </p>
+        <p className="mb-4">
+          This condition will not persist indefinitely. Fragmented social occasions in high-value urban markets tend to consolidate around branded properties once a single operator introduces the infrastructure to systematise the experience. The Sunday occasion in Nairobi has reached the scale and cultural significance where that consolidation is structurally inevitable. The question is not whether a premium brand will come to own this occasion, but which brand will move first.
+        </p>
+      </div>
+
+      {/* Strategic Insight Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+        <div className="glass-card p-4 space-y-3 group hover:border-brand-gold/40 transition-all duration-500">
+          <div className="w-10 h-10 rounded-full border border-brand-gold/20 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-green transition-all">
+            <RefreshCcw size={20} className="group-hover:rotate-180 transition-transform duration-700" />
+          </div>
+          <h4 className="font-headline text-xl text-brand-gold uppercase">THE REPETITION TRAP</h4>
+          <p className="text-[11px] leading-relaxed text-brand-cream/60">
+            Nairobi's Sunday activations operate on a compressed weekly cycle — venue booked, DJ confirmed, flyer posted, event executed, content forgotten. This cadence repeats without strategic escalation or narrative progression. Each edition starts from zero. No event builds systematically on the equity of the one before it.
+          </p>
+        </div>
+
+        <div className="glass-card p-4 space-y-3 group hover:border-brand-teal/40 transition-all duration-500">
+          <div className="w-10 h-10 rounded-full border border-brand-teal/20 flex items-center justify-center text-brand-teal group-hover:bg-brand-teal group-hover:text-white transition-all">
+            <HelpCircle size={20} />
+          </div>
+          <h4 className="font-headline text-xl text-brand-teal uppercase">THE CONTENT DEFICIT</h4>
+          <p className="text-[11px] leading-relaxed text-brand-cream/60">
+            Sunday events produce enormous volumes of social media content — but virtually none of it compounds. No Sunday activation in the city currently operates a content strategy that extracts sustained value from a single event across a 30-day cycle. The content is treated as a byproduct rather than as the primary asset.
+          </p>
+        </div>
+
+        <div className="glass-card p-4 space-y-3 group hover:border-brand-gold/40 transition-all duration-500">
+          <div className="w-10 h-10 rounded-full border border-brand-gold/20 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-green transition-all">
+            <Lock size={20} />
+          </div>
+          <h4 className="font-headline text-xl text-brand-gold uppercase">THE OWNERSHIP VACUUM</h4>
+          <p className="text-[11px] leading-relaxed text-brand-cream/60">
+            No beverage brand in the Kenyan market currently holds a proprietary association with Sunday as a social occasion. Premium brands activate across the weekly calendar without day-specific positioning — a missed distinction, given that Sunday's audience dynamics are fundamentally different.
+          </p>
+        </div>
+      </div>
+
+      {/* Interactive Comparison - Distribution vs Culture */}
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_2px_1fr] gap-0 items-stretch relative mt-12">
+        {/* Left Panel: Distribution */}
+        <div className={cn(
+          "p-6 md:p-10 rounded-t-[32px] md:rounded-tr-none md:rounded-l-[32px] bg-white/5 border border-white/5 backdrop-blur-xl transition-all duration-700",
+          isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+        )}>
+          <div className="space-y-8">
+            <h4 className="font-headline text-sm tracking-[3px] text-brand-teal uppercase">DISTRIBUTION FOOTPRINT</h4>
+            <div className="flex justify-center md:justify-start">
+              <RadialGauge 
+                percentage={85} 
+                color="#2D8C7F" 
+                label="ESTABLISHED" 
+                isVisible={isVisible} 
+                delay={1200} 
+              />
+            </div>
+            <ul className="space-y-4">
+              {[
+                "National retail network",
+                "On-trade presence",
+                "Local production at Tatu City"
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-3 text-brand-cream/70 font-body text-sm">
+                  <Check size={14} className="text-brand-teal shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Vertical Pulse Divider */}
+        <div className="w-full h-[2px] md:w-[2px] md:h-full bg-brand-gold/20 relative">
+          <div className="absolute inset-0 bg-brand-gold animate-pulse-divider" />
+        </div>
+
+        {/* Right Panel: Cultural */}
+        <div className={cn(
+          "p-6 md:p-10 rounded-b-[32px] md:rounded-bl-none md:rounded-r-[32px] bg-white/[0.08] border border-white/10 backdrop-blur-2xl shadow-2xl transition-all duration-700 delay-500",
+          isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
+        )}>
+          <div className="space-y-8">
+            <h4 className="font-headline text-sm tracking-[3px] text-brand-gold uppercase">CULTURAL FOOTPRINT</h4>
+            <div className="flex justify-center md:justify-start">
+              <RadialGauge 
+                percentage={5} 
+                color="#F4C542" 
+                label="NEGLIGIBLE" 
+                isVisible={isVisible} 
+                delay={2200} 
+              />
+            </div>
+            <ul className="space-y-4">
+              {[
+                "No recurring event property",
+                "No lifestyle community",
+                "No content ecosystem",
+                "No occasion ownership"
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-3 text-brand-cream font-body text-sm">
+                  <Circle size={14} className="text-brand-gold/40 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Footprint Pull Quote */}
+      <div className={cn(
+        "text-center max-w-2xl mx-auto pt-8 transition-all duration-1000 delay-[2800ms]",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      )}>
+        <p className="font-serif italic text-2xl md:text-3xl text-brand-gold leading-relaxed">
+          "Distribution puts Savanna on the shelf. <br className="hidden md:block"/>Cultural ownership puts Savanna in the conversation."
+        </p>
+      </div>
+
+      {/* Interactive Scatter Field: The Sunday Landscape */}
+      <div className="space-y-4 pt-8 pb-12">
+        <span className="font-headline text-xs tracking-[3px] text-brand-cream/50 uppercase">NAIROBI'S SUNDAY LANDSCAPE</span>
         
-        {/* BLOCK 1: THE WEEKLY CYCLE */}
-        <div className={cn(
-          "grid grid-cols-1 md:grid-cols-[120px_1fr] gap-8 items-start transition-all duration-700",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        )}>
-          <div className="flex justify-center md:justify-start">
-            <div className="w-20 h-20 rounded-full border border-brand-gold/20 flex items-center justify-center animate-spin-slow">
-              <RefreshCcw className="text-brand-gold/40" size={40} />
+        <div className="relative h-[400px] w-full bg-white/[0.02] border border-white/5 rounded-[32px] overflow-hidden group/landscape">
+          {activationPills.map((pill, i) => (
+            <div
+              key={i}
+              className={cn(
+                "absolute px-5 py-2.5 rounded-full backdrop-blur-md transition-all duration-700 cursor-default group/pill",
+                pill.color,
+                pill.border !== 'border-none' ? `border ${pill.border} border-white/10` : '',
+                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+              )}
+              style={{
+                top: pill.pos.top,
+                left: pill.pos.left,
+                transform: `rotate(${pill.rot})`,
+                transitionDelay: `${i * 100}ms`,
+                animation: `float ${pill.duration} ease-in-out infinite`
+              }}
+            >
+              <span className="font-body text-[11px] font-bold text-brand-cream/80 group-hover/pill:opacity-20 transition-opacity">
+                {pill.label}
+              </span>
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/pill:opacity-100 transition-opacity pointer-events-none">
+                <span className="font-body text-[9px] uppercase tracking-widest text-brand-gold font-bold">No brand partner</span>
+              </div>
             </div>
-          </div>
-          <div className="space-y-4">
-            <h4 className="font-headline text-2xl md:text-3xl text-brand-cream uppercase">EVERY SUNDAY, THE SAME DECISION</h4>
-            <p className="font-body text-brand-cream/70 text-base md:text-lg leading-relaxed max-w-2xl">
-              Where to go, what to drink, who to be seen with, what to post — made by Nairobi's highest-value demographic, every single week.
-            </p>
-            <div className="flex items-center gap-2 pt-2">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="w-2 h-2 rounded-full bg-brand-cream/30" />
-              ))}
-              <div className="w-3 h-3 rounded-full bg-brand-gold animate-pulse shadow-[0_0_10px_#F4C542]" />
-              <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest ml-2">Sunday</span>
+          ))}
+
+          {/* The Strategic Void */}
+          <div 
+            className={cn(
+              "absolute bottom-[10%] right-[10%] w-32 h-32 rounded-full border-2 border-dashed border-brand-gold/20 flex items-center justify-center transition-all duration-1000 group/void",
+              isVisible ? "opacity-100 scale-100" : "opacity-0 scale-50"
+            )}
+            style={{ transitionDelay: '1500ms' }}
+          >
+            <div className="relative">
+              <span className="font-headline text-4xl text-brand-gold opacity-15 group-hover/void:opacity-60 transition-opacity">?</span>
+              <div className="absolute inset-0 animate-ping bg-brand-gold/5 rounded-full pointer-events-none" />
             </div>
           </div>
         </div>
 
-        <div className="h-[1px] w-full bg-brand-gold/10" />
-
-        {/* BLOCK 2: THE FRAGMENTATION */}
-        <div className={cn(
-          "grid grid-cols-1 md:grid-cols-[120px_1fr] gap-8 items-start transition-all duration-700 delay-200",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        )}>
-          <div className="flex justify-center md:justify-start">
-            <div className="grid grid-cols-3 gap-1 group">
-              {[...Array(9)].map((_, i) => (
-                <div 
-                  key={i} 
-                  className={cn(
-                    "w-4 h-4 bg-brand-gold/20 border border-brand-gold/40 transition-all duration-700",
-                    "group-hover:translate-x-0 group-hover:translate-y-0",
-                    i % 2 === 0 ? "translate-x-1" : "-translate-x-1",
-                    i > 4 ? "translate-y-1" : "-translate-y-1"
-                  )} 
-                />
-              ))}
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h4 className="font-headline text-2xl md:text-3xl text-brand-cream uppercase">DOZENS OF EVENTS. ZERO BRAND EQUITY</h4>
-            <p className="font-body text-brand-cream/70 text-base md:text-lg leading-relaxed max-w-2xl">
-              Nairobi's Sunday scene is fragmented across interchangeable activations that generate attention for 48 hours and build nothing lasting.
-            </p>
-            <div className="flex items-center gap-4 pt-2">
-              <div className="flex-1 max-w-[200px] h-1.5 bg-white/5 rounded-full overflow-hidden relative">
-                <div className="absolute top-0 left-0 h-full bg-brand-teal animate-decay-loop" />
-              </div>
-              <span className="text-[9px] font-bold text-brand-cream/40 uppercase tracking-widest">Content lifespan: 48 hours</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="h-[1px] w-full bg-brand-gold/10" />
-
-        {/* BLOCK 3: THE WINDOW */}
-        <div className={cn(
-          "grid grid-cols-1 md:grid-cols-[120px_1fr] gap-8 items-start transition-all duration-700 delay-[400ms]",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        )}>
-          <div className="flex justify-center md:justify-start">
-            <div className="relative w-16 h-16 flex items-center justify-center">
-              <div className="absolute left-0 w-[2px] h-12 bg-brand-gold/40 animate-door-left" />
-              <div className="absolute right-0 w-[2px] h-12 bg-brand-gold/40 animate-door-right" />
-              <div className="w-4 h-4 rounded-full border border-brand-gold/20 animate-pulse" />
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h4 className="font-headline text-2xl md:text-3xl text-brand-cream uppercase">A WINDOW THAT WON'T STAY OPEN</h4>
-            <p className="font-body text-brand-cream/70 text-base md:text-lg leading-relaxed max-w-2xl">
-              Unbranded occasions in high-value markets always consolidate. The first brand to move sets the terms. The rest compete for what's left.
-            </p>
-            <div className="flex items-center gap-4 pt-2 w-full max-w-md">
-              <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest shrink-0 animate-pulse">Now</span>
-              <div className="flex-1 h-[1px] bg-white/10 relative overflow-hidden">
-                <div className="absolute top-0 left-0 h-full bg-brand-gold animate-fuse-burn" />
-              </div>
-              <div className="flex items-center gap-2 shrink-0">
-                <Lock size={12} className="text-brand-cream/20" />
-                <span className="text-[9px] font-bold text-brand-cream/20 uppercase tracking-widest">Claimed</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="h-[1px] w-full bg-brand-gold/10" />
-
-        {/* 03: FOOTPRINT COMPARISON */}
-        <div className={cn(
-          "pt-12 space-y-12 transition-all duration-1000 delay-[600ms]",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-        )}>
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_2px_1fr] gap-0 items-stretch relative">
-            {/* Left Panel: Distribution */}
-            <div className={cn(
-              "p-6 md:p-10 rounded-t-[32px] md:rounded-tr-none md:rounded-l-[32px] bg-white/5 border border-white/5 backdrop-blur-xl transition-all duration-700",
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
-            )}>
-              <div className="space-y-8">
-                <h4 className="font-headline text-sm tracking-[3px] text-brand-teal uppercase">DISTRIBUTION FOOTPRINT</h4>
-                
-                <div className="flex justify-center md:justify-start">
-                  <RadialGauge 
-                    percentage={85} 
-                    color="#2D8C7F" 
-                    label="ESTABLISHED" 
-                    isVisible={isVisible} 
-                    delay={1200} 
-                  />
-                </div>
-
-                <ul className="space-y-4">
-                  {[
-                    "National retail network",
-                    "On-trade presence",
-                    "Local production at Tatu City"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-brand-cream/70 font-body text-sm">
-                      <Check size={14} className="text-brand-teal shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Vertical Pulse Divider */}
-            <div className="w-full h-[2px] md:w-[2px] md:h-full bg-brand-gold/20 relative">
-              <div className="absolute inset-0 bg-brand-gold animate-pulse-divider" />
-            </div>
-
-            {/* Right Panel: Cultural */}
-            <div className={cn(
-              "p-6 md:p-10 rounded-b-[32px] md:rounded-bl-none md:rounded-r-[32px] bg-white/[0.08] border border-white/10 backdrop-blur-2xl shadow-2xl transition-all duration-700 delay-500",
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
-            )}>
-              <div className="space-y-8">
-                <h4 className="font-headline text-sm tracking-[3px] text-brand-gold uppercase">CULTURAL FOOTPRINT</h4>
-                
-                <div className="flex justify-center md:justify-start">
-                  <RadialGauge 
-                    percentage={5} 
-                    color="#F4C542" 
-                    label="NEGLIGIBLE" 
-                    isVisible={isVisible} 
-                    delay={2200} 
-                  />
-                </div>
-
-                <ul className="space-y-4">
-                  {[
-                    "No recurring event property",
-                    "No lifestyle community",
-                    "No content ecosystem",
-                    "No occasion ownership"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-brand-cream font-body text-sm">
-                      <Circle size={14} className="text-brand-gold/40 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Centered Pull Quote */}
-          <div className={cn(
-            "text-center max-w-2xl mx-auto pt-8 transition-all duration-1000 delay-[2800ms]",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          )}>
-            <p className="font-serif italic text-2xl md:text-3xl text-brand-gold leading-relaxed">
-              "Distribution puts Savanna on the shelf. <br className="hidden md:block"/>Cultural ownership puts Savanna in the conversation."
-            </p>
-          </div>
-        </div>
-
+        <p className="font-body text-[13px] text-brand-cream/40 italic text-center animate-in fade-in duration-1000 delay-[2500ms]">
+          Every label is unbranded. The empty space is the opportunity.
+        </p>
       </div>
 
       <style jsx global>{`
-        @keyframes decay-loop {
-          0% { width: 100%; opacity: 1; background-color: #2D8C7F; }
-          80% { width: 10%; opacity: 0.5; background-color: #1F4D3A; }
-          100% { width: 0%; opacity: 0; }
+        @keyframes float {
+          0%, 100% { transform: translateY(0) rotate(var(--tw-rotate)); }
+          50% { transform: translateY(-3px) rotate(var(--tw-rotate)); }
         }
-        .animate-decay-loop {
-          animation: decay-loop 4s infinite linear;
-        }
-        @keyframes fuse-burn {
-          0% { width: 0%; }
-          100% { width: 100%; }
-        }
-        .animate-fuse-burn {
-          animation: fuse-burn 20s infinite linear;
-        }
-        @keyframes door-left {
-          0%, 100% { transform: translateX(0); }
-          50% { transform: translateX(20px); }
-        }
-        @keyframes door-right {
-          0%, 100% { transform: translateX(0); }
-          50% { transform: translateX(-20px); }
-        }
-        .animate-door-left { animation: door-left 20s infinite ease-in-out; }
-        .animate-door-right { animation: door-right 20s infinite ease-in-out; }
-        
         @keyframes pulse-divider {
           0%, 100% { opacity: 0.2; }
           50% { opacity: 0.8; }
