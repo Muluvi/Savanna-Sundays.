@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -12,7 +11,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 const labels = [
   { id: "label-kunye", name: "Kunye Records" },
   { id: "label-descendants", name: "Descendants Records" },
-  { id: "label-groove-cartel", name: "Groove Cartel SA" },
+  { id: "label-grooke-cartel", name: "Groove Cartel SA" },
   { id: "label-sondela", name: "SondeLa Recordings" },
   { id: "partner-boiler-room", name: "Boiler Room" },
   { id: "partner-mixmag", name: "Mixmag" },
@@ -69,12 +68,17 @@ export const MusicProgrammingSection = () => {
                 const img = PlaceHolderImages.find(p => p.id === label.id);
                 return (
                   <div key={i} className="flex flex-col items-center group">
-                    <div className="w-16 h-16 rounded-xl bg-white p-2 flex items-center justify-center relative shadow-xl transition-all group-hover:-translate-y-1">
+                    <div className="w-20 h-20 rounded-xl bg-white p-2 flex items-center justify-center relative shadow-2xl transition-all group-hover:-translate-y-1">
                       {img && (
-                        <Image src={img.imageUrl} alt={label.name} width={48} height={48} className="object-contain" />
+                        <Image 
+                          src={img.imageUrl} 
+                          alt={label.name} 
+                          fill
+                          className="object-contain p-2 opacity-100" 
+                        />
                       )}
                     </div>
-                    <span className="font-body text-[7px] uppercase tracking-widest text-white/40 mt-2 font-bold text-center leading-tight">{label.name}</span>
+                    <span className="font-body text-[7px] uppercase tracking-widest text-white/40 mt-3 font-bold text-center leading-tight">{label.name}</span>
                   </div>
                 );
               })}

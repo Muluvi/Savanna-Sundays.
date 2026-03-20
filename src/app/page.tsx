@@ -120,7 +120,7 @@ export default function Home() {
             <div className="w-8 h-[1px] bg-brand-gold/30 mb-6" />
             <span className="text-[9px] tracking-[6px] text-brand-gold uppercase mb-4 font-bold opacity-50">Presented by</span>
             {logo && (
-              <div className="relative w-[200px] h-[60px] md:w-[400px] md:h-[100px] opacity-90">
+              <div className="relative w-[220px] h-[70px] md:w-[450px] md:h-[120px] opacity-100">
                 <Image 
                   src={logo.imageUrl} 
                   alt="Firefly Management" 
@@ -153,7 +153,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
             <div className="flex flex-col items-center md:items-start">
               {logo && (
-                <div className="relative w-[180px] h-[50px] md:w-[250px] md:h-[80px] mb-4">
+                <div className="relative w-[180px] h-[50px] md:w-[250px] md:h-[80px] mb-4 opacity-100">
                   <Image 
                     src={logo.imageUrl} 
                     alt="Firefly Management" 
