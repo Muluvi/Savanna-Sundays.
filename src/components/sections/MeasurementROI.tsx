@@ -65,8 +65,8 @@ export const MeasurementROInSection = () => {
           </p>
         </div>
         
-        <div className="py-6 flex flex-col items-center justify-center">
-          <h3 className="font-serif italic text-xl md:text-2xl text-brand-green/80 leading-relaxed px-4 text-center">
+        <div className="py-6 flex flex-col items-center justify-center text-center">
+          <h3 className="font-serif italic text-xl md:text-2xl text-brand-green/80 leading-relaxed px-4">
             "ROI is the only vibe that matters."
           </h3>
         </div>
@@ -88,7 +88,6 @@ export const MeasurementROInSection = () => {
         ))}
       </div>
 
-      {/* 06D: The Return Flow */}
       <div className="py-6 flex flex-col md:flex-row items-center justify-between gap-4 animate-fade-in-up [animation-delay:400ms]">
         <Card className="w-full md:flex-1 p-6 bg-brand-green text-white text-center rounded-[24px] shadow-lg relative overflow-hidden group hover:scale-[1.02] transition-transform">
           <div className="relative z-10 space-y-2">
