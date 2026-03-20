@@ -41,7 +41,7 @@ const sectionsData = [
     component: (
       <div className="space-y-12">
         <VisualIdentitySection />
-        <div className="w-8 h-[1px] bg-brand-gold/20 mx-auto" />
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
         <ExperienceDesignSection />
       </div>
     ) 
@@ -61,7 +61,7 @@ const sectionsData = [
     component: (
       <div className="space-y-12">
         <AttendanceDemandSection />
-        <div className="w-8 h-[1px] bg-brand-gold/20 mx-auto" />
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-teal/20 to-transparent" />
         <DigitalInfrastructureSection />
       </div>
     )
@@ -74,7 +74,7 @@ const sectionsData = [
     component: (
       <div className="space-y-12">
         <SponsorshipRevenueSection />
-        <div className="w-8 h-[1px] bg-brand-gold/20 mx-auto" />
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
         <MeasurementROInSection />
       </div>
     )
@@ -97,18 +97,18 @@ export default function Home() {
       <MobileNav />
       
       <main className="md:ml-64 transition-all">
-        {/* Compact Hero Section */}
+        {/* Compact Hero Section with Blur-In Sequence */}
         <section id="hero" className="relative min-h-[60vh] dark-section flex flex-col px-6 py-12 overflow-hidden justify-center">
           <WaterDroplets className="opacity-10" />
           
           <div className="flex flex-col items-center justify-center text-center">
-            <div className="max-w-6xl mx-auto w-full animate-fade-in-up">
-              <h1 className="leading-[0.85] mb-4 md:mb-6">
+            <div className="max-w-6xl mx-auto w-full">
+              <h1 className="leading-[0.85] mb-4 md:mb-6 blur-in">
                 <span className="block text-white text-[clamp(60px,15vw,160px)] font-headline tracking-tighter">SAVANNA</span>
                 <span className="block text-brand-gold text-[clamp(60px,15vw,160px)] font-headline tracking-tighter">SUNDAYS</span>
               </h1>
               
-              <div className="max-w-2xl mx-auto">
+              <div className="max-w-2xl mx-auto opacity-0 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-forwards">
                 <p className="font-serif italic text-lg md:text-2xl text-brand-cream/60 tracking-wide">
                   Own Every Sunday in Nairobi
                 </p>
@@ -116,11 +116,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative z-20 flex flex-col items-center mt-12 animate-fade-in-up [animation-delay:600ms]">
+          <div className="relative z-20 flex flex-col items-center mt-12 opacity-0 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-1000 fill-mode-forwards">
             <div className="w-8 h-[1px] bg-brand-gold/30 mb-6" />
             <span className="text-[9px] tracking-[6px] text-brand-gold uppercase mb-4 font-bold opacity-50">Presented by</span>
             {logo && (
-              <div className="relative w-[220px] h-[70px] md:w-[450px] md:h-[120px] opacity-100">
+              <div className="relative w-[220px] h-[70px] md:w-[450px] md:h-[120px] hover:scale-105 transition-transform duration-500">
                 <Image 
                   src={logo.imageUrl} 
                   alt="Firefly Management" 
@@ -148,12 +148,12 @@ export default function Home() {
           </SectionContainer>
         ))}
 
-        <footer className="bg-brand-ink py-10 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
+        <footer className="bg-brand-ink py-6 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
           <WaterDroplets className="opacity-5" />
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
             <div className="flex flex-col items-center md:items-start">
               {logo && (
-                <div className="relative w-[180px] h-[50px] md:w-[250px] md:h-[80px] mb-4 opacity-100">
+                <div className="relative w-[150px] h-[40px] md:w-[200px] md:h-[60px] mb-2 opacity-50 hover:opacity-100 transition-opacity">
                   <Image 
                     src={logo.imageUrl} 
                     alt="Firefly Management" 
@@ -162,8 +162,8 @@ export default function Home() {
                   />
                 </div>
               )}
-              <p className="font-body text-[9px] tracking-[1.5px] uppercase text-brand-cream/30">
-                &copy; 2024 Firefly Management. All Rights Reserved.
+              <p className="font-body text-[8px] tracking-[1.5px] uppercase text-brand-cream/20">
+                &copy; 2024 Firefly Management.
               </p>
             </div>
 
@@ -171,8 +171,8 @@ export default function Home() {
               <p className="font-body text-[10px] tracking-[1px] uppercase text-brand-cream/40 font-bold">
                 Drink Responsibly.
               </p>
-              <p className="font-body text-[8px] tracking-[1px] uppercase text-brand-cream/20 leading-relaxed mt-2">
-                Excessive alcohol consumption is harmful to your health · Not for sale to persons under the age of 18 years.
+              <p className="font-body text-[7px] tracking-[0.5px] uppercase text-brand-cream/20 mt-1">
+                Not for sale to persons under the age of 18 years.
               </p>
             </div>
           </div>

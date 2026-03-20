@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from 'react';
@@ -27,29 +26,33 @@ export const MobileNav = () => {
 
   return (
     <div className="md:hidden fixed top-0 left-0 w-full z-[100] px-4 py-4 flex justify-between items-center pointer-events-none">
-      <div className="bg-brand-green/90 backdrop-blur-sm p-3 rounded-xl pointer-events-auto">
+      <div className="glass-card p-3 pointer-events-auto">
         <div className="text-brand-gold font-headline text-lg leading-none">SS</div>
       </div>
       
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-brand-gold text-brand-green p-3 rounded-xl shadow-lg pointer-events-auto active:scale-95"
+        className="bg-brand-gold text-brand-green p-3 rounded-xl shadow-lg pointer-events-auto active:scale-95 transition-all"
       >
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - Glassmorphism */}
       <div className={cn(
-        "fixed inset-0 bg-brand-green z-[-1] transition-all duration-500 p-8 flex flex-col justify-center items-center pointer-events-auto",
+        "fixed inset-0 bg-brand-green/95 backdrop-blur-xl z-[-1] transition-all duration-500 p-8 flex flex-col justify-center items-center pointer-events-auto",
         isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
       )}>
         <nav className="w-full">
           <ul className="space-y-4">
-            {sections.map((section) => (
-              <li key={section.id}>
+            {sections.map((section, i) => (
+              <li key={section.id} className={cn(
+                "transition-all duration-500",
+                isOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0",
+                `delay-[${i * 100}ms]`
+              )}>
                 <button
                   onClick={() => scrollTo(section.id)}
-                  className="w-full text-center py-4 text-2xl font-headline text-brand-gold hover:text-brand-cream transition-colors"
+                  className="w-full text-center py-4 text-3xl font-headline text-brand-gold hover:text-brand-cream hover:scale-110 transition-all"
                 >
                   {section.label}
                 </button>

@@ -11,11 +11,9 @@ import {
   ShieldCheck, 
   Zap, 
   MapPin, 
-  Activity,
 } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { BrushStroke } from '@/components/brand/VisualElements';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const venueData = [
@@ -37,16 +35,16 @@ const matrixCriteria = [
 export const DualActivationModel = () => {
   return (
     <div className="space-y-6 md:space-y-8">
-      <div className="max-w-3xl animate-fade-in-up">
+      <div className="max-w-3xl">
         <p className="font-serif italic text-lg md:text-xl text-brand-green/60 leading-relaxed">
           One engine builds the brand. The other covers the city. Together, they make Savanna synonymous with Sunday.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in-up [animation-delay:200ms]">
-        <Card className="p-5 bg-white border-l-4 border-brand-gold rounded-[24px] flex flex-col justify-between group hover:shadow-lg transition-all">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Card className="p-5 bg-white border-l-4 border-brand-gold rounded-[24px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(244,197,66,0.2)] transition-all duration-500">
           <div className="space-y-3">
-            <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
               <ShieldCheck size={20} />
             </div>
             <div className="space-y-1">
@@ -61,9 +59,9 @@ export const DualActivationModel = () => {
           </div>
         </Card>
         
-        <Card className="p-5 bg-white border-l-4 border-brand-teal rounded-[24px] flex flex-col justify-between group hover:shadow-lg transition-all">
+        <Card className="p-5 bg-white border-l-4 border-brand-teal rounded-[24px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(45,140,127,0.2)] transition-all duration-500">
           <div className="space-y-3">
-            <div className="w-10 h-10 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center group-hover:scale-110 transition-transform">
               <Zap size={20} />
             </div>
             <div className="space-y-1">
@@ -88,8 +86,7 @@ export const DualActivationModel = () => {
           </TabsList>
 
           <TabsContent value="network" className="mt-0 overflow-hidden">
-            <div className="relative w-full">
-              {/* Faster Marquee Animation */}
+            <div className="relative w-full mask-marquee">
               <div className="flex animate-marquee whitespace-nowrap gap-4">
                 {[...venueData, ...venueData, ...venueData].map((venue, i) => {
                   const img = venue.imageId ? PlaceHolderImages.find(p => p.id === venue.imageId) : null;
@@ -101,7 +98,7 @@ export const DualActivationModel = () => {
                             src={img.imageUrl} 
                             alt={venue.name} 
                             fill 
-                            className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-100"
+                            className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-100"
                             priority={i < 4}
                           />
                         ) : (
@@ -110,8 +107,7 @@ export const DualActivationModel = () => {
                           </div>
                         )}
                         
-                        {/* High-Contrast Bottom Bar instead of heavy overlay */}
-                        <div className="absolute bottom-0 left-0 w-full p-4 bg-white/95 backdrop-blur-sm border-t border-brand-green/5">
+                        <div className="absolute bottom-0 left-0 w-full p-4 bg-white/95 backdrop-blur-sm border-t border-brand-green/5 translate-y-2 group-hover:translate-y-0 transition-transform">
                           <div className="flex justify-between items-end">
                             <div>
                               <Badge className={cn(
@@ -133,16 +129,17 @@ export const DualActivationModel = () => {
                   );
                 })}
               </div>
-              <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-brand-cream to-transparent z-10 pointer-events-none" />
-              <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-brand-cream to-transparent z-10 pointer-events-none" />
             </div>
           </TabsContent>
 
           <TabsContent value="scorecard">
-            <div className="bg-white rounded-[32px] p-8 border border-brand-green/10 shadow-2xl relative overflow-hidden">
+            <div className="bg-white rounded-[32px] p-6 md:p-8 border border-brand-green/10 shadow-2xl relative overflow-hidden group">
+              {/* Subtle mesh background for the scorecard */}
+              <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-gold via-transparent to-transparent group-hover:opacity-[0.06] transition-opacity duration-1000" />
+              
               <div className="relative z-10 grid grid-cols-2 md:grid-cols-5 gap-4">
                 {matrixCriteria.map((item, i) => (
-                  <div key={i} className="flex flex-col items-center text-center space-y-4 p-5 rounded-2xl bg-brand-cream/30 group hover:bg-white transition-all hover:shadow-xl border border-transparent hover:border-brand-gold/30">
+                  <div key={i} className="flex flex-col items-center text-center space-y-4 p-5 rounded-2xl bg-brand-cream/30 hover:bg-white transition-all duration-500 hover:shadow-xl border border-transparent hover:border-brand-gold/30 group/item">
                     <div className="relative w-20 h-20 flex items-center justify-center">
                       <svg className="w-full h-full transform -rotate-90">
                         <circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" strokeWidth="2" className="text-brand-green/5" />
@@ -155,10 +152,10 @@ export const DualActivationModel = () => {
                           strokeWidth="4" 
                           strokeDasharray={2 * Math.PI * 36} 
                           strokeDashoffset={2 * Math.PI * 36 * (1 - item.score / 100)} 
-                          className="text-brand-gold transition-all duration-1000 group-hover:text-brand-teal" 
+                          className="text-brand-gold transition-all duration-1000 group-hover/item:text-brand-teal" 
                         />
                       </svg>
-                      <div className="absolute inset-0 flex items-center justify-center text-brand-green">{item.icon}</div>
+                      <div className="absolute inset-0 flex items-center justify-center text-brand-green group-hover/item:scale-110 transition-transform">{item.icon}</div>
                     </div>
                     <div className="space-y-1">
                       <h6 className="font-headline text-lg text-brand-green uppercase leading-none">{item.label}</h6>
@@ -179,7 +176,7 @@ export const DualActivationModel = () => {
                   const isSponsor = isSunday && ((i + 1) === 14 || (i + 1) === 28);
                   return (
                     <div key={i} className={cn(
-                      "aspect-square rounded-md flex items-center justify-center text-[9px] font-bold shadow-sm border border-transparent",
+                      "aspect-square rounded-md flex items-center justify-center text-[9px] font-bold shadow-sm border border-transparent transition-all hover:scale-110",
                       isOwned ? "bg-brand-green text-brand-gold border-brand-gold/30" : 
                       isSponsor ? "bg-brand-teal text-white" : 
                       "bg-brand-cream/40 text-brand-green/10"

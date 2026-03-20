@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
@@ -7,11 +6,27 @@ import { ArrowRight, Users, Zap, ShoppingBag, Share2 } from 'lucide-react';
 
 const Counter = ({ value, prefix = "", suffix = "" }: { value: string, prefix?: string, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLSpanElement>(null);
   const target = parseFloat(value.replace(/[^0-9.]/g, ''));
   const hasLoaded = useRef(false);
 
   useEffect(() => {
-    if (hasLoaded.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasLoaded.current) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible || hasLoaded.current) return;
     
     let start = 0;
     const duration = 2000;
@@ -21,7 +36,6 @@ const Counter = ({ value, prefix = "", suffix = "" }: { value: string, prefix?: 
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       
-      // Easing function
       const easeOutQuad = (t: number) => t * (2 - t);
       const current = easeOutQuad(progress) * target;
       
@@ -35,13 +49,13 @@ const Counter = ({ value, prefix = "", suffix = "" }: { value: string, prefix?: 
     };
 
     requestAnimationFrame(animate);
-  }, [target]);
+  }, [isVisible, target]);
 
   const formatted = displayValue.toLocaleString(undefined, { 
     maximumFractionDigits: value.includes('.') ? 1 : 0 
   });
 
-  return <span>{prefix}{formatted}{suffix}</span>;
+  return <span ref={containerRef}>{prefix}{formatted}{suffix}</span>;
 };
 
 const primaryKPIs = [
@@ -54,7 +68,7 @@ const primaryKPIs = [
 export const MeasurementROInSection = () => {
   return (
     <div className="space-y-6 md:space-y-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center animate-fade-in-up">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
         <div className="space-y-4">
           <div className="section-label">06C: Data Accountability</div>
           <h3 className="font-headline text-2xl md:text-4xl text-brand-green uppercase leading-tight">
@@ -72,9 +86,9 @@ export const MeasurementROInSection = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 animate-fade-in-up [animation-delay:200ms]">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {primaryKPIs.map((kpi, i) => (
-          <Card key={i} className="p-4 bg-white border border-brand-green/5 rounded-xl flex flex-col items-center text-center gap-3 hover:border-brand-gold transition-all group">
+          <Card key={i} className="brand-card p-4 flex flex-col items-center text-center gap-3 group">
             <div className={`w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform ${kpi.color === 'teal' ? 'bg-brand-teal/10 text-brand-teal' : kpi.color === 'green' ? 'bg-brand-green/10 text-brand-green' : 'bg-brand-gold/10 text-brand-gold'}`}>
               {kpi.icon}
             </div>
@@ -88,23 +102,25 @@ export const MeasurementROInSection = () => {
         ))}
       </div>
 
-      <div className="py-6 flex flex-col md:flex-row items-center justify-between gap-4 animate-fade-in-up [animation-delay:400ms]">
-        <Card className="w-full md:flex-1 p-6 bg-brand-green text-white text-center rounded-[24px] shadow-lg relative overflow-hidden group hover:scale-[1.02] transition-transform">
+      <div className="py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <Card className="w-full md:flex-1 p-6 bg-brand-green text-white text-center rounded-[24px] shadow-lg relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
           <div className="relative z-10 space-y-2">
             <h6 className="font-headline text-xl text-brand-gold leading-none">KWAL INVESTS</h6>
             <p className="font-body text-white/50 text-[8px] uppercase tracking-widest font-bold">Infrastructure & Media</p>
           </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
         </Card>
         
         <div className="animate-pulse">
            <ArrowRight className="text-brand-gold w-8 h-8 rotate-90 md:rotate-0" />
         </div>
         
-        <Card className="w-full md:flex-1 p-6 bg-brand-gold text-brand-green text-center rounded-[24px] shadow-lg relative overflow-hidden group hover:scale-[1.02] transition-transform">
+        <Card className="w-full md:flex-1 p-6 bg-brand-gold text-brand-green text-center rounded-[24px] shadow-lg relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
           <div className="relative z-10 space-y-2">
             <h6 className="font-headline text-xl text-brand-green leading-none">KWAL RETURNS</h6>
             <p className="font-body text-brand-green/50 text-[8px] uppercase tracking-widest font-bold">Sales & Equity</p>
           </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
         </Card>
       </div>
     </div>
