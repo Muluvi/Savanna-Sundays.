@@ -1,12 +1,20 @@
 
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Play, AudioLines, Share2, ArrowRight, Camera, Video, Smartphone, Mic2 } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 export const ContentSocialSection = () => {
+  const [waveformHeights, setWaveformHeights] = useState<number[]>([]);
+
+  useEffect(() => {
+    // Generate random heights only on the client to avoid hydration mismatch
+    const heights = [...Array(60)].map(() => Math.random() * 40 + 10);
+    setWaveformHeights(heights);
+  }, []);
+
   return (
     <div className="space-y-6 md:space-y-8">
       {/* Strategic Intro Card */}
@@ -23,7 +31,7 @@ export const ContentSocialSection = () => {
         </div>
       </Card>
 
-      {/* 04A: The Content Squad */}
+      {/* 04A: The Production Unit */}
       <div className="space-y-4 animate-fade-in-up">
         <div className="section-label">04A: The Production Unit</div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -55,12 +63,12 @@ export const ContentSocialSection = () => {
         <div className="section-label">04B: The Sonic Pipeline</div>
         <div className="bg-brand-cream/50 border border-brand-green/5 rounded-[24px] p-6 relative overflow-hidden">
           <div className="absolute bottom-0 left-0 w-full flex items-end gap-0.5 px-4 opacity-10 pointer-events-none">
-            {[...Array(60)].map((_, i) => (
+            {waveformHeights.map((h, i) => (
               <div 
                 key={i} 
                 className="flex-1 bg-brand-green animate-waveform" 
                 style={{ 
-                  height: `${Math.random() * 40 + 10}px`,
+                  height: `${h}px`,
                   animationDelay: `${i * 0.05}s`
                 }} 
               />
