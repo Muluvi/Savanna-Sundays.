@@ -47,36 +47,40 @@ export const VisualIdentitySection = () => {
       <div className="space-y-4 animate-fade-in-up [animation-delay:600ms]">
         <div className="section-label">03A: Physical Activation Standards</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-          <Card className="p-6 bg-brand-green text-white border-none rounded-[24px] space-y-2 shadow-xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-10">
+          <Card className="p-6 bg-brand-green text-white border-none rounded-[24px] space-y-3 shadow-xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
               <Sun className="w-16 h-16" />
             </div>
             <div className="relative z-10 space-y-2">
               <h4 className="font-headline text-xl text-brand-gold uppercase leading-tight">GOLDEN HOUR STAGE</h4>
               <p className="font-body text-[10px] text-white/60 leading-relaxed">
-                Modular backdrops with warm amber LED washes for natural skin tones.
+                Custom-engineered modular units utilizing sustainable light-oak timber and matte-black structural steel. Integrated 3200K warm-amber LED arrays are specifically calibrated to enhance organic skin tones, creating a "permanent golden hour" optimized for high-engagement mobile photography and professional editorial capture.
               </p>
             </div>
           </Card>
 
-          <Card className="p-6 bg-white border border-brand-green/5 rounded-[24px] space-y-2 hover:border-brand-gold transition-all shadow-sm">
+          <Card className="p-6 bg-white border border-brand-green/5 rounded-[24px] space-y-3 hover:border-brand-gold transition-all shadow-sm">
             <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center">
               <GlassWater size={20} />
             </div>
-            <h4 className="font-headline text-xl text-brand-green uppercase leading-tight">SAVANNA BARS</h4>
-            <p className="font-body text-[10px] text-brand-green/50 leading-relaxed">
-              Dedicated variant bars (Dry, Light, Lemon, 0.0) with premium garnish stations.
-            </p>
+            <div className="space-y-2">
+              <h4 className="font-headline text-xl text-brand-green uppercase leading-tight">SAVANNA BARS</h4>
+              <p className="font-body text-[10px] text-brand-green/50 leading-relaxed">
+                High-throughput modular bar systems featuring dedicated service bays for Dry, Light, Lemon, and 0.0 variants. Each station includes a bespoke "Botanical Architecture" unit with chilled compartments for premium garnishes (dehydrated citrus, fresh rosemary) to ensure every serve is a brand-aligned visual asset.
+              </p>
+            </div>
           </Card>
 
-          <Card className="p-6 bg-white border border-brand-green/5 rounded-[24px] space-y-2 hover:border-brand-teal transition-all shadow-sm">
+          <Card className="p-6 bg-white border border-brand-green/5 rounded-[24px] space-y-3 hover:border-brand-teal transition-all shadow-sm">
             <div className="w-10 h-10 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center">
               <Zap size={20} />
             </div>
-            <h4 className="font-headline text-xl text-brand-green uppercase leading-tight">DRESSING</h4>
-            <p className="font-body text-[10px] text-brand-green/50 leading-relaxed">
-              Mixologists in branded timber-tone aprons and Vibe Hosts in cultural streetwear.
-            </p>
+            <div className="space-y-2">
+              <h4 className="font-headline text-xl text-brand-green uppercase leading-tight">UNIFORM CODE</h4>
+              <p className="font-body text-[10px] text-brand-green/50 leading-relaxed">
+                A shift from traditional promo-wear to high-concept cultural streetwear. Mixologists in heavyweight canvas utility aprons in timber tones; Vibe Hosts in custom-tailored linen-blend coordinates that reflect Nairobi's contemporary premium aesthetic, ensuring staff are indistinguishable from high-value guests.
+              </p>
+            </div>
           </Card>
         </div>
       </div>

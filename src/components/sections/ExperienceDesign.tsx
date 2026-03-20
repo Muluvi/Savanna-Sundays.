@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -35,27 +34,27 @@ export const ExperienceDesignSection = () => {
       <div className="space-y-4 animate-fade-in-up">
         <div className="section-label">03A: The Arrival Sequence</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-          <Card className="p-4 bg-white border border-brand-green/5 rounded-[24px] space-y-2 hover:border-brand-gold transition-all shadow-sm group">
+          <Card className="p-5 bg-white border border-brand-green/5 rounded-[24px] space-y-3 hover:border-brand-gold transition-all shadow-sm group">
             <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
               <DoorOpen size={20} />
             </div>
             <h4 className="font-headline text-lg text-brand-green uppercase">Branded Entry</h4>
-            <p className="font-body text-[11px] text-brand-green/50 leading-relaxed">
-              Timber-framed portal establishing the aesthetic boundary.
+            <p className="font-body text-[10px] text-brand-green/50 leading-relaxed">
+              A bespoke architectural portal constructed from reclaimed cedar and brushed gold plating. This establishes a high-fidelity aesthetic boundary, signaling the transition from the city to the Savanna sanctuary.
             </p>
           </Card>
 
-          <Card className="p-4 bg-white border border-brand-green/5 rounded-[24px] space-y-2 hover:border-brand-teal transition-all shadow-sm group">
+          <Card className="p-5 bg-white border border-brand-green/5 rounded-[24px] space-y-3 hover:border-brand-teal transition-all shadow-sm group">
             <div className="w-10 h-10 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center group-hover:scale-110 transition-transform">
               <GlassWater size={20} />
             </div>
             <h4 className="font-headline text-lg text-brand-green uppercase">'First Crisp'</h4>
-            <p className="font-body text-[11px] text-brand-green/50 leading-relaxed">
-              Immediate welcome serve via mobile Vibe Hosts.
+            <p className="font-body text-[10px] text-brand-green/50 leading-relaxed">
+              A signature welcome ritual where guests receive a perfectly chilled Savanna variant (Dry or 0.0) within 60 seconds of entry, served via mobile Vibe Hosts to eliminate traditional queue friction.
             </p>
           </Card>
 
-          <Card className="p-4 bg-brand-green text-white border-none rounded-[24px] space-y-2 shadow-xl relative overflow-hidden group">
+          <Card className="p-5 bg-brand-green text-white border-none rounded-[24px] space-y-3 shadow-xl relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
               <QrCode size={40} />
             </div>
@@ -64,8 +63,8 @@ export const ExperienceDesignSection = () => {
                 <Zap size={20} />
               </div>
               <h4 className="font-headline text-lg text-brand-gold uppercase">Digital RSVP</h4>
-              <p className="font-body text-[11px] text-white/60 leading-relaxed">
-                Smart QR onboarding triggering community enrollment.
+              <p className="font-body text-[10px] text-white/60 leading-relaxed">
+                NFC-enabled check-in points that trigger an immediate WhatsApp welcome sequence. This automates community enrollment and harvests demographic data without disrupting the guest's entry momentum.
               </p>
             </div>
           </Card>
@@ -126,8 +125,8 @@ export const ExperienceDesignSection = () => {
 
         <div className="space-y-4 flex flex-col justify-center">
           <h4 className="font-headline text-xl text-brand-green uppercase leading-tight">9.3% CAGR Growth</h4>
-          <p className="font-body text-xs text-brand-green/60 leading-relaxed">
-            Embedding Savanna 0.0 into the primary event flow for Gen-Z and professional relevance.
+          <p className="font-body text-[10px] text-brand-green/60 leading-relaxed">
+            Embedding Savanna 0.0 into the primary event flow for Gen-Z and professional relevance, creating a high-performance alternative that maintains social momentum without alcohol.
           </p>
           <div className="grid grid-cols-2 gap-3">
             <div className="p-4 bg-white border border-brand-green/5 rounded-xl group hover:border-brand-teal transition-all">
