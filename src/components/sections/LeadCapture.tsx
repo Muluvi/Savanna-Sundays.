@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { useFirestore, useUser } from '@/firebase';
+import React, { useState, useEffect } from 'react';
+import { useFirestore, useUser, getAnalyticsInstance } from '@/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,24 +9,31 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Send, CheckCircle2, Mail } from 'lucide-react';
-import { logEvent, getAnalytics } from 'firebase/analytics';
-import { getFirebaseApp } from '@/firebase';
+import { logEvent } from 'firebase/analytics';
+import { errorEmitter } from '@/firebase/error-emitter';
+import { FirestorePermissionError, type SecurityRuleContext } from '@/firebase/errors';
 
 export function LeadCapture() {
   const db = useFirestore();
   const { user } = useUser();
   const { toast } = useToast();
-  const [email, setEmail] = useState(user?.email || '');
+  const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  // Sync email state if user becomes available (SSO)
+  useEffect(() => {
+    if (user?.email) {
+      setEmail(user.email);
+    }
+  }, [user]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!db) return;
 
-    const finalEmail = user?.email || email;
-    if (!finalEmail) {
+    if (!email) {
       toast({
         variant: "destructive",
         title: "Email Required",
@@ -36,32 +43,45 @@ export function LeadCapture() {
     }
 
     setLoading(true);
-    try {
-      await addDoc(collection(db, 'prospectusLeads'), {
-        email: finalEmail,
-        message,
-        interest: 'high',
-        timestamp: serverTimestamp(),
-      });
+    
+    const leadData = {
+      email,
+      message,
+      interest: 'high',
+      timestamp: serverTimestamp(),
+    };
 
-      const app = getFirebaseApp();
-      const analytics = getAnalytics(app);
-      logEvent(analytics, 'lead_captured', { user_email: finalEmail });
+    addDoc(collection(db, 'prospectusLeads'), leadData)
+      .then(() => {
+        const analytics = getAnalyticsInstance();
+        if (analytics) {
+          logEvent(analytics, 'lead_captured', { user_email: email });
+        }
 
-      setSubmitted(true);
-      toast({
-        title: "Interest Recorded",
-        description: "Firefly Management will reach out for the next strategic session.",
+        setSubmitted(true);
+        toast({
+          title: "Interest Recorded",
+          description: "Firefly Management will reach out for the next strategic session.",
+        });
+      })
+      .catch(async (error) => {
+        const permissionError = new FirestorePermissionError({
+          path: 'prospectusLeads',
+          operation: 'create',
+          requestResourceData: leadData,
+        } satisfies SecurityRuleContext);
+
+        errorEmitter.emit('permission-error', permissionError);
+        
+        toast({
+          variant: "destructive",
+          title: "Submission Failed",
+          description: "Please try again later or contact your account manager.",
+        });
+      })
+      .finally(() => {
+        setLoading(false);
       });
-    } catch (error) {
-      toast({
-        variant: "destructive",
-        title: "Submission Failed",
-        description: "Please try again later or contact your account manager.",
-      });
-    } finally {
-      setLoading(false);
-    }
   };
 
   if (submitted) {
@@ -84,23 +104,21 @@ export function LeadCapture() {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        {!user && (
-          <div className="space-y-2">
-            <label className="text-[9px] font-bold text-brand-gold/60 uppercase tracking-[3px] ml-1">Work Email</label>
-            <div className="relative">
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" size={18} />
-              <Input 
-                type="email" 
-                placeholder="stakeholder@kwal.co.ke" 
-                className="bg-white/10 border-white/10 text-white placeholder:text-white/20 h-14 pl-12 rounded-2xl focus:ring-brand-gold transition-all"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                disabled={loading}
-              />
-            </div>
+        <div className="space-y-2">
+          <label className="text-[9px] font-bold text-brand-gold/60 uppercase tracking-[3px] ml-1">Work Email</label>
+          <div className="relative">
+            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" size={18} />
+            <Input 
+              type="email" 
+              placeholder="stakeholder@kwal.co.ke" 
+              className="bg-white/10 border-white/10 text-white placeholder:text-white/20 h-14 pl-12 rounded-2xl focus:ring-brand-gold transition-all"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={loading}
+            />
           </div>
-        )}
+        </div>
 
         <div className="space-y-2">
           <label className="text-[9px] font-bold text-brand-gold/60 uppercase tracking-[3px] ml-1">Message</label>

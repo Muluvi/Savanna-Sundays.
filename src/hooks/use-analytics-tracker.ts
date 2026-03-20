@@ -1,13 +1,13 @@
-
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { getAnalytics, logEvent, setUserId } from 'firebase/analytics';
-import { getFirebaseApp, useUser } from '@/firebase';
+import { logEvent, setUserId } from 'firebase/analytics';
+import { getAnalyticsInstance, useUser } from '@/firebase';
 
 /**
  * Enhanced hook to track stakeholder engagement within the prospectus.
  * Tracks scroll depth, time per section, and specific 'VIP Actions' (CTA clicks).
+ * Includes safety guards for uninitialized Analytics.
  */
 export function useAnalyticsTracker() {
   const { user } = useUser();
@@ -17,8 +17,8 @@ export function useAnalyticsTracker() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    const app = getFirebaseApp();
-    const analytics = getAnalytics(app);
+    const analytics = getAnalyticsInstance();
+    if (!analytics) return;
 
     if (user?.uid) {
       setUserId(analytics, user.uid);
