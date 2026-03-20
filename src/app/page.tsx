@@ -1,3 +1,4 @@
+
 'use client';
 
 import { AppSidebar } from '@/components/navigation/AppSidebar';
@@ -27,7 +28,7 @@ const sectionsData = [
   { 
     id: 'the-gap', 
     label: '01 — THE GAP', 
-    title: "300,000 DECISIONS. ZERO BRAND LOYALTY.", 
+    title: "THE SUNDAY OPPORTUNITY", 
     variant: 'dark' as const, 
     component: <TheGap /> 
   },

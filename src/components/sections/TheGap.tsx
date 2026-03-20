@@ -2,60 +2,47 @@
 "use client";
 
 import React from 'react';
-import { Card } from '@/components/ui/card';
-import { Users, MessageSquare, AlertTriangle, XCircle } from 'lucide-react';
 
 export const TheGap = () => {
   return (
-    <div className="space-y-6 md:space-y-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in-up">
-        <Card className="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center gap-4 text-brand-cream group hover:bg-white/10 hover:border-brand-gold/30 transition-all cursor-default">
-          <div className="w-10 h-10 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-            <Users size={20} />
-          </div>
-          <div>
-            <div className="font-headline text-2xl leading-none group-hover:text-brand-gold transition-colors">300,000+</div>
-            <div className="font-body text-[9px] uppercase tracking-[2px] opacity-40 mt-1 font-bold">Weekly Decision Makers</div>
-          </div>
-        </Card>
-        
-        <Card className="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center gap-4 text-brand-cream group hover:bg-white/10 hover:border-brand-teal/30 transition-all cursor-default">
-          <div className="w-10 h-10 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-            <MessageSquare size={20} />
-          </div>
-          <div>
-            <div className="font-headline text-2xl leading-none group-hover:text-brand-teal transition-colors">WhatsApp First</div>
-            <div className="font-body text-[9px] uppercase tracking-[2px] opacity-40 mt-1 font-bold">Primary Social Engine</div>
-          </div>
-        </Card>
-      </div>
-
-      <div className="max-w-3xl animate-fade-in-up [animation-delay:200ms]">
-        <p className="font-serif italic text-lg md:text-xl text-brand-cream/60 leading-relaxed">
-          Every Sunday, Nairobi's most valuable consumers choose where to go, what to drink, and what to post. No brand owns that moment.
+    <div className="max-w-4xl animate-fade-in-up">
+      <div className="space-y-4">
+        <p className="font-body text-[#F0EBE0] text-base md:text-lg leading-[1.7] mb-4">
+          Sunday in Nairobi is not merely a day off — it is the city's most concentrated brand-building occasion. 
+          Every week, the 21-to-35 professional demographic makes a tightly clustered set of lifestyle decisions: 
+          which venue to spend the afternoon at, which drinks to order, which people to be seen with, and which 
+          moments to capture and share across social platforms. These are not passive consumption choices. 
+          They are identity-signalling acts — each one a public declaration of taste, social positioning, and 
+          cultural fluency. They unfold in WhatsApp group chats, manifest at venues across the city between 
+          midday and sundown, and are broadcast to wider networks through Instagram Stories and TikTok posts 
+          within hours. For any premium beverage brand, this weekly cycle represents an extraordinarily dense 
+          and recurring window of influence — a moment when brand association, venue presence, and social 
+          visibility converge at scale.
         </p>
-      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in-up [animation-delay:400ms]">
-        <Card className="bg-white/5 border-l-4 border-red-500/50 p-6 group hover:bg-red-500/5 transition-all cursor-default border border-white/5">
-          <div className="w-10 h-10 rounded-full bg-red-500/10 text-red-400 flex items-center justify-center mb-4 group-hover:animate-pulse">
-            <AlertTriangle size={20} />
-          </div>
-          <h4 className="font-headline text-xl mb-2 text-brand-cream uppercase tracking-tight group-hover:text-red-400 transition-colors">The Fragmentation Problem</h4>
-          <p className="font-body text-brand-cream/50 text-xs leading-relaxed">
-            Dozens of Sunday day parties across Nairobi. Interchangeable. Forgettable. None owned by a brand.
-          </p>
-        </Card>
-        
-        <Card className="bg-white/5 border-l-4 border-brand-gold/50 p-6 group hover:bg-brand-gold/5 transition-all cursor-default border border-white/5">
-          <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-4 group-hover:animate-pulse">
-            <XCircle size={20} />
-          </div>
-          <h4 className="font-headline text-xl mb-2 text-brand-cream uppercase tracking-tight group-hover:text-brand-gold transition-colors">Savanna's Current Position</h4>
-          <p className="font-body text-brand-cream/50 text-xs leading-relaxed">
-            Savanna has distribution, but no cultural identity in this market. No experiential presence. No community. No moments.
-          </p>
-        </Card>
+        <p className="font-body text-[#F0EBE0] text-base md:text-lg leading-[1.7] mb-4">
+          The current landscape serving this occasion, however, is structurally incapable of delivering that brand value. 
+          Nairobi's Sunday social scene is populated by dozens of independent activations — rooftop brunches, 
+          garden day parties, poolside sessions, outdoor DJ events — operating without coordination, without 
+          shared visual identity, and without brand-level recognition beyond their immediate attendee circles. 
+          Each event generates a burst of social content that dissipates within 48 hours, building no cumulative 
+          equity for any venue, any organiser, or any beverage partner. The audience moves fluidly between these 
+          activations week to week, driven by novelty rather than loyalty. For a consumer, this means variety 
+          without meaning. For a brand, it means visibility without ownership — presence at a Sunday event 
+          this week carries no guarantee of recall, association, or preference by the following Sunday.
+        </p>
+
+        <p className="font-body text-[#F0EBE0] text-base md:text-lg leading-[1.7] mb-4">
+          This condition will not persist indefinitely. Fragmented social occasions in high-value urban markets 
+          tend to consolidate around branded properties once a single operator introduces the infrastructure 
+          to systematise the experience — consistent production quality, a recognisable visual identity, a 
+          content ecosystem that sustains attention between events, and a community architecture that converts 
+          casual attendees into committed participants. The Sunday occasion in Nairobi has reached the scale 
+          and cultural significance where that consolidation is structurally inevitable. The question is not 
+          whether a premium brand will come to own this occasion, but which brand will move first — and 
+          whether the brand that does so will have designed the architecture to hold that position once 
+          others respond.
+        </p>
       </div>
     </div>
   );
