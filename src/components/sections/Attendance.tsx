@@ -1,11 +1,11 @@
+
 "use client";
 
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Users, Volume2, TrendingUp, Award, Share2, Zap } from 'lucide-react';
-import { BrushStroke } from '@/components/brand/VisualElements';
+import { Award } from 'lucide-react';
 
 export const AttendanceDemandSection = () => {
   return (
@@ -35,13 +35,13 @@ export const AttendanceDemandSection = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 relative">
           <div className="absolute top-1/2 left-0 w-full h-[1px] bg-brand-green/10 hidden md:block" />
           {[
-            { day: "14", label: "Anchor", sub: "Announcement" },
-            { day: "10", label: "Spatial", sub: "Venue Drop" },
-            { day: "07", label: "Sonic", sub: "DJ Reveal" },
-            { day: "00", label: "Harvest", sub: "Live Event", active: true },
+            { day: "14", label: "Anchor", sub: "Announcement", delay: "delay-[100ms]" },
+            { day: "10", label: "Spatial", sub: "Venue Drop", delay: "delay-[300ms]" },
+            { day: "07", label: "Sonic", sub: "DJ Reveal", delay: "delay-[500ms]" },
+            { day: "00", label: "Harvest", sub: "Live Event", active: true, delay: "delay-[700ms]" },
           ].map((step, i) => (
-            <div key={i} className="relative z-10 flex flex-col items-center text-center space-y-2">
-              <div className={`w-14 h-14 md:w-16 md:h-16 rounded-full flex flex-col items-center justify-center shadow-lg border ${step.active ? 'bg-brand-green text-brand-gold border-brand-gold' : 'bg-white text-brand-green border-brand-green/5'}`}>
+            <div key={i} className={`relative z-10 flex flex-col items-center text-center space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-1000 fill-mode-forwards ${step.delay}`}>
+              <div className={`w-14 h-14 md:w-16 md:h-16 rounded-full flex flex-col items-center justify-center shadow-lg border transition-all hover:scale-110 ${step.active ? 'bg-brand-green text-brand-gold border-brand-gold animate-pulse' : 'bg-white text-brand-green border-brand-green/5'}`}>
                 <span className="font-headline text-xl md:text-2xl leading-none">{step.day}</span>
                 <span className="font-body text-[7px] uppercase font-bold tracking-widest opacity-50">Days</span>
               </div>
@@ -65,24 +65,24 @@ export const AttendanceDemandSection = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              <TableRow className="border-brand-green/5">
+              <TableRow className="border-brand-green/5 group hover:bg-brand-gold/5 transition-colors">
                 <TableCell className="font-body font-bold text-xs px-6">Early Bird</TableCell>
                 <TableCell className="font-headline text-lg text-brand-green">1,500</TableCell>
                 <TableCell className="text-right px-6"><Badge className="bg-brand-green/10 text-brand-green border-none text-[7px] uppercase">Sold Out</Badge></TableCell>
               </TableRow>
-              <TableRow className="bg-brand-gold/5 border-l-4 border-brand-gold border-brand-green/5">
+              <TableRow className="bg-brand-gold/5 border-l-4 border-brand-gold border-brand-green/5 group hover:bg-brand-gold/10 transition-colors">
                 <TableCell className="font-body font-bold text-xs px-6 text-brand-gold">VIP Access</TableCell>
                 <TableCell className="font-headline text-lg text-brand-gold">5,000</TableCell>
-                <TableCell className="text-right px-6"><Badge className="bg-brand-gold text-brand-green border-none text-[7px] uppercase">Few Left</Badge></TableCell>
+                <TableCell className="text-right px-6"><Badge className="bg-brand-gold text-brand-green border-none text-[7px] uppercase group-hover:animate-pulse">Few Left</Badge></TableCell>
               </TableRow>
             </TableBody>
           </Table>
         </div>
         
-        <Card className="p-6 bg-brand-green text-white border-none rounded-xl shadow-lg relative overflow-hidden flex flex-col justify-center">
+        <Card className="p-6 bg-brand-green text-white border-none rounded-xl shadow-lg relative overflow-hidden flex flex-col justify-center group hover:scale-[1.02] transition-all">
           <div className="relative z-10 space-y-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-brand-gold text-brand-green flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-brand-gold text-brand-green flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Award size={20} />
               </div>
               <h4 className="font-headline text-xl text-brand-gold uppercase">"BRING 3, GET VIP"</h4>

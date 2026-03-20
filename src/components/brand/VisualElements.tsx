@@ -30,6 +30,43 @@ export const LiquidSplash = ({ className, color = "#F4C542" }: { className?: str
   </div>
 );
 
+export const CiderFizz = ({ className }: { className?: string }) => {
+  const [bubbles, setBubbles] = useState<{
+    size: string;
+    left: string;
+    delay: string;
+    duration: string;
+  }[]>([]);
+
+  useEffect(() => {
+    const generated = [...Array(15)].map(() => ({
+      size: `${Math.random() * 4 + 2}px`,
+      left: `${Math.random() * 100}%`,
+      delay: `${Math.random() * 5}s`,
+      duration: `${Math.random() * 3 + 4}s`
+    }));
+    setBubbles(generated);
+  }, []);
+
+  return (
+    <div className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`}>
+      {bubbles.map((bubble, i) => (
+        <div 
+          key={i} 
+          className="absolute bottom-0 rounded-full bg-brand-gold opacity-30 animate-fizz"
+          style={{
+            width: bubble.size,
+            height: bubble.size,
+            left: bubble.left,
+            animationDelay: bubble.delay,
+            animationDuration: bubble.duration
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 export const WaterDroplets = ({ className }: { className?: string }) => {
   const [droplets, setDroplets] = useState<{
     width: string;
@@ -41,7 +78,6 @@ export const WaterDroplets = ({ className }: { className?: string }) => {
   }[]>([]);
 
   useEffect(() => {
-    // Generate random values only on the client to avoid hydration mismatch
     const generated = [...Array(20)].map(() => ({
       width: `${Math.random() * 6 + 2}px`,
       height: `${Math.random() * 6 + 2}px`,

@@ -103,12 +103,35 @@ export default {
           '0%, 100%': { boxShadow: '0 0 0 0 rgba(244, 197, 66, 0.4)' },
           '50%': { boxShadow: '0 0 0 15px rgba(244, 197, 66, 0)' },
         },
+        'fizz': {
+          '0%': { transform: 'translateY(0)', opacity: '0' },
+          '20%': { opacity: '0.4' },
+          '80%': { opacity: '0.2' },
+          '100%': { transform: 'translateY(-100vh)', opacity: '0' },
+        },
+        'waveform': {
+          '0%, 100%': { transform: 'scaleY(1)' },
+          '50%': { transform: 'scaleY(0.4)' },
+        },
+        'glow-pulse': {
+          '0%, 100%': { filter: 'drop-shadow(0 0 0px rgba(244,197,66,0))' },
+          '50%': { filter: 'drop-shadow(0 0 15px rgba(244,197,66,0.4))' },
+        },
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in-up': 'fade-in-up 0.7s ease-out forwards',
         'pulse-gold': 'pulse-gold 2s infinite',
+        'fizz': 'fizz 5s linear infinite',
+        'waveform': 'waveform 1s ease-in-out infinite',
+        'glow-pulse': 'glow-pulse 2s infinite',
+        'marquee': 'marquee 15s linear infinite',
+        'spin-slow': 'spin 30s linear infinite',
       },
     },
   },

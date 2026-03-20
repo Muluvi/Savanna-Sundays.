@@ -1,7 +1,9 @@
+
 "use client";
 
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { CiderFizz } from '@/components/brand/VisualElements';
 
 interface SectionProps {
   id: string;
@@ -16,11 +18,13 @@ export const SectionContainer = ({ id, label, title, variant = 'light', children
     <section 
       id={id} 
       className={cn(
-        "py-8 md:py-12 px-5 md:px-12 lg:px-24 flex flex-col justify-center",
-        variant === 'dark' ? "dark-section" : "bg-brand-cream"
+        "py-8 md:py-12 px-5 md:px-12 lg:px-24 flex flex-col justify-center relative",
+        variant === 'dark' ? "dark-section" : "bg-brand-cream overflow-hidden"
       )}
     >
-      <div className="max-w-5xl mx-auto w-full">
+      {variant === 'light' && <CiderFizz />}
+      
+      <div className="max-w-5xl mx-auto w-full relative z-10">
         <span className="section-label">{label}</span>
         <h2 className="section-title">{title}</h2>
         <div className="w-full">
