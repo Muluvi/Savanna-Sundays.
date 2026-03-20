@@ -5,6 +5,42 @@
       "description": "Firefly Management Logo",
       "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1768407396/Horizontal_logo_clear_png_v0cjbd.png",
       "imageHint": "company logo"
+    },
+    {
+      "id": "venue-geco",
+      "description": "Geco Cafe Venue",
+      "imageUrl": "https://picsum.photos/seed/geco-venue/800/600",
+      "imageHint": "premium garden"
+    },
+    {
+      "id": "venue-alchemist",
+      "description": "The Alchemist Venue",
+      "imageUrl": "https://picsum.photos/seed/alchemist-venue/800/600",
+      "imageHint": "urban lounge"
+    },
+    {
+      "id": "venue-waterfront",
+      "description": "Waterfront Venue",
+      "imageUrl": "https://picsum.photos/seed/waterfront-venue/800/600",
+      "imageHint": "lake terrace"
+    },
+    {
+      "id": "venue-k1",
+      "description": "K1 Klub House Venue",
+      "imageUrl": "https://picsum.photos/seed/k1-venue/800/600",
+      "imageHint": "vintage lounge"
+    },
+    {
+      "id": "venue-muze",
+      "description": "Muze Venue",
+      "imageUrl": "https://picsum.photos/seed/muze-venue/800/600",
+      "imageHint": "modern club"
+    },
+    {
+      "id": "venue-koda",
+      "description": "KODA Venue",
+      "imageUrl": "https://picsum.photos/seed/koda-venue/800/600",
+      "imageHint": "rooftop bar"
     }
   ]
 }

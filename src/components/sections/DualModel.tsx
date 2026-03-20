@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -18,6 +17,7 @@ import {
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { BrushStroke } from '@/components/brand/VisualElements';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 import {
   Carousel,
   CarouselContent,
@@ -26,13 +26,13 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const venues = [
-  { name: "Geco Cafe", area: "Westlands", capacity: "300", type: "Owned", image: "https://picsum.photos/seed/geco-venue/800/600", hint: "premium garden" },
-  { name: "The Alchemist", area: "Westlands", capacity: "600", type: "Sponsor", image: "https://picsum.photos/seed/alchemist-venue/800/600", hint: "urban lounge" },
-  { name: "Waterfront", area: "Karen", capacity: "1500", type: "Sponsor", image: "https://picsum.photos/seed/waterfront-venue/800/600", hint: "lake terrace" },
-  { name: "K1 Klub House", area: "Parklands", capacity: "800", type: "Sponsor", image: "https://picsum.photos/seed/k1-venue/800/600", hint: "vintage lounge" },
-  { name: "Muze", area: "Westlands", capacity: "400", type: "Owned", image: "https://picsum.photos/seed/muze-venue/800/600", hint: "modern club" },
-  { name: "KODA", area: "Kilimani", capacity: "350", type: "Owned", image: "https://picsum.photos/seed/koda-venue/800/600", hint: "rooftop bar" },
+const venueData = [
+  { name: "Geco Cafe", area: "Westlands", capacity: "300", type: "Owned", imageId: "venue-geco" },
+  { name: "The Alchemist", area: "Westlands", capacity: "600", type: "Sponsor", imageId: "venue-alchemist" },
+  { name: "Waterfront", area: "Karen", capacity: "1500", type: "Sponsor", imageId: "venue-waterfront" },
+  { name: "K1 Klub House", area: "Parklands", capacity: "800", type: "Sponsor", imageId: "venue-k1" },
+  { name: "Muze", area: "Westlands", capacity: "400", type: "Owned", imageId: "venue-muze" },
+  { name: "KODA", area: "Kilimani", capacity: "350", type: "Owned", imageId: "venue-koda" },
 ];
 
 const matrixCriteria = [
@@ -116,38 +116,43 @@ export const DualActivationModel = () => {
                 className="w-full"
               >
                 <CarouselContent className="-ml-4">
-                  {venues.map((venue, i) => (
-                    <CarouselItem key={i} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
-                      <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-brand-green/5">
-                        <Image 
-                          src={venue.image} 
-                          alt={venue.name} 
-                          fill 
-                          className="object-cover transition-transform duration-700 group-hover:scale-110"
-                          data-ai-hint={venue.hint}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-brand-green/20 to-transparent" />
-                        <div className="absolute bottom-0 left-0 p-5 w-full">
-                          <Badge className={cn(
-                            "mb-2 text-[8px] uppercase tracking-widest border-none",
-                            venue.type === 'Owned' ? 'bg-brand-gold text-brand-green' : 'bg-brand-teal text-white'
-                          )}>
-                            {venue.type}
-                          </Badge>
-                          <h5 className="font-headline text-2xl text-white leading-none mb-1">{venue.name}</h5>
-                          <div className="flex items-center gap-2 text-white/60">
-                            <MapPin size={10} className="text-brand-gold" />
-                            <span className="font-body text-[10px] uppercase tracking-widest font-bold">{venue.area}</span>
+                  {venueData.map((venue, i) => {
+                    const img = PlaceHolderImages.find(p => p.id === venue.imageId);
+                    return (
+                      <CarouselItem key={i} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                        <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-brand-green/5">
+                          {img && (
+                            <Image 
+                              src={img.imageUrl} 
+                              alt={venue.name} 
+                              fill 
+                              className="object-cover transition-transform duration-700 group-hover:scale-110"
+                              data-ai-hint={img.imageHint}
+                            />
+                          )}
+                          <div className="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-brand-green/20 to-transparent" />
+                          <div className="absolute bottom-0 left-0 p-5 w-full">
+                            <Badge className={cn(
+                              "mb-2 text-[8px] uppercase tracking-widest border-none",
+                              venue.type === 'Owned' ? 'bg-brand-gold text-brand-green' : 'bg-brand-teal text-white'
+                            )}>
+                              {venue.type}
+                            </Badge>
+                            <h5 className="font-headline text-2xl text-white leading-none mb-1">{venue.name}</h5>
+                            <div className="flex items-center gap-2 text-white/60">
+                              <MapPin size={10} className="text-brand-gold" />
+                              <span className="font-body text-[10px] uppercase tracking-widest font-bold">{venue.area}</span>
+                            </div>
+                          </div>
+                          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white">
+                              <Maximize2 size={14} />
+                            </div>
                           </div>
                         </div>
-                        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white">
-                            <Maximize2 size={14} />
-                          </div>
-                        </div>
-                      </div>
-                    </CarouselItem>
-                  ))}
+                      </CarouselItem>
+                    );
+                  })}
                 </CarouselContent>
                 <CarouselPrevious className="absolute -left-6 bg-brand-green text-brand-gold border-brand-gold/20" />
                 <CarouselNext className="absolute -right-6 bg-brand-green text-brand-gold border-brand-gold/20" />
