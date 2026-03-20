@@ -85,7 +85,7 @@ const activationPills = [
 
 /**
  * Section 01: THE GAP
- * Strategic context module with high-fidelity visual argumentation.
+ * Strategic context module with condensed, high-impact narrative.
  */
 export const TheGap = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -120,7 +120,7 @@ export const TheGap = () => {
 
         <div className="flex flex-wrap items-baseline gap-x-2">
           <h3 className="font-serif italic text-xl md:text-2xl text-brand-gold/80 leading-tight">
-            The most valuable social occasion in Nairobi.
+            Nairobi's most valuable social occasion.
           </h3>
           <span 
             className={cn(
@@ -133,20 +133,20 @@ export const TheGap = () => {
         </div>
       </div>
 
-      {/* Strategic Narrative Blocks */}
-      <div className="space-y-4 text-brand-cream/90 font-body text-base md:text-lg leading-[1.7] max-w-4xl">
-        <p className="mb-4">
-          Sunday in Nairobi is not merely a day off — it is the city's most concentrated brand-building occasion. Every week, the 21-to-35 professional demographic makes a tightly clustered set of lifestyle decisions: which venue to spend the afternoon at, which drinks to order, which people to be seen with, and which moments to capture and share across social platforms. These are not passive consumption choices. They are identity-signalling acts — each one a public declaration of taste, social positioning, and cultural fluency.
+      {/* Strategic Narrative Blocks - Condensed */}
+      <div className="space-y-6 text-brand-cream/90 font-body text-base md:text-lg leading-[1.7] max-w-4xl">
+        <p>
+          Sunday in Nairobi is a high-density lifestyle occasion. Between midday and sundown, the 21-to-35 professional demographic makes a clustered set of identity-signalling decisions: which venue, which drink, and what to post. This is a recurring window of peak social visibility.
         </p>
-        <p className="mb-4">
-          The current landscape serving this occasion, however, is structurally incapable of delivering that brand value. Nairobi's Sunday social scene is populated by dozens of independent activations operating without coordination, without shared visual identity, and without brand-level recognition beyond their immediate attendee circles. Each event generates a burst of social content that dissipates within 48 hours, building no cumulative equity for any organizer or beverage partner.
+        <p>
+          Currently, this energy is wasted. Nairobi's Sunday scene is fragmented across dozens of uncoordinated activations. Each event builds short-term noise but zero cumulative equity. For brands, presence this week carries no guarantee of preference by the next.
         </p>
-        <p className="mb-4">
-          This condition will not persist indefinitely. Fragmented social occasions in high-value urban markets tend to consolidate around branded properties once a single operator introduces the infrastructure to systematise the experience. The Sunday occasion in Nairobi has reached the scale and cultural significance where that consolidation is structurally inevitable. The question is not whether a premium brand will come to own this occasion, but which brand will move first.
+        <p>
+          This fragmentation is a temporary market inefficiency. High-value occasions eventually consolidate around properties that introduce infrastructure and identity. The question is not whether a brand will own Sunday, but which brand moves first.
         </p>
       </div>
 
-      {/* Strategic Insight Cards */}
+      {/* Strategic Insight Cards - Condensed */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
         <div className="glass-card p-4 space-y-3 group hover:border-brand-gold/40 transition-all duration-500">
           <div className="w-10 h-10 rounded-full border border-brand-gold/20 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-green transition-all">
@@ -154,7 +154,7 @@ export const TheGap = () => {
           </div>
           <h4 className="font-headline text-xl text-brand-gold uppercase">THE REPETITION TRAP</h4>
           <p className="text-[11px] leading-relaxed text-brand-cream/60">
-            Nairobi's Sunday activations operate on a compressed weekly cycle — venue booked, DJ confirmed, flyer posted, event executed, content forgotten. This cadence repeats without strategic escalation or narrative progression. Each edition starts from zero. No event builds systematically on the equity of the one before it.
+            Sunday activations repeat without strategic escalation. Each edition starts from zero, building no systematic equity. This creates a structural ceiling on value — and an opportunity for compounding growth.
           </p>
         </div>
 
@@ -164,7 +164,7 @@ export const TheGap = () => {
           </div>
           <h4 className="font-headline text-xl text-brand-teal uppercase">THE CONTENT DEFICIT</h4>
           <p className="text-[11px] leading-relaxed text-brand-cream/60">
-            Sunday events produce enormous volumes of social media content — but virtually none of it compounds. No Sunday activation in the city currently operates a content strategy that extracts sustained value from a single event across a 30-day cycle. The content is treated as a byproduct rather than as the primary asset.
+            Enormous volumes of social content are produced, then buried in algorithmic decay. No activation currently extracts sustained value from an event across a 30-day cycle. Output is being wasted.
           </p>
         </div>
 
@@ -174,12 +174,12 @@ export const TheGap = () => {
           </div>
           <h4 className="font-headline text-xl text-brand-gold uppercase">THE OWNERSHIP VACUUM</h4>
           <p className="text-[11px] leading-relaxed text-brand-cream/60">
-            No beverage brand in the Kenyan market currently holds a proprietary association with Sunday as a social occasion. Premium brands activate across the weekly calendar without day-specific positioning — a missed distinction, given that Sunday's audience dynamics are fundamentally different.
+            No beverage brand holds a proprietary association with Sunday. Brands treat it as just another weekend slot, missing the unique behaviour and content dynamics. This is a category-level white space.
           </p>
         </div>
       </div>
 
-      {/* Interactive Comparison - Distribution vs Culture */}
+      {/* Interactive Comparison - Condensed */}
       <div className="grid grid-cols-1 md:grid-cols-[1fr_2px_1fr] gap-0 items-stretch relative mt-12">
         {/* Left Panel: Distribution */}
         <div className={cn(
@@ -327,3 +327,4 @@ export const TheGap = () => {
     </div>
   );
 };
+
