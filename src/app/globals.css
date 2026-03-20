@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -74,19 +73,19 @@
   }
 
   .brand-card {
-    @apply bg-white border border-brand-green/10 rounded-[20px] p-7 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md;
+    @apply bg-white border border-brand-green/10 rounded-[20px] p-4 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md;
   }
 
   .section-label {
-    @apply font-body font-bold text-[10px] tracking-[5px] uppercase text-brand-teal mb-4 block;
+    @apply font-body font-bold text-[9px] tracking-[4px] uppercase text-brand-teal mb-2 block;
   }
 
   .section-title {
-    @apply font-headline text-4xl md:text-5xl lg:text-6xl text-brand-green relative inline-block mb-10;
+    @apply font-headline text-3xl md:text-5xl lg:text-6xl text-brand-green relative inline-block mb-6;
   }
   .section-title::after {
     content: '';
-    @apply absolute -bottom-3 left-0 w-11 h-[3px] bg-brand-gold;
+    @apply absolute -bottom-2 left-0 w-8 h-[3px] bg-brand-gold;
   }
   .dark-section .section-title {
     @apply text-brand-cream;

@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -17,13 +16,13 @@ export const SectionContainer = ({ id, label, title, variant = 'light', children
     <section 
       id={id} 
       className={cn(
-        "min-h-[40vh] py-12 md:py-24 px-5 md:px-12 lg:px-24 flex flex-col justify-center",
+        "py-8 md:py-12 px-5 md:px-12 lg:px-24 flex flex-col justify-center",
         variant === 'dark' ? "dark-section" : "bg-brand-cream"
       )}
     >
-      <div className="max-w-5xl mx-auto w-full animate-fade-in-up">
-        <span className="section-label text-[9px] md:text-[10px] mb-3 md:mb-4">{label}</span>
-        <h2 className="section-title text-3xl md:text-5xl lg:text-6xl mb-8 md:mb-12">{title}</h2>
+      <div className="max-w-5xl mx-auto w-full">
+        <span className="section-label">{label}</span>
+        <h2 className="section-title">{title}</h2>
         <div className="w-full">
           {children || (
             <div className="font-body text-base md:text-lg font-light opacity-80 max-w-2xl leading-relaxed">

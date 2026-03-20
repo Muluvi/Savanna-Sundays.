@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -21,99 +20,88 @@ const venues = [
 
 export const DualActivationModel = () => {
   return (
-    <div className="space-y-12 md:space-y-24">
+    <div className="space-y-6 md:space-y-8">
       {/* 02A: Intro */}
       <div className="max-w-3xl animate-fade-in-up">
-        <p className="font-serif italic text-xl md:text-2xl lg:text-3xl text-brand-green/60 leading-relaxed">
+        <p className="font-serif italic text-lg md:text-xl text-brand-green/60 leading-relaxed">
           One engine builds the brand. The other covers the city. Together, they make Savanna synonymous with Sunday.
         </p>
       </div>
 
       {/* 02B: Core Logic Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 animate-fade-in-up [animation-delay:200ms]">
-        <Card className="p-8 bg-white border-l-4 border-brand-gold rounded-[32px] flex flex-col justify-between group hover:shadow-xl transition-all shadow-sm">
-          <div className="space-y-6">
-            <div className="w-14 h-14 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-green transition-colors">
-              <ShieldCheck size={28} />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in-up [animation-delay:200ms]">
+        <Card className="p-5 bg-white border-l-4 border-brand-gold rounded-[24px] flex flex-col justify-between group hover:shadow-lg transition-all">
+          <div className="space-y-4">
+            <div className="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center">
+              <ShieldCheck size={24} />
             </div>
-            <div className="space-y-2">
-              <h4 className="font-headline text-3xl text-brand-green uppercase">OWNED EDITIONS</h4>
-              <p className="font-body text-brand-green/70 text-base leading-relaxed">
+            <div className="space-y-1">
+              <h4 className="font-headline text-2xl text-brand-green uppercase">OWNED EDITIONS</h4>
+              <p className="font-body text-brand-green/70 text-sm leading-relaxed">
                 Proprietary boutique events. 100% brand control, exclusive content harvest, and deep data ownership.
               </p>
             </div>
           </div>
-          <div className="flex flex-wrap gap-2 mt-8">
-            <Badge className="bg-brand-gold text-brand-green text-[10px] uppercase tracking-widest px-4 py-1.5 border-none font-bold">Brand Focus</Badge>
-            <Badge className="bg-brand-gold/10 text-brand-gold text-[10px] uppercase tracking-widest px-4 py-1.5 border-none font-bold">Data Mastery</Badge>
+          <div className="flex flex-wrap gap-2 mt-4">
+            <Badge className="bg-brand-gold text-brand-green text-[9px] uppercase tracking-widest border-none font-bold">Brand Focus</Badge>
           </div>
         </Card>
         
-        <Card className="p-8 bg-white border-l-4 border-brand-teal rounded-[32px] flex flex-col justify-between group hover:shadow-xl transition-all shadow-sm">
-          <div className="space-y-6">
-            <div className="w-14 h-14 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center group-hover:bg-brand-teal group-hover:text-white transition-colors">
-              <Zap size={28} />
+        <Card className="p-5 bg-white border-l-4 border-brand-teal rounded-[24px] flex flex-col justify-between group hover:shadow-lg transition-all">
+          <div className="space-y-4">
+            <div className="w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center">
+              <Zap size={24} />
             </div>
-            <div className="space-y-2">
-              <h4 className="font-headline text-3xl text-brand-green uppercase">TITLE SPONSORSHIP</h4>
-              <p className="font-body text-brand-green/70 text-base leading-relaxed">
+            <div className="space-y-1">
+              <h4 className="font-headline text-2xl text-brand-green uppercase">TITLE SPONSORSHIP</h4>
+              <p className="font-body text-brand-green/70 text-sm leading-relaxed">
                 Strategic reach mapping. Scaling Savanna’s visual layer onto Nairobi’s existing premium Sunday properties.
               </p>
             </div>
           </div>
-          <div className="flex flex-wrap gap-2 mt-8">
-            <Badge className="bg-brand-teal text-white text-[10px] uppercase tracking-widest px-4 py-1.5 border-none font-bold">Mass Reach</Badge>
-            <Badge className="bg-brand-teal/10 text-brand-teal text-[10px] uppercase tracking-widest px-4 py-1.5 border-none font-bold">Culture Cred</Badge>
+          <div className="flex flex-wrap gap-2 mt-4">
+            <Badge className="bg-brand-teal text-white text-[9px] uppercase tracking-widest border-none font-bold">Mass Reach</Badge>
           </div>
         </Card>
       </div>
 
-      {/* 02C: Strategic Pull Quote - THE CLIMAX */}
-      <div className="relative py-16 flex flex-col items-center justify-center animate-fade-in-up [animation-delay:400ms]">
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
-          <span className="font-headline text-[120px] md:text-[220px] text-brand-gold opacity-[0.05] select-none leading-none">
-            SYNERGY
-          </span>
-        </div>
+      {/* 02C: Strategic Pull Quote - Prominent pause */}
+      <div className="relative py-8 flex flex-col items-center justify-center animate-fade-in-up [animation-delay:400ms]">
         <div className="relative z-10 max-w-4xl text-center">
-          <BrushStroke className="w-64 h-auto opacity-10 -rotate-1 mx-auto" color="#2D8C7F" />
-          <h3 className="font-serif italic text-3xl md:text-5xl lg:text-6xl text-brand-green/90 leading-tight px-4">
+          <BrushStroke className="w-40 h-auto opacity-10 -rotate-1 mx-auto" color="#2D8C7F" />
+          <h3 className="font-serif italic text-2xl md:text-4xl text-brand-green/90 leading-tight px-4">
             "We saturate the landscape without saturating the budget."
           </h3>
-          <div className="w-24 h-[2px] bg-brand-gold/40 mx-auto mt-12" />
         </div>
       </div>
 
-      {/* 02D: Details */}
+      {/* 02D: Details - Denser Tabs */}
       <div className="animate-fade-in-up [animation-delay:600ms]">
         <Tabs defaultValue="network" className="w-full">
-          <TabsList className="w-full bg-brand-green p-1.5 h-auto grid grid-cols-3 mb-10 rounded-2xl shadow-lg">
-            <TabsTrigger value="network" className="py-3.5 font-headline tracking-[2px] text-white/50 data-[state=active]:text-brand-gold data-[state=active]:bg-white/5 uppercase rounded-xl text-xs md:text-base">Venue Network</TabsTrigger>
-            <TabsTrigger value="scorecard" className="py-3.5 font-headline tracking-[2px] text-white/50 data-[state=active]:text-brand-gold data-[state=active]:bg-white/5 uppercase rounded-xl text-xs md:text-base">Curation Matrix</TabsTrigger>
-            <TabsTrigger value="calendar" className="py-3.5 font-headline tracking-[2px] text-white/50 data-[state=active]:text-brand-gold data-[state=active]:bg-white/5 uppercase rounded-xl text-xs md:text-base">Sunday Sprint</TabsTrigger>
+          <TabsList className="w-full bg-brand-green p-1 h-auto grid grid-cols-3 mb-6 rounded-xl">
+            <TabsTrigger value="network" className="py-2.5 font-headline tracking-[1px] text-xs uppercase rounded-lg">Venue Network</TabsTrigger>
+            <TabsTrigger value="scorecard" className="py-2.5 font-headline tracking-[1px] text-xs uppercase rounded-lg">Curation Matrix</TabsTrigger>
+            <TabsTrigger value="calendar" className="py-2.5 font-headline tracking-[1px] text-xs uppercase rounded-lg">Sunday Sprint</TabsTrigger>
           </TabsList>
 
           <TabsContent value="network">
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
               {venues.map((venue, i) => (
-                <Card key={i} className="group p-6 md:p-8 bg-white border border-brand-green/5 rounded-[24px] hover:border-brand-gold hover:shadow-md transition-all text-center flex flex-col items-center justify-between">
-                  <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-brand-cream border border-brand-green/5 flex items-center justify-center mb-6 overflow-hidden group-hover:scale-105 transition-transform shadow-sm">
+                <Card key={i} className="group p-4 bg-white border border-brand-green/5 rounded-xl hover:shadow-md transition-all text-center flex flex-col items-center justify-between">
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-brand-cream flex items-center justify-center mb-3 overflow-hidden shadow-sm">
                     {venue.special ? (
-                      <span className="font-headline text-4xl text-brand-green">G</span>
+                      <span className="font-headline text-2xl text-brand-green">G</span>
                     ) : venue.logo ? (
-                      <Image src={venue.logo} alt={venue.name} width={60} height={60} className="object-contain" />
+                      <Image src={venue.logo} alt={venue.name} width={40} height={40} className="object-contain" />
                     ) : (
-                      <MapPin size={32} className="text-brand-gold" />
+                      <MapPin size={24} className="text-brand-gold" />
                     )}
                   </div>
-                  <div className="space-y-2 mb-4">
-                    <h5 className="font-headline text-lg md:text-xl text-brand-green">{venue.name}</h5>
-                    <p className="font-body text-[10px] md:text-xs text-brand-green/40 uppercase tracking-[3px] font-bold">{venue.area}</p>
+                  <div className="mb-2">
+                    <h5 className="font-headline text-sm text-brand-green">{venue.name}</h5>
+                    <p className="font-body text-[8px] text-brand-green/40 uppercase tracking-[2px] font-bold">{venue.area}</p>
                   </div>
-                  <Badge className={cn(
-                    "text-[8px] md:text-[10px] uppercase tracking-widest px-4 py-1 border-none font-bold", 
-                    venue.type === 'Owned' ? 'bg-brand-gold text-brand-green' : 'bg-brand-teal text-white'
-                  )}>
+                  <Badge className={cn("text-[8px] uppercase tracking-widest px-2 py-0.5 border-none", venue.type === 'Owned' ? 'bg-brand-gold text-brand-green' : 'bg-brand-teal text-white')}>
                     {venue.type}
                   </Badge>
                 </Card>
@@ -122,21 +110,21 @@ export const DualActivationModel = () => {
           </TabsContent>
 
           <TabsContent value="scorecard">
-            <div className="bg-brand-cream/50 p-10 md:p-16 rounded-[40px] border border-brand-green/5 shadow-inner">
-              <h5 className="font-headline text-2xl text-brand-green mb-12 text-center tracking-widest uppercase">Strategic Selection Matrix</h5>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
+            <div className="bg-brand-cream/50 p-6 rounded-2xl border border-brand-green/5">
+              <h5 className="font-headline text-lg text-brand-green mb-6 text-center tracking-wider">Selection Criteria</h5>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 {[
-                  { label: "Audience Fit", icon: <UserCheck className="w-6 h-6" /> },
-                  { label: "Visual Quality", icon: <Trophy className="w-6 h-6" /> },
-                  { label: "Content Potential", icon: <Zap className="w-6 h-6" /> },
-                  { label: "Credibility", icon: <Star className="w-6 h-6" /> },
-                  { label: "Exclusivity", icon: <ShieldCheck className="w-6 h-6" /> },
+                  { label: "Audience Fit", icon: <UserCheck className="w-5 h-5" /> },
+                  { label: "Visual Quality", icon: <Trophy className="w-5 h-5" /> },
+                  { label: "Content Potential", icon: <Zap className="w-5 h-5" /> },
+                  { label: "Credibility", icon: <Star className="w-5 h-5" /> },
+                  { label: "Exclusivity", icon: <ShieldCheck className="w-5 h-5" /> },
                 ].map((item, i) => (
-                  <div key={i} className="text-center space-y-4 group">
-                    <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto text-brand-gold shadow-md group-hover:scale-110 transition-transform">
+                  <div key={i} className="text-center group">
+                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center mx-auto text-brand-gold shadow-sm mb-2">
                       {item.icon}
                     </div>
-                    <div className="text-[10px] md:text-xs font-bold uppercase tracking-[3px] text-brand-green leading-tight opacity-70 group-hover:opacity-100 transition-opacity">{item.label}</div>
+                    <div className="text-[8px] font-bold uppercase tracking-[2px] text-brand-green leading-tight opacity-70">{item.label}</div>
                   </div>
                 ))}
               </div>
@@ -144,28 +132,18 @@ export const DualActivationModel = () => {
           </TabsContent>
 
           <TabsContent value="calendar">
-            <div className="bg-white p-10 rounded-[40px] border border-brand-green/5 shadow-xl">
-              <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-10">
-                <div className="space-y-1 text-center md:text-left">
-                  <h5 className="font-headline text-xl md:text-2xl text-brand-green uppercase tracking-wider">The Sunday Sprint Loop</h5>
-                  <p className="font-body text-xs text-brand-green/40 uppercase tracking-widest font-bold">A 4-Week Recurring Momentum Cycle</p>
-                </div>
-                <div className="flex gap-4">
-                  <div className="flex items-center gap-2"><div className="w-3 h-3 bg-brand-green rounded-full shadow-sm" /><span className="text-[10px] font-bold uppercase tracking-widest opacity-60">Owned Edition</span></div>
-                  <div className="flex items-center gap-2"><div className="w-3 h-3 bg-brand-teal rounded-full shadow-sm" /><span className="text-[10px] font-bold uppercase tracking-widest opacity-60">Title Sponsor</span></div>
-                </div>
-              </div>
-              <div className="grid grid-cols-7 gap-2 md:gap-4">
+            <div className="bg-white p-6 rounded-2xl border border-brand-green/5 shadow-md">
+              <div className="grid grid-cols-7 gap-1 md:gap-2">
                 {[...Array(28)].map((_, i) => {
                   const isSunday = (i + 1) % 7 === 0;
                   const isOwned = isSunday && ((i + 1) === 7 || (i + 1) === 21);
                   const isSponsor = isSunday && ((i + 1) === 14 || (i + 1) === 28);
                   return (
                     <div key={i} className={cn(
-                      "aspect-square rounded-xl flex items-center justify-center text-[10px] md:text-sm font-bold shadow-sm transition-all",
-                      isOwned ? "bg-brand-green text-white scale-105 shadow-md" : 
-                      isSponsor ? "bg-brand-teal text-white scale-105 shadow-md" : 
-                      "bg-brand-cream/40 text-brand-green/10 border border-brand-green/5"
+                      "aspect-square rounded-md flex items-center justify-center text-[9px] font-bold shadow-sm",
+                      isOwned ? "bg-brand-green text-white" : 
+                      isSponsor ? "bg-brand-teal text-white" : 
+                      "bg-brand-cream/40 text-brand-green/10"
                     )}>
                       {i + 1}
                     </div>
