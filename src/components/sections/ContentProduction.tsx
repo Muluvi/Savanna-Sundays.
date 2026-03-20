@@ -8,8 +8,10 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 
 export const ContentSocialSection = () => {
   const [waveformHeights, setWaveformHeights] = useState<number[]>([]);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     // Generate random heights only on the client to avoid hydration mismatch
     const heights = [...Array(60)].map(() => Math.random() * 40 + 10);
     setWaveformHeights(heights);
@@ -41,7 +43,7 @@ export const ContentSocialSection = () => {
             { label: "Social Shooter", icon: <Smartphone />, desc: "IG/TikTok native." },
             { label: "Sonic Eng", icon: <Mic2 />, desc: "Mixer-feed capture.", live: true },
           ].map((role, i) => (
-            <Card key={i} className="p-4 bg-white border border-brand-green/5 rounded-xl space-y-2 hover:border-brand-gold transition-all shadow-sm group">
+            <Card key={role.label} className="p-4 bg-white border border-brand-green/5 rounded-xl space-y-2 hover:border-brand-gold transition-all shadow-sm group">
               <div className="flex justify-between items-start">
                 <div className="w-8 h-8 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">{role.icon}</div>
                 {role.live && (
@@ -63,7 +65,7 @@ export const ContentSocialSection = () => {
         <div className="section-label">04B: The Sonic Pipeline</div>
         <div className="bg-brand-cream/50 border border-brand-green/5 rounded-[24px] p-6 relative overflow-hidden">
           <div className="absolute bottom-0 left-0 w-full flex items-end gap-0.5 px-4 opacity-10 pointer-events-none">
-            {waveformHeights.map((h, i) => (
+            {mounted && waveformHeights.map((h, i) => (
               <div 
                 key={i} 
                 className="flex-1 bg-brand-green animate-waveform" 
@@ -83,7 +85,7 @@ export const ContentSocialSection = () => {
               { label: "Distribute", icon: <Share2 />, sub: "YT / Mix" },
               { label: "Loop", icon: <ArrowRight />, sub: "Social" },
             ].map((step, i) => (
-              <div key={i} className="relative z-10 flex flex-col items-center text-center space-y-2 group">
+              <div key={step.label} className="relative z-10 flex flex-col items-center text-center space-y-2 group">
                 <div className="w-10 h-10 rounded-full bg-white border border-brand-green/5 shadow-sm flex items-center justify-center text-brand-teal group-hover:bg-brand-teal group-hover:text-white transition-all group-hover:scale-110">
                   {step.icon}
                 </div>
@@ -116,7 +118,7 @@ export const ContentSocialSection = () => {
                 { time: "Day 11–20", type: "Product Cuts", plat: "Meta" },
                 { time: "Day 21–30", type: "Teasers", plat: "Email" },
               ].map((row, i) => (
-                <TableRow key={i} className="hover:bg-brand-gold/5 transition-colors border-brand-green/5 group">
+                <TableRow key={row.time} className="hover:bg-brand-gold/5 transition-colors border-brand-green/5 group">
                   <TableCell className="font-headline text-lg py-3 px-4 text-brand-teal group-hover:translate-x-1 transition-transform">{row.time}</TableCell>
                   <TableCell className="font-body font-bold text-xs text-brand-green/70">{row.type}</TableCell>
                   <TableCell className="font-body text-[9px] text-brand-green/40 font-bold uppercase text-right px-4">{row.plat}</TableCell>
