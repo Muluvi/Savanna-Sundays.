@@ -1,211 +1,190 @@
 
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { RefreshCcw, Layers, Shield } from 'lucide-react';
+import React, { useEffect, useState, useRef } from 'react';
+import { RefreshCcw, Layers, Lock, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const insightCards = [
-  {
-    icon: <RefreshCcw className="text-brand-gold" size={24} />,
-    title: "THE REPETITION TRAP",
-    body: "Nairobi's Sunday activations operate on a compressed weekly cycle — venue booked, DJ confirmed, flyer posted, event executed, content forgotten. This cadence repeats without strategic escalation, narrative progression, or audience deepening. Each edition starts from zero. No event builds systematically on the equity of the one before it. This creates a structural ceiling on the value any single activation can generate — and a structural opportunity for any operator that introduces compounding mechanics into the cycle."
-  },
-  {
-    icon: <Layers className="text-brand-gold" size={24} />,
-    title: "THE CONTENT DEFICIT",
-    body: "Sunday events in Nairobi produce enormous volumes of social media content — but virtually none of it compounds. Event photography is posted, engaged with for 24-48 hours, and then buried in algorithmic decay. No Sunday activation in the city currently operates a content strategy that extracts sustained value from a single event across a 30-day cycle. The content is treated as a byproduct of the event rather than as the primary asset. This means the most commercially valuable output of every Sunday — shareable, brand-associated visual content — is being systematically wasted."
-  },
-  {
-    icon: <Shield className="text-brand-gold" size={24} />,
-    title: "THE OWNERSHIP VACUUM",
-    body: "No beverage brand in the Kenyan market currently holds a proprietary association with Sunday as a social occasion. Premium brands activate across the weekly calendar without day-specific positioning, treating Sunday the same as Friday or Saturday — a missed distinction, given that Sunday's audience composition, social behaviour, and content dynamics are fundamentally different. This is a category-level white space. The first brand to claim it will set the terms of engagement. Late entrants will find themselves competing on territory that has already been defined."
-  }
-];
-
-const activationTypes = [
-  "Rooftop Brunch", "Garden Day Party", "Poolside Session", "Hotel Sunday",
-  "Outdoor DJ Event", "Neighbourhood Social", "Brunch Series", "Sundowner Session",
-  "Weekend Market", "Afternoon Lounge", "Compound Party", "Terrace Session"
-];
-
-const mutedColors = [
-  "bg-slate-500/20 border-slate-500/20",
-  "bg-zinc-500/20 border-zinc-500/20",
-  "bg-stone-500/20 border-stone-500/20",
-  "bg-teal-700/10 border-teal-700/20",
-  "bg-emerald-700/10 border-emerald-700/20",
-  "bg-blue-700/10 border-blue-700/20",
-  "bg-indigo-700/10 border-indigo-700/20",
-  "bg-slate-600/20 border-slate-600/20",
-  "bg-zinc-600/20 border-zinc-600/20",
-  "bg-cyan-700/10 border-cyan-700/20",
-  "bg-stone-600/20 border-stone-600/20",
-  "bg-gray-600/20 border-gray-600/20"
-];
-
+/**
+ * Section 01: THE GAP
+ * Rebuilt as a high-fidelity strategic context module.
+ */
 export const TheGap = () => {
-  const [mounted, setMounted] = useState(false);
-  const [randomData, setRandomData] = useState<{ delay: string; rotation: string; offset: string }[]>([]);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setMounted(true);
-    const data = activationTypes.map(() => ({
-      delay: `${Math.random() * 1.5}s`,
-      rotation: `${(Math.random() - 0.5) * 6}deg`,
-      offset: `${(Math.random() - 0.5) * 15}px`
-    }));
-    setRandomData(data);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="space-y-12 animate-fade-in-up">
-      {/* Strategic Narrative */}
-      <div className="max-w-4xl space-y-4">
-        <p className="font-body text-[#F0EBE0] text-base md:text-lg leading-[1.7]">
-          Sunday in Nairobi is not merely a day off — it is the city's most concentrated brand-building occasion. 
-          Every week, the 21-to-35 professional demographic makes a tightly clustered set of lifestyle decisions: 
-          which venue to spend the afternoon at, which drinks to order, which people to be seen with, and which 
-          moments to capture and share across social platforms. These are not passive consumption choices. 
-          They are identity-signalling acts — each one a public declaration of taste, social positioning, and 
-          cultural fluency. They unfold in WhatsApp group chats, manifest at venues across the city between 
-          middown and sundown, and are broadcast to wider networks through Instagram Stories and TikTok posts 
-          within hours. For any premium beverage brand, this weekly cycle represents an extraordinarily dense 
-          and recurring window of influence — a moment when brand association, venue presence, and social 
-          visibility converge at scale.
-        </p>
-
-        <p className="font-body text-[#F0EBE0] text-base md:text-lg leading-[1.7]">
-          The current landscape serving this occasion, however, is structurally incapable of delivering that brand value. 
-          Nairobi's Sunday social scene is populated by dozens of independent activations — rooftop brunches, 
-          garden day parties, poolside sessions, outdoor DJ events — operating without coordination, without 
-          shared visual identity, and without brand-level recognition beyond their immediate attendee circles. 
-          Each event generates a burst of social content that dissipates within 48 hours, building no cumulative 
-          equity for any venue, any organiser, or any beverage partner. The audience moves fluidly between these 
-          activations week to week, driven by novelty rather than loyalty. For a consumer, this means variety 
-          without meaning. For a brand, it means visibility without ownership — presence at a Sunday event 
-          this week carries no guarantee of recall, association, or preference by the following Sunday.
-        </p>
-
-        <p className="font-body text-[#F0EBE0] text-base md:text-lg leading-[1.7]">
-          This condition will not persist indefinitely. Fragmented social occasions in high-value urban markets 
-          tend to consolidate around branded properties once a single operator introduces the infrastructure 
-          to systematise the experience — consistent production quality, a recognisable visual identity, a 
-          content ecosystem that sustains attention between events, and a community architecture that converts 
-          casual attendees into committed participants. The Sunday occasion in Nairobi has reached the scale 
-          and cultural significance where that consolidation is structurally inevitable. The question is not 
-          whether a premium brand will come to own this occasion, but which brand will move first — and 
-          whether the brand that does so will have designed the architecture to hold that position once 
-          others respond.
-        </p>
-      </div>
-
-      {/* Strategic Insight Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {insightCards.map((card, i) => (
+    <div ref={sectionRef} className="space-y-12 py-4">
+      {/* 01: Headline Treatment */}
+      <div className="space-y-4">
+        <div className="relative inline-block">
+          <h2 className="font-headline text-5xl md:text-7xl lg:text-8xl text-brand-cream uppercase leading-none tracking-tighter">
+            THE SUNDAY OPPORTUNITY
+          </h2>
+          {/* Animated Gold Underline */}
           <div 
-            key={i} 
-            className="glass-card p-6 flex flex-col gap-4 hover:border-brand-gold/50 transition-all duration-500 group"
-          >
-            <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-              {card.icon}
-            </div>
-            <div className="space-y-3">
-              <h4 className="font-headline text-2xl text-white tracking-tight leading-none group-hover:text-brand-gold transition-colors">
-                {card.title}
-              </h4>
-              <p className="font-body text-[13px] md:text-sm text-[#F0EBE0]/70 leading-relaxed">
-                {card.body}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Footprint Comparison Section */}
-      <div className="pt-12 space-y-16">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1.2fr] items-start gap-8 md:gap-0 relative">
-          {/* Left Panel: Distribution */}
-          <div className="md:pr-12 space-y-4 opacity-0 animate-in fade-in duration-1000 fill-mode-forwards [animation-delay:500ms]">
-            <div className="flex items-center gap-3">
-              <div className="w-2.5 h-2.5 rounded-full bg-brand-teal" />
-              <h4 className="font-headline text-xl text-brand-teal tracking-widest uppercase">Distribution Footprint</h4>
-            </div>
-            <p className="font-body text-[#F0EBE0]/60 text-sm leading-relaxed max-w-md">
-              Savanna Premium Cider is produced at KWAL&apos;s Tatu City facility and distributed nationally through KWAL&apos;s retail and on-trade network. The product is available, accessible, and operationally established in the Kenyan market.
-            </p>
-          </div>
-
-          {/* Vertical Divider */}
-          <div className="hidden md:block w-[1px] h-full bg-brand-gold/20 self-stretch" />
-
-          {/* Right Panel: Cultural */}
-          <div className="md:pl-12 space-y-5 p-8 rounded-3xl bg-white/5 border border-brand-gold/10 shadow-[0_0_40px_rgba(244,197,66,0.03)] opacity-0 animate-in fade-in duration-1000 fill-mode-forwards [animation-delay:900ms]">
-            <div className="flex items-center gap-3">
-              <div className="w-2.5 h-2.5 rounded-full border border-brand-gold" />
-              <h4 className="font-headline text-xl text-brand-gold tracking-widest uppercase">Cultural Footprint</h4>
-            </div>
-            <p className="font-body text-[#F0EBE0] text-sm md:text-base leading-relaxed">
-              Savanna&apos;s presence in Kenya&apos;s experiential landscape is, at present, negligible. The brand is not associated with any recurring social occasion, any lifestyle community, any content property, or any cultural moment that consumers organise their social lives around. In a premium beverage market that is increasingly shaped by experiential association — where consumers choose brands they have experienced, not merely brands they have seen — this absence is the most significant unrealised asset in Savanna&apos;s Kenyan portfolio.
-            </p>
-          </div>
-        </div>
-
-        {/* Strategic Pull Quote */}
-        <div className="text-center pt-8 opacity-0 animate-in fade-in slide-in-from-bottom-4 duration-1000 fill-mode-forwards [animation-delay:1200ms]">
-          <div className="w-16 h-[1px] bg-brand-gold/30 mx-auto mb-10" />
-          <p className="font-serif italic text-2xl md:text-4xl text-brand-gold max-w-4xl mx-auto leading-tight tracking-tight">
-            &ldquo;Distribution puts Savanna on the shelf. <br className="hidden md:block" /> Cultural ownership puts Savanna in the conversation.&rdquo;
-          </p>
-        </div>
-      </div>
-
-      {/* Nairobi Sunday Landscape Visual */}
-      <div className="pt-12 space-y-8 opacity-0 animate-in fade-in duration-1000 fill-mode-forwards [animation-delay:1500ms]">
-        <h4 className="font-headline text-2xl text-[#F0EBE0] tracking-widest uppercase">Nairobi&apos;s Sunday Landscape</h4>
-        
-        <div className="relative min-h-[300px] md:min-h-[400px] w-full bg-white/5 rounded-[40px] border border-white/10 p-8 md:p-12 overflow-hidden">
-          {/* Scatter Field */}
-          <div className="flex flex-wrap gap-3 md:gap-5 items-start justify-start max-w-4xl">
-            {activationTypes.map((type, i) => (
-              <div
-                key={i}
-                className={cn(
-                  "px-5 py-2 rounded-full border text-[11px] md:text-xs font-bold uppercase tracking-wider text-white/50 transition-all duration-1000 opacity-0",
-                  mutedColors[i % mutedColors.length],
-                  mounted && "opacity-100"
-                )}
-                style={{
-                  transform: mounted ? `rotate(${randomData[i]?.rotation}) translateY(${randomData[i]?.offset})` : 'none',
-                  transitionDelay: mounted ? randomData[i]?.delay : '0s'
-                }}
-              >
-                {type}
-              </div>
-            ))}
-          </div>
-
-          {/* Dotted Gold Placeholder (The Void) */}
-          <div className={cn(
-            "absolute bottom-8 right-8 md:bottom-12 md:right-12 w-32 h-32 md:w-48 md:h-48 border-2 border-dashed border-brand-gold rounded-full transition-opacity duration-1000 opacity-0",
-            mounted && "opacity-20"
-          )} 
-          style={{ transitionDelay: '2s' }}
+            className={cn(
+              "absolute -bottom-2 left-0 h-[2px] bg-gradient-to-r from-brand-gold to-transparent transition-all duration-[800ms] ease-out origin-left",
+              isVisible ? "w-full" : "w-0"
+            )}
           />
-
-          {/* Overlay Decoration */}
-          <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-brand-green/80 via-transparent to-transparent opacity-40" />
         </div>
 
-        <p className={cn(
-          "font-body text-[13px] md:text-sm text-[#F0EBE0]/40 italic leading-relaxed transition-opacity duration-1000 opacity-0",
-          mounted && "opacity-100"
-        )}
-        style={{ transitionDelay: '2s' }}
-        >
-          Every label is an activation without a brand behind it. The space that remains is the opportunity.
-        </p>
+        <div className="flex flex-wrap items-baseline gap-x-2">
+          <h3 className="font-serif italic text-xl md:text-2xl text-brand-gold/80 leading-tight">
+            The most valuable social occasion in Nairobi.
+          </h3>
+          <span 
+            className={cn(
+              "font-serif italic text-xl md:text-2xl text-brand-gold transition-all duration-700 delay-[400ms] inline-block",
+              isVisible ? "opacity-100 scale-105" : "opacity-0 scale-100"
+            )}
+          >
+            No brand owns it.
+          </span>
+        </div>
       </div>
+
+      {/* 02: Strategic Insight Blocks */}
+      <div className="space-y-12 md:space-y-16">
+        
+        {/* BLOCK 1: THE WEEKLY CYCLE */}
+        <div className={cn(
+          "grid grid-cols-1 md:grid-cols-[120px_1fr] gap-8 items-start transition-all duration-700",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <div className="flex justify-center md:justify-start">
+            <div className="w-20 h-20 rounded-full border border-brand-gold/20 flex items-center justify-center animate-spin-slow">
+              <RefreshCcw className="text-brand-gold/40" size={40} />
+            </div>
+          </div>
+          <div className="space-y-4">
+            <h4 className="font-headline text-2xl md:text-3xl text-brand-cream uppercase">EVERY SUNDAY, THE SAME DECISION</h4>
+            <p className="font-body text-brand-cream/70 text-base md:text-lg leading-relaxed max-w-2xl">
+              Where to go, what to drink, who to be seen with, what to post — made by Nairobi's highest-value demographic, every single week.
+            </p>
+            {/* Enhancement: Weekday Dots */}
+            <div className="flex items-center gap-2 pt-2">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="w-2 h-2 rounded-full bg-brand-cream/30" />
+              ))}
+              <div className="w-3 h-3 rounded-full bg-brand-gold animate-pulse shadow-[0_0_10px_#F4C542]" />
+              <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest ml-2">Sunday</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="h-[1px] w-full bg-brand-gold/10" />
+
+        {/* BLOCK 2: THE FRAGMENTATION */}
+        <div className={cn(
+          "grid grid-cols-1 md:grid-cols-[120px_1fr] gap-8 items-start transition-all duration-700 delay-200",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <div className="flex justify-center md:justify-start">
+            <div className="grid grid-cols-3 gap-1 group">
+              {[...Array(9)].map((_, i) => (
+                <div 
+                  key={i} 
+                  className={cn(
+                    "w-4 h-4 bg-brand-gold/20 border border-brand-gold/40 transition-all duration-700",
+                    "group-hover:translate-x-0 group-hover:translate-y-0",
+                    i % 2 === 0 ? "translate-x-1" : "-translate-x-1",
+                    i > 4 ? "translate-y-1" : "-translate-y-1"
+                  )} 
+                />
+              ))}
+            </div>
+          </div>
+          <div className="space-y-4">
+            <h4 className="font-headline text-2xl md:text-3xl text-brand-cream uppercase">DOZENS OF EVENTS. ZERO BRAND EQUITY</h4>
+            <p className="font-body text-brand-cream/70 text-base md:text-lg leading-relaxed max-w-2xl">
+              Nairobi's Sunday scene is fragmented across interchangeable activations that generate attention for 48 hours and build nothing lasting.
+            </p>
+            {/* Enhancement: Decay Bar */}
+            <div className="flex items-center gap-4 pt-2">
+              <div className="flex-1 max-w-[200px] h-1.5 bg-white/5 rounded-full overflow-hidden relative">
+                <div className="absolute top-0 left-0 h-full bg-brand-teal animate-decay-loop" />
+              </div>
+              <span className="text-[9px] font-bold text-brand-cream/40 uppercase tracking-widest">Content lifespan: 48 hours</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="h-[1px] w-full bg-brand-gold/10" />
+
+        {/* BLOCK 3: THE WINDOW */}
+        <div className={cn(
+          "grid grid-cols-1 md:grid-cols-[120px_1fr] gap-8 items-start transition-all duration-700 delay-[400ms]",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <div className="flex justify-center md:justify-start">
+            <div className="relative w-16 h-16 flex items-center justify-center">
+              <div className="absolute left-0 w-[2px] h-12 bg-brand-gold/40 animate-door-left" />
+              <div className="absolute right-0 w-[2px] h-12 bg-brand-gold/40 animate-door-right" />
+              <div className="w-4 h-4 rounded-full border border-brand-gold/20 animate-pulse" />
+            </div>
+          </div>
+          <div className="space-y-4">
+            <h4 className="font-headline text-2xl md:text-3xl text-brand-cream uppercase">A WINDOW THAT WON'T STAY OPEN</h4>
+            <p className="font-body text-brand-cream/70 text-base md:text-lg leading-relaxed max-w-2xl">
+              Unbranded occasions in high-value markets always consolidate. The first brand to move sets the terms. The rest compete for what's left.
+            </p>
+            {/* Enhancement: Urgency Timeline */}
+            <div className="flex items-center gap-4 pt-2 w-full max-w-md">
+              <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest shrink-0 animate-pulse">Now</span>
+              <div className="flex-1 h-[1px] bg-white/10 relative overflow-hidden">
+                <div className="absolute top-0 left-0 h-full bg-brand-gold animate-fuse-burn" />
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <Lock size={12} className="text-brand-cream/20" />
+                <span className="text-[9px] font-bold text-brand-cream/20 uppercase tracking-widest">Claimed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Global Styles for Section 01 Custom Animations */}
+      <style jsx global>{`
+        @keyframes decay-loop {
+          0% { width: 100%; opacity: 1; background-color: #2D8C7F; }
+          80% { width: 10%; opacity: 0.5; background-color: #1F4D3A; }
+          100% { width: 0%; opacity: 0; }
+        }
+        .animate-decay-loop {
+          animation: decay-loop 4s infinite linear;
+        }
+        @keyframes fuse-burn {
+          0% { width: 0%; }
+          100% { width: 100%; }
+        }
+        .animate-fuse-burn {
+          animation: fuse-burn 20s infinite linear;
+        }
+        @keyframes door-left {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(20px); }
+        }
+        @keyframes door-right {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(-20px); }
+        }
+        .animate-door-left { animation: door-left 20s infinite ease-in-out; }
+        .animate-door-right { animation: door-right 20s infinite ease-in-out; }
+      `}</style>
     </div>
   );
 };
