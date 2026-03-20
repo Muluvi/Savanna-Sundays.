@@ -2,12 +2,77 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
-import { RefreshCcw, Layers, Lock, ChevronRight } from 'lucide-react';
+import { RefreshCcw, Layers, Lock, Check, Circle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 /**
+ * Radial Gauge Component for the Footprint Analysis
+ */
+const RadialGauge = ({ 
+  percentage, 
+  color, 
+  label, 
+  isVisible, 
+  delay = 0 
+}: { 
+  percentage: number; 
+  color: string; 
+  label: string; 
+  isVisible: boolean; 
+  delay?: number 
+}) => {
+  const [offset, setOffset] = useState(251.2);
+  const circumference = 251.2; // 2 * pi * 40
+
+  useEffect(() => {
+    if (isVisible) {
+      const timer = setTimeout(() => {
+        const progress = (percentage / 100) * circumference;
+        setOffset(circumference - progress);
+      }, delay);
+      return () => clearTimeout(timer);
+    } else {
+      setOffset(circumference);
+    }
+  }, [isVisible, percentage, delay]);
+
+  return (
+    <div className="relative flex items-center justify-center w-24 h-24 md:w-32 md:h-32">
+      <svg className="w-full h-full -rotate-90">
+        <circle 
+          cx="50%" 
+          cy="50%" 
+          r="40" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="3" 
+          className="text-white/5" 
+        />
+        <circle 
+          cx="50%" 
+          cy="50%" 
+          r="40" 
+          fill="none" 
+          stroke={color} 
+          strokeWidth="4" 
+          strokeDasharray={circumference} 
+          strokeDashoffset={offset}
+          strokeLinecap="round"
+          className="transition-all duration-[1000ms] ease-out" 
+        />
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <span className="text-[9px] md:text-[10px] font-headline tracking-[2px] text-center px-3 leading-tight" style={{ color }}>
+          {label}
+        </span>
+      </div>
+    </div>
+  );
+};
+
+/**
  * Section 01: THE GAP
- * Rebuilt as a high-fidelity strategic context module.
+ * High-fidelity strategic context module with interactive footprint analysis.
  */
 export const TheGap = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,10 +97,9 @@ export const TheGap = () => {
           <h2 className="font-headline text-5xl md:text-7xl lg:text-8xl text-brand-cream uppercase leading-none tracking-tighter">
             THE SUNDAY OPPORTUNITY
           </h2>
-          {/* Animated Gold Underline */}
           <div 
             className={cn(
-              "absolute -bottom-2 left-0 h-[2px] bg-gradient-to-r from-brand-gold to-transparent transition-all duration-[800ms] ease-out origin-left",
+              "absolute -bottom-2 left-0 h-[1.5px] bg-brand-gold transition-all duration-[1200ms] ease-in-out origin-left",
               isVisible ? "w-full" : "w-0"
             )}
           />
@@ -47,7 +111,7 @@ export const TheGap = () => {
           </h3>
           <span 
             className={cn(
-              "font-serif italic text-xl md:text-2xl text-brand-gold transition-all duration-700 delay-[400ms] inline-block",
+              "font-serif italic text-xl md:text-2xl text-brand-gold transition-all duration-700 delay-[600ms] inline-block",
               isVisible ? "opacity-100 scale-105" : "opacity-0 scale-100"
             )}
           >
@@ -74,7 +138,6 @@ export const TheGap = () => {
             <p className="font-body text-brand-cream/70 text-base md:text-lg leading-relaxed max-w-2xl">
               Where to go, what to drink, who to be seen with, what to post — made by Nairobi's highest-value demographic, every single week.
             </p>
-            {/* Enhancement: Weekday Dots */}
             <div className="flex items-center gap-2 pt-2">
               {[...Array(6)].map((_, i) => (
                 <div key={i} className="w-2 h-2 rounded-full bg-brand-cream/30" />
@@ -112,7 +175,6 @@ export const TheGap = () => {
             <p className="font-body text-brand-cream/70 text-base md:text-lg leading-relaxed max-w-2xl">
               Nairobi's Sunday scene is fragmented across interchangeable activations that generate attention for 48 hours and build nothing lasting.
             </p>
-            {/* Enhancement: Decay Bar */}
             <div className="flex items-center gap-4 pt-2">
               <div className="flex-1 max-w-[200px] h-1.5 bg-white/5 rounded-full overflow-hidden relative">
                 <div className="absolute top-0 left-0 h-full bg-brand-teal animate-decay-loop" />
@@ -141,7 +203,6 @@ export const TheGap = () => {
             <p className="font-body text-brand-cream/70 text-base md:text-lg leading-relaxed max-w-2xl">
               Unbranded occasions in high-value markets always consolidate. The first brand to move sets the terms. The rest compete for what's left.
             </p>
-            {/* Enhancement: Urgency Timeline */}
             <div className="flex items-center gap-4 pt-2 w-full max-w-md">
               <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest shrink-0 animate-pulse">Now</span>
               <div className="flex-1 h-[1px] bg-white/10 relative overflow-hidden">
@@ -155,9 +216,100 @@ export const TheGap = () => {
           </div>
         </div>
 
+        <div className="h-[1px] w-full bg-brand-gold/10" />
+
+        {/* 03: FOOTPRINT COMPARISON */}
+        <div className={cn(
+          "pt-12 space-y-12 transition-all duration-1000 delay-[600ms]",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+        )}>
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2px_1fr] gap-0 items-stretch relative">
+            {/* Left Panel: Distribution */}
+            <div className={cn(
+              "p-6 md:p-10 rounded-t-[32px] md:rounded-tr-none md:rounded-l-[32px] bg-white/5 border border-white/5 backdrop-blur-xl transition-all duration-700",
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+            )}>
+              <div className="space-y-8">
+                <h4 className="font-headline text-sm tracking-[3px] text-brand-teal uppercase">DISTRIBUTION FOOTPRINT</h4>
+                
+                <div className="flex justify-center md:justify-start">
+                  <RadialGauge 
+                    percentage={85} 
+                    color="#2D8C7F" 
+                    label="ESTABLISHED" 
+                    isVisible={isVisible} 
+                    delay={1200} 
+                  />
+                </div>
+
+                <ul className="space-y-4">
+                  {[
+                    "National retail network",
+                    "On-trade presence",
+                    "Local production at Tatu City"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-brand-cream/70 font-body text-sm">
+                      <Check size={14} className="text-brand-teal shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Vertical Pulse Divider */}
+            <div className="w-full h-[2px] md:w-[2px] md:h-full bg-brand-gold/20 relative">
+              <div className="absolute inset-0 bg-brand-gold animate-pulse-divider" />
+            </div>
+
+            {/* Right Panel: Cultural */}
+            <div className={cn(
+              "p-6 md:p-10 rounded-b-[32px] md:rounded-bl-none md:rounded-r-[32px] bg-white/[0.08] border border-white/10 backdrop-blur-2xl shadow-2xl transition-all duration-700 delay-500",
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
+            )}>
+              <div className="space-y-8">
+                <h4 className="font-headline text-sm tracking-[3px] text-brand-gold uppercase">CULTURAL FOOTPRINT</h4>
+                
+                <div className="flex justify-center md:justify-start">
+                  <RadialGauge 
+                    percentage={5} 
+                    color="#F4C542" 
+                    label="NEGLIGIBLE" 
+                    isVisible={isVisible} 
+                    delay={2200} 
+                  />
+                </div>
+
+                <ul className="space-y-4">
+                  {[
+                    "No recurring event property",
+                    "No lifestyle community",
+                    "No content ecosystem",
+                    "No occasion ownership"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-brand-cream font-body text-sm">
+                      <Circle size={14} className="text-brand-gold/40 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Centered Pull Quote */}
+          <div className={cn(
+            "text-center max-w-2xl mx-auto pt-8 transition-all duration-1000 delay-[2800ms]",
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          )}>
+            <p className="font-serif italic text-2xl md:text-3xl text-brand-gold leading-relaxed">
+              "Distribution puts Savanna on the shelf. <br className="hidden md:block"/>Cultural ownership puts Savanna in the conversation."
+            </p>
+          </div>
+        </div>
+
       </div>
 
-      {/* Global Styles for Section 01 Custom Animations */}
       <style jsx global>{`
         @keyframes decay-loop {
           0% { width: 100%; opacity: 1; background-color: #2D8C7F; }
@@ -184,6 +336,14 @@ export const TheGap = () => {
         }
         .animate-door-left { animation: door-left 20s infinite ease-in-out; }
         .animate-door-right { animation: door-right 20s infinite ease-in-out; }
+        
+        @keyframes pulse-divider {
+          0%, 100% { opacity: 0.2; }
+          50% { opacity: 0.8; }
+        }
+        .animate-pulse-divider {
+          animation: pulse-divider 4s ease-in-out infinite;
+        }
       `}</style>
     </div>
   );
