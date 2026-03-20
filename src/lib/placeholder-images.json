@@ -7,40 +7,76 @@
       "imageHint": "company logo"
     },
     {
-      "id": "venue-geco",
-      "description": "Geco Cafe Venue",
-      "imageUrl": "https://picsum.photos/seed/geco-venue/800/600",
-      "imageHint": "premium garden"
-    },
-    {
-      "id": "venue-alchemist",
-      "description": "The Alchemist Venue",
-      "imageUrl": "https://picsum.photos/seed/alchemist-venue/800/600",
-      "imageHint": "urban lounge"
-    },
-    {
-      "id": "venue-waterfront",
-      "description": "Waterfront Venue",
-      "imageUrl": "https://picsum.photos/seed/waterfront-venue/800/600",
-      "imageHint": "lake terrace"
-    },
-    {
-      "id": "venue-k1",
-      "description": "K1 Klub House Venue",
-      "imageUrl": "https://picsum.photos/seed/k1-venue/800/600",
-      "imageHint": "vintage lounge"
-    },
-    {
       "id": "venue-muze",
-      "description": "Muze Venue",
-      "imageUrl": "https://picsum.photos/seed/muze-venue/800/600",
+      "description": "Muze Venue Logo",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1768848344/ac208aa5-8292-4543-a7ca-719fd61a3c46_20260119_214138_0000_ikxc7g.png",
       "imageHint": "modern club"
     },
     {
+      "id": "venue-alchemist",
+      "description": "The Alchemist Venue Logo",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1768848344/8367e513-9c35-4276-97b8-7ae60597091e_20260119_214311_0000_numq8q.png",
+      "imageHint": "urban lounge"
+    },
+    {
       "id": "venue-koda",
-      "description": "KODA Venue",
-      "imageUrl": "https://picsum.photos/seed/koda-venue/800/600",
+      "description": "KODA Venue Logo",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1768848344/ee064dd8-0e0b-4c61-9469-dd6fe46a1572_20260119_214214_0000_r494od.png",
       "imageHint": "rooftop bar"
+    },
+    {
+      "id": "venue-black-samurai",
+      "description": "Black Samurai Venue Logo",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1768848344/44699495-0ab1-43b0-bc11-b97b6d79c266_20260119_214246_0000_yko4eb.png",
+      "imageHint": "premium lounge"
+    },
+    {
+      "id": "venue-masshouse",
+      "description": "Masshouse Venue Logo",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1768407223/419b98e1-eb0d-4198-b3d8-618a79ef3641_20260114_191325_0000_ebdjee.png",
+      "imageHint": "industrial space"
+    },
+    {
+      "id": "label-kunye",
+      "description": "Kunye Records",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1769203530/Kunye_Records_r4ecqg.png",
+      "imageHint": "record label"
+    },
+    {
+      "id": "label-descendants",
+      "description": "Descendants Records",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1769203532/Descendants_Rec_yoghrn.jpg",
+      "imageHint": "record label"
+    },
+    {
+      "id": "label-groove-cartel",
+      "description": "Groove Cartel SA",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1769203531/Groove_Cartel_SA_wlwymi.png",
+      "imageHint": "music platform"
+    },
+    {
+      "id": "label-sondela",
+      "description": "SondeLa Recordings",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1769203531/SondeLa_Recordings_egodlz.png",
+      "imageHint": "record label"
+    },
+    {
+      "id": "partner-boiler-room",
+      "description": "Boiler Room",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1769203531/Boiler_Room_s9kvwq.jpg",
+      "imageHint": "music partner"
+    },
+    {
+      "id": "partner-mixmag",
+      "description": "Mixmag",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1769203530/Mixmag_xlnckz.png",
+      "imageHint": "music media"
+    },
+    {
+      "id": "partner-balcony-mix",
+      "description": "The Balcony Mix",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1768410458/3085e5d1-651e-404e-8cc9-240365f9ad11_20260114_200656_0000_sstsmb.png",
+      "imageHint": "music property"
     }
   ]
 }

@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -27,33 +28,31 @@ import {
 } from "@/components/ui/carousel";
 
 const venueData = [
-  { name: "Geco Cafe", area: "Westlands", capacity: "300", type: "Owned", imageId: "venue-geco" },
-  { name: "The Alchemist", area: "Westlands", capacity: "600", type: "Sponsor", imageId: "venue-alchemist" },
-  { name: "Waterfront", area: "Karen", capacity: "1500", type: "Sponsor", imageId: "venue-waterfront" },
-  { name: "K1 Klub House", area: "Parklands", capacity: "800", type: "Sponsor", imageId: "venue-k1" },
   { name: "Muze", area: "Westlands", capacity: "400", type: "Owned", imageId: "venue-muze" },
+  { name: "The Alchemist", area: "Westlands", capacity: "600", type: "Sponsor", imageId: "venue-alchemist" },
   { name: "KODA", area: "Kilimani", capacity: "350", type: "Owned", imageId: "venue-koda" },
+  { name: "Black Samurai", area: "Westlands", capacity: "500", type: "Sponsor", imageId: "venue-black-samurai" },
+  { name: "Masshouse", area: "Industrial Area", capacity: "1200", type: "Sponsor", imageId: "venue-masshouse" },
+  { name: "Geco Cafe", area: "Lavington", capacity: "300", type: "Owned", imageId: null },
 ];
 
 const matrixCriteria = [
-  { label: "Audience Fit", score: 95, icon: <UserCheck className="w-4 h-4" />, desc: "Demographic alignment with Savanna core." },
-  { label: "Visual Quality", score: 90, icon: <Trophy className="w-4 h-4" />, desc: "Architectural & lighting potential." },
-  { label: "Content Yield", score: 88, icon: <Zap className="w-4 h-4" />, desc: "Shareability & photogenic surfaces." },
-  { label: "Credibility", score: 92, icon: <Star className="w-4 h-4" />, desc: "Local cultural weight & influence." },
-  { label: "Exclusivity", score: 85, icon: <ShieldCheck className="w-4 h-4" />, desc: "Competitive brand presence control." },
+  { label: "Audience Fit", score: 95, icon: <UserCheck className="w-4 h-4" />, desc: "Demographic alignment." },
+  { label: "Visual Quality", score: 90, icon: <Trophy className="w-4 h-4" />, desc: "Architectural potential." },
+  { label: "Content Yield", score: 88, icon: <Zap className="w-4 h-4" />, desc: "Shareability surfaces." },
+  { label: "Credibility", score: 92, icon: <Star className="w-4 h-4" />, desc: "Local cultural weight." },
+  { label: "Exclusivity", score: 85, icon: <ShieldCheck className="w-4 h-4" />, desc: "Brand presence control." },
 ];
 
 export const DualActivationModel = () => {
   return (
     <div className="space-y-6 md:space-y-8">
-      {/* 02A: Intro */}
       <div className="max-w-3xl animate-fade-in-up">
         <p className="font-serif italic text-lg md:text-xl text-brand-green/60 leading-relaxed">
           One engine builds the brand. The other covers the city. Together, they make Savanna synonymous with Sunday.
         </p>
       </div>
 
-      {/* 02B: Core Logic Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in-up [animation-delay:200ms]">
         <Card className="p-4 bg-white border-l-4 border-brand-gold rounded-[24px] flex flex-col justify-between group hover:shadow-lg transition-all">
           <div className="space-y-3">
@@ -90,7 +89,6 @@ export const DualActivationModel = () => {
         </Card>
       </div>
 
-      {/* 02C: Strategic Pull Quote - Prominent pause */}
       <div className="relative py-6 flex flex-col items-center justify-center animate-fade-in-up [animation-delay:400ms]">
         <div className="relative z-10 max-w-4xl text-center">
           <BrushStroke className="w-40 h-auto opacity-10 -rotate-1 mx-auto" color="#2D8C7F" />
@@ -100,7 +98,6 @@ export const DualActivationModel = () => {
         </div>
       </div>
 
-      {/* 02D: Details - Interactive Visuals */}
       <div className="animate-fade-in-up [animation-delay:600ms]">
         <Tabs defaultValue="network" className="w-full">
           <TabsList className="w-full bg-brand-green p-1 h-auto grid grid-cols-3 mb-6 rounded-xl">
@@ -117,20 +114,25 @@ export const DualActivationModel = () => {
               >
                 <CarouselContent className="-ml-4">
                   {venueData.map((venue, i) => {
-                    const img = PlaceHolderImages.find(p => p.id === venue.imageId);
+                    const img = venue.imageId ? PlaceHolderImages.find(p => p.id === venue.imageId) : null;
                     return (
                       <CarouselItem key={i} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
-                        <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-brand-green/5">
-                          {img && (
+                        <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-brand-green/5 bg-brand-cream/10">
+                          {img ? (
                             <Image 
                               src={img.imageUrl} 
                               alt={venue.name} 
                               fill 
-                              className="object-cover transition-transform duration-700 group-hover:scale-110"
-                              data-ai-hint={img.imageHint}
+                              className="object-contain p-8 transition-transform duration-700 group-hover:scale-110"
                             />
+                          ) : (
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="w-24 h-24 rounded-full bg-brand-green flex items-center justify-center">
+                                <span className="font-headline text-4xl text-brand-gold">{venue.name.charAt(0)}</span>
+                              </div>
+                            </div>
                           )}
-                          <div className="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-brand-green/20 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-transparent to-transparent opacity-60" />
                           <div className="absolute bottom-0 left-0 p-5 w-full">
                             <Badge className={cn(
                               "mb-2 text-[8px] uppercase tracking-widest border-none",
@@ -142,11 +144,6 @@ export const DualActivationModel = () => {
                             <div className="flex items-center gap-2 text-white/60">
                               <MapPin size={10} className="text-brand-gold" />
                               <span className="font-body text-[10px] uppercase tracking-widest font-bold">{venue.area}</span>
-                            </div>
-                          </div>
-                          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white">
-                              <Maximize2 size={14} />
                             </div>
                           </div>
                         </div>
@@ -162,45 +159,19 @@ export const DualActivationModel = () => {
 
           <TabsContent value="scorecard">
             <div className="bg-white rounded-[32px] p-6 md:p-8 border border-brand-green/5 shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none">
-                <Activity size={200} />
-              </div>
               <div className="relative z-10 grid grid-cols-1 md:grid-cols-5 gap-4">
                 {matrixCriteria.map((item, i) => (
                   <div key={i} className="flex flex-col items-center text-center space-y-4 p-4 rounded-2xl bg-brand-cream/30 group hover:bg-white transition-all hover:shadow-lg border border-transparent hover:border-brand-gold/20">
                     <div className="relative w-16 h-16 flex items-center justify-center">
                       <svg className="w-full h-full transform -rotate-90">
-                        <circle
-                          cx="32"
-                          cy="32"
-                          r="28"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          className="text-brand-green/5"
-                        />
-                        <circle
-                          cx="32"
-                          cy="32"
-                          r="28"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="3"
-                          strokeDasharray={2 * Math.PI * 28}
-                          strokeDashoffset={2 * Math.PI * 28 * (1 - item.score / 100)}
-                          className="text-brand-gold transition-all duration-1000 group-hover:text-brand-teal"
-                        />
+                        <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" strokeWidth="2" className="text-brand-green/5" />
+                        <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray={2 * Math.PI * 28} strokeDashoffset={2 * Math.PI * 28 * (1 - item.score / 100)} className="text-brand-gold transition-all duration-1000 group-hover:text-brand-teal" />
                       </svg>
-                      <div className="absolute inset-0 flex items-center justify-center text-brand-green">
-                        {item.icon}
-                      </div>
+                      <div className="absolute inset-0 flex items-center justify-center text-brand-green">{item.icon}</div>
                     </div>
                     <div className="space-y-1">
                       <h6 className="font-headline text-base text-brand-green uppercase leading-none">{item.label}</h6>
                       <div className="font-headline text-xl text-brand-gold leading-none">{item.score}%</div>
-                      <p className="font-body text-[9px] text-brand-green/40 font-bold uppercase tracking-widest leading-tight">
-                        {item.desc}
-                      </p>
                     </div>
                   </div>
                 ))}
@@ -226,16 +197,6 @@ export const DualActivationModel = () => {
                     </div>
                   );
                 })}
-              </div>
-              <div className="mt-4 flex justify-center gap-6">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-brand-green" />
-                  <span className="font-body text-[8px] uppercase tracking-widest font-bold opacity-40">Owned Edition</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-brand-teal" />
-                  <span className="font-body text-[8px] uppercase tracking-widest font-bold opacity-40">Sponsor Tier</span>
-                </div>
               </div>
             </div>
           </TabsContent>
