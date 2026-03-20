@@ -7,7 +7,6 @@ import { WaterDroplets } from '@/components/brand/VisualElements';
 import Image from 'next/image';
 import { ChevronDown } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { AuthGuard } from '@/components/auth/AuthGuard';
 import { useAnalyticsTracker } from '@/hooks/use-analytics-tracker';
 
 // Content sections
@@ -113,93 +112,91 @@ export default function Home() {
   const logo = PlaceHolderImages.find(img => img.id === 'firefly-logo');
 
   return (
-    <AuthGuard>
-      <div className="relative min-h-screen bg-brand-cream">
-        <AppSidebar />
-        <MobileNav />
-        
-        <main className="md:ml-64 transition-all">
-          <section id="hero" className="relative min-h-[60vh] dark-section flex flex-col px-6 py-12 overflow-hidden justify-center">
-            <WaterDroplets className="opacity-10" />
-            
-            <div className="flex flex-col items-center justify-center text-center">
-              <div className="max-w-6xl mx-auto w-full">
-                <h1 className="leading-[0.85] mb-4 md:mb-6 blur-in">
-                  <span className="block text-white text-[clamp(60px,15vw,160px)] font-headline tracking-tighter">SAVANNA</span>
-                  <span className="block text-brand-gold text-[clamp(60px,15vw,160px)] font-headline tracking-tighter">SUNDAYS</span>
-                </h1>
-                
-                <div className="max-w-2xl mx-auto opacity-0 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-forwards">
-                  <p className="font-serif italic text-lg md:text-2xl text-brand-cream/60 tracking-wide">
-                    Own Every Sunday in Nairobi
-                  </p>
-                </div>
+    <div className="relative min-h-screen bg-brand-cream">
+      <AppSidebar />
+      <MobileNav />
+      
+      <main className="md:ml-64 transition-all">
+        <section id="hero" className="relative min-h-[60vh] dark-section flex flex-col px-6 py-12 overflow-hidden justify-center">
+          <WaterDroplets className="opacity-10" />
+          
+          <div className="flex flex-col items-center justify-center text-center">
+            <div className="max-w-6xl mx-auto w-full">
+              <h1 className="leading-[0.85] mb-4 md:mb-6 blur-in">
+                <span className="block text-white text-[clamp(60px,15vw,160px)] font-headline tracking-tighter">SAVANNA</span>
+                <span className="block text-brand-gold text-[clamp(60px,15vw,160px)] font-headline tracking-tighter">SUNDAYS</span>
+              </h1>
+              
+              <div className="max-w-2xl mx-auto opacity-0 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-forwards">
+                <p className="font-serif italic text-lg md:text-2xl text-brand-cream/60 tracking-wide">
+                  Own Every Sunday in Nairobi
+                </p>
               </div>
             </div>
+          </div>
 
-            <div className="relative z-20 flex flex-col items-center mt-12 opacity-0 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-1000 fill-mode-forwards">
-              <div className="w-8 h-[1px] bg-brand-gold/30 mb-6" />
-              <span className="text-[9px] tracking-[6px] text-brand-gold uppercase mb-4 font-bold opacity-50">Presented by</span>
+          <div className="relative z-20 flex flex-col items-center mt-12 opacity-0 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-1000 fill-mode-forwards">
+            <div className="w-8 h-[1px] bg-brand-gold/30 mb-6" />
+            <span className="text-[9px] tracking-[6px] text-brand-gold uppercase mb-4 font-bold opacity-50">Presented by</span>
+            {logo && (
+              <div className="relative w-[220px] h-[70px] md:w-[450px] md:h-[120px] hover:scale-105 transition-transform duration-500">
+                <Image 
+                  src={logo.imageUrl} 
+                  alt="Firefly Management" 
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            )}
+            <div className="mt-8 animate-bounce opacity-20">
+              <ChevronDown className="text-brand-gold" size={20} />
+            </div>
+          </div>
+        </section>
+
+        {sectionsData.map((section) => (
+          <SectionContainer 
+            key={section.id}
+            id={section.id}
+            label={section.label}
+            title={section.title}
+            variant={section.variant}
+          >
+            {section.component}
+          </SectionContainer>
+        ))}
+
+        <footer className="bg-brand-ink py-12 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
+          <WaterDroplets className="opacity-5" />
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
+            <div className="flex flex-col items-center md:items-start">
               {logo && (
-                <div className="relative w-[220px] h-[70px] md:w-[450px] md:h-[120px] hover:scale-105 transition-transform duration-500">
+                <div className="relative w-[150px] h-[40px] md:w-[200px] md:h-[60px] mb-4 opacity-50 hover:opacity-100 transition-opacity">
                   <Image 
                     src={logo.imageUrl} 
                     alt="Firefly Management" 
                     fill
                     className="object-contain"
-                    priority
                   />
                 </div>
               )}
-              <div className="mt-8 animate-bounce opacity-20">
-                <ChevronDown className="text-brand-gold" size={20} />
-              </div>
+              <p className="font-body text-[8px] tracking-[1.5px] uppercase text-brand-cream/20">
+                &copy; 2024 Firefly Management. Confidential Strategic Document.
+              </p>
             </div>
-          </section>
 
-          {sectionsData.map((section) => (
-            <SectionContainer 
-              key={section.id}
-              id={section.id}
-              label={section.label}
-              title={section.title}
-              variant={section.variant}
-            >
-              {section.component}
-            </SectionContainer>
-          ))}
-
-          <footer className="bg-brand-ink py-12 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
-            <WaterDroplets className="opacity-5" />
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
-              <div className="flex flex-col items-center md:items-start">
-                {logo && (
-                  <div className="relative w-[150px] h-[40px] md:w-[200px] md:h-[60px] mb-4 opacity-50 hover:opacity-100 transition-opacity">
-                    <Image 
-                      src={logo.imageUrl} 
-                      alt="Firefly Management" 
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                )}
-                <p className="font-body text-[8px] tracking-[1.5px] uppercase text-brand-cream/20">
-                  &copy; 2024 Firefly Management. Confidential Strategic Document.
-                </p>
-              </div>
-
-              <div className="max-w-xs text-center md:text-right">
-                <p className="font-body text-[10px] tracking-[1px] uppercase text-brand-cream/40 font-bold">
-                  Drink Responsibly.
-                </p>
-                <p className="font-body text-[7px] tracking-[0.5px] uppercase text-brand-cream/20 mt-1">
-                  Not for sale to persons under the age of 18 years.
-                </p>
-              </div>
+            <div className="max-w-xs text-center md:text-right">
+              <p className="font-body text-[10px] tracking-[1px] uppercase text-brand-cream/40 font-bold">
+                Drink Responsibly.
+              </p>
+              <p className="font-body text-[7px] tracking-[0.5px] uppercase text-brand-cream/20 mt-1">
+                Not for sale to persons under the age of 18 years.
+              </p>
             </div>
-          </footer>
-        </main>
-      </div>
-    </AuthGuard>
+          </div>
+        </footer>
+      </main>
+    </div>
   );
 }

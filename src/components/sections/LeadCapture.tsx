@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -6,9 +5,10 @@ import { useFirestore, useUser } from '@/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { Send, CheckCircle2 } from 'lucide-react';
+import { Send, CheckCircle2, Mail } from 'lucide-react';
 import { logEvent, getAnalytics } from 'firebase/analytics';
 import { getFirebaseApp } from '@/firebase';
 
@@ -16,18 +16,29 @@ export function LeadCapture() {
   const db = useFirestore();
   const { user } = useUser();
   const { toast } = useToast();
+  const [email, setEmail] = useState(user?.email || '');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!db || !user) return;
+    if (!db) return;
+
+    const finalEmail = user?.email || email;
+    if (!finalEmail) {
+      toast({
+        variant: "destructive",
+        title: "Email Required",
+        description: "Please provide a work email to submit feedback.",
+      });
+      return;
+    }
 
     setLoading(true);
     try {
       await addDoc(collection(db, 'prospectusLeads'), {
-        email: user.email,
+        email: finalEmail,
         message,
         interest: 'high',
         timestamp: serverTimestamp(),
@@ -35,7 +46,7 @@ export function LeadCapture() {
 
       const app = getFirebaseApp();
       const analytics = getAnalytics(app);
-      logEvent(analytics, 'lead_captured', { user_email: user.email });
+      logEvent(analytics, 'lead_captured', { user_email: finalEmail });
 
       setSubmitted(true);
       toast({
@@ -73,6 +84,24 @@ export function LeadCapture() {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
+        {!user && (
+          <div className="space-y-2">
+            <label className="text-[9px] font-bold text-brand-gold/60 uppercase tracking-[3px] ml-1">Work Email</label>
+            <div className="relative">
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" size={18} />
+              <Input 
+                type="email" 
+                placeholder="stakeholder@kwal.co.ke" 
+                className="bg-white/10 border-white/10 text-white placeholder:text-white/20 h-14 pl-12 rounded-2xl focus:ring-brand-gold transition-all"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                disabled={loading}
+              />
+            </div>
+          </div>
+        )}
+
         <div className="space-y-2">
           <label className="text-[9px] font-bold text-brand-gold/60 uppercase tracking-[3px] ml-1">Message</label>
           <Textarea 
