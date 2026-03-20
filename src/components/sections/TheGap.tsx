@@ -25,7 +25,7 @@ const insightCards = [
 
 export const TheGap = () => {
   return (
-    <div className="space-y-8 animate-fade-in-up">
+    <div className="space-y-12 animate-fade-in-up">
       {/* Strategic Narrative */}
       <div className="max-w-4xl space-y-4">
         <p className="font-body text-[#F0EBE0] text-base md:text-lg leading-[1.7]">
@@ -86,6 +86,44 @@ export const TheGap = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Footprint Comparison Section */}
+      <div className="pt-12 space-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1.2fr] items-start gap-8 md:gap-0 relative">
+          {/* Left Panel: Distribution */}
+          <div className="md:pr-12 space-y-4 opacity-0 animate-in fade-in duration-1000 fill-mode-forwards [animation-delay:500ms]">
+            <div className="flex items-center gap-3">
+              <div className="w-2.5 h-2.5 rounded-full bg-brand-teal" />
+              <h4 className="font-headline text-xl text-brand-teal tracking-widest uppercase">Distribution Footprint</h4>
+            </div>
+            <p className="font-body text-[#F0EBE0]/60 text-sm leading-relaxed max-w-md">
+              Savanna Premium Cider is produced at KWAL&apos;s Tatu City facility and distributed nationally through KWAL&apos;s retail and on-trade network. The product is available, accessible, and operationally established in the Kenyan market.
+            </p>
+          </div>
+
+          {/* Vertical Divider */}
+          <div className="hidden md:block w-[1px] h-full bg-brand-gold/20 self-stretch" />
+
+          {/* Right Panel: Cultural */}
+          <div className="md:pl-12 space-y-5 p-8 rounded-3xl bg-white/5 border border-brand-gold/10 shadow-[0_0_40px_rgba(244,197,66,0.03)] opacity-0 animate-in fade-in duration-1000 fill-mode-forwards [animation-delay:900ms]">
+            <div className="flex items-center gap-3">
+              <div className="w-2.5 h-2.5 rounded-full border border-brand-gold" />
+              <h4 className="font-headline text-xl text-brand-gold tracking-widest uppercase">Cultural Footprint</h4>
+            </div>
+            <p className="font-body text-[#F0EBE0] text-sm md:text-base leading-relaxed">
+              Savanna&apos;s presence in Kenya&apos;s experiential landscape is, at present, negligible. The brand is not associated with any recurring social occasion, any lifestyle community, any content property, or any cultural moment that consumers organise their social lives around. In a premium beverage market that is increasingly shaped by experiential association — where consumers choose brands they have experienced, not merely brands they have seen — this absence is the most significant unrealised asset in Savanna&apos;s Kenyan portfolio.
+            </p>
+          </div>
+        </div>
+
+        {/* Strategic Pull Quote */}
+        <div className="text-center pt-8 opacity-0 animate-in fade-in slide-in-from-bottom-4 duration-1000 fill-mode-forwards [animation-delay:1200ms]">
+          <div className="w-16 h-[1px] bg-brand-gold/30 mx-auto mb-10" />
+          <p className="font-serif italic text-2xl md:text-4xl text-brand-gold max-w-4xl mx-auto leading-tight tracking-tight">
+            &ldquo;Distribution puts Savanna on the shelf. <br className="hidden md:block" /> Cultural ownership puts Savanna in the conversation.&rdquo;
+          </p>
+        </div>
       </div>
     </div>
   );
