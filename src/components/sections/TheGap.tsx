@@ -1,8 +1,7 @@
-
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
-import { RefreshCcw, Lock, Check, Circle, HelpCircle, Users, Zap, Target } from 'lucide-react';
+import { RefreshCcw, Lock, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const RadialGauge = ({ 
@@ -77,7 +76,7 @@ export const TheGap = () => {
           <h2 className="font-headline text-5xl md:text-8xl text-brand-cream uppercase leading-none tracking-tighter blur-in">
             THE SUNDAY OPPORTUNITY
           </h2>
-          <div className={cn("absolute -bottom-2 left-0 h-[1.5px] bg-brand-gold transition-all duration-[1200ms] ease-in-out origin-left", isVisible ? "w-full" : "w-0")} />
+          <div className={cn("absolute -bottom-2 left-0 h-[1.5px] bg-brand-gold transition-all duration-1000 ease-in-out origin-left", isVisible ? "w-full" : "w-0")} />
         </div>
         <p className="font-serif italic text-lg md:text-2xl text-brand-gold/80 leading-tight">
           Nairobi's most concentrated brand-building window. <span className={cn("text-brand-gold inline-block transition-all duration-1000 delay-500", isVisible ? "opacity-100 scale-105" : "opacity-0 scale-100")}>No brand owns it.</span>
@@ -126,46 +125,10 @@ export const TheGap = () => {
               <span className="text-brand-gold">Culturally Invisible</span>
             </div>
             <p className="font-serif italic text-sm md:text-base text-brand-gold text-center pt-2">
-              "Distribution puts you on the shelf. <br/>Culture puts you in the conversation."
+              "Distribution puts Savanna on the shelf. <br/>Culture puts you in the conversation."
             </p>
           </div>
         </div>
-      </div>
-
-      {/* 03: MINI LANDSCAPE MAP (COMPACT) */}
-      <div className="space-y-6 pt-4">
-        <div className="flex justify-between items-end border-b border-white/5 pb-2">
-          <span className="font-headline text-[10px] tracking-[4px] text-brand-cream/40 uppercase">Nairobi Landscape Map</span>
-          <span className="font-body text-[9px] text-brand-gold/40 uppercase italic">Fragmentation audit</span>
-        </div>
-        
-        <div className="relative h-[280px] w-full bg-white/[0.01] border border-white/5 rounded-[24px] overflow-hidden group/landscape">
-          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] pointer-events-none" />
-
-          {[
-            { label: "Rooftop Brunch", t: "15%", l: "10%", c: "bg-slate-500/20" },
-            { label: "Garden Party", t: "45%", l: "25%", c: "bg-teal-700/20" },
-            { label: "Poolside", t: "10%", l: "60%", c: "bg-sky-700/20" },
-            { label: "DJ Event", t: "65%", l: "55%", c: "bg-stone-600/20" },
-            { label: "Sundowner", t: "35%", l: "75%", c: "bg-cyan-700/20" },
-          ].map((pill, i) => (
-            <div
-              key={i}
-              className={cn("absolute px-4 py-1.5 rounded-full backdrop-blur-md border border-white/10 transition-all duration-1000", pill.c, isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90")}
-              style={{ top: pill.t, left: pill.l, transitionDelay: `${i * 100}ms` }}
-            >
-              <span className="font-body text-[9px] font-bold text-brand-cream/60">{pill.label}</span>
-            </div>
-          ))}
-
-          <div className={cn("absolute bottom-6 right-10 w-24 h-24 rounded-full border-2 border-dashed border-brand-gold/30 flex items-center justify-center transition-all duration-1000", isVisible ? "opacity-100 scale-100" : "opacity-0 scale-50")} style={{ transitionDelay: '1.5s' }}>
-            <span className="font-headline text-3xl text-brand-gold opacity-20">?</span>
-            <div className="absolute inset-0 animate-ping bg-brand-gold/5 rounded-full" />
-          </div>
-        </div>
-        <p className="font-body text-[10px] text-brand-cream/30 italic text-center">
-          The empty space is the opportunity.
-        </p>
       </div>
 
       <style jsx global>{`

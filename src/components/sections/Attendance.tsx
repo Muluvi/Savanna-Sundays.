@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -35,10 +34,10 @@ export const AttendanceDemandSection = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 relative">
           <div className="absolute top-1/2 left-0 w-full h-[1px] bg-brand-green/10 hidden md:block" />
           {[
-            { day: "14", label: "Anchor", sub: "Announcement", delay: "delay-[100ms]" },
-            { day: "10", label: "Spatial", sub: "Venue Drop", delay: "delay-[300ms]" },
-            { day: "07", label: "Sonic", sub: "DJ Reveal", delay: "delay-[500ms]" },
-            { day: "00", label: "Harvest", sub: "Live Event", active: true, delay: "delay-[700ms]" },
+            { day: "14", label: "Anchor", sub: "Announcement", delay: "[animation-delay:100ms]" },
+            { day: "10", label: "Spatial", sub: "Venue Drop", delay: "[animation-delay:300ms]" },
+            { day: "07", label: "Sonic", sub: "DJ Reveal", delay: "[animation-delay:500ms]" },
+            { day: "00", label: "Harvest", sub: "Live Event", active: true, delay: "[animation-delay:700ms]" },
           ].map((step, i) => (
             <div key={i} className={`relative z-10 flex flex-col items-center text-center space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-1000 fill-mode-forwards ${step.delay}`}>
               <div className={`w-14 h-14 md:w-16 md:h-16 rounded-full flex flex-col items-center justify-center shadow-lg border transition-all hover:scale-110 ${step.active ? 'bg-brand-green text-brand-gold border-brand-gold animate-pulse' : 'bg-white text-brand-green border-brand-green/5'}`}>

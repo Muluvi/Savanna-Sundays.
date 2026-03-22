@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from 'react';
@@ -46,11 +45,13 @@ export const MobileNav = () => {
         <nav className="w-full">
           <ul className="space-y-4">
             {sections.map((section, i) => (
-              <li key={section.id} className={cn(
-                "transition-all duration-500",
-                isOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0",
-                `delay-[${i * 50}ms]`
-              )}>
+              <li key={section.id} 
+                className={cn(
+                  "transition-all duration-500",
+                  isOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                )}
+                style={{ transitionDelay: isOpen ? `${i * 50}ms` : '0ms' }}
+              >
                 <button
                   onClick={() => scrollTo(section.id)}
                   className="w-full text-center py-4 text-3xl font-headline text-brand-gold hover:text-brand-cream hover:scale-110 transition-all"
