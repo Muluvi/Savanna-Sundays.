@@ -15,8 +15,7 @@ import { VisualIdentitySection } from '@/components/sections/VisualIdentity';
 import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
 import { ContentSocialSection } from '@/components/sections/ContentProduction';
 import { BuildingTheCrowd } from '@/components/sections/BuildingTheCrowd';
-import { SponsorshipRevenueSection } from '@/components/sections/SponsorshipRevenue';
-import { MeasurementROInSection } from '@/components/sections/MeasurementROI';
+import { TheNumbersSection } from '@/components/sections/SponsorshipRevenue';
 import { WhyFireflySection } from '@/components/sections/WhyFirefly';
 import { LeadCapture } from '@/components/sections/LeadCapture';
 import { StrategicAdvisor } from '@/components/ai/StrategicAdvisor';
@@ -69,15 +68,9 @@ const sectionsData = [
   { 
     id: 'the-numbers', 
     label: '06 — THE NUMBERS', 
-    title: 'A REVENUE PLATFORM', 
+    title: 'THE NUMBERS', 
     variant: 'alt' as const, 
-    component: (
-      <div className="space-y-12">
-        <SponsorshipRevenueSection />
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/10 to-transparent" />
-        <MeasurementROInSection />
-      </div>
-    )
+    component: <TheNumbersSection />
   },
   { 
     id: 'the-partnership', 

@@ -3,73 +3,118 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Target, Users, Gem, RefreshCcw, Landmark, Music, HardHat, Camera, Rocket, Flag } from 'lucide-react';
+import { Beer, Smartphone, Users } from 'lucide-react';
 
-const costs = [
-  { category: "Venue & Permits", range: "150k – 450k", icon: <Landmark size={14} /> },
-  { category: "Talent (DJs/MC)", range: "300k – 800k", icon: <Music size={14} /> },
-  { category: "AV & Stage", range: "400k – 1.2M", icon: <HardHat size={14} /> },
-  { category: "Content That Works Hard", range: "80k – 200k", icon: <Camera size={14} /> },
+const weeklyBudget = [
+  { item: "MC", cost: "40,000" },
+  { item: "DJ 1", cost: "50,000" },
+  { item: "DJ 2", cost: "50,000" },
+  { item: "Influencer 1", cost: "20,000" },
+  { item: "Influencer 2", cost: "20,000" },
+  { item: "Influencer 3", cost: "20,000" },
+  { item: "Influencer 4", cost: "20,000" },
+  { item: "Influencer 5", cost: "20,000" },
+  { item: "Venue", cost: "50,000" },
 ];
 
-export const SponsorshipRevenueSection = () => {
+export const TheNumbersSection = () => {
   return (
-    <div className="space-y-6 md:space-y-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center animate-fade-in-up">
-        <div className="space-y-4">
-          <div className="section-label">06A: The Profit Engine</div>
-          <p className="font-body text-xs md:text-base text-brand-green/60 leading-relaxed">
-            Savanna Sundays is engineered as a high-performance revenue engine leverage brand equity for sustainable growth.
-          </p>
-        </div>
-        
-        <div className="py-6 flex flex-col items-center justify-center">
-          <h3 className="font-serif italic text-xl md:text-2xl text-brand-green/80 leading-relaxed px-4 text-center">
-            "We invest in equity."
-          </h3>
+    <div className="space-y-16">
+      <div className="space-y-4">
+        <p className="font-body text-lg md:text-xl text-brand-text-muted leading-relaxed">
+          Transparent costs. Clear value. Every Sunday.
+        </p>
+      </div>
+
+      <div className="space-y-8">
+        <div className="section-label">Weekly Activation Budget</div>
+        <div className="bg-brand-dark rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
+          <Table>
+            <TableHeader className="bg-brand-green">
+              <TableRow className="hover:bg-transparent border-none">
+                <TableHead className="text-white font-headline tracking-widest py-4 px-8 text-sm md:text-base uppercase">Item</TableHead>
+                <TableHead className="text-white font-headline tracking-widest text-right px-8 text-sm md:text-base uppercase">KSh</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {weeklyBudget.map((row, i) => (
+                <TableRow key={i} className={`border-white/5 transition-colors ${i % 2 === 0 ? 'bg-brand-dark' : 'bg-brand-dark-alt'}`}>
+                  <TableCell className="font-body font-bold text-sm py-4 px-8 text-brand-cream">
+                    {row.item}
+                  </TableCell>
+                  <TableCell className="font-headline text-xl text-brand-cream text-right px-8">
+                    {row.cost}
+                  </TableCell>
+                </TableRow>
+              ))}
+              <TableRow className="bg-brand-dark border-t-2 border-brand-gold">
+                <TableCell className="font-headline text-2xl py-6 px-8 text-brand-gold">
+                  Weekly Total
+                </TableCell>
+                <TableCell className="font-headline text-3xl text-brand-gold text-right px-8">
+                  290,000
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 animate-fade-in-up [animation-delay:200ms]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
-          { label: "Ticketing", icon: <Users size={16} /> },
-          { label: "Sponsorships", icon: <Target size={16} /> },
-          { label: "VIP Sales", icon: <Gem size={16} /> },
-          { label: "Partners", icon: <RefreshCcw size={16} /> },
-        ].map((pillar, i) => (
-          <Card key={i} className="p-4 bg-white border border-brand-green/5 rounded-xl flex flex-col items-center text-center gap-2 hover:border-brand-gold transition-all">
-            <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center">
-              {pillar.icon}
+          { amount: "KSh 1,160,000", label: "Weekly Activations ×4", sub: "KSh 290,000 × 4 Sundays" },
+          { amount: "KSh 165,000", label: "Content Production", sub: "4 DJ sets · 16 Reels · 28 photos" },
+          { amount: "KSh 212,400", label: "Agency Fee", sub: "16% of total monthly budget — Firefly Management" },
+        ].map((card, i) => (
+          <Card key={i} className="p-8 bg-brand-green border-none rounded-[24px] space-y-2 shadow-2xl hover:-translate-y-1 transition-transform">
+            <div className="font-headline text-4xl text-brand-gold leading-none">
+              {card.amount}
             </div>
-            <h4 className="font-headline text-sm text-brand-green uppercase leading-none">{pillar.label}</h4>
+            <div className="space-y-1">
+              <h5 className="font-body font-bold text-sm text-brand-cream uppercase tracking-wider">{card.label}</h5>
+              <p className="font-body text-[10px] text-brand-text-muted uppercase tracking-widest font-bold">{card.sub}</p>
+            </div>
           </Card>
         ))}
       </div>
 
-      <div className="space-y-4 animate-fade-in-up [animation-delay:400ms]">
-        <div className="section-label">06B: Production Investment Matrix</div>
-        <div className="bg-white rounded-xl overflow-hidden border border-brand-green/5 shadow-md">
-          <Table>
-            <TableHeader className="bg-brand-green">
-              <TableRow className="hover:bg-transparent border-none">
-                <TableHead className="text-white font-headline tracking-widest py-3 px-6 text-xs">Investment Category</TableHead>
-                <TableHead className="text-white font-headline tracking-widest text-right px-6 text-xs">KSh Range</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {costs.map((cost, i) => (
-                <TableRow key={i} className="hover:bg-brand-gold/5 transition-colors border-brand-green/5">
-                  <TableCell className="font-headline text-lg py-3 px-6 flex items-center gap-3 text-brand-green">
-                    <div className="text-brand-gold">{cost.icon}</div>
-                    {cost.category}
-                  </TableCell>
-                  <TableCell className="font-body font-bold text-sm text-brand-teal text-right px-6">
-                    {cost.range}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+      <div className="text-center py-12 border-y border-white/5">
+        <div className="space-y-2">
+          <p className="font-body text-[10px] text-brand-text-muted uppercase tracking-[4px] font-bold">Consolidated Investment</p>
+          <h3 className="font-headline text-6xl md:text-8xl text-brand-gold leading-none tracking-tighter">
+            Monthly Total: KSh 1,537,400
+          </h3>
+        </div>
+      </div>
+
+      <div className="space-y-8">
+        <p className="font-body text-lg text-brand-cream text-center md:text-left font-bold uppercase tracking-wider">
+          For KSh 1,537,400/month, KWAL receives:
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { 
+              icon: <Beer className="text-brand-gold" size={32} />, 
+              text: "4 full brand activations — full squad, full venue transformation, 2PM to 9PM" 
+            },
+            { 
+              icon: <Smartphone className="text-brand-gold" size={32} />, 
+              text: "48 pieces of content — 4 YouTube DJ sets, 16 Reels, 28 photos — branded and distributed" 
+            },
+            { 
+              icon: <Users className="text-brand-gold" size={32} />, 
+              text: "A growing Nairobi community that identifies Savanna with the best Sundays in the city" 
+            },
+          ].map((item, i) => (
+            <div key={i} className="flex flex-col items-center md:items-start gap-4 text-center md:text-left">
+              <div className="w-16 h-16 rounded-full bg-brand-gold/10 flex items-center justify-center">
+                {item.icon}
+              </div>
+              <p className="font-body text-sm text-brand-text-muted leading-relaxed font-semibold">
+                {item.text}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
