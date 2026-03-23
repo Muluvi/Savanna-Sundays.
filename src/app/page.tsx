@@ -41,10 +41,13 @@ const sectionsData = [
   { 
     id: 'the-experience', 
     label: '03 — THE EXPERIENCE', 
-    title: 'WHAT A SAVANNA SUNDAY LOOKS LIKE', 
+    title: 'THE SAVANNA EXPERIENCE', 
     variant: 'light' as const, 
     component: (
       <div className="space-y-12">
+        <p className="font-body text-lg text-brand-gold/80 italic text-center max-w-2xl mx-auto -mt-4 mb-8">
+          Every venue gets the full brand treatment. Every Sunday.
+        </p>
         <VisualIdentitySection />
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/10 to-transparent" />
         <ExperienceDesignSection />
@@ -172,8 +175,8 @@ export default function Home() {
           <div className="relative z-20 flex flex-col items-center mt-20 opacity-0 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-1000 fill-mode-forwards">
             <div className="w-8 h-[1px] bg-brand-gold/20 mb-6" />
             <div className="text-center space-y-1">
-              <p className="font-body text-[10px] tracking-[3px] text-[#B8A98A] uppercase font-bold">Prepared by Firefly Management</p>
-              <p className="font-body text-[10px] tracking-[3px] text-[#B8A98A] uppercase font-bold">Prepared for Kenya Wine Agencies Limited (KWAL)</p>
+              <p className="font-body text-10px tracking-[3px] text-[#B8A98A] uppercase font-bold">Prepared by Firefly Management</p>
+              <p className="font-body text-10px tracking-[3px] text-[#B8A98A] uppercase font-bold">Prepared for Kenya Wine Agencies Limited (KWAL)</p>
             </div>
             <div className="mt-8 animate-bounce opacity-20">
               <ChevronDown className="text-[#F4C542]" size={20} />
