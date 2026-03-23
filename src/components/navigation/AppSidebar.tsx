@@ -5,17 +5,16 @@ import { cn } from '@/lib/utils';
 import { ChevronUp } from 'lucide-react';
 
 const sections = [
-  { id: 'hero', label: '00 — HERO' },
-  { id: 'the-gap', label: '01 — THE GAP' },
-  { id: 'the-concept', label: '02 — THE CONCEPT' },
-  { id: 'the-experience', label: '03 — THE EXPERIENCE' },
-  { id: 'the-content-engine', label: '04 — THE CONTENT ENGINE' },
-  { id: 'building-the-crowd', label: '05 — BUILDING THE CROWD' },
-  { id: 'the-numbers', label: '06 — THE NUMBERS' },
+  { id: 'the-gap', label: 'The Sunday Opportunity' },
+  { id: 'the-concept', label: 'How It Works' },
+  { id: 'the-experience', label: 'The Savanna Experience' },
+  { id: 'the-content-engine', label: 'Content That Works Hard' },
+  { id: 'building-the-crowd', label: 'Building the Crowd' },
+  { id: 'the-numbers', label: 'The Numbers' },
 ];
 
 export const AppSidebar = () => {
-  const [activeId, setActiveId] = useState('hero');
+  const [activeId, setActiveId] = useState('');
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -58,7 +57,7 @@ export const AppSidebar = () => {
                 <button
                   onClick={() => scrollTo(section.id)}
                   className={cn(
-                    "w-full text-left py-3 px-8 text-[10px] tracking-[2px] font-bold uppercase transition-all border-l-4",
+                    "w-full text-left py-4 px-8 text-[10px] tracking-[2px] font-bold uppercase transition-all border-l-4",
                     activeId === section.id 
                       ? "bg-white/5 text-brand-gold border-brand-gold" 
                       : "text-brand-cream/40 border-transparent hover:text-brand-cream hover:bg-white/5"
@@ -85,7 +84,7 @@ export const AppSidebar = () => {
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         className={cn(
           "fixed bottom-8 right-8 z-[60] bg-brand-gold text-brand-green p-4 rounded-full shadow-lg transition-all duration-300 active:scale-95",
-          progress > 10 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+          progress > 5 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
         )}
       >
         <ChevronUp size={24} />

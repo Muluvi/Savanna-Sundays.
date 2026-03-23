@@ -3,9 +3,7 @@
 import { AppSidebar } from '@/components/navigation/AppSidebar';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { SectionContainer } from '@/components/sections/SectionContainer';
-import Image from 'next/image';
-import { ChevronDown } from 'lucide-react';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { ChevronDown, ArrowRight } from 'lucide-react';
 import { useAnalyticsTracker } from '@/hooks/use-analytics-tracker';
 
 // Content sections
@@ -73,7 +71,6 @@ const sectionsData = [
 
 export default function Home() {
   useAnalyticsTracker();
-  const logo = PlaceHolderImages.find(img => img.id === 'firefly-logo');
 
   const scrollToSection1 = () => {
     const el = document.getElementById('the-gap');
@@ -112,8 +109,8 @@ export default function Home() {
               </h1>
               
               <div className="max-w-3xl mx-auto space-y-6 opacity-0 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-forwards">
-                <div className="space-y-2">
-                  <p className="font-serif italic text-xl md:text-3xl text-[#F8F5E6] tracking-wide">
+                <div className="space-y-4">
+                  <p className="font-serif text-xl md:text-3xl text-[#F8F5E6] tracking-wide">
                     Own Every Sunday in Nairobi
                   </p>
                   <p className="font-serif italic text-base md:text-lg text-[#B8A98A]">
@@ -157,34 +154,39 @@ export default function Home() {
           </SectionContainer>
         ))}
 
-        <footer className="bg-brand-dark py-16 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
-            <div className="flex flex-col items-center md:items-start">
-              {logo && (
-                <div className="relative w-[150px] h-[40px] md:w-[200px] md:h-[60px] mb-4 opacity-50 hover:opacity-100 transition-opacity">
-                  <Image 
-                    src={logo.imageUrl} 
-                    alt="Firefly Management" 
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              )}
-              <p className="font-body text-[8px] tracking-[1.5px] uppercase text-[#B8A98A]">
-                &copy; 2024 Firefly Management. Confidential Strategic Document.
-              </p>
-            </div>
-
-            <div className="max-w-xs text-center md:text-right">
-              <p className="font-body text-[10px] tracking-[1px] uppercase text-[#F4C542] font-bold">
-                Drink Responsibly.
-              </p>
-              <p className="font-body text-[7px] tracking-[0.5px] uppercase text-[#B8A98A] mt-1">
-                Not for sale to persons under the age of 18 years.
-              </p>
-            </div>
+        {/* Closing Block */}
+        <div className="py-24 px-6 text-center space-y-12 bg-brand-dark border-t border-white/5 relative overflow-hidden">
+          <div className="max-w-2xl mx-auto space-y-8 relative z-10">
+            <p className="font-serif italic text-2xl md:text-3xl text-brand-cream leading-relaxed">
+              "Savanna Sundays is ready to run.<br className="hidden md:block" />
+              The squad is assembled. The format is proven. The content engine is built.<br className="hidden md:block" />
+              All that's needed is the signal to go."
+            </p>
+            <p className="font-body text-xs md:text-sm text-brand-text-muted uppercase tracking-[3px] font-bold">
+              Firefly Management — NextGen Mall, Mombasa Road, Nairobi
+            </p>
           </div>
-        </footer>
+
+          <div className="pt-4 relative z-10">
+            <a 
+              href="mailto:partner@firefly.co.ke" 
+              className="inline-flex items-center gap-4 bg-[#F4C542] text-[#1A1208] px-12 py-5 rounded-full font-headline text-2xl tracking-widest hover:bg-[#E8873A] hover:scale-105 transition-all duration-300 shadow-2xl active:scale-95 group"
+            >
+              <span>Let&apos;s Own Sunday</span>
+              <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+            </a>
+          </div>
+
+          <div className="pt-24 opacity-30 relative z-10">
+            <p className="font-body text-[10px] md:text-[11px] text-brand-text-muted uppercase tracking-[2px] font-bold">
+              Prepared by Firefly Management for Kenya Wine Agencies Limited (KWAL) — Savanna Premium Cider
+            </p>
+          </div>
+          
+          <div className="absolute inset-0 pointer-events-none" style={{
+            background: `radial-gradient(circle at 50% 100%, rgba(244,197,66,0.05) 0%, transparent 70%)`
+          }} />
+        </div>
       </main>
     </div>
   );

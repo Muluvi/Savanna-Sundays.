@@ -5,13 +5,12 @@ import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const sections = [
-  { id: 'hero', label: '00 — HERO' },
-  { id: 'the-gap', label: '01 — THE GAP' },
-  { id: 'the-concept', label: '02 — THE CONCEPT' },
-  { id: 'the-experience', label: '03 — THE EXPERIENCE' },
-  { id: 'the-content-engine', label: '04 — THE CONTENT ENGINE' },
-  { id: 'building-the-crowd', label: '05 — BUILDING THE CROWD' },
-  { id: 'the-numbers', label: '06 — THE NUMBERS' },
+  { id: 'the-gap', label: 'The Sunday Opportunity' },
+  { id: 'the-concept', label: 'How It Works' },
+  { id: 'the-experience', label: 'The Savanna Experience' },
+  { id: 'the-content-engine', label: 'Content That Works Hard' },
+  { id: 'building-the-crowd', label: 'Building the Crowd' },
+  { id: 'the-numbers', label: 'The Numbers' },
 ];
 
 export const MobileNav = () => {
@@ -41,7 +40,7 @@ export const MobileNav = () => {
         isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
       )}>
         <nav className="w-full">
-          <ul className="space-y-4">
+          <ul className="space-y-6">
             {sections.map((section, i) => (
               <li key={section.id} 
                 className={cn(
@@ -52,7 +51,7 @@ export const MobileNav = () => {
               >
                 <button
                   onClick={() => scrollTo(section.id)}
-                  className="w-full text-center py-4 text-3xl font-headline text-brand-gold hover:text-brand-cream hover:scale-110 transition-all"
+                  className="w-full text-center py-2 text-2xl font-headline text-brand-gold hover:text-brand-cream transition-all uppercase tracking-wider"
                 >
                   {section.label}
                 </button>
