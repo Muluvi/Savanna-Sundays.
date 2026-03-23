@@ -16,9 +16,6 @@ import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign'
 import { ContentSocialSection } from '@/components/sections/ContentProduction';
 import { BuildingTheCrowd } from '@/components/sections/BuildingTheCrowd';
 import { TheNumbersSection } from '@/components/sections/SponsorshipRevenue';
-import { WhyFireflySection } from '@/components/sections/WhyFirefly';
-import { LeadCapture } from '@/components/sections/LeadCapture';
-import { StrategicAdvisor } from '@/components/ai/StrategicAdvisor';
 
 const sectionsData = [
   { 
@@ -42,7 +39,7 @@ const sectionsData = [
     variant: 'dark' as const, 
     component: (
       <div className="space-y-12">
-        <p className="font-body text-lg text-brand-gold/80 italic text-center max-w-2xl mx-auto -mt-4 mb-8">
+        <p className="font-body text-lg text-[#B8A98A] italic text-center max-w-2xl mx-auto -mt-4 mb-8">
           Every venue gets the full brand treatment. Every Sunday.
         </p>
         <VisualIdentitySection />
@@ -71,27 +68,6 @@ const sectionsData = [
     title: 'THE NUMBERS', 
     variant: 'alt' as const, 
     component: <TheNumbersSection />
-  },
-  { 
-    id: 'the-partnership', 
-    label: '07 — THE PARTNERSHIP', 
-    title: 'WHY FIREFLY. WHY NOW.', 
-    variant: 'dark' as const, 
-    component: <WhyFireflySection />
-  },
-  { 
-    id: 'strategic-advisor', 
-    label: '08', 
-    title: 'QUERY THE ENGINE', 
-    variant: 'alt' as const, 
-    component: <StrategicAdvisor />
-  },
-  { 
-    id: 'lead-capture', 
-    label: '09 — NEXT STEPS', 
-    title: 'SECURE THE MOMENTUM', 
-    variant: 'dark' as const, 
-    component: <LeadCapture />
   },
 ];
 
@@ -160,8 +136,8 @@ export default function Home() {
           <div className="relative z-20 flex flex-col items-center mt-20 opacity-0 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-1000 fill-mode-forwards">
             <div className="w-8 h-[1px] bg-brand-gold/20 mb-6" />
             <div className="text-center space-y-1">
-              <p className="font-body text-10px tracking-[3px] text-[#B8A98A] uppercase font-bold">Prepared by Firefly Management</p>
-              <p className="font-body text-10px tracking-[3px] text-[#B8A98A] uppercase font-bold">Prepared for Kenya Wine Agencies Limited (KWAL)</p>
+              <p className="font-body text-[10px] tracking-[3px] text-[#B8A98A] uppercase font-bold">Prepared by Firefly Management</p>
+              <p className="font-body text-[10px] tracking-[3px] text-[#B8A98A] uppercase font-bold">Prepared for Kenya Wine Agencies Limited (KWAL)</p>
             </div>
             <div className="mt-8 animate-bounce opacity-20">
               <ChevronDown className="text-[#F4C542]" size={20} />

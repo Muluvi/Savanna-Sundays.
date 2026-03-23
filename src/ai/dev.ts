@@ -1,2 +1,3 @@
 // Flows will be imported for their side effects in this file.
-import './flows/advisor-flow';
+// All flows removed as advisor-flow is no longer used.
+export {};

@@ -12,8 +12,6 @@ const sections = [
   { id: 'the-content-engine', label: '04 — THE CONTENT ENGINE' },
   { id: 'building-the-crowd', label: '05 — BUILDING THE CROWD' },
   { id: 'the-numbers', label: '06 — THE NUMBERS' },
-  { id: 'the-partnership', label: '07 — THE PARTNERSHIP' },
-  { id: 'lead-capture', label: '09 — NEXT STEPS' },
 ];
 
 export const MobileNav = () => {
