@@ -10,9 +10,10 @@ const sections = [
   { id: 'the-concept', label: '02 — THE CONCEPT' },
   { id: 'the-experience', label: '03 — THE EXPERIENCE' },
   { id: 'the-content-engine', label: '04 — THE CONTENT ENGINE' },
-  { id: 'the-numbers', label: '05 — THE NUMBERS' },
-  { id: 'the-partnership', label: '06 — THE PARTNERSHIP' },
-  { id: 'lead-capture', label: '07 — NEXT STEPS' },
+  { id: 'building-the-crowd', label: '05 — BUILDING THE CROWD' },
+  { id: 'the-numbers', label: '06 — THE NUMBERS' },
+  { id: 'the-partnership', label: '07 — THE PARTNERSHIP' },
+  { id: 'lead-capture', label: '09 — NEXT STEPS' },
 ];
 
 export const AppSidebar = () => {

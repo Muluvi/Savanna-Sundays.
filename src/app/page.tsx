@@ -14,6 +14,7 @@ import { DualActivationModel } from '@/components/sections/DualModel';
 import { VisualIdentitySection } from '@/components/sections/VisualIdentity';
 import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
 import { ContentSocialSection } from '@/components/sections/ContentProduction';
+import { BuildingTheCrowd } from '@/components/sections/BuildingTheCrowd';
 import { SponsorshipRevenueSection } from '@/components/sections/SponsorshipRevenue';
 import { MeasurementROInSection } from '@/components/sections/MeasurementROI';
 import { WhyFireflySection } from '@/components/sections/WhyFirefly';
@@ -39,7 +40,7 @@ const sectionsData = [
     id: 'the-experience', 
     label: '03 — THE EXPERIENCE', 
     title: 'THE SAVANNA EXPERIENCE', 
-    variant: 'light' as const, 
+    variant: 'dark' as const, 
     component: (
       <div className="space-y-12">
         <p className="font-body text-lg text-brand-gold/80 italic text-center max-w-2xl mx-auto -mt-4 mb-8">
@@ -59,8 +60,15 @@ const sectionsData = [
     component: <ContentSocialSection />
   },
   { 
+    id: 'building-the-crowd', 
+    label: '05 — BUILDING THE CROWD', 
+    title: 'BUILDING THE CROWD', 
+    variant: 'dark' as const, 
+    component: <BuildingTheCrowd />
+  },
+  { 
     id: 'the-numbers', 
-    label: '05 — THE NUMBERS', 
+    label: '06 — THE NUMBERS', 
     title: 'A REVENUE PLATFORM', 
     variant: 'alt' as const, 
     component: (
@@ -73,21 +81,21 @@ const sectionsData = [
   },
   { 
     id: 'the-partnership', 
-    label: '06 — THE PARTNERSHIP', 
+    label: '07 — THE PARTNERSHIP', 
     title: 'WHY FIREFLY. WHY NOW.', 
     variant: 'dark' as const, 
     component: <WhyFireflySection />
   },
   { 
     id: 'strategic-advisor', 
-    label: '07', 
+    label: '08', 
     title: 'QUERY THE ENGINE', 
     variant: 'alt' as const, 
     component: <StrategicAdvisor />
   },
   { 
     id: 'lead-capture', 
-    label: '08 — NEXT STEPS', 
+    label: '09 — NEXT STEPS', 
     title: 'SECURE THE MOMENTUM', 
     variant: 'dark' as const, 
     component: <LeadCapture />
