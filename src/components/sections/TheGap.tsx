@@ -70,7 +70,6 @@ export const TheGap = () => {
 
   return (
     <div ref={sectionRef} className="space-y-12 py-8 relative overflow-hidden">
-      {/* 01: COMPACT HEADLINE */}
       <div className="space-y-4">
         <div className="relative inline-block">
           <h2 className="font-headline text-5xl md:text-8xl text-brand-cream uppercase leading-none tracking-tighter blur-in">
@@ -78,23 +77,21 @@ export const TheGap = () => {
           </h2>
           <div className={cn("absolute -bottom-2 left-0 h-[1.5px] bg-brand-gold transition-all duration-1000 ease-in-out origin-left", isVisible ? "w-full" : "w-0")} />
         </div>
-        <p className="font-serif italic text-lg md:text-2xl text-brand-gold/80 leading-tight">
+        <p className="font-serif italic text-lg md:text-2xl text-brand-gold leading-tight">
           Nairobi's most concentrated brand-building window. <span className={cn("text-brand-gold inline-block transition-all duration-1000 delay-500", isVisible ? "opacity-100 scale-105" : "opacity-0 scale-100")}>No brand owns it.</span>
         </p>
       </div>
 
-      {/* 02: STRATEGIC DASHBOARD (CONSOLIDATED) */}
       <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 items-start">
-        {/* Left: Punchy Narrative & Insights */}
         <div className="space-y-6">
-          <p className="font-body text-base md:text-lg text-brand-cream/80 leading-relaxed border-l-2 border-brand-gold/30 pl-6">
+          <p className="font-body text-base md:text-lg text-brand-cream leading-relaxed border-l-2 border-brand-gold/30 pl-6">
             Sunday is an identity-signalling act for Nairobi's professional demographic. Every week, thousands make a clustered set of decisions—venue, drink, and broadcast—unfolding in WhatsApp chats and peaking between 2PM and 8PM. Fragmented markets always consolidate; the question is which brand moves first.
           </p>
 
           <div className="space-y-4">
             {[
               { icon: <RefreshCcw size={16} />, title: "REPETITION TRAP", text: "Activations reset every Monday, building zero systematic equity." },
-              { icon: <Zap size={16} />, title: "CONTENT DEFICIT", text: "Volume is high, but lifespan is <48 hours. Strategic waste is constant." },
+              { icon: <Zap size={16} />, title: "CONTENT THAT WORKS HARD", text: "Volume is high, but lifespan is <48 hours. Strategic waste is constant." },
               { icon: <Lock size={16} />, title: "OWNERSHIP VACUUM", text: "A category-level white space waiting for a defining operator." }
             ].map((item, i) => (
               <div key={i} className="flex gap-4 items-start p-4 glass-card group hover:border-brand-gold/40 transition-all duration-500">
@@ -103,16 +100,15 @@ export const TheGap = () => {
                 </div>
                 <div>
                   <h4 className="font-headline text-sm text-brand-gold uppercase tracking-widest">{item.title}</h4>
-                  <p className="text-xs text-brand-cream/60 font-body leading-snug">{item.text}</p>
+                  <p className="text-xs text-brand-text-muted font-body leading-snug">{item.text}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Right: Footprint Visual Dashboard */}
         <div className="bg-white/[0.03] border border-white/5 rounded-[32px] p-8 flex flex-col items-center justify-center space-y-8">
-          <h4 className="font-headline text-xs tracking-[4px] text-brand-cream/40 uppercase font-bold text-center">Brand Footprint Audit</h4>
+          <h4 className="font-headline text-xs tracking-[4px] text-brand-text-muted uppercase font-bold text-center">Brand Footprint Audit</h4>
           
           <div className="flex justify-around w-full gap-4">
             <RadialGauge percentage={85} color="#2D8C7F" label="DISTRIBUTION" isVisible={isVisible} delay={800} />

@@ -1,4 +1,3 @@
-
 'use client';
 
 import { AppSidebar } from '@/components/navigation/AppSidebar';
@@ -75,7 +74,7 @@ const sectionsData = [
   { 
     id: 'the-numbers', 
     label: '06 — THE NUMBERS', 
-    title: 'A REVENUE PLATFORM, NOT A COST LINE', 
+    title: 'A REVENUE PLATFORM', 
     variant: 'alt' as const, 
     component: (
       <div className="space-y-12">
@@ -94,7 +93,7 @@ const sectionsData = [
   },
   { 
     id: 'strategic-advisor', 
-    label: '08 — STRATEGIC INTELLIGENCE', 
+    label: '08', 
     title: 'QUERY THE ENGINE', 
     variant: 'alt' as const, 
     component: <StrategicAdvisor />
@@ -129,7 +128,7 @@ export default function Home() {
               </h1>
               
               <div className="max-w-2xl mx-auto opacity-0 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-forwards">
-                <p className="font-serif italic text-lg md:text-2xl text-brand-cream/60 tracking-wide">
+                <p className="font-serif italic text-lg md:text-2xl text-brand-text-muted tracking-wide">
                   Own Every Sunday in Nairobi
                 </p>
               </div>
@@ -182,7 +181,7 @@ export default function Home() {
                   />
                 </div>
               )}
-              <p className="font-body text-[8px] tracking-[1.5px] uppercase text-brand-cream/20">
+              <p className="font-body text-[8px] tracking-[1.5px] uppercase text-brand-text-muted">
                 &copy; 2024 Firefly Management. Confidential Strategic Document.
               </p>
             </div>
@@ -191,7 +190,7 @@ export default function Home() {
               <p className="font-body text-[10px] tracking-[1px] uppercase text-brand-gold font-bold">
                 Drink Responsibly.
               </p>
-              <p className="font-body text-[7px] tracking-[0.5px] uppercase text-brand-cream/20 mt-1">
+              <p className="font-body text-[7px] tracking-[0.5px] uppercase text-brand-text-muted mt-1">
                 Not for sale to persons under the age of 18 years.
               </p>
             </div>

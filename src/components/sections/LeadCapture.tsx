@@ -22,7 +22,6 @@ export function LeadCapture() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  // Sync email state if user becomes available (SSO)
   useEffect(() => {
     if (user?.email) {
       setEmail(user.email);
@@ -91,7 +90,7 @@ export function LeadCapture() {
           <CheckCircle2 size={40} />
         </div>
         <h3 className="font-headline text-4xl text-white uppercase">Engagement Logged</h3>
-        <p className="font-body text-brand-gold/60 uppercase tracking-[2px] text-xs">A strategic follow-up has been scheduled.</p>
+        <p className="font-body text-brand-text-muted uppercase tracking-[2px] text-xs">A strategic follow-up has been scheduled.</p>
       </Card>
     );
   }
@@ -100,12 +99,12 @@ export function LeadCapture() {
     <Card className="p-8 md:p-12 bg-white/5 border-white/10 backdrop-blur-xl rounded-[40px] shadow-2xl space-y-8">
       <div className="space-y-2 text-center md:text-left">
         <h3 className="font-headline text-4xl text-white uppercase leading-none">Stakeholder Feedback</h3>
-        <p className="font-body text-brand-gold/60 text-xs uppercase tracking-[3px] font-bold">Request a session or leave a comment</p>
+        <p className="font-body text-brand-text-muted text-xs uppercase tracking-[3px] font-bold">Request a session or leave a comment</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
-          <label className="text-[9px] font-bold text-brand-gold/60 uppercase tracking-[3px] ml-1">Work Email</label>
+          <label className="text-[9px] font-bold text-brand-text-muted uppercase tracking-[3px] ml-1">Work Email</label>
           <div className="relative">
             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" size={18} />
             <Input 
@@ -121,7 +120,7 @@ export function LeadCapture() {
         </div>
 
         <div className="space-y-2">
-          <label className="text-[9px] font-bold text-brand-gold/60 uppercase tracking-[3px] ml-1">Message</label>
+          <label className="text-[9px] font-bold text-brand-text-muted uppercase tracking-[3px] ml-1">Message</label>
           <Textarea 
             placeholder="How can we accelerate this partnership?" 
             className="bg-white/10 border-white/10 text-white placeholder:text-white/20 min-h-[120px] rounded-2xl focus:ring-brand-gold transition-all"

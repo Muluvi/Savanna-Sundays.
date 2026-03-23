@@ -30,7 +30,6 @@ export function StrategicAdvisor() {
         <div className="space-y-2 text-center md:text-left">
           <div className="flex items-center gap-3 justify-center md:justify-start">
             <Sparkles className="text-brand-gold animate-pulse" size={24} />
-            <h3 className="font-headline text-3xl uppercase tracking-tight">Strategic Intelligence</h3>
           </div>
           <p className="font-body text-brand-gold/60 text-xs uppercase tracking-[3px] font-bold">Query the Firefly model in real-time</p>
         </div>
@@ -44,17 +43,15 @@ export function StrategicAdvisor() {
               className="bg-white/10 border-white/20 text-white h-16 rounded-2xl pr-16 placeholder:text-white/20 focus:ring-brand-gold transition-all"
               disabled={status === 'loading' || status === 'retrying'}
             />
-            <Button 
+            <button 
               type="submit" 
-              size="icon"
-              className="absolute right-2 top-2 h-12 w-12 bg-brand-gold text-brand-green hover:bg-brand-gold/90 rounded-xl"
+              className="absolute right-2 top-2 h-12 w-12 bg-brand-gold text-brand-green hover:bg-brand-gold/90 rounded-xl flex items-center justify-center transition-all disabled:opacity-50"
               disabled={!query.trim() || status === 'loading' || status === 'retrying'}
             >
               <Send size={20} />
-            </Button>
+            </button>
           </div>
 
-          {/* Rate Limit UI Handling */}
           {status === 'retrying' && (
             <div className="flex items-center gap-3 p-4 bg-brand-gold/10 border border-brand-gold/30 rounded-2xl animate-pulse">
               <RefreshCw className="text-brand-gold animate-spin" size={18} />
@@ -62,7 +59,6 @@ export function StrategicAdvisor() {
             </div>
           )}
 
-          {/* Error & Manual Retry UI */}
           {status === 'error' && (
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 p-4 bg-red-500/10 border border-red-500/30 rounded-2xl">
               <div className="flex items-center gap-3">
@@ -79,7 +75,6 @@ export function StrategicAdvisor() {
             </div>
           )}
 
-          {/* Success Response */}
           {data && status === 'success' && (
             <div className="p-6 bg-white/5 border border-white/10 rounded-2xl space-y-3 animate-in fade-in slide-in-from-top-4">
               <span className="font-headline text-brand-gold text-xs tracking-widest uppercase">Advisor Response</span>

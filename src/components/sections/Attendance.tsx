@@ -11,7 +11,7 @@ export const AttendanceDemandSection = () => {
     <div className="space-y-6 md:space-y-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center animate-fade-in-up">
         <div className="space-y-4">
-          <div className="section-label">05A: Engineering Scarcity</div>
+          <div className="section-label">05A: Building the Crowd</div>
           <h3 className="font-headline text-2xl md:text-4xl text-brand-green uppercase leading-tight">
             Demand isn't found; <br/>it's manufactured.
           </h3>
@@ -29,17 +29,17 @@ export const AttendanceDemandSection = () => {
         </div>
       </div>
 
-      <div className="space-y-4 animate-fade-in-up [animation-delay:200ms]">
+      <div className="space-y-4 animate-fade-in-up [animation-delay:100ms]">
         <div className="section-label">05B: The 14-Day Hype Sequence</div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 relative">
           <div className="absolute top-1/2 left-0 w-full h-[1px] bg-brand-green/10 hidden md:block" />
           {[
-            { day: "14", label: "Anchor", sub: "Announcement", delay: "[animation-delay:100ms]" },
-            { day: "10", label: "Spatial", sub: "Venue Drop", delay: "[animation-delay:300ms]" },
-            { day: "07", label: "Sonic", sub: "DJ Reveal", delay: "[animation-delay:500ms]" },
-            { day: "00", label: "Harvest", sub: "Live Event", active: true, delay: "[animation-delay:700ms]" },
+            { day: "14", label: "Anchor", sub: "Announcement" },
+            { day: "10", label: "Spatial", sub: "Venue Drop" },
+            { day: "07", label: "Sonic", sub: "DJ Reveal" },
+            { day: "00", label: "Harvest", sub: "Live Event", active: true },
           ].map((step, i) => (
-            <div key={i} className={`relative z-10 flex flex-col items-center text-center space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-1000 fill-mode-forwards ${step.delay}`}>
+            <div key={i} className={`relative z-10 flex flex-col items-center text-center space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-1000 fill-mode-forwards delay-${i * 200}`}>
               <div className={`w-14 h-14 md:w-16 md:h-16 rounded-full flex flex-col items-center justify-center shadow-lg border transition-all hover:scale-110 ${step.active ? 'bg-brand-green text-brand-gold border-brand-gold animate-pulse' : 'bg-white text-brand-green border-brand-green/5'}`}>
                 <span className="font-headline text-xl md:text-2xl leading-none">{step.day}</span>
                 <span className="font-body text-[7px] uppercase font-bold tracking-widest opacity-50">Days</span>

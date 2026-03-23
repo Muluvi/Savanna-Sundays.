@@ -1,9 +1,7 @@
-
 "use client";
 
 import React from 'react';
-import Image from 'next/image';
-import { BrushStroke, WaterDroplets } from '@/components/brand/VisualElements';
+import { WaterDroplets, BrushStroke } from '@/components/brand/VisualElements';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight, Zap, ShieldCheck, CheckCircle2, Award } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -25,7 +23,7 @@ export const WhyFireflySection = () => {
           <div className="space-y-4">
             <div className="section-label">07B: The Content-First Mandate</div>
             <h4 className="font-headline text-2xl md:text-4xl text-brand-gold uppercase leading-tight">We aren't an events company.</h4>
-            <p className="font-body text-xs md:text-base text-brand-cream/60 leading-relaxed">
+            <p className="font-body text-xs md:text-base text-brand-text-muted leading-relaxed">
               Firefly is a <strong>content-first activation agency</strong>. We use physical events as our primary production set to generate narrative assets.
             </p>
           </div>
@@ -38,22 +36,20 @@ export const WhyFireflySection = () => {
             <div className="space-y-2">
               <div className="p-3 bg-brand-gold/10 rounded-xl border-l-2 border-brand-gold group-hover:translate-x-1 transition-transform">
                 <span className="font-body text-[8px] uppercase font-bold tracking-[2px] text-brand-gold block mb-1">Traditional View</span>
-                <p className="text-white/60 text-[11px] italic">"Let's fill the room and take photos."</p>
+                <p className="text-brand-text-muted text-[11px] italic">"Let's fill the room and take photos."</p>
               </div>
               <div className="p-3 bg-brand-teal/20 rounded-xl border-l-2 border-brand-teal group-hover:translate-x-1 transition-transform delay-75">
                 <span className="font-body text-[8px] uppercase font-bold tracking-[2px] text-brand-teal block mb-1">Firefly View</span>
-                <p className="text-white text-[11px] font-bold">"Let's build a set that produces 150+ assets."</p>
+                <p className="text-brand-cream text-[11px] font-bold">"Let's build a set that produces 150+ assets."</p>
               </div>
             </div>
           </Card>
         </div>
 
-        {/* Growth Flywheel Visual - Animated Rotation */}
         <div className="py-8 flex flex-col items-center animate-fade-in-up [animation-delay:500ms]">
           <div className="section-label text-center mb-12">The Growth Flywheel</div>
           
           <div className="relative w-full max-w-[280px] aspect-square flex items-center justify-center">
-            {/* Pulsing Core */}
             <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-brand-gold shadow-[0_0_50px_rgba(244,197,66,0.3)] flex items-center justify-center z-20 animate-pulse-gold relative">
               <div className="text-center font-headline text-brand-green leading-none">
                 <span className="text-[10px] tracking-widest block mb-1">THE</span>
@@ -61,7 +57,6 @@ export const WhyFireflySection = () => {
               </div>
             </div>
 
-            {/* Rotating Orbit */}
             <div className="absolute inset-0 animate-spin-slow pointer-events-none">
               <svg className="w-full h-full opacity-20">
                 <circle cx="50%" cy="50%" r="42%" fill="none" stroke="#F4C542" strokeWidth="1" strokeDasharray="10 10" />
@@ -89,7 +84,7 @@ export const WhyFireflySection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 animate-fade-in-up [animation-delay:400ms]">
            {[
-             { label: "Content Yield", desc: "Competitor-proof narrative assets.", icon: <Award size={18} /> },
+             { label: "Content That Works Hard", desc: "Competitor-proof narrative assets.", icon: <Award size={18} /> },
              { label: "Community Layer", desc: "Organic distribution at scale.", icon: <CheckCircle2 size={18} /> },
              { label: "Data Mastery", desc: "Targetable CRM infrastructure.", icon: <ShieldCheck size={18} /> },
            ].map((moat, i) => (
@@ -97,13 +92,12 @@ export const WhyFireflySection = () => {
                 <div className="text-brand-gold group-hover:scale-110 transition-transform">{moat.icon}</div>
                 <div>
                   <h4 className="font-headline text-base text-white uppercase mb-1">{moat.label}</h4>
-                  <p className="font-body text-[8px] text-brand-cream/40 font-bold uppercase tracking-widest">{moat.desc}</p>
+                  <p className="font-body text-[8px] text-brand-text-muted font-bold uppercase tracking-widest">{moat.desc}</p>
                 </div>
              </Card>
            ))}
         </div>
 
-        {/* 07D: THE EMOTIONAL CLIMAX */}
         <div className="relative py-8 md:py-12 flex flex-col items-center justify-center animate-fade-in-up [animation-delay:600ms]">
           <div className="relative z-10 max-w-4xl text-center">
             <BrushStroke className="w-32 h-auto opacity-20 -rotate-2 -translate-y-4 mx-auto" color="#F4C542" />

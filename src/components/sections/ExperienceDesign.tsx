@@ -30,7 +30,6 @@ export const ExperienceDesignSection = () => {
 
   return (
     <div className="space-y-6 md:space-y-8">
-      {/* 03A: Arrival Sequence */}
       <div className="space-y-4 animate-fade-in-up">
         <div className="section-label">03A: The Arrival Sequence</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
@@ -40,7 +39,7 @@ export const ExperienceDesignSection = () => {
             </div>
             <h4 className="font-headline text-lg text-brand-green uppercase">Branded Entry</h4>
             <p className="font-body text-[10px] text-brand-green/50 leading-relaxed">
-              A bespoke architectural portal constructed from reclaimed cedar and brushed gold plating. This establishes a high-fidelity aesthetic boundary, signaling the transition from the city to the Savanna sanctuary.
+              A bespoke architectural portal constructed from reclaimed cedar and brushed gold plating.
             </p>
           </Card>
 
@@ -50,7 +49,7 @@ export const ExperienceDesignSection = () => {
             </div>
             <h4 className="font-headline text-lg text-brand-green uppercase">'First Crisp'</h4>
             <p className="font-body text-[10px] text-brand-green/50 leading-relaxed">
-              A signature welcome ritual where guests receive a perfectly chilled Savanna variant (Dry or 0.0) within 60 seconds of entry, served via mobile Vibe Hosts to eliminate traditional queue friction.
+              A signature welcome ritual where guests receive a perfectly chilled Savanna variant.
             </p>
           </Card>
 
@@ -63,21 +62,19 @@ export const ExperienceDesignSection = () => {
                 <Zap size={20} />
               </div>
               <h4 className="font-headline text-lg text-brand-gold uppercase">Digital RSVP</h4>
-              <p className="font-body text-[10px] text-white/60 leading-relaxed">
-                NFC-enabled check-in points that trigger an immediate WhatsApp welcome sequence. This automates community enrollment and harvests demographic data without disrupting the guest's entry momentum.
+              <p className="font-body text-[10px] text-brand-text-muted leading-relaxed">
+                NFC-enabled check-in points that trigger an immediate WhatsApp welcome sequence.
               </p>
             </div>
           </Card>
         </div>
       </div>
 
-      {/* 03B: Energy Arc - Animated Timeline */}
       <div className="space-y-4 animate-fade-in-up [animation-delay:200ms]">
         <div className="section-label">03B: The Sonic Energy Arc</div>
         <div className="relative pt-12 pb-6">
           <div className="absolute top-[4.5rem] left-0 w-full h-[1px] bg-brand-green/10 hidden md:block" />
           
-          {/* Moving Vibe Indicator */}
           <div 
             className="absolute top-[4.15rem] left-0 w-3 h-3 bg-brand-gold rounded-full shadow-[0_0_10px_#F4C542] transition-all duration-300 ease-linear hidden md:block"
             style={{ left: `${indicatorPos}%` }}
@@ -86,7 +83,7 @@ export const ExperienceDesignSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 relative">
             {[
               { time: "2PM - 4PM", label: "The Arrival", sub: "Deep House", icon: <Coffee size={18} /> },
-              { time: "4PM - 6PM", label: "The Build", sub: "Afro-House", icon: <Sunset size={18} />, color: "gold" },
+              { time: "4PM - 6PM", label: "The Build", sub: "Afro-House", icon: <Sunset size={18} /> },
               { time: "6PM - 8PM", label: "The Peak", sub: "Amapiano", icon: <Zap size={18} />, active: true },
             ].map((step, i) => (
               <div key={i} className="relative z-10 flex flex-col items-center text-center space-y-3">
@@ -106,7 +103,6 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
 
-      {/* 03C: Advantage - Compact Card */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 animate-fade-in-up [animation-delay:400ms]">
         <div className="bg-brand-teal rounded-[24px] p-6 text-white relative overflow-hidden flex flex-col justify-center shadow-lg group">
           <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-125 transition-transform duration-700">
@@ -118,7 +114,7 @@ export const ExperienceDesignSection = () => {
               <h4 className="font-headline text-xl text-white uppercase leading-none">THE 0.0 ADVANTAGE</h4>
             </div>
             <p className="font-serif italic text-lg text-brand-gold leading-relaxed">
-              "We are leading a cultural shift in inclusive drinking."
+              "We are leading a cultural shift."
             </p>
           </div>
         </div>
@@ -126,7 +122,7 @@ export const ExperienceDesignSection = () => {
         <div className="space-y-4 flex flex-col justify-center">
           <h4 className="font-headline text-xl text-brand-green uppercase leading-tight">9.3% CAGR Growth</h4>
           <p className="font-body text-[10px] text-brand-green/60 leading-relaxed">
-            Embedding Savanna 0.0 into the primary event flow for Gen-Z and professional relevance, creating a high-performance alternative that maintains social momentum without alcohol.
+            Embedding Savanna 0.0 into the primary event flow for Gen-Z and professional relevance.
           </p>
           <div className="grid grid-cols-2 gap-3">
             <div className="p-4 bg-white border border-brand-green/5 rounded-xl group hover:border-brand-teal transition-all">
@@ -138,28 +134,6 @@ export const ExperienceDesignSection = () => {
               <div className="font-body text-[7px] uppercase font-bold tracking-widest opacity-40 mt-1">Premium</div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* 03E: Lifecycle Icons - Denser Grid */}
-      <div className="space-y-4 animate-fade-in-up [animation-delay:600ms]">
-        <div className="section-label">03E: The Attendee Lifecycle</div>
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
-          {[
-            { label: "Discovery", icon: <Sparkles size={18} /> },
-            { label: "RSVP", icon: <CheckCircle2 size={18} /> },
-            { label: "Arrival", icon: <MapPin size={18} /> },
-            { label: "Ritual", icon: <Beer size={18} /> },
-            { label: "Capture", icon: <Camera size={18} /> },
-            { label: "Advocacy", icon: <Trophy size={18} /> },
-          ].map((step, i) => (
-            <Card key={i} className="p-3 flex flex-col items-center text-center gap-2 bg-white border border-brand-green/5 rounded-xl hover:border-brand-gold transition-all shadow-sm group">
-              <div className="w-8 h-8 rounded-full bg-brand-cream text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform group-hover:bg-brand-gold group-hover:text-white">
-                {step.icon}
-              </div>
-              <span className="font-headline text-[9px] tracking-widest text-brand-green uppercase font-bold">{step.label}</span>
-            </Card>
-          ))}
         </div>
       </div>
     </div>

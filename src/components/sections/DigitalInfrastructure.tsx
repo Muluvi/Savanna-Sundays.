@@ -52,7 +52,7 @@ export const DigitalInfrastructureSection = () => {
         {[
           { metric: "Capture Rate", value: "100%", progress: 100 },
           { metric: "Accuracy", value: "99.2%", progress: 99 },
-          { metric: "Data Harvest", value: "8k+", progress: 85 },
+          { metric: "The Sunday Setup", value: "8k+", progress: 85 },
           { metric: "Target ROI", value: "340%", progress: 92 },
         ].map((item, i) => (
           <Card key={i} className="p-4 bg-white border border-brand-green/5 rounded-xl space-y-2">

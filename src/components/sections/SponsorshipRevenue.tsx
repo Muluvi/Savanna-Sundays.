@@ -9,7 +9,7 @@ const costs = [
   { category: "Venue & Permits", range: "150k – 450k", icon: <Landmark size={14} /> },
   { category: "Talent (DJs/MC)", range: "300k – 800k", icon: <Music size={14} /> },
   { category: "AV & Stage", range: "400k – 1.2M", icon: <HardHat size={14} /> },
-  { category: "Content Harvest", range: "80k – 200k", icon: <Camera size={14} /> },
+  { category: "Content That Works Hard", range: "80k – 200k", icon: <Camera size={14} /> },
 ];
 
 export const SponsorshipRevenueSection = () => {
@@ -18,9 +18,6 @@ export const SponsorshipRevenueSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center animate-fade-in-up">
         <div className="space-y-4">
           <div className="section-label">06A: The Profit Engine</div>
-          <h3 className="font-headline text-2xl md:text-4xl text-brand-green uppercase leading-tight">
-            Moving beyond <br/>the cost-center.
-          </h3>
           <p className="font-body text-xs md:text-base text-brand-green/60 leading-relaxed">
             Savanna Sundays is engineered as a high-performance revenue engine leverage brand equity for sustainable growth.
           </p>
@@ -28,7 +25,7 @@ export const SponsorshipRevenueSection = () => {
         
         <div className="py-6 flex flex-col items-center justify-center">
           <h3 className="font-serif italic text-xl md:text-2xl text-brand-green/80 leading-relaxed px-4 text-center">
-            "We don't spend budgets; we invest in equity."
+            "We invest in equity."
           </h3>
         </div>
       </div>
@@ -49,7 +46,6 @@ export const SponsorshipRevenueSection = () => {
         ))}
       </div>
 
-      {/* 06B: Production Table - Compact */}
       <div className="space-y-4 animate-fade-in-up [animation-delay:400ms]">
         <div className="section-label">06B: Production Investment Matrix</div>
         <div className="bg-white rounded-xl overflow-hidden border border-brand-green/5 shadow-md">
