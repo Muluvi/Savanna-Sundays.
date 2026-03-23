@@ -36,7 +36,7 @@ const sectionsData = [
     id: 'the-concept', 
     label: '02 — THE CONCEPT', 
     title: 'THE DUAL ACTIVATION MODEL', 
-    variant: 'light' as const, 
+    variant: 'alt' as const, 
     component: <DualActivationModel /> 
   },
   { 
@@ -47,7 +47,7 @@ const sectionsData = [
     component: (
       <div className="space-y-12">
         <VisualIdentitySection />
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/10 to-transparent" />
         <ExperienceDesignSection />
       </div>
     ) 
@@ -56,7 +56,7 @@ const sectionsData = [
     id: 'the-content-engine', 
     label: '04 — THE CONTENT ENGINE', 
     title: 'ONE SUNDAY. 30 DAYS OF CONTENT.', 
-    variant: 'light' as const, 
+    variant: 'alt' as const, 
     component: <ContentSocialSection />
   },
   { 
@@ -67,7 +67,7 @@ const sectionsData = [
     component: (
       <div className="space-y-12">
         <AttendanceDemandSection />
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-teal/20 to-transparent" />
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-teal/10 to-transparent" />
         <DigitalInfrastructureSection />
       </div>
     )
@@ -76,11 +76,11 @@ const sectionsData = [
     id: 'the-numbers', 
     label: '06 — THE NUMBERS', 
     title: 'A REVENUE PLATFORM, NOT A COST LINE', 
-    variant: 'light' as const, 
+    variant: 'alt' as const, 
     component: (
       <div className="space-y-12">
         <SponsorshipRevenueSection />
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/10 to-transparent" />
         <MeasurementROInSection />
       </div>
     )
@@ -96,7 +96,7 @@ const sectionsData = [
     id: 'strategic-advisor', 
     label: '08 — STRATEGIC INTELLIGENCE', 
     title: 'QUERY THE ENGINE', 
-    variant: 'dark' as const, 
+    variant: 'alt' as const, 
     component: <StrategicAdvisor />
   },
   { 
@@ -113,12 +113,12 @@ export default function Home() {
   const logo = PlaceHolderImages.find(img => img.id === 'firefly-logo');
 
   return (
-    <div className="relative min-h-screen bg-brand-cream">
+    <div className="relative min-h-screen bg-brand-dark">
       <AppSidebar />
       <MobileNav />
       
       <main className="md:ml-64 transition-all">
-        <section id="hero" className="relative min-h-[60vh] dark-section flex flex-col px-6 py-12 overflow-hidden justify-center">
+        <section id="hero" className="relative min-h-[70vh] dark-section flex flex-col px-6 py-12 overflow-hidden justify-center border-b border-white/5">
           <WaterDroplets className="opacity-10" />
           
           <div className="flex flex-col items-center justify-center text-center">
@@ -168,7 +168,7 @@ export default function Home() {
           </SectionContainer>
         ))}
 
-        <footer className="bg-brand-ink py-12 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
+        <footer className="bg-brand-dark py-16 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
           <WaterDroplets className="opacity-5" />
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
             <div className="flex flex-col items-center md:items-start">
@@ -188,7 +188,7 @@ export default function Home() {
             </div>
 
             <div className="max-w-xs text-center md:text-right">
-              <p className="font-body text-[10px] tracking-[1px] uppercase text-brand-cream/40 font-bold">
+              <p className="font-body text-[10px] tracking-[1px] uppercase text-brand-gold font-bold">
                 Drink Responsibly.
               </p>
               <p className="font-body text-[7px] tracking-[0.5px] uppercase text-brand-cream/20 mt-1">

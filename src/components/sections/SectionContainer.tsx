@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -8,7 +9,7 @@ interface SectionProps {
   id: string;
   label: string;
   title: string;
-  variant?: 'light' | 'dark';
+  variant?: 'light' | 'dark' | 'alt';
   children?: React.ReactNode;
 }
 
@@ -33,22 +34,27 @@ export const SectionContainer = ({ id, label, title, variant = 'light', children
     return () => observer.disconnect();
   }, []);
 
+  // Map variant to background colors
+  const bgClass = variant === 'dark' 
+    ? "dark-section" 
+    : variant === 'alt' 
+      ? "bg-brand-dark-alt" 
+      : "bg-brand-dark";
+
   return (
     <section 
       ref={sectionRef}
       id={id} 
       className={cn(
-        "py-8 md:py-12 px-5 md:px-12 lg:px-24 flex flex-col justify-center relative transition-all duration-1000",
-        variant === 'dark' ? "dark-section" : "bg-brand-cream overflow-hidden",
+        "py-12 md:py-20 px-5 md:px-12 lg:px-24 flex flex-col justify-center relative transition-all duration-1000",
+        bgClass,
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       )}
     >
-      {variant === 'light' && <CiderFizz />}
+      {(variant === 'light' || variant === 'alt') && <CiderFizz className="opacity-10" />}
       
-      {/* Visual Divider for light sections */}
-      {variant === 'light' && (
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
-      )}
+      {/* Visual Divider */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/10 to-transparent" />
       
       <div className="max-w-5xl mx-auto w-full relative z-10">
         <span className={cn(
