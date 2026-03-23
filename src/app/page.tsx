@@ -3,7 +3,6 @@
 import { AppSidebar } from '@/components/navigation/AppSidebar';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { SectionContainer } from '@/components/sections/SectionContainer';
-import { WaterDroplets } from '@/components/brand/VisualElements';
 import Image from 'next/image';
 import { ChevronDown } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -15,8 +14,6 @@ import { DualActivationModel } from '@/components/sections/DualModel';
 import { VisualIdentitySection } from '@/components/sections/VisualIdentity';
 import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
 import { ContentSocialSection } from '@/components/sections/ContentProduction';
-import { AttendanceDemandSection } from '@/components/sections/Attendance';
-import { DigitalInfrastructureSection } from '@/components/sections/DigitalInfrastructure';
 import { SponsorshipRevenueSection } from '@/components/sections/SponsorshipRevenue';
 import { MeasurementROInSection } from '@/components/sections/MeasurementROI';
 import { WhyFireflySection } from '@/components/sections/WhyFirefly';
@@ -62,21 +59,8 @@ const sectionsData = [
     component: <ContentSocialSection />
   },
   { 
-    id: 'the-demand-machine', 
-    label: '05 — THE DEMAND MACHINE', 
-    title: 'HOW EVERY EDITION SELLS OUT', 
-    variant: 'light' as const, 
-    component: (
-      <div className="space-y-12">
-        <AttendanceDemandSection />
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-teal/10 to-transparent" />
-        <DigitalInfrastructureSection />
-      </div>
-    )
-  },
-  { 
     id: 'the-numbers', 
-    label: '06 — THE NUMBERS', 
+    label: '05 — THE NUMBERS', 
     title: 'A REVENUE PLATFORM', 
     variant: 'alt' as const, 
     component: (
@@ -89,21 +73,21 @@ const sectionsData = [
   },
   { 
     id: 'the-partnership', 
-    label: '07 — THE PARTNERSHIP', 
+    label: '06 — THE PARTNERSHIP', 
     title: 'WHY FIREFLY. WHY NOW.', 
     variant: 'dark' as const, 
     component: <WhyFireflySection />
   },
   { 
     id: 'strategic-advisor', 
-    label: '08', 
+    label: '07', 
     title: 'QUERY THE ENGINE', 
     variant: 'alt' as const, 
     component: <StrategicAdvisor />
   },
   { 
     id: 'lead-capture', 
-    label: '09 — NEXT STEPS', 
+    label: '08 — NEXT STEPS', 
     title: 'SECURE THE MOMENTUM', 
     variant: 'dark' as const, 
     component: <LeadCapture />
@@ -197,7 +181,6 @@ export default function Home() {
         ))}
 
         <footer className="bg-brand-dark py-16 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
-          <WaterDroplets className="opacity-5" />
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
             <div className="flex flex-col items-center md:items-start">
               {logo && (
