@@ -33,8 +33,8 @@ const sectionsData = [
   },
   { 
     id: 'the-concept', 
-    label: '02 — THE CONCEPT', 
-    title: 'THE DUAL ACTIVATION MODEL', 
+    label: '02 — HOW IT WORKS', 
+    title: 'HOW IT WORKS', 
     variant: 'alt' as const, 
     component: <DualActivationModel /> 
   },
@@ -123,7 +123,6 @@ export default function Home() {
       
       <main className="md:ml-64 transition-all">
         <section id="hero" className="relative min-h-screen flex flex-col px-6 py-12 overflow-hidden justify-center border-b border-white/5 bg-[#1A1208]">
-          {/* Custom Radial Glows */}
           <div className="absolute inset-0 pointer-events-none" style={{
             background: `
               radial-gradient(circle at 40% 50%, rgba(244,197,66,0.12) 0%, transparent 70%),

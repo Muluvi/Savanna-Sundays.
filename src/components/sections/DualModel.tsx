@@ -2,18 +2,7 @@
 
 import React from 'react';
 import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  UserCheck, 
-  Trophy, 
-  Star, 
-  ShieldCheck, 
-  Zap, 
-  MapPin, 
-} from 'lucide-react';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const venueData = [
@@ -24,171 +13,70 @@ const venueData = [
   { name: "Masshouse", area: "Industrial Area", capacity: "1200", type: "Sponsor", imageId: "venue-masshouse" },
 ];
 
-const matrixCriteria = [
-  { label: "Audience Fit", score: 95, icon: <UserCheck className="w-5 h-5" /> },
-  { label: "Visual Quality", score: 90, icon: <Trophy className="w-5 h-5" /> },
-  { label: "Content Yield", score: 88, icon: <Zap className="w-5 h-5" /> },
-  { label: "Credibility", score: 92, icon: <Star className="w-5 h-5" /> },
-  { label: "Exclusivity", score: 85, icon: <ShieldCheck className="w-5 h-5" /> },
-];
-
 export const DualActivationModel = () => {
   return (
-    <div className="space-y-6 md:space-y-8">
+    <div className="space-y-12">
       <div className="max-w-3xl">
-        <p className="font-serif italic text-lg md:text-xl text-brand-green/60 leading-relaxed">
-          One engine builds the brand. The other covers the city. Together, they make Savanna synonymous with Sunday.
+        <p className="font-body text-lg md:text-xl text-[#F8F5E6] leading-relaxed">
+          One squad. One brand. A different venue every Sunday.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card className="p-5 bg-white border-l-4 border-brand-gold rounded-[24px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(244,197,66,0.2)] transition-all duration-500">
-          <div className="space-y-3">
-            <div className="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
-              <ShieldCheck size={20} />
-            </div>
-            <div className="space-y-1">
-              <h4 className="font-headline text-2xl text-brand-green uppercase">OWNED EDITIONS</h4>
-              <p className="font-body text-brand-green/70 text-xs leading-relaxed">
-                Proprietary boutique events. 100% brand control, exclusive content harvest, and deep data ownership.
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-wrap gap-2 mt-4">
-            <Badge className="bg-brand-gold text-brand-green text-[9px] uppercase tracking-widest border-none font-bold">Brand Focus</Badge>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Left Card: Squad Deployment */}
+        <Card className="p-8 bg-[#1F4D3A] border-none border-t-[3px] border-[#F4C542] rounded-[24px] flex flex-col justify-between group hover:-translate-y-2 transition-all duration-500 shadow-2xl">
+          <div className="space-y-4">
+            <h4 className="font-headline text-3xl text-[#F4C542] uppercase tracking-tight">The Savanna Squad Arrives</h4>
+            <p className="font-body text-[#F8F5E6] text-sm md:text-base leading-relaxed opacity-90">
+              Every Sunday, the squad deploys — DJs, MC, influencers, brand rep, content crew. Bar wraps, signage, and backdrop go up. By 2PM the venue is unmistakably Savanna. From 2PM to 9PM the squad runs the experience. By Monday, content is in post-production.
+            </p>
           </div>
         </Card>
         
-        <Card className="p-5 bg-white border-l-4 border-brand-teal rounded-[24px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(45,140,127,0.2)] transition-all duration-500">
-          <div className="space-y-3">
-            <div className="w-10 h-10 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Zap size={20} />
-            </div>
-            <div className="space-y-1">
-              <h4 className="font-headline text-2xl text-brand-green uppercase">TITLE SPONSORSHIP</h4>
-              <p className="font-body text-brand-green/70 text-xs leading-relaxed">
-                Strategic reach mapping. Scaling Savanna’s visual layer onto Nairobi’s existing premium Sunday properties.
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-wrap gap-2 mt-4">
-            <Badge className="bg-brand-teal text-white text-[9px] uppercase tracking-widest border-none font-bold">Mass Reach</Badge>
+        {/* Right Card: Venue Rotation */}
+        <Card className="p-8 bg-[#221A0A] border-none rounded-[24px] flex flex-col justify-between group hover:-translate-y-2 transition-all duration-500 shadow-2xl">
+          <div className="space-y-4">
+            <h4 className="font-headline text-3xl text-[#F4C542] uppercase tracking-tight">Rotating Venues</h4>
+            <p className="font-body text-[#F8F5E6] text-sm md:text-base leading-relaxed opacity-90">
+              Savanna Sundays moves through Nairobi's best social venues — rooftops, gardens, lounges. Each edition looks distinct. Each venue gets a genuine brand moment.
+            </p>
           </div>
         </Card>
       </div>
 
-      <div className="animate-fade-in-up [animation-delay:400ms]">
-        <Tabs defaultValue="network" className="w-full">
-          <TabsList className="w-full bg-brand-green p-1 h-auto grid grid-cols-3 mb-6 rounded-xl">
-            <TabsTrigger value="network" className="py-2.5 font-headline tracking-[1px] text-xs uppercase rounded-lg">Venue Network</TabsTrigger>
-            <TabsTrigger value="scorecard" className="py-2.5 font-headline tracking-[1px] text-xs uppercase rounded-lg">Curation Matrix</TabsTrigger>
-            <TabsTrigger value="calendar" className="py-2.5 font-headline tracking-[1px] text-xs uppercase rounded-lg">Sunday Sprint</TabsTrigger>
-          </TabsList>
+      {/* Future Expansion Note */}
+      <div className="max-w-2xl space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+        <h5 className="font-body font-bold text-sm text-[#B8A98A] uppercase tracking-[2px]">Future Expansion</h5>
+        <p className="font-body text-xs md:text-sm text-[#B8A98A] leading-relaxed">
+          As the Sunday community grows, Savanna Sundays becomes a platform for larger title sponsorships — festivals, concerts, seasonal tentpoles.
+        </p>
+      </div>
 
-          <TabsContent value="network" className="mt-0 overflow-hidden">
-            <div className="relative w-full mask-marquee">
-              <div className="flex animate-marquee whitespace-nowrap gap-4">
-                {[...venueData, ...venueData, ...venueData].map((venue, i) => {
-                  const img = venue.imageId ? PlaceHolderImages.find(p => p.id === venue.imageId) : null;
-                  return (
-                    <div key={i} className="inline-block min-w-[320px] md:min-w-[450px]">
-                      <div className="group relative aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-brand-green/10 bg-white">
-                        {img ? (
-                          <Image 
-                            src={img.imageUrl} 
-                            alt={venue.name} 
-                            fill 
-                            className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-100"
-                            priority={i < 4}
-                          />
-                        ) : (
-                          <div className="absolute inset-0 flex items-center justify-center bg-brand-green">
-                            <span className="font-headline text-5xl text-brand-gold">{venue.name.charAt(0)}</span>
-                          </div>
-                        )}
-                        
-                        <div className="absolute bottom-0 left-0 w-full p-4 bg-white/95 backdrop-blur-sm border-t border-brand-green/5 translate-y-2 group-hover:translate-y-0 transition-transform">
-                          <div className="flex justify-between items-end">
-                            <div>
-                              <Badge className={cn(
-                                "mb-1 text-[8px] uppercase tracking-widest border-none px-2",
-                                venue.type === 'Owned' ? 'bg-brand-gold text-brand-green' : 'bg-brand-teal text-white'
-                              )}>
-                                {venue.type}
-                              </Badge>
-                              <h5 className="font-headline text-xl text-brand-green leading-none">{venue.name}</h5>
-                            </div>
-                            <div className="flex items-center gap-1.5 text-brand-green/60">
-                              <MapPin size={10} className="text-brand-gold" />
-                              <span className="font-body text-[9px] uppercase tracking-widest font-bold">{venue.area}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </TabsContent>
-
-          <TabsContent value="scorecard">
-            <div className="bg-white rounded-[32px] p-6 md:p-8 border border-brand-green/10 shadow-2xl relative overflow-hidden group">
-              {/* Subtle mesh background for the scorecard */}
-              <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-gold via-transparent to-transparent group-hover:opacity-[0.06] transition-opacity duration-1000" />
-              
-              <div className="relative z-10 grid grid-cols-2 md:grid-cols-5 gap-4">
-                {matrixCriteria.map((item, i) => (
-                  <div key={i} className="flex flex-col items-center text-center space-y-4 p-5 rounded-2xl bg-brand-cream/30 hover:bg-white transition-all duration-500 hover:shadow-xl border border-transparent hover:border-brand-gold/30 group/item">
-                    <div className="relative w-20 h-20 flex items-center justify-center">
-                      <svg className="w-full h-full transform -rotate-90">
-                        <circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" strokeWidth="2" className="text-brand-green/5" />
-                        <circle 
-                          cx="40" 
-                          cy="40" 
-                          r="36" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          strokeWidth="4" 
-                          strokeDasharray={2 * Math.PI * 36} 
-                          strokeDashoffset={2 * Math.PI * 36 * (1 - item.score / 100)} 
-                          className="text-brand-gold transition-all duration-1000 group-hover/item:text-brand-teal" 
-                        />
-                      </svg>
-                      <div className="absolute inset-0 flex items-center justify-center text-brand-green group-hover/item:scale-110 transition-transform">{item.icon}</div>
-                    </div>
-                    <div className="space-y-1">
-                      <h6 className="font-headline text-lg text-brand-green uppercase leading-none">{item.label}</h6>
-                      <div className="font-headline text-2xl text-brand-gold leading-none">{item.score}%</div>
-                    </div>
+      {/* Venue Marquee */}
+      <div className="relative w-full mask-marquee pt-8 overflow-hidden">
+        <div className="flex animate-marquee whitespace-nowrap gap-4">
+          {[...venueData, ...venueData, ...venueData].map((venue, i) => {
+            const img = venue.imageId ? PlaceHolderImages.find(p => p.id === venue.imageId) : null;
+            return (
+              <div key={i} className="inline-block min-w-[300px] md:min-w-[400px]">
+                <div className="group relative aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-[#1A1208]">
+                  {img && (
+                    <Image 
+                      src={img.imageUrl} 
+                      alt={venue.name} 
+                      fill 
+                      className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+                    />
+                  )}
+                  <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent translate-y-2 group-hover:translate-y-0 transition-transform">
+                    <h5 className="font-headline text-xl text-[#F4C542] leading-none">{venue.name}</h5>
+                    <p className="font-body text-[10px] uppercase tracking-widest text-[#F8F5E6]/60 mt-1">{venue.area}</p>
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
-          </TabsContent>
-
-          <TabsContent value="calendar">
-            <div className="bg-white p-6 rounded-2xl border border-brand-green/5 shadow-md">
-              <div className="grid grid-cols-7 gap-1 md:gap-2">
-                {[...Array(28)].map((_, i) => {
-                  const isSunday = (i + 1) % 7 === 0;
-                  const isOwned = isSunday && ((i + 1) === 7 || (i + 1) === 21);
-                  const isSponsor = isSunday && ((i + 1) === 14 || (i + 1) === 28);
-                  return (
-                    <div key={i} className={cn(
-                      "aspect-square rounded-md flex items-center justify-center text-[9px] font-bold shadow-sm border border-transparent transition-all hover:scale-110",
-                      isOwned ? "bg-brand-green text-brand-gold border-brand-gold/30" : 
-                      isSponsor ? "bg-brand-teal text-white" : 
-                      "bg-brand-cream/40 text-brand-green/10"
-                    )}>
-                      {i + 1}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </TabsContent>
-        </Tabs>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
