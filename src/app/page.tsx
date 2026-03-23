@@ -57,7 +57,7 @@ const sectionsData = [
   { 
     id: 'the-content-engine', 
     label: '04 — THE CONTENT ENGINE', 
-    title: 'ONE SUNDAY. 30 DAYS OF CONTENT.', 
+    title: 'CONTENT THAT WORKS HARD', 
     variant: 'alt' as const, 
     component: <ContentSocialSection />
   },
