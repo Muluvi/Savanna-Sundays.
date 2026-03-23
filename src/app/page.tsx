@@ -1,10 +1,12 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { AppSidebar } from '@/components/navigation/AppSidebar';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { SectionContainer } from '@/components/sections/SectionContainer';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { useAnalyticsTracker } from '@/hooks/use-analytics-tracker';
+import { cn } from '@/lib/utils';
 
 // Content sections
 import { TheGap } from '@/components/sections/TheGap';
@@ -70,12 +72,21 @@ const sectionsData = [
 ];
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
   useAnalyticsTracker();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const scrollToSection1 = () => {
     const el = document.getElementById('the-gap');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
+
+  if (!mounted) {
+    return null; // Prevent hydration mismatch by waiting for mount
+  }
 
   return (
     <div className="relative min-h-screen bg-brand-dark">
@@ -84,12 +95,12 @@ export default function Home() {
       
       <main className="md:ml-64 transition-all">
         <section id="hero" className="relative min-h-screen flex flex-col px-6 py-12 overflow-hidden justify-center border-b border-white/5 bg-[#1A1208]">
-          <div className="absolute inset-0 pointer-events-none" style={{
-            background: `
-              radial-gradient(circle at 40% 50%, rgba(244,197,66,0.12) 0%, transparent 70%),
-              radial-gradient(circle at 80% 80%, rgba(232,135,58,0.08) 0%, transparent 60%)
-            `
-          }} />
+          <div 
+            className="absolute inset-0 pointer-events-none" 
+            style={{
+              background: 'radial-gradient(circle at 40% 50%, rgba(244,197,66,0.12) 0%, transparent 70%), radial-gradient(circle at 80% 80%, rgba(232,135,58,0.08) 0%, transparent 60%)'
+            }} 
+          />
 
           <div className="flex flex-col items-center justify-center text-center relative z-10">
             <div className="max-w-6xl mx-auto w-full">
@@ -170,7 +181,11 @@ export default function Home() {
           <div className="pt-4 relative z-10">
             <a 
               href="mailto:partner@firefly.co.ke" 
-              className="inline-flex items-center gap-4 bg-[#F4C542] text-[#1A1208] px-12 py-5 rounded-full font-headline text-2xl tracking-widest hover:bg-[#E8873A] hover:scale-105 transition-all duration-300 shadow-2xl active:scale-95 group"
+              className={cn(
+                "inline-flex items-center gap-4 bg-[#F4C542] text-[#1A1208] px-12 py-5 rounded-full font-headline",
+                "text-2xl tracking-widest hover:bg-[#E8873A] hover:scale-105 transition-all duration-300",
+                "shadow-2xl active:scale-95 group"
+              )}
             >
               <span>Let&apos;s Own Sunday</span>
               <ArrowRight className="group-hover:translate-x-2 transition-transform" />
@@ -184,7 +199,7 @@ export default function Home() {
           </div>
           
           <div className="absolute inset-0 pointer-events-none" style={{
-            background: `radial-gradient(circle at 50% 100%, rgba(244,197,66,0.05) 0%, transparent 70%)`
+            background: 'radial-gradient(circle at 50% 100%, rgba(244,197,66,0.05) 0%, transparent 70%)'
           }} />
         </div>
       </main>
