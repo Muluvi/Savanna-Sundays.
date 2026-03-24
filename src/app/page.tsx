@@ -1,4 +1,3 @@
-
 'use client';
 
 import { MobileNav } from '@/components/navigation/MobileNav';
@@ -79,17 +78,17 @@ export default function Home() {
       <MobileNav />
       
       <main className="transition-all">
-        {/* Cinematic Hero Section - Unboxed & Glowing */}
+        {/* Cinematic Hero Section - Optimized Visibility & Casing */}
         <section id="hero" className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden bg-background">
-          <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.15)_0%,transparent_80%)]" />
+          <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.25)_0%,transparent_80%)]" />
 
           <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-12 text-center">
             {savannaLogo && (
-              <div className="relative h-32 md:h-48 w-80 md:w-96 flex items-center justify-center group">
+              <div className="relative h-40 md:h-64 w-80 md:w-[480px] flex items-center justify-center group scale-100 hover:scale-105 transition-transform duration-1000">
                 {/* Intense Multi-Layer Glow */}
-                <div className="absolute inset-0 bg-brand-gold/30 blur-[120px] rounded-full scale-150 animate-pulse" />
-                <div className="absolute inset-0 bg-brand-gold/25 blur-[60px] rounded-full scale-110" />
-                <div className="absolute inset-0 bg-brand-gold/10 blur-[30px] rounded-full group-hover:scale-125 transition-transform duration-1000" />
+                <div className="absolute inset-0 bg-brand-gold/40 blur-[120px] rounded-full scale-150 animate-pulse" />
+                <div className="absolute inset-0 bg-brand-gold/30 blur-[60px] rounded-full scale-110" />
+                <div className="absolute inset-0 bg-brand-gold/15 blur-[30px] rounded-full group-hover:scale-125 transition-transform duration-1000" />
                 <Image 
                   src={savannaLogo.imageUrl} 
                   alt="Savanna" 
@@ -114,14 +113,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="absolute bottom-10 left-0 w-full flex flex-col items-center gap-4 opacity-60">
-            <div className="space-y-1 text-center">
-              <p className="font-headline text-xs text-brand-gold/80 tracking-[0.6em] uppercase">
+          {/* Attribution at the bottom as requested */}
+          <div className="absolute bottom-10 left-0 w-full flex flex-col items-center gap-4 opacity-70">
+            <div className="space-y-2 text-center">
+              <p className="font-headline text-lg text-brand-gold tracking-[0.4em] uppercase">
                 Presented by Firefly Management
               </p>
-              <p className="font-body text-[8px] tracking-[4px] text-brand-gold/40 uppercase font-bold">Strategic prospectus 2024</p>
             </div>
-            <ChevronDown className="text-brand-gold/40 animate-bounce" size={20} />
+            <ChevronDown className="text-brand-gold/60 animate-bounce" size={24} />
           </div>
         </section>
 
@@ -138,7 +137,7 @@ export default function Home() {
         ))}
 
         {/* Closing Section */}
-        <div className="py-16 px-6 text-center bg-background border-t border-white/5 relative overflow-hidden flex flex-col justify-center">
+        <div className="py-24 px-6 text-center bg-background border-t border-white/5 relative overflow-hidden flex flex-col justify-center">
           <div className="max-w-4xl mx-auto space-y-12 relative z-10">
             <div className="space-y-6">
               <Sparkles className="mx-auto text-brand-gold/60" size={48} />
@@ -153,22 +152,22 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="pt-12 space-y-10">
-              <div className="flex flex-col md:flex-row items-center justify-center gap-12 grayscale opacity-40">
-                {savannaLogo && <div className="relative h-12 w-44"><Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain" /></div>}
+            <div className="pt-16 space-y-12">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-12 grayscale opacity-50">
+                {savannaLogo && <div className="relative h-16 w-56"><Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain" /></div>}
                 <div className="hidden md:block h-12 w-[1px] bg-white/10" />
-                {fireflyLogo && <div className="relative h-10 w-40"><Image src={fireflyLogo.imageUrl} alt="Firefly" fill className="object-contain" /></div>}
+                {fireflyLogo && <div className="relative h-12 w-48"><Image src={fireflyLogo.imageUrl} alt="Firefly" fill className="object-contain" /></div>}
               </div>
 
               <div className="space-y-8 max-w-2xl mx-auto border-t border-white/10 pt-10">
-                <p className="font-body text-[10px] text-brand-gold/40 uppercase tracking-[4px] font-bold">
+                <p className="font-body text-xs text-brand-gold/40 uppercase tracking-[4px]">
                   Prepared by Firefly Management for Kenya Wine Agencies Limited (KWAL)
                 </p>
                 <div className="space-y-3">
-                  <p className="font-body text-[9px] text-brand-gold/30 uppercase tracking-[2px] text-center leading-relaxed">
+                  <p className="font-body text-[10px] text-brand-gold/30 uppercase tracking-[2px] text-center leading-relaxed">
                     Do not forward to persons under the age of 18 years. Excessive alcohol consumption is harmful to your health.
                   </p>
-                  <p className="font-body text-[9px] text-brand-gold/60 uppercase tracking-[2px] text-center font-bold">
+                  <p className="font-body text-[10px] text-brand-gold/60 uppercase tracking-[2px] text-center">
                     Not for sale to persons under the age of 18 years.
                   </p>
                 </div>

@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
@@ -83,8 +82,8 @@ export const TheGap = () => {
               />
             )}
           </div>
-          <span className="font-body text-brand-gold/60 text-[10px] tracking-[4px] uppercase font-bold">The Opportunity</span>
-          <p className="font-body text-xl md:text-2xl text-brand-cream leading-tight font-bold tracking-tight relative z-10">
+          <span className="font-body text-brand-gold/60 text-[10px] tracking-[4px] uppercase">The Opportunity</span>
+          <p className="font-body text-xl md:text-2xl text-brand-cream leading-tight tracking-tight relative z-10">
             Converting music lovers and lovers of experiential events from digital platforms and loyal savanna cider fans into a physical community through consistent, high-fidelity Sunday experiences.
           </p>
         </div>
@@ -106,7 +105,7 @@ export const TheGap = () => {
                       </div>
                       <div className="text-center">
                         <RollingCounter value={stat.value} />
-                        <div className="font-body text-xs uppercase font-bold tracking-[4px] text-brand-gold/60 mt-2">{stat.label}</div>
+                        <div className="font-body text-xs uppercase tracking-[4px] text-brand-gold/60 mt-2">{stat.label}</div>
                       </div>
                     </div>
                   );
