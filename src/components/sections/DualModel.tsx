@@ -21,62 +21,62 @@ const venueData = [
 const squadRoles = [
   {
     role: "2 DJs",
-    icon: <Music className="w-8 h-8" />,
+    icon: <Music className="w-10 h-10" />,
     body: "Proven Nairobi talent with massive digital reach. Multi-cam recorded for the Sunday Mix Series."
   },
   {
     role: "1 MC",
-    icon: <Mic2 className="w-8 h-8" />,
+    icon: <Mic2 className="w-10 h-10" />,
     body: "A crowd-pulling ambassador running crowd interactions and real-time engagement."
   },
   {
     role: "5 Influencers",
-    icon: <Users className="w-8 h-8" />,
+    icon: <Users className="w-10 h-10" />,
     body: "Nairobi’s top lifestyle voices capturing and sharing the ritual with their audiences."
   },
   {
     role: "Content crew",
-    icon: <Camera className="w-8 h-8" />,
+    icon: <Camera className="w-10 h-10" />,
     body: "Videographer, photographer, and social operator generating narrative assets."
   }
 ];
 
 export const DualActivationModel = () => {
   return (
-    <div className="space-y-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="space-y-3">
-          <div className="flex items-center gap-3">
-            <div className="h-[2px] w-8 bg-brand-gold" />
-            <h4 className="font-headline text-3xl text-brand-gold uppercase tracking-tight">The squad</h4>
+    <div className="space-y-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="space-y-6">
+          <div className="flex items-center gap-4">
+            <div className="h-[3px] w-12 bg-brand-gold" />
+            <h4 className="font-headline text-4xl text-brand-gold uppercase tracking-tight">The squad</h4>
           </div>
-          <p className="font-body text-brand-cream/80 text-lg leading-relaxed">
-            Two DJs, one MC, five influencers, and a content crew deployed to one venue to create the primary Sunday narrative.
+          <p className="font-body text-brand-cream/80 text-xl leading-relaxed">
+            Proven talent deployed to one rotating host venue to create the primary Sunday narrative and content.
           </p>
         </div>
         
-        <div className="space-y-3">
-          <div className="flex items-center gap-3">
-            <div className="h-[2px] w-8 bg-brand-teal" />
-            <h4 className="font-headline text-3xl text-brand-gold uppercase tracking-tight">The network</h4>
+        <div className="space-y-6">
+          <div className="flex items-center gap-4">
+            <div className="h-[3px] w-12 bg-brand-teal" />
+            <h4 className="font-headline text-4xl text-brand-gold uppercase tracking-tight">The network</h4>
           </div>
-          <p className="font-body text-brand-cream/80 text-lg leading-relaxed">
-            Savanna branding and bar presence across multiple premium venues simultaneously every single Sunday.
+          <p className="font-body text-brand-cream/80 text-xl leading-relaxed">
+            Savanna visual dominance and bar presence across multiple premium venues simultaneously every Sunday.
           </p>
         </div>
       </div>
 
-      {/* Unboxed HD Venue Marquee */}
-      <div className="py-12 overflow-hidden border-y border-white/5">
-        <div className="flex w-fit animate-marquee space-x-24 px-12">
+      {/* Unboxed HD Venue Marquee - Full Color */}
+      <div className="py-16 overflow-hidden border-y border-white/5 bg-white/[0.01]">
+        <div className="flex w-fit animate-marquee space-x-32 px-12">
           {[...Array(3)].map((_, listIdx) => (
-            <div key={listIdx} className="flex items-center space-x-24 shrink-0">
+            <div key={listIdx} className="flex items-center space-x-40 shrink-0">
               {venueData.map((v) => {
                 const img = PlaceHolderImages.find(p => p.id === v.id);
                 return (
-                  <div key={`${listIdx}-${v.id}`} className="flex items-center gap-6">
+                  <div key={`${listIdx}-${v.id}`} className="flex items-center gap-8">
                     {img && (
-                      <div className="relative h-20 w-40 hover:scale-110 transition-transform">
+                      <div className="relative h-28 w-56 hover:scale-110 transition-transform duration-500">
                         <Image 
                           src={img.imageUrl} 
                           alt={v.name} 
@@ -94,20 +94,20 @@ export const DualActivationModel = () => {
         </div>
       </div>
       
-      <p className="font-body text-[10px] text-brand-text-muted italic text-center uppercase tracking-[4px] font-bold opacity-60">
+      <p className="font-body text-[11px] text-brand-gold/40 italic text-center uppercase tracking-[5px] font-bold">
         Firefly has active relationships with these venues and more.
       </p>
 
-      {/* Open Typographic Roles */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Clean Typographic Roles - No Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         {squadRoles.map((role, i) => (
-          <div key={i} className="space-y-4 group">
-            <div className="text-brand-gold mb-1 group-hover:scale-110 transition-transform origin-left">
+          <div key={i} className="space-y-6 group">
+            <div className="text-brand-gold mb-2 group-hover:scale-110 transition-transform origin-left duration-500">
               {role.icon}
             </div>
-            <div className="space-y-2">
-              <h5 className="font-headline text-4xl text-brand-gold uppercase leading-none">{role.role}</h5>
-              <p className="font-body text-brand-cream/60 text-sm leading-relaxed font-bold uppercase tracking-wider">
+            <div className="space-y-3">
+              <h5 className="font-headline text-5xl text-brand-gold uppercase leading-none tracking-tight">{role.role}</h5>
+              <p className="font-body text-brand-cream/70 text-sm leading-relaxed font-bold uppercase tracking-widest">
                 {role.body}
               </p>
             </div>

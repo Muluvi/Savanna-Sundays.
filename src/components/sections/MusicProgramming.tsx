@@ -30,26 +30,26 @@ const featuredDjs = [
 export const MusicProgrammingSection = () => {
   return (
     <div className="space-y-16">
-      <div className="max-w-3xl space-y-4">
+      <div className="max-w-4xl space-y-6">
         <div className="section-label">03C: Sonic architecture</div>
-        <h3 className="font-headline text-5xl md:text-8xl text-brand-gold uppercase leading-none tracking-tighter">Elite talent</h3>
-        <p className="font-body text-brand-cream/80 text-lg md:text-xl leading-relaxed">
+        <h3 className="font-headline text-6xl md:text-9xl text-brand-gold uppercase leading-none tracking-tighter">Elite talent</h3>
+        <p className="font-body text-brand-cream/80 text-xl md:text-2xl leading-relaxed">
           The following artists represent the caliber of elite talent Firefly and KWAL have collaborated with previously. These illustrate the benchmark of quality we will deploy for Savanna Sundays.
         </p>
       </div>
 
-      {/* Unboxed HD Talent Showcase */}
-      <div className="space-y-24">
+      {/* Unboxed Full Color HD Showcase */}
+      <div className="space-y-32">
         {featuredDjs.map((dj, i) => (
-          <div key={i} className="space-y-8">
-            <div className="flex items-center gap-6">
-              <div className="h-[2px] w-12 bg-brand-gold" />
-              <h4 className="font-headline text-4xl md:text-6xl text-brand-gold tracking-widest">{dj.name}</h4>
-              <span className="font-body text-xs text-white/40 uppercase tracking-[5px] font-bold">{dj.role}</span>
+          <div key={i} className="space-y-10">
+            <div className="flex items-center gap-8">
+              <div className="h-[3px] w-16 bg-brand-gold" />
+              <h4 className="font-headline text-5xl md:text-8xl text-brand-gold tracking-widest">{dj.name}</h4>
+              <span className="font-body text-xs text-brand-gold/40 uppercase tracking-[6px] font-bold">{dj.role}</span>
             </div>
             
-            {/* Full Bleed HD Gallery */}
-            <div className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
+            {/* Full Bleed HD Gallery - Exact Proportions - No Zoom */}
+            <div className="relative w-full h-[60vh] md:h-[85vh] overflow-hidden">
               <div className="flex h-full animate-marquee" style={{ width: `${dj.images.length * 100}%` }}>
                 {[...dj.images, ...dj.images].map((imgUrl, idx) => (
                   <div key={idx} className="relative h-full w-full flex-shrink-0">
@@ -66,7 +66,7 @@ export const MusicProgrammingSection = () => {
               </div>
             </div>
             
-            <p className="max-w-2xl font-body text-brand-cream/70 text-sm md:text-lg uppercase tracking-[2px] font-bold leading-relaxed">
+            <p className="max-w-3xl font-body text-brand-cream/80 text-xl md:text-2xl italic leading-relaxed pl-8 border-l-2 border-brand-gold/20">
               {dj.desc}
             </p>
           </div>

@@ -3,6 +3,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { cn } from '@/lib/utils';
 
 const Counter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -32,7 +33,7 @@ const Counter = ({ value, suffix = "" }: { value: string, suffix?: string }) => 
   }, [isVisible, target]);
 
   return (
-    <div ref={containerRef} className="font-headline text-6xl md:text-8xl text-brand-gold leading-none tracking-tighter">
+    <div ref={containerRef} className="font-headline text-7xl md:text-9xl text-brand-gold leading-none tracking-tighter">
       {isKFormat ? (displayValue / 1000).toFixed(0) + 'K' : Math.floor(displayValue).toLocaleString()}
       {suffix}
     </div>
@@ -41,52 +42,52 @@ const Counter = ({ value, suffix = "" }: { value: string, suffix?: string }) => 
 
 export const TheGap = () => {
   const socialIcons = [
-    { id: 'social-fb', label: 'Facebook', value: '603K', size: 'h-32 w-48' },
-    { id: 'social-ig', label: 'Instagram', value: '6K', size: 'h-24 w-24' },
-    { id: 'social-x', label: 'Twitter / X', value: '1115', size: 'h-20 w-20' },
+    { id: 'social-fb', label: 'Facebook', value: '603K', size: 'h-40 w-56' },
+    { id: 'social-ig', label: 'Instagram', value: '6K', size: 'h-32 w-32' },
+    { id: 'social-x', label: 'Twitter / X', value: '1115', size: 'h-24 w-24' },
   ];
 
   return (
     <div className="space-y-16 py-4 relative">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <p className="font-serif italic text-3xl md:text-5xl text-brand-gold leading-[1.1] border-l-4 border-brand-gold pl-8 py-2">
-            The audience is established; the ritual is ready.
+        <div className="space-y-8">
+          <p className="font-serif italic text-3xl md:text-6xl text-brand-gold leading-[1.1] border-l-8 border-brand-gold pl-8 py-4">
+            A massive community awaits.
           </p>
-          <p className="font-body text-lg md:text-xl text-brand-cream/80 leading-relaxed">
-            With over 600,000 followers on Facebook and a growing presence on Instagram and X, the community is poised for a high-fidelity catalyst. Savanna Sundays bridges the gap between digital scale and physical deep-tissue brand loyalty.
+          <p className="font-body text-xl md:text-2xl text-brand-cream/80 leading-relaxed">
+            Savanna Sundays is the catalyst that turns digital energy into a physical cultural habit. We bridge the gap between Nairobi’s digital reach and physical brand loyalty.
           </p>
         </div>
 
-        <div className="relative p-10 bg-brand-gold/5 border border-brand-gold/10 rounded-[40px] shadow-2xl space-y-4 backdrop-blur-xl">
-          <span className="font-body text-brand-gold/60 text-[10px] tracking-[5px] uppercase font-bold">The Strategic Anchor</span>
-          <p className="font-body text-xl md:text-2xl text-brand-cream leading-tight font-bold tracking-tight">
-            We convert Nairobi's digital reach into a cultural habit by owning the Sunday ritual.
+        <div className="relative p-12 bg-brand-gold/5 border border-brand-gold/20 rounded-[48px] shadow-2xl space-y-6 backdrop-blur-3xl">
+          <span className="font-body text-brand-gold/60 text-xs tracking-[5px] uppercase font-bold">The strategic catalyst</span>
+          <p className="font-body text-2xl md:text-4xl text-brand-cream leading-tight font-bold tracking-tight">
+            Converting 600,000+ digital fans into a dedicated cultural community through the Sunday ritual.
           </p>
         </div>
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-10">
         <div className="text-center">
-          <span className="section-label">Market presence snapshot</span>
-          <h3 className="font-headline text-4xl md:text-7xl text-brand-cream uppercase tracking-tighter">A powerful foundation</h3>
+          <span className="section-label">Savanna Kenya right now</span>
+          <h3 className="font-headline text-5xl md:text-8xl text-brand-cream uppercase tracking-tighter">The audience is established</h3>
         </div>
 
-        {/* Full Color HD Social Marquee */}
-        <div className="relative overflow-hidden py-8">
-          <div className="flex w-fit animate-marquee space-x-24 px-8 items-center">
+        {/* Full Color HD Social Marquee - Unboxed */}
+        <div className="relative overflow-hidden py-12">
+          <div className="flex w-fit animate-marquee space-x-32 px-12 items-center">
             {[...Array(3)].map((_, listIdx) => (
-              <div key={listIdx} className="flex items-center space-x-32 shrink-0">
+              <div key={listIdx} className="flex items-center space-x-40 shrink-0">
                 {socialIcons.map((stat) => {
                   const img = PlaceHolderImages.find(i => i.id === stat.id);
                   return (
-                    <div key={`${listIdx}-${stat.id}`} className="flex flex-col items-center gap-6 group">
-                      <div className={`relative ${stat.size} transition-transform group-hover:scale-110`}>
+                    <div key={`${listIdx}-${stat.id}`} className="flex flex-col items-center gap-8 group">
+                      <div className={cn("relative transition-transform group-hover:scale-110", stat.size)}>
                         {img && <Image src={img.imageUrl} alt={stat.label} fill className="object-contain" />}
                       </div>
-                      <div className="text-center space-y-1">
+                      <div className="text-center space-y-2">
                         <Counter value={stat.value} />
-                        <div className="font-body text-xs uppercase font-bold tracking-[4px] text-brand-gold opacity-60">{stat.label}</div>
+                        <div className="font-body text-sm uppercase font-bold tracking-[6px] text-brand-gold/60">{stat.label}</div>
                       </div>
                     </div>
                   );
