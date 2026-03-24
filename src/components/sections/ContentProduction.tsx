@@ -149,7 +149,6 @@ const ContentMockups = () => {
         <div className="lg:col-span-8 space-y-4">
           <div className="font-body text-[10px] uppercase tracking-[3px] text-brand-gold/60 font-bold">Mock-up 1 — YouTube DJ Set Thumbnail</div>
           <div className="relative aspect-video w-full rounded-[32px] overflow-hidden bg-brand-green group border border-white/10 shadow-2xl">
-            {/* Background Image / Placeholder */}
             <div className="absolute inset-0 grayscale opacity-40 group-hover:scale-110 transition-transform duration-1000">
                <Image 
                  src="https://picsum.photos/seed/music1/1200/675" 
@@ -160,14 +159,11 @@ const ContentMockups = () => {
                />
             </div>
             
-            {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-brand-green via-brand-green/40 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-green/60 via-transparent to-transparent" />
             
-            {/* Content Layers */}
             <div className="absolute inset-0 p-8 flex flex-col justify-between">
               <div>
-                <h3 className="font-headline text-[clamp(40px,6vw,80px)] text-brand-gold leading-none tracking-tighter drop-shadow-2xl">
+                <h3 className="font-headline text-[clamp(40px,6vw,80px)] text-brand-gold leading-[0.85] tracking-tighter drop-shadow-2xl">
                   SAVANNA<br/>SUNDAYS
                 </h3>
                 <div className="mt-4 flex items-center gap-3">
@@ -181,56 +177,73 @@ const ContentMockups = () => {
                   <Play fill="currentColor" size={32} />
                 </div>
                 {savannaLogo && (
-                  <div className="relative h-12 w-32 opacity-90">
+                  <div className="relative h-12 w-32">
                     <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain object-right" />
                   </div>
                 )}
               </div>
             </div>
-            
-            {/* Technical Detail */}
-            <div className="absolute top-8 right-8 px-4 py-1 rounded-full border border-white/20 bg-white/5 backdrop-blur-md">
-              <span className="font-body text-[8px] uppercase tracking-widest text-white/60 font-bold">4K Multi-Cam • Board Feed Audio</span>
-            </div>
           </div>
         </div>
 
-        {/* Vertical/Portrait Grid for others */}
-        <div className="lg:col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
-          {/* Mock-up 2: Instagram Reel */}
-          <div className="space-y-4">
-            <div className="font-body text-[10px] uppercase tracking-[3px] text-brand-gold/60 font-bold">Mock-up 2 — Instagram Reel</div>
-            <div className="relative aspect-[9/16] w-full max-w-[280px] mx-auto rounded-[32px] overflow-hidden bg-brand-dark-alt border border-white/10 shadow-2xl group">
-              <Image src="https://picsum.photos/seed/crowd2/400/711" alt="Crowd Energy" fill className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-ai-hint="crowd energy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-green/80 via-transparent to-transparent" />
-              
-              <div className="absolute bottom-6 left-6 right-6 space-y-3">
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-full bg-brand-gold flex items-center justify-center">
-                    <Instagram size={12} className="text-brand-green" />
-                  </div>
-                  <span className="font-body text-[10px] text-white font-bold uppercase tracking-widest">Savanna Sundays</span>
-                </div>
-                <p className="font-headline text-2xl text-white leading-tight uppercase">THE SUNDAY FLYWHEEL<br/><span className="text-brand-gold">LIVE AT THE ALCHEMIST</span></p>
+        {/* Mock-up 2: Instagram Reel (9:16) */}
+        <div className="lg:col-span-4 space-y-4">
+          <div className="font-body text-[10px] uppercase tracking-[3px] text-brand-gold/60 font-bold">Mock-up 2 — Instagram Reel Frame</div>
+          <div className="relative aspect-[9/16] w-full max-w-[320px] mx-auto rounded-[48px] overflow-hidden bg-brand-dark-alt border-[8px] border-brand-dark shadow-2xl group ring-1 ring-white/10">
+            {/* Crowd Shot with Gold Grade */}
+            <div className="absolute inset-0">
+               <Image 
+                 src="https://picsum.photos/seed/crowd7/600/1066" 
+                 alt="Crowd Energy" 
+                 fill 
+                 className="object-cover transition-transform duration-700 group-hover:scale-105"
+                 data-ai-hint="party crowd"
+               />
+               <div className="absolute inset-0 bg-brand-gold/10 mix-blend-overlay" />
+               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
+            </div>
+
+            {/* Savanna Watermark - Top Right */}
+            {savannaLogo && (
+              <div className="absolute top-8 right-8 w-20 h-10 opacity-60">
+                <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain" />
               </div>
-              
-              <div className="absolute top-6 right-6">
-                <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center">
-                   <Maximize2 size={14} className="text-white/60" />
+            )}
+
+            {/* Social UI Elements */}
+            <div className="absolute bottom-10 left-6 right-6 space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-brand-gold/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-brand-gold">
+                   <Instagram size={18} />
+                </div>
+                <div className="space-y-0.5">
+                  <span className="font-body text-[11px] text-white font-bold tracking-wider">@SavannaCider_EA</span>
+                  <div className="flex gap-2">
+                    <span className="bg-brand-gold/20 text-brand-gold px-2 py-0.5 rounded text-[8px] font-bold uppercase tracking-widest border border-brand-gold/30">AD</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <p className="font-headline text-3xl text-white leading-tight uppercase tracking-tight">
+                  THE SUNDAY<br/>
+                  <span className="text-brand-gold">FLYWHEEL</span>
+                </p>
+                <div className="flex items-center gap-2">
+                   <span className="font-body text-[10px] text-brand-gold font-bold tracking-[2px] uppercase">#SavannaSundays</span>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Mock-up 3: Photography Frame */}
-          <div className="space-y-4">
-            <div className="font-body text-[10px] uppercase tracking-[3px] text-brand-gold/60 font-bold">Mock-up 3 — Pro Photography</div>
-            <div className="relative aspect-[4/5] w-full max-w-[280px] mx-auto rounded-[32px] overflow-hidden bg-brand-green/20 border border-brand-gold/20 shadow-xl group">
-              <Image src="https://picsum.photos/seed/product3/400/500" alt="Product Moment" fill className="object-cover group-hover:scale-110 transition-transform duration-1000" data-ai-hint="lifestyle party" />
-              <div className="absolute inset-0 border-[16px] border-brand-green/10" />
-              <div className="absolute bottom-4 right-4">
-                <span className="font-headline text-lg text-brand-gold/40 tracking-widest">© FIREFLY 2024</span>
-              </div>
+            {/* Music Waveform Visual */}
+            <div className="absolute bottom-10 right-6 flex items-end gap-0.5 h-4">
+              {[...Array(5)].map((_, i) => (
+                <div 
+                  key={i} 
+                  className="w-[2px] bg-brand-gold animate-waveform" 
+                  style={{ height: '100%', animationDelay: `${i * 0.1}s` }} 
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -247,7 +260,6 @@ export const ContentSocialSection = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Sequential light-up animation
           contentRhythm.forEach((_, i) => {
             setTimeout(() => {
               setActiveDay(i);
@@ -264,14 +276,12 @@ export const ContentSocialSection = () => {
 
   return (
     <div className="space-y-24">
-      {/* Header Quote */}
       <div className="text-center max-w-2xl mx-auto">
         <p className="font-serif italic text-2xl md:text-3xl text-brand-gold leading-relaxed">
           "Every Sunday generates content that keeps Savanna visible all week long."
         </p>
       </div>
 
-      {/* Deliverable Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {deliverables.map((card, i) => (
           <Card 
@@ -291,22 +301,17 @@ export const ContentSocialSection = () => {
                 {card.body}
               </p>
             </div>
-            <div className="pt-4 flex justify-end opacity-20">
-              {card.heading.includes('YouTube') ? <Youtube size={32} /> : card.heading.includes('Reels') ? <Instagram size={32} /> : <Camera size={32} />}
-            </div>
           </Card>
         ))}
       </div>
 
-      {/* Brand Objectives Section */}
       <div className="space-y-8">
         <div className="section-label text-center">How Every Piece of Content Works for Savanna</div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {objectives.map((obj, i) => (
             <Card 
               key={i} 
-              className="p-8 bg-[#FDF8EC] border-none rounded-[32px] space-y-4 shadow-xl hover:-translate-y-1 transition-all duration-500 animate-in fade-in slide-in-from-bottom-4"
-              style={{ animationDelay: `${i * 150}ms` }}
+              className="p-8 bg-[#FDF8EC] border-none rounded-[32px] space-y-4 shadow-xl hover:-translate-y-1 transition-all duration-500"
             >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-brand-gold text-brand-green rounded-full flex items-center justify-center shadow-md">
@@ -324,10 +329,8 @@ export const ContentSocialSection = () => {
         </div>
       </div>
 
-      {/* Content Mockups */}
       <ContentMockups />
 
-      {/* Animated Content Rhythm Calendar */}
       <div className="space-y-8 py-12" ref={rhythmRef}>
         <div className="flex items-center justify-center gap-3 mb-4">
           <CalendarDays className="text-brand-gold" size={20} />
@@ -340,7 +343,7 @@ export const ContentSocialSection = () => {
               <Card 
                 key={i} 
                 className={cn(
-                  "flex-1 p-6 rounded-[24px] border transition-all duration-700 snap-center flex flex-col justify-between h-[200px] group",
+                  "flex-1 p-6 rounded-[24px] border transition-all duration-700 snap-center flex flex-col justify-between h-[200px]",
                   activeDay !== null && activeDay >= i 
                     ? "bg-brand-gold/10 border-brand-gold shadow-[0_0_20px_rgba(244,197,66,0.15)]" 
                     : "bg-white/5 border-white/5 opacity-40"
@@ -394,7 +397,6 @@ export const ContentSocialSection = () => {
         </div>
       </div>
 
-      {/* Pipeline Visual */}
       <div className="space-y-8">
         <div className="section-label text-center">The Content Pipeline</div>
         <div className="relative flex flex-col md:flex-row items-start justify-between gap-8 md:gap-4 px-4">
@@ -415,33 +417,11 @@ export const ContentSocialSection = () => {
         </div>
       </div>
 
-      {/* Cost Breakdown */}
-      <div className="space-y-8 pt-8 border-t border-white/5">
-        <div className="text-center space-y-2">
-          <h3 className="font-headline text-3xl md:text-5xl text-white uppercase tracking-tighter">
-            What's in the KSh 165,000/Month Fee
-          </h3>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-          {costItems.map((item) => (
-            <Card key={item.id} className="p-6 bg-white/5 border border-white/10 rounded-2xl flex flex-col justify-center space-y-2 group hover:border-brand-gold/30 transition-colors">
-              <h5 className="font-headline text-xl text-white uppercase tracking-wide group-hover:text-brand-gold transition-colors">
-                {item.label}
-              </h5>
-              <p className="font-body text-[11px] text-[#B8A98A] uppercase tracking-wider font-bold">
-                {item.desc}
-              </p>
-            </Card>
-          ))}
-        </div>
-
-        <div className="text-center pt-8">
-          <div className="inline-block p-8 rounded-[32px] border-2 border-brand-gold/20 bg-brand-gold/5 shadow-2xl animate-glow-pulse">
-            <span className="font-body font-bold text-xs uppercase tracking-[4px] text-brand-gold/60 block mb-2">Investment Total</span>
-            <div className="font-headline text-5xl md:text-7xl text-brand-gold leading-none tracking-tighter">
-              Monthly Total: KSh 165,000
-            </div>
+      <div className="text-center pt-8">
+        <div className="inline-block p-8 rounded-[32px] border-2 border-brand-gold/20 bg-brand-gold/5 shadow-2xl">
+          <span className="font-body font-bold text-xs uppercase tracking-[4px] text-brand-gold/60 block mb-2">Investment Total</span>
+          <div className="font-headline text-5xl md:text-7xl text-brand-gold leading-none tracking-tighter">
+            Monthly Total: KSh 165,000
           </div>
         </div>
       </div>
