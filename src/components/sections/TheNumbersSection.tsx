@@ -54,7 +54,7 @@ export const TheNumbersSection = () => {
           </TableHeader>
           <TableBody>
             {lineItems.map((row, i) => (
-              <TableRow key={i} className="border-white/5 hover:bg-white/10 transition-colors">
+              <TableRow key={i} className="border-white/5 hover:bg-white/5 transition-colors">
                 <TableCell className="font-body font-bold text-[11px] py-4 px-8 text-brand-cream uppercase tracking-widest">{row.item}</TableCell>
                 <TableCell className="font-headline text-2xl text-brand-cream text-right px-8">{row.cost}</TableCell>
               </TableRow>

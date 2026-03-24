@@ -67,7 +67,7 @@ export const DualActivationModel = () => {
       </div>
 
       {/* High-Impact Unboxed Venue Marquee - 4K Optimized Edge Masking */}
-      <div className="py-12 md:py-20 overflow-hidden relative group">
+      <div className="py-8 md:py-12 overflow-hidden relative group">
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-green to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-green to-transparent z-10 pointer-events-none" />
         
@@ -79,7 +79,7 @@ export const DualActivationModel = () => {
                 return (
                   <div key={`${listIdx}-${v.id}`} className="flex items-center">
                     {img && (
-                      <div className="relative h-80 md:h-[420px] w-[540px] md:w-[720px] transition-transform duration-1000 hover:scale-105">
+                      <div className="relative h-64 md:h-80 w-[480px] md:w-[640px] transition-transform duration-1000 hover:scale-105">
                         <Image 
                           src={img.imageUrl} 
                           alt={v.name} 

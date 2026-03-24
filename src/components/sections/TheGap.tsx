@@ -82,6 +82,10 @@ export const TheGap = () => {
         <div className="section-label text-center mb-0 text-brand-gold/80">Market Presence</div>
         
         <div className="relative overflow-hidden py-10 glass-tile rounded-[32px] border-brand-gold/10 bg-white/[0.02]">
+          {/* Edge Masking for 4K Marquee */}
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-green to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-green to-transparent z-10 pointer-events-none" />
+          
           <div className="flex w-fit animate-marquee space-x-24 px-8 items-center">
             {[...Array(3)].map((_, listIdx) => (
               <div key={listIdx} className="flex items-center space-x-24 shrink-0">

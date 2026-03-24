@@ -76,10 +76,13 @@ const ContentSocialSection = () => {
         ))}
       </div>
 
-      {/* OLED Platform Marquee */}
+      {/* OLED Platform Marquee with Edge Masking */}
       <div className="space-y-2 pt-2">
-        <div className="section-label text-center mb-0 opacity-80 text-brand-gold/80">Multi-Platform Distribution</div>
+        <div className="section-label text-center mb-0 opacity-100 text-brand-gold">Multi-Platform Distribution</div>
         <div className="relative overflow-hidden py-4">
+          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-brand-green to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-brand-green to-transparent z-10 pointer-events-none" />
+          
           <div className="flex w-fit animate-marquee space-x-12 px-4 items-center">
             {[...Array(3)].map((_, listIdx) => (
               <div key={listIdx} className="flex items-center space-x-16 shrink-0">

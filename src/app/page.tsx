@@ -42,6 +42,7 @@ export default function Home() {
       <main>
         {/* Cinematic Brand Hero Section */}
         <section id="hero" className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
+          <div className="noise-overlay" />
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.1)_0%,transparent_70%)]" />
 
           <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-4 text-center">
@@ -90,8 +91,9 @@ export default function Home() {
         ))}
 
         {/* Brand Closing Section */}
-        <div className="py-20 px-6 text-center bg-brand-green border-t border-white/5 relative overflow-hidden">
-          <div className="max-w-4xl mx-auto space-y-10 relative z-10">
+        <div className="py-12 px-6 text-center bg-brand-green border-t border-white/5 relative overflow-hidden">
+          <div className="noise-overlay" />
+          <div className="max-w-4xl mx-auto space-y-8 relative z-10">
             <p className="font-serif italic text-xl md:text-4xl text-brand-cream leading-tight max-w-2xl mx-auto">
               Savanna Sundays is built. The squad is assembled. The venues are mapped. All that’s needed is the green light.
             </p>
@@ -100,9 +102,9 @@ export default function Home() {
               <span>Let&apos;s own Sunday</span>
             </a>
 
-            <div className="pt-12 space-y-8">
+            <div className="pt-8 space-y-6">
               <div className="flex items-center justify-center gap-10 grayscale brightness-200 opacity-60">
-                {savannaLogo && <div className="relative h-10 w-32"><Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain" /></div>}
+                {savannaLogo && <div className="relative h-8 w-24"><Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain" /></div>}
                 <div className="h-6 w-[1px] bg-white/20" />
                 <p className="font-headline text-2xl text-white tracking-widest">Firefly</p>
               </div>
