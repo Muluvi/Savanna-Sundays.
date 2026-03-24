@@ -18,13 +18,15 @@ import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign'
 import { ContentSocialSection } from '@/components/sections/ContentProduction';
 import { BuildingTheCrowd } from '@/components/sections/BuildingTheCrowd';
 import { TheNumbersSection } from '@/components/sections/SponsorshipRevenue';
+import { MusicProgrammingSection } from '@/components/sections/MusicProgramming';
+import { CommunityGrowthSection } from '@/components/sections/CommunityBuilding';
 
 const sectionsData = [
   { 
     id: 'the-gap', 
     label: '01 — THE OPPORTUNITY', 
     title: "THE SUNDAY OPPORTUNITY", 
-    variant: 'cream' as const, 
+    variant: 'dark' as const, 
     component: <TheGap /> 
   },
   { 
@@ -51,6 +53,8 @@ const sectionsData = [
         </div>
         <VisualIdentitySection />
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
+        <MusicProgrammingSection />
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
         <ExperienceDesignSection />
       </div>
     ) 
@@ -67,7 +71,13 @@ const sectionsData = [
     label: '05 — BUILDING THE CROWD', 
     title: 'BUILDING THE CROWD', 
     variant: 'dark' as const, 
-    component: <BuildingTheCrowd />
+    component: (
+      <div className="space-y-16 md:space-y-24">
+        <CommunityGrowthSection />
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
+        <BuildingTheCrowd />
+      </div>
+    )
   },
   { 
     id: 'the-numbers', 
