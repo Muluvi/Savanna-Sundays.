@@ -3,10 +3,17 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Card } from '@/components/ui/card';
 
 export const TheGap = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  const fbLogo = PlaceHolderImages.find(img => img.id === 'social-fb');
+  const igLogo = PlaceHolderImages.find(img => img.id === 'social-ig');
+  const xLogo = PlaceHolderImages.find(img => img.id === 'social-x');
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => { 
@@ -17,7 +24,7 @@ export const TheGap = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="space-y-12 py-8 relative overflow-hidden">
+    <div ref={sectionRef} className="space-y-16 py-8 relative overflow-hidden">
       <div className="space-y-4">
         <div className="relative inline-block">
           <h2 className="font-headline text-5xl md:text-8xl text-brand-cream uppercase leading-none tracking-tighter blur-in">
@@ -47,6 +54,41 @@ export const TheGap = () => {
             </p>
             <div className="w-12 h-[2px] bg-brand-gold/30" />
           </div>
+        </div>
+      </div>
+
+      {/* Social Proof Strip */}
+      <div className="mt-12 bg-[#FDF8EC] rounded-[40px] p-8 md:p-12 border border-brand-gold/20 shadow-xl overflow-hidden relative">
+        <div className="absolute top-0 right-0 p-8 opacity-5">
+           <h4 className="font-headline text-9xl text-brand-gold">DATA</h4>
+        </div>
+        
+        <div className="relative z-10 space-y-8">
+          <div className="section-label text-brand-teal mb-4">Savanna Kenya Right Now</div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { label: "Facebook Followers", value: "603K", img: fbLogo },
+              { label: "Instagram Followers", value: "6,121", img: igLogo },
+              { label: "Twitter/X Followers", value: "1,115", img: xLogo },
+            ].map((stat, i) => (
+              <Card key={i} className="bg-white border border-brand-gold/10 p-6 flex items-center gap-6 shadow-sm hover:border-brand-gold/30 transition-all">
+                {stat.img && (
+                  <div className="relative h-8 w-8 shrink-0">
+                    <Image src={stat.img.imageUrl} alt={stat.label} fill className="object-contain" />
+                  </div>
+                )}
+                <div className="space-y-0.5">
+                  <div className="font-headline text-4xl text-brand-gold leading-none">{stat.value}</div>
+                  <div className="font-body text-[10px] uppercase font-bold tracking-widest text-[#B8A98A]">{stat.label}</div>
+                </div>
+              </Card>
+            ))}
+          </div>
+          
+          <p className="font-body text-sm md:text-base text-brand-green/80 font-bold max-w-2xl">
+            603K on Facebook. 6K on Instagram. The audience is there — the culture connection isn’t. <span className="text-brand-gold">Savanna Sundays builds it.</span>
+          </p>
         </div>
       </div>
 

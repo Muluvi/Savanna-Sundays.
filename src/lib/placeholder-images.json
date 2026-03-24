@@ -89,6 +89,18 @@
       "description": "TikTok",
       "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1765720754/TikTok-logo-RGB-Horizontal-black_avux4m.png",
       "imageHint": "social logo"
+    },
+    {
+      "id": "social-fb",
+      "description": "Facebook",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1765889247/AZsnL4dMdfGc81To27QzCg-AZsnL4dMtdFVyuKofEOY6Q_20251216_154319_0000_nq9hvp.png",
+      "imageHint": "social logo"
+    },
+    {
+      "id": "social-x",
+      "description": "X (formerly Twitter)",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1763590344/X_idVRwaKp9b_4_vpw8j2.png",
+      "imageHint": "social logo"
     }
   ]
 }
