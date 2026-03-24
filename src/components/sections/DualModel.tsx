@@ -4,7 +4,12 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { cn } from '@/lib/utils';
+import { 
+  Music, 
+  Mic2, 
+  Users, 
+  Camera 
+} from 'lucide-react';
 
 const venueData = [
   { id: "venue-muze", name: "Muze", location: "Westlands" },
@@ -12,6 +17,33 @@ const venueData = [
   { id: "venue-black-samurai", name: "Black Samurai", location: "Westlands" },
   { id: "venue-koda", name: "KODA", location: "Kilimani" },
   { id: "venue-masshouse", name: "Masshouse", location: "Industrial Area" },
+];
+
+const squadRoles = [
+  {
+    role: "2 DJs",
+    icon: <Music className="w-8 h-8" />,
+    title: "Two DJs. Two sets. One vibe.",
+    body: "Established Nairobi DJs with 5,000+ Instagram followings. Crowd-pullers who play across genres — Afro house, amapiano, deep house, and whatever the room needs. DJ 1 runs the warm-up set. DJ 2 owns peak time. Both sets are multi-camera recorded for YouTube with board-feed audio."
+  },
+  {
+    role: "1 MC",
+    icon: <Mic2 className="w-8 h-8" />,
+    title: "The voice of Savanna on the ground.",
+    body: "A crowd-pulling MC who doubles as brand ambassador. Runs crowd interactions, shout-outs, drink call-outs, competition announcements, and real-time engagement moments. The MC keeps energy high, drives brand mentions naturally, and creates content-worthy moments throughout the session."
+  },
+  {
+    role: "5 Influencers",
+    icon: <Users className="w-8 h-8" />,
+    title: "Five faces. Five audiences. Every Sunday.",
+    body: "Selection criteria: Nairobi-based, 10K–50K followers, active in lifestyle/nightlife/food/fashion niches, strong Stories engagement rate (3%+ minimum), and authentic connection to social/going-out culture. Rotated monthly to keep content fresh and expand reach.\n\nDeliverables: Minimum 3 Instagram Stories, 1 Instagram Reel or TikTok per Sunday. All posts tag @SavannaCider_EA and the venue. Combined weekly reach: 50K–250K impressions."
+  },
+  {
+    role: "Content Crew",
+    icon: <Camera className="w-8 h-8" />,
+    title: "Three people. One job. Make Savanna look incredible.",
+    body: "Videographer (multi-cam DJ sets + crowd energy footage), photographer (unlimited edited shots, colour-graded in Savanna's warm gold palette), and a social media operator (real-time Stories and live posting to Savanna channels)."
+  }
 ];
 
 export const DualActivationModel = () => {
@@ -23,6 +55,7 @@ export const DualActivationModel = () => {
         </p>
       </div>
 
+      {/* Main Pillars */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Card 1: THE SAVANNA SQUAD */}
         <Card className="p-10 bg-brand-green border-none border-t-[3px] border-brand-gold rounded-[32px] flex flex-col justify-between group hover:-translate-y-2 transition-all duration-500 shadow-2xl">
@@ -43,6 +76,34 @@ export const DualActivationModel = () => {
             </p>
           </div>
         </Card>
+      </div>
+
+      {/* THE SQUAD Section */}
+      <div className="space-y-8 pt-8">
+        <div className="section-label">02B: THE SQUAD</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {squadRoles.map((role, i) => (
+            <Card 
+              key={i} 
+              className="p-8 bg-[#F8F5E6] border-none border-l-4 border-brand-gold rounded-[24px] space-y-4 shadow-xl transition-all hover:shadow-2xl hover:border-l-8"
+            >
+              <div className="flex items-center gap-4">
+                <div className="text-brand-gold bg-brand-green/5 p-3 rounded-2xl">
+                  {role.icon}
+                </div>
+                <span className="font-headline text-brand-green text-sm tracking-[4px] uppercase font-bold">
+                  {role.role}
+                </span>
+              </div>
+              <h4 className="font-headline text-2xl text-brand-green uppercase leading-tight tracking-tight">
+                {role.title}
+              </h4>
+              <p className="font-body text-brand-green/80 text-sm leading-relaxed whitespace-pre-line">
+                {role.body}
+              </p>
+            </Card>
+          ))}
+        </div>
       </div>
 
       {/* Deployment & Expansion Note */}
