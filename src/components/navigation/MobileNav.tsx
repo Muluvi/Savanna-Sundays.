@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Menu, X, ChevronRight, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -8,28 +8,21 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const sections = [
   { id: 'the-gap', label: 'The Sunday Opportunity', num: '01' },
-  { id: 'the-concept', label: 'How It Works', num: '02' },
-  { id: 'the-experience', label: 'The Savanna Experience', num: '03' },
-  { id: 'the-content-engine', label: 'Content That Works Hard', num: '04' },
-  { id: 'building-the-crowd', label: 'Building the Crowd', num: '05' },
+  { id: 'the-engine', label: 'How It Works', num: '02' },
+  { id: 'the-ritual', label: 'The Savanna Experience', num: '03' },
+  { id: 'the-harvest', label: 'The Content Engine', num: '04' },
+  { id: 'the-community', label: 'The Growth Flywheel', num: '05' },
   { id: 'the-numbers', label: 'The Numbers', num: '06' },
 ];
 
 export const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const offset = 80; // Mobile header height
+      const offset = 20; 
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = el.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -45,46 +38,28 @@ export const MobileNav = () => {
 
   return (
     <>
-      <div className={cn(
-        "md:hidden fixed top-0 left-0 w-full z-[100] px-6 py-4 flex justify-between items-center transition-all duration-500",
-        scrolled ? "bg-brand-dark/80 backdrop-blur-xl border-b border-white/10" : "bg-transparent"
-      )}>
-        <div className="flex items-center gap-4">
-          {savannaLogo && (
-            <div className="relative h-10 w-28">
-              <Image 
-                src={savannaLogo.imageUrl} 
-                alt="Savanna" 
-                fill 
-                className="object-contain object-left"
-              />
-            </div>
-          )}
-        </div>
-        
-        <button 
-          onClick={() => setIsOpen(!isOpen)}
-          className="w-12 h-12 flex items-center justify-center bg-brand-gold text-brand-green rounded-2xl shadow-xl active:scale-90 transition-all z-[110]"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
+      {/* Floating Trigger Button - No Sticky Header */}
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="md:hidden fixed top-6 right-6 w-14 h-14 flex items-center justify-center bg-brand-gold text-brand-green rounded-full shadow-2xl active:scale-90 transition-all z-[110]"
+      >
+        {isOpen ? <X size={28} /> : <Menu size={28} />}
+      </button>
 
       <div className={cn(
-        "fixed inset-0 bg-brand-green z-[105] transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] flex flex-col p-10 pt-32 overflow-hidden",
+        "fixed inset-0 bg-brand-dark z-[105] transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] flex flex-col p-10 pt-24 overflow-hidden",
         isOpen ? "translate-y-0" : "-translate-y-full"
       )}>
-        {/* Animated Background Elements */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-teal/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
-
-        <div className="relative z-10 space-y-2">
-          <p className="font-body text-[10px] tracking-[5px] text-brand-gold uppercase font-bold opacity-60">PROSPECTUS NAVIGATION</p>
-          <h3 className="font-headline text-5xl text-white">STRATEGIC PILLARS</h3>
+        {/* Cinematic Background */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+        
+        <div className="relative z-10 space-y-2 mb-12">
+          <p className="font-body text-[10px] tracking-[5px] text-brand-gold uppercase font-bold opacity-60">Strategic Deck</p>
+          <h3 className="font-headline text-4xl text-white uppercase tracking-tighter">Navigation</h3>
         </div>
 
-        <nav className="relative z-10 flex-1 flex flex-col justify-center py-10">
-          <ul className="space-y-4">
+        <nav className="relative z-10 flex-1 overflow-y-auto pr-4">
+          <ul className="space-y-6">
             {sections.map((section, i) => (
               <li 
                 key={section.id} 
@@ -92,19 +67,19 @@ export const MobileNav = () => {
                   "transition-all duration-700 transform",
                   isOpen ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
                 )}
-                style={{ transitionDelay: isOpen ? `${i * 70}ms` : '0ms' }}
+                style={{ transitionDelay: isOpen ? `${i * 50}ms` : '0ms' }}
               >
                 <button
                   onClick={() => scrollTo(section.id)}
-                  className="w-full flex items-center justify-between group py-3 border-b border-white/5"
+                  className="w-full flex items-center justify-between group py-2 border-b border-white/5"
                 >
                   <div className="flex items-center gap-6">
-                    <span className="font-headline text-xl text-brand-gold/40">{section.num}</span>
-                    <span className="font-headline text-3xl text-white tracking-wide uppercase transition-all group-hover:text-brand-gold group-hover:translate-x-2">
+                    <span className="font-headline text-lg text-brand-gold/40">{section.num}</span>
+                    <span className="font-headline text-2xl text-white tracking-wide uppercase transition-all group-hover:text-brand-gold">
                       {section.label}
                     </span>
                   </div>
-                  <ChevronRight className="text-brand-gold opacity-0 group-hover:opacity-100 transition-all" size={24} />
+                  <ChevronRight className="text-brand-gold" size={20} />
                 </button>
               </li>
             ))}
@@ -112,14 +87,17 @@ export const MobileNav = () => {
         </nav>
 
         <div className={cn(
-          "relative z-10 pt-10 border-t border-white/10 transition-all duration-1000 delay-500",
+          "relative z-10 pt-10 border-t border-white/10 mt-auto transition-all duration-1000 delay-500",
           isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         )}>
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
               <Sparkles className="text-brand-gold" size={20} />
             </div>
-            <p className="font-body text-xs text-white/60 font-bold uppercase tracking-widest">A Firefly Strategic Deck</p>
+            <div>
+              <p className="font-body text-[10px] text-white/40 font-bold uppercase tracking-widest leading-none">Firefly Management</p>
+              <p className="font-body text-[9px] text-brand-gold/60 uppercase tracking-[2px] mt-1">Strategic Proposal 2024</p>
+            </div>
           </div>
         </div>
       </div>
