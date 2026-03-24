@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -7,11 +6,11 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const venueData = [
-  { name: "Muze", area: "Westlands", capacity: "400", type: "Squad Venue", imageId: "venue-muze" },
-  { name: "The Alchemist", area: "Westlands", capacity: "600", type: "Satellite", imageId: "venue-alchemist" },
-  { name: "KODA", area: "Kilimani", capacity: "350", type: "Squad Venue", imageId: "venue-koda" },
-  { name: "Black Samurai", area: "Westlands", capacity: "500", type: "Satellite", imageId: "venue-black-samurai" },
-  { name: "Masshouse", area: "Industrial Area", capacity: "1200", type: "Satellite", imageId: "venue-masshouse" },
+  { id: "venue-muze", name: "Muze", location: "Westlands" },
+  { id: "venue-alchemist", name: "The Alchemist", location: "Westlands" },
+  { id: "venue-black-samurai", name: "Black Samurai", location: "Westlands" },
+  { id: "venue-koda", name: "KODA", location: "Kilimani" },
+  { id: "venue-masshouse", name: "Masshouse", location: "Industrial Area" },
 ];
 
 export const DualActivationModel = () => {
@@ -60,38 +59,38 @@ export const DualActivationModel = () => {
         </div>
       </div>
 
-      {/* Venue Marquee */}
-      <div className="relative w-full mask-marquee pt-8 overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap gap-4">
-          {[...venueData, ...venueData].map((venue, i) => {
-            const img = venue.imageId ? PlaceHolderImages.find(p => p.id === venue.imageId) : null;
+      {/* Venue Logo Grid */}
+      <div className="pt-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 overflow-x-auto md:overflow-visible pb-6 md:pb-0 scrollbar-hide">
+          {venueData.map((v) => {
+            const img = PlaceHolderImages.find(p => p.id === v.id);
             return (
-              <div key={i} className="inline-block min-w-[300px] md:min-w-[400px]">
-                <div className="group relative aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-[#1A1208]">
-                  {img && (
+              <Card 
+                key={v.id} 
+                className="min-w-[160px] p-8 bg-white/5 border border-white/5 hover:border-[#F4C542]/50 transition-all duration-500 group flex flex-col items-center text-center space-y-4 rounded-2xl"
+              >
+                {img && (
+                  <div className="relative h-20 w-full flex items-center justify-center">
                     <Image 
                       src={img.imageUrl} 
-                      alt={venue.name} 
-                      fill 
-                      className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+                      alt={v.name} 
+                      width={120}
+                      height={80}
+                      className="object-contain filter grayscale brightness-200 contrast-125 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700"
                     />
-                  )}
-                  <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent translate-y-2 group-hover:translate-y-0 transition-transform">
-                    <div className="flex justify-between items-end">
-                      <div>
-                        <h5 className="font-headline text-xl text-[#F4C542] leading-none">{venue.name}</h5>
-                        <p className="font-body text-[10px] uppercase tracking-widest text-[#F8F5E6]/60 mt-1">{venue.area}</p>
-                      </div>
-                      <span className="font-body text-[8px] font-bold text-brand-gold uppercase tracking-tighter border border-brand-gold/30 px-2 py-1 rounded">
-                        {venue.type}
-                      </span>
-                    </div>
                   </div>
+                )}
+                <div className="space-y-1">
+                  <h5 className="font-headline text-base text-[#F4C542] uppercase leading-none">{v.name}</h5>
+                  <p className="font-body text-[11px] text-[#B8A98A] uppercase tracking-wider font-bold">{v.location}</p>
                 </div>
-              </div>
+              </Card>
             );
           })}
         </div>
+        <p className="font-body text-[11px] text-[#B8A98A] italic text-center md:text-left mt-8 uppercase tracking-[2px] font-bold">
+          Firefly has active relationships with these venues and more. The network grows with the programme.
+        </p>
       </div>
     </div>
   );
