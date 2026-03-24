@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    --background: 140 30% 2%; /* Deepest OLED Ink Green/Black */
-    --foreground: 48 45% 94%;
-    --card: 140 30% 3%;
-    --card-foreground: 48 45% 94%;
-    --popover: 140 30% 3%;
-    --popover-foreground: 48 45% 94%;
-    --primary: 43 89% 61%; /* Savanna Gold */
-    --primary-foreground: 140 30% 3%;
-    --secondary: 171 49% 36%;
+    --background: 154 42% 15%; /* Savanna Deep Green (#1F4D3A) Base */
+    --foreground: 50 48% 94%; /* Savanna Cream (#F8F5E6) */
+    --card: 154 42% 18%;
+    --card-foreground: 50 48% 94%;
+    --popover: 154 42% 18%;
+    --popover-foreground: 50 48% 94%;
+    --primary: 43 89% 61%; /* Savanna Gold (#F4C542) */
+    --primary-foreground: 154 42% 15%;
+    --secondary: 171 51% 36%; /* Savanna Teal (#2D8C7F) */
     --secondary-foreground: 0 0% 100%;
-    --muted: 140 30% 4%;
+    --muted: 154 42% 12%;
     --muted-foreground: 41 23% 63%;
     --accent: 43 89% 61%;
-    --accent-foreground: 140 30% 3%;
+    --accent-foreground: 154 42% 15%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 43 89% 61% / 0.12;
-    --input: 43 89% 61% / 0.12;
+    --border: 43 89% 61% / 0.15;
+    --input: 43 89% 61% / 0.15;
     --ring: 43 89% 61%;
-    --radius: 24px;
+    --radius: 20px;
   }
 }
 
@@ -39,24 +39,24 @@
 
 @layer components {
   .dark-section {
-    @apply relative overflow-hidden flex flex-col justify-center py-4 md:py-8;
-    background: radial-gradient(circle at 50% 50%, rgba(244,197,66,0.02) 0%, transparent 80%);
+    @apply relative overflow-hidden flex flex-col justify-center py-6 md:py-10;
+    background: radial-gradient(circle at 50% 50%, rgba(244,197,66,0.03) 0%, transparent 80%);
   }
 
   .glass-tile {
-    @apply bg-white/[0.02] border border-white/5 backdrop-blur-3xl shadow-2xl transition-all duration-500;
+    @apply bg-white/[0.03] border border-white/5 backdrop-blur-2xl shadow-2xl transition-all duration-500;
   }
 
   .section-label {
-    @apply font-body font-bold text-[8px] tracking-[5px] uppercase text-brand-gold mb-1 block opacity-30;
+    @apply font-body font-bold text-[9px] tracking-[5px] uppercase text-brand-gold/60 mb-2 block;
   }
 
   .section-title {
-    @apply font-headline text-[clamp(2.5rem,8vw,6rem)] text-brand-gold relative leading-[0.85] mb-2 tracking-tighter;
+    @apply font-headline text-[clamp(2.5rem,8vw,6rem)] text-brand-gold relative leading-[0.85] mb-4 tracking-tighter;
   }
 
   .btn-primary {
-    @apply relative overflow-hidden bg-brand-gold text-brand-dark font-headline text-lg tracking-widest py-3 px-8 rounded-full transition-all active:scale-95 shadow-[0_10px_30px_rgba(244,197,66,0.2)] hover:-translate-y-0.5 hover:shadow-[0_15px_40px_rgba(244,197,66,0.3)];
+    @apply relative overflow-hidden bg-brand-gold text-brand-green font-headline text-lg tracking-widest py-3 px-8 rounded-full transition-all active:scale-95 shadow-[0_10px_30px_rgba(244,197,66,0.2)] hover:-translate-y-0.5;
   }
 }
 
@@ -69,7 +69,7 @@ html {
   width: 2px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-brand-dark;
+  @apply bg-brand-green;
 }
 ::-webkit-scrollbar-thumb {
   @apply bg-brand-gold/30 rounded-full;
@@ -81,17 +81,17 @@ html {
 }
 
 .animate-marquee {
-  animation: marquee 40s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 
 @keyframes intense-glow {
   0%, 100% {
-    filter: drop-shadow(0 0 10px rgba(244,197,66,0.2)) brightness(1);
+    filter: drop-shadow(0 0 15px rgba(244,197,66,0.25)) brightness(1);
     transform: scale(1);
   }
   50% {
-    filter: drop-shadow(0 0 40px rgba(244,197,66,0.6)) brightness(1.1);
-    transform: scale(1.02);
+    filter: drop-shadow(0 0 45px rgba(244,197,66,0.6)) brightness(1.15);
+    transform: scale(1.03);
   }
 }
 

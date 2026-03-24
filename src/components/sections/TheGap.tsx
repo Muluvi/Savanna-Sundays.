@@ -58,43 +58,43 @@ export const TheGap = () => {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
-        <div className="space-y-3">
-          <p className="font-serif italic text-xl md:text-3xl text-brand-gold leading-tight border-l border-brand-gold/30 pl-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+        <div className="space-y-4">
+          <p className="font-serif italic text-xl md:text-3xl text-brand-gold leading-tight border-l-2 border-brand-gold/40 pl-6 py-2">
             Converting music lovers and lovers of experiential events from digital platforms and loyal savanna cider fans into a physical community through consistent, high-fidelity Sunday experiences.
           </p>
         </div>
 
-        <div className="glass-tile p-6 rounded-[24px] relative overflow-hidden border-none bg-white/[0.01]">
-          <div className="absolute top-0 right-0 p-3 opacity-5 pointer-events-none">
+        <div className="glass-tile p-8 rounded-[32px] relative overflow-hidden border-none">
+          <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none scale-150 translate-x-4 -translate-y-4">
             {savannaLogo && (
-              <Image src={savannaLogo.imageUrl} alt="" width={100} height={100} className="object-contain" />
+              <Image src={savannaLogo.imageUrl} alt="" width={120} height={120} className="object-contain" />
             )}
           </div>
-          <span className="section-label mb-1">The Opportunity</span>
-          <p className="font-body text-sm md:text-base text-brand-cream/70 leading-relaxed relative z-10">
+          <span className="section-label mb-2 opacity-60">The Opportunity</span>
+          <p className="font-body text-base text-brand-cream/80 leading-relaxed relative z-10">
             Savanna Sundays is the bridge. We turn massive digital reach into deep brand loyalty through a physical Sunday ritual that Nairobi can finally own.
           </p>
         </div>
       </div>
 
-      <div className="space-y-3 pt-2">
-        <div className="section-label text-center mb-0">Market Presence</div>
+      <div className="space-y-4 pt-4">
+        <div className="section-label text-center mb-0 opacity-40">Market Presence</div>
         
-        <div className="relative overflow-hidden py-4 glass-tile rounded-[24px] border-none bg-white/[0.01]">
-          <div className="flex w-fit animate-marquee space-x-12 px-4 items-center">
+        <div className="relative overflow-hidden py-8 glass-tile rounded-[32px] border-none">
+          <div className="flex w-fit animate-marquee space-x-20 px-6 items-center">
             {[...Array(3)].map((_, listIdx) => (
-              <div key={listIdx} className="flex items-center space-x-16 shrink-0">
+              <div key={listIdx} className="flex items-center space-x-24 shrink-0">
                 {socialIcons.map((stat) => {
                   const img = PlaceHolderImages.find(i => i.id === stat.id);
                   return (
-                    <div key={`${listIdx}-${stat.id}`} className="flex flex-col items-center gap-2 group">
+                    <div key={`${listIdx}-${stat.id}`} className="flex flex-col items-center gap-3 group">
                       <div className={cn("relative transition-transform duration-500 group-hover:scale-110", stat.size)}>
                         {img && <Image src={img.imageUrl} alt={stat.label} fill className="object-contain" />}
                       </div>
                       <div className="text-center">
                         <RollingCounter value={stat.value} />
-                        <div className="font-body text-[8px] uppercase tracking-[2px] text-brand-gold/30 font-bold">{stat.label}</div>
+                        <div className="font-body text-[10px] uppercase tracking-[3px] text-brand-gold/40 font-bold">{stat.label}</div>
                       </div>
                     </div>
                   );
