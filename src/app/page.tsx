@@ -1,3 +1,4 @@
+
 'use client';
 
 import { MobileNav } from '@/components/navigation/MobileNav';
@@ -8,27 +9,33 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 import { TheGap } from '@/components/sections/TheGap';
+import { StrategicOverview } from '@/components/sections/StrategicOverview';
 import { DualActivationModel } from '@/components/sections/DualModel';
 import { VisualIdentitySection } from '@/components/sections/VisualIdentity';
 import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
 import { ContentSocialSection } from '@/components/sections/ContentProduction';
-import { BuildingTheCrowd } from '@/components/sections/BuildingTheCrowd';
+import { AttendanceDemandSection } from '@/components/sections/Attendance';
+import { DigitalInfrastructureSection } from '@/components/sections/DigitalInfrastructure';
+import { GrowthRoadmapSection } from '@/components/sections/GrowthRoadmap';
 import { TheNumbersSection } from '@/components/sections/TheNumbersSection';
 import { MusicProgrammingSection } from '@/components/sections/MusicProgramming';
 
 const sectionsData = [
   { id: 'the-gap', label: '01 — The Opportunity', title: "The Gap", component: <TheGap /> },
-  { id: 'the-engine', label: '02 — The Engine', title: 'The Dual Model', component: <DualActivationModel /> },
-  { id: 'the-ritual', label: '03 — The Ritual', title: 'The Experience', component: (
-    <div className="space-y-6">
+  { id: 'the-strategy', label: '02 — Strategic Moat', title: 'The Intelligence', component: <StrategicOverview /> },
+  { id: 'the-engine', label: '03 — The Engine', title: 'The Dual Model', component: <DualActivationModel /> },
+  { id: 'the-ritual', label: '04 — The Ritual', title: 'The Experience', component: (
+    <div className="space-y-4 md:space-y-6">
       <VisualIdentitySection />
       <MusicProgrammingSection />
       <ExperienceDesignSection />
     </div>
   ) },
-  { id: 'the-harvest', label: '04 — The Harvest', title: 'The Content Engine', component: <ContentSocialSection /> },
-  { id: 'the-community', label: '05 — The Community', title: 'The Growth Flywheel', component: <BuildingTheCrowd /> },
-  { id: 'the-numbers', label: '06 — The Investment', title: 'The Numbers', component: <TheNumbersSection /> },
+  { id: 'the-hype', label: '05 — The Hype', title: 'Demand Gen', component: <AttendanceDemandSection /> },
+  { id: 'the-harvest', label: '06 — The Harvest', title: 'Content Engine', component: <ContentSocialSection /> },
+  { id: 'the-data', label: '07 — The Feedback', title: 'The Data Loop', component: <DigitalInfrastructureSection /> },
+  { id: 'the-roadmap', label: '08 — The Vision', title: 'Growth Roadmap', component: <GrowthRoadmapSection /> },
+  { id: 'the-numbers', label: '09 — The Investment', title: 'The Numbers', component: <TheNumbersSection /> },
 ];
 
 export default function Home() {
@@ -43,11 +50,11 @@ export default function Home() {
         {/* Cinematic Brand Hero Section */}
         <section id="hero" className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
           <div className="noise-overlay" />
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.1)_0%,transparent_70%)]" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.08)_0%,transparent_70%)]" />
 
-          <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-4 text-center">
+          <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-2 text-center">
             {savannaLogo && (
-              <div className="relative h-64 md:h-96 w-full max-w-[600px] flex items-center justify-center animate-intense-glow mb-8">
+              <div className="relative h-72 md:h-[450px] w-full max-w-[700px] flex items-center justify-center animate-intense-glow mb-4">
                 <Image 
                   src={savannaLogo.imageUrl} 
                   alt="Savanna Premium Cider" 
@@ -58,20 +65,20 @@ export default function Home() {
               </div>
             )}
 
-            <div className="space-y-1">
+            <div className="space-y-0.5">
               <h1 className="flex flex-col items-center leading-[0.8] tracking-tighter">
                 <span className="text-brand-gold text-[clamp(4.5rem,20vw,14rem)] font-headline">Savanna</span>
                 <span className="text-brand-gold text-[clamp(4.5rem,20vw,14rem)] font-headline">Sundays</span>
               </h1>
             </div>
             
-            <p className="font-serif italic text-lg md:text-2xl text-brand-cream/90 leading-relaxed max-w-lg mt-4">
+            <p className="font-serif italic text-lg md:text-2xl text-brand-cream/90 leading-relaxed max-w-lg mt-2">
               One brand. Multiple venues. Every Sunday.
             </p>
           </div>
 
           {/* High-Fidelity Attribution at Absolute Bottom */}
-          <div className="absolute bottom-10 left-0 w-full flex flex-col items-center gap-3">
+          <div className="absolute bottom-10 left-0 w-full flex flex-col items-center gap-4">
             <p className="font-body text-[10px] text-brand-gold/60 tracking-[0.6em] uppercase font-bold">
               Presented by Firefly Management
             </p>
