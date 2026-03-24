@@ -130,21 +130,14 @@ const pipeline = [
   { node: "DISTRIBUTE", sub: "SEO tags, captions, scheduling, cross-posting.", icon: <Share2 className="w-5 h-5" /> },
 ];
 
-const costItems = [
-  { id: "A", label: "DJ Set Production — KSh 73,000", desc: "Multi-camera shoot, edit, master, upload — 4 sets/month" },
-  { id: "B", label: "Reels Production — KSh 39,000", desc: "Shoot, edit, motion graphics, scheduling — 16 Reels/month" },
-  { id: "C", label: "Photography — KSh 33,000", desc: "Shoot, cull, edit, grade, format — 28 images/month" },
-  { id: "D", label: "Overheads — KSh 20,000", desc: "Equipment, storage, software, project management" }
-];
-
 const ContentMockups = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   
   return (
-    <div className="space-y-12">
+    <div className="space-y-16">
       <div className="section-label text-center">Branded Content Mock-ups</div>
+      
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
         {/* Mock-up 1: YouTube Thumbnail */}
         <div className="lg:col-span-8 space-y-4">
           <div className="font-body text-[10px] uppercase tracking-[3px] text-brand-gold/60 font-bold">Mock-up 1 — YouTube DJ Set Thumbnail</div>
@@ -190,7 +183,6 @@ const ContentMockups = () => {
         <div className="lg:col-span-4 space-y-4">
           <div className="font-body text-[10px] uppercase tracking-[3px] text-brand-gold/60 font-bold">Mock-up 2 — Instagram Reel Frame</div>
           <div className="relative aspect-[9/16] w-full max-w-[320px] mx-auto rounded-[48px] overflow-hidden bg-brand-dark-alt border-[8px] border-brand-dark shadow-2xl group ring-1 ring-white/10">
-            {/* Crowd Shot with Gold Grade */}
             <div className="absolute inset-0">
                <Image 
                  src="https://picsum.photos/seed/crowd7/600/1066" 
@@ -203,14 +195,12 @@ const ContentMockups = () => {
                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
             </div>
 
-            {/* Savanna Watermark - Top Right */}
             {savannaLogo && (
               <div className="absolute top-8 right-8 w-20 h-10 opacity-60">
                 <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain" />
               </div>
             )}
 
-            {/* Social UI Elements */}
             <div className="absolute bottom-10 left-6 right-6 space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-brand-gold/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-brand-gold">
@@ -235,7 +225,6 @@ const ContentMockups = () => {
               </div>
             </div>
 
-            {/* Music Waveform Visual */}
             <div className="absolute bottom-10 right-6 flex items-end gap-0.5 h-4">
               {[...Array(5)].map((_, i) => (
                 <div 
@@ -245,6 +234,50 @@ const ContentMockups = () => {
                 />
               ))}
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mock-up 3: Edited Photo (Landscape) */}
+      <div className="space-y-4">
+        <div className="font-body text-[10px] uppercase tracking-[3px] text-brand-gold/60 font-bold text-center">Mock-up 3 — Edited Event Photography</div>
+        <div className="relative aspect-[21/9] w-full rounded-[40px] overflow-hidden bg-brand-green group border border-white/10 shadow-2xl">
+          <div className="absolute inset-0 grayscale opacity-40 group-hover:scale-105 transition-transform duration-[2000ms]">
+             <Image 
+               src="https://picsum.photos/seed/event3/1600/680" 
+               alt="Venue Atmosphere" 
+               fill 
+               className="object-cover"
+               data-ai-hint="luxury lounge"
+             />
+          </div>
+          
+          <div className="absolute inset-0 bg-brand-gold/15 mix-blend-overlay" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+          
+          <div className="absolute inset-0 p-10 flex flex-col justify-end">
+            <div className="flex items-end justify-between">
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <Camera className="text-brand-gold" size={20} />
+                  <span className="font-headline text-2xl text-white uppercase tracking-wider">Atmosphere Capture</span>
+                </div>
+                <p className="font-body text-xs text-white/60 uppercase tracking-[2px] font-bold">Warm Savanna Grade • Shot at Muze, Westlands</p>
+              </div>
+
+              <div className="text-right flex flex-col items-end gap-2">
+                {savannaLogo && (
+                  <div className="relative h-10 w-24 opacity-80">
+                    <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain object-right" />
+                  </div>
+                )}
+                <div className="font-headline text-brand-gold text-2xl leading-none tracking-tighter opacity-60">SAVANNA SUNDAYS</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute top-10 left-10 p-4 border-l-2 border-brand-gold bg-black/40 backdrop-blur-md rounded-r-xl">
+             <span className="font-body text-[10px] text-brand-gold font-bold uppercase tracking-[3px]">Brand Moat: Bar Wrap Visible</span>
           </div>
         </div>
       </div>
