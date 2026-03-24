@@ -4,7 +4,8 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Info, TrendingUp, Calendar, Landmark } from 'lucide-react';
+import { Info, TrendingUp, Calendar, Landmark, CheckCircle2 } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const lineItems = [
   { item: "DJ 1 (Warm-Up Set)", cost: "50,000" },
@@ -37,6 +38,18 @@ const projections = [
     monthly: "KSh 4,034,016",
     icon: <Landmark className="text-brand-gold" size={24} />
   }
+];
+
+const checklistItems = [
+  "2–3 branded venues across Nairobi every Sunday",
+  "1 full squad activation with live DJs, MC, and influencers",
+  "1 broadcast-quality DJ set for YouTube",
+  "4 algorithm-optimised Reels for Instagram and TikTok",
+  "Unlimited edited, colour-graded photos",
+  "20+ influencer Stories and Reels",
+  "QR-driven competitions at every venue (built by Firefly)",
+  "A growing, owned community around Savanna Sundays",
+  "Full brand presence on every surface, every Sunday"
 ];
 
 export const TheNumbersSection = () => {
@@ -153,6 +166,35 @@ export const TheNumbersSection = () => {
             </p>
           </div>
         </Card>
+      </div>
+
+      {/* WHAT KWAL GETS EVERY WEEK */}
+      <div className="pt-24 space-y-12">
+        <div className="text-center space-y-4">
+          <div className="section-label">THE EXECUTIVE SUMMARY</div>
+          <h4 className="font-headline text-4xl md:text-6xl text-brand-gold uppercase tracking-tighter">
+            WHAT KWAL GETS EVERY WEEK
+          </h4>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-12 px-4 max-w-6xl mx-auto">
+          {checklistItems.map((item, i) => (
+            <div 
+              key={i} 
+              className={cn(
+                "flex items-start gap-6 group animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-forwards opacity-0"
+              )}
+              style={{ animationDelay: `${i * 150}ms` }}
+            >
+              <div className="shrink-0 w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-green transition-all duration-300">
+                <CheckCircle2 size={28} />
+              </div>
+              <p className="font-body text-brand-cream/90 text-lg md:text-xl leading-snug uppercase font-bold tracking-tight">
+                {item}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
