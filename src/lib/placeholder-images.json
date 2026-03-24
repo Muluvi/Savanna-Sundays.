@@ -119,6 +119,48 @@
       "description": "X (formerly Twitter)",
       "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1763590344/X_idVRwaKp9b_4_vpw8j2.png",
       "imageHint": "social logo"
+    },
+    {
+      "id": "dj-iv-1",
+      "description": "DJ IV",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1766339918/IMG_8587_hmlmat.jpg",
+      "imageHint": "dj performance"
+    },
+    {
+      "id": "dj-iv-2",
+      "description": "DJ IV Alternative",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1766339917/IMG_8157_honjsc.jpg",
+      "imageHint": "dj performance"
+    },
+    {
+      "id": "dj-iv-3",
+      "description": "DJ IV Close-up",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1766184996/IMG_8290_jqoh3y.jpg",
+      "imageHint": "dj performance"
+    },
+    {
+      "id": "dj-mgm-1",
+      "description": "DJ MGM",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1763407068/f19228928_i60lwt.jpg",
+      "imageHint": "dj performance"
+    },
+    {
+      "id": "dj-mgm-2",
+      "description": "DJ MGM Live",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1763407059/f19563776_pyxrb0.jpg",
+      "imageHint": "dj performance"
+    },
+    {
+      "id": "dj-mgm-3",
+      "description": "DJ MGM Crowd",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1763407062/f18736576_nqvgpo.jpg",
+      "imageHint": "dj performance"
+    },
+    {
+      "id": "dj-mgm-4",
+      "description": "DJ MGM Set",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1763407067/f17494272_gfrsqq.jpg",
+      "imageHint": "dj performance"
     }
   ]
 }
