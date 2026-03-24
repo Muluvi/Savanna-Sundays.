@@ -9,90 +9,89 @@ import {
   Camera, 
   QrCode, 
   Users, 
-  Trophy, 
   MessageSquare, 
   Share2, 
-  ArrowRight,
   RotateCcw,
-  RefreshCcw,
   Zap,
   Target,
-  Megaphone,
+  RefreshCcw,
   Repeat
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const flywheelStages = [
   { 
-    label: "CREATE", 
+    label: "Create", 
     icon: <Camera className="w-6 h-6" />, 
     color: "text-brand-gold", 
     borderColor: "border-brand-gold",
     bgColor: "bg-brand-gold/10",
-    desc: "Every Sunday, the squad produces a DJ set, 4 Reels, unlimited photos, and 20+ influencer posts.",
+    desc: "Every Sunday, the squad produces a DJ set, 4 Reels, and 20+ influencer posts.",
     angle: 0 
   },
   { 
-    label: "DISTRIBUTE", 
+    label: "Distribute", 
     icon: <Share2 className="w-6 h-6" />, 
     color: "text-brand-teal", 
     borderColor: "border-brand-teal",
     bgColor: "bg-brand-teal/10",
-    desc: "Content published across YouTube, Instagram, TikTok, Facebook, and Twitter/X throughout the week.",
+    desc: "Content published across all major platforms throughout the week.",
     angle: 90 
   },
   { 
-    label: "ENGAGE", 
+    label: "Engage", 
     icon: <MessageSquare className="w-6 h-6" />, 
     color: "text-brand-accent-warm", 
     borderColor: "border-brand-accent-warm",
     bgColor: "bg-brand-accent-warm/10",
-    desc: "QR competitions, comment-to-win, Spot Yourself photo tags, and influencer mentions drive interaction.",
+    desc: "Competitions, photo tags, and influencer mentions drive interaction.",
     angle: 180 
   },
   { 
-    label: "RETURN", 
+    label: "Return", 
     icon: <RotateCcw className="w-6 h-6" />, 
     color: "text-brand-cream", 
     borderColor: "border-brand-cream",
     bgColor: "bg-brand-cream/10",
-    desc: "Winners get a VIP Savanna experience at next Sunday's venue — reserved table, complimentary Savanna, and a meet-the-DJ moment.",
+    desc: "Winners get a VIP experience at next Sunday's venue.",
     angle: 270 
   },
 ];
 
 const mechanicCards = [
   {
-    title: "YOUTUBE LOOP",
-    body: "Weekly DJ sets on YouTube. Viewers comment to win free Savanna ciders + merchandise at next Sunday’s squad venue. Drives subscribers and repeat attendance.",
+    title: "YouTube Loop",
+    body: "Weekly DJ sets on YouTube. Viewers comment to win free Savanna ciders + merchandise.",
     icon: <Youtube className="w-6 h-6" />
   },
   {
-    title: "SPOT YOURSELF",
-    body: "Photos posted on @SavannaCider_EA Instagram. Attendees tag themselves. Each tag = organic reach to their network. Drives follows.",
+    title: "Spot Yourself",
+    body: "High-quality photos posted on Instagram. Attendees tag themselves to drive organic reach.",
     icon: <Camera className="w-6 h-6" />
   },
   {
-    title: "SCAN & WIN",
-    body: "QR codes at every branded venue link to a weekly competition entry form. Built and managed by Firefly. Low-effort for attendees, high data capture for Savanna.",
+    title: "Scan & Win",
+    body: "QR codes at branded venues link to weekly competition entry forms for data capture.",
     icon: <QrCode className="w-6 h-6" />
-  },
-  {
-    title: "INFLUENCER AMPLIFICATION",
-    body: "5 influencers × 3 Stories + 1 Reel each = 20 pieces of content per Sunday. Every piece carries Savanna branding and venue tags.",
-    icon: <Users className="w-6 h-6" />
-  },
-  {
-    title: "UGC ENGINE",
-    body: "Repost attendee content on Savanna channels. Builds community identity. Every repost = free content + a loyal advocate created.",
-    icon: <Repeat className="w-6 h-6" />
   }
 ];
 
-const extraMechanics = [
-  { title: "The DJ Reveal", body: "Next Sunday's DJ teased mid-week — sound clip, no full reveal. Drives speculation and attendance from music fans.", icon: <Zap size={18} /> },
-  { title: "Sunday Streak Rewards", body: "Attend 4 Sundays in a row — earn a reward. Attend 8 — get an exclusive influencer moment. Loyalty is celebrated.", icon: <Target size={18} /> },
-  { title: "Venue Prediction Poll", body: "Mid-week poll: which venue should host next Sunday? Crowd votes. Audience ownership drives attendance.", icon: <RefreshCcw size={18} /> },
+const engagementMechanics = [
+  { 
+    title: "The DJ Reveal", 
+    body: "Next Sunday's DJ teased mid-week — sound clip, no full reveal. Drives speculation and fans.", 
+    icon: <Zap className="text-brand-gold" size={18} /> 
+  },
+  { 
+    title: "Sunday Streak Rewards", 
+    body: "Attend 4 Sundays for rewards. Attend 8 for an exclusive influencer moment. Loyalty is celebrated.", 
+    icon: <Target className="text-brand-gold" size={18} /> 
+  },
+  { 
+    title: "Venue Prediction Poll", 
+    body: "Mid-week poll: which venue should host next Sunday? Audience ownership drives attendance.", 
+    icon: <RefreshCcw className="text-brand-gold" size={18} /> 
+  },
 ];
 
 export const BuildingTheCrowd = () => {
@@ -106,7 +105,7 @@ export const BuildingTheCrowd = () => {
           flywheelStages.forEach((_, i) => {
             setTimeout(() => {
               setActiveStage(i);
-            }, i * 600);
+            }, i * 400);
           });
         }
       },
@@ -118,59 +117,64 @@ export const BuildingTheCrowd = () => {
   }, []);
 
   return (
-    <div className="space-y-16">
-      <div className="space-y-6 text-center max-w-4xl mx-auto">
-        <p className="font-serif italic text-2xl md:text-3xl text-brand-gold leading-relaxed">
-          “Every Sunday builds on the last. The content compounds. The community grows. The crowd returns.”
-        </p>
-        <p className="font-body text-[#F8F5E6] text-sm md:text-base leading-relaxed opacity-90">
-          The Savanna Sundays growth engine runs on a four-stage cycle: <strong>CREATE</strong> content every Sunday, <strong>DISTRIBUTE</strong> it across YouTube, Instagram, TikTok, and Facebook all week, <strong>ENGAGE</strong> the audience through comments, tags, QR competitions, and influencer reach, and <strong>RETURN</strong> them to the next Sunday’s activation. Each cycle feeds the next. Each week is bigger than the last.
+    <div className="space-y-12">
+      <div className="space-y-4 text-center max-w-3xl mx-auto">
+        <p className="font-serif italic text-xl md:text-2xl text-brand-gold leading-relaxed">
+          “Every Sunday builds on the last. The content compounds. The community grows.”
         </p>
       </div>
 
-      {/* Flywheel Visualization */}
-      <div className="py-12" ref={flywheelRef}>
-        <div className="section-label text-center mb-16">The Growth Engine Flywheel</div>
-        
+      {/* Flywheel Visualization - Compact */}
+      <div className="py-4" ref={flywheelRef}>
+        <div className="lg:hidden space-y-4">
+          {flywheelStages.map((stage, i) => (
+            <div key={i} className={cn(
+              "p-5 bg-brand-dark-alt border-l-4 rounded-2xl flex items-start gap-5 transition-all duration-700",
+              activeStage >= i ? cn(stage.borderColor, "opacity-100 translate-x-0") : "border-white/5 opacity-0 -translate-x-4"
+            )}>
+              <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center shrink-0", stage.bgColor, stage.color)}>
+                {stage.icon}
+              </div>
+              <div className="space-y-1">
+                <h4 className={cn("font-headline text-xl uppercase tracking-widest", stage.color)}>{stage.label}</h4>
+                <p className="font-body text-xs text-brand-cream/70 leading-relaxed font-bold uppercase tracking-wider">
+                  {stage.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
         {/* Desktop View (Circular) */}
-        <div className="hidden lg:flex relative w-full max-w-2xl aspect-square mx-auto items-center justify-center">
-          {/* Core */}
-          <div className="w-48 h-48 rounded-full bg-brand-gold shadow-[0_0_60px_rgba(244,197,66,0.3)] flex items-center justify-center z-20 border-4 border-brand-green">
+        <div className="hidden lg:flex relative w-full max-w-md aspect-square mx-auto items-center justify-center">
+          <div className="w-32 h-32 rounded-full bg-brand-gold shadow-[0_0_40px_rgba(244,197,66,0.3)] flex items-center justify-center z-20 border-4 border-brand-green">
             <div className="text-center font-headline text-brand-green leading-none">
-              <span className="text-xs tracking-[4px] block mb-2 opacity-60">THE</span>
-              <span className="text-3xl uppercase">GROWTH</span>
-              <span className="text-xl block mt-1">ENGINE</span>
+              <span className="text-2xl uppercase">Growth</span>
             </div>
           </div>
 
-          {/* Orbit with Nodes */}
           <div className="absolute inset-0 pointer-events-none">
-            <svg className="w-full h-full opacity-10">
-              <circle cx="50%" cy="50%" r="42%" fill="none" stroke="#F4C542" strokeWidth="2" strokeDasharray="12 12" />
-            </svg>
-            
             {flywheelStages.map((stage, i) => {
               const isActive = activeStage >= i;
               return (
                 <div 
                   key={i} 
                   className={cn(
-                    "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-1000",
+                    "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-700",
                     isActive ? "opacity-100 scale-100" : "opacity-0 scale-75"
                   )}
-                  style={{ transform: `rotate(${stage.angle}deg) translateY(-42%) rotate(-${stage.angle}deg)` }}
+                  style={{ transform: `rotate(${stage.angle}deg) translateY(-40%) rotate(-${stage.angle}deg)` }}
                 >
                   <div className={cn(
-                    "bg-brand-dark-alt border-2 p-6 rounded-[32px] shadow-2xl flex flex-col items-center gap-4 w-[280px] pointer-events-auto transition-colors",
-                    isActive ? stage.borderColor : "border-white/5",
-                    activeStage === i && "ring-4 ring-brand-gold/20"
+                    "bg-brand-dark-alt border-2 p-4 rounded-[24px] shadow-2xl flex flex-col items-center gap-2 w-[220px] pointer-events-auto transition-colors",
+                    isActive ? stage.borderColor : "border-white/5"
                   )}>
-                    <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center mb-1", stage.bgColor, stage.color)}>
+                    <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center", stage.bgColor, stage.color)}>
                       {stage.icon}
                     </div>
-                    <div className="text-center space-y-2">
-                      <span className={cn("font-headline text-2xl uppercase tracking-widest", stage.color)}>{stage.label}</span>
-                      <p className="font-body text-[11px] text-brand-cream/60 leading-relaxed font-bold uppercase tracking-wider">
+                    <div className="text-center space-y-1">
+                      <span className={cn("font-headline text-lg uppercase tracking-widest", stage.color)}>{stage.label}</span>
+                      <p className="font-body text-[9px] text-brand-cream/60 leading-tight font-bold uppercase tracking-wider">
                         {stage.desc}
                       </p>
                     </div>
@@ -179,110 +183,40 @@ export const BuildingTheCrowd = () => {
               );
             })}
           </div>
-
-          {/* Connecting Arrows (Animated Path) */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible">
-             {flywheelStages.map((_, i) => {
-               const startAngle = (i * 90) + 15;
-               const endAngle = ((i + 1) * 90) - 15;
-               const isActive = activeStage > i;
-               
-               return (
-                 <path 
-                   key={i}
-                   d={`M ${50 + 35 * Math.cos((startAngle * Math.PI) / 180)}% ${50 + 35 * Math.sin((startAngle * Math.PI) / 180)}% A 35 35 0 0 1 ${50 + 35 * Math.cos((endAngle * Math.PI) / 180)}% ${50 + 35 * Math.sin((endAngle * Math.PI) / 180)}%`}
-                   fill="none"
-                   stroke={isActive ? "#F4C542" : "rgba(255,255,255,0.05)"}
-                   strokeWidth="3"
-                   strokeLinecap="round"
-                   className="transition-all duration-1000"
-                 />
-               );
-             })}
-          </svg>
-        </div>
-
-        {/* Mobile View (Vertical Stack) */}
-        <div className="lg:hidden space-y-8 px-4">
-          {flywheelStages.map((stage, i) => {
-            const isActive = activeStage >= i;
-            return (
-              <div key={i} className="relative">
-                {i < flywheelStages.length - 1 && (
-                  <div className={cn(
-                    "absolute left-6 top-16 w-[2px] h-12 transition-all duration-1000",
-                    isActive && activeStage > i ? "bg-brand-gold" : "bg-white/5"
-                  )} />
-                )}
-                
-                <Card className={cn(
-                  "p-6 bg-brand-dark-alt border-none border-l-4 transition-all duration-700 flex items-start gap-6",
-                  isActive ? cn(stage.borderColor, "translate-x-0 opacity-100") : "border-white/5 -translate-x-4 opacity-0"
-                )}>
-                  <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center shrink-0", stage.bgColor, stage.color)}>
-                    {stage.icon}
-                  </div>
-                  <div className="space-y-2">
-                    <h4 className={cn("font-headline text-2xl uppercase tracking-widest", stage.color)}>{stage.label}</h4>
-                    <p className="font-body text-xs text-brand-cream/70 leading-relaxed font-bold uppercase tracking-wider">
-                      {stage.desc}
-                    </p>
-                  </div>
-                </Card>
-              </div>
-            );
-          })}
         </div>
       </div>
 
-      {/* Mechanic Cards Section */}
-      <div className="space-y-8">
-        <div className="section-label">Conversion Mechanics</div>
-        
-        {/* Horizontal Scroll on Mobile, Grid on Desktop */}
-        <div className="flex overflow-x-auto pb-8 gap-6 scrollbar-hide -mx-6 px-6 snap-x snap-mandatory lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-0 lg:mx-0">
-          {mechanicCards.map((m, i) => (
-            <Card 
-              key={i} 
-              className="min-w-[280px] lg:min-w-0 p-8 bg-brand-dark-alt border-none border-t-[3px] border-brand-gold rounded-[24px] space-y-4 shadow-xl hover:-translate-y-2 transition-all duration-500 snap-center flex flex-col group"
-            >
-              <div className="text-brand-gold mb-2 group-hover:scale-110 transition-transform">
+      {/* Engagement Mechanics - New Section */}
+      <div className="space-y-6">
+        <div className="section-label">Engagement Mechanics</div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {engagementMechanics.map((m, i) => (
+            <Card key={i} className="p-6 bg-brand-dark-alt border-none border-t-[3px] border-brand-gold rounded-2xl flex flex-col gap-3 group hover:bg-white/5 transition-all">
+              <div className="p-2 w-fit rounded-lg bg-brand-gold/10 group-hover:scale-110 transition-transform">
                 {m.icon}
               </div>
-              <h4 className="font-headline text-2xl text-brand-gold uppercase tracking-tight leading-none">
-                {m.title}
-              </h4>
-              <p className="font-body text-brand-cream text-xs leading-relaxed opacity-80">
-                {m.body}
-              </p>
+              <div className="space-y-1">
+                <h5 className="font-headline text-xl text-brand-gold uppercase leading-tight">{m.title}</h5>
+                <p className="font-body text-[10px] text-brand-cream/60 leading-relaxed uppercase font-bold tracking-wider">
+                  {m.body}
+                </p>
+              </div>
             </Card>
           ))}
         </div>
       </div>
 
-      {/* Additional Mechanics */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-8">
-        {extraMechanics.map((m, i) => (
-          <Card key={i} className="p-6 bg-[#221A0A] border border-white/5 rounded-2xl flex flex-col gap-3 group hover:border-brand-gold/30 transition-colors">
+      {/* Conversion Mechanics - Compact Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+        {mechanicCards.map((m, i) => (
+          <div key={i} className="p-6 bg-white/5 border border-white/10 rounded-2xl space-y-3 flex flex-col items-center text-center">
             <div className="text-brand-gold">{m.icon}</div>
             <div className="space-y-1">
-              <h5 className="font-headline text-lg text-brand-gold uppercase leading-none">{m.title}</h5>
-              <p className="font-body text-[10px] text-[#B8A98A] leading-relaxed uppercase font-bold tracking-wider">{m.body}</p>
+              <h4 className="font-headline text-lg text-brand-gold uppercase tracking-tight leading-none">{m.title}</h4>
+              <p className="font-body text-brand-cream/60 text-[10px] leading-relaxed font-bold uppercase tracking-wider">{m.body}</p>
             </div>
-          </Card>
-        ))}
-      </div>
-
-      {/* Reference Box */}
-      <div className="pt-12">
-        <div className="p-10 bg-brand-green border-l-8 border-brand-gold rounded-[40px] shadow-2xl space-y-4">
-          <div className="flex items-center gap-4 mb-2">
-             <div className="px-3 py-1 bg-brand-gold text-brand-green font-headline text-xs tracking-widest rounded uppercase">The Strategy</div>
           </div>
-          <p className="font-serif italic text-lg md:text-xl text-[#F8F5E6] leading-relaxed">
-            "Inspired by platforms like Boiler Room and The Balcony Mix that turned DJ sets into global cultural content, Savanna Sundays applies the same model to Nairobi — building a community around the music, the brand, and the Sunday ritual."
-          </p>
-        </div>
+        ))}
       </div>
     </div>
   );

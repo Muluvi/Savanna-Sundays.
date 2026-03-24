@@ -7,7 +7,7 @@ import {
   Video, 
   Camera,
   Instagram,
-  Share2,
+  Smartphone
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -61,7 +61,7 @@ const Counter = ({ value, suffix = "" }: { value: string, suffix?: string }) => 
   }, [isVisible, target]);
 
   return (
-    <span ref={containerRef} className="font-headline text-5xl md:text-7xl text-brand-gold leading-none tracking-tighter">
+    <span ref={containerRef} className="font-headline text-5xl md:text-6xl text-brand-gold leading-none tracking-tighter">
       {Math.floor(displayValue).toLocaleString()}
       {suffix}
     </span>
@@ -72,7 +72,7 @@ const deliverables = [
   { 
     label: "YouTube Sets", 
     value: "4", 
-    body: "Multi-cam recorded sets.", 
+    body: "Recorded sets.", 
     icon: <Youtube className="text-brand-gold" size={24} />,
     platforms: [<Youtube key="yt" size={14} className="text-brand-gold/40" />]
   },
@@ -117,7 +117,7 @@ const PlatformDistribution = () => {
               {platforms.map((p) => {
                 const img = PlaceHolderImages.find(i => i.id === p.id);
                 return (
-                  <div key={`${listIdx}-${p.id}`} className="relative h-10 w-32 grayscale hover:grayscale-0 transition-all duration-500">
+                  <div key={`${listIdx}-${p.id}`} className="relative h-8 w-24 grayscale hover:grayscale-0 transition-all duration-500">
                     {img && (
                       <Image 
                         src={img.imageUrl} 
@@ -140,19 +140,18 @@ const PlatformDistribution = () => {
 export const ContentSocialSection = () => {
   return (
     <div className="space-y-8">
-      <div className="text-center max-w-2xl mx-auto space-y-2">
-        <p className="font-serif italic text-xl md:text-3xl text-brand-gold leading-tight">
-          One Sunday. A full month of visibility.
+      <div className="text-center max-w-2xl mx-auto space-y-1">
+        <p className="font-serif italic text-lg md:text-2xl text-brand-gold leading-tight">
+          One Sunday. A month of visibility.
         </p>
-        <p className="font-body text-brand-gold/40 text-[10px] uppercase tracking-[4px] font-bold">The Harvest Workflow</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {deliverables.map((item, i) => (
-          <div key={i} className="p-6 bg-white/5 border border-white/10 rounded-[32px] flex flex-col items-center text-center space-y-3 group hover:bg-white/10 transition-all duration-500">
+          <div key={i} className="p-6 bg-white/5 border border-white/10 rounded-[32px] flex flex-col items-center text-center space-y-3 group hover:bg-white/10 transition-all">
             <div className="flex items-center gap-3">
               {item.icon}
-              <div className="flex gap-2">
+              <div className="flex gap-1">
                 {item.platforms}
               </div>
             </div>
@@ -160,7 +159,7 @@ export const ContentSocialSection = () => {
               <Counter value={item.value} suffix="/mo" />
               <div className="space-y-0.5">
                 <h5 className="font-headline text-lg text-brand-gold uppercase tracking-widest">{item.label}</h5>
-                <p className="font-body text-brand-cream/50 text-[10px] leading-relaxed font-bold uppercase tracking-wider">{item.body}</p>
+                <p className="font-body text-brand-cream/50 text-[9px] leading-relaxed font-bold uppercase tracking-wider">{item.body}</p>
               </div>
             </div>
           </div>
@@ -169,9 +168,9 @@ export const ContentSocialSection = () => {
 
       <PlatformDistribution />
 
-      <div className="p-6 bg-brand-gold/5 border border-brand-gold/10 rounded-[32px] text-center">
-        <p className="font-serif italic text-base md:text-lg text-brand-gold/80 leading-relaxed max-w-xl mx-auto">
-          "We convert energy into influence. Every Sunday provides the fuel for absolute digital dominance across all major algorithms."
+      <div className="p-6 bg-brand-gold/5 border border-brand-gold/10 rounded-[24px] text-center">
+        <p className="font-serif italic text-sm md:text-base text-brand-gold/80 leading-relaxed max-w-xl mx-auto">
+          "We convert energy into influence. One Sunday feeds a full week of absolute digital dominance."
         </p>
       </div>
     </div>
