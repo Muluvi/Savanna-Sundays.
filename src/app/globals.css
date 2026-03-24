@@ -87,19 +87,19 @@
   }
 
   .btn-primary {
-    @apply relative overflow-hidden bg-brand-gold text-brand-green font-headline text-xl tracking-widest py-4 px-10 rounded-full transition-all active:scale-95 shadow-[0_20px_40px_-10px_rgba(244,197,66,0.3)] hover:shadow-[0_25px_50px_-12px_rgba(244,197,66,0.5)] hover:-translate-y-1;
+    @apply relative overflow-hidden bg-brand-gold text-brand-green font-headline text-xl tracking-widest py-5 px-12 rounded-full transition-all active:scale-95 shadow-[0_20px_40px_-10px_rgba(244,197,66,0.3)] hover:shadow-[0_25px_50px_-12px_rgba(244,197,66,0.5)] hover:-translate-y-1;
   }
 
   .section-label {
-    @apply font-body font-bold text-[clamp(9px,2vw,11px)] tracking-[clamp(3px,1vw,6px)] uppercase text-brand-gold mb-4 block opacity-80;
+    @apply font-body font-bold text-[clamp(10px,2vw,13px)] tracking-[clamp(4px,1vw,8px)] uppercase text-brand-gold mb-6 block opacity-80;
   }
 
   .section-title {
-    @apply font-headline text-[clamp(3rem,10vw,8rem)] text-brand-cream relative leading-[0.85] mb-8 tracking-tighter;
+    @apply font-headline text-[clamp(3.5rem,12vw,10rem)] text-brand-cream relative leading-[0.8] mb-12 tracking-tighter;
   }
   
   .brand-card {
-    @apply bg-white/5 border border-white/5 rounded-[32px] p-6 shadow-2xl transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] hover:border-brand-gold/20;
+    @apply bg-white/5 border border-white/5 rounded-[32px] p-8 shadow-2xl transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] hover:border-brand-gold/20;
   }
 }
 
