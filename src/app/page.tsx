@@ -69,12 +69,12 @@ export default function Home() {
             </p>
           </div>
 
-          {/* High-Fidelity Attribution at Bottom */}
-          <div className="absolute bottom-12 left-0 w-full flex flex-col items-center gap-4 opacity-50">
-            <p className="font-body text-[10px] text-brand-gold tracking-[0.5em] uppercase font-bold">
+          {/* High-Fidelity Attribution at Absolute Bottom */}
+          <div className="absolute bottom-10 left-0 w-full flex flex-col items-center gap-3 opacity-40">
+            <p className="font-body text-[9px] text-brand-gold tracking-[0.5em] uppercase font-bold">
               Presented by Firefly Management
             </p>
-            <ChevronDown className="text-brand-gold/40 animate-bounce" size={20} />
+            <ChevronDown className="text-brand-gold/30 animate-bounce" size={16} />
           </div>
         </section>
 

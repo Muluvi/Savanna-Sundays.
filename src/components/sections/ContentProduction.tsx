@@ -48,27 +48,27 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
 
 const ContentSocialSection = () => {
   const deliverables = [
-    { label: "YouTube sets", value: "4", body: "High-fidelity sets." },
-    { label: "Algorithm reels", value: "16", body: "Social recaps." },
-    { label: "HD photography", value: "28", body: "Lifestyle assets." }
+    { label: "YouTube sets", value: "4", body: "Hi-Fi DJ Sets" },
+    { label: "Recap reels", value: "16", body: "Algorithm Loops" },
+    { label: "HD photography", value: "28", body: "Lifestyle Assets" }
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div className="text-center max-w-xl mx-auto">
-        <p className="font-serif italic text-base md:text-xl text-brand-gold/70 leading-relaxed">
+        <p className="font-serif italic text-sm md:text-lg text-brand-gold/60 leading-relaxed">
           One Sunday of production feeds a full month of absolute digital dominance.
         </p>
       </div>
 
-      {/* High-Density Horizontal Row - Optimized Spacing */}
-      <div className="grid grid-cols-3 gap-2 py-6 border-y border-white/5 bg-white/[0.01]">
+      {/* High-Density Horizontal Row - Metrics Only */}
+      <div className="grid grid-cols-3 gap-2 py-4 border-y border-white/5 bg-white/[0.005]">
         {deliverables.map((item, i) => (
-          <div key={i} className="flex flex-col items-center text-center space-y-1">
+          <div key={i} className="flex flex-col items-center text-center space-y-0.5">
             <RollingCounter value={item.value} suffix="/mo" />
             <div className="space-y-0.5">
-              <h5 className="font-headline text-base md:text-xl text-brand-gold uppercase tracking-widest leading-none">{item.label}</h5>
-              <p className="font-body text-brand-cream/40 text-[8px] leading-tight font-bold uppercase tracking-widest">
+              <h5 className="font-headline text-sm md:text-lg text-brand-gold uppercase tracking-widest leading-none">{item.label}</h5>
+              <p className="font-body text-brand-cream/30 text-[7px] leading-tight font-bold uppercase tracking-[2px]">
                 {item.body}
               </p>
             </div>
@@ -77,16 +77,16 @@ const ContentSocialSection = () => {
       </div>
 
       {/* OLED Platform Marquee */}
-      <div className="space-y-2 pt-4">
-        <div className="section-label text-center mb-0 opacity-20">Multi-Platform Distribution</div>
-        <div className="relative overflow-hidden py-4">
-          <div className="flex w-fit animate-marquee space-x-16 px-6 items-center">
+      <div className="space-y-2 pt-2">
+        <div className="section-label text-center mb-0 opacity-10">Multi-Platform Distribution</div>
+        <div className="relative overflow-hidden py-3">
+          <div className="flex w-fit animate-marquee space-x-12 px-4 items-center">
             {[...Array(3)].map((_, listIdx) => (
-              <div key={listIdx} className="flex items-center space-x-20 shrink-0">
+              <div key={listIdx} className="flex items-center space-x-16 shrink-0">
                 {['social-yt', 'social-ig', 'social-tt', 'social-fb', 'social-x'].map((id) => {
                   const img = PlaceHolderImages.find(i => i.id === id);
                   return (
-                    <div key={`${listIdx}-${id}`} className="relative h-10 w-24 transition-transform duration-500 hover:scale-110">
+                    <div key={`${listIdx}-${id}`} className="relative h-8 w-20 transition-transform duration-500 hover:scale-110">
                       {img && <Image src={img.imageUrl} alt={img.description} fill className="object-contain" />}
                     </div>
                   );

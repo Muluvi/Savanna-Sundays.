@@ -4,20 +4,20 @@
 
 @layer base {
   :root {
-    --background: 140 30% 3%; /* Deepest OLED Ink Green/Black */
+    --background: 140 30% 2%; /* Deepest OLED Ink Green/Black */
     --foreground: 48 45% 94%;
-    --card: 140 30% 5%;
+    --card: 140 30% 3%;
     --card-foreground: 48 45% 94%;
-    --popover: 140 30% 5%;
+    --popover: 140 30% 3%;
     --popover-foreground: 48 45% 94%;
     --primary: 43 89% 61%; /* Savanna Gold */
-    --primary-foreground: 140 30% 5%;
+    --primary-foreground: 140 30% 3%;
     --secondary: 171 49% 36%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 140 30% 8%;
+    --muted: 140 30% 4%;
     --muted-foreground: 41 23% 63%;
     --accent: 43 89% 61%;
-    --accent-foreground: 140 30% 5%;
+    --accent-foreground: 140 30% 3%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 43 89% 61% / 0.12;
@@ -44,11 +44,11 @@
   }
 
   .glass-tile {
-    @apply bg-white/[0.03] border border-white/10 backdrop-blur-2xl shadow-2xl transition-all duration-500;
+    @apply bg-white/[0.02] border border-white/5 backdrop-blur-3xl shadow-2xl transition-all duration-500;
   }
 
   .section-label {
-    @apply font-body font-bold text-[8px] tracking-[4px] uppercase text-brand-gold mb-1 block opacity-30;
+    @apply font-body font-bold text-[8px] tracking-[5px] uppercase text-brand-gold mb-1 block opacity-30;
   }
 
   .section-title {
@@ -91,7 +91,7 @@ html {
   }
   50% {
     filter: drop-shadow(0 0 40px rgba(244,197,66,0.6)) brightness(1.1);
-    transform: scale(1.015);
+    transform: scale(1.02);
   }
 }
 

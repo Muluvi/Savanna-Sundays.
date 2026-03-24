@@ -36,13 +36,13 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
       ref={sectionRef}
       id={id} 
       className={cn(
-        "py-6 md:py-10 px-6 md:px-12 lg:px-24 relative overflow-hidden dark-section"
+        "py-4 md:py-8 px-6 md:px-12 lg:px-24 relative overflow-hidden dark-section"
       )}
     >
       <CiderFizz className="opacity-[0.03]" />
       
       <div className="max-w-6xl mx-auto w-full relative z-10">
-        <div className="mb-6 md:mb-10">
+        <div className="mb-4 md:mb-8">
           <span className="section-label">{label}</span>
           <h2 
             className="section-title"

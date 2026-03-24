@@ -21,62 +21,62 @@ const venueData = [
 const squadRoles = [
   {
     role: "2 DJs",
-    icon: <Music size={20} />,
-    body: "Proven talent with massive reach. Multi-cam recorded."
+    icon: <Music size={18} />,
+    body: "Proven talent with massive reach."
   },
   {
     role: "1 MC",
-    icon: <Mic2 size={20} />,
-    body: "Ambassador running interactions and engagement."
+    icon: <Mic2 size={18} />,
+    body: "Ambassador running interactions."
   },
   {
     role: "5 Influencers",
-    icon: <Users size={20} />,
-    body: "Lifestyle voices sharing the ritual with their audiences."
+    icon: <Users size={18} />,
+    body: "Lifestyle voices sharing the ritual."
   },
   {
     role: "Content crew",
-    icon: <Camera size={20} />,
-    body: "Videographers generating weekly narrative assets."
+    icon: <Camera size={18} />,
+    body: "Videographers generating narrative assets."
   }
 ];
 
 export const DualActivationModel = () => {
   return (
-    <div className="space-y-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="space-y-2">
-          <div className="flex items-center gap-3">
-            <div className="h-[1px] w-6 bg-brand-gold" />
-            <h4 className="font-headline text-2xl text-brand-gold uppercase tracking-tight">The Squad</h4>
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="space-y-1">
+          <div className="flex items-center gap-2">
+            <div className="h-[1px] w-4 bg-brand-gold" />
+            <h4 className="font-headline text-xl text-brand-gold uppercase">The Squad</h4>
           </div>
-          <p className="font-body text-brand-cream/60 text-base leading-relaxed">
+          <p className="font-body text-brand-cream/50 text-xs leading-relaxed">
             Proven talent deployed to rotating host venues to create the primary Sunday narrative.
           </p>
         </div>
         
-        <div className="space-y-2">
-          <div className="flex items-center gap-3">
-            <div className="h-[1px] w-6 bg-brand-teal" />
-            <h4 className="font-headline text-2xl text-brand-gold uppercase tracking-tight">The Network</h4>
+        <div className="space-y-1">
+          <div className="flex items-center gap-2">
+            <div className="h-[1px] w-4 bg-brand-teal" />
+            <h4 className="font-headline text-xl text-brand-gold uppercase">The Network</h4>
           </div>
-          <p className="font-body text-brand-cream/60 text-base leading-relaxed">
+          <p className="font-body text-brand-cream/50 text-xs leading-relaxed">
             Visual dominance and bar presence across multiple premium venues simultaneously.
           </p>
         </div>
       </div>
 
-      {/* High-Fidelity Unboxed Venue Marquee - Optimized for 4K OLED */}
-      <div className="py-12 overflow-hidden bg-white/[0.01]">
-        <div className="flex w-fit animate-marquee space-x-12 px-4 items-center">
+      {/* High-Fidelity Unboxed Venue Marquee - Massive OLED Icons */}
+      <div className="py-8 overflow-hidden bg-white/[0.005]">
+        <div className="flex w-fit animate-marquee space-x-16 px-4 items-center">
           {[...Array(3)].map((_, listIdx) => (
-            <div key={listIdx} className="flex items-center space-x-12 shrink-0">
+            <div key={listIdx} className="flex items-center space-x-20 shrink-0">
               {venueData.map((v) => {
                 const img = PlaceHolderImages.find(p => p.id === v.id);
                 return (
                   <div key={`${listIdx}-${v.id}`} className="flex items-center">
                     {img && (
-                      <div className="relative h-40 w-80 hover:scale-110 transition-transform duration-700">
+                      <div className="relative h-48 w-96 hover:scale-110 transition-transform duration-700">
                         <Image 
                           src={img.imageUrl} 
                           alt={v.name} 
@@ -94,20 +94,20 @@ export const DualActivationModel = () => {
         </div>
       </div>
       
-      <p className="font-body text-[8px] text-brand-gold/30 italic text-center uppercase tracking-[4px] font-bold">
+      <p className="font-body text-[7px] text-brand-gold/20 italic text-center uppercase tracking-[3px] font-bold">
         Firefly has active relationships with these venues and more.
       </p>
 
-      {/* Typographic Roles - Proportional Consistency */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
+      {/* Typographic Roles - Compact Hierarchy */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
         {squadRoles.map((role, i) => (
-          <div key={i} className="space-y-3 group">
-            <div className="text-brand-gold/40 group-hover:text-brand-gold transition-colors duration-500">
+          <div key={i} className="space-y-2 group">
+            <div className="text-brand-gold/30 group-hover:text-brand-gold transition-colors duration-500">
               {role.icon}
             </div>
-            <div className="space-y-1">
-              <h5 className="font-headline text-2xl text-brand-gold uppercase leading-none tracking-tight">{role.role}</h5>
-              <p className="font-body text-brand-cream/40 text-[9px] leading-tight font-bold uppercase tracking-widest">
+            <div className="space-y-0.5">
+              <h5 className="font-headline text-lg text-brand-gold uppercase leading-none">{role.role}</h5>
+              <p className="font-body text-brand-cream/40 text-[8px] leading-tight font-bold uppercase tracking-widest">
                 {role.body}
               </p>
             </div>
