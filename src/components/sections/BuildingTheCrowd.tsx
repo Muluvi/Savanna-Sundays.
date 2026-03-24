@@ -1,7 +1,7 @@
 
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { 
   Youtube, 
@@ -13,17 +13,50 @@ import {
   MessageSquare, 
   Share2, 
   ArrowRight,
+  RotateCcw,
   RefreshCcw,
   Zap,
   Target
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const flywheelNodes = [
-  { label: "CREATE", sub: "Sunday capture. Squad deployment.", angle: 0 },
-  { label: "DISTRIBUTE", sub: "Weekly publishing. Multi-platform reach.", angle: 90 },
-  { label: "ENGAGE", sub: "Tags. Comments. QR Competitions.", angle: 180 },
-  { label: "RETURN", sub: "Next Sunday. Physical arrival.", angle: 270 },
+const flywheelStages = [
+  { 
+    label: "CREATE", 
+    icon: <Camera className="w-6 h-6" />, 
+    color: "text-brand-gold", 
+    borderColor: "border-brand-gold",
+    bgColor: "bg-brand-gold/10",
+    desc: "Every Sunday, the squad produces a DJ set, 4 Reels, unlimited photos, and 20+ influencer posts.",
+    angle: 0 
+  },
+  { 
+    label: "DISTRIBUTE", 
+    icon: <Share2 className="w-6 h-6" />, 
+    color: "text-brand-teal", 
+    borderColor: "border-brand-teal",
+    bgColor: "bg-brand-teal/10",
+    desc: "Content published across YouTube, Instagram, TikTok, Facebook, and Twitter/X throughout the week.",
+    angle: 90 
+  },
+  { 
+    label: "ENGAGE", 
+    icon: <MessageSquare className="w-6 h-6" />, 
+    color: "text-brand-accent-warm", 
+    borderColor: "border-brand-accent-warm",
+    bgColor: "bg-brand-accent-warm/10",
+    desc: "QR competitions, comment-to-win, Spot Yourself photo tags, and influencer mentions drive interaction.",
+    angle: 180 
+  },
+  { 
+    label: "RETURN", 
+    icon: <RotateCcw className="w-6 h-6" />, 
+    color: "text-brand-cream", 
+    borderColor: "border-brand-cream",
+    bgColor: "bg-brand-cream/10",
+    desc: "Winners get a VIP Savanna experience at next Sunday's venue — reserved table, complimentary Savanna, and a meet-the-DJ moment.",
+    angle: 270 
+  },
 ];
 
 const mechanics = [
@@ -66,6 +99,27 @@ const extraMechanics = [
 ];
 
 export const BuildingTheCrowd = () => {
+  const [activeStage, setActiveStage] = useState(-1);
+  const flywheelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          flywheelStages.forEach((_, i) => {
+            setTimeout(() => {
+              setActiveStage(i);
+            }, i * 600);
+          });
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (flywheelRef.current) observer.observe(flywheelRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="space-y-16">
       <div className="space-y-6 text-center max-w-4xl mx-auto">
@@ -77,53 +131,110 @@ export const BuildingTheCrowd = () => {
         </p>
       </div>
 
-      {/* Flywheel Diagram */}
-      <div className="py-12 flex flex-col items-center animate-fade-in-up">
-        <div className="section-label text-center mb-16">The Sunday Flywheel</div>
+      {/* Flywheel Visualization */}
+      <div className="py-12" ref={flywheelRef}>
+        <div className="section-label text-center mb-16">The Growth Engine Flywheel</div>
         
-        <div className="relative w-full max-w-md aspect-square flex items-center justify-center">
+        {/* Desktop View (Circular) */}
+        <div className="hidden lg:flex relative w-full max-w-2xl aspect-square mx-auto items-center justify-center">
           {/* Core */}
-          <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-brand-gold shadow-[0_0_40px_rgba(244,197,66,0.3)] flex items-center justify-center z-20">
+          <div className="w-48 h-48 rounded-full bg-brand-gold shadow-[0_0_60px_rgba(244,197,66,0.3)] flex items-center justify-center z-20 border-4 border-brand-green">
             <div className="text-center font-headline text-brand-green leading-none">
-              <span className="text-[10px] tracking-widest block mb-1">THE</span>
-              <span className="text-lg md:text-xl uppercase">Growth</span>
+              <span className="text-xs tracking-[4px] block mb-2 opacity-60">THE</span>
+              <span className="text-3xl uppercase">GROWTH</span>
+              <span className="text-xl block mt-1">ENGINE</span>
             </div>
           </div>
 
-          {/* Orbit with Arrows */}
+          {/* Orbit with Nodes */}
           <div className="absolute inset-0 pointer-events-none">
-            <svg className="w-full h-full opacity-10 animate-spin-slow">
-              <circle cx="50%" cy="50%" r="42%" fill="none" stroke="#F4C542" strokeWidth="2" strokeDasharray="8 8" />
+            <svg className="w-full h-full opacity-10">
+              <circle cx="50%" cy="50%" r="42%" fill="none" stroke="#F4C542" strokeWidth="2" strokeDasharray="12 12" />
             </svg>
             
-            {flywheelNodes.map((node, i) => (
-              <div 
-                key={i} 
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                style={{ transform: `rotate(${node.angle}deg) translateY(-42%) rotate(-${node.angle}deg)` }}
-              >
-                <div className="bg-brand-gold border border-brand-green/30 px-4 py-2 rounded-full shadow-2xl flex flex-col items-center">
-                  <span className="font-headline text-brand-green text-sm tracking-widest">{node.label}</span>
-                </div>
-                <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 w-48 text-center">
-                  <p className="font-body text-[8px] uppercase tracking-widest text-brand-gold font-bold">{node.sub}</p>
-                </div>
-              </div>
-            ))}
-
-            {/* Connecting Arrows (simplified visual) */}
-            <div className="absolute inset-0 animate-spin-slow">
-              {[0, 90, 180, 270].map((angle, i) => (
+            {flywheelStages.map((stage, i) => {
+              const isActive = activeStage >= i;
+              return (
                 <div 
-                  key={i}
-                  className="absolute top-1/2 left-1/2"
-                  style={{ transform: `rotate(${angle + 45}deg) translateY(-42%)` }}
+                  key={i} 
+                  className={cn(
+                    "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-1000",
+                    isActive ? "opacity-100 scale-100" : "opacity-0 scale-75"
+                  )}
+                  style={{ transform: `rotate(${stage.angle}deg) translateY(-42%) rotate(-${stage.angle}deg)` }}
                 >
-                  <ArrowRight className="text-brand-gold/40 w-6 h-6" />
+                  <div className={cn(
+                    "bg-brand-dark-alt border-2 p-6 rounded-[32px] shadow-2xl flex flex-col items-center gap-4 w-[280px] pointer-events-auto transition-colors",
+                    isActive ? stage.borderColor : "border-white/5",
+                    activeStage === i && "ring-4 ring-brand-gold/20"
+                  )}>
+                    <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center mb-1", stage.bgColor, stage.color)}>
+                      {stage.icon}
+                    </div>
+                    <div className="text-center space-y-2">
+                      <span className={cn("font-headline text-2xl uppercase tracking-widest", stage.color)}>{stage.label}</span>
+                      <p className="font-body text-[11px] text-brand-cream/60 leading-relaxed font-bold uppercase tracking-wider">
+                        {stage.desc}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
+
+          {/* Connecting Arrows (Animated Path) */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible">
+             {flywheelStages.map((_, i) => {
+               const startAngle = (i * 90) + 15;
+               const endAngle = ((i + 1) * 90) - 15;
+               const isActive = activeStage > i;
+               
+               return (
+                 <path 
+                   key={i}
+                   d={`M ${50 + 35 * Math.cos((startAngle * Math.PI) / 180)}% ${50 + 35 * Math.sin((startAngle * Math.PI) / 180)}% A 35 35 0 0 1 ${50 + 35 * Math.cos((endAngle * Math.PI) / 180)}% ${50 + 35 * Math.sin((endAngle * Math.PI) / 180)}%`}
+                   fill="none"
+                   stroke={isActive ? "#F4C542" : "rgba(255,255,255,0.05)"}
+                   strokeWidth="3"
+                   strokeLinecap="round"
+                   className="transition-all duration-1000"
+                 />
+               );
+             })}
+          </svg>
+        </div>
+
+        {/* Mobile View (Vertical Stack) */}
+        <div className="lg:hidden space-y-8 px-4">
+          {flywheelStages.map((stage, i) => {
+            const isActive = activeStage >= i;
+            return (
+              <div key={i} className="relative">
+                {i < flywheelStages.length - 1 && (
+                  <div className={cn(
+                    "absolute left-6 top-16 w-[2px] h-12 transition-all duration-1000",
+                    isActive && activeStage > i ? "bg-brand-gold" : "bg-white/5"
+                  )} />
+                )}
+                
+                <Card className={cn(
+                  "p-6 bg-brand-dark-alt border-none border-l-4 transition-all duration-700 flex items-start gap-6",
+                  isActive ? cn(stage.borderColor, "translate-x-0 opacity-100") : "border-white/5 -translate-x-4 opacity-0"
+                )}>
+                  <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center shrink-0", stage.bgColor, stage.color)}>
+                    {stage.icon}
+                  </div>
+                  <div className="space-y-2">
+                    <h4 className={cn("font-headline text-2xl uppercase tracking-widest", stage.color)}>{stage.label}</h4>
+                    <p className="font-body text-xs text-brand-cream/70 leading-relaxed font-bold uppercase tracking-wider">
+                      {stage.desc}
+                    </p>
+                  </div>
+                </Card>
+              </div>
+            );
+          })}
         </div>
       </div>
 
