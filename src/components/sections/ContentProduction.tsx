@@ -1,5 +1,5 @@
 
-"use client";
+'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
 import { cn } from '@/lib/utils';
@@ -8,7 +8,6 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 /**
  * High-fidelity rolling counter with smooth ease-out.
- * Emphasizes the sheer quantity of strategic content harvested weekly.
  */
 const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -28,14 +27,13 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
   useEffect(() => {
     if (!isVisible) return;
     let startTime: number;
-    const duration = 2500; // Longer duration for more "rolling" feel
+    const duration = 2500;
 
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       
-      // Sophisticated Ease Out Quart for high-end feel
       const easeOutQuart = (t: number) => 1 - (--t) * t * t * t;
       setDisplayValue(easeOutQuart(progress) * target);
       
@@ -90,7 +88,6 @@ const ContentSocialSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {deliverables.map((item, i) => (
           <div key={i} className="flex flex-col items-center text-center space-y-4 group">
-            {/* Full Color HD Logos - Enlarged */}
             <div className="flex items-center justify-center gap-6 h-16">
               {item.logos.map((logo, idx) => (
                 logo && (

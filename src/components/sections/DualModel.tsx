@@ -67,7 +67,7 @@ export const DualActivationModel = () => {
         </div>
       </div>
 
-      {/* Unboxed HD Venue Marquee - Free Moving Logos */}
+      {/* Unboxed HD Venue Marquee - Logos flow freely */}
       <div className="py-12 overflow-hidden">
         <div className="flex w-fit animate-marquee space-x-24 px-4">
           {[...Array(3)].map((_, listIdx) => (

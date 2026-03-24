@@ -79,30 +79,29 @@ export default function Home() {
       <MobileNav />
       
       <main className="transition-all">
-        {/* Proportional Hero Section */}
+        {/* Proportional Hero Section - Clean & Glowing */}
         <section id="hero" className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden bg-background">
           <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.15)_0%,transparent_80%)]" />
 
-          <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-6 text-center">
+          <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-8 text-center">
             {savannaLogo && (
-              <div className="relative h-24 md:h-32 w-64 md:w-80 mb-4 flex items-center justify-center">
+              <div className="relative h-24 md:h-32 w-64 md:w-80 flex items-center justify-center">
                 {/* Bright Glow Effect */}
-                <div className="absolute inset-0 bg-brand-gold/25 blur-[100px] rounded-full scale-150 animate-pulse" />
-                <div className="absolute inset-0 bg-brand-gold/20 blur-[60px] rounded-full scale-110" />
-                <div className="absolute inset-0 bg-brand-gold/15 blur-[30px] rounded-full" />
+                <div className="absolute inset-0 bg-brand-gold/30 blur-[120px] rounded-full scale-150 animate-pulse" />
+                <div className="absolute inset-0 bg-brand-gold/25 blur-[60px] rounded-full scale-110" />
                 <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain relative z-10" priority />
               </div>
             )}
 
-            <div className="space-y-2">
+            <div className="space-y-4">
+              <p className="font-headline text-lg md:text-2xl text-brand-gold/80 tracking-[0.4em] uppercase">Presented by Firefly Management</p>
               <h1 className="flex flex-col items-center leading-[0.8] tracking-tighter">
                 <span className="text-brand-gold text-[clamp(4.5rem,20vw,12rem)] font-headline">Savanna</span>
                 <span className="text-brand-gold text-[clamp(4.5rem,20vw,12rem)] font-headline">Sundays</span>
               </h1>
-              <p className="font-headline text-lg md:text-xl text-brand-gold/60 tracking-[0.4em] uppercase">Presented by Firefly Management</p>
             </div>
             
-            <div className="max-w-xl space-y-8">
+            <div className="max-w-xl">
               <p className="font-serif italic text-xl md:text-3xl text-brand-cream leading-[1.1]">
                 One brand. Multiple venues. Every Sunday.
               </p>

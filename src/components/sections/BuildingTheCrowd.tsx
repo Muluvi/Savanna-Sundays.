@@ -1,5 +1,5 @@
 
-"use client";
+'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
 import { Card } from '@/components/ui/card';
