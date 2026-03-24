@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -19,10 +20,10 @@ import {
 import { cn } from '@/lib/utils';
 
 const flywheelNodes = [
-  { label: "CONTENT", sub: "YouTube sets. Reels. Photography.", angle: 0 },
-  { label: "VISIBILITY", sub: "Algorithm reach. Shares. Discovery.", angle: 90 },
-  { label: "COMMUNITY", sub: "Followers become fans. Fans become regulars.", angle: 180 },
-  { label: "ATTENDANCE", sub: "Online audience shows up. Venue fills.", angle: 270 },
+  { label: "CREATE", sub: "Sunday capture. Squad deployment.", angle: 0 },
+  { label: "DISTRIBUTE", sub: "Weekly publishing. Multi-platform reach.", angle: 90 },
+  { label: "ENGAGE", sub: "Tags. Comments. QR Competitions.", angle: 180 },
+  { label: "RETURN", sub: "Next Sunday. Physical arrival.", angle: 270 },
 ];
 
 const mechanics = [
@@ -67,12 +68,12 @@ const extraMechanics = [
 export const BuildingTheCrowd = () => {
   return (
     <div className="space-y-16">
-      <div className="space-y-6 text-center max-w-3xl mx-auto">
+      <div className="space-y-6 text-center max-w-4xl mx-auto">
         <p className="font-serif italic text-2xl md:text-3xl text-brand-gold leading-relaxed">
-          "Content doesn't just document the Sunday. It drives the next one."
+          “Every Sunday builds on the last. The content compounds. The community grows. The crowd returns.”
         </p>
         <p className="font-body text-[#F8F5E6] text-sm md:text-base leading-relaxed opacity-90">
-          Great content creates online visibility. Visibility builds community. Community drives attendance. Attendance creates better content. Every week, the flywheel spins faster.
+          The Savanna Sundays growth engine runs on a four-stage cycle: <strong>CREATE</strong> content every Sunday, <strong>DISTRIBUTE</strong> it across YouTube, Instagram, TikTok, and Facebook all week, <strong>ENGAGE</strong> the audience through comments, tags, QR competitions, and influencer reach, and <strong>RETURN</strong> them to the next Sunday’s activation. Each cycle feeds the next. Each week is bigger than the last.
         </p>
       </div>
 
@@ -85,7 +86,7 @@ export const BuildingTheCrowd = () => {
           <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-brand-gold shadow-[0_0_40px_rgba(244,197,66,0.3)] flex items-center justify-center z-20">
             <div className="text-center font-headline text-brand-green leading-none">
               <span className="text-[10px] tracking-widest block mb-1">THE</span>
-              <span className="text-lg md:text-xl">MOMENTUM</span>
+              <span className="text-lg md:text-xl uppercase">Growth</span>
             </div>
           </div>
 
@@ -156,14 +157,14 @@ export const BuildingTheCrowd = () => {
         ))}
       </div>
 
-      {/* Boiler Room Box */}
+      {/* Reference Box */}
       <div className="pt-12">
         <div className="p-10 bg-brand-green border-l-8 border-brand-gold rounded-[40px] shadow-2xl space-y-4">
           <div className="flex items-center gap-4 mb-2">
-             <div className="px-3 py-1 bg-brand-gold text-brand-green font-headline text-xs tracking-widest rounded">THE REFERENCE</div>
+             <div className="px-3 py-1 bg-brand-gold text-brand-green font-headline text-xs tracking-widest rounded uppercase">The Strategy</div>
           </div>
           <p className="font-serif italic text-lg md:text-xl text-[#F8F5E6] leading-relaxed">
-            "This is the Boiler Room model, applied to Nairobi. Boiler Room built a global brand by filming club nights and uploading them. Online viewers became physical pilgrims. Savanna Sundays applies the same engine — content builds a community that shows up every Sunday."
+            "Inspired by platforms like Boiler Room and The Balcony Mix that turned DJ sets into global cultural content, Savanna Sundays applies the same model to Nairobi — building a community around the music, the brand, and the Sunday ritual."
           </p>
         </div>
       </div>
