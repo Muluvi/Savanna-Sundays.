@@ -52,6 +52,7 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
 };
 
 export const TheGap = () => {
+  const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   const socialIcons = [
     { id: 'social-fb', label: 'Facebook', value: '603K', size: 'h-24 w-64' },
     { id: 'social-ig', label: 'Instagram', value: '6K', size: 'h-20 w-20' },
@@ -72,9 +73,9 @@ export const TheGap = () => {
 
         <div className="relative p-10 bg-white/5 border border-white/10 rounded-[40px] space-y-4 shadow-2xl overflow-hidden">
           <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-            {PlaceHolderImages.find(p => p.id === 'savanna-logo') && (
+            {savannaLogo && (
               <Image 
-                src={PlaceHolderImages.find(p => p.id === 'savanna-logo')!.imageUrl} 
+                src={savannaLogo.imageUrl} 
                 alt="" 
                 width={200} 
                 height={200} 
