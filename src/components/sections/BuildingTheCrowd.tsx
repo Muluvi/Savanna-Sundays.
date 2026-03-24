@@ -16,7 +16,9 @@ import {
   RotateCcw,
   RefreshCcw,
   Zap,
-  Target
+  Target,
+  Megaphone,
+  Repeat
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -59,36 +61,31 @@ const flywheelStages = [
   },
 ];
 
-const mechanics = [
+const mechanicCards = [
   {
-    title: "The YouTube Competition Loop",
-    body: "QR codes in every DJ set video drive viewers to a weekly giveaway — six-packs, merch. Winners collect at the next Sunday's venue. The online audience becomes a physical guest.",
+    title: "YOUTUBE LOOP",
+    body: "Weekly DJ sets on YouTube. Viewers comment to win free Savanna ciders + merchandise at next Sunday’s squad venue. Drives subscribers and repeat attendance.",
     icon: <Youtube className="w-6 h-6" />
   },
   {
-    title: "Spot Yourself",
-    body: "Crowd captured in Reels. People tag @SavannaSundays when they find themselves — entering a weekly draw. Every tag is organic reach.",
-    icon: <Users className="w-6 h-6" />
+    title: "SPOT YOURSELF",
+    body: "Photos posted on @SavannaCider_EA Instagram. Attendees tag themselves. Each tag = organic reach to their network. Drives follows.",
+    icon: <Camera className="w-6 h-6" />
   },
   {
-    title: "Comment to Win",
-    body: "Weekly Reel competition: 'Comment your favourite DJ moment.' Best comment wins. Drives algorithm visibility and genuine engagement.",
-    icon: <MessageSquare className="w-6 h-6" />
-  },
-  {
-    title: "Scan at the Venue",
-    body: "QR codes at venue touchpoints unlock exclusive content, DJ vote polls, and on-site competition entry. Physical and digital merge.",
+    title: "SCAN & WIN",
+    body: "QR codes at every branded venue link to a weekly competition entry form. Built and managed by Firefly. Low-effort for attendees, high data capture for Savanna.",
     icon: <QrCode className="w-6 h-6" />
   },
   {
-    title: "The Winner Experience",
-    body: "Winners get a moment — squad sets up their table, MC gives a shoutout, influencers capture it. The winner becomes content. People attend to be seen.",
-    icon: <Trophy className="w-6 h-6" />
+    title: "INFLUENCER AMPLIFICATION",
+    body: "5 influencers × 3 Stories + 1 Reel each = 20 pieces of content per Sunday. Every piece carries Savanna branding and venue tags.",
+    icon: <Users className="w-6 h-6" />
   },
   {
-    title: "UGC Repost Engine",
-    body: "Best crowd-shot content reposted on official channels with full credit. Being featured becomes aspirational. Every attendee is a brand ambassador.",
-    icon: <Share2 className="w-6 h-6" />
+    title: "UGC ENGINE",
+    body: "Repost attendee content on Savanna channels. Builds community identity. Every repost = free content + a loyal advocate created.",
+    icon: <Repeat className="w-6 h-6" />
   }
 ];
 
@@ -238,18 +235,26 @@ export const BuildingTheCrowd = () => {
         </div>
       </div>
 
-      {/* Mechanic Grid */}
+      {/* Mechanic Cards Section */}
       <div className="space-y-8">
         <div className="section-label">Conversion Mechanics</div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {mechanics.map((m, i) => (
+        
+        {/* Horizontal Scroll on Mobile, Grid on Desktop */}
+        <div className="flex overflow-x-auto pb-8 gap-6 scrollbar-hide -mx-6 px-6 snap-x snap-mandatory lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-0 lg:mx-0">
+          {mechanicCards.map((m, i) => (
             <Card 
               key={i} 
-              className="p-8 bg-brand-green border-none border-t-[3px] border-brand-gold rounded-[24px] space-y-4 shadow-xl hover:-translate-y-2 transition-transform duration-500"
+              className="min-w-[280px] lg:min-w-0 p-8 bg-brand-dark-alt border-none border-t-[3px] border-brand-gold rounded-[24px] space-y-4 shadow-xl hover:-translate-y-2 transition-all duration-500 snap-center flex flex-col group"
             >
-              <div className="text-brand-gold mb-2">{m.icon}</div>
-              <h4 className="font-headline text-2xl text-brand-gold uppercase tracking-tight">{m.title}</h4>
-              <p className="font-body text-[#F8F5E6] text-xs leading-relaxed opacity-80">{m.body}</p>
+              <div className="text-brand-gold mb-2 group-hover:scale-110 transition-transform">
+                {m.icon}
+              </div>
+              <h4 className="font-headline text-2xl text-brand-gold uppercase tracking-tight leading-none">
+                {m.title}
+              </h4>
+              <p className="font-body text-brand-cream text-xs leading-relaxed opacity-80">
+                {m.body}
+              </p>
             </Card>
           ))}
         </div>
