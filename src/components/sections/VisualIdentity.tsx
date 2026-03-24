@@ -15,57 +15,65 @@ import {
   Music,
   DoorOpen,
   Zap,
-  UserPlus
+  UserPlus,
+  Sparkles
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { BrushStroke } from '@/components/brand/VisualElements';
 
 const allVenuesItems = [
-  { name: "Bar Wraps", desc: "Full counter branding with Savanna logo and product imagery", icon: <Layers size={18} /> },
-  { name: "Venue Signage", desc: "A-frames, posters, and directional signage at entrance and key spots", icon: <MapPin size={18} /> },
-  { name: "Table Dressing", desc: "Branded table tents, coasters, and menu inserts", icon: <Layout size={18} /> },
-  { name: "Branded Glassware", desc: "Savanna-branded glasses for cider service", icon: <Beer size={18} /> },
-  { name: "QR Code Points", desc: "Table-top and bar-top QR stands linking to weekly competition", icon: <QrCode size={18} /> },
-  { name: "Branded Napkins & Coasters", desc: "Subtle logo placement on every surface", icon: <CheckCircle size={18} /> },
-  { name: "Staff Branded T-Shirts", desc: "Serving staff in Savanna Sundays tees", icon: <Shirt size={18} /> },
-  { name: "Branded Ice Buckets", desc: "Product display at every table", icon: <GlassWater size={18} /> },
+  { name: "Bar Wraps", desc: "Full counter branding with Savanna logo", icon: <Layers size={20} /> },
+  { name: "Venue Signage", desc: "A-frames and directional posters", icon: <MapPin size={20} /> },
+  { name: "Table Dressing", desc: "Branded table tents and menu inserts", icon: <Layout size={20} /> },
+  { name: "Branded Glassware", desc: "Savanna-branded high-fidelity glasses", icon: <Beer size={20} /> },
+  { name: "QR Code Points", desc: "Table-top entry points for competitions", icon: <QrCode size={20} /> },
 ];
 
 const squadOnlyItems = [
-  { name: "Branded Backdrop", desc: "Step-and-repeat photo wall with Savanna + Savanna Sundays branding", icon: <Camera size={18} /> },
-  { name: "DJ Booth Wrap", desc: "Full branded skin on the DJ booth", icon: <Music size={18} /> },
-  { name: "Serve Stations", desc: "Dedicated Savanna pouring/serve points with branded counters", icon: <GlassWater size={18} /> },
-  { name: "Entrance Arch / Stanchion Wraps", desc: "Branded entry experience", icon: <DoorOpen size={18} /> },
-  { name: "Neon Signage", desc: "“Savanna Sundays” neon light feature (reusable)", icon: <Zap size={18} /> },
-  { name: "Branded Wristbands", desc: "Entry wristbands with Savanna Sundays logo", icon: <UserPlus size={18} /> },
+  { name: "Branded Backdrop", desc: "Step-and-repeat 4K photo wall", icon: <Camera size={20} /> },
+  { name: "DJ Booth Wrap", desc: "Full HD branded skin on booth", icon: <Music size={20} /> },
+  { name: "Serve Stations", desc: "Dedicated Savanna pouring points", icon: <GlassWater size={20} /> },
+  { name: "Neon Signage", desc: "Custom 'Savanna Sundays' neon feature", icon: <Zap size={20} /> },
+  { name: "Branded Wristbands", desc: "VIP entry identification", icon: <UserPlus size={20} /> },
 ];
 
 export const VisualIdentitySection = () => {
   return (
-    <div className="space-y-12">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+    <div className="space-y-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start relative">
+        {/* Visual Connector Line */}
+        <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-brand-gold/0 via-brand-gold/40 to-brand-gold/0 -translate-x-1/2" />
+
         {/* ALL VENUES COLUMN */}
-        <div className="space-y-6 animate-fade-in-up">
-          <div className="bg-brand-green p-6 rounded-t-[32px] border-b border-white/10">
-            <h4 className="font-headline text-2xl text-brand-gold uppercase tracking-widest text-center">
-              ALL VENUES
-            </h4>
-            <p className="text-[10px] text-center text-brand-cream/60 uppercase tracking-[3px] font-bold mt-1">
-              Every Sunday • Every Location
-            </p>
+        <div className="space-y-8">
+          <div className="relative p-10 bg-brand-green rounded-[48px] shadow-2xl border border-white/5 overflow-hidden group">
+            <div className="relative z-10 space-y-4">
+              <div className="flex items-center gap-3">
+                <Sparkles className="text-brand-gold" size={24} />
+                <h4 className="font-headline text-3xl md:text-4xl text-brand-gold uppercase tracking-widest">
+                  ALL VENUES
+                </h4>
+              </div>
+              <p className="font-body text-brand-cream/80 uppercase tracking-[4px] font-bold text-xs">
+                Every Sunday • Every Location
+              </p>
+              <div className="h-[2px] w-20 bg-brand-gold/40" />
+            </div>
+            <BrushStroke className="absolute -bottom-10 -right-10 w-64 h-auto opacity-10 rotate-12" color="#F4C542" />
           </div>
           
-          <div className="grid grid-cols-1 gap-3">
+          <div className="grid grid-cols-1 gap-4">
             {allVenuesItems.map((item, i) => (
               <Card 
                 key={i} 
-                className="p-4 bg-white/5 border border-white/5 rounded-2xl flex items-center gap-4 group hover:bg-white/10 transition-all duration-300"
+                className="p-6 bg-white/5 border border-white/10 rounded-[28px] flex items-center gap-6 group hover:bg-brand-gold/5 hover:border-brand-gold/30 transition-all duration-500 shadow-xl"
               >
-                <div className="w-10 h-10 rounded-full bg-brand-green/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-lg">
                   {item.icon}
                 </div>
-                <div className="space-y-0.5">
-                  <h5 className="font-headline text-lg text-brand-gold uppercase leading-none">{item.name}</h5>
-                  <p className="font-body text-[10px] text-brand-cream/60 leading-tight">{item.desc}</p>
+                <div className="space-y-1">
+                  <h5 className="font-headline text-2xl text-brand-gold uppercase leading-none tracking-tight">{item.name}</h5>
+                  <p className="font-body text-xs text-brand-cream/50 leading-relaxed font-bold uppercase tracking-wider">{item.desc}</p>
                 </div>
               </Card>
             ))}
@@ -73,28 +81,35 @@ export const VisualIdentitySection = () => {
         </div>
 
         {/* SQUAD VENUE COLUMN */}
-        <div className="space-y-6 animate-fade-in-up [animation-delay:200ms]">
-          <div className="bg-brand-gold p-6 rounded-t-[32px] border-b border-brand-green/10">
-            <h4 className="font-headline text-2xl text-brand-green uppercase tracking-widest text-center">
-              SQUAD VENUE ADDITIONS
-            </h4>
-            <p className="text-[10px] text-center text-brand-green/60 uppercase tracking-[3px] font-bold mt-1">
-              Everything Above PLUS:
-            </p>
+        <div className="space-y-8">
+          <div className="relative p-10 bg-brand-gold rounded-[48px] shadow-2xl border border-brand-gold/20 overflow-hidden group">
+            <div className="relative z-10 space-y-4">
+              <div className="flex items-center gap-3">
+                <Zap className="text-brand-green" size={24} />
+                <h4 className="font-headline text-3xl md:text-4xl text-brand-green uppercase tracking-widest">
+                  SQUAD ADDITIONS
+                </h4>
+              </div>
+              <p className="font-body text-brand-green/80 uppercase tracking-[4px] font-bold text-xs">
+                Everything Above PLUS:
+              </p>
+              <div className="h-[2px] w-20 bg-brand-green/40" />
+            </div>
+            <BrushStroke className="absolute -bottom-10 -right-10 w-64 h-auto opacity-10 rotate-12" color="#1F4D3A" />
           </div>
           
-          <div className="grid grid-cols-1 gap-3">
+          <div className="grid grid-cols-1 gap-4">
             {squadOnlyItems.map((item, i) => (
               <Card 
                 key={i} 
-                className="p-4 bg-brand-gold/10 border border-brand-gold/20 rounded-2xl flex items-center gap-4 group hover:bg-brand-gold/20 transition-all duration-300"
+                className="p-6 bg-brand-gold/10 border border-brand-gold/20 rounded-[28px] flex items-center gap-6 group hover:bg-brand-gold/20 hover:border-brand-gold transition-all duration-500 shadow-xl"
               >
-                <div className="w-10 h-10 rounded-full bg-brand-gold text-brand-green flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-brand-gold text-brand-green flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-lg">
                   {item.icon}
                 </div>
-                <div className="space-y-0.5">
-                  <h5 className="font-headline text-lg text-brand-gold uppercase leading-none">{item.name}</h5>
-                  <p className="font-body text-[10px] text-brand-cream/60 leading-tight">{item.desc}</p>
+                <div className="space-y-1">
+                  <h5 className="font-headline text-2xl text-brand-gold uppercase leading-none tracking-tight">{item.name}</h5>
+                  <p className="font-body text-xs text-brand-cream/50 leading-relaxed font-bold uppercase tracking-wider">{item.desc}</p>
                 </div>
               </Card>
             ))}
