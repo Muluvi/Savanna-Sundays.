@@ -1,4 +1,3 @@
-
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -26,8 +25,8 @@ export default {
           'green-mid': '#2A6B4E',
           teal: '#2D8C7F',
           cream: '#F8F5E6',
-          dark: '#1A1208',
-          'dark-alt': '#221A0A',
+          dark: '#122B21',
+          'dark-alt': '#1A3329',
           'accent-warm': '#E8873A',
           'text-muted': '#B8A98A',
           parchment: '#EDE8D0',
@@ -113,14 +112,6 @@ export default {
           '80%': { opacity: '0.2' },
           '100%': { transform: 'translateY(-100vh)', opacity: '0' },
         },
-        'waveform': {
-          '0%, 100%': { transform: 'scaleY(1)' },
-          '50%': { transform: 'scaleY(0.4)' },
-        },
-        'glow-pulse': {
-          '0%, 100%': { filter: 'drop-shadow(0 0 0px rgba(244,197,66,0))' },
-          '50%': { filter: 'drop-shadow(0 0 15px rgba(244,197,66,0.4))' },
-        },
         marquee: {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
@@ -132,9 +123,7 @@ export default {
         'fade-in-up': 'fade-in-up 0.7s ease-out forwards',
         'pulse-gold': 'pulse-gold 2s infinite',
         'fizz': 'fizz 5s linear infinite',
-        'waveform': 'waveform 1s ease-in-out infinite',
-        'glow-pulse': 'glow-pulse 2s infinite',
-        'marquee': 'marquee 15s linear infinite',
+        'marquee': 'marquee 25s linear infinite',
         'spin-slow': 'spin 30s linear infinite',
       },
     },

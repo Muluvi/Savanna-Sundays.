@@ -14,7 +14,6 @@ import {
   UserPlus,
   Sparkles
 } from 'lucide-react';
-import { BrushStroke } from '@/components/brand/VisualElements';
 
 const allVenuesItems = [
   { name: "Bar Wraps", desc: "Full counter branding with Savanna logo", icon: <Layers size={24} /> },
@@ -34,66 +33,66 @@ const squadOnlyItems = [
 
 export const VisualIdentitySection = () => {
   return (
-    <div className="space-y-32">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start relative">
+    <div className="space-y-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start relative">
         <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/10 -translate-x-1/2" />
 
-        <div className="space-y-12">
-          <div className="relative py-8 border-b border-brand-gold/20">
+        <div className="space-y-10">
+          <div className="relative py-6 border-b border-brand-gold/20">
             <div className="flex items-center gap-4">
               <Sparkles className="text-brand-gold" size={32} />
-              <h4 className="font-headline text-4xl md:text-6xl text-brand-gold uppercase tracking-widest leading-none">
+              <h4 className="font-headline text-4xl md:text-5xl text-brand-gold uppercase tracking-widest leading-none">
                 All Venues
               </h4>
             </div>
-            <p className="font-body text-brand-gold/60 uppercase tracking-[5px] font-bold text-xs mt-4">
+            <p className="font-body text-brand-gold/60 uppercase tracking-[4px] font-bold text-[10px] mt-2">
               Every Sunday • Every Location
             </p>
           </div>
           
-          <div className="space-y-8">
+          <div className="space-y-6">
             {allVenuesItems.map((item, i) => (
               <div 
                 key={i} 
-                className="flex items-center gap-10 group transition-all duration-500"
+                className="flex items-center gap-8 group transition-all duration-500"
               >
-                <div className="w-16 h-16 rounded-2xl bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                   {item.icon}
                 </div>
-                <div className="space-y-2">
-                  <h5 className="font-headline text-3xl text-brand-gold uppercase leading-none tracking-tight">{item.name}</h5>
-                  <p className="font-body text-sm text-brand-cream/50 leading-relaxed font-bold uppercase tracking-widest">{item.desc}</p>
+                <div className="space-y-1">
+                  <h5 className="font-headline text-2xl text-brand-gold uppercase leading-none tracking-tight">{item.name}</h5>
+                  <p className="font-body text-[11px] text-brand-cream/50 leading-relaxed font-bold uppercase tracking-widest">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="space-y-12">
-          <div className="relative py-8 border-b border-brand-green-mid">
+        <div className="space-y-10">
+          <div className="relative py-6 border-b border-brand-gold/20">
             <div className="flex items-center gap-4">
               <Zap className="text-brand-gold" size={32} />
-              <h4 className="font-headline text-4xl md:text-6xl text-brand-gold uppercase tracking-widest leading-none">
+              <h4 className="font-headline text-4xl md:text-5xl text-brand-gold uppercase tracking-widest leading-none">
                 Squad Additions
               </h4>
             </div>
-            <p className="font-body text-brand-gold/60 uppercase tracking-[5px] font-bold text-xs mt-4">
+            <p className="font-body text-brand-gold/60 uppercase tracking-[4px] font-bold text-[10px] mt-2">
               The Primary Narrative Anchor
             </p>
           </div>
           
-          <div className="space-y-8">
+          <div className="space-y-6">
             {squadOnlyItems.map((item, i) => (
               <div 
                 key={i} 
-                className="flex items-center gap-10 group transition-all duration-500"
+                className="flex items-center gap-8 group transition-all duration-500"
               >
-                <div className="w-16 h-16 rounded-2xl bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                   {item.icon}
                 </div>
-                <div className="space-y-2">
-                  <h5 className="font-headline text-3xl text-brand-gold uppercase leading-none tracking-tight">{item.name}</h5>
-                  <p className="font-body text-sm text-brand-cream/50 leading-relaxed font-bold uppercase tracking-widest">{item.desc}</p>
+                <div className="space-y-1">
+                  <h5 className="font-headline text-2xl text-brand-gold uppercase leading-none tracking-tight">{item.name}</h5>
+                  <p className="font-body text-[11px] text-brand-cream/50 leading-relaxed font-bold uppercase tracking-widest">{item.desc}</p>
                 </div>
               </div>
             ))}
