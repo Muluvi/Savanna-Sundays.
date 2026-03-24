@@ -30,36 +30,29 @@ export const SectionContainer = ({ id, label, title, variant = 'dark', children 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Subtle title parallax
-  const translateX = (scrollProgress - 0.5) * 15; 
+  // Subtle title parallax for 4K depth
+  const translateX = (scrollProgress - 0.5) * 10; 
 
   return (
     <section 
       ref={sectionRef}
       id={id} 
       className={cn(
-        "py-8 md:py-12 px-6 md:px-12 lg:px-24 relative overflow-hidden transition-all duration-700 dark-section"
+        "py-6 md:py-10 px-6 md:px-12 lg:px-24 relative overflow-hidden dark-section"
       )}
     >
       <CiderFizz className="opacity-5" />
       
       <div className="max-w-6xl mx-auto w-full relative z-10">
-        <div className="mb-6 md:mb-8">
-          <span 
-            className="section-label"
-            style={{ transform: `translateX(${translateX * 0.4}px)` }}
-          >
-            {label}
-          </span>
-          
+        <div className="mb-4 md:mb-6">
+          <span className="section-label">{label}</span>
           <h2 
             className="section-title"
             style={{ transform: `translateX(${translateX}px)` }}
           >
             {title}
           </h2>
-          
-          <div className="w-16 h-1 bg-brand-gold/40" />
+          <div className="w-12 h-[1px] bg-brand-gold/30" />
         </div>
         
         <div className="w-full">

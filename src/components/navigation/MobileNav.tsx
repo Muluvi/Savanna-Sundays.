@@ -17,7 +17,6 @@ const sections = [
 
 export const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -28,37 +27,32 @@ export const MobileNav = () => {
       const elementPosition = elementRect - bodyRect;
       const offsetPosition = elementPosition - offset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
     setIsOpen(false);
   };
 
   return (
     <>
-      {/* Sleek Smaller Trigger Button */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden fixed top-6 right-6 w-12 h-12 flex items-center justify-center bg-brand-gold text-brand-green rounded-full shadow-2xl active:scale-90 transition-all z-[110]"
+        className="fixed top-6 right-6 w-12 h-12 flex items-center justify-center bg-brand-gold text-brand-green rounded-full shadow-2xl active:scale-90 transition-all z-[110]"
       >
-        {isOpen ? <X size={22} /> : <Menu size={22} />}
+        {isOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
 
       <div className={cn(
-        "fixed inset-0 bg-brand-dark z-[105] transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] flex flex-col p-10 pt-24 overflow-hidden",
+        "fixed inset-0 bg-brand-dark z-[105] transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] flex flex-col p-10 pt-24",
         isOpen ? "translate-y-0" : "-translate-y-full"
       )}>
-        {/* Cinematic Background */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
         
-        <div className="relative z-10 space-y-2 mb-12">
-          <p className="font-body text-[10px] tracking-[5px] text-brand-gold uppercase font-bold opacity-60">Strategic Deck</p>
+        <div className="relative z-10 space-y-1 mb-10">
+          <p className="font-body text-[9px] tracking-[4px] text-brand-gold uppercase font-bold opacity-40">Strategic Deck</p>
           <h3 className="font-headline text-4xl text-white uppercase tracking-tighter">Navigation</h3>
         </div>
 
-        <nav className="relative z-10 flex-1 overflow-y-auto pr-4">
+        <nav className="relative z-10 flex-1 overflow-y-auto">
           <ul className="space-y-6">
             {sections.map((section, i) => (
               <li 
@@ -74,12 +68,12 @@ export const MobileNav = () => {
                   className="w-full flex items-center justify-between group py-2 border-b border-white/5"
                 >
                   <div className="flex items-center gap-6">
-                    <span className="font-headline text-lg text-brand-gold/40">{section.num}</span>
-                    <span className="font-headline text-2xl text-white tracking-wide uppercase transition-all group-hover:text-brand-gold">
+                    <span className="font-headline text-lg text-brand-gold/30">{section.num}</span>
+                    <span className="font-headline text-2xl text-white tracking-wide uppercase group-hover:text-brand-gold transition-colors">
                       {section.label}
                     </span>
                   </div>
-                  <ChevronRight className="text-brand-gold" size={20} />
+                  <ChevronRight className="text-brand-gold opacity-40" size={18} />
                 </button>
               </li>
             ))}
@@ -87,16 +81,16 @@ export const MobileNav = () => {
         </nav>
 
         <div className={cn(
-          "relative z-10 pt-10 border-t border-white/10 mt-auto transition-all duration-1000 delay-500",
+          "relative z-10 pt-8 border-t border-white/10 mt-auto transition-all duration-1000 delay-500",
           isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         )}>
           <div className="flex items-center gap-4">
             <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
-              <Sparkles className="text-brand-gold" size={20} />
+              <Sparkles className="text-brand-gold opacity-40" size={18} />
             </div>
             <div>
-              <p className="font-body text-[10px] text-white/40 font-bold uppercase tracking-widest leading-none">Firefly Management</p>
-              <p className="font-body text-[9px] text-brand-gold/60 uppercase tracking-[2px] mt-1">Strategic Proposal 2024</p>
+              <p className="font-body text-[9px] text-white/40 font-bold uppercase tracking-widest leading-none">Firefly Management</p>
+              <p className="font-body text-[8px] text-brand-gold/40 uppercase tracking-[2px] mt-1">Strategic Proposal</p>
             </div>
           </div>
         </div>
