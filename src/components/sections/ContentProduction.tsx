@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
@@ -19,9 +20,12 @@ import {
   Smartphone,
   CheckCircle2,
   Megaphone,
-  RefreshCcw
+  RefreshCcw,
+  Maximize2
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const deliverables = [
   {
@@ -133,6 +137,108 @@ const costItems = [
   { id: "D", label: "Overheads — KSh 20,000", desc: "Equipment, storage, software, project management" }
 ];
 
+const ContentMockups = () => {
+  const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
+  
+  return (
+    <div className="space-y-12">
+      <div className="section-label text-center">Branded Content Mock-ups</div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        {/* Mock-up 1: YouTube Thumbnail */}
+        <div className="lg:col-span-8 space-y-4">
+          <div className="font-body text-[10px] uppercase tracking-[3px] text-brand-gold/60 font-bold">Mock-up 1 — YouTube DJ Set Thumbnail</div>
+          <div className="relative aspect-video w-full rounded-[32px] overflow-hidden bg-brand-green group border border-white/10 shadow-2xl">
+            {/* Background Image / Placeholder */}
+            <div className="absolute inset-0 grayscale opacity-40 group-hover:scale-110 transition-transform duration-1000">
+               <Image 
+                 src="https://picsum.photos/seed/music1/1200/675" 
+                 alt="DJ Silhouette" 
+                 fill 
+                 className="object-cover"
+                 data-ai-hint="dj silhouette"
+               />
+            </div>
+            
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-green via-brand-green/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-green/60 via-transparent to-transparent" />
+            
+            {/* Content Layers */}
+            <div className="absolute inset-0 p-8 flex flex-col justify-between">
+              <div>
+                <h3 className="font-headline text-[clamp(40px,6vw,80px)] text-brand-gold leading-none tracking-tighter drop-shadow-2xl">
+                  SAVANNA<br/>SUNDAYS
+                </h3>
+                <div className="mt-4 flex items-center gap-3">
+                  <div className="h-[2px] w-8 bg-brand-gold" />
+                  <span className="font-headline text-2xl text-white uppercase tracking-widest">Muze • DJ Nosh 254</span>
+                </div>
+              </div>
+              
+              <div className="flex items-center justify-between">
+                <div className="w-16 h-16 rounded-full bg-brand-gold text-brand-green flex items-center justify-center shadow-[0_0_30px_rgba(244,197,66,0.5)] group-hover:scale-110 transition-transform">
+                  <Play fill="currentColor" size={32} />
+                </div>
+                {savannaLogo && (
+                  <div className="relative h-12 w-32 opacity-90">
+                    <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain object-right" />
+                  </div>
+                )}
+              </div>
+            </div>
+            
+            {/* Technical Detail */}
+            <div className="absolute top-8 right-8 px-4 py-1 rounded-full border border-white/20 bg-white/5 backdrop-blur-md">
+              <span className="font-body text-[8px] uppercase tracking-widest text-white/60 font-bold">4K Multi-Cam • Board Feed Audio</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Vertical/Portrait Grid for others */}
+        <div className="lg:col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
+          {/* Mock-up 2: Instagram Reel */}
+          <div className="space-y-4">
+            <div className="font-body text-[10px] uppercase tracking-[3px] text-brand-gold/60 font-bold">Mock-up 2 — Instagram Reel</div>
+            <div className="relative aspect-[9/16] w-full max-w-[280px] mx-auto rounded-[32px] overflow-hidden bg-brand-dark-alt border border-white/10 shadow-2xl group">
+              <Image src="https://picsum.photos/seed/crowd2/400/711" alt="Crowd Energy" fill className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-ai-hint="crowd energy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-green/80 via-transparent to-transparent" />
+              
+              <div className="absolute bottom-6 left-6 right-6 space-y-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full bg-brand-gold flex items-center justify-center">
+                    <Instagram size={12} className="text-brand-green" />
+                  </div>
+                  <span className="font-body text-[10px] text-white font-bold uppercase tracking-widest">Savanna Sundays</span>
+                </div>
+                <p className="font-headline text-2xl text-white leading-tight uppercase">THE SUNDAY FLYWHEEL<br/><span className="text-brand-gold">LIVE AT THE ALCHEMIST</span></p>
+              </div>
+              
+              <div className="absolute top-6 right-6">
+                <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center">
+                   <Maximize2 size={14} className="text-white/60" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mock-up 3: Photography Frame */}
+          <div className="space-y-4">
+            <div className="font-body text-[10px] uppercase tracking-[3px] text-brand-gold/60 font-bold">Mock-up 3 — Pro Photography</div>
+            <div className="relative aspect-[4/5] w-full max-w-[280px] mx-auto rounded-[32px] overflow-hidden bg-brand-green/20 border border-brand-gold/20 shadow-xl group">
+              <Image src="https://picsum.photos/seed/product3/400/500" alt="Product Moment" fill className="object-cover group-hover:scale-110 transition-transform duration-1000" data-ai-hint="lifestyle party" />
+              <div className="absolute inset-0 border-[16px] border-brand-green/10" />
+              <div className="absolute bottom-4 right-4">
+                <span className="font-headline text-lg text-brand-gold/40 tracking-widest">© FIREFLY 2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const ContentSocialSection = () => {
   const [activeDay, setActiveDay] = useState<number | null>(null);
   const rhythmRef = useRef<HTMLDivElement>(null);
@@ -157,7 +263,7 @@ export const ContentSocialSection = () => {
   }, []);
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-24">
       {/* Header Quote */}
       <div className="text-center max-w-2xl mx-auto">
         <p className="font-serif italic text-2xl md:text-3xl text-brand-gold leading-relaxed">
@@ -193,7 +299,7 @@ export const ContentSocialSection = () => {
       </div>
 
       {/* Brand Objectives Section */}
-      <div className="space-y-8 py-12">
+      <div className="space-y-8">
         <div className="section-label text-center">How Every Piece of Content Works for Savanna</div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {objectives.map((obj, i) => (
@@ -217,6 +323,9 @@ export const ContentSocialSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Content Mockups */}
+      <ContentMockups />
 
       {/* Animated Content Rhythm Calendar */}
       <div className="space-y-8 py-12" ref={rhythmRef}>
@@ -282,12 +391,6 @@ export const ContentSocialSection = () => {
               </Card>
             ))}
           </div>
-        </div>
-        
-        <div className="p-8 bg-brand-green/30 border border-brand-gold/10 rounded-[32px] text-center max-w-3xl mx-auto">
-          <p className="font-serif italic text-lg text-brand-cream/80 leading-relaxed">
-            "One Sunday activation generates a narrative that powers your social presence for the next 144 hours."
-          </p>
         </div>
       </div>
 
