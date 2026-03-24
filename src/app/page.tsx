@@ -9,33 +9,25 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 import { TheGap } from '@/components/sections/TheGap';
-import { StrategicOverview } from '@/components/sections/StrategicOverview';
 import { DualActivationModel } from '@/components/sections/DualModel';
 import { VisualIdentitySection } from '@/components/sections/VisualIdentity';
 import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
-import { ContentSocialSection } from '@/components/sections/ContentProduction';
-import { AttendanceDemandSection } from '@/components/sections/Attendance';
 import { DigitalInfrastructureSection } from '@/components/sections/DigitalInfrastructure';
-import { GrowthRoadmapSection } from '@/components/sections/GrowthRoadmap';
 import { TheNumbersSection } from '@/components/sections/TheNumbersSection';
 import { MusicProgrammingSection } from '@/components/sections/MusicProgramming';
 
 const sectionsData = [
   { id: 'the-gap', label: '01 — The Opportunity', title: "The Gap", component: <TheGap /> },
-  { id: 'the-strategy', label: '02 — Strategic Moat', title: 'The Intelligence', component: <StrategicOverview /> },
-  { id: 'the-engine', label: '03 — The Engine', title: 'The Dual Model', component: <DualActivationModel /> },
-  { id: 'the-ritual', label: '04 — The Ritual', title: 'The Experience', component: (
+  { id: 'the-engine', label: '02 — The Engine', title: 'The Dual Model', component: <DualActivationModel /> },
+  { id: 'the-ritual', label: '03 — The Ritual', title: 'The Experience', component: (
     <div className="space-y-4 md:space-y-6">
       <VisualIdentitySection />
       <MusicProgrammingSection />
       <ExperienceDesignSection />
     </div>
   ) },
-  { id: 'the-hype', label: '05 — The Hype', title: 'Demand Gen', component: <AttendanceDemandSection /> },
-  { id: 'the-harvest', label: '06 — The Harvest', title: 'Content Engine', component: <ContentSocialSection /> },
-  { id: 'the-data', label: '07 — The Feedback', title: 'The Data Loop', component: <DigitalInfrastructureSection /> },
-  { id: 'the-roadmap', label: '08 — The Vision', title: 'Growth Roadmap', component: <GrowthRoadmapSection /> },
-  { id: 'the-numbers', label: '09 — The Investment', title: 'The Numbers', component: <TheNumbersSection /> },
+  { id: 'the-data', label: '04 — The Feedback', title: 'The Data Loop', component: <DigitalInfrastructureSection /> },
+  { id: 'the-numbers', label: '05 — The Investment', title: 'The Numbers', component: <TheNumbersSection /> },
 ];
 
 export default function Home() {
@@ -50,11 +42,11 @@ export default function Home() {
         {/* Cinematic Brand Hero Section */}
         <section id="hero" className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
           <div className="noise-overlay" />
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.08)_0%,transparent_70%)]" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.12)_0%,transparent_70%)]" />
 
           <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-2 text-center">
             {savannaLogo && (
-              <div className="relative h-72 md:h-[450px] w-full max-w-[700px] flex items-center justify-center animate-intense-glow mb-4">
+              <div className="relative h-72 md:h-[500px] w-full max-w-[800px] flex items-center justify-center animate-intense-glow mb-2">
                 <Image 
                   src={savannaLogo.imageUrl} 
                   alt="Savanna Premium Cider" 

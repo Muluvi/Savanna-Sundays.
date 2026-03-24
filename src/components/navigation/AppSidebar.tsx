@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -7,12 +8,11 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const sections = [
-  { id: 'the-gap', label: 'The Sunday Opportunity' },
-  { id: 'the-concept', label: 'How It Works' },
-  { id: 'the-experience', label: 'The Savanna Experience' },
-  { id: 'the-content-engine', label: 'Content That Works Hard' },
-  { id: 'building-the-crowd', label: 'Building the Crowd' },
-  { id: 'the-numbers', label: 'The Numbers' },
+  { id: 'the-gap', label: 'The Opportunity' },
+  { id: 'the-engine', label: 'The Engine' },
+  { id: 'the-ritual', label: 'The Ritual' },
+  { id: 'the-data', label: 'The Feedback' },
+  { id: 'the-numbers', label: 'The Investment' },
 ];
 
 export const AppSidebar = () => {

@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from 'react';
@@ -5,12 +6,11 @@ import { Menu, X, ChevronRight, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const sections = [
-  { id: 'the-gap', label: 'The Sunday Opportunity', num: '01' },
-  { id: 'the-engine', label: 'How It Works', num: '02' },
-  { id: 'the-ritual', label: 'The Savanna Experience', num: '03' },
-  { id: 'the-harvest', label: 'The Content Engine', num: '04' },
-  { id: 'the-community', label: 'The Growth Flywheel', num: '05' },
-  { id: 'the-numbers', label: 'The Numbers', num: '06' },
+  { id: 'the-gap', label: 'The Opportunity', num: '01' },
+  { id: 'the-engine', label: 'The Engine', num: '02' },
+  { id: 'the-ritual', label: 'The Ritual', num: '03' },
+  { id: 'the-data', label: 'The Feedback', num: '04' },
+  { id: 'the-numbers', label: 'The Investment', num: '05' },
 ];
 
 export const MobileNav = () => {
