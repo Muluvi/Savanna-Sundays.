@@ -23,7 +23,7 @@ export const SectionContainer = ({ id, label, title, variant = 'light', children
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     );
 
     if (sectionRef.current) {
@@ -46,33 +46,40 @@ export const SectionContainer = ({ id, label, title, variant = 'light', children
       ref={sectionRef}
       id={id} 
       className={cn(
-        "py-12 md:py-20 px-5 md:px-12 lg:px-24 flex flex-col justify-center relative transition-all duration-1000",
+        "py-24 md:py-40 px-6 md:px-12 lg:px-24 flex flex-col justify-center relative transition-all duration-[1200ms] ease-[cubic-bezier(0.19,1,0.22,1)]",
         bgClass,
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
       )}
     >
-      {(variant === 'light' || variant === 'alt') && <CiderFizz className="opacity-10" />}
+      {(variant === 'light' || variant === 'alt') && <CiderFizz className="opacity-20" />}
       
-      {/* Visual Divider */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/10 to-transparent" />
+      {/* 4K Visual Divider */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
       
-      <div className="max-w-5xl mx-auto w-full relative z-10">
-        <span className={cn(
-          "section-label transition-all duration-700 delay-300",
-          isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
-        )}>{label}</span>
-        
-        <h2 className={cn(
-          "section-title transition-all duration-700 delay-500",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-        )}>{title}</h2>
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <div className="mb-16 md:mb-24">
+          <span className={cn(
+            "section-label transition-all duration-1000 delay-300 transform",
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+          )}>{label}</span>
+          
+          <h2 className={cn(
+            "section-title transition-all duration-1000 delay-500 transform",
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+          )}>{title}</h2>
+          
+          <div className={cn(
+            "w-16 h-1 bg-brand-gold transition-all duration-1000 delay-700 transform",
+            isVisible ? "w-16 opacity-100" : "w-0 opacity-0"
+          )} />
+        </div>
         
         <div className={cn(
-          "w-full transition-all duration-1000 delay-700",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          "w-full transition-all duration-1000 delay-[800ms] transform",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
         )}>
           {children || (
-            <div className="font-body text-base md:text-lg font-light opacity-80 max-w-2xl leading-relaxed">
+            <div className="font-body text-xl md:text-2xl font-light opacity-80 max-w-3xl leading-relaxed">
               <p>Strategic presentation content loading for this segment...</p>
             </div>
           )}

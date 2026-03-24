@@ -1,11 +1,10 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
 import { AppSidebar } from '@/components/navigation/AppSidebar';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { SectionContainer } from '@/components/sections/SectionContainer';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import { ChevronDown, ArrowRight, Sparkles } from 'lucide-react';
 import { useAnalyticsTracker } from '@/hooks/use-analytics-tracker';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -41,20 +40,18 @@ const sectionsData = [
     title: 'THE SAVANNA EXPERIENCE', 
     variant: 'dark' as const, 
     component: (
-      <div className="space-y-16">
-        <div className="text-center max-w-3xl mx-auto space-y-6">
-          <p className="font-serif italic text-2xl md:text-3xl text-brand-gold leading-relaxed">
-            “When the squad arrives, the venue transforms. When they leave, the content keeps working.”
+      <div className="space-y-20">
+        <div className="text-center max-w-4xl mx-auto space-y-8">
+          <p className="font-serif italic text-3xl md:text-5xl text-brand-gold leading-tight blur-in">
+            “When the squad arrives, the venue transforms.”
           </p>
-          <p className="font-body text-base md:text-lg text-brand-cream/80 leading-relaxed">
-            Every squad venue gets the full treatment — from branded glassware on the tables to a neon Savanna Sundays sign behind the DJ booth. Every partner venue carries the brand on every surface — bar wraps, coasters, signage, staff tees. Whether the squad is live or the branding speaks for itself, Sunday belongs to Savanna.
+          <p className="font-body text-lg md:text-xl text-brand-cream/70 leading-relaxed max-w-3xl mx-auto">
+            Every squad venue gets the full treatment — from branded glassware on the tables to a neon Savanna Sundays sign behind the DJ booth. Every partner venue carries the brand on every surface.
           </p>
         </div>
         <VisualIdentitySection />
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/10 to-transparent" />
-        <div className="pt-12">
-          <ExperienceDesignSection />
-        </div>
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
+        <ExperienceDesignSection />
       </div>
     ) 
   },
@@ -106,72 +103,77 @@ export default function Home() {
       <MobileNav />
       
       <main className="md:ml-64 transition-all">
-        <section id="hero" className="relative min-h-screen flex flex-col px-6 py-12 overflow-hidden justify-center border-b border-white/5 bg-[#1A1208]">
+        {/* Cinematic Hero */}
+        <section id="hero" className="relative min-h-screen flex flex-col px-6 py-20 overflow-hidden justify-center items-center border-b border-white/5 bg-[#1A1208]">
           <div 
-            className="absolute inset-0 pointer-events-none" 
+            className="absolute inset-0 pointer-events-none opacity-40" 
             style={{
-              background: 'radial-gradient(circle at 40% 50%, rgba(244,197,66,0.12) 0%, transparent 70%), radial-gradient(circle at 80% 80%, rgba(232,135,58,0.08) 0%, transparent 60%)'
+              background: 'radial-gradient(circle at 50% 50%, rgba(244,197,66,0.15) 0%, transparent 80%)'
             }} 
           />
 
-          <div className="flex flex-col items-center justify-center text-center relative z-10">
-            <div className="max-w-6xl mx-auto w-full space-y-12">
+          <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center">
+            <div className="space-y-16 text-center w-full">
               {savannaLogo && (
-                <div className="relative h-24 md:h-32 w-full max-w-[280px] mx-auto animate-in fade-in zoom-in-95 duration-1000">
+                <div className="relative h-28 md:h-40 w-full max-w-[320px] mx-auto animate-float">
                   <Image 
                     src={savannaLogo.imageUrl} 
                     alt="Savanna Premium Cider" 
                     fill 
-                    className="object-contain"
+                    className="object-contain drop-shadow-[0_0_30px_rgba(244,197,66,0.2)]"
+                    priority
                   />
                 </div>
               )}
 
-              <h1 className="leading-[0.85] blur-in">
-                <span 
-                  className="block text-[#F4C542] text-[clamp(60px,15vw,160px)] font-headline tracking-tighter"
-                  style={{ textShadow: '0 0 40px rgba(244,197,66,0.35)' }}
-                >
-                  SAVANNA
-                </span>
-                <span 
-                  className="block text-[#F4C542] text-[clamp(60px,15vw,160px)] font-headline tracking-tighter"
-                  style={{ textShadow: '0 0 40px rgba(244,197,66,0.35)' }}
-                >
-                  SUNDAYS
-                </span>
-              </h1>
+              <div className="space-y-4">
+                <h1 className="leading-[0.8] blur-in">
+                  <span className="block text-[#F4C542] text-[clamp(70px,18vw,220px)] font-headline tracking-tighter filter drop-shadow-[0_0_60px_rgba(244,197,66,0.4)]">
+                    SAVANNA
+                  </span>
+                  <span className="block text-[#F4C542] text-[clamp(70px,18vw,220px)] font-headline tracking-tighter filter drop-shadow-[0_0_60px_rgba(244,197,66,0.4)]">
+                    SUNDAYS
+                  </span>
+                </h1>
+                
+                <div className="flex items-center justify-center gap-4 opacity-0 animate-in fade-in duration-1000 delay-700 fill-mode-forwards">
+                  <div className="h-[1px] w-12 bg-brand-gold/40" />
+                  <p className="font-headline text-2xl md:text-4xl text-brand-gold tracking-[0.2em]">NAIROBI EDITION</p>
+                  <div className="h-[1px] w-12 bg-brand-gold/40" />
+                </div>
+              </div>
               
-              <div className="max-w-3xl mx-auto space-y-6 opacity-0 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-forwards">
-                <div className="space-y-4">
-                  <p className="font-serif text-xl md:text-3xl text-[#F8F5E6] tracking-wide">
+              <div className="max-w-3xl mx-auto space-y-10 opacity-0 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-1000 fill-mode-forwards">
+                <div className="space-y-6">
+                  <p className="font-serif text-2xl md:text-4xl text-[#F8F5E6] tracking-tight leading-tight">
                     Multiple venues. One squad. Every Sunday.
                   </p>
-                  <p className="font-serif italic text-base md:text-lg text-[#B8A98A]">
-                    A weekly brand activation by Savanna Premium Cider — every Sunday, every venue, every crowd.
+                  <p className="font-body text-lg md:text-xl text-[#B8A98A] max-w-2xl mx-auto leading-relaxed">
+                    A premium weekly lifestyle activation by Savanna Premium Cider — owning the Nairobi Sunday ritual.
                   </p>
                 </div>
 
-                <div className="pt-8">
+                <div className="pt-4">
                   <button 
                     onClick={scrollToSection1}
-                    className="bg-[#F4C542] text-[#1A1208] px-10 py-4 rounded-full font-headline text-xl tracking-widest hover:bg-[#E8873A] hover:scale-105 transition-all duration-300 shadow-2xl active:scale-95"
+                    className="btn-primary group"
                   >
-                    Explore the Concept →
+                    <span className="flex items-center gap-4">
+                      Explore the Concept <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+                    </span>
                   </button>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="relative z-20 flex flex-col items-center mt-20 opacity-0 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-1000 fill-mode-forwards">
-            <div className="w-8 h-[1px] bg-brand-gold/20 mb-6" />
-            <div className="text-center space-y-1">
-              <p className="font-body text-[10px] tracking-[3px] text-[#B8A98A] uppercase font-bold">Prepared by Firefly Management</p>
-              <p className="font-body text-[10px] tracking-[3px] text-[#B8A98A] uppercase font-bold">Prepared for Kenya Wine Agencies Limited (KWAL)</p>
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-6 opacity-40 animate-in fade-in duration-1000 delay-[1500ms]">
+            <div className="text-center space-y-2">
+              <p className="font-body text-[10px] tracking-[5px] text-[#B8A98A] uppercase font-bold">PREPARED BY FIREFLY MANAGEMENT</p>
+              <p className="font-body text-[10px] tracking-[5px] text-[#B8A98A] uppercase font-bold">STAKEHOLDER CONFIDENTIAL</p>
             </div>
-            <div className="mt-8 animate-bounce opacity-20">
-              <ChevronDown className="text-[#F4C542]" size={20} />
+            <div className="animate-bounce">
+              <ChevronDown className="text-brand-gold" size={24} />
             </div>
           </div>
         </section>
@@ -188,64 +190,67 @@ export default function Home() {
           </SectionContainer>
         ))}
 
-        {/* Closing Block */}
-        <div className="py-32 px-6 text-center space-y-20 bg-brand-dark border-t border-white/5 relative overflow-hidden">
-          <div className="max-w-3xl mx-auto space-y-8 relative z-10">
-            <p className="font-serif italic text-2xl md:text-4xl text-brand-cream leading-relaxed">
-              "Savanna Sundays is built. The squad is assembled. The venues are mapped. The content engine is ready. Multiple venues, one squad, every Sunday. All that’s needed is the green light."
-            </p>
-          </div>
-
-          <div className="pt-4 relative z-10">
-            <a 
-              href="mailto:partner@firefly.co.ke" 
-              className="inline-flex items-center gap-6 bg-[#F4C542] text-[#1A1208] px-16 py-6 rounded-full font-headline text-3xl tracking-widest hover:bg-[#E8873A] hover:scale-105 transition-all duration-300 shadow-[0_20px_50px_rgba(244,197,66,0.3)] active:scale-95 group"
-            >
-              <span>Let&apos;s Own Sunday</span>
-              <ArrowRight className="group-hover:translate-x-2 transition-transform" size={28} />
-            </a>
-          </div>
-
-          <div className="pt-16 relative z-10 flex flex-col items-center gap-12">
-            <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 opacity-90">
-              {savannaLogo && (
-                <div className="relative h-[80px] w-[180px]">
-                  <Image 
-                    src={savannaLogo.imageUrl} 
-                    alt="Savanna Premium Cider" 
-                    fill 
-                    className="object-contain"
-                  />
-                </div>
-              )}
-              <div className="hidden md:block h-16 w-[1px] bg-white/10" />
-              {fireflyLogo && (
-                <div className="relative h-[60px] w-[160px]">
-                  <Image 
-                    src={fireflyLogo.imageUrl} 
-                    alt="Firefly Management" 
-                    fill 
-                    className="object-contain"
-                  />
-                </div>
-              )}
+        {/* High-Fidelity Closing */}
+        <div className="py-40 px-6 text-center bg-brand-dark border-t border-white/5 relative overflow-hidden">
+          <div className="max-w-5xl mx-auto space-y-16 relative z-10">
+            <div className="space-y-8">
+              <Sparkles className="mx-auto text-brand-gold animate-pulse" size={48} />
+              <p className="font-serif italic text-3xl md:text-6xl text-brand-cream leading-tight max-w-4xl mx-auto">
+                "Multiple venues, one squad, every Sunday. All that’s needed is the green light."
+              </p>
             </div>
 
-            <div className="space-y-8">
-              <p className="font-body text-[11px] md:text-[12px] text-brand-text-muted uppercase tracking-[3px] font-bold text-center max-w-2xl mx-auto">
-                Prepared by Firefly Management for Kenya Wine Agencies Limited (KWAL) — Savanna Premium Cider
-              </p>
+            <div className="pt-12">
+              <a 
+                href="mailto:partner@firefly.co.ke" 
+                className="btn-primary inline-flex h-20 px-20 items-center gap-8 text-2xl md:text-4xl shadow-[0_30px_70px_rgba(244,197,66,0.3)]"
+              >
+                <span>LET&apos;S OWN SUNDAY</span>
+                <ArrowRight size={32} />
+              </a>
+            </div>
 
-              <div className="max-w-2xl mx-auto pt-8 border-t border-white/5">
-                <p className="font-body text-[9px] text-[#B8A98A] uppercase tracking-[1px] text-center leading-relaxed">
-                  DO NOT FORWARD TO PERSONS UNDER THE AGE OF 18 YEARS. EXCESSIVE ALCOHOL CONSUMPTION IS HARMFUL TO YOUR HEALTH. NOT FOR SALE TO PERSONS UNDER THE AGE OF 18 YEARS.
+            <div className="pt-24 space-y-16">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24">
+                {savannaLogo && (
+                  <div className="relative h-20 w-56 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+                    <Image 
+                      src={savannaLogo.imageUrl} 
+                      alt="Savanna Premium Cider" 
+                      fill 
+                      className="object-contain"
+                    />
+                  </div>
+                )}
+                <div className="hidden md:block h-16 w-[1px] bg-white/10" />
+                {fireflyLogo && (
+                  <div className="relative h-14 w-48 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+                    <Image 
+                      src={fireflyLogo.imageUrl} 
+                      alt="Firefly Management" 
+                      fill 
+                      className="object-contain"
+                    />
+                  </div>
+                )}
+              </div>
+
+              <div className="space-y-10 max-w-4xl mx-auto">
+                <p className="font-body text-[11px] md:text-xs text-brand-text-muted uppercase tracking-[4px] font-bold opacity-60">
+                  Prepared by Firefly Management for Kenya Wine Agencies Limited (KWAL) — Savanna Premium Cider
                 </p>
+
+                <div className="pt-10 border-t border-white/5">
+                  <p className="font-body text-[10px] text-[#B8A98A] uppercase tracking-[2px] text-center leading-relaxed max-w-3xl mx-auto opacity-40">
+                    DO NOT FORWARD TO PERSONS UNDER THE AGE OF 18 YEARS. EXCESSIVE ALCOHOL CONSUMPTION IS HARMFUL TO YOUR HEALTH. NOT FOR SALE TO PERSONS UNDER THE AGE OF 18 YEARS.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
           
           <div className="absolute inset-0 pointer-events-none" style={{
-            background: 'radial-gradient(circle at 50% 100%, rgba(244,197,66,0.06) 0%, transparent 70%)'
+            background: 'radial-gradient(circle at 50% 100%, rgba(244,197,66,0.1) 0%, transparent 70%)'
           }} />
         </div>
       </main>

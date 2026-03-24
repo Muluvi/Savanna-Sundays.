@@ -23,7 +23,7 @@
     --border: 48 45% 94% / 0.1;
     --input: 48 45% 94% / 0.1;
     --ring: 43 89% 61%;
-    --radius: 20px;
+    --radius: 24px;
     --sidebar-background: 35 40% 6%;
     --sidebar-foreground: 48 45% 94%;
     --sidebar-primary: 43 89% 61%;
@@ -44,9 +44,10 @@
     @apply border-border;
   }
   body {
-    @apply bg-brand-dark text-foreground selection:bg-brand-gold selection:text-brand-green relative;
+    @apply bg-brand-dark text-foreground selection:bg-brand-gold selection:text-brand-green relative antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
-  /* Noise Texture Overlay - Warm Amber */
+  /* 4K Noise Texture Overlay - Warm Amber */
   body::after {
     content: "";
     position: fixed;
@@ -54,13 +55,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.04;
+    opacity: 0.05;
     z-index: 9999;
     pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='%23F4C542' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='%23F4C542' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-headline uppercase tracking-wider;
+    @apply font-headline uppercase tracking-tight;
   }
 }
 
@@ -72,8 +73,8 @@
     content: '';
     @apply absolute inset-0 pointer-events-none;
     background:
-      radial-gradient(ellipse 70% 60% at 80% 50%, rgba(244,197,66,0.08) 0%, transparent 70%),
-      repeating-linear-gradient(-45deg, transparent, transparent 28px, rgba(255,255,255,0.018) 28px, rgba(255,255,255,0.018) 30px);
+      radial-gradient(ellipse 70% 60% at 80% 50%, rgba(244,197,66,0.1) 0%, transparent 70%),
+      repeating-linear-gradient(-45deg, transparent, transparent 28px, rgba(255,255,255,0.01) 28px, rgba(255,255,255,0.01) 30px);
   }
 
   .cream-section {
@@ -82,73 +83,56 @@
   .cream-section::before {
     content: '';
     @apply absolute inset-0 pointer-events-none;
-    background: radial-gradient(circle at center, rgba(244,197,66,0.1) 0%, transparent 70%);
-  }
-  .cream-section .section-title {
-    @apply text-brand-green;
-  }
-  .cream-section .section-label {
-    @apply text-brand-green/60;
+    background: radial-gradient(circle at center, rgba(244,197,66,0.12) 0%, transparent 70%);
   }
 
   .btn-primary {
-    @apply relative overflow-hidden bg-brand-gold text-brand-green font-semibold py-3 px-8 rounded-[40px] hover:bg-brand-gold-dark transition-all active:scale-95 shadow-lg;
+    @apply relative overflow-hidden bg-brand-gold text-brand-green font-headline text-xl tracking-widest py-4 px-10 rounded-full transition-all active:scale-95 shadow-[0_20px_40px_-10px_rgba(244,197,66,0.3)] hover:shadow-[0_25px_50px_-12px_rgba(244,197,66,0.5)] hover:-translate-y-1;
   }
   .btn-primary::after {
     content: "";
-    @apply absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] transition-all duration-1000;
+    @apply absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-25deg] transition-all duration-1000;
   }
   .btn-primary:hover::after {
     @apply left-[100%];
   }
 
-  .btn-secondary {
-    @apply bg-transparent border-2 border-brand-green text-brand-green font-semibold py-3 px-8 rounded-[40px] hover:bg-brand-green hover:text-white transition-all active:scale-95;
-  }
-  
-  .brand-card {
-    @apply bg-white/5 border border-white/5 rounded-[20px] p-4 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(31,77,58,0.2)] hover:border-brand-gold/30;
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[32px] shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
   }
 
   .section-label {
-    @apply font-body font-bold text-[9px] tracking-[4px] uppercase text-brand-accent-warm mb-2 block;
+    @apply font-body font-bold text-[10px] tracking-[5px] uppercase text-brand-gold mb-3 block opacity-80;
   }
 
   .section-title {
-    @apply font-headline text-3xl md:text-5xl lg:text-6xl text-brand-cream relative inline-block mb-4;
+    @apply font-headline text-4xl md:text-7xl lg:text-8xl text-brand-cream relative leading-none mb-6;
   }
-  .section-title::after {
-    content: '';
-    @apply absolute -bottom-2 left-0 w-8 h-[3px] bg-brand-gold;
-  }
-  .dark-section .section-title {
-    @apply text-brand-cream;
-  }
-
-  .glass-card {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-[24px];
+  
+  .brand-card {
+    @apply bg-white/5 border border-white/5 rounded-[32px] p-6 shadow-2xl transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] hover:border-brand-gold/20;
   }
 }
 
 @layer utilities {
-  .animate-marquee {
-    animation: marquee 15s linear infinite;
-  }
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
   .mask-marquee {
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   }
 
   .blur-in {
-    animation: blur-in 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation: blur-in 1.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
   }
   @keyframes blur-in {
-    from { filter: blur(20px); opacity: 0; transform: scale(1.1); }
-    to { filter: blur(0); opacity: 1; transform: scale(1); }
+    from { filter: blur(30px); opacity: 0; transform: scale(1.15) translateY(20px); }
+    to { filter: blur(0); opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
   }
 }
 
