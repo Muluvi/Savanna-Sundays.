@@ -41,7 +41,7 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
   }, [isVisible, target]);
 
   return (
-    <div ref={containerRef} className="font-headline text-5xl md:text-8xl text-brand-gold leading-none tracking-tighter">
+    <div ref={containerRef} className="font-headline text-4xl md:text-7xl text-brand-gold leading-none tracking-tighter">
       {isKFormat ? (displayValue / 1000).toFixed(0) + 'K' : Math.floor(displayValue).toLocaleString()}
       {suffix}
     </div>
@@ -51,53 +51,50 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
 export const TheGap = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   const socialIcons = [
-    { id: 'social-fb', label: 'Facebook', value: '603K', size: 'h-24 w-64' },
-    { id: 'social-ig', label: 'Instagram', value: '6K', size: 'h-20 w-20' },
-    { id: 'social-x', label: 'X (Twitter)', value: '1115', size: 'h-16 w-16' },
+    { id: 'social-fb', label: 'Facebook', value: '603K', size: 'h-16 w-48' },
+    { id: 'social-ig', label: 'Instagram', value: '6K', size: 'h-14 w-14' },
+    { id: 'social-x', label: 'X (Twitter)', value: '1115', size: 'h-10 w-10' },
   ];
 
   return (
-    <div className="space-y-10">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+    <div className="space-y-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         <div className="space-y-4">
-          <p className="font-serif italic text-3xl md:text-5xl text-brand-gold leading-[1.1] border-l-2 border-brand-gold pl-6">
-            The audience is established. <br/>The culture is waiting.
-          </p>
-          <p className="font-body text-base md:text-lg text-brand-cream/70 leading-relaxed">
+          <p className="font-serif italic text-2xl md:text-4xl text-brand-gold leading-tight border-l border-brand-gold/30 pl-6">
             Converting music lovers and lovers of experiential events from digital platforms and loyal savanna cider fans into a physical community through consistent, high-fidelity Sunday experiences.
           </p>
         </div>
 
-        <div className="glass-tile p-8 rounded-[40px] relative overflow-hidden">
+        <div className="glass-tile p-8 rounded-[32px] relative overflow-hidden border-none bg-white/[0.02]">
           <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
             {savannaLogo && (
-              <Image src={savannaLogo.imageUrl} alt="" width={180} height={180} className="object-contain" />
+              <Image src={savannaLogo.imageUrl} alt="" width={140} height={140} className="object-contain" />
             )}
           </div>
           <span className="section-label mb-2">The Opportunity</span>
-          <p className="font-body text-lg md:text-xl text-brand-cream leading-snug tracking-tight relative z-10">
+          <p className="font-body text-base md:text-lg text-brand-cream/80 leading-relaxed relative z-10">
             Savanna Sundays is the bridge. We turn massive digital reach into deep brand loyalty through a physical Sunday ritual that Nairobi can finally own.
           </p>
         </div>
       </div>
 
-      <div className="space-y-6 pt-6 border-t border-white/5">
+      <div className="space-y-4 pt-4">
         <div className="section-label text-center mb-0">Market Presence</div>
         
-        <div className="relative overflow-hidden py-10 glass-tile rounded-[40px] border-none">
-          <div className="flex w-fit animate-marquee space-x-24 px-6 items-center">
+        <div className="relative overflow-hidden py-8 glass-tile rounded-[32px] border-none bg-white/[0.01]">
+          <div className="flex w-fit animate-marquee space-x-20 px-6 items-center">
             {[...Array(3)].map((_, listIdx) => (
-              <div key={listIdx} className="flex items-center space-x-32 shrink-0">
+              <div key={listIdx} className="flex items-center space-x-24 shrink-0">
                 {socialIcons.map((stat) => {
                   const img = PlaceHolderImages.find(i => i.id === stat.id);
                   return (
-                    <div key={`${listIdx}-${stat.id}`} className="flex flex-col items-center gap-4 group">
-                      <div className={cn("relative transition-transform duration-500 hover:scale-110", stat.size)}>
+                    <div key={`${listIdx}-${stat.id}`} className="flex flex-col items-center gap-3 group">
+                      <div className={cn("relative transition-transform duration-500 group-hover:scale-110", stat.size)}>
                         {img && <Image src={img.imageUrl} alt={stat.label} fill className="object-contain" />}
                       </div>
                       <div className="text-center">
                         <RollingCounter value={stat.value} />
-                        <div className="font-body text-[10px] uppercase tracking-[3px] text-brand-gold/40 mt-1">{stat.label}</div>
+                        <div className="font-body text-[9px] uppercase tracking-[3px] text-brand-gold/40 font-bold">{stat.label}</div>
                       </div>
                     </div>
                   );

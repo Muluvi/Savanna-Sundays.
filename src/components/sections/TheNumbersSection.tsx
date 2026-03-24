@@ -22,70 +22,70 @@ const lineItems = [
 ];
 
 const checklistItems = [
-  { label: "Branded Venues", desc: "Visual dominance.", icon: <ShieldCheck size={20} /> },
-  { label: "Squad Activation", desc: "Live talent & hype.", icon: <Zap size={20} /> },
-  { label: "Music Harvest", desc: "YouTube DJ sets.", icon: <Music size={20} /> },
-  { label: "Social Content", desc: "Optimised Reels.", icon: <Video size={20} /> },
-  { label: "HD Photography", desc: "Lifestyle assets.", icon: <Camera size={20} /> },
-  { label: "Data Capture", desc: "CRM competition.", icon: <QrCode size={20} /> }
+  { label: "Branded Venues", desc: "Visual dominance.", icon: <ShieldCheck size={18} /> },
+  { label: "Squad Activation", desc: "Live talent.", icon: <Zap size={18} /> },
+  { label: "Music Harvest", desc: "YouTube sets.", icon: <Music size={18} /> },
+  { label: "Social Content", desc: "Optimised Reels.", icon: <Video size={18} /> },
+  { label: "HD Photography", desc: "Lifestyle assets.", icon: <Camera size={18} /> },
+  { label: "Data Capture", desc: "CRM entry.", icon: <QrCode size={18} /> }
 ];
 
 export const TheNumbersSection = () => {
   return (
-    <div className="space-y-12">
-      <div className="space-y-3 max-w-4xl">
-        <div className="flex items-center gap-4">
-          <ReceiptText className="text-brand-gold opacity-60" size={24} />
-          <h4 className="font-headline text-4xl md:text-7xl text-brand-gold uppercase tracking-tighter">
+    <div className="space-y-10">
+      <div className="space-y-2">
+        <div className="flex items-center gap-3">
+          <ReceiptText className="text-brand-gold opacity-40" size={20} />
+          <h4 className="font-headline text-3xl md:text-6xl text-brand-gold uppercase tracking-tighter">
             The investment
           </h4>
         </div>
-        <p className="font-body text-brand-cream/70 text-lg leading-relaxed">
+        <p className="font-body text-brand-cream/60 text-base leading-relaxed max-w-2xl">
           Transparent fixed-rate model covering talent, production, and data infrastructure.
         </p>
       </div>
 
-      <div className="overflow-hidden border border-white/10 glass-tile rounded-[32px] border-none">
+      <div className="overflow-hidden glass-tile rounded-[24px] border-none bg-white/[0.02]">
         <Table>
           <TableHeader className="bg-brand-gold">
             <TableRow className="hover:bg-transparent border-none">
-              <TableHead className="text-brand-green font-headline tracking-widest py-4 px-8 text-lg uppercase">Breakdown</TableHead>
-              <TableHead className="text-brand-green font-headline tracking-widest text-right px-8 text-lg uppercase">KSh</TableHead>
+              <TableHead className="text-brand-green font-headline tracking-widest py-3 px-6 text-sm uppercase">Breakdown</TableHead>
+              <TableHead className="text-brand-green font-headline tracking-widest text-right px-6 text-sm uppercase">KSh</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {lineItems.map((row, i) => (
               <TableRow key={i} className="border-white/5 hover:bg-white/5 transition-colors">
-                <TableCell className="font-body font-bold text-sm py-4 px-8 text-brand-cream/60">{row.item}</TableCell>
-                <TableCell className="font-headline text-2xl text-brand-cream text-right px-8">{row.cost}</TableCell>
+                <TableCell className="font-body font-bold text-[11px] py-3 px-6 text-brand-cream/50 uppercase tracking-widest">{row.item}</TableCell>
+                <TableCell className="font-headline text-xl text-brand-cream text-right px-6">{row.cost}</TableCell>
               </TableRow>
             ))}
             <TableRow className="bg-brand-gold/90 text-brand-green backdrop-blur-md">
-              <TableCell className="font-headline text-3xl md:text-5xl py-6 px-8 uppercase tracking-tighter">Weekly total</TableCell>
-              <TableCell className="font-headline text-4xl md:text-6xl text-right px-8 tracking-tighter">336,168</TableCell>
+              <TableCell className="font-headline text-2xl md:text-4xl py-4 px-6 uppercase tracking-tighter">Weekly total</TableCell>
+              <TableCell className="font-headline text-3xl md:text-5xl text-right px-6 tracking-tighter">336,168</TableCell>
             </TableRow>
           </TableBody>
         </Table>
       </div>
 
-      <div className="space-y-8 pt-6">
+      <div className="space-y-6 pt-4">
         <div className="text-center">
-          <div className="section-label mb-1">Strategic deliverables</div>
-          <h4 className="font-headline text-3xl md:text-6xl text-brand-gold uppercase tracking-tighter">The Weekly Payload</h4>
+          <div className="section-label mb-0">Strategic deliverables</div>
+          <h4 className="font-headline text-2xl md:text-5xl text-brand-gold uppercase tracking-tighter">The Weekly Payload</h4>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
           {checklistItems.map((item, i) => (
             <div 
               key={i} 
-              className="group glass-tile p-5 rounded-[24px] flex flex-col items-center text-center gap-3 hover:border-brand-gold/40 shadow-xl"
+              className="group glass-tile p-5 rounded-[24px] flex flex-col items-center text-center gap-2 hover:border-brand-gold/40 shadow-xl border-none bg-white/[0.02]"
             >
-              <div className="w-12 h-12 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-gold/20 transition-all duration-500">
+              <div className="w-10 h-10 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                 {item.icon}
               </div>
-              <div className="space-y-1">
-                <p className="font-headline text-lg text-white uppercase tracking-tight leading-none">{item.label}</p>
-                <p className="font-body text-brand-cream/40 text-[8px] leading-relaxed font-bold uppercase tracking-widest">{item.desc}</p>
+              <div className="space-y-0.5">
+                <p className="font-headline text-base text-white uppercase tracking-tight leading-none group-hover:text-brand-gold transition-colors">{item.label}</p>
+                <p className="font-body text-brand-cream/40 text-[8px] leading-tight font-bold uppercase tracking-widest">{item.desc}</p>
               </div>
             </div>
           ))}

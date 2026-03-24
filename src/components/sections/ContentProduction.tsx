@@ -39,7 +39,7 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
   }, [isVisible, target]);
 
   return (
-    <span ref={containerRef} className="font-headline text-[clamp(3rem,12vw,6rem)] text-brand-gold leading-none tracking-tighter">
+    <span ref={containerRef} className="font-headline text-[clamp(2.5rem,10vw,5rem)] text-brand-gold leading-none tracking-tighter">
       {Math.floor(displayValue).toLocaleString()}
       <span className="text-[0.4em] ml-1 opacity-40">{suffix}</span>
     </span>
@@ -54,21 +54,21 @@ const ContentSocialSection = () => {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <div className="text-center max-w-xl mx-auto">
-        <p className="font-serif italic text-lg md:text-2xl text-brand-gold/80 leading-snug">
+        <p className="font-serif italic text-base md:text-xl text-brand-gold/70 leading-relaxed">
           One Sunday of production feeds a full month of absolute digital dominance.
         </p>
       </div>
 
-      {/* High-Density Horizontal Row */}
-      <div className="grid grid-cols-3 gap-4 border-y border-white/5 py-8">
+      {/* High-Density Horizontal Row - Optimized Spacing */}
+      <div className="grid grid-cols-3 gap-2 py-6 border-y border-white/5 bg-white/[0.01]">
         {deliverables.map((item, i) => (
-          <div key={i} className="flex flex-col items-center text-center space-y-2">
+          <div key={i} className="flex flex-col items-center text-center space-y-1">
             <RollingCounter value={item.value} suffix="/mo" />
-            <div className="space-y-1">
-              <h5 className="font-headline text-lg md:text-2xl text-brand-gold uppercase tracking-widest leading-none">{item.label}</h5>
-              <p className="font-body text-brand-cream/40 text-[9px] leading-relaxed uppercase tracking-[2px]">
+            <div className="space-y-0.5">
+              <h5 className="font-headline text-base md:text-xl text-brand-gold uppercase tracking-widest leading-none">{item.label}</h5>
+              <p className="font-body text-brand-cream/40 text-[8px] leading-tight font-bold uppercase tracking-widest">
                 {item.body}
               </p>
             </div>
@@ -76,17 +76,17 @@ const ContentSocialSection = () => {
         ))}
       </div>
 
-      {/* OLED Optimized Platform Marquee */}
-      <div className="space-y-4 pt-4">
-        <div className="section-label text-center mb-0 opacity-30">Multi-Platform Distribution</div>
-        <div className="relative overflow-hidden py-6">
-          <div className="flex w-fit animate-marquee space-x-24 px-6 items-center">
+      {/* OLED Platform Marquee */}
+      <div className="space-y-2 pt-4">
+        <div className="section-label text-center mb-0 opacity-20">Multi-Platform Distribution</div>
+        <div className="relative overflow-hidden py-4">
+          <div className="flex w-fit animate-marquee space-x-16 px-6 items-center">
             {[...Array(3)].map((_, listIdx) => (
-              <div key={listIdx} className="flex items-center space-x-32 shrink-0">
+              <div key={listIdx} className="flex items-center space-x-20 shrink-0">
                 {['social-yt', 'social-ig', 'social-tt', 'social-fb', 'social-x'].map((id) => {
                   const img = PlaceHolderImages.find(i => i.id === id);
                   return (
-                    <div key={`${listIdx}-${id}`} className="relative h-12 w-32 transition-transform duration-500 hover:scale-110">
+                    <div key={`${listIdx}-${id}`} className="relative h-10 w-24 transition-transform duration-500 hover:scale-110">
                       {img && <Image src={img.imageUrl} alt={img.description} fill className="object-contain" />}
                     </div>
                   );
@@ -95,12 +95,6 @@ const ContentSocialSection = () => {
             ))}
           </div>
         </div>
-      </div>
-
-      <div className="py-4 text-center">
-        <p className="font-serif italic text-base text-brand-gold/50 leading-relaxed max-w-xl mx-auto">
-          "We convert energy into influence. Every Sunday feeds a narrative that compounds every week."
-        </p>
       </div>
     </div>
   );
