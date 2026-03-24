@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { 
   Youtube, 
@@ -13,8 +13,15 @@ import {
   Share2, 
   Eye, 
   TrendingUp, 
-  MessageCircle 
+  MessageCircle,
+  Play,
+  CalendarDays,
+  Smartphone,
+  CheckCircle2,
+  Megaphone,
+  RefreshCcw
 } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const deliverables = [
   {
@@ -35,14 +42,6 @@ const deliverables = [
     body: "Seven fully edited, colour-graded photos per Sunday. Formatted for all platforms, captioned and ready to post.",
     variant: "green"
   }
-];
-
-const pipeline = [
-  { node: "SHOOT", sub: "Multi-camera. Board-feed audio. Sunday 2PM–9PM.", icon: <Video className="w-5 h-5" /> },
-  { node: "EDIT", sub: "Post-production starts Monday. All 3 deliverables in parallel.", icon: <Scissors className="w-5 h-5" /> },
-  { node: "MASTER", sub: "Colour grade, audio master, brand elements, thumbnails.", icon: <Wand2 className="w-5 h-5" /> },
-  { node: "UPLOAD", sub: "YouTube/Mixcloud/SoundCloud + Instagram/TikTok/Facebook.", icon: <Upload className="w-5 h-5" /> },
-  { node: "DISTRIBUTE", sub: "SEO tags, captions, scheduling, cross-posting.", icon: <Share2 className="w-5 h-5" /> },
 ];
 
 const objectives = [
@@ -68,30 +67,95 @@ const objectives = [
   }
 ];
 
+const contentRhythm = [
+  { 
+    day: "SUNDAY", 
+    title: "SHOOT DAY", 
+    desc: "Full squad capture", 
+    icon: <Video className="w-5 h-5" />, 
+    platforms: [],
+    details: "All content captured at squad venue."
+  },
+  { 
+    day: "TUESDAY", 
+    title: "RECAP DROP", 
+    desc: "Reel 1 + Photo Batch 1", 
+    icon: <Play className="w-5 h-5" />, 
+    platforms: [<Instagram key="ig" size={12} />, <Smartphone key="tt" size={12} />],
+    details: "Hero recap published. High-engagement photos delivered."
+  },
+  { 
+    day: "WEDNESDAY", 
+    title: "DJ MOMENT", 
+    desc: "Reel 2 + Photo Batch 2", 
+    icon: <Play className="w-5 h-5" />, 
+    platforms: [<Instagram key="ig" size={12} />, <Smartphone key="tt" size={12} />],
+    details: "Viral DJ moment clip. Lifestyle gallery batch."
+  },
+  { 
+    day: "THURSDAY", 
+    title: "CROWD CUT", 
+    desc: "Reel 3 + DJ Edit", 
+    icon: <Play className="w-5 h-5" />, 
+    platforms: [<Instagram key="ig" size={12} />, <Smartphone key="tt" size={12} />],
+    details: "Crowd energy Reel. Mastered DJ audio enters final cut."
+  },
+  { 
+    day: "FRIDAY", 
+    title: "FULL SET", 
+    desc: "Reel 4 + YouTube Set", 
+    icon: <Youtube className="w-5 h-5" />, 
+    platforms: [<Youtube key="yt" size={12} />, <Instagram key="ig" size={12} />],
+    details: "Influencer highlight Reel. Multi-cam DJ set live on YouTube."
+  },
+  { 
+    day: "SATURDAY", 
+    title: "UGC ROUNDUP", 
+    desc: "Fan Content + Teaser", 
+    icon: <RefreshCcw className="w-5 h-5" />, 
+    platforms: [<Instagram key="ig" size={12} />, <Megaphone key="mg" size={12} />],
+    details: "Best attendee tags reposted. Next Sunday teaser drops."
+  },
+];
+
+const pipeline = [
+  { node: "SHOOT", sub: "Multi-camera. Board-feed audio. Sunday 2PM–9PM.", icon: <Video className="w-5 h-5" /> },
+  { node: "EDIT", sub: "Post-production starts Monday. All 3 deliverables in parallel.", icon: <Scissors className="w-5 h-5" /> },
+  { node: "MASTER", sub: "Colour grade, audio master, brand elements, thumbnails.", icon: <Wand2 className="w-5 h-5" /> },
+  { node: "UPLOAD", sub: "YouTube/Mixcloud/SoundCloud + Instagram/TikTok/Facebook.", icon: <Upload className="w-5 h-5" /> },
+  { node: "DISTRIBUTE", sub: "SEO tags, captions, scheduling, cross-posting.", icon: <Share2 className="w-5 h-5" /> },
+];
+
 const costItems = [
-  { 
-    id: "A", 
-    label: "DJ Set Production — KSh 73,000", 
-    desc: "Multi-camera shoot, edit, master, upload — 4 sets/month" 
-  },
-  { 
-    id: "B", 
-    label: "Reels Production — KSh 39,000", 
-    desc: "Shoot, edit, motion graphics, scheduling — 16 Reels/month" 
-  },
-  { 
-    id: "C", 
-    label: "Photography — KSh 33,000", 
-    desc: "Shoot, cull, edit, grade, format — 28 images/month" 
-  },
-  { 
-    id: "D", 
-    label: "Overheads — KSh 20,000", 
-    desc: "Equipment, storage, software, project management" 
-  }
+  { id: "A", label: "DJ Set Production — KSh 73,000", desc: "Multi-camera shoot, edit, master, upload — 4 sets/month" },
+  { id: "B", label: "Reels Production — KSh 39,000", desc: "Shoot, edit, motion graphics, scheduling — 16 Reels/month" },
+  { id: "C", label: "Photography — KSh 33,000", desc: "Shoot, cull, edit, grade, format — 28 images/month" },
+  { id: "D", label: "Overheads — KSh 20,000", desc: "Equipment, storage, software, project management" }
 ];
 
 export const ContentSocialSection = () => {
+  const [activeDay, setActiveDay] = useState<number | null>(null);
+  const rhythmRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Sequential light-up animation
+          contentRhythm.forEach((_, i) => {
+            setTimeout(() => {
+              setActiveDay(i);
+            }, i * 300);
+          });
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (rhythmRef.current) observer.observe(rhythmRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="space-y-16">
       {/* Header Quote */}
@@ -154,13 +218,84 @@ export const ContentSocialSection = () => {
         </div>
       </div>
 
+      {/* Animated Content Rhythm Calendar */}
+      <div className="space-y-8 py-12" ref={rhythmRef}>
+        <div className="flex items-center justify-center gap-3 mb-4">
+          <CalendarDays className="text-brand-gold" size={20} />
+          <div className="section-label mb-0">Weekly Publishing Rhythm</div>
+        </div>
+
+        <div className="relative overflow-x-auto scrollbar-hide -mx-6 px-6">
+          <div className="flex gap-4 min-w-[1000px] pb-6 snap-x snap-mandatory">
+            {contentRhythm.map((item, i) => (
+              <Card 
+                key={i} 
+                className={cn(
+                  "flex-1 p-6 rounded-[24px] border transition-all duration-700 snap-center flex flex-col justify-between h-[200px] group",
+                  activeDay !== null && activeDay >= i 
+                    ? "bg-brand-gold/10 border-brand-gold shadow-[0_0_20px_rgba(244,197,66,0.15)]" 
+                    : "bg-white/5 border-white/5 opacity-40"
+                )}
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className={cn(
+                      "font-headline text-lg tracking-widest uppercase",
+                      activeDay !== null && activeDay >= i ? "text-brand-gold" : "text-brand-cream/40"
+                    )}>
+                      {item.day}
+                    </span>
+                    <div className={cn(
+                      "p-2 rounded-lg transition-colors",
+                      activeDay !== null && activeDay >= i ? "bg-brand-gold text-brand-green" : "bg-white/5 text-brand-gold/40"
+                    )}>
+                      {item.icon}
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-1">
+                    <h5 className={cn(
+                      "font-headline text-xl uppercase leading-none",
+                      activeDay !== null && activeDay >= i ? "text-brand-gold" : "text-brand-cream/60"
+                    )}>
+                      {item.title}
+                    </h5>
+                    <p className="font-body text-[10px] text-brand-cream/60 font-bold uppercase tracking-widest">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-4 mt-auto border-t border-white/10">
+                  <div className="flex gap-1.5">
+                    {item.platforms.map((p, pIdx) => (
+                      <div key={pIdx} className="w-5 h-5 rounded-md bg-white/5 flex items-center justify-center text-brand-gold/60">
+                        {p}
+                      </div>
+                    ))}
+                  </div>
+                  <CheckCircle2 className={cn(
+                    "w-4 h-4 transition-all duration-500",
+                    activeDay !== null && activeDay >= i ? "text-brand-gold opacity-100" : "text-white/5 opacity-0"
+                  )} />
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+        
+        <div className="p-8 bg-brand-green/30 border border-brand-gold/10 rounded-[32px] text-center max-w-3xl mx-auto">
+          <p className="font-serif italic text-lg text-brand-cream/80 leading-relaxed">
+            "One Sunday activation generates a narrative that powers your social presence for the next 144 hours."
+          </p>
+        </div>
+      </div>
+
       {/* Pipeline Visual */}
       <div className="space-y-8">
         <div className="section-label text-center">The Content Pipeline</div>
         <div className="relative flex flex-col md:flex-row items-start justify-between gap-8 md:gap-4 px-4">
-          {/* Connecting Line (Desktop) */}
           <div className="absolute top-6 left-0 w-full h-[2px] bg-brand-green hidden md:block z-0" />
-          
           {pipeline.map((step, i) => (
             <div key={i} className="relative z-10 flex flex-row md:flex-col items-start md:items-center gap-6 md:gap-4 flex-1 text-left md:text-center">
               <div className="w-12 h-12 rounded-full bg-brand-gold text-brand-green flex items-center justify-center shrink-0 shadow-lg border-2 border-brand-green md:border-4">
