@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -22,7 +23,7 @@ import { TheNumbersSection } from '@/components/sections/SponsorshipRevenue';
 const sectionsData = [
   { 
     id: 'the-gap', 
-    label: '01 — THE GAP', 
+    label: '01 — THE OPPORTUNITY', 
     title: "THE SUNDAY OPPORTUNITY", 
     variant: 'dark' as const, 
     component: <TheGap /> 
