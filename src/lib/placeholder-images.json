@@ -91,6 +91,12 @@
       "imageHint": "music property"
     },
     {
+      "id": "social-yt",
+      "description": "YouTube",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1765889247/YouTube_Logo_7_cnvfk0.png",
+      "imageHint": "social logo"
+    },
+    {
       "id": "social-ig",
       "description": "Instagram",
       "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1768409776/Instagram_Glyph_Gradient_kvn0tu.png",
@@ -99,7 +105,7 @@
     {
       "id": "social-tt",
       "description": "TikTok",
-      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1765720754/TikTok-logo-RGB-Horizontal-black_avux4m.png",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1765720754/TikTok-logo-RGB-Horizontal-white_vh4efn.png",
       "imageHint": "social logo"
     },
     {

@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
@@ -127,6 +128,49 @@ const pipeline = [
   { node: "UPLOAD", sub: "YouTube/Mixcloud/SoundCloud + Instagram/TikTok/Facebook.", icon: <Upload className="w-5 h-5" /> },
   { node: "DISTRIBUTE", sub: "SEO tags, captions, scheduling, cross-posting.", icon: <Share2 className="w-5 h-5" /> },
 ];
+
+const PlatformDistribution = () => {
+  const platforms = [
+    { id: 'social-yt', name: 'YouTube', reach: 'DJ sets. 5K–20K views/video in Nairobi market.' },
+    { id: 'social-ig', name: 'Instagram', reach: 'Reels + Stories + Photos. 10K–50K impressions/week.' },
+    { id: 'social-tt', name: 'TikTok', reach: 'Short-form clips. High discovery potential. 5K–30K views.' },
+    { id: 'social-fb', name: 'Facebook', reach: 'Event promotion + photo albums. 603K existing followers.' },
+    { id: 'social-x', name: 'Twitter/X', reach: 'Real-time updates + conversation. 1.1K followers, growth opportunity.' },
+  ];
+
+  return (
+    <div className="space-y-8">
+      <div className="section-label text-center">Multi-Platform Distribution Strip</div>
+      <div className="flex overflow-x-auto pb-4 gap-6 scrollbar-hide -mx-6 px-6 snap-x">
+        {platforms.map((p) => {
+          const img = PlaceHolderImages.find(i => i.id === p.id);
+          return (
+            <Card key={p.id} className="min-w-[240px] md:flex-1 p-6 bg-white/5 border border-white/5 rounded-2xl flex flex-col items-center text-center gap-4 group hover:bg-white/10 transition-all snap-center relative overflow-hidden">
+              <div className="h-9 relative w-full flex items-center justify-center">
+                {img && (
+                  <Image 
+                    src={img.imageUrl} 
+                    alt={p.name} 
+                    height={36} 
+                    width={120} 
+                    className="object-contain filter brightness-110" 
+                  />
+                )}
+              </div>
+              <div className="space-y-1">
+                <h5 className="font-headline text-lg text-brand-gold uppercase tracking-wider">{p.name}</h5>
+                <p className="font-body text-[10px] text-brand-text-muted font-bold uppercase tracking-widest leading-relaxed">
+                  {p.reach}
+                </p>
+              </div>
+              <div className="absolute bottom-0 left-0 w-full h-[3px] bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-center" />
+            </Card>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
 const ContentMockups = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
@@ -370,6 +414,8 @@ export const ContentSocialSection = () => {
           ))}
         </div>
       </div>
+
+      <PlatformDistribution />
 
       <ContentMockups />
 
