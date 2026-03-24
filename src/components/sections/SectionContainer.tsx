@@ -38,13 +38,13 @@ export const SectionContainer = ({ id, label, title, variant = 'dark', children 
       ref={sectionRef}
       id={id} 
       className={cn(
-        "py-12 md:py-20 px-6 md:px-12 lg:px-24 relative overflow-hidden transition-all duration-700 dark-section"
+        "py-8 md:py-12 px-6 md:px-12 lg:px-24 relative overflow-hidden transition-all duration-700 dark-section"
       )}
     >
       <CiderFizz className="opacity-5" />
       
       <div className="max-w-6xl mx-auto w-full relative z-10">
-        <div className="mb-10 md:mb-16">
+        <div className="mb-8 md:mb-12">
           <span 
             className="section-label"
             style={{ transform: `translateX(${translateX * 0.4}px)` }}

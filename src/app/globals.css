@@ -39,20 +39,20 @@
 
 @layer components {
   .dark-section {
-    @apply relative overflow-hidden flex flex-col justify-center py-12 md:py-16;
+    @apply relative overflow-hidden flex flex-col justify-center py-8 md:py-12;
     background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(244,197,66,0.03) 0%, transparent 70%);
   }
 
   .btn-primary {
-    @apply relative overflow-hidden bg-brand-gold text-brand-dark font-headline text-lg tracking-widest py-4 px-10 rounded-full transition-all active:scale-95 shadow-[0_10px_30px_rgba(244,197,66,0.2)] hover:-translate-y-1;
+    @apply relative overflow-hidden bg-brand-gold text-brand-dark font-headline text-lg tracking-widest py-3 px-8 rounded-full transition-all active:scale-95 shadow-[0_10px_30px_rgba(244,197,66,0.2)] hover:-translate-y-0.5;
   }
 
   .section-label {
-    @apply font-body font-bold text-[clamp(10px,1.5vw,12px)] tracking-[5px] uppercase text-brand-gold mb-4 block opacity-60;
+    @apply font-body font-bold text-[clamp(10px,1.5vw,12px)] tracking-[5px] uppercase text-brand-gold mb-3 block opacity-60;
   }
 
   .section-title {
-    @apply font-headline text-[clamp(2.8rem,8vw,7rem)] text-brand-gold relative leading-[0.85] mb-8 tracking-tighter;
+    @apply font-headline text-[clamp(2.5rem,8vw,6rem)] text-brand-gold relative leading-[0.85] mb-6 tracking-tighter;
   }
 }
 
