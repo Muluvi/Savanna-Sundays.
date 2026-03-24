@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    --background: 154 42% 8%; /* #122B21 Deep Forest Green */
+    --background: 154 42% 6%; /* #122B21 Deep Forest Green */
     --foreground: 48 45% 94%; /* #F8F5E6 Cream */
-    --card: 154 42% 10%;
+    --card: 154 42% 8%;
     --card-foreground: 48 45% 94%;
-    --popover: 154 42% 10%;
+    --popover: 154 42% 8%;
     --popover-foreground: 48 45% 94%;
     --primary: 43 89% 61%; /* #F4C542 Savanna Gold */
-    --primary-foreground: 154 42% 10%;
+    --primary-foreground: 154 42% 8%;
     --secondary: 171 49% 36%; /* #2D8C7F Teal */
     --secondary-foreground: 0 0% 100%;
-    --muted: 154 42% 12%;
+    --muted: 154 42% 10%;
     --muted-foreground: 41 23% 63%;
     --accent: 43 89% 61%;
-    --accent-foreground: 154 42% 10%;
+    --accent-foreground: 154 42% 8%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 48 45% 94% / 0.1;
     --input: 48 45% 94% / 0.1;
     --ring: 43 89% 61%;
-    --radius: 32px;
+    --radius: 24px;
   }
 }
 
@@ -32,52 +32,40 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground selection:bg-brand-gold selection:text-brand-green relative antialiased overflow-x-hidden;
+    @apply bg-background text-foreground selection:bg-brand-gold selection:text-brand-dark relative antialiased overflow-x-hidden;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  }
-  /* Ultra-HD Noise Texture */
-  body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.04;
-    z-index: 9999;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='%23F4C542' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 }
 
 @layer components {
   .dark-section {
-    @apply relative overflow-hidden flex flex-col justify-center py-10 md:py-20;
-    background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(244,197,66,0.03) 0%, transparent 70%);
+    @apply relative overflow-hidden flex flex-col justify-center py-10 md:py-16;
+    background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(244,197,66,0.02) 0%, transparent 70%);
   }
 
   .btn-primary {
-    @apply relative overflow-hidden bg-brand-gold text-brand-green font-headline text-xl tracking-widest py-4 px-10 rounded-full transition-all active:scale-95 shadow-xl hover:-translate-y-1;
+    @apply relative overflow-hidden bg-brand-gold text-brand-dark font-headline text-lg tracking-widest py-3 px-8 rounded-full transition-all active:scale-95 shadow-xl hover:-translate-y-0.5;
   }
 
   .section-label {
-    @apply font-body font-bold text-[clamp(10px,1.5vw,12px)] tracking-[5px] uppercase text-brand-gold mb-4 block opacity-60;
+    @apply font-body font-bold text-[clamp(9px,1.2vw,11px)] tracking-[4px] uppercase text-brand-gold mb-3 block opacity-50;
   }
 
   .section-title {
-    @apply font-headline text-[clamp(3rem,8vw,7rem)] text-brand-gold relative leading-[0.85] mb-8 tracking-tighter;
+    @apply font-headline text-[clamp(2.5rem,7vw,6rem)] text-brand-gold relative leading-[0.85] mb-6 tracking-tighter;
   }
 }
 
 html {
   scroll-behavior: smooth;
+  @apply bg-background;
 }
 
 ::-webkit-scrollbar {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-brand-green;
+  @apply bg-brand-dark;
 }
 ::-webkit-scrollbar-thumb {
   @apply bg-brand-gold/20 rounded-full;
