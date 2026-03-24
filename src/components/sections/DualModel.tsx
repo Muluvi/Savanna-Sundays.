@@ -4,6 +4,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { cn } from '@/lib/utils';
 
 const venueData = [
   { id: "venue-muze", name: "Muze", location: "Westlands" },
@@ -15,29 +16,29 @@ const venueData = [
 
 export const DualActivationModel = () => {
   return (
-    <div className="space-y-12">
+    <div className="space-y-16">
       <div className="max-w-3xl">
-        <p className="font-body text-lg md:text-xl text-[#F8F5E6] leading-relaxed">
+        <p className="font-body text-lg md:text-xl text-brand-cream leading-relaxed border-l-4 border-brand-gold pl-8">
           “Multiple venues. One squad. Every Sunday.”
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Card 1: THE SAVANNA SQUAD */}
-        <Card className="p-8 bg-[#1F4D3A] border-none border-t-[3px] border-[#F4C542] rounded-[24px] flex flex-col justify-between group hover:-translate-y-2 transition-all duration-500 shadow-2xl">
-          <div className="space-y-4">
-            <h4 className="font-headline text-3xl text-[#F4C542] uppercase tracking-tight">THE SAVANNA SQUAD</h4>
-            <p className="font-body text-[#F8F5E6] text-sm md:text-base leading-relaxed opacity-90">
+        <Card className="p-10 bg-brand-green border-none border-t-[3px] border-brand-gold rounded-[32px] flex flex-col justify-between group hover:-translate-y-2 transition-all duration-500 shadow-2xl">
+          <div className="space-y-6">
+            <h4 className="font-headline text-4xl text-brand-gold uppercase tracking-tight">THE SAVANNA SQUAD</h4>
+            <p className="font-body text-brand-cream text-sm md:text-base leading-relaxed opacity-90">
               Every Sunday, the full Savanna Squad deploys to one venue. Two DJs. One MC. Five influencers. A three-person content crew. Bar wraps go up, signage goes in, the backdrop drops. By the time the first guest walks in, the venue is unmistakably Savanna. From doors-open to wind-down, the squad runs the experience — music, crowd energy, competitions, and content capture. By Monday, footage is in post-production.
             </p>
           </div>
         </Card>
         
         {/* Card 2: MULTI-VENUE PRESENCE */}
-        <Card className="p-8 bg-[#221A0A] border-none rounded-[24px] flex flex-col justify-between group hover:-translate-y-2 transition-all duration-500 shadow-2xl">
-          <div className="space-y-4">
-            <h4 className="font-headline text-3xl text-[#F4C542] uppercase tracking-tight">MULTI-VENUE PRESENCE</h4>
-            <p className="font-body text-[#F8F5E6] text-sm md:text-base leading-relaxed opacity-90">
+        <Card className="p-10 bg-brand-dark-alt border-none rounded-[32px] flex flex-col justify-between group hover:-translate-y-2 transition-all duration-500 shadow-2xl">
+          <div className="space-y-6">
+            <h4 className="font-headline text-4xl text-brand-gold uppercase tracking-tight">MULTI-VENUE PRESENCE</h4>
+            <p className="font-body text-brand-cream text-sm md:text-base leading-relaxed opacity-90">
               Savanna Sundays doesn’t stop at one venue. Every Sunday, 2–3 premium venues across Nairobi carry full Savanna branding — bar wraps, table dressing, signage, branded glassware, and QR engagement points. The squad activates one. The brand shows up at all of them. First 3 Sundays: 2 venues. From the 4th Sunday: 3. As the programme grows, so does the footprint.
             </p>
           </div>
@@ -45,29 +46,34 @@ export const DualActivationModel = () => {
       </div>
 
       {/* Deployment & Expansion Note */}
-      <div className="max-w-3xl space-y-6 p-8 bg-white/5 rounded-3xl border border-white/5">
-        <div className="space-y-2">
-          <h5 className="font-body font-bold text-xs text-[#B8A98A] uppercase tracking-[3px]">Future Expansion</h5>
-          <p className="font-body text-sm md:text-base text-[#F8F5E6]/80 leading-relaxed">
-            As the Sunday community grows, Savanna Sundays becomes a platform for larger moments — festivals, concerts, seasonal events. The infrastructure scales.
-          </p>
+      <div className="max-w-4xl mx-auto space-y-6 p-10 bg-white/5 rounded-[40px] border border-white/5 relative overflow-hidden group">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-8">
+          <div className="space-y-2">
+            <h5 className="font-body font-bold text-xs text-brand-text-muted uppercase tracking-[3px]">Future Expansion</h5>
+            <p className="font-body text-sm md:text-base text-brand-cream/80 leading-relaxed">
+              As the Sunday community grows, Savanna Sundays becomes a platform for larger moments — festivals, concerts, seasonal events. The infrastructure scales.
+            </p>
+          </div>
+          <div className="hidden md:block w-[1px] h-12 bg-white/10" />
+          <div className="space-y-1">
+            <p className="font-body text-xs md:text-sm text-brand-text-muted italic">
+              Firefly recommends the squad venue each week based on crowd potential and content opportunities.
+            </p>
+          </div>
         </div>
-        <div className="pt-4 border-t border-white/10">
-          <p className="font-body text-xs md:text-sm text-[#B8A98A] italic">
-            * Firefly recommends the squad venue each week based on crowd potential and content opportunities.
-          </p>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-gold/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
       </div>
 
       {/* Venue Logo Grid */}
-      <div className="pt-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 overflow-x-auto md:overflow-visible pb-6 md:pb-0 scrollbar-hide">
+      <div className="pt-8 space-y-12">
+        <div className="section-label text-center">Active Partner Network</div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {venueData.map((v) => {
             const img = PlaceHolderImages.find(p => p.id === v.id);
             return (
               <Card 
                 key={v.id} 
-                className="min-w-[160px] p-8 bg-white/5 border border-white/5 hover:border-[#F4C542]/50 transition-all duration-500 group flex flex-col items-center text-center space-y-4 rounded-2xl"
+                className="p-8 bg-brand-dark-alt/50 border border-white/5 hover:border-brand-gold/50 transition-all duration-500 group flex flex-col items-center text-center space-y-6 rounded-[24px]"
               >
                 {img && (
                   <div className="relative h-20 w-full flex items-center justify-center">
@@ -81,14 +87,49 @@ export const DualActivationModel = () => {
                   </div>
                 )}
                 <div className="space-y-1">
-                  <h5 className="font-headline text-base text-[#F4C542] uppercase leading-none">{v.name}</h5>
-                  <p className="font-body text-[11px] text-[#B8A98A] uppercase tracking-wider font-bold">{v.location}</p>
+                  <h5 className="font-headline text-lg text-brand-gold uppercase leading-none">{v.name}</h5>
+                  <p className="font-body text-[11px] text-brand-text-muted uppercase tracking-wider font-bold">{v.location}</p>
                 </div>
               </Card>
             );
           })}
         </div>
-        <p className="font-body text-[11px] text-[#B8A98A] italic text-center md:text-left mt-8 uppercase tracking-[2px] font-bold">
+        
+        {/* Infinite Marquee */}
+        <div className="relative py-12 border-y border-white/5 overflow-hidden group">
+          <div className="flex w-fit animate-marquee hover:[animation-play-state:paused] space-x-12" style={{ animationDuration: '25s' }}>
+            {[...Array(3)].map((_, listIdx) => (
+              <div key={listIdx} className="flex items-center space-x-12 shrink-0">
+                {venueData.map((v) => {
+                  const img = PlaceHolderImages.find(p => p.id === v.id);
+                  return (
+                    <div key={`${listIdx}-${v.id}`} className="flex items-center gap-6">
+                      {img && (
+                        <div className="relative h-10 w-24">
+                          <Image 
+                            src={img.imageUrl} 
+                            alt={v.name} 
+                            fill 
+                            className="object-contain filter grayscale brightness-200 opacity-60"
+                          />
+                        </div>
+                      )}
+                      <span className="font-body text-sm text-brand-cream uppercase tracking-widest whitespace-nowrap">
+                        {v.name}
+                      </span>
+                      <div className="w-1 h-1 rounded-full bg-brand-gold" />
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
+          {/* Masking Gradient */}
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-dark to-transparent z-10" />
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-dark to-transparent z-10" />
+        </div>
+
+        <p className="font-body text-[11px] text-brand-text-muted italic text-center uppercase tracking-[2px] font-bold opacity-60">
           Firefly has active relationships with these venues and more. The network grows with the programme.
         </p>
       </div>
