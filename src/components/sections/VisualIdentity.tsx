@@ -5,104 +5,100 @@ import { Card } from '@/components/ui/card';
 import { 
   Layers, 
   MapPin, 
-  Camera, 
   Layout, 
-  GlassWater, 
-  Music, 
+  Beer, 
   QrCode, 
-  Beer,
-  Zap
+  CheckCircle, 
+  Shirt, 
+  GlassWater,
+  Camera,
+  Music,
+  DoorOpen,
+  Zap,
+  UserPlus
 } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-const deploymentItems = [
-  {
-    name: "Bar Wraps",
-    desc: "Branded vinyl on the bar front",
-    icon: <Layers className="w-6 h-6" />,
-    satellite: true
-  },
-  {
-    name: "Venue Signage",
-    desc: "Entrance boards, standees, directional signs",
-    icon: <MapPin className="w-6 h-6" />,
-    satellite: true
-  },
-  {
-    name: "Branded Backdrop",
-    desc: "Photo/video backdrop on every shoot",
-    icon: <Camera className="w-6 h-6" />,
-    satellite: false
-  },
-  {
-    name: "Table Dressing",
-    desc: "Runners, coasters, bottle presenters",
-    icon: <Layout className="w-6 h-6" />,
-    satellite: true
-  },
-  {
-    name: "Serve Stations",
-    desc: "Branded cider stations — the pour is part of the show",
-    icon: <GlassWater className="w-6 h-6" />,
-    satellite: true
-  },
-  {
-    name: "DJ Booth Wrap",
-    desc: "Custom branding on the booth every edition",
-    icon: <Music className="w-6 h-6" />,
-    satellite: false
-  },
-  {
-    name: "QR Code Points",
-    desc: "Scan-at-venue interactive touchpoints",
-    icon: <QrCode className="w-6 h-6" />,
-    satellite: true
-  },
-  {
-    name: "Branded Glassware",
-    desc: "Ice buckets and glasses that match the aesthetic",
-    icon: <Beer className="w-6 h-6" />,
-    satellite: true
-  },
+const allVenuesItems = [
+  { name: "Bar Wraps", desc: "Full counter branding with Savanna logo and product imagery", icon: <Layers size={18} /> },
+  { name: "Venue Signage", desc: "A-frames, posters, and directional signage at entrance and key spots", icon: <MapPin size={18} /> },
+  { name: "Table Dressing", desc: "Branded table tents, coasters, and menu inserts", icon: <Layout size={18} /> },
+  { name: "Branded Glassware", desc: "Savanna-branded glasses for cider service", icon: <Beer size={18} /> },
+  { name: "QR Code Points", desc: "Table-top and bar-top QR stands linking to weekly competition", icon: <QrCode size={18} /> },
+  { name: "Branded Napkins & Coasters", desc: "Subtle logo placement on every surface", icon: <CheckCircle size={18} /> },
+  { name: "Staff Branded T-Shirts", desc: "Serving staff in Savanna Sundays tees", icon: <Shirt size={18} /> },
+  { name: "Branded Ice Buckets", desc: "Product display at every table", icon: <GlassWater size={18} /> },
+];
+
+const squadOnlyItems = [
+  { name: "Branded Backdrop", desc: "Step-and-repeat photo wall with Savanna + Savanna Sundays branding", icon: <Camera size={18} /> },
+  { name: "DJ Booth Wrap", desc: "Full branded skin on the DJ booth", icon: <Music size={18} /> },
+  { name: "Serve Stations", desc: "Dedicated Savanna pouring/serve points with branded counters", icon: <GlassWater size={18} /> },
+  { name: "Entrance Arch / Stanchion Wraps", desc: "Branded entry experience", icon: <DoorOpen size={18} /> },
+  { name: "Neon Signage", desc: "“Savanna Sundays” neon light feature (reusable)", icon: <Zap size={18} /> },
+  { name: "Branded Wristbands", desc: "Entry wristbands with Savanna Sundays logo", icon: <UserPlus size={18} /> },
 ];
 
 export const VisualIdentitySection = () => {
   return (
     <div className="space-y-12">
-      <div className="space-y-8">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
-          <div className="section-label">03A: What the Squad Deploys</div>
-          <div className="flex gap-2">
-            <span className="flex items-center gap-2 text-[9px] font-bold text-brand-gold uppercase border border-brand-gold/20 px-3 py-1.5 rounded-full">
-              <Zap size={10} /> Full Squad Deployment
-            </span>
-            <span className="flex items-center gap-2 text-[9px] font-bold text-white/40 uppercase border border-white/10 px-3 py-1.5 rounded-full">
-              Satellite Branding Only
-            </span>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        {/* ALL VENUES COLUMN */}
+        <div className="space-y-6 animate-fade-in-up">
+          <div className="bg-brand-green p-6 rounded-t-[32px] border-b border-white/10">
+            <h4 className="font-headline text-2xl text-brand-gold uppercase tracking-widest text-center">
+              ALL VENUES
+            </h4>
+            <p className="text-[10px] text-center text-brand-cream/60 uppercase tracking-[3px] font-bold mt-1">
+              Every Sunday • Every Location
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 gap-3">
+            {allVenuesItems.map((item, i) => (
+              <Card 
+                key={i} 
+                className="p-4 bg-white/5 border border-white/5 rounded-2xl flex items-center gap-4 group hover:bg-white/10 transition-all duration-300"
+              >
+                <div className="w-10 h-10 rounded-full bg-brand-green/20 text-brand-gold flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </div>
+                <div className="space-y-0.5">
+                  <h5 className="font-headline text-lg text-brand-gold uppercase leading-none">{item.name}</h5>
+                  <p className="font-body text-[10px] text-brand-cream/60 leading-tight">{item.desc}</p>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {deploymentItems.map((item, i) => (
-            <Card 
-              key={i} 
-              className={`p-5 border-none rounded-2xl flex flex-col gap-3 group hover:scale-105 transition-all duration-300 shadow-xl ${
-                item.satellite ? 'bg-[#1F4D3A]' : 'bg-[#221A0A] border-l-2 border-brand-gold/30'
-              }`}
-            >
-              <div className={`${item.satellite ? 'text-brand-gold' : 'text-brand-gold'} group-hover:scale-110 transition-transform origin-left`}>
-                {item.icon}
-              </div>
-              <div className="space-y-1">
-                <h4 className="font-headline text-lg text-[#F4C542] uppercase leading-none">{item.name}</h4>
-                <p className="font-body text-[10px] text-[#F8F5E6] opacity-70 leading-tight">
-                  {item.desc}
-                </p>
-                {!item.satellite && (
-                  <span className="text-[7px] font-bold text-brand-gold uppercase tracking-[2px] mt-2 block opacity-50">Squad Only</span>
-                )}
-              </div>
-            </Card>
-          ))}
+
+        {/* SQUAD VENUE COLUMN */}
+        <div className="space-y-6 animate-fade-in-up [animation-delay:200ms]">
+          <div className="bg-brand-gold p-6 rounded-t-[32px] border-b border-brand-green/10">
+            <h4 className="font-headline text-2xl text-brand-green uppercase tracking-widest text-center">
+              SQUAD VENUE ADDITIONS
+            </h4>
+            <p className="text-[10px] text-center text-brand-green/60 uppercase tracking-[3px] font-bold mt-1">
+              Everything Above PLUS:
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 gap-3">
+            {squadOnlyItems.map((item, i) => (
+              <Card 
+                key={i} 
+                className="p-4 bg-brand-gold/10 border border-brand-gold/20 rounded-2xl flex items-center gap-4 group hover:bg-brand-gold/20 transition-all duration-300"
+              >
+                <div className="w-10 h-10 rounded-full bg-brand-gold text-brand-green flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </div>
+                <div className="space-y-0.5">
+                  <h5 className="font-headline text-lg text-brand-gold uppercase leading-none">{item.name}</h5>
+                  <p className="font-body text-[10px] text-brand-cream/60 leading-tight">{item.desc}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </div>
