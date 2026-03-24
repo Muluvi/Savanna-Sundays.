@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -19,8 +20,8 @@ export const MusicProgrammingSection = () => {
   return (
     <div className="space-y-10">
       <div className="max-w-4xl space-y-4">
-        <div className="section-label">03C: Sonic architecture</div>
-        <h3 className="font-headline text-5xl md:text-8xl text-brand-gold uppercase leading-none tracking-tighter">Elite talent</h3>
+        <div className="section-label">03C: Sonic Architecture</div>
+        <h3 className="font-headline text-5xl md:text-8xl text-brand-gold uppercase leading-none tracking-tighter">Elite Talent</h3>
         <p className="font-body text-brand-cream/80 text-lg md:text-xl leading-relaxed">
           The following artists represent the caliber of elite talent Firefly and KWAL have collaborated with previously. These illustrate the benchmark of quality we will deploy for Savanna Sundays.
         </p>

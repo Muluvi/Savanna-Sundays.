@@ -1,102 +1,117 @@
+
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
-import { Card } from '@/components/ui/card';
 import { 
   Youtube, 
-  Instagram, 
   Video, 
-  Scissors, 
-  Wand2, 
-  Upload, 
-  Share2, 
-  Play,
-  CalendarDays,
-  Smartphone,
+  Camera,
   CheckCircle2,
-  RefreshCcw,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
+const Counter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
+  const [displayValue, setDisplayValue] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLSpanElement>(null);
+  
+  const target = parseFloat(value.replace(/,/g, ''));
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => { 
+      if (entry.isIntersecting) setIsVisible(true); 
+    }, { threshold: 0.5 });
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    let startTime = performance.now();
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / 2000, 1);
+      const easeOutQuad = (t: number) => t * (2 - t);
+      setDisplayValue(easeOutQuad(progress) * target);
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [isVisible, target]);
+
+  return (
+    <span ref={containerRef} className="font-headline text-5xl md:text-8xl text-brand-gold leading-none tracking-tighter">
+      {Math.floor(displayValue).toLocaleString()}
+      {suffix}
+    </span>
+  );
+};
+
 const deliverables = [
-  { tag: "4/mo", heading: "YouTube Sets", body: "Multi-cam, board-feed audio, mastered for broadcast.", variant: "green" },
-  { tag: "16/mo", heading: "Algorithm Reels", body: "Recaps, DJ clips, and crowd energy cut for growth.", variant: "dark" },
-  { tag: "28/mo", heading: "HD Photography", body: "Edited, color-graded photos ready for distribution.", variant: "green" }
+  { label: "YouTube Sets", value: "4", body: "Multi-cam recorded DJ sets.", icon: <Youtube className="text-brand-gold" /> },
+  { label: "Algorithm Reels", value: "16", body: "Optimised social recaps.", icon: <Video className="text-brand-gold" /> },
+  { label: "HD Photography", value: "28", body: "High-end lifestyle assets.", icon: <Camera className="text-brand-gold" /> }
 ];
 
 const PlatformDistribution = () => {
   const platforms = [
-    { id: 'social-yt', name: 'YouTube', reach: '5K–20K views' },
-    { id: 'social-ig', name: 'Instagram', reach: '10K–50K imp' },
-    { id: 'social-tt', name: 'TikTok', reach: 'Discovery hub' },
-    { id: 'social-fb', name: 'Facebook', reach: '603K Community' },
-    { id: 'social-x', name: 'Twitter/X', reach: 'Conversational' },
+    { id: 'social-yt', name: 'YouTube' },
+    { id: 'social-ig', name: 'Instagram' },
+    { id: 'social-tt', name: 'TikTok' },
+    { id: 'social-fb', name: 'Facebook' },
+    { id: 'social-x', name: 'Twitter/X' },
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 pt-4">
       <div className="section-label text-center">Multi-Platform Distribution</div>
-      <div className="flex overflow-x-auto pb-4 gap-4 scrollbar-hide -mx-6 px-6 snap-x">
-        {platforms.map((p) => {
-          const img = PlaceHolderImages.find(i => i.id === p.id);
-          return (
-            <div key={p.id} className="min-w-[180px] md:flex-1 p-8 bg-white/5 border border-white/5 rounded-[32px] flex flex-col items-center text-center gap-6 group hover:bg-white/10 transition-all snap-center relative overflow-hidden h-48 justify-center">
-              <div className="relative w-full h-12">
-                {img && (
-                  <Image 
-                    src={img.imageUrl} 
-                    alt={p.name} 
-                    fill 
-                    className="object-contain" 
-                  />
-                )}
-              </div>
-              <div className="space-y-1">
-                <h5 className="font-headline text-lg text-brand-gold uppercase tracking-wider leading-none">{p.name}</h5>
-                <p className="font-body text-[9px] text-brand-text-muted font-bold uppercase tracking-widest">{p.reach}</p>
-              </div>
+      <div className="relative overflow-hidden py-4">
+        <div className="flex w-fit animate-marquee space-x-20 px-6 items-center">
+          {[...Array(3)].map((_, listIdx) => (
+            <div key={listIdx} className="flex items-center space-x-24 shrink-0">
+              {platforms.map((p) => {
+                const img = PlaceHolderImages.find(i => i.id === p.id);
+                return (
+                  <div key={`${listIdx}-${p.id}`} className="relative h-12 w-48 hover:scale-110 transition-transform duration-500">
+                    {img && (
+                      <Image 
+                        src={img.imageUrl} 
+                        alt={p.name} 
+                        fill 
+                        className="object-contain" 
+                      />
+                    )}
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
 export const ContentSocialSection = () => {
-  const [activeDay, setActiveDay] = useState<number | null>(null);
-  const rhythmRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        [0, 1, 2, 3, 4, 5].forEach((i) => setTimeout(() => setActiveDay(i), i * 300));
-      }
-    }, { threshold: 0.2 });
-    if (rhythmRef.current) observer.observe(rhythmRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div className="space-y-16">
-      <div className="text-center max-w-2xl mx-auto space-y-6">
+    <div className="space-y-8">
+      <div className="text-center max-w-2xl mx-auto">
         <p className="font-serif italic text-2xl md:text-4xl text-brand-gold leading-tight">
-          "One Sunday. A week of visibility."
+          "One Sunday. A month of visibility."
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {deliverables.map((card, i) => (
-          <div key={i} className={cn(
-            "p-10 rounded-[40px] space-y-4 shadow-2xl flex flex-col justify-between hover:-translate-y-2 transition-transform duration-500 border-none",
-            card.variant === 'green' ? 'bg-brand-green' : 'bg-[#221A0A]'
-          )}>
-            <div className="space-y-4">
-              <span className="font-body font-bold text-[9px] uppercase tracking-[4px] text-brand-gold/60">{card.tag}</span>
-              <h4 className="font-headline text-3xl text-brand-gold uppercase leading-none tracking-tight">{card.heading}</h4>
-              <p className="font-body text-[#F8F5E6]/70 text-sm leading-relaxed font-semibold uppercase tracking-wider">{card.body}</p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {deliverables.map((item, i) => (
+          <div key={i} className="space-y-4 p-8 bg-brand-gold/5 border border-brand-gold/10 rounded-[40px] flex flex-col items-center text-center group hover:bg-brand-gold/10 transition-all duration-500">
+            <div className="flex items-center gap-3">
+              {item.icon}
+              <span className="font-body font-bold text-[10px] uppercase tracking-[4px] text-brand-gold/60">{item.label}</span>
+            </div>
+            <div className="space-y-2">
+              <Counter value={item.value} suffix="/mo" />
+              <p className="font-body text-brand-cream/70 text-sm leading-relaxed font-bold uppercase tracking-widest">{item.body}</p>
             </div>
           </div>
         ))}
@@ -104,45 +119,10 @@ export const ContentSocialSection = () => {
 
       <PlatformDistribution />
 
-      <div className="space-y-8 py-12" ref={rhythmRef}>
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <CalendarDays className="text-brand-gold" size={24} />
-          <div className="section-label mb-0">Publishing Rhythm</div>
-        </div>
-
-        <div className="relative overflow-x-auto scrollbar-hide -mx-6 px-6">
-          <div className="flex gap-4 min-w-[1000px] pb-6 snap-x snap-mandatory">
-            {[
-              { day: "SUN", title: "SHOOT", icon: <Video size={20} /> },
-              { day: "TUE", title: "RECAP", icon: <Smartphone size={20} /> },
-              { day: "WED", title: "DJ CLIP", icon: <Play size={20} /> },
-              { day: "THU", title: "LIFESTYLE", icon: <Scissors size={20} /> },
-              { day: "FRI", title: "YOUTUBE", icon: <Youtube size={20} /> },
-              { day: "SAT", title: "UGC", icon: <RefreshCcw size={20} /> },
-            ].map((item, i) => (
-              <div 
-                key={i} 
-                className={cn(
-                  "flex-1 p-8 rounded-[32px] border transition-all duration-700 snap-center flex flex-col justify-between h-48",
-                  activeDay !== null && activeDay >= i 
-                    ? "bg-brand-gold/10 border-brand-gold" 
-                    : "bg-white/5 border-white/5 opacity-40"
-                )}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-headline text-xl text-brand-gold tracking-widest uppercase">{item.day}</span>
-                  <div className={cn("p-3 rounded-xl", activeDay !== null && activeDay >= i ? "bg-brand-gold text-brand-green" : "bg-white/5 text-brand-gold/40")}>
-                    {item.icon}
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h5 className="font-headline text-2xl text-white uppercase leading-none tracking-tight">{item.title}</h5>
-                  <CheckCircle2 className={cn("w-5 h-5 transition-all duration-500", activeDay !== null && activeDay >= i ? "text-brand-gold" : "opacity-0")} />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="p-8 bg-brand-gold/5 border border-brand-gold/10 rounded-[40px] text-center">
+        <p className="font-serif italic text-lg md:text-xl text-brand-gold/80 leading-relaxed max-w-2xl mx-auto">
+          "We convert energy into influence. Every Sunday provides the fuel for absolute digital dominance."
+        </p>
       </div>
     </div>
   );
