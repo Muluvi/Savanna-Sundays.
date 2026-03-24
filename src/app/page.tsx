@@ -1,3 +1,4 @@
+
 'use client';
 
 import { MobileNav } from '@/components/navigation/MobileNav';
@@ -20,22 +21,22 @@ import { MusicProgrammingSection } from '@/components/sections/MusicProgramming'
 const sectionsData = [
   { 
     id: 'the-gap', 
-    label: '01 — The opportunity', 
-    title: "The gap", 
+    label: '01 — The Opportunity', 
+    title: "The Gap", 
     variant: 'dark' as const, 
     component: <TheGap /> 
   },
   { 
     id: 'the-engine', 
-    label: '02 — The engine', 
-    title: 'The dual model', 
+    label: '02 — The Engine', 
+    title: 'The Dual Model', 
     variant: 'dark' as const, 
     component: <DualActivationModel /> 
   },
   { 
     id: 'the-ritual', 
-    label: '03 — The ritual', 
-    title: 'The experience', 
+    label: '03 — The Ritual', 
+    title: 'The Experience', 
     variant: 'dark' as const, 
     component: (
       <div className="space-y-12">
@@ -47,22 +48,22 @@ const sectionsData = [
   },
   { 
     id: 'the-harvest', 
-    label: '04 — The harvest', 
-    title: 'The content engine', 
+    label: '04 — The Harvest', 
+    title: 'The Content Engine', 
     variant: 'dark' as const, 
     component: <ContentSocialSection />
   },
   { 
     id: 'the-community', 
-    label: '05 — The community', 
-    title: 'The growth flywheel', 
+    label: '05 — The Community', 
+    title: 'The Growth Flywheel', 
     variant: 'dark' as const, 
     component: <BuildingTheCrowd />
   },
   { 
     id: 'the-numbers', 
-    label: '06 — The investment', 
-    title: 'The numbers', 
+    label: '06 — The Investment', 
+    title: 'The Numbers', 
     variant: 'dark' as const, 
     component: <TheNumbersSection />
   },
@@ -86,8 +87,9 @@ export default function Home() {
             {savannaLogo && (
               <div className="relative h-24 md:h-32 w-64 md:w-80 mb-4 flex items-center justify-center">
                 {/* Bright Glow Effect */}
-                <div className="absolute inset-0 bg-brand-gold/20 blur-[80px] rounded-full scale-150 animate-pulse" />
-                <div className="absolute inset-0 bg-brand-gold/10 blur-[40px] rounded-full scale-110" />
+                <div className="absolute inset-0 bg-brand-gold/20 blur-[100px] rounded-full scale-150 animate-pulse" />
+                <div className="absolute inset-0 bg-brand-gold/15 blur-[60px] rounded-full scale-110" />
+                <div className="absolute inset-0 bg-brand-gold/10 blur-[30px] rounded-full" />
                 <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain relative z-10" priority />
               </div>
             )}
