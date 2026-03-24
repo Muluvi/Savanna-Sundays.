@@ -69,10 +69,13 @@ export const TheGap = () => {
           </p>
         </div>
 
-        <div className="relative p-10 bg-white/5 border border-white/10 rounded-[40px] space-y-4 shadow-2xl">
+        <div className="relative p-10 bg-white/5 border border-white/10 rounded-[40px] space-y-4 shadow-2xl overflow-hidden">
+          <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+            <Image src={PlaceHolderImages.find(p => p.id === 'savanna-logo')?.imageUrl || ''} alt="" width={200} height={200} className="object-contain" />
+          </div>
           <span className="font-body text-brand-gold/60 text-[10px] tracking-[4px] uppercase font-bold">The Opportunity</span>
-          <p className="font-body text-xl md:text-3xl text-brand-cream leading-tight font-bold tracking-tight">
-            Converting 600,000+ digital fans into a physical community through consistent, high-fidelity Sunday experiences.
+          <p className="font-body text-xl md:text-2xl text-brand-cream leading-tight font-bold tracking-tight relative z-10">
+            Converting music lovers and lovers of experiential events from digital platforms and loyal savanna cider fans into a physical community through consistent, high-fidelity Sunday experiences.
           </p>
         </div>
       </div>

@@ -7,7 +7,6 @@ import {
   ReceiptText, 
   ShieldCheck, 
   Zap, 
-  Sparkles,
   Camera,
   QrCode,
   Music,
@@ -80,9 +79,9 @@ export const TheNumbersSection = () => {
           {checklistItems.map((item, i) => (
             <div 
               key={i} 
-              className="group relative p-6 rounded-[32px] bg-white/[0.03] border border-white/10 overflow-hidden transition-all duration-500 hover:bg-white/[0.08] hover:border-brand-gold/40 hover:-translate-y-1 shadow-xl"
+              className="group relative p-6 rounded-[32px] bg-white/[0.03] border border-white/10 overflow-hidden transition-all duration-500 hover:bg-white/[0.08] hover:border-brand-gold/40 hover:-translate-y-1 shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-1000"
+              style={{ animationDelay: `${i * 100}ms` }}
             >
-              {/* Subtle background glow on hover */}
               <div className="absolute inset-0 bg-brand-gold/5 opacity-0 group-hover:opacity-100 transition-opacity blur-2xl" />
               
               <div className="relative z-10 flex flex-col items-center text-center gap-4">

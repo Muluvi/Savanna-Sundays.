@@ -83,9 +83,15 @@ export default function Home() {
         <section id="hero" className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden bg-background">
           <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.15)_0%,transparent_80%)]" />
 
-          <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-8 text-center">
+          <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-12 text-center">
+            <div className="space-y-2">
+              <p className="font-headline text-xs md:text-sm text-brand-gold/60 tracking-[0.6em] uppercase animate-in fade-in slide-in-from-top-4 duration-1000">
+                Presented by Firefly Management
+              </p>
+            </div>
+
             {savannaLogo && (
-              <div className="relative h-24 md:h-32 w-64 md:w-80 flex items-center justify-center">
+              <div className="relative h-32 md:h-48 w-80 md:w-96 flex items-center justify-center">
                 {/* Bright Glow Effect */}
                 <div className="absolute inset-0 bg-brand-gold/30 blur-[120px] rounded-full scale-150 animate-pulse" />
                 <div className="absolute inset-0 bg-brand-gold/25 blur-[60px] rounded-full scale-110" />
@@ -94,7 +100,6 @@ export default function Home() {
             )}
 
             <div className="space-y-4">
-              <p className="font-headline text-lg md:text-2xl text-brand-gold/80 tracking-[0.4em] uppercase">Presented by Firefly Management</p>
               <h1 className="flex flex-col items-center leading-[0.8] tracking-tighter">
                 <span className="text-brand-gold text-[clamp(4.5rem,20vw,12rem)] font-headline">Savanna</span>
                 <span className="text-brand-gold text-[clamp(4.5rem,20vw,12rem)] font-headline">Sundays</span>
