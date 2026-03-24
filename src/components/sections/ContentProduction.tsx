@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
@@ -21,7 +20,6 @@ import {
   CheckCircle2,
   Megaphone,
   RefreshCcw,
-  Maximize2
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -132,6 +130,7 @@ const pipeline = [
 
 const ContentMockups = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
+  const savannaBottle = PlaceHolderImages.find(p => p.id === 'savanna-bottle');
   
   return (
     <div className="space-y-16">
@@ -255,16 +254,26 @@ const ContentMockups = () => {
           <div className="absolute inset-0 bg-brand-gold/15 mix-blend-overlay" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
           
-          <div className="absolute inset-0 p-10 flex flex-col justify-end">
-            <div className="flex items-end justify-between">
-              <div className="space-y-2">
-                <div className="flex items-center gap-3">
-                  <Camera className="text-brand-gold" size={20} />
-                  <span className="font-headline text-2xl text-white uppercase tracking-wider">Atmosphere Capture</span>
-                </div>
-                <p className="font-body text-xs text-white/60 uppercase tracking-[2px] font-bold">Warm Savanna Grade • Shot at Muze, Westlands</p>
+          <div className="absolute inset-0 p-10 flex items-center justify-between">
+            <div className="space-y-2 max-w-lg">
+              <div className="flex items-center gap-3">
+                <Camera className="text-brand-gold" size={20} />
+                <span className="font-headline text-2xl text-white uppercase tracking-wider">Atmosphere Capture</span>
               </div>
+              <p className="font-body text-xs text-white/60 uppercase tracking-[2px] font-bold">Warm Savanna Grade • Shot at Muze, Westlands</p>
+            </div>
 
+            <div className="flex items-end gap-12">
+              {savannaBottle && (
+                <div className="relative h-48 w-24 group-hover:scale-110 transition-transform duration-700">
+                  <Image 
+                    src={savannaBottle.imageUrl} 
+                    alt="Savanna Bottle" 
+                    fill 
+                    className="object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]" 
+                  />
+                </div>
+              )}
               <div className="text-right flex flex-col items-end gap-2">
                 {savannaLogo && (
                   <div className="relative h-10 w-24 opacity-80">

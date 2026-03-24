@@ -13,6 +13,12 @@
       "imageHint": "brand logo"
     },
     {
+      "id": "savanna-bottle",
+      "description": "Savanna Premium Cider Bottle",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1774366899/file_00000000c5a4722f99cc160b8e4c1983_lstncz.png",
+      "imageHint": "cider bottle"
+    },
+    {
       "id": "venue-muze",
       "description": "Muze Venue Logo",
       "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1768848344/ac208aa5-8292-4543-a7ca-719fd61a3c46_20260119_214138_0000_ikxc7g.png",
