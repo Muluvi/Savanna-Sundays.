@@ -11,7 +11,6 @@ const Counter = ({ value, suffix = "" }: { value: string, suffix?: string }) => 
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   
-  // Extract number from strings like "603K" or "1,115"
   const cleanValue = value.replace(/,/g, '').replace(/K/g, '000');
   const target = parseFloat(cleanValue);
   const isKFormat = value.includes('K');
@@ -70,20 +69,22 @@ const Counter = ({ value, suffix = "" }: { value: string, suffix?: string }) => 
 };
 
 export const TheGap = () => {
-  const fbLogo = PlaceHolderImages.find(img => img.id === 'social-fb');
-  const igLogo = PlaceHolderImages.find(img => img.id === 'social-ig');
-  const xLogo = PlaceHolderImages.find(img => img.id === 'social-x');
+  const socialIcons = [
+    { id: 'social-fb', label: 'Facebook', value: '603K' },
+    { id: 'social-ig', label: 'Instagram', value: '6,121' },
+    { id: 'social-x', label: 'Twitter/X', value: '1,115' },
+  ];
 
   return (
     <div className="space-y-16 py-8 relative overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-start">
         <div className="space-y-10">
           <p className="font-body text-lg md:text-3xl text-brand-cream leading-relaxed border-l-4 border-brand-gold pl-8 py-2">
-            Every Sunday, Nairobi comes alive. Rooftops fill up. Playlists go on. Stories get posted. It’s the one day when the city’s young professionals choose where to be seen, what to drink, and what to share. 
+            Every Sunday, Nairobi chooses where to be seen, what to drink, and what to share. Savanna Premium Cider has the product people love — now it's time to own the cultural stage.
           </p>
           
-          <p className="font-body text-base md:text-xl text-brand-cream/80 leading-relaxed opacity-90 pl-8 max-w-3xl">
-            Right now, no cider brand is part of that conversation. Savanna Premium Cider has national distribution and a product people love — but zero cultural presence on the day that matters most. Savanna Sundays changes that. One brand, multiple venues, every Sunday.
+          <p className="font-body text-base md:text-xl text-brand-cream/80 leading-relaxed opacity-90 pl-8 max-w-3xl uppercase tracking-widest font-bold">
+            One brand • Multiple venues • Every Sunday
           </p>
         </div>
 
@@ -92,50 +93,48 @@ export const TheGap = () => {
           <div className="relative p-10 bg-brand-dark-alt border border-brand-gold/10 rounded-[40px] shadow-2xl space-y-8">
             <span className="font-body text-brand-gold/60 text-[10px] tracking-[4px] uppercase font-bold">The Strategic Reality</span>
             <p className="font-serif italic text-3xl md:text-5xl text-brand-gold leading-[1.15]">
-              "Sunday is Nairobi’s biggest social stage. No cider brand is on it. We’re about to change that."
+              "Nairobi’s biggest social stage is waiting for its signature cider ritual."
             </p>
-            <div className="w-16 h-[2px] bg-brand-gold/20" />
           </div>
         </div>
       </div>
 
-      {/* Social Proof Strip - Flashy Counters Added */}
-      <div className="mt-12 bg-brand-dark-alt rounded-[40px] p-8 md:p-16 border border-brand-gold/10 shadow-xl overflow-hidden relative">
-        <div className="absolute top-0 right-0 p-12 opacity-[0.02] pointer-events-none">
-           <h4 className="font-headline text-[12rem] text-brand-gold select-none">DATA</h4>
+      {/* Social Proof Strip - Animated & HD */}
+      <div className="mt-12 bg-brand-dark-alt rounded-[40px] border border-white/5 shadow-2xl overflow-hidden relative">
+        <div className="py-12 border-b border-white/5 text-center">
+          <p className="font-body text-brand-gold/60 text-xs tracking-[5px] uppercase font-bold mb-2">Market Presence Snapshot</p>
+          <h3 className="font-headline text-3xl md:text-5xl text-brand-cream uppercase tracking-tight">Existing Brand Power</h3>
         </div>
-        
-        <div className="relative z-10 space-y-12">
-          <div className="flex flex-col items-center md:items-start gap-2">
-            <span className="font-body text-brand-gold/60 text-xs tracking-[5px] uppercase font-bold mb-2">Market Presence Snapshot</span>
-            <h3 className="font-headline text-3xl md:text-5xl text-brand-cream uppercase tracking-tight">Savanna Kenya Right Now</h3>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { label: "Facebook Followers", value: "603K", img: fbLogo },
-              { label: "Instagram Followers", value: "6,121", img: igLogo },
-              { label: "Twitter/X Followers", value: "1,115", img: xLogo },
-            ].map((stat, i) => (
-              <Card key={i} className="bg-brand-dark/50 backdrop-blur-sm border border-brand-gold/10 p-8 flex flex-col items-center text-center gap-6 shadow-2xl hover:border-brand-gold/40 transition-all duration-500 group">
-                {stat.img && (
-                  <div className="relative h-12 w-12 shrink-0 opacity-40 group-hover:opacity-100 transition-opacity">
-                    <Image src={stat.img.imageUrl} alt={stat.label} fill className="object-contain filter brightness-200" />
-                  </div>
-                )}
-                <div className="space-y-3">
-                  <Counter value={stat.value} />
-                  <div className="font-body text-[11px] uppercase font-bold tracking-[3px] text-brand-text-muted opacity-60 group-hover:opacity-100 transition-opacity">{stat.label}</div>
-                </div>
-              </Card>
+
+        <div className="relative overflow-hidden group py-16">
+          <div className="flex w-fit animate-marquee space-x-20 px-10">
+            {[...Array(3)].map((_, listIdx) => (
+              <div key={listIdx} className="flex items-center space-x-20 shrink-0">
+                {socialIcons.map((stat) => {
+                  const img = PlaceHolderImages.find(i => i.id === stat.id);
+                  return (
+                    <div key={`${listIdx}-${stat.id}`} className="flex flex-col items-center gap-6 min-w-[200px]">
+                      {img && (
+                        <div className="relative h-16 w-16">
+                          <Image src={img.imageUrl} alt={stat.label} fill className="object-contain" />
+                        </div>
+                      )}
+                      <div className="text-center space-y-1">
+                        <Counter value={stat.value} />
+                        <div className="font-body text-[10px] uppercase font-bold tracking-[3px] text-brand-text-muted">{stat.label}</div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             ))}
           </div>
-          
-          <div className="pt-8 border-t border-brand-gold/10">
-            <p className="font-body text-lg md:text-2xl text-brand-cream/80 max-w-4xl mx-auto text-center leading-relaxed">
-              603K on Facebook. 6K on Instagram. The audience is there — the culture connection isn’t. <span className="text-brand-gold font-bold">Savanna Sundays bridges the gap.</span>
-            </p>
-          </div>
+        </div>
+        
+        <div className="p-12 bg-brand-gold text-brand-green text-center">
+          <p className="font-body text-lg md:text-2xl max-w-4xl mx-auto leading-relaxed uppercase font-bold tracking-tight">
+            Savanna has a massive foundation of 603K+ supporters. Savanna Sundays is the catalyst that turns this digital presence into a living, breathing Nairobi cultural movement.
+          </p>
         </div>
       </div>
     </div>
