@@ -12,28 +12,28 @@ const lineItems = [
   { item: "MC", cost: "40,000" },
   { item: "Influencers (5 × KSh 20,000)", cost: "100,000" },
   { item: "Content Generation & Production", cost: "41,250" },
-  { item: "Miscellaneous", cost: "8,550" },
+  { item: "Miscellaneous (Branding/Logistics)", cost: "8,550" },
 ];
 
 const projections = [
   {
     title: "MONTH 1–3 (2 venues/Sunday)",
     weekly: "KSh 336,168",
-    weeklySub: "(1 squad venue + 1 partner venue)",
+    weeklySub: "Total Activation (1 Squad + 1 Partner)",
     monthly: "KSh 1,344,672",
     icon: <Calendar className="text-brand-gold" size={24} />
   },
   {
     title: "MONTH 4+ (scaling to 3 venues)",
     weekly: "KSh 336,168",
-    weeklySub: "(1 squad venue + 2 partner venues)",
+    weeklySub: "Total Activation (1 Squad + 2 Partners)",
     monthly: "KSh 1,344,672",
     icon: <TrendingUp className="text-brand-gold" size={24} />
   },
   {
     title: "QUARTERLY INVESTMENT",
     weekly: "Q1 (Month 1–3)",
-    weeklySub: "Total Strategic Spend",
+    weeklySub: "Fixed Strategic Spend",
     monthly: "KSh 4,034,016",
     icon: <Landmark className="text-brand-gold" size={24} />
   }
@@ -44,10 +44,10 @@ export const TheNumbersSection = () => {
     <div className="space-y-16">
       <div className="space-y-4 max-w-2xl">
         <h4 className="font-body text-xl md:text-2xl text-brand-green font-bold uppercase tracking-wider">
-          Weekly investment per Savanna Sunday
+          Weekly investment per Savanna Sunday Activation
         </h4>
         <p className="font-body text-brand-green/60 text-sm md:text-base leading-relaxed">
-          A transparent breakdown of the operational and strategic costs required to execute a high-fidelity Savanna Sundays activation.
+          A transparent breakdown of the operational and strategic costs. This fixed weekly rate covers the entire activation across all participating venues.
         </p>
       </div>
 
@@ -56,7 +56,7 @@ export const TheNumbersSection = () => {
           <TableHeader className="bg-brand-gold">
             <TableRow className="hover:bg-transparent border-none">
               <TableHead className="text-brand-green font-headline tracking-widest py-6 px-8 text-sm md:text-base uppercase">
-                Weekly Activation Cost
+                Sunday Activation Item
               </TableHead>
               <TableHead className="text-brand-green font-headline tracking-widest text-right px-8 text-sm md:text-base uppercase">
                 KSh
@@ -81,7 +81,7 @@ export const TheNumbersSection = () => {
             {/* Subtotal */}
             <TableRow className="bg-white border-t-2 border-brand-green/10">
               <TableCell className="font-headline text-lg md:text-xl py-6 px-8 text-brand-green/60">
-                Weekly Subtotal
+                Activation Subtotal
               </TableCell>
               <TableCell className="font-headline text-2xl text-brand-green/60 text-right px-8">
                 289,800
@@ -101,7 +101,7 @@ export const TheNumbersSection = () => {
             {/* Total - Bold Gold */}
             <TableRow className="bg-white border-t-4 border-brand-gold">
               <TableCell className="font-headline text-2xl md:text-4xl py-8 px-8 text-brand-gold uppercase tracking-tighter">
-                Weekly Total
+                Weekly Total Activation
               </TableCell>
               <TableCell className="font-headline text-3xl md:text-5xl text-brand-gold text-right px-8 tracking-tighter">
                 336,168
@@ -112,7 +112,7 @@ export const TheNumbersSection = () => {
       </div>
 
       <div className="space-y-8">
-        <div className="section-label">Investment Projections</div>
+        <div className="section-label">Investment Projections (Fixed Rate)</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projections.map((p, i) => (
             <Card key={i} className="p-8 bg-[#FDF8EC] border-2 border-brand-gold rounded-[32px] space-y-6 shadow-xl flex flex-col justify-between group hover:-translate-y-2 transition-all duration-500">
@@ -131,7 +131,7 @@ export const TheNumbersSection = () => {
               </div>
               
               <div className="pt-6 border-t border-brand-gold/20">
-                <p className="font-body text-[10px] text-brand-gold uppercase tracking-[2px] font-bold mb-1">Total Period Investment</p>
+                <p className="font-body text-[10px] text-brand-gold uppercase tracking-[2px] font-bold mb-1">Monthly Investment</p>
                 <p className="font-headline text-4xl text-brand-gold tracking-tighter leading-none">
                   {p.monthly}
                 </p>
@@ -146,10 +146,10 @@ export const TheNumbersSection = () => {
           </div>
           <div className="space-y-2">
             <p className="font-body text-xs md:text-sm text-brand-cream leading-relaxed italic">
-              "These figures cover the full activation — talent, content production, and agency management. Venue branding materials (bar wraps, signage, glassware, etc.) are covered within the activation cost. No separate venue hosting fees."
+              "Every Sunday activation costs KSh 336,168 in total. This figure covers the full squad deployment, talent, multi-platform content production, and management. Venue branding materials for both squad and partner venues are included. The rate remains fixed as we scale the partner venue network."
             </p>
             <p className="font-body text-[10px] text-brand-gold uppercase tracking-[2px] font-bold">
-              Firefly Management receives 16% of the total weekly activation cost as standard agency fee.
+              Firefly Management receives a fixed 16% agency fee included in the total activation cost.
             </p>
           </div>
         </Card>

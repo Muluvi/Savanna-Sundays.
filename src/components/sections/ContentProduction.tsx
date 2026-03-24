@@ -557,15 +557,6 @@ export const ContentSocialSection = () => {
           ))}
         </div>
       </div>
-
-      <div className="text-center pt-8">
-        <div className="inline-block p-8 rounded-[32px] border-2 border-brand-gold/20 bg-brand-gold/5 shadow-2xl">
-          <span className="font-body font-bold text-xs uppercase tracking-[4px] text-brand-gold/60 block mb-2">Investment Total</span>
-          <div className="font-headline text-5xl md:text-7xl text-brand-gold leading-none tracking-tighter">
-            Monthly Total: KSh 165,000
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
