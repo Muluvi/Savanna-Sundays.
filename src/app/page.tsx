@@ -42,11 +42,11 @@ export default function Home() {
       <main>
         {/* Cinematic Brand Hero Section */}
         <section id="hero" className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.08)_0%,transparent_70%)]" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.1)_0%,transparent_70%)]" />
 
           <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-4 text-center">
             {savannaLogo && (
-              <div className="relative h-40 md:h-64 w-72 md:w-[480px] flex items-center justify-center animate-intense-glow mb-2">
+              <div className="relative h-48 md:h-72 w-80 md:w-[540px] flex items-center justify-center animate-intense-glow mb-4">
                 <Image 
                   src={savannaLogo.imageUrl} 
                   alt="Savanna" 
@@ -64,17 +64,17 @@ export default function Home() {
               </h1>
             </div>
             
-            <p className="font-serif italic text-lg md:text-2xl text-brand-cream/80 leading-relaxed max-w-lg mt-4">
+            <p className="font-serif italic text-lg md:text-2xl text-brand-cream/90 leading-relaxed max-w-lg mt-4">
               One brand. Multiple venues. Every Sunday.
             </p>
           </div>
 
           {/* High-Fidelity Attribution at Absolute Bottom */}
-          <div className="absolute bottom-8 left-0 w-full flex flex-col items-center gap-2 opacity-50">
-            <p className="font-body text-[10px] text-brand-gold tracking-[0.5em] uppercase font-bold">
+          <div className="absolute bottom-10 left-0 w-full flex flex-col items-center gap-3">
+            <p className="font-body text-[10px] text-brand-gold/60 tracking-[0.6em] uppercase font-bold">
               Presented by Firefly Management
             </p>
-            <ChevronDown className="text-brand-gold/40 animate-bounce" size={16} />
+            <ChevronDown className="text-brand-gold/40 animate-bounce" size={20} />
           </div>
         </section>
 
@@ -90,7 +90,7 @@ export default function Home() {
         ))}
 
         {/* Brand Closing Section */}
-        <div className="py-16 px-6 text-center bg-brand-green border-t border-white/5 relative overflow-hidden">
+        <div className="py-20 px-6 text-center bg-brand-green border-t border-white/5 relative overflow-hidden">
           <div className="max-w-4xl mx-auto space-y-10 relative z-10">
             <p className="font-serif italic text-xl md:text-4xl text-brand-cream leading-tight max-w-2xl mx-auto">
               Savanna Sundays is built. The squad is assembled. The venues are mapped. All that’s needed is the green light.
@@ -100,18 +100,18 @@ export default function Home() {
               <span>Let&apos;s own Sunday</span>
             </a>
 
-            <div className="pt-12 space-y-8 opacity-50">
-              <div className="flex items-center justify-center gap-10 grayscale brightness-200">
+            <div className="pt-12 space-y-8">
+              <div className="flex items-center justify-center gap-10 grayscale brightness-200 opacity-60">
                 {savannaLogo && <div className="relative h-10 w-32"><Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain" /></div>}
                 <div className="h-6 w-[1px] bg-white/20" />
                 <p className="font-headline text-2xl text-white tracking-widest">Firefly</p>
               </div>
 
               <div className="space-y-4 max-w-xl mx-auto">
-                <p className="font-body text-[9px] text-brand-gold/50 uppercase tracking-[4px] font-bold">
+                <p className="font-body text-[9px] text-brand-gold/80 uppercase tracking-[4px] font-bold">
                   Prepared by Firefly Management for Kenya Wine Agencies Limited (KWAL)
                 </p>
-                <p className="font-body text-[8px] text-brand-gold/30 uppercase tracking-[2px] leading-relaxed">
+                <p className="font-body text-[8px] text-brand-gold/40 uppercase tracking-[2px] leading-relaxed">
                   Excessive alcohol consumption is harmful to your health. Not for sale to persons under the age of 18 years.
                 </p>
               </div>

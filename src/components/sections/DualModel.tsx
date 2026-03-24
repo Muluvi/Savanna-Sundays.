@@ -43,14 +43,14 @@ const squadRoles = [
 
 export const DualActivationModel = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-2">
           <div className="flex items-center gap-3">
             <div className="h-[2px] w-6 bg-brand-gold" />
             <h4 className="font-headline text-2xl text-brand-gold uppercase">The Squad</h4>
           </div>
-          <p className="font-body text-brand-cream/60 text-sm leading-relaxed">
+          <p className="font-body text-brand-cream/80 text-sm leading-relaxed">
             Proven talent deployed to rotating host venues to create the primary Sunday narrative.
           </p>
         </div>
@@ -60,15 +60,15 @@ export const DualActivationModel = () => {
             <div className="h-[2px] w-6 bg-brand-teal" />
             <h4 className="font-headline text-2xl text-brand-gold uppercase">The Network</h4>
           </div>
-          <p className="font-body text-brand-cream/60 text-sm leading-relaxed">
+          <p className="font-body text-brand-cream/80 text-sm leading-relaxed">
             Visual dominance and bar presence across multiple premium venues simultaneously.
           </p>
         </div>
       </div>
 
-      {/* High-Fidelity Unboxed Venue Marquee - Double Sized */}
-      <div className="py-12 overflow-hidden bg-white/[0.01] rounded-[32px]">
-        <div className="flex w-fit animate-marquee space-x-20 px-6 items-center">
+      {/* High-Impact Unboxed Venue Marquee - 2x Size */}
+      <div className="py-12 md:py-16 overflow-hidden bg-white/[0.01] rounded-[32px]">
+        <div className="flex w-fit animate-marquee space-x-24 px-6 items-center">
           {[...Array(3)].map((_, listIdx) => (
             <div key={listIdx} className="flex items-center space-x-32 shrink-0">
               {venueData.map((v) => {
@@ -76,7 +76,7 @@ export const DualActivationModel = () => {
                 return (
                   <div key={`${listIdx}-${v.id}`} className="flex items-center">
                     {img && (
-                      <div className="relative h-64 w-[480px] hover:scale-110 transition-transform duration-700">
+                      <div className="relative h-72 md:h-96 w-[500px] md:w-[680px] hover:scale-105 transition-transform duration-700">
                         <Image 
                           src={img.imageUrl} 
                           alt={v.name} 
@@ -94,7 +94,7 @@ export const DualActivationModel = () => {
         </div>
       </div>
       
-      <p className="font-body text-[9px] text-brand-gold/40 italic text-center uppercase tracking-[4px] font-bold">
+      <p className="font-body text-[10px] text-brand-gold/60 italic text-center uppercase tracking-[4px] font-bold">
         Firefly has active relationships with these venues and more.
       </p>
 
@@ -102,12 +102,12 @@ export const DualActivationModel = () => {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
         {squadRoles.map((role, i) => (
           <div key={i} className="space-y-3 group">
-            <div className="text-brand-gold/40 group-hover:text-brand-gold transition-colors duration-500">
+            <div className="text-brand-gold/60 group-hover:text-brand-gold transition-colors duration-500">
               {role.icon}
             </div>
             <div className="space-y-1">
               <h5 className="font-headline text-xl text-brand-gold uppercase leading-none">{role.role}</h5>
-              <p className="font-body text-brand-cream/50 text-[10px] leading-tight font-bold uppercase tracking-widest">
+              <p className="font-body text-brand-cream/60 text-[10px] leading-tight font-bold uppercase tracking-widest">
                 {role.body}
               </p>
             </div>

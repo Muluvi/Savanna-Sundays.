@@ -15,7 +15,7 @@ import {
 const lineItems = [
   { item: "DJ Talent (Warm-up + Peak)", cost: "100,000" },
   { item: "MC / Brand Host", cost: "40,000" },
-  { item: "Influencer Pool (5 PAX)", cost: "100,000" },
+  { id: "influencer", item: "Influencer Pool (5 PAX)", cost: "100,000" },
   { item: "Content Production Crew", cost: "41,250" },
   { item: "Strategic Logistics", cost: "54,918" },
 ];
@@ -34,32 +34,32 @@ export const TheNumbersSection = () => {
     <div className="space-y-8">
       <div className="space-y-2">
         <div className="flex items-center gap-3">
-          <ReceiptText className="text-brand-gold opacity-40" size={20} />
+          <ReceiptText className="text-brand-gold/80" size={24} />
           <h4 className="font-headline text-3xl md:text-5xl text-brand-gold uppercase tracking-tighter">
             The investment
           </h4>
         </div>
-        <p className="font-body text-brand-cream/60 text-base leading-relaxed max-w-xl">
+        <p className="font-body text-brand-cream/80 text-base leading-relaxed max-w-xl">
           Transparent fixed-rate model covering talent, production, and data infrastructure.
         </p>
       </div>
 
-      <div className="overflow-hidden glass-tile rounded-[24px] border-none bg-white/[0.02]">
+      <div className="overflow-hidden glass-tile rounded-[24px] border-none bg-white/[0.04]">
         <Table>
           <TableHeader className="bg-brand-gold">
             <TableRow className="hover:bg-transparent border-none">
-              <TableHead className="text-brand-green font-headline tracking-widest py-3 px-8 text-sm uppercase">Breakdown</TableHead>
+              <TableHead className="text-brand-green font-headline tracking-widest py-4 px-8 text-sm uppercase">Breakdown</TableHead>
               <TableHead className="text-brand-green font-headline tracking-widest text-right px-8 text-sm uppercase">KSh</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {lineItems.map((row, i) => (
-              <TableRow key={i} className="border-white/5 hover:bg-white/5 transition-colors">
-                <TableCell className="font-body font-bold text-[11px] py-4 px-8 text-brand-cream/60 uppercase tracking-widest">{row.item}</TableCell>
+              <TableRow key={i} className="border-white/5 hover:bg-white/10 transition-colors">
+                <TableCell className="font-body font-bold text-[11px] py-4 px-8 text-brand-cream uppercase tracking-widest">{row.item}</TableCell>
                 <TableCell className="font-headline text-2xl text-brand-cream text-right px-8">{row.cost}</TableCell>
               </TableRow>
             ))}
-            <TableRow className="bg-brand-gold/90 text-brand-green backdrop-blur-md">
+            <TableRow className="bg-brand-gold text-brand-green">
               <TableCell className="font-headline text-2xl md:text-4xl py-6 px-8 uppercase tracking-tighter">Weekly total</TableCell>
               <TableCell className="font-headline text-3xl md:text-5xl text-right px-8 tracking-tighter">336,168</TableCell>
             </TableRow>
@@ -69,7 +69,7 @@ export const TheNumbersSection = () => {
 
       <div className="space-y-6 pt-4">
         <div className="text-center">
-          <div className="section-label mb-1 opacity-40">Strategic deliverables</div>
+          <div className="section-label mb-1 opacity-100 text-brand-gold/80">Strategic deliverables</div>
           <h4 className="font-headline text-2xl md:text-5xl text-brand-gold uppercase tracking-tighter">The Weekly Payload</h4>
         </div>
 
@@ -77,14 +77,15 @@ export const TheNumbersSection = () => {
           {checklistItems.map((item, i) => (
             <div 
               key={i} 
-              className="group glass-tile p-6 rounded-[32px] flex flex-col items-center text-center gap-3 hover:border-brand-gold/40 shadow-xl border-none"
+              className="group glass-tile p-6 rounded-[32px] flex flex-col items-center text-center gap-3 hover:border-brand-gold/40 shadow-xl border-none bg-white/[0.04] animate-fade-in-up"
+              style={{ animationDelay: `${i * 100}ms` }}
             >
               <div className="w-12 h-12 rounded-2xl bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                 {item.icon}
               </div>
               <div className="space-y-1">
-                <p className="font-headline text-lg text-white uppercase tracking-tight leading-none group-hover:text-brand-gold transition-colors">{item.label}</p>
-                <p className="font-body text-brand-cream/40 text-[9px] leading-tight font-bold uppercase tracking-[2px]">{item.desc}</p>
+                <p className="font-headline text-lg text-brand-cream uppercase tracking-tight leading-none group-hover:text-brand-gold transition-colors">{item.label}</p>
+                <p className="font-body text-brand-gold/60 text-[9px] leading-tight font-bold uppercase tracking-[2px]">{item.desc}</p>
               </div>
             </div>
           ))}
