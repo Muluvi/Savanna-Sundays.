@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -25,7 +24,7 @@ const sectionsData = [
     id: 'the-gap', 
     label: '01 — THE OPPORTUNITY', 
     title: "THE SUNDAY OPPORTUNITY", 
-    variant: 'dark' as const, 
+    variant: 'cream' as const, 
     component: <TheGap /> 
   },
   { 
@@ -47,7 +46,9 @@ const sectionsData = [
         </p>
         <VisualIdentitySection />
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/10 to-transparent" />
-        <ExperienceDesignSection />
+        <div className="pt-12">
+          <ExperienceDesignSection />
+        </div>
       </div>
     ) 
   },
@@ -89,7 +90,7 @@ export default function Home() {
   };
 
   if (!mounted) {
-    return null; // Prevent hydration mismatch by waiting for mount
+    return <div className="min-h-screen bg-[#1A1208]" />;
   }
 
   return (

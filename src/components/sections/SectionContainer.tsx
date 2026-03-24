@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -9,7 +8,7 @@ interface SectionProps {
   id: string;
   label: string;
   title: string;
-  variant?: 'light' | 'dark' | 'alt';
+  variant?: 'light' | 'dark' | 'alt' | 'cream';
   children?: React.ReactNode;
 }
 
@@ -34,12 +33,13 @@ export const SectionContainer = ({ id, label, title, variant = 'light', children
     return () => observer.disconnect();
   }, []);
 
-  // Map variant to background colors
   const bgClass = variant === 'dark' 
     ? "dark-section" 
     : variant === 'alt' 
       ? "bg-brand-dark-alt" 
-      : "bg-brand-dark";
+      : variant === 'cream'
+        ? "cream-section"
+        : "bg-brand-dark";
 
   return (
     <section 
