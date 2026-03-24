@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -82,7 +83,8 @@ const sectionsData = [
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
-  const logo = PlaceHolderImages.find(p => p.id === 'firefly-logo');
+  const fireflyLogo = PlaceHolderImages.find(p => p.id === 'firefly-logo');
+  const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   useAnalyticsTracker();
 
   useEffect(() => {
@@ -113,8 +115,19 @@ export default function Home() {
           />
 
           <div className="flex flex-col items-center justify-center text-center relative z-10">
-            <div className="max-w-6xl mx-auto w-full">
-              <h1 className="leading-[0.85] mb-6 blur-in">
+            <div className="max-w-6xl mx-auto w-full space-y-12">
+              {savannaLogo && (
+                <div className="relative h-24 md:h-32 w-full max-w-[280px] mx-auto animate-in fade-in zoom-in-95 duration-1000">
+                  <Image 
+                    src={savannaLogo.imageUrl} 
+                    alt="Savanna Premium Cider" 
+                    fill 
+                    className="object-contain"
+                  />
+                </div>
+              )}
+
+              <h1 className="leading-[0.85] blur-in">
                 <span 
                   className="block text-[#F4C542] text-[clamp(60px,15vw,160px)] font-headline tracking-tighter"
                   style={{ textShadow: '0 0 40px rgba(244,197,66,0.35)' }}
@@ -176,7 +189,7 @@ export default function Home() {
         ))}
 
         {/* Closing Block */}
-        <div className="py-24 px-6 text-center space-y-12 bg-brand-dark border-t border-white/5 relative overflow-hidden">
+        <div className="py-24 px-6 text-center space-y-16 bg-brand-dark border-t border-white/5 relative overflow-hidden">
           <div className="max-w-2xl mx-auto space-y-8 relative z-10">
             <p className="font-serif italic text-2xl md:text-3xl text-brand-cream leading-relaxed">
               "Savanna Sundays is ready to run.<br className="hidden md:block" />
@@ -198,18 +211,31 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="pt-24 opacity-30 relative z-10 flex flex-col items-center gap-6">
-            {logo && (
-              <div className="relative h-[60px] w-[200px]">
-                <Image 
-                  src={logo.imageUrl} 
-                  alt="Firefly Management" 
-                  fill 
-                  className="object-contain"
-                />
-              </div>
-            )}
-            <p className="font-body text-[10px] md:text-[11px] text-brand-text-muted uppercase tracking-[2px] font-bold">
+          <div className="pt-12 relative z-10 flex flex-col items-center gap-8">
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 opacity-80">
+              {savannaLogo && (
+                <div className="relative h-[60px] w-[140px]">
+                  <Image 
+                    src={savannaLogo.imageUrl} 
+                    alt="Savanna Premium Cider" 
+                    fill 
+                    className="object-contain"
+                  />
+                </div>
+              )}
+              <div className="hidden md:block h-10 w-[1px] bg-white/10" />
+              {fireflyLogo && (
+                <div className="relative h-[40px] w-[120px]">
+                  <Image 
+                    src={fireflyLogo.imageUrl} 
+                    alt="Firefly Management" 
+                    fill 
+                    className="object-contain"
+                  />
+                </div>
+              )}
+            </div>
+            <p className="font-body text-[10px] md:text-[11px] text-brand-text-muted uppercase tracking-[2px] font-bold text-center max-w-xl">
               Prepared by Firefly Management for Kenya Wine Agencies Limited (KWAL) — Savanna Premium Cider
             </p>
           </div>

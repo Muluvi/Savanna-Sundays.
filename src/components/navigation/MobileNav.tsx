@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from 'react';
@@ -17,7 +18,7 @@ const sections = [
 
 export const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const logo = PlaceHolderImages.find(p => p.id === 'firefly-logo');
+  const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -28,11 +29,11 @@ export const MobileNav = () => {
   return (
     <div className="md:hidden fixed top-0 left-0 w-full z-[100] px-4 py-4 flex justify-between items-center pointer-events-none">
       <div className="glass-card p-2 px-3 pointer-events-auto flex items-center">
-        {logo ? (
+        {savannaLogo ? (
           <div className="relative h-8 w-24">
             <Image 
-              src={logo.imageUrl} 
-              alt="Firefly Management" 
+              src={savannaLogo.imageUrl} 
+              alt="Savanna Premium Cider" 
               fill 
               className="object-contain object-left"
             />

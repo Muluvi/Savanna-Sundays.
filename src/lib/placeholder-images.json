@@ -7,6 +7,12 @@
       "imageHint": "company logo"
     },
     {
+      "id": "savanna-logo",
+      "description": "Savanna Premium Cider Logo",
+      "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1774365920/savanna-seeklogo_wdoivt.png",
+      "imageHint": "brand logo"
+    },
+    {
       "id": "venue-muze",
       "description": "Muze Venue Logo",
       "imageUrl": "https://res.cloudinary.com/da5j0zjok/image/upload/v1768848344/ac208aa5-8292-4543-a7ca-719fd61a3c46_20260119_214138_0000_ikxc7g.png",

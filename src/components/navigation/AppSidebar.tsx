@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -18,7 +19,8 @@ const sections = [
 export const AppSidebar = () => {
   const [activeId, setActiveId] = useState('');
   const [progress, setProgress] = useState(0);
-  const logo = PlaceHolderImages.find(p => p.id === 'firefly-logo');
+  const fireflyLogo = PlaceHolderImages.find(p => p.id === 'firefly-logo');
+  const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,18 +50,35 @@ export const AppSidebar = () => {
   return (
     <>
       <aside className="fixed left-0 top-0 h-screen w-64 bg-brand-green hidden md:flex flex-col z-50 border-r border-white/5">
-        <div className="p-8 pb-4 space-y-4">
-          {logo && (
-            <div className="relative h-10 w-full">
-              <Image 
-                src={logo.imageUrl} 
-                alt="Firefly Management" 
-                fill 
-                className="object-contain object-left opacity-80"
-              />
+        <div className="p-8 pb-4 space-y-6">
+          <div className="flex flex-col gap-4">
+            {savannaLogo && (
+              <div className="relative h-12 w-full">
+                <Image 
+                  src={savannaLogo.imageUrl} 
+                  alt="Savanna Premium Cider" 
+                  fill 
+                  className="object-contain object-left"
+                />
+              </div>
+            )}
+            <div className="flex items-center gap-2">
+              <div className="h-[1px] w-4 bg-white/20" />
+              <div className="text-[8px] tracking-[3px] text-brand-teal uppercase font-bold">Managed by</div>
             </div>
-          )}
-          <div>
+            {fireflyLogo && (
+              <div className="relative h-6 w-full opacity-60">
+                <Image 
+                  src={fireflyLogo.imageUrl} 
+                  alt="Firefly Management" 
+                  fill 
+                  className="object-contain object-left"
+                />
+              </div>
+            )}
+          </div>
+          
+          <div className="pt-2">
             <div className="text-[10px] tracking-[5px] text-brand-teal uppercase mb-1 font-bold">Proposal</div>
             <div className="font-headline text-3xl text-brand-gold leading-none">Savanna Sundays</div>
           </div>
