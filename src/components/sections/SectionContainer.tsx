@@ -44,7 +44,7 @@ export const SectionContainer = ({ id, label, title, variant = 'dark', children 
       <CiderFizz className="opacity-5" />
       
       <div className="max-w-6xl mx-auto w-full relative z-10">
-        <div className="mb-8 md:mb-12">
+        <div className="mb-6 md:mb-8">
           <span 
             className="section-label"
             style={{ transform: `translateX(${translateX * 0.4}px)` }}
