@@ -1,29 +1,18 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card } from '@/components/ui/card';
 
 export const TheGap = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
   const fbLogo = PlaceHolderImages.find(img => img.id === 'social-fb');
   const igLogo = PlaceHolderImages.find(img => img.id === 'social-ig');
   const xLogo = PlaceHolderImages.find(img => img.id === 'social-x');
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => { 
-      if (entry.isIntersecting) setIsVisible(true); 
-    }, { threshold: 0.1 });
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div ref={sectionRef} className="space-y-16 py-8 relative overflow-hidden">
+    <div className="space-y-16 py-8 relative overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-start">
         <div className="space-y-8">
           <p className="font-body text-lg md:text-2xl text-brand-cream leading-relaxed border-l-4 border-brand-gold pl-8 py-2">
@@ -81,14 +70,6 @@ export const TheGap = () => {
           </p>
         </div>
       </div>
-
-      <style jsx global>{`
-        @keyframes blur-in {
-          from { filter: blur(10px); opacity: 0; transform: translateY(10px); }
-          to { filter: blur(0); opacity: 1; transform: translateY(0); }
-        }
-        .blur-in { animation: blur-in 0.8s ease-out forwards; }
-      `}</style>
     </div>
   );
 };

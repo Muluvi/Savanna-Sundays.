@@ -44,7 +44,7 @@ const sectionsData = [
     component: (
       <div className="space-y-16 md:space-y-24">
         <div className="text-center max-w-4xl mx-auto space-y-8">
-          <p className="font-serif italic text-3xl md:text-6xl text-brand-gold leading-tight blur-in">
+          <p className="font-serif italic text-3xl md:text-6xl text-brand-gold leading-tight">
             “When the squad arrives, the venue transforms.”
           </p>
           <p className="font-body text-lg md:text-2xl text-brand-cream/70 leading-relaxed max-w-3xl mx-auto">
@@ -89,23 +89,14 @@ const sectionsData = [
 ];
 
 export default function Home() {
-  const [mounted, setMounted] = useState(false);
   const fireflyLogo = PlaceHolderImages.find(p => p.id === 'firefly-logo');
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   useAnalyticsTracker();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const scrollToSection1 = () => {
     const el = document.getElementById('the-gap');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
-
-  if (!mounted) {
-    return <div className="min-h-screen bg-[#1A1208]" />;
-  }
 
   return (
     <div className="relative min-h-screen bg-brand-dark">
@@ -113,7 +104,7 @@ export default function Home() {
       <MobileNav />
       
       <main className="md:ml-64 transition-all">
-        {/* Cinematic Hero */}
+        {/* Cinematic Hero - Pre-rendered for instant loading */}
         <section id="hero" className="relative h-screen flex flex-col px-6 overflow-hidden justify-center items-center border-b border-white/5 bg-[#1A1208] snap-start">
           <div 
             className="absolute inset-0 pointer-events-none opacity-40" 
@@ -137,7 +128,7 @@ export default function Home() {
               )}
 
               <div className="space-y-6">
-                <h1 className="leading-[0.8] blur-in">
+                <h1 className="leading-[0.8]">
                   <span className="block text-[#F4C542] text-[clamp(4rem,20vw,16rem)] font-headline tracking-tighter filter drop-shadow-[0_0_60px_rgba(244,197,66,0.4)]">
                     SAVANNA
                   </span>
@@ -146,14 +137,14 @@ export default function Home() {
                   </span>
                 </h1>
                 
-                <div className="flex items-center justify-center gap-6 opacity-0 animate-in fade-in duration-1000 delay-700 fill-mode-forwards">
+                <div className="flex items-center justify-center gap-6">
                   <div className="h-[1px] w-16 bg-brand-gold/40" />
                   <p className="font-headline text-2xl md:text-5xl text-brand-gold tracking-[0.3em]">NAIROBI EDITION</p>
                   <div className="h-[1px] w-16 bg-brand-gold/40" />
                 </div>
               </div>
               
-              <div className="max-w-3xl mx-auto space-y-12 opacity-0 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-1000 fill-mode-forwards">
+              <div className="max-w-3xl mx-auto space-y-12">
                 <div className="space-y-6">
                   <p className="font-serif text-2xl md:text-5xl text-[#F8F5E6] tracking-tight leading-tight">
                     Multiple venues. One squad. Every Sunday.
@@ -177,7 +168,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-8 opacity-40 animate-in fade-in duration-1000 delay-[1500ms]">
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-8 opacity-40">
             <div className="text-center space-y-2">
               <p className="font-body text-[11px] tracking-[6px] text-[#B8A98A] uppercase font-bold">PREPARED BY FIREFLY MANAGEMENT</p>
             </div>
