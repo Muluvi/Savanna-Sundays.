@@ -39,6 +39,7 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
         "py-6 md:py-8 px-6 md:px-12 lg:px-24 relative overflow-hidden dark-section"
       )}
     >
+      <div className="noise-overlay" />
       <CiderFizz className="opacity-[0.05]" />
       
       <div className="max-w-6xl mx-auto w-full relative z-10">

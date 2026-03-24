@@ -38,17 +38,22 @@
 }
 
 @layer components {
+  .noise-overlay {
+    @apply absolute inset-0 pointer-events-none opacity-[0.03] z-[1];
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
   .dark-section {
     @apply relative overflow-hidden flex flex-col justify-center py-4 md:py-6;
-    background: radial-gradient(circle at 50% 50%, rgba(244,197,66,0.02) 0%, transparent 80%);
+    background: radial-gradient(circle at 50% 50%, rgba(244,197,66,0.03) 0%, transparent 80%);
   }
 
   .glass-tile {
-    @apply bg-white/[0.03] border border-white/10 backdrop-blur-2xl shadow-2xl transition-all duration-500;
+    @apply bg-white/[0.03] border border-brand-gold/20 backdrop-blur-2xl shadow-2xl transition-all duration-500;
   }
 
   .section-label {
-    @apply font-body font-bold text-[9px] tracking-[5px] uppercase text-brand-gold/80 mb-1 block;
+    @apply font-body font-bold text-[9px] tracking-[5px] uppercase text-brand-gold mb-1 block opacity-100;
   }
 
   .section-title {
@@ -86,12 +91,12 @@ html {
 
 @keyframes intense-glow {
   0%, 100% {
-    filter: drop-shadow(0 0 15px rgba(244,197,66,0.25)) brightness(1);
+    filter: drop-shadow(0 0 15px rgba(244,197,66,0.3)) brightness(1);
     transform: scale(1);
   }
   50% {
-    filter: drop-shadow(0 0 45px rgba(244,197,66,0.6)) brightness(1.15);
-    transform: scale(1.03);
+    filter: drop-shadow(0 0 45px rgba(244,197,66,0.7)) brightness(1.2);
+    transform: scale(1.02);
   }
 }
 
