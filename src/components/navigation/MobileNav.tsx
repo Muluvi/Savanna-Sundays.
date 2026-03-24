@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const sections = [
   { id: 'the-gap', label: 'The Sunday Opportunity' },
@@ -15,6 +17,7 @@ const sections = [
 
 export const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const logo = PlaceHolderImages.find(p => p.id === 'firefly-logo');
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -24,8 +27,19 @@ export const MobileNav = () => {
 
   return (
     <div className="md:hidden fixed top-0 left-0 w-full z-[100] px-4 py-4 flex justify-between items-center pointer-events-none">
-      <div className="glass-card p-3 pointer-events-auto">
-        <div className="text-brand-gold font-headline text-lg leading-none">SS</div>
+      <div className="glass-card p-2 px-3 pointer-events-auto flex items-center">
+        {logo ? (
+          <div className="relative h-8 w-24">
+            <Image 
+              src={logo.imageUrl} 
+              alt="Firefly Management" 
+              fill 
+              className="object-contain object-left"
+            />
+          </div>
+        ) : (
+          <div className="text-brand-gold font-headline text-lg leading-none">SS</div>
+        )}
       </div>
       
       <button 

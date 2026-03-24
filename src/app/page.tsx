@@ -7,6 +7,8 @@ import { SectionContainer } from '@/components/sections/SectionContainer';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { useAnalyticsTracker } from '@/hooks/use-analytics-tracker';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 // Content sections
 import { TheGap } from '@/components/sections/TheGap';
@@ -73,6 +75,7 @@ const sectionsData = [
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const logo = PlaceHolderImages.find(p => p.id === 'firefly-logo');
   useAnalyticsTracker();
 
   useEffect(() => {
@@ -192,7 +195,17 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="pt-24 opacity-30 relative z-10">
+          <div className="pt-24 opacity-30 relative z-10 flex flex-col items-center gap-6">
+            {logo && (
+              <div className="relative h-[60px] w-[200px]">
+                <Image 
+                  src={logo.imageUrl} 
+                  alt="Firefly Management" 
+                  fill 
+                  className="object-contain"
+                />
+              </div>
+            )}
             <p className="font-body text-[10px] md:text-[11px] text-brand-text-muted uppercase tracking-[2px] font-bold">
               Prepared by Firefly Management for Kenya Wine Agencies Limited (KWAL) — Savanna Premium Cider
             </p>

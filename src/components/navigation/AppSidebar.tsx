@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ChevronUp } from 'lucide-react';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const sections = [
   { id: 'the-gap', label: 'The Sunday Opportunity' },
@@ -16,6 +18,7 @@ const sections = [
 export const AppSidebar = () => {
   const [activeId, setActiveId] = useState('');
   const [progress, setProgress] = useState(0);
+  const logo = PlaceHolderImages.find(p => p.id === 'firefly-logo');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,9 +48,21 @@ export const AppSidebar = () => {
   return (
     <>
       <aside className="fixed left-0 top-0 h-screen w-64 bg-brand-green hidden md:flex flex-col z-50 border-r border-white/5">
-        <div className="p-8 pb-4">
-          <div className="text-[10px] tracking-[5px] text-brand-teal uppercase mb-1 font-bold">Proposal</div>
-          <div className="font-headline text-3xl text-brand-gold leading-none">Savanna Sundays</div>
+        <div className="p-8 pb-4 space-y-4">
+          {logo && (
+            <div className="relative h-10 w-full">
+              <Image 
+                src={logo.imageUrl} 
+                alt="Firefly Management" 
+                fill 
+                className="object-contain object-left opacity-80"
+              />
+            </div>
+          )}
+          <div>
+            <div className="text-[10px] tracking-[5px] text-brand-teal uppercase mb-1 font-bold">Proposal</div>
+            <div className="font-headline text-3xl text-brand-gold leading-none">Savanna Sundays</div>
+          </div>
         </div>
         
         <nav className="flex-1 overflow-y-auto py-8 px-0 scrollbar-hide">
