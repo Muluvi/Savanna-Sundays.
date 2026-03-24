@@ -67,19 +67,19 @@ export const DualActivationModel = () => {
       </div>
 
       {/* High-Impact Unboxed Venue Marquee - 4K Optimized Edge Masking */}
-      <div className="py-8 md:py-12 overflow-hidden relative group">
+      <div className="py-12 md:py-20 overflow-hidden relative group">
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-green to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-green to-transparent z-10 pointer-events-none" />
         
-        <div className="flex w-fit animate-marquee space-x-20 px-6 items-center">
+        <div className="flex w-fit animate-marquee space-x-24 px-12 items-center">
           {[...Array(3)].map((_, listIdx) => (
-            <div key={listIdx} className="flex items-center space-x-24 shrink-0">
+            <div key={listIdx} className="flex items-center space-x-32 shrink-0">
               {venueData.map((v) => {
                 const img = PlaceHolderImages.find(p => p.id === v.id);
                 return (
                   <div key={`${listIdx}-${v.id}`} className="flex items-center">
                     {img && (
-                      <div className="relative h-64 md:h-80 w-[480px] md:w-[640px] transition-transform duration-1000 hover:scale-105">
+                      <div className="relative h-64 md:h-96 w-[500px] md:w-[700px] transition-transform duration-1000 hover:scale-110">
                         <Image 
                           src={img.imageUrl} 
                           alt={v.name} 
@@ -105,7 +105,7 @@ export const DualActivationModel = () => {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
         {squadRoles.map((role, i) => (
           <div key={i} className="space-y-3 group border-l border-brand-gold/10 pl-4">
-            <div className="text-brand-gold/80 group-hover:text-brand-gold group-hover:scale-110 transition-all duration-500">
+            <div className="text-brand-gold group-hover:text-brand-gold group-hover:scale-110 transition-all duration-500">
               {role.icon}
             </div>
             <div className="space-y-1">

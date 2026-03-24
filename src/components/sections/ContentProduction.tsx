@@ -62,13 +62,13 @@ const ContentSocialSection = () => {
       </div>
 
       {/* High-Density Horizontal Row - Metrics Only */}
-      <div className="grid grid-cols-3 gap-2 py-4 border-y border-white/10 bg-white/[0.01]">
+      <div className="grid grid-cols-3 gap-2 py-6 border-y border-white/10 bg-white/[0.01]">
         {deliverables.map((item, i) => (
-          <div key={i} className="flex flex-col items-center text-center space-y-0.5">
+          <div key={i} className="flex flex-col items-center text-center space-y-1">
             <RollingCounter value={item.value} suffix="/mo" />
             <div className="space-y-0.5">
-              <h5 className="font-headline text-sm md:text-lg text-brand-gold uppercase tracking-widest leading-none">{item.label}</h5>
-              <p className="font-body text-brand-cream/60 text-[7px] leading-tight font-bold uppercase tracking-[2px]">
+              <h5 className="font-headline text-sm md:text-xl text-brand-gold uppercase tracking-widest leading-none">{item.label}</h5>
+              <p className="font-body text-brand-cream/60 text-[8px] leading-tight font-bold uppercase tracking-[2px]">
                 {item.body}
               </p>
             </div>
@@ -77,19 +77,19 @@ const ContentSocialSection = () => {
       </div>
 
       {/* OLED Platform Marquee with Edge Masking */}
-      <div className="space-y-2 pt-2">
-        <div className="section-label text-center mb-0 opacity-100 text-brand-gold">Multi-Platform Distribution</div>
-        <div className="relative overflow-hidden py-4">
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-brand-green to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-brand-green to-transparent z-10 pointer-events-none" />
+      <div className="space-y-2 pt-6">
+        <div className="section-label text-center mb-2 opacity-100 text-brand-gold">Multi-Platform Distribution</div>
+        <div className="relative overflow-hidden py-8">
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-green to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-green to-transparent z-10 pointer-events-none" />
           
-          <div className="flex w-fit animate-marquee space-x-12 px-4 items-center">
+          <div className="flex w-fit animate-marquee space-x-20 px-4 items-center">
             {[...Array(3)].map((_, listIdx) => (
-              <div key={listIdx} className="flex items-center space-x-16 shrink-0">
+              <div key={listIdx} className="flex items-center space-x-24 shrink-0">
                 {['social-yt', 'social-ig', 'social-tt', 'social-fb', 'social-x'].map((id) => {
                   const img = PlaceHolderImages.find(i => i.id === id);
                   return (
-                    <div key={`${listIdx}-${id}`} className="relative h-10 w-24 transition-transform duration-500 hover:scale-110">
+                    <div key={`${listIdx}-${id}`} className="relative h-16 w-32 transition-transform duration-500 hover:scale-125">
                       {img && <Image src={img.imageUrl} alt={img.description} fill className="object-contain" />}
                     </div>
                   );

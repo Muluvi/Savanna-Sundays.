@@ -47,10 +47,10 @@ export default function Home() {
 
           <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-4 text-center">
             {savannaLogo && (
-              <div className="relative h-48 md:h-72 w-80 md:w-[540px] flex items-center justify-center animate-intense-glow mb-4">
+              <div className="relative h-64 md:h-96 w-full max-w-[600px] flex items-center justify-center animate-intense-glow mb-8">
                 <Image 
                   src={savannaLogo.imageUrl} 
-                  alt="Savanna" 
+                  alt="Savanna Premium Cider" 
                   fill 
                   className="object-contain relative z-10" 
                   priority 
@@ -103,10 +103,14 @@ export default function Home() {
             </a>
 
             <div className="pt-8 space-y-6">
-              <div className="flex items-center justify-center gap-10 grayscale brightness-200 opacity-60">
-                {savannaLogo && <div className="relative h-8 w-24"><Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain" /></div>}
-                <div className="h-6 w-[1px] bg-white/20" />
-                <p className="font-headline text-2xl text-white tracking-widest">Firefly</p>
+              <div className="flex items-center justify-center gap-10">
+                {savannaLogo && (
+                  <div className="relative h-16 w-48">
+                    <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain" />
+                  </div>
+                )}
+                <div className="h-10 w-[1px] bg-white/20" />
+                <p className="font-headline text-3xl text-white tracking-widest">Firefly</p>
               </div>
 
               <div className="space-y-4 max-w-xl mx-auto">

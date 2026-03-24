@@ -51,9 +51,9 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
 export const TheGap = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   const socialIcons = [
-    { id: 'social-fb', label: 'Facebook', value: '603K', size: 'h-16 w-48' },
-    { id: 'social-ig', label: 'Instagram', value: '6K', size: 'h-14 w-14' },
-    { id: 'social-x', label: 'X (Twitter)', value: '1115', size: 'h-10 w-10' },
+    { id: 'social-fb', label: 'Facebook', value: '603K', size: 'h-20 w-60' },
+    { id: 'social-ig', label: 'Instagram', value: '6K', size: 'h-20 w-20' },
+    { id: 'social-x', label: 'X (Twitter)', value: '1115', size: 'h-16 w-16' },
   ];
 
   return (
@@ -66,9 +66,9 @@ export const TheGap = () => {
         </div>
 
         <div className="glass-tile p-8 rounded-[32px] relative overflow-hidden border-brand-gold/20 bg-white/[0.04] shadow-2xl group">
-          <div className="absolute top-0 right-0 p-6 opacity-10 pointer-events-none scale-150 translate-x-4 -translate-y-4 group-hover:scale-[1.7] transition-transform duration-1000">
+          <div className="absolute top-0 right-0 p-6 opacity-20 pointer-events-none scale-150 translate-x-4 -translate-y-4 group-hover:scale-[1.7] transition-transform duration-1000">
             {savannaLogo && (
-              <Image src={savannaLogo.imageUrl} alt="" width={160} height={160} className="object-contain" />
+              <Image src={savannaLogo.imageUrl} alt="" width={240} height={240} className="object-contain" />
             )}
           </div>
           <span className="section-label mb-2 text-brand-gold opacity-100">The Opportunity</span>
@@ -81,19 +81,19 @@ export const TheGap = () => {
       <div className="space-y-4 pt-6">
         <div className="section-label text-center mb-0 text-brand-gold/80">Market Presence</div>
         
-        <div className="relative overflow-hidden py-10 glass-tile rounded-[32px] border-brand-gold/10 bg-white/[0.02]">
+        <div className="relative overflow-hidden py-12 glass-tile rounded-[32px] border-brand-gold/10 bg-white/[0.02]">
           {/* Edge Masking for 4K Marquee */}
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-green to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-green to-transparent z-10 pointer-events-none" />
           
-          <div className="flex w-fit animate-marquee space-x-24 px-8 items-center">
+          <div className="flex w-fit animate-marquee space-x-32 px-12 items-center">
             {[...Array(3)].map((_, listIdx) => (
-              <div key={listIdx} className="flex items-center space-x-24 shrink-0">
+              <div key={listIdx} className="flex items-center space-x-32 shrink-0">
                 {socialIcons.map((stat) => {
                   const img = PlaceHolderImages.find(i => i.id === stat.id);
                   return (
-                    <div key={`${listIdx}-${stat.id}`} className="flex flex-col items-center gap-4 group">
-                      <div className={cn("relative transition-transform duration-700 group-hover:scale-110 grayscale brightness-150 group-hover:grayscale-0", stat.size)}>
+                    <div key={`${listIdx}-${stat.id}`} className="flex flex-col items-center gap-6 group">
+                      <div className={cn("relative transition-transform duration-700 group-hover:scale-110", stat.size)}>
                         {img && <Image src={img.imageUrl} alt={stat.label} fill className="object-contain" />}
                       </div>
                       <div className="text-center">
