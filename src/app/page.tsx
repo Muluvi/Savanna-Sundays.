@@ -122,7 +122,7 @@ export default function Home() {
               <div className="max-w-3xl mx-auto space-y-6 opacity-0 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-forwards">
                 <div className="space-y-4">
                   <p className="font-serif text-xl md:text-3xl text-[#F8F5E6] tracking-wide">
-                    Own Every Sunday in Nairobi
+                    Multiple venues. One squad. Every Sunday.
                   </p>
                   <p className="font-serif italic text-base md:text-lg text-[#B8A98A]">
                     A weekly brand activation by Savanna Premium Cider — every Sunday, every venue, every crowd.
@@ -170,7 +170,7 @@ export default function Home() {
           <div className="max-w-2xl mx-auto space-y-8 relative z-10">
             <p className="font-serif italic text-2xl md:text-3xl text-brand-cream leading-relaxed">
               "Savanna Sundays is ready to run.<br className="hidden md:block" />
-              The squad is assembled. The format is proven. The content engine is built.<br className="hidden md:block" />
+              The squad is assembled. The network is scaled. The engine is built.<br className="hidden md:block" />
               All that's needed is the signal to go."
             </p>
             <p className="font-body text-xs md:text-sm text-brand-text-muted uppercase tracking-[3px] font-bold">

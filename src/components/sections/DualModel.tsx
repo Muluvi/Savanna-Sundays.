@@ -6,11 +6,11 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const venueData = [
-  { name: "Muze", area: "Westlands", capacity: "400", type: "Owned", imageId: "venue-muze" },
-  { name: "The Alchemist", area: "Westlands", capacity: "600", type: "Sponsor", imageId: "venue-alchemist" },
-  { name: "KODA", area: "Kilimani", capacity: "350", type: "Owned", imageId: "venue-koda" },
-  { name: "Black Samurai", area: "Westlands", capacity: "500", type: "Sponsor", imageId: "venue-black-samurai" },
-  { name: "Masshouse", area: "Industrial Area", capacity: "1200", type: "Sponsor", imageId: "venue-masshouse" },
+  { name: "Muze", area: "Westlands", capacity: "400", type: "Squad Venue", imageId: "venue-muze" },
+  { name: "The Alchemist", area: "Westlands", capacity: "600", type: "Satellite", imageId: "venue-alchemist" },
+  { name: "KODA", area: "Kilimani", capacity: "350", type: "Squad Venue", imageId: "venue-koda" },
+  { name: "Black Samurai", area: "Westlands", capacity: "500", type: "Satellite", imageId: "venue-black-samurai" },
+  { name: "Masshouse", area: "Industrial Area", capacity: "1200", type: "Satellite", imageId: "venue-masshouse" },
 ];
 
 export const DualActivationModel = () => {
@@ -18,7 +18,7 @@ export const DualActivationModel = () => {
     <div className="space-y-12">
       <div className="max-w-3xl">
         <p className="font-body text-lg md:text-xl text-[#F8F5E6] leading-relaxed">
-          One squad. One brand. A different venue every Sunday.
+          One squad. Multiple venues. Every Sunday.
         </p>
       </div>
 
@@ -28,28 +28,43 @@ export const DualActivationModel = () => {
           <div className="space-y-4">
             <h4 className="font-headline text-3xl text-[#F4C542] uppercase tracking-tight">The Savanna Squad Arrives</h4>
             <p className="font-body text-[#F8F5E6] text-sm md:text-base leading-relaxed opacity-90">
-              Every Sunday, the squad deploys — DJs, MC, influencers, brand rep, content crew. Bar wraps, signage, and backdrop go up. By 2PM the venue is unmistakably Savanna. From 2PM to 9PM the squad runs the experience. By Monday, content is in post-production.
+              Every Sunday, the core squad (DJs, MC, influencers, content crew) deploys to <strong>one primary venue</strong>. This "Anchor Venue" receives the full live experience, multi-camera capture, and live social storytelling.
             </p>
           </div>
         </Card>
         
-        {/* Right Card: Venue Rotation */}
+        {/* Right Card: Satellite Branding */}
         <Card className="p-8 bg-[#221A0A] border-none rounded-[24px] flex flex-col justify-between group hover:-translate-y-2 transition-all duration-500 shadow-2xl">
           <div className="space-y-4">
-            <h4 className="font-headline text-3xl text-[#F4C542] uppercase tracking-tight">Rotating Venues</h4>
+            <h4 className="font-headline text-3xl text-[#F4C542] uppercase tracking-tight">Satellite Venues</h4>
             <p className="font-body text-[#F8F5E6] text-sm md:text-base leading-relaxed opacity-90">
-              Savanna Sundays moves through Nairobi's best social venues — rooftops, gardens, lounges. Each edition looks distinct. Each venue gets a genuine brand moment.
+              Simultaneously, the brand takes over 1 or 2 other premium venues with "Standard Savanna Branding". These locations receive full visual identity kits — bar wraps, signage, and branded glassware — ensuring market dominance without duplicating personnel costs.
             </p>
           </div>
         </Card>
       </div>
 
-      {/* Future Expansion Note */}
-      <div className="max-w-2xl space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-        <h5 className="font-body font-bold text-sm text-[#B8A98A] uppercase tracking-[2px]">Future Expansion</h5>
-        <p className="font-body text-xs md:text-sm text-[#B8A98A] leading-relaxed">
-          As the Sunday community grows, Savanna Sundays becomes a platform for larger title sponsorships — festivals, concerts, seasonal tentpoles.
-        </p>
+      {/* Deployment Note */}
+      <div className="max-w-3xl space-y-4 p-8 bg-white/5 rounded-3xl border border-white/5">
+        <h5 className="font-headline text-xl text-brand-gold uppercase tracking-widest">The Multi-Venue Rollout</h5>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-2">
+            <p className="font-body text-xs md:text-sm text-brand-gold font-bold uppercase tracking-wider">Sundays 01 — 03</p>
+            <p className="font-body text-xs md:text-sm text-[#B8A98A] leading-relaxed">
+              <strong>2 Venues per Sunday:</strong><br/>
+              1 Squad-Led "Anchor" Venue<br/>
+              1 Branded "Satellite" Venue
+            </p>
+          </div>
+          <div className="space-y-2">
+            <p className="font-body text-xs md:text-sm text-brand-gold font-bold uppercase tracking-wider">Sunday 04 (The Surge)</p>
+            <p className="font-body text-xs md:text-sm text-[#B8A98A] leading-relaxed">
+              <strong>3 Venues per Sunday:</strong><br/>
+              1 Squad-Led "Anchor" Venue<br/>
+              2 Branded "Satellite" Venues
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Venue Marquee */}
@@ -69,8 +84,15 @@ export const DualActivationModel = () => {
                     />
                   )}
                   <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent translate-y-2 group-hover:translate-y-0 transition-transform">
-                    <h5 className="font-headline text-xl text-[#F4C542] leading-none">{venue.name}</h5>
-                    <p className="font-body text-[10px] uppercase tracking-widest text-[#F8F5E6]/60 mt-1">{venue.area}</p>
+                    <div className="flex justify-between items-end">
+                      <div>
+                        <h5 className="font-headline text-xl text-[#F4C542] leading-none">{venue.name}</h5>
+                        <p className="font-body text-[10px] uppercase tracking-widest text-[#F8F5E6]/60 mt-1">{venue.area}</p>
+                      </div>
+                      <span className="font-body text-[8px] font-bold text-brand-gold uppercase tracking-tighter border border-brand-gold/30 px-2 py-1 rounded">
+                        {venue.type}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
