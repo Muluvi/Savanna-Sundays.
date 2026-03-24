@@ -1,4 +1,3 @@
-
 'use client';
 
 import { MobileNav } from '@/components/navigation/MobileNav';
@@ -12,7 +11,6 @@ import { TheGap } from '@/components/sections/TheGap';
 import { DualActivationModel } from '@/components/sections/DualModel';
 import { VisualIdentitySection } from '@/components/sections/VisualIdentity';
 import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
-import { DigitalInfrastructureSection } from '@/components/sections/DigitalInfrastructure';
 import { TheNumbersSection } from '@/components/sections/TheNumbersSection';
 import { MusicProgrammingSection } from '@/components/sections/MusicProgramming';
 
@@ -20,14 +18,13 @@ const sectionsData = [
   { id: 'the-gap', label: '01 — The Opportunity', title: "The Gap", component: <TheGap /> },
   { id: 'the-engine', label: '02 — The Engine', title: 'The Dual Model', component: <DualActivationModel /> },
   { id: 'the-ritual', label: '03 — The Ritual', title: 'The Experience', component: (
-    <div className="space-y-4 md:space-y-6">
+    <div className="space-y-12">
       <VisualIdentitySection />
       <MusicProgrammingSection />
       <ExperienceDesignSection />
     </div>
   ) },
-  { id: 'the-data', label: '04 — The Feedback', title: 'The Data Loop', component: <DigitalInfrastructureSection /> },
-  { id: 'the-numbers', label: '05 — The Investment', title: 'The Numbers', component: <TheNumbersSection /> },
+  { id: 'the-numbers', label: '04 — The Investment', title: 'The Numbers', component: <TheNumbersSection /> },
 ];
 
 export default function Home() {
@@ -46,7 +43,7 @@ export default function Home() {
 
           <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-2 text-center">
             {savannaLogo && (
-              <div className="relative h-72 md:h-[500px] w-full max-w-[800px] flex items-center justify-center animate-intense-glow mb-2">
+              <div className="relative h-72 md:h-[500px] w-full max-w-[800px] flex items-center justify-center animate-intense-glow mb-4">
                 <Image 
                   src={savannaLogo.imageUrl} 
                   alt="Savanna Premium Cider" 
@@ -64,13 +61,13 @@ export default function Home() {
               </h1>
             </div>
             
-            <p className="font-serif italic text-lg md:text-2xl text-brand-cream/90 leading-relaxed max-w-lg mt-2">
+            <p className="font-serif italic text-lg md:text-2xl text-brand-cream/90 leading-relaxed max-w-lg mt-4">
               One brand. Multiple venues. Every Sunday.
             </p>
           </div>
 
           {/* High-Fidelity Attribution at Absolute Bottom */}
-          <div className="absolute bottom-10 left-0 w-full flex flex-col items-center gap-4">
+          <div className="absolute bottom-12 left-0 w-full flex flex-col items-center gap-4">
             <p className="font-body text-[10px] text-brand-gold/60 tracking-[0.6em] uppercase font-bold">
               Presented by Firefly Management
             </p>
@@ -90,33 +87,33 @@ export default function Home() {
         ))}
 
         {/* Brand Closing Section */}
-        <div className="py-12 px-6 text-center bg-brand-green border-t border-white/5 relative overflow-hidden">
+        <div className="py-24 px-6 text-center bg-brand-green border-t border-white/5 relative overflow-hidden">
           <div className="noise-overlay" />
-          <div className="max-w-4xl mx-auto space-y-8 relative z-10">
-            <p className="font-serif italic text-xl md:text-4xl text-brand-cream leading-tight max-w-2xl mx-auto">
+          <div className="max-w-4xl mx-auto space-y-12 relative z-10">
+            <p className="font-serif italic text-2xl md:text-5xl text-brand-cream leading-tight max-w-2xl mx-auto">
               Savanna Sundays is built. The squad is assembled. The venues are mapped. All that’s needed is the green light.
             </p>
 
-            <a href="mailto:partner@firefly.co.ke" className="btn-primary inline-flex h-16 px-12 items-center gap-6 text-lg hover:scale-105 transition-all">
+            <a href="mailto:partner@firefly.co.ke" className="btn-primary inline-flex h-20 px-16 items-center gap-8 text-xl hover:scale-105 transition-all">
               <span>Let&apos;s own Sunday</span>
             </a>
 
-            <div className="pt-8 space-y-6">
-              <div className="flex items-center justify-center gap-10">
+            <div className="pt-16 space-y-8">
+              <div className="flex items-center justify-center gap-12">
                 {savannaLogo && (
-                  <div className="relative h-16 w-48">
+                  <div className="relative h-20 w-60">
                     <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain" />
                   </div>
                 )}
-                <div className="h-10 w-[1px] bg-white/20" />
-                <p className="font-headline text-3xl text-white tracking-widest">Firefly</p>
+                <div className="h-12 w-[1px] bg-white/20" />
+                <p className="font-headline text-4xl text-white tracking-widest">Firefly</p>
               </div>
 
               <div className="space-y-4 max-w-xl mx-auto">
-                <p className="font-body text-[9px] text-brand-gold/80 uppercase tracking-[4px] font-bold">
+                <p className="font-body text-[10px] text-brand-gold/80 uppercase tracking-[4px] font-bold">
                   Prepared by Firefly Management for Kenya Wine Agencies Limited (KWAL)
                 </p>
-                <p className="font-body text-[8px] text-brand-gold/40 uppercase tracking-[2px] leading-relaxed">
+                <p className="font-body text-[9px] text-brand-gold/40 uppercase tracking-[2px] leading-relaxed">
                   Excessive alcohol consumption is harmful to your health. Not for sale to persons under the age of 18 years.
                 </p>
               </div>

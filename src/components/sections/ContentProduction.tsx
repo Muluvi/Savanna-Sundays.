@@ -2,8 +2,6 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -39,68 +37,52 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
   }, [isVisible, target]);
 
   return (
-    <span ref={containerRef} className="font-headline text-[clamp(2.5rem,10vw,5rem)] text-brand-gold leading-none tracking-tighter">
-      {Math.floor(displayValue).toLocaleString()}
-      <span className="text-[0.25em] ml-2 opacity-80 uppercase tracking-widest">{suffix}</span>
+    <span ref={containerRef} className="relative inline-block">
+      <span className="font-headline text-[clamp(4rem,12vw,7rem)] text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(244,197,66,0.3)]">
+        {Math.floor(displayValue).toLocaleString()}
+      </span>
+      <span className="absolute -inset-2 bg-brand-gold/5 blur-2xl rounded-full -z-10 animate-pulse" />
     </span>
   );
 };
 
-const ContentSocialSection = () => {
+const ContentHarvestMetrics = () => {
   const deliverables = [
-    { label: "YouTube sets", value: "4", body: "Hi-Fi DJ Sets" },
-    { label: "Recap reels", value: "16", body: "Algorithm Loops" },
-    { label: "HD photography", value: "28", body: "Lifestyle Assets" }
+    { label: "YouTube sets", value: "4", body: "Hi-Fi DJ Production" },
+    { label: "Recap reels", value: "16", body: "Algorithm Optimized" },
+    { label: "HD photography", value: "28", body: "Lifestyle Asset Harvest" }
   ];
 
   return (
-    <div className="space-y-4">
-      <div className="text-center max-w-xl mx-auto">
-        <p className="font-serif italic text-sm md:text-lg text-brand-gold/80 leading-relaxed">
-          One Sunday of production feeds a full week of absolute digital dominance.
-        </p>
-      </div>
-
-      {/* High-Density Horizontal Row - Metrics Only */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-8 border-y border-white/10 bg-white/[0.01]">
-        {deliverables.map((item, i) => (
-          <div key={i} className="flex flex-col items-center text-center space-y-2">
-            <RollingCounter value={item.value} suffix="per month" />
-            <div className="space-y-1">
-              <h5 className="font-headline text-lg md:text-2xl text-brand-gold uppercase tracking-widest leading-none">{item.label}</h5>
-              <p className="font-body text-brand-cream/60 text-[10px] leading-tight font-bold uppercase tracking-[2px]">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+      {deliverables.map((item, i) => (
+        <div 
+          key={i} 
+          className="relative group p-8 rounded-[32px] bg-white/[0.03] border border-brand-gold/10 overflow-hidden transition-all duration-700 hover:bg-white/[0.08] hover:border-brand-gold/40 hover:-translate-y-2 shadow-2xl animate-fade-in-up"
+          style={{ animationDelay: `${i * 150}ms` }}
+        >
+          {/* Subtle Glossy Glow */}
+          <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+          
+          <div className="relative z-10 flex flex-col items-center text-center space-y-4">
+            <RollingCounter value={item.value} />
+            
+            <div className="space-y-2">
+              <div className="font-body text-[10px] text-brand-gold/60 font-bold uppercase tracking-[4px]">
+                per month
+              </div>
+              <h5 className="font-headline text-3xl text-white uppercase tracking-widest leading-none group-hover:text-brand-gold transition-colors">
+                {item.label}
+              </h5>
+              <p className="font-body text-brand-cream/40 text-[9px] leading-tight font-bold uppercase tracking-[2px]">
                 {item.body}
               </p>
             </div>
           </div>
-        ))}
-      </div>
-
-      {/* OLED Platform Marquee with Edge Masking */}
-      <div className="space-y-2 pt-6">
-        <div className="section-label text-center mb-2 opacity-100 text-brand-gold">Multi-Platform Distribution</div>
-        <div className="relative overflow-hidden py-10">
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-green to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-green to-transparent z-10 pointer-events-none" />
-          
-          <div className="flex w-fit animate-marquee space-x-20 px-4 items-center">
-            {[...Array(3)].map((_, listIdx) => (
-              <div key={listIdx} className="flex items-center space-x-24 shrink-0">
-                {['social-yt', 'social-ig', 'social-tt', 'social-fb', 'social-x'].map((id) => {
-                  const img = PlaceHolderImages.find(i => i.id === id);
-                  return (
-                    <div key={`${listIdx}-${id}`} className="relative h-20 w-40 transition-transform duration-500 hover:scale-125">
-                      {img && <Image src={img.imageUrl} alt={img.description} fill className="object-contain" />}
-                    </div>
-                  );
-                })}
-              </div>
-            ))}
-          </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 };
 
-export { ContentSocialSection };
+export { ContentHarvestMetrics };

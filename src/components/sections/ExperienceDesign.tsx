@@ -1,5 +1,4 @@
-
-"use client";
+'use client';
 
 import React from 'react';
 import { cn } from '@/lib/utils';
@@ -11,8 +10,10 @@ import {
   Upload,
   Video,
   Share2,
-  CalendarDays
+  CalendarDays,
+  Sparkles
 } from 'lucide-react';
+import { ContentHarvestMetrics } from './ContentProduction';
 
 const productionDays = [
   { day: "Sun", title: "Shoot", body: "Capture at squad venue.", icon: <Camera size={14} />, highlight: false },
@@ -26,12 +27,26 @@ const productionDays = [
 
 export const ExperienceDesignSection = () => {
   return (
-    <div className="space-y-8">
-      {/* 03B: The Week After Sunday (Formerly 03C) */}
-      <div className="space-y-4">
+    <div className="space-y-12">
+      {/* 03B: The Content Harvest (New Primary Feature) */}
+      <div className="space-y-6">
+        <div className="flex items-center gap-3 mb-2">
+          <Sparkles className="text-brand-gold" size={20} />
+          <div className="section-label mb-0">03B: The Content Harvest</div>
+        </div>
+        
+        <p className="font-body text-brand-cream/80 text-lg leading-relaxed max-w-2xl">
+          One Sunday of production feeds a full week of digital dominance. We transform high-energy moments into a permanent strategic asset library.
+        </p>
+
+        <ContentHarvestMetrics />
+      </div>
+
+      {/* 03C: The Publishing Rhythm (Formerly 03B) */}
+      <div className="space-y-6 pt-8 border-t border-white/5">
         <div className="flex items-center gap-3 mb-2">
           <CalendarDays className="text-brand-gold" size={20} />
-          <div className="section-label mb-0">03B: The Weekly Publishing Rhythm</div>
+          <div className="section-label mb-0">03C: The Weekly Publishing Rhythm</div>
         </div>
 
         <div className="overflow-x-auto scrollbar-hide -mx-6 px-6">
@@ -40,21 +55,21 @@ export const ExperienceDesignSection = () => {
               <div 
                 key={i} 
                 className={cn(
-                  "flex-1 p-5 rounded-[24px] flex flex-col gap-3 border transition-all duration-500",
+                  "flex-1 p-6 rounded-[32px] flex flex-col gap-4 border transition-all duration-700",
                   p.highlight 
-                    ? "bg-brand-gold/10 border-brand-gold/30" 
-                    : "bg-white/5 border-white/5 opacity-40"
+                    ? "bg-white/[0.04] border-brand-gold/30 shadow-[0_0_30px_rgba(244,197,66,0.05)]" 
+                    : "bg-white/5 border-white/5 opacity-30"
                 )}
               >
                 <div className="flex items-center justify-between">
                   <span className={cn(
-                    "font-headline text-base uppercase tracking-wider",
+                    "font-headline text-lg uppercase tracking-widest",
                     p.highlight ? "text-brand-gold" : "text-brand-cream/40"
                   )}>
                     {p.day}
                   </span>
                   <div className={cn(
-                    "p-1.5 rounded-lg",
+                    "p-2 rounded-xl",
                     p.highlight ? "bg-brand-gold text-brand-green" : "bg-white/5 text-brand-gold/40"
                   )}>
                     {p.icon}
@@ -63,19 +78,19 @@ export const ExperienceDesignSection = () => {
                 
                 <div className="space-y-1">
                   <h5 className={cn(
-                    "font-headline text-lg uppercase leading-none",
+                    "font-headline text-xl uppercase leading-none",
                     p.highlight ? "text-brand-gold" : "text-brand-cream"
                   )}>
                     {p.title}
                   </h5>
-                  <p className="font-body text-[9px] text-brand-gold/60 leading-tight font-bold uppercase tracking-wider">
+                  <p className="font-body text-[9px] text-brand-gold/60 leading-tight font-bold uppercase tracking-widest">
                     {p.body}
                   </p>
                 </div>
                 
                 {p.highlight && (
-                  <div className="mt-auto pt-2 border-t border-brand-gold/10">
-                    <span className="font-body text-[7px] text-brand-gold font-bold uppercase tracking-[2px]">LIVE</span>
+                  <div className="mt-auto pt-3 border-t border-brand-gold/10">
+                    <span className="font-body text-[8px] text-brand-gold font-bold uppercase tracking-[3px] animate-pulse">LIVE RELEASE</span>
                   </div>
                 )}
               </div>
@@ -84,9 +99,9 @@ export const ExperienceDesignSection = () => {
         </div>
       </div>
       
-      <div className="text-center border-t border-white/5 pt-6">
-        <p className="font-body text-[10px] text-brand-gold/30 italic uppercase tracking-[3px] font-bold">
-          One Sunday of production feeds a full week of digital dominance.
+      <div className="text-center pt-6">
+        <p className="font-body text-[10px] text-brand-gold/30 italic uppercase tracking-[4px] font-bold">
+          High-fidelity assets are delivered via a private cloud portal every Sunday evening.
         </p>
       </div>
     </div>

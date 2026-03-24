@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from 'react';
@@ -9,8 +8,7 @@ const sections = [
   { id: 'the-gap', label: 'The Opportunity', num: '01' },
   { id: 'the-engine', label: 'The Engine', num: '02' },
   { id: 'the-ritual', label: 'The Ritual', num: '03' },
-  { id: 'the-data', label: 'The Feedback', num: '04' },
-  { id: 'the-numbers', label: 'The Investment', num: '05' },
+  { id: 'the-numbers', label: 'The Investment', num: '04' },
 ];
 
 export const MobileNav = () => {
@@ -45,13 +43,13 @@ export const MobileNav = () => {
       )}>
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
         
-        <div className="relative z-10 space-y-1 mb-8">
+        <div className="relative z-10 space-y-1 mb-12">
           <p className="font-body text-[10px] tracking-[4px] text-brand-gold uppercase font-bold opacity-40">Strategic Deck</p>
-          <h3 className="font-headline text-4xl text-white uppercase tracking-tighter">Navigation</h3>
+          <h3 className="font-headline text-5xl text-white uppercase tracking-tighter">Navigation</h3>
         </div>
 
         <nav className="relative z-10 flex-1 overflow-y-auto scrollbar-hide">
-          <ul className="space-y-4">
+          <ul className="space-y-6">
             {sections.map((section, i) => (
               <li 
                 key={section.id} 
@@ -59,19 +57,19 @@ export const MobileNav = () => {
                   "transition-all duration-700 transform",
                   isOpen ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
                 )}
-                style={{ transitionDelay: isOpen ? `${i * 50}ms` : '0ms' }}
+                style={{ transitionDelay: isOpen ? `${i * 75}ms` : '0ms' }}
               >
                 <button
                   onClick={() => scrollTo(section.id)}
-                  className="w-full flex items-center justify-between group py-3 border-b border-white/5"
+                  className="w-full flex items-center justify-between group py-4 border-b border-white/5"
                 >
-                  <div className="flex items-center gap-6">
-                    <span className="font-headline text-lg text-brand-gold/40">{section.num}</span>
-                    <span className="font-headline text-3xl text-white tracking-wide uppercase group-hover:text-brand-gold transition-colors">
+                  <div className="flex items-center gap-8">
+                    <span className="font-headline text-2xl text-brand-gold/40">{section.num}</span>
+                    <span className="font-headline text-4xl text-white tracking-wide uppercase group-hover:text-brand-gold transition-colors">
                       {section.label}
                     </span>
                   </div>
-                  <ChevronRight className="text-brand-gold opacity-40" size={18} />
+                  <ChevronRight className="text-brand-gold opacity-40" size={24} />
                 </button>
               </li>
             ))}
@@ -79,16 +77,16 @@ export const MobileNav = () => {
         </nav>
 
         <div className={cn(
-          "relative z-10 pt-8 border-t border-white/10 mt-auto transition-all duration-1000 delay-500",
+          "relative z-10 pt-12 border-t border-white/10 mt-auto transition-all duration-1000 delay-500",
           isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         )}>
-          <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
-              <Sparkles className="text-brand-gold opacity-30" size={18} />
+          <div className="flex items-center gap-6">
+            <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center">
+              <Sparkles className="text-brand-gold opacity-30" size={24} />
             </div>
             <div>
-              <p className="font-body text-[9px] text-white/50 font-bold uppercase tracking-widest leading-none">Firefly Management</p>
-              <p className="font-body text-[8px] text-brand-gold/40 uppercase tracking-[2px] mt-1">Strategic Proposal</p>
+              <p className="font-body text-[10px] text-white/50 font-bold uppercase tracking-widest leading-none">Firefly Management</p>
+              <p className="font-body text-[9px] text-brand-gold/40 uppercase tracking-[2px] mt-1">Strategic Proposal</p>
             </div>
           </div>
         </div>
