@@ -5,17 +5,14 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { 
   Youtube, 
-  Instagram, 
   Camera, 
   QrCode, 
-  Users, 
   MessageSquare, 
   Share2, 
   RotateCcw,
   Zap,
   Target,
-  RefreshCcw,
-  Repeat
+  RefreshCcw
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -58,28 +55,10 @@ const flywheelStages = [
   },
 ];
 
-const mechanicCards = [
-  {
-    title: "YouTube Loop",
-    body: "Weekly DJ sets. Viewers comment to win.",
-    icon: <Youtube className="w-5 h-5" />
-  },
-  {
-    title: "Spot Yourself",
-    body: "HD photos. Attendees tag themselves.",
-    icon: <Camera className="w-5 h-5" />
-  },
-  {
-    title: "Scan & Win",
-    body: "QR codes for weekly data capture.",
-    icon: <QrCode className="w-5 h-5" />
-  }
-];
-
 const engagementMechanics = [
   { 
     title: "The DJ Reveal", 
-    body: "Mid-week sound clip tease. No reveal.", 
+    body: "Mid-week sound clip tease. No full reveal.", 
     icon: <Zap className="text-brand-gold" size={16} /> 
   },
   { 
@@ -141,7 +120,7 @@ export const BuildingTheCrowd = () => {
         ))}
       </div>
 
-      {/* Flywheel Visualization - Compact */}
+      {/* Flywheel Visualization */}
       <div className="py-2" ref={flywheelRef}>
         <div className="lg:hidden space-y-3">
           {flywheelStages.map((stage, i) => (
@@ -201,19 +180,6 @@ export const BuildingTheCrowd = () => {
             })}
           </div>
         </div>
-      </div>
-
-      {/* Conversion Mechanics - Compact Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
-        {mechanicCards.map((m, i) => (
-          <div key={i} className="p-4 bg-white/5 border border-white/10 rounded-[24px] space-y-2 flex flex-col items-center text-center">
-            <div className="text-brand-gold">{m.icon}</div>
-            <div className="space-y-0.5">
-              <h4 className="font-headline text-base text-brand-gold uppercase tracking-tight leading-none">{m.title}</h4>
-              <p className="font-body text-brand-cream/60 text-[8px] leading-tight font-bold uppercase tracking-wider">{m.body}</p>
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );

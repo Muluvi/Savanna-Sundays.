@@ -1,8 +1,9 @@
+
 "use client";
 
 import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { TrendingUp, Calendar, Landmark, CheckCircle2, Sparkles, ReceiptText } from 'lucide-react';
+import { TrendingUp, Calendar, Landmark, ReceiptText, ShieldCheck, Zap, Music, Video, Camera, QrCode } from 'lucide-react';
 
 const lineItems = [
   { item: "DJ 1 (Warm-Up Set)", cost: "50,000" },
@@ -13,28 +14,13 @@ const lineItems = [
   { item: "Logistics & Brand Materials", cost: "8,550" },
 ];
 
-const projections = [
-  {
-    title: "Phase 1 Ignition",
-    weekly: "KSh 336,168",
-    weeklySub: "1 Squad + 1 Partner Venue",
-    monthly: "KSh 1,344,672",
-    icon: <Calendar className="text-brand-gold" size={24} />
-  },
-  {
-    title: "Phase 2 Expansion",
-    weekly: "KSh 336,168",
-    weeklySub: "1 Squad + 2 Partner Venues",
-    monthly: "KSh 1,344,672",
-    icon: <TrendingUp className="text-brand-gold" size={24} />
-  },
-  {
-    title: "Quarterly Projection",
-    weekly: "Months 1–3",
-    weeklySub: "Fixed Strategic Spend",
-    monthly: "KSh 4,034,016",
-    icon: <Landmark className="text-brand-gold" size={24} />
-  }
+const checklistItems = [
+  { label: "Branded Venues", desc: "Visual dominance at host venues.", icon: <ShieldCheck size={24} /> },
+  { label: "Squad Activation", desc: "Live DJs, MC, and influencers.", icon: <Zap size={24} /> },
+  { label: "Music Harvest", desc: "High-fidelity YouTube DJ sets.", icon: <Music size={24} /> },
+  { label: "Social Content", desc: "Optimized Reels for all platforms.", icon: <Video size={24} /> },
+  { label: "HD Photography", desc: "Lifestyle assets harvested weekly.", icon: <Camera size={24} /> },
+  { label: "Data Capture", desc: "QR competitions for KWAL CRM.", icon: <QrCode size={24} /> }
 ];
 
 export const TheNumbersSection = () => {
@@ -52,7 +38,7 @@ export const TheNumbersSection = () => {
         </p>
       </div>
 
-      <div className="overflow-hidden border-t border-white/5">
+      <div className="overflow-hidden border border-white/10 bg-white/[0.02] rounded-[32px]">
         <Table>
           <TableHeader className="bg-brand-gold">
             <TableRow className="hover:bg-transparent border-none">
@@ -79,24 +65,6 @@ export const TheNumbersSection = () => {
               </TableRow>
             ))}
             
-            <TableRow className="border-t-2 border-white/10">
-              <TableCell className="font-headline text-xl py-6 px-10 text-brand-gold/60">
-                Activation Subtotal
-              </TableCell>
-              <TableCell className="font-headline text-3xl text-brand-gold/60 text-right px-10">
-                289,800
-              </TableCell>
-            </TableRow>
-
-            <TableRow className="bg-brand-gold/10">
-              <TableCell className="font-body font-bold text-sm py-6 px-10 text-brand-gold">
-                Firefly Agency Fee (16%)
-              </TableCell>
-              <TableCell className="font-headline text-3xl text-brand-gold text-right px-10">
-                46,368
-              </TableCell>
-            </TableRow>
-
             <TableRow className="bg-brand-gold text-brand-green">
               <TableCell className="font-headline text-3xl md:text-5xl py-8 px-10 uppercase tracking-tighter">
                 Weekly Total
@@ -109,30 +77,34 @@ export const TheNumbersSection = () => {
         </Table>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {projections.map((p, i) => (
-          <div key={i} className="p-10 border border-brand-gold/10 rounded-[48px] space-y-8 flex flex-col justify-between group hover:border-brand-gold/30 transition-all duration-700">
-            <div className="space-y-6">
-              <div className="w-14 h-14 rounded-2xl bg-brand-gold/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                {p.icon}
-              </div>
-              <h5 className="font-headline text-3xl text-brand-gold uppercase tracking-tight">
-                {p.title}
-              </h5>
-              <div className="space-y-1">
-                <p className="font-headline text-4xl text-white">{p.weekly}</p>
-                <p className="font-body text-[10px] text-white/40 font-bold uppercase tracking-[4px]">{p.weeklySub}</p>
+      {/* Pop-Out Strategic Deliverables Section */}
+      <div className="space-y-8 pt-8">
+        <div className="text-center space-y-2">
+          <div className="section-label mb-0">Strategic deliverables</div>
+          <h4 className="font-headline text-3xl md:text-6xl text-brand-gold uppercase tracking-tighter">What KWAL gets every week</h4>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {checklistItems.map((item, i) => (
+            <div 
+              key={i} 
+              className="group relative p-6 rounded-[32px] bg-white/[0.03] border border-white/10 overflow-hidden transition-all duration-500 hover:bg-white/[0.08] hover:border-brand-gold/40 hover:-translate-y-1 shadow-xl"
+            >
+              {/* Subtle background glow on hover */}
+              <div className="absolute inset-0 bg-brand-gold/5 opacity-0 group-hover:opacity-100 transition-opacity blur-2xl" />
+              
+              <div className="relative z-10 flex flex-col items-center text-center gap-4">
+                <div className="w-16 h-16 rounded-2xl bg-brand-gold/10 text-brand-gold flex items-center justify-center shadow-[0_0_20px_rgba(244,197,66,0.1)] group-hover:scale-110 group-hover:bg-brand-gold/20 transition-all duration-500">
+                  {item.icon}
+                </div>
+                <div className="space-y-1">
+                  <p className="font-headline text-2xl text-white uppercase tracking-tight leading-tight group-hover:text-brand-gold transition-colors">{item.label}</p>
+                  <p className="font-body text-brand-cream/50 text-[10px] leading-relaxed font-bold uppercase tracking-[2px]">{item.desc}</p>
+                </div>
               </div>
             </div>
-            
-            <div className="pt-6 border-t border-white/10">
-              <p className="font-body text-[10px] text-brand-gold uppercase tracking-[3px] font-bold mb-1">Monthly Budget</p>
-              <p className="font-headline text-5xl text-brand-gold tracking-tighter leading-none">
-                {p.monthly}
-              </p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

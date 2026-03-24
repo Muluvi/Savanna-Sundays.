@@ -15,7 +15,7 @@ import { VisualIdentitySection } from '@/components/sections/VisualIdentity';
 import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
 import { ContentSocialSection } from '@/components/sections/ContentProduction';
 import { BuildingTheCrowd } from '@/components/sections/BuildingTheCrowd';
-import { TheNumbersSection } from '@/components/sections/SponsorshipRevenue';
+import { TheNumbersSection } from '@/components/sections/TheNumbersSection';
 import { MusicProgrammingSection } from '@/components/sections/MusicProgramming';
 
 const sectionsData = [
@@ -87,9 +87,9 @@ export default function Home() {
             {savannaLogo && (
               <div className="relative h-24 md:h-32 w-64 md:w-80 mb-4 flex items-center justify-center">
                 {/* Bright Glow Effect */}
-                <div className="absolute inset-0 bg-brand-gold/20 blur-[100px] rounded-full scale-150 animate-pulse" />
-                <div className="absolute inset-0 bg-brand-gold/15 blur-[60px] rounded-full scale-110" />
-                <div className="absolute inset-0 bg-brand-gold/10 blur-[30px] rounded-full" />
+                <div className="absolute inset-0 bg-brand-gold/25 blur-[100px] rounded-full scale-150 animate-pulse" />
+                <div className="absolute inset-0 bg-brand-gold/20 blur-[60px] rounded-full scale-110" />
+                <div className="absolute inset-0 bg-brand-gold/15 blur-[30px] rounded-full" />
                 <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain relative z-10" priority />
               </div>
             )}

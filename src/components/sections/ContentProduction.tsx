@@ -2,37 +2,15 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
-import { 
-  Youtube, 
-  Video, 
-  Camera,
-  Instagram,
-  Smartphone
-} from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-const TikTokIcon = ({ size = 16, className = "" }: { size?: number, className?: string }) => (
-  <svg 
-    width={size} height={size} viewBox="0 0 24 24" fill="none" 
-    stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" 
-    className={className}
-  >
-    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-  </svg>
-);
-
-const XIcon = ({ size = 16, className = "" }: { size?: number, className?: string }) => (
-  <svg 
-    width={size} height={size} viewBox="0 0 24 24" fill="currentColor" 
-    className={className}
-  >
-    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
-  </svg>
-);
-
-const Counter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
+/**
+ * High-fidelity rolling counter with smooth ease-out.
+ * Emphasizes the sheer quantity of strategic content harvested weekly.
+ */
+const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLSpanElement>(null);
@@ -49,130 +27,121 @@ const Counter = ({ value, suffix = "" }: { value: string, suffix?: string }) => 
 
   useEffect(() => {
     if (!isVisible) return;
-    let startTime = performance.now();
+    let startTime: number;
+    const duration = 2500; // Longer duration for more "rolling" feel
+
     const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
       const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / 2000, 1);
-      const easeOutQuad = (t: number) => t * (2 - t);
-      setDisplayValue(easeOutQuad(progress) * target);
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Sophisticated Ease Out Quart for high-end feel
+      const easeOutQuart = (t: number) => 1 - (--t) * t * t * t;
+      setDisplayValue(easeOutQuart(progress) * target);
+      
       if (progress < 1) requestAnimationFrame(animate);
     };
     requestAnimationFrame(animate);
   }, [isVisible, target]);
 
   return (
-    <span ref={containerRef} className="font-headline text-5xl md:text-6xl text-brand-gold leading-none tracking-tighter">
+    <span ref={containerRef} className="font-headline text-[clamp(4rem,15vw,7rem)] text-brand-gold leading-none tracking-tighter">
       {Math.floor(displayValue).toLocaleString()}
-      {suffix}
+      <span className="text-[0.4em] ml-1 opacity-40">{suffix}</span>
     </span>
   );
 };
 
-const deliverables = [
-  { 
-    label: "YouTube Sets", 
-    value: "4", 
-    body: "Recorded sets.", 
-    icon: <Youtube className="text-brand-gold" size={24} />,
-    platforms: [<Youtube key="yt" size={14} className="text-brand-gold/40" />]
-  },
-  { 
-    label: "Algorithm Reels", 
-    value: "16", 
-    body: "Optimised recaps.", 
-    icon: <Video className="text-brand-gold" size={24} />,
-    platforms: [
-      <Instagram key="ig" size={14} className="text-brand-gold/40" />,
-      <TikTokIcon key="tt" size={14} className="text-brand-gold/40" />
-    ]
-  },
-  { 
-    label: "HD Photography", 
-    value: "28", 
-    body: "Lifestyle assets.", 
-    icon: <Camera className="text-brand-gold" size={24} />,
-    platforms: [
-      <Instagram key="ig2" size={14} className="text-brand-gold/40" />,
-      <XIcon key="x" size={14} className="text-brand-gold/40" />
-    ]
-  }
-];
+const ContentSocialSection = () => {
+  const ytLogo = PlaceHolderImages.find(p => p.id === 'social-yt');
+  const igLogo = PlaceHolderImages.find(p => p.id === 'social-ig');
+  const ttLogo = PlaceHolderImages.find(p => p.id === 'social-tt');
+  const xLogo = PlaceHolderImages.find(p => p.id === 'social-x');
 
-const PlatformDistribution = () => {
-  const platforms = [
-    { id: 'social-yt', name: 'YouTube' },
-    { id: 'social-ig', name: 'Instagram' },
-    { id: 'social-tt', name: 'TikTok' },
-    { id: 'social-fb', name: 'Facebook' },
-    { id: 'social-x', name: 'Twitter/X' },
+  const deliverables = [
+    { 
+      label: "YouTube Sets", 
+      value: "4", 
+      body: "Recorded high-fidelity DJ sets.", 
+      logos: [ytLogo]
+    },
+    { 
+      label: "Algorithm Reels", 
+      value: "16", 
+      body: "Optimized social recaps.", 
+      logos: [igLogo, ttLogo]
+    },
+    { 
+      label: "HD Photography", 
+      value: "28", 
+      body: "Premium lifestyle assets.", 
+      logos: [igLogo, xLogo]
+    }
   ];
 
   return (
-    <div className="space-y-4 pt-4">
-      <div className="section-label text-center mb-0">Multi-Platform Distribution</div>
-      <div className="relative overflow-hidden py-2">
-        <div className="flex w-fit animate-marquee space-x-12 px-6 items-center">
-          {[...Array(3)].map((_, listIdx) => (
-            <div key={listIdx} className="flex items-center space-x-16 shrink-0">
-              {platforms.map((p) => {
-                const img = PlaceHolderImages.find(i => i.id === p.id);
-                return (
-                  <div key={`${listIdx}-${p.id}`} className="relative h-8 w-24 grayscale hover:grayscale-0 transition-all duration-500">
-                    {img && (
-                      <Image 
-                        src={img.imageUrl} 
-                        alt={p.name} 
-                        fill 
-                        className="object-contain" 
-                      />
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const ContentSocialSection = () => {
-  return (
-    <div className="space-y-8">
-      <div className="text-center max-w-2xl mx-auto space-y-1">
-        <p className="font-serif italic text-lg md:text-2xl text-brand-gold leading-tight">
-          One Sunday. A month of visibility.
+    <div className="space-y-12">
+      <div className="text-center max-w-2xl mx-auto">
+        <p className="font-serif italic text-xl md:text-3xl text-brand-gold leading-tight">
+          One Sunday of production. A full month of absolute digital dominance.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {deliverables.map((item, i) => (
-          <div key={i} className="p-6 bg-white/5 border border-white/10 rounded-[32px] flex flex-col items-center text-center space-y-3 group hover:bg-white/10 transition-all">
-            <div className="flex items-center gap-3">
-              {item.icon}
-              <div className="flex gap-1">
-                {item.platforms}
-              </div>
+          <div key={i} className="flex flex-col items-center text-center space-y-4 group">
+            {/* Full Color HD Logos - Enlarged */}
+            <div className="flex items-center justify-center gap-6 h-16">
+              {item.logos.map((logo, idx) => (
+                logo && (
+                  <div key={idx} className="relative h-12 w-12 md:h-16 md:w-16 transition-transform duration-500 group-hover:scale-110">
+                    <Image src={logo.imageUrl} alt={logo.description} fill className="object-contain" />
+                  </div>
+                )
+              ))}
             </div>
+
             <div className="space-y-1">
-              <Counter value={item.value} suffix="/mo" />
-              <div className="space-y-0.5">
-                <h5 className="font-headline text-lg text-brand-gold uppercase tracking-widest">{item.label}</h5>
-                <p className="font-body text-brand-cream/50 text-[9px] leading-relaxed font-bold uppercase tracking-wider">{item.body}</p>
+              <RollingCounter value={item.value} suffix="/mo" />
+              <div className="space-y-1">
+                <h5 className="font-headline text-2xl md:text-3xl text-brand-gold uppercase tracking-widest">{item.label}</h5>
+                <p className="font-body text-brand-cream/60 text-xs leading-relaxed font-bold uppercase tracking-[2px] max-w-[200px] mx-auto">
+                  {item.body}
+                </p>
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      <PlatformDistribution />
+      {/* Unboxed HD Platform Marquee */}
+      <div className="space-y-6 pt-12 border-t border-white/5">
+        <div className="section-label text-center mb-0">Multi-Platform Distribution</div>
+        <div className="relative overflow-hidden py-4">
+          <div className="flex w-fit animate-marquee space-x-20 px-6 items-center">
+            {[...Array(3)].map((_, listIdx) => (
+              <div key={listIdx} className="flex items-center space-x-24 shrink-0">
+                {['social-yt', 'social-ig', 'social-tt', 'social-fb', 'social-x'].map((id) => {
+                  const img = PlaceHolderImages.find(i => i.id === id);
+                  return (
+                    <div key={`${listIdx}-${id}`} className="relative h-12 w-32 hover:scale-110 transition-all duration-500">
+                      {img && <Image src={img.imageUrl} alt={img.description} fill className="object-contain" />}
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
-      <div className="p-6 bg-brand-gold/5 border border-brand-gold/10 rounded-[24px] text-center">
-        <p className="font-serif italic text-sm md:text-base text-brand-gold/80 leading-relaxed max-w-xl mx-auto">
-          "We convert energy into influence. One Sunday feeds a full week of absolute digital dominance."
+      <div className="py-8 text-center">
+        <p className="font-serif italic text-lg text-brand-gold/80 leading-relaxed max-w-xl mx-auto border-l-2 border-brand-gold/20 pl-6">
+          "We convert energy into influence. Every Sunday feeds a high-fidelity narrative that compounds every single week."
         </p>
       </div>
     </div>
   );
 };
+
+export { ContentSocialSection };

@@ -6,7 +6,10 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 
-const Counter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
+/**
+ * Sophisticated rolling counter for market data.
+ */
+const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -25,12 +28,15 @@ const Counter = ({ value, suffix = "" }: { value: string, suffix?: string }) => 
 
   useEffect(() => {
     if (!isVisible) return;
-    let startTime = performance.now();
+    let startTime: number;
+    const duration = 2500;
+
     const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
       const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / 2000, 1);
-      const easeOutQuad = (t: number) => t * (2 - t);
-      setDisplayValue(easeOutQuad(progress) * target);
+      const progress = Math.min(elapsed / duration, 1);
+      const easeOutQuart = (t: number) => 1 - (--t) * t * t * t;
+      setDisplayValue(easeOutQuart(progress) * target);
       if (progress < 1) requestAnimationFrame(animate);
     };
     requestAnimationFrame(animate);
@@ -52,42 +58,42 @@ export const TheGap = () => {
   ];
 
   return (
-    <div className="space-y-6 py-2 relative">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-        <div className="space-y-4">
-          <p className="font-serif italic text-2xl md:text-4xl text-brand-gold leading-[1.1] border-l-4 border-brand-gold pl-4 py-1">
+    <div className="space-y-12 py-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="space-y-6">
+          <p className="font-serif italic text-3xl md:text-5xl text-brand-gold leading-[1.1] border-l-4 border-brand-gold pl-6 py-2">
             The audience is established. <br/>The culture is waiting.
           </p>
-          <p className="font-body text-sm md:text-lg text-brand-cream/80 leading-relaxed">
+          <p className="font-body text-base md:text-xl text-brand-cream/80 leading-relaxed">
             Savanna Sundays is the bridge. We turn massive digital reach into deep brand loyalty through a physical Sunday ritual that Nairobi can finally own.
           </p>
         </div>
 
-        <div className="relative p-8 bg-white/5 border border-white/10 rounded-[32px] space-y-3">
+        <div className="relative p-10 bg-white/5 border border-white/10 rounded-[40px] space-y-4 shadow-2xl">
           <span className="font-body text-brand-gold/60 text-[10px] tracking-[4px] uppercase font-bold">The Opportunity</span>
-          <p className="font-body text-lg md:text-2xl text-brand-cream leading-tight font-bold tracking-tight">
+          <p className="font-body text-xl md:text-3xl text-brand-cream leading-tight font-bold tracking-tight">
             Converting 600,000+ digital fans into a physical community through consistent, high-fidelity Sunday experiences.
           </p>
         </div>
       </div>
 
-      <div className="space-y-4 pt-4">
+      <div className="space-y-8 pt-8 border-t border-white/5">
         <div className="section-label text-center mb-0">Savanna Kenya Market Presence</div>
         
-        <div className="relative overflow-hidden py-4 border-y border-white/5 bg-white/[0.02]">
-          <div className="flex w-fit animate-marquee space-x-16 px-6 items-center">
+        <div className="relative overflow-hidden py-12 bg-white/[0.02] rounded-[40px]">
+          <div className="flex w-fit animate-marquee space-x-24 px-6 items-center">
             {[...Array(3)].map((_, listIdx) => (
-              <div key={listIdx} className="flex items-center space-x-24 shrink-0">
+              <div key={listIdx} className="flex items-center space-x-32 shrink-0">
                 {socialIcons.map((stat) => {
                   const img = PlaceHolderImages.find(i => i.id === stat.id);
                   return (
-                    <div key={`${listIdx}-${stat.id}`} className="flex flex-col items-center gap-4 group">
-                      <div className={cn("relative transition-transform duration-500", stat.size)}>
+                    <div key={`${listIdx}-${stat.id}`} className="flex flex-col items-center gap-6 group">
+                      <div className={cn("relative transition-transform duration-500 hover:scale-110", stat.size)}>
                         {img && <Image src={img.imageUrl} alt={stat.label} fill className="object-contain" />}
                       </div>
                       <div className="text-center">
-                        <Counter value={stat.value} />
-                        <div className="font-body text-[9px] uppercase font-bold tracking-[4px] text-brand-gold/60">{stat.label}</div>
+                        <RollingCounter value={stat.value} />
+                        <div className="font-body text-xs uppercase font-bold tracking-[4px] text-brand-gold/60 mt-2">{stat.label}</div>
                       </div>
                     </div>
                   );
