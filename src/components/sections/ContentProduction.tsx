@@ -2,7 +2,19 @@
 
 import React from 'react';
 import { Card } from '@/components/ui/card';
-import { Youtube, Instagram, Camera, Video, Scissors, Wand2, Upload, Share2 } from 'lucide-react';
+import { 
+  Youtube, 
+  Instagram, 
+  Camera, 
+  Video, 
+  Scissors, 
+  Wand2, 
+  Upload, 
+  Share2, 
+  Eye, 
+  TrendingUp, 
+  MessageCircle 
+} from 'lucide-react';
 
 const deliverables = [
   {
@@ -31,6 +43,29 @@ const pipeline = [
   { node: "MASTER", sub: "Colour grade, audio master, brand elements, thumbnails.", icon: <Wand2 className="w-5 h-5" /> },
   { node: "UPLOAD", sub: "YouTube/Mixcloud/SoundCloud + Instagram/TikTok/Facebook.", icon: <Upload className="w-5 h-5" /> },
   { node: "DISTRIBUTE", sub: "SEO tags, captions, scheduling, cross-posting.", icon: <Share2 className="w-5 h-5" /> },
+];
+
+const objectives = [
+  {
+    title: "BRAND VISIBILITY",
+    icon: <Eye className="w-6 h-6" />,
+    body: "Savanna logo watermark on every Reel and photo. Branded intro/outro on every DJ set. Lower-thirds on all video. Bar wraps and signage visible in every crowd shot. The brand is in every frame, every week."
+  },
+  {
+    title: "COMMUNITY GROWTH",
+    icon: <TrendingUp className="w-6 h-6" />,
+    body: "YouTube DJ sets drive subscribers. ‘Spot Yourself’ photo tags drive Instagram follows. Weekly Reels build a content library that compounds. Every Sunday adds to an audience Savanna owns."
+  },
+  {
+    title: "CONSUMER ENGAGEMENT",
+    icon: <MessageCircle className="w-6 h-6" />,
+    body: "QR codes at every venue link to weekly competitions (built and managed by Firefly). Comment-to-win on YouTube. Influencer Stories drive venue traffic. Each Sunday creates 15+ taggable moments."
+  },
+  {
+    title: "PLATFORM REACH",
+    icon: <Share2 className="w-6 h-6" />,
+    body: "Content formatted and optimised for YouTube (long-form DJ sets), Instagram Reels, TikTok, Facebook, and Twitter/X. Each platform gets native-format content, not cross-posted reposts."
+  }
 ];
 
 const costItems = [
@@ -91,6 +126,32 @@ export const ContentSocialSection = () => {
             </div>
           </Card>
         ))}
+      </div>
+
+      {/* Brand Objectives Section */}
+      <div className="space-y-8 py-12">
+        <div className="section-label text-center">How Every Piece of Content Works for Savanna</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {objectives.map((obj, i) => (
+            <Card 
+              key={i} 
+              className="p-8 bg-[#FDF8EC] border-none rounded-[32px] space-y-4 shadow-xl hover:-translate-y-1 transition-all duration-500 animate-in fade-in slide-in-from-bottom-4"
+              style={{ animationDelay: `${i * 150}ms` }}
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-brand-gold text-brand-green rounded-full flex items-center justify-center shadow-md">
+                  {obj.icon}
+                </div>
+                <h4 className="font-headline text-2xl text-brand-green uppercase tracking-tight leading-none">
+                  {obj.title}
+                </h4>
+              </div>
+              <p className="font-body text-brand-dark/80 text-sm leading-relaxed">
+                {obj.body}
+              </p>
+            </Card>
+          ))}
+        </div>
       </div>
 
       {/* Pipeline Visual */}
