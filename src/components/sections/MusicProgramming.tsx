@@ -1,11 +1,8 @@
 "use client";
 
 import React from 'react';
-import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Disc, Star } from 'lucide-react';
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const featuredDjs = [
   { 
@@ -34,40 +31,53 @@ const featuredDjs = [
 export const MusicProgrammingSection = () => {
   return (
     <div className="space-y-12">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8 border-b border-white/5 pb-12">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8 border-b border-white/10 pb-12">
         <div className="max-w-xl space-y-4">
           <div className="section-label">03C: Sonic Architecture</div>
-          <h3 className="font-headline text-4xl md:text-6xl text-brand-gold uppercase leading-tight">Curated Vibes.</h3>
-          <p className="font-body text-brand-cream/70 text-sm leading-relaxed">
-            Music is the architecture of the Sunday ritual. We deploy talent that understands the journey from chilled afternoons to high-energy peaks.
+          <h3 className="font-headline text-4xl md:text-7xl text-brand-gold uppercase leading-none tracking-tighter">ELITE TALENT.</h3>
+          <p className="font-body text-brand-cream/70 text-sm md:text-lg leading-relaxed">
+            Music is the architect of the ritual. We deploy benchmark talent that understands the journey from chill to peak.
           </p>
         </div>
         <div className="p-6 bg-brand-gold/10 border-l-4 border-brand-gold rounded-r-2xl max-w-sm">
-          <p className="font-body text-[10px] text-brand-gold font-bold uppercase tracking-widest leading-tight">
-            * These are benchmark examples of elite talent Firefly Management and KWAL have collaborated with previously.
+          <p className="font-body text-[10px] text-brand-gold font-bold uppercase tracking-[2px] leading-tight">
+            * Benchmark examples of elite talent Firefly and KWAL have collaborated with previously.
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {featuredDjs.map((dj, i) => (
-          <Card key={i} className="bg-brand-dark-alt border border-white/5 rounded-[32px] overflow-hidden group shadow-2xl">
-            <div className="relative aspect-[4/3] w-full overflow-hidden">
-              <div className="flex animate-marquee h-full" style={{ width: `${dj.images.length * 100}%` }}>
-                {[...dj.images, ...dj.images].map((imgUrl, idx) => (
-                  <div key={idx} className="relative h-full w-full flex-shrink-0">
-                    <Image src={imgUrl} alt={`${dj.name} ${idx}`} fill className="object-cover" />
-                  </div>
-                ))}
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark-alt via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-8">
-                <Badge className="bg-brand-gold text-brand-green font-headline text-lg tracking-widest px-4 py-1">
-                  {dj.name}
-                </Badge>
+          <div key={i} className="relative aspect-[4/5] md:aspect-[3/4] w-full overflow-hidden rounded-[40px] shadow-2xl group">
+            <div className="flex animate-marquee h-full" style={{ width: `${dj.images.length * 100}%` }}>
+              {[...dj.images, ...dj.images].map((imgUrl, idx) => (
+                <div key={idx} className="relative h-full w-full flex-shrink-0">
+                  <Image 
+                    src={imgUrl} 
+                    alt={`${dj.name}`} 
+                    fill 
+                    className="object-cover" 
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Minimal Overlay for legibility only at the bottom */}
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent" />
+            
+            <div className="absolute bottom-8 left-8 right-8 space-y-3">
+              <Badge className="bg-brand-gold text-brand-green font-headline text-2xl tracking-widest px-6 py-2 rounded-xl">
+                {dj.name}
+              </Badge>
+              <div className="space-y-1">
+                <p className="font-headline text-xl text-white uppercase tracking-wider">{dj.role}</p>
+                <p className="font-body text-xs text-white/60 font-bold uppercase tracking-widest leading-relaxed line-clamp-2">
+                  {dj.desc}
+                </p>
               </div>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
     </div>
