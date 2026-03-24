@@ -189,32 +189,27 @@ export default function Home() {
         ))}
 
         {/* Closing Block */}
-        <div className="py-24 px-6 text-center space-y-16 bg-brand-dark border-t border-white/5 relative overflow-hidden">
-          <div className="max-w-2xl mx-auto space-y-8 relative z-10">
-            <p className="font-serif italic text-2xl md:text-3xl text-brand-cream leading-relaxed">
-              "Savanna Sundays is ready to run.<br className="hidden md:block" />
-              The squad is assembled. The format is proven. The content engine is built.<br className="hidden md:block" />
-              All that's needed is the signal to go."
-            </p>
-            <p className="font-body text-xs md:text-sm text-brand-text-muted uppercase tracking-[3px] font-bold">
-              Firefly Management — NextGen Mall, Mombasa Road, Nairobi
+        <div className="py-32 px-6 text-center space-y-20 bg-brand-dark border-t border-white/5 relative overflow-hidden">
+          <div className="max-w-3xl mx-auto space-y-8 relative z-10">
+            <p className="font-serif italic text-2xl md:text-4xl text-brand-cream leading-relaxed">
+              "Savanna Sundays is built. The squad is assembled. The venues are mapped. The content engine is ready. Multiple venues, one squad, every Sunday. All that’s needed is the green light."
             </p>
           </div>
 
           <div className="pt-4 relative z-10">
             <a 
               href="mailto:partner@firefly.co.ke" 
-              className="inline-flex items-center gap-4 bg-[#F4C542] text-[#1A1208] px-12 py-5 rounded-full font-headline text-2xl tracking-widest hover:bg-[#E8873A] hover:scale-105 transition-all duration-300 shadow-2xl active:scale-95 group"
+              className="inline-flex items-center gap-6 bg-[#F4C542] text-[#1A1208] px-16 py-6 rounded-full font-headline text-3xl tracking-widest hover:bg-[#E8873A] hover:scale-105 transition-all duration-300 shadow-[0_20px_50px_rgba(244,197,66,0.3)] active:scale-95 group"
             >
               <span>Let&apos;s Own Sunday</span>
-              <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+              <ArrowRight className="group-hover:translate-x-2 transition-transform" size={28} />
             </a>
           </div>
 
-          <div className="pt-12 relative z-10 flex flex-col items-center gap-8">
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 opacity-80">
+          <div className="pt-16 relative z-10 flex flex-col items-center gap-12">
+            <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 opacity-90">
               {savannaLogo && (
-                <div className="relative h-[60px] w-[140px]">
+                <div className="relative h-[80px] w-[180px]">
                   <Image 
                     src={savannaLogo.imageUrl} 
                     alt="Savanna Premium Cider" 
@@ -223,9 +218,9 @@ export default function Home() {
                   />
                 </div>
               )}
-              <div className="hidden md:block h-10 w-[1px] bg-white/10" />
+              <div className="hidden md:block h-16 w-[1px] bg-white/10" />
               {fireflyLogo && (
-                <div className="relative h-[40px] w-[120px]">
+                <div className="relative h-[60px] w-[160px]">
                   <Image 
                     src={fireflyLogo.imageUrl} 
                     alt="Firefly Management" 
@@ -235,13 +230,22 @@ export default function Home() {
                 </div>
               )}
             </div>
-            <p className="font-body text-[10px] md:text-[11px] text-brand-text-muted uppercase tracking-[2px] font-bold text-center max-w-xl">
-              Prepared by Firefly Management for Kenya Wine Agencies Limited (KWAL) — Savanna Premium Cider
-            </p>
+
+            <div className="space-y-8">
+              <p className="font-body text-[11px] md:text-[12px] text-brand-text-muted uppercase tracking-[3px] font-bold text-center max-w-2xl mx-auto">
+                Prepared by Firefly Management for Kenya Wine Agencies Limited (KWAL) — Savanna Premium Cider
+              </p>
+
+              <div className="max-w-2xl mx-auto pt-8 border-t border-white/5">
+                <p className="font-body text-[9px] text-[#B8A98A] uppercase tracking-[1px] text-center leading-relaxed">
+                  DO NOT FORWARD TO PERSONS UNDER THE AGE OF 18 YEARS. EXCESSIVE ALCOHOL CONSUMPTION IS HARMFUL TO YOUR HEALTH. NOT FOR SALE TO PERSONS UNDER THE AGE OF 18 YEARS.
+                </p>
+              </div>
+            </div>
           </div>
           
           <div className="absolute inset-0 pointer-events-none" style={{
-            background: 'radial-gradient(circle at 50% 100%, rgba(244,197,66,0.05) 0%, transparent 70%)'
+            background: 'radial-gradient(circle at 50% 100%, rgba(244,197,66,0.06) 0%, transparent 70%)'
           }} />
         </div>
       </main>
