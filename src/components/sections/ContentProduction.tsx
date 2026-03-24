@@ -172,6 +172,57 @@ const PlatformDistribution = () => {
   );
 };
 
+const InspirationStrip = () => {
+  const inspirations = [
+    { id: "partner-boiler-room", name: "Boiler Room" },
+    { id: "partner-mixmag", name: "Mixmag" },
+    { id: "partner-balcony-mix", name: "The Balcony Mix" },
+    { id: "label-descendants", name: "Descendants Records" },
+    { id: "label-groove-cartel", name: "Groove Cartel SA" },
+    { id: "label-sondela", name: "SondeLa Recordings" },
+    { id: "label-kunye", name: "Kunye Records" },
+  ];
+
+  return (
+    <div className="space-y-6 pt-12">
+      <div className="text-center px-6">
+        <p className="font-body text-[10px] text-brand-text-muted uppercase tracking-[3px] font-bold">
+          Savanna Sundays is inspired by platforms that turned DJ sets into cultural movements.
+        </p>
+      </div>
+
+      <div className="relative py-12 bg-brand-dark border-y border-white/5 overflow-hidden group">
+        <div className="flex w-fit animate-marquee hover:[animation-play-state:paused] space-x-16" style={{ animationDuration: '25s' }}>
+          {[...Array(3)].map((_, listIdx) => (
+            <div key={listIdx} className="flex items-center space-x-16 shrink-0">
+              {inspirations.map((item) => {
+                const img = PlaceHolderImages.find(p => p.id === item.id);
+                return (
+                  <div key={`${listIdx}-${item.id}`} className="flex items-center gap-4 opacity-70 hover:opacity-100 transition-opacity">
+                    {img && (
+                      <div className="relative h-[50px] w-[120px]">
+                        <Image 
+                          src={img.imageUrl} 
+                          alt={item.name} 
+                          fill 
+                          className="object-contain filter grayscale brightness-200"
+                        />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          ))}
+        </div>
+        {/* Masking Gradient */}
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-dark to-transparent z-10" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-dark to-transparent z-10" />
+      </div>
+    </div>
+  );
+};
+
 const ContentMockups = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   const savannaBottle = PlaceHolderImages.find(p => p.id === 'savanna-bottle');
@@ -416,6 +467,8 @@ export const ContentSocialSection = () => {
       </div>
 
       <PlatformDistribution />
+      
+      <InspirationStrip />
 
       <ContentMockups />
 
