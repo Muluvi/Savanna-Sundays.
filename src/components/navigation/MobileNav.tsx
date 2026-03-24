@@ -38,12 +38,12 @@ export const MobileNav = () => {
 
   return (
     <>
-      {/* Floating Trigger Button - No Sticky Header */}
+      {/* Sleek Smaller Trigger Button */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden fixed top-6 right-6 w-14 h-14 flex items-center justify-center bg-brand-gold text-brand-green rounded-full shadow-2xl active:scale-90 transition-all z-[110]"
+        className="md:hidden fixed top-6 right-6 w-12 h-12 flex items-center justify-center bg-brand-gold text-brand-green rounded-full shadow-2xl active:scale-90 transition-all z-[110]"
       >
-        {isOpen ? <X size={28} /> : <Menu size={28} />}
+        {isOpen ? <X size={22} /> : <Menu size={22} />}
       </button>
 
       <div className={cn(
