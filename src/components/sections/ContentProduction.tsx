@@ -43,7 +43,7 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
   }, [isVisible, target]);
 
   return (
-    <span ref={containerRef} className="font-headline text-[clamp(4rem,15vw,7rem)] text-brand-gold leading-none tracking-tighter">
+    <span ref={containerRef} className="font-headline text-[clamp(2.5rem,10vw,6rem)] text-brand-gold leading-none tracking-tighter">
       {Math.floor(displayValue).toLocaleString()}
       <span className="text-[0.4em] ml-1 opacity-40">{suffix}</span>
     </span>
@@ -51,69 +51,50 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
 };
 
 const ContentSocialSection = () => {
-  const ytLogo = PlaceHolderImages.find(p => p.id === 'social-yt');
-  const igLogo = PlaceHolderImages.find(p => p.id === 'social-ig');
-  const ttLogo = PlaceHolderImages.find(p => p.id === 'social-tt');
-  const xLogo = PlaceHolderImages.find(p => p.id === 'social-x');
-
   const deliverables = [
     { 
-      label: "YouTube Sets", 
+      label: "YouTube sets", 
       value: "4", 
-      body: "Recorded high-fidelity DJ sets.", 
-      logos: [ytLogo]
+      body: "High-fidelity sets."
     },
     { 
-      label: "Algorithm Reels", 
+      label: "Algorithm reels", 
       value: "16", 
-      body: "Optimized social recaps.", 
-      logos: [igLogo, ttLogo]
+      body: "Social recaps."
     },
     { 
-      label: "HD Photography", 
+      label: "HD photography", 
       value: "28", 
-      body: "Premium lifestyle assets.", 
-      logos: [igLogo, xLogo]
+      body: "Lifestyle assets."
     }
   ];
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-8">
       <div className="text-center max-w-2xl mx-auto">
-        <p className="font-serif italic text-xl md:text-3xl text-brand-gold leading-tight">
-          One Sunday of production. A full month of absolute digital dominance.
+        <p className="font-serif italic text-lg md:text-2xl text-brand-gold leading-tight">
+          One Sunday of production feeds a full month of absolute digital dominance.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Ultra-Compact Horizontal Row */}
+      <div className="grid grid-cols-3 gap-4 md:gap-8 border-y border-white/5 py-8">
         {deliverables.map((item, i) => (
-          <div key={i} className="flex flex-col items-center text-center space-y-4 group">
-            <div className="flex items-center justify-center gap-6 h-16">
-              {item.logos.map((logo, idx) => (
-                logo && (
-                  <div key={idx} className="relative h-12 w-12 md:h-16 md:w-16 transition-transform duration-500 group-hover:scale-110">
-                    <Image src={logo.imageUrl} alt={logo.description} fill className="object-contain" />
-                  </div>
-                )
-              ))}
-            </div>
-
+          <div key={i} className="flex flex-col items-center text-center space-y-2 group">
+            <RollingCounter value={item.value} suffix="/mo" />
             <div className="space-y-1">
-              <RollingCounter value={item.value} suffix="/mo" />
-              <div className="space-y-1">
-                <h5 className="font-headline text-2xl md:text-3xl text-brand-gold uppercase tracking-widest">{item.label}</h5>
-                <p className="font-body text-brand-cream/60 text-xs leading-relaxed font-bold uppercase tracking-[2px] max-w-[200px] mx-auto">
-                  {item.body}
-                </p>
-              </div>
+              <h5 className="font-headline text-base md:text-2xl text-brand-gold uppercase tracking-widest leading-none">{item.label}</h5>
+              <p className="font-body text-brand-cream/40 text-[9px] md:text-[10px] leading-relaxed uppercase tracking-[2px] font-light">
+                {item.body}
+              </p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Unboxed HD Platform Marquee */}
-      <div className="space-y-6 pt-12 border-t border-white/5">
-        <div className="section-label text-center mb-0">Multi-Platform Distribution</div>
+      {/* Multi-Platform Distribution - Unboxed Marquee */}
+      <div className="space-y-4 pt-4">
+        <div className="section-label text-center mb-0 opacity-40">Multi-Platform Distribution</div>
         <div className="relative overflow-hidden py-4">
           <div className="flex w-fit animate-marquee space-x-20 px-6 items-center">
             {[...Array(3)].map((_, listIdx) => (
@@ -121,7 +102,7 @@ const ContentSocialSection = () => {
                 {['social-yt', 'social-ig', 'social-tt', 'social-fb', 'social-x'].map((id) => {
                   const img = PlaceHolderImages.find(i => i.id === id);
                   return (
-                    <div key={`${listIdx}-${id}`} className="relative h-12 w-32 hover:scale-110 transition-all duration-500">
+                    <div key={`${listIdx}-${id}`} className="relative h-10 w-24 md:h-12 md:w-32 transition-transform duration-500 hover:scale-110">
                       {img && <Image src={img.imageUrl} alt={img.description} fill className="object-contain" />}
                     </div>
                   );
@@ -132,9 +113,9 @@ const ContentSocialSection = () => {
         </div>
       </div>
 
-      <div className="py-8 text-center">
-        <p className="font-serif italic text-lg text-brand-gold/80 leading-relaxed max-w-xl mx-auto border-l-2 border-brand-gold/20 pl-6">
-          "We convert energy into influence. Every Sunday feeds a high-fidelity narrative that compounds every single week."
+      <div className="py-6 text-center">
+        <p className="font-serif italic text-base text-brand-gold/60 leading-relaxed max-w-xl mx-auto">
+          "We convert energy into influence. Every Sunday feeds a high-fidelity narrative that compounds every week."
         </p>
       </div>
     </div>

@@ -79,7 +79,7 @@ export default function Home() {
       <MobileNav />
       
       <main className="transition-all">
-        {/* Cinematic Hero Section - Optimized Visibility & Casing */}
+        {/* Cinematic Hero Section - Intense Glow & Bottom Attribution */}
         <section id="hero" className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden bg-background">
           <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.25)_0%,transparent_80%)]" />
 
