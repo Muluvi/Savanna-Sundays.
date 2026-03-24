@@ -79,23 +79,24 @@ export default function Home() {
       <MobileNav />
       
       <main className="transition-all">
-        {/* Proportional Hero Section - Clean & Glowing */}
+        {/* Cinematic Hero Section - Unboxed & Glowing */}
         <section id="hero" className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden bg-background">
           <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.15)_0%,transparent_80%)]" />
 
           <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-12 text-center">
-            <div className="space-y-2">
-              <p className="font-headline text-xs md:text-sm text-brand-gold/60 tracking-[0.6em] uppercase animate-in fade-in slide-in-from-top-4 duration-1000">
-                Presented by Firefly Management
-              </p>
-            </div>
-
             {savannaLogo && (
-              <div className="relative h-32 md:h-48 w-80 md:w-96 flex items-center justify-center">
-                {/* Bright Glow Effect */}
+              <div className="relative h-32 md:h-48 w-80 md:w-96 flex items-center justify-center group">
+                {/* Intense Multi-Layer Glow */}
                 <div className="absolute inset-0 bg-brand-gold/30 blur-[120px] rounded-full scale-150 animate-pulse" />
                 <div className="absolute inset-0 bg-brand-gold/25 blur-[60px] rounded-full scale-110" />
-                <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain relative z-10" priority />
+                <div className="absolute inset-0 bg-brand-gold/10 blur-[30px] rounded-full group-hover:scale-125 transition-transform duration-1000" />
+                <Image 
+                  src={savannaLogo.imageUrl} 
+                  alt="Savanna" 
+                  fill 
+                  className="object-contain relative z-10 animate-in fade-in zoom-in duration-1000" 
+                  priority 
+                />
               </div>
             )}
 
@@ -107,15 +108,20 @@ export default function Home() {
             </div>
             
             <div className="max-w-xl">
-              <p className="font-serif italic text-xl md:text-3xl text-brand-cream leading-[1.1]">
+              <p className="font-serif italic text-xl md:text-3xl text-brand-cream leading-[1.1] animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
                 One brand. Multiple venues. Every Sunday.
               </p>
             </div>
           </div>
 
-          <div className="absolute bottom-12 left-0 w-full flex flex-col items-center gap-2 opacity-30">
-            <p className="font-body text-[10px] tracking-[4px] text-brand-gold uppercase font-bold">Strategic prospectus 2024</p>
-            <ChevronDown className="text-brand-gold/60 animate-bounce" size={24} />
+          <div className="absolute bottom-10 left-0 w-full flex flex-col items-center gap-4 opacity-60">
+            <div className="space-y-1 text-center">
+              <p className="font-headline text-xs text-brand-gold/80 tracking-[0.6em] uppercase">
+                Presented by Firefly Management
+              </p>
+              <p className="font-body text-[8px] tracking-[4px] text-brand-gold/40 uppercase font-bold">Strategic prospectus 2024</p>
+            </div>
+            <ChevronDown className="text-brand-gold/40 animate-bounce" size={20} />
           </div>
         </section>
 

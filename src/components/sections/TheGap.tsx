@@ -7,7 +7,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 
 /**
- * Sophisticated rolling counter for market data.
+ * Sophisticated rolling counter for market data with high-fidelity ease-out.
  */
 const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -35,8 +35,10 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
       if (!startTime) startTime = currentTime;
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
+      
       const easeOutQuart = (t: number) => 1 - (--t) * t * t * t;
       setDisplayValue(easeOutQuart(progress) * target);
+      
       if (progress < 1) requestAnimationFrame(animate);
     };
     requestAnimationFrame(animate);
@@ -71,7 +73,15 @@ export const TheGap = () => {
 
         <div className="relative p-10 bg-white/5 border border-white/10 rounded-[40px] space-y-4 shadow-2xl overflow-hidden">
           <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-            <Image src={PlaceHolderImages.find(p => p.id === 'savanna-logo')?.imageUrl || ''} alt="" width={200} height={200} className="object-contain" />
+            {PlaceHolderImages.find(p => p.id === 'savanna-logo') && (
+              <Image 
+                src={PlaceHolderImages.find(p => p.id === 'savanna-logo')!.imageUrl} 
+                alt="" 
+                width={200} 
+                height={200} 
+                className="object-contain" 
+              />
+            )}
           </div>
           <span className="font-body text-brand-gold/60 text-[10px] tracking-[4px] uppercase font-bold">The Opportunity</span>
           <p className="font-body text-xl md:text-2xl text-brand-cream leading-tight font-bold tracking-tight relative z-10">
