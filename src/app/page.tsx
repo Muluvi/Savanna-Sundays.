@@ -40,10 +40,15 @@ const sectionsData = [
     title: 'THE SAVANNA EXPERIENCE', 
     variant: 'dark' as const, 
     component: (
-      <div className="space-y-12">
-        <p className="font-body text-lg text-[#B8A98A] italic text-center max-w-2xl mx-auto -mt-4 mb-8">
-          Every venue gets the full brand treatment. Every Sunday.
-        </p>
+      <div className="space-y-16">
+        <div className="text-center max-w-3xl mx-auto space-y-6">
+          <p className="font-serif italic text-2xl md:text-3xl text-brand-gold leading-relaxed">
+            “When the squad arrives, the venue transforms. When they leave, the content keeps working.”
+          </p>
+          <p className="font-body text-base md:text-lg text-brand-cream/80 leading-relaxed">
+            Every squad venue gets the full treatment — from branded glassware on the tables to a neon Savanna Sundays sign behind the DJ booth. Every partner venue carries the brand on every surface — bar wraps, coasters, signage, staff tees. Whether the squad is live or the branding speaks for itself, Sunday belongs to Savanna.
+          </p>
+        </div>
         <VisualIdentitySection />
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/10 to-transparent" />
         <div className="pt-12">
@@ -175,7 +180,7 @@ export default function Home() {
           <div className="max-w-2xl mx-auto space-y-8 relative z-10">
             <p className="font-serif italic text-2xl md:text-3xl text-brand-cream leading-relaxed">
               "Savanna Sundays is ready to run.<br className="hidden md:block" />
-              The squad is assembled. The network is scaled. The engine is built.<br className="hidden md:block" />
+              The squad is assembled. The format is proven. The content engine is built.<br className="hidden md:block" />
               All that's needed is the signal to go."
             </p>
             <p className="font-body text-xs md:text-sm text-brand-text-muted uppercase tracking-[3px] font-bold">
@@ -186,11 +191,7 @@ export default function Home() {
           <div className="pt-4 relative z-10">
             <a 
               href="mailto:partner@firefly.co.ke" 
-              className={cn(
-                "inline-flex items-center gap-4 bg-[#F4C542] text-[#1A1208] px-12 py-5 rounded-full font-headline",
-                "text-2xl tracking-widest hover:bg-[#E8873A] hover:scale-105 transition-all duration-300",
-                "shadow-2xl active:scale-95 group"
-              )}
+              className="inline-flex items-center gap-4 bg-[#F4C542] text-[#1A1208] px-12 py-5 rounded-full font-headline text-2xl tracking-widest hover:bg-[#E8873A] hover:scale-105 transition-all duration-300 shadow-2xl active:scale-95 group"
             >
               <span>Let&apos;s Own Sunday</span>
               <ArrowRight className="group-hover:translate-x-2 transition-transform" />
