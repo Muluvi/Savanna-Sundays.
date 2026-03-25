@@ -55,31 +55,31 @@ const MarqueeRow = ({
   const transformation = 'q_auto:best,f_auto,dpr_2.0,h_680,c_limit';
 
   return (
-    <div className="space-y-8 group/row">
-      {/* Dynamic Header Section */}
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-end">
-        <div className="text-center lg:text-left space-y-4">
+    <div className="space-y-4 group/row">
+      {/* Dynamic Header Section - Tightened */}
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 items-end">
+        <div className="text-center lg:text-left space-y-2">
           <div className="space-y-1">
             <div className="flex items-center justify-center lg:justify-start gap-3">
-              <h4 className="font-headline text-[2.5rem] md:text-[4rem] tracking-tighter text-brand-gold uppercase leading-none">
+              <h4 className="font-headline text-[2.5rem] md:text-[3.5rem] tracking-tighter text-brand-gold uppercase leading-none">
                 {name}
               </h4>
-              {isVerified && <CheckCircle2 className="text-blue-400 w-6 h-6 md:w-8 md:h-8 fill-blue-400/10" />}
+              {isVerified && <CheckCircle2 className="text-blue-400 w-5 h-5 md:w-6 md:h-6 fill-blue-400/10" />}
             </div>
             <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
-              <span className="font-headline text-xs md:text-sm tracking-[4px] text-white/80 uppercase">
+              <span className="font-headline text-xs tracking-[4px] text-white/80 uppercase">
                 {handle}
               </span>
               <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-brand-gold/20" />
-              <p className="font-body text-[10px] md:text-[11px] tracking-[2px] text-brand-cream/40 uppercase font-bold">
+              <p className="font-body text-[10px] tracking-[2px] text-brand-cream/40 uppercase font-bold">
                 {bio}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Figures Form */}
-        <div className="flex justify-center lg:justify-end items-center bg-white/[0.02] border border-white/5 p-4 md:p-6 rounded-[32px] backdrop-blur-sm">
+        {/* Figures Form - Compact */}
+        <div className="flex justify-center lg:justify-end items-center bg-white/[0.02] border border-white/5 p-3 md:p-4 rounded-[24px] backdrop-blur-sm">
           {metrics.map((m, i) => (
             <StatBadge key={i} metric={m} />
           ))}
@@ -113,7 +113,7 @@ const MarqueeRow = ({
               src={cl(url, transformation)} 
               alt={`${name} performing live`}
               loading={isFirstRow && i === 0 ? "eager" : "lazy"}
-              className="h-[260px] md:h-[420px] w-auto block flex-shrink-0 grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+              className="h-[220px] md:h-[380px] w-auto block flex-shrink-0 grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
               style={{ borderRadius: 0, border: 'none', boxShadow: 'none' }}
             />
           ))}
@@ -124,7 +124,7 @@ const MarqueeRow = ({
 };
 
 const TalentDivider = () => (
-  <div className="w-[80px] h-[1px] bg-brand-gold/20 mx-auto mt-16 mb-16" />
+  <div className="w-[60px] h-[1px] bg-brand-gold/20 mx-auto mt-8 mb-8" />
 );
 
 export const TalentMarquee = () => {
@@ -154,21 +154,21 @@ export const TalentMarquee = () => {
   ];
 
   return (
-    <div className="bg-[#0A140B] py-32 overflow-hidden w-full relative z-20">
-      <div className="text-center mb-24 px-6">
-        <div className="flex items-center justify-center gap-3 mb-4">
+    <div className="bg-[#0A140B] py-16 overflow-hidden w-full relative z-20">
+      <div className="text-center mb-12 px-6">
+        <div className="flex items-center justify-center gap-3 mb-2">
            <Zap className="text-brand-gold animate-pulse" size={16} />
            <p className="font-headline text-xs tracking-[6px] text-brand-gold uppercase">
             03 — THE RITUAL
           </p>
            <Zap className="text-brand-gold animate-pulse" size={16} />
         </div>
-        <h3 className="font-headline text-[clamp(3.5rem,12vw,8rem)] text-brand-gold uppercase tracking-tighter leading-[0.85]">
+        <h3 className="font-headline text-[clamp(3rem,10vw,6rem)] text-brand-gold uppercase tracking-tighter leading-[0.85]">
           THE SAVANNA <br className="hidden md:block" /> VYBE SQUAD
         </h3>
       </div>
 
-      <div className="space-y-32">
+      <div className="space-y-12">
         <MarqueeRow 
           name="DJ MOONS" 
           handle="@djmoons.ke"
@@ -214,7 +214,7 @@ export const TalentMarquee = () => {
           reverse
         />
 
-        <div className="text-center mt-24">
+        <div className="text-center mt-12">
           <p className="font-body text-[10px] tracking-[4px] text-brand-gold/30 uppercase font-bold">
             Interactive metrics. Hover any track to pause activation.
           </p>
