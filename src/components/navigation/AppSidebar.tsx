@@ -51,33 +51,22 @@ export const AppSidebar = () => {
           <div className="flex flex-col gap-4">
             {savannaLogo && (
               <div className="relative h-12 w-full">
-                <Image 
-                  src={savannaLogo.imageUrl} 
-                  alt="Savanna Premium Cider" 
-                  fill 
-                  className="object-contain object-left"
-                />
+                <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain object-left" />
               </div>
             )}
             <div className="flex items-center gap-2">
               <div className="h-[1px] w-4 bg-white/20" />
-              <div className="text-[8px] tracking-[3px] text-brand-teal uppercase font-bold">Managed by</div>
+              <div className="text-[var(--text-xs)] tracking-[3px] text-brand-teal uppercase font-bold">Managed by</div>
             </div>
             {fireflyLogo && (
               <div className="relative h-6 w-full opacity-60">
-                <Image 
-                  src={fireflyLogo.imageUrl} 
-                  alt="Firefly Management" 
-                  fill 
-                  className="object-contain object-left"
-                />
+                <Image src={fireflyLogo.imageUrl} alt="Firefly" fill className="object-contain object-left" />
               </div>
             )}
           </div>
-          
           <div className="pt-2">
-            <div className="text-[10px] tracking-[5px] text-brand-teal uppercase mb-1 font-bold">Proposal</div>
-            <div className="font-headline text-3xl text-brand-gold leading-none">Savanna Sundays</div>
+            <div className="text-[var(--text-xs)] tracking-[5px] text-brand-teal uppercase mb-1 font-bold">Proposal</div>
+            <div className="font-headline text-[var(--text-xl)] text-brand-gold leading-none">Savanna Sundays</div>
           </div>
         </div>
         
@@ -88,7 +77,7 @@ export const AppSidebar = () => {
                 <button
                   onClick={() => scrollTo(section.id)}
                   className={cn(
-                    "w-full text-left py-4 px-8 text-[10px] tracking-[2px] font-bold uppercase transition-all border-l-4",
+                    "w-full text-left py-4 px-8 text-[var(--text-xs)] tracking-[2px] font-bold uppercase transition-all border-l-4",
                     activeId === section.id 
                       ? "bg-white/5 text-brand-gold border-brand-gold" 
                       : "text-brand-cream/40 border-transparent hover:text-brand-cream hover:bg-white/5"
@@ -100,15 +89,6 @@ export const AppSidebar = () => {
             ))}
           </ul>
         </nav>
-
-        <div className="p-8 border-t border-white/5">
-          <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-            <div 
-              className="h-full bg-brand-gold transition-all duration-300" 
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-        </div>
       </aside>
 
       <button

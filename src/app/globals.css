@@ -24,6 +24,17 @@
     --input: 43 89% 61% / 0.3;
     --ring: 43 89% 61%;
     --radius: 12px;
+
+    /* Fluid Typography Scale (375px -> 1440px) */
+    --text-xs: clamp(0.5625rem, 0.518rem + 0.188vw, 0.6875rem); /* 9px - 11px */
+    --text-sm: clamp(0.75rem, 0.706rem + 0.188vw, 0.875rem);   /* 12px - 14px */
+    --text-base: clamp(0.875rem, 0.831rem + 0.188vw, 1rem);   /* 14px - 16px */
+    --text-lg: clamp(1.125rem, 1.037rem + 0.376vw, 1.375rem); /* 18px - 22px */
+    --text-xl: clamp(1.5rem, 1.324rem + 0.751vw, 2rem);       /* 24px - 32px */
+    --text-2xl: clamp(2rem, 1.648rem + 1.502vw, 3rem);        /* 32px - 48px */
+    --text-4xl: clamp(3rem, 2.296rem + 3.005vw, 5rem);        /* 48px - 80px */
+    --text-6xl: clamp(4rem, 2.768rem + 5.258vw, 7.5rem);      /* 64px - 120px */
+    --text-display: clamp(5rem, 3.239rem + 7.512vw, 10rem);   /* 80px - 160px */
   }
 }
 
@@ -36,6 +47,7 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
+  /* Fixed Tactile Noise Layer */
   body::before {
     content: "";
     @apply fixed inset-0 pointer-events-none opacity-[0.05] z-0;
@@ -45,24 +57,24 @@
 
 @layer components {
   .noise-overlay {
-    @apply absolute inset-0 pointer-events-none opacity-[0.05] z-[1];
+    @apply absolute inset-0 pointer-events-none opacity-[0.015] z-[1];
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
   .section-label {
-    @apply font-body font-bold text-[9px] md:text-[11px] tracking-[3px] uppercase text-brand-gold mb-1 block opacity-100;
+    @apply font-body font-bold text-[var(--text-xs)] tracking-[3px] uppercase text-brand-gold mb-1 block opacity-100;
   }
 
   .section-title {
-    @apply font-headline text-[clamp(2rem,7vw,5rem)] text-brand-gold relative leading-[1.05] mb-4 tracking-tighter uppercase;
+    @apply font-headline text-[var(--text-6xl)] text-brand-gold relative leading-[1.05] mb-4 tracking-tighter uppercase;
   }
 
   .section-subtitle {
-    @apply font-body text-brand-cream text-sm md:text-base leading-relaxed max-w-2xl mb-6;
+    @apply font-body text-brand-cream text-[var(--text-base)] leading-relaxed max-w-2xl mb-6;
   }
 
   .btn-primary {
-    @apply relative overflow-hidden bg-brand-gold text-brand-green font-headline text-lg tracking-widest py-3 px-8 rounded-full transition-all active:scale-95 shadow-[0_10px_30px_rgba(244,197,66,0.3)] hover:-translate-y-0.5 z-10;
+    @apply relative overflow-hidden bg-brand-gold text-brand-green font-headline text-[var(--text-lg)] tracking-widest py-3 px-8 rounded-full transition-all active:scale-95 shadow-[0_10px_30px_rgba(244,197,66,0.3)] hover:-translate-y-0.5 z-10;
   }
 
   .glass-tile {

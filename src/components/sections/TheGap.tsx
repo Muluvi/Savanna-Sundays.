@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
@@ -18,7 +18,7 @@ export const TheGap = () => {
     <div className="space-y-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         <div className="space-y-4">
-          <p className="font-serif italic text-2xl md:text-3xl text-brand-gold leading-snug border-l-4 border-brand-gold pl-8 py-2">
+          <p className="font-serif italic text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-gold leading-snug border-l-4 border-brand-gold pl-8 py-2">
             We&apos;re already building Nairobi&apos;s Sunday culture — now it&apos;s time to scale city-wide.
           </p>
         </div>
@@ -30,8 +30,8 @@ export const TheGap = () => {
             )}
           </div>
           <div className="relative z-10 space-y-4">
-            <h4 className="font-headline text-3xl text-brand-gold uppercase tracking-tight">The expansion mandate</h4>
-            <p className="font-body text-brand-cream/90 text-sm md:text-base leading-relaxed">
+            <h4 className="font-headline text-[var(--text-xl)] text-brand-gold uppercase tracking-tight">The expansion mandate</h4>
+            <p className="font-body text-brand-cream/90 text-[var(--text-sm)] md:text-[var(--text-base)] leading-relaxed">
               Savanna Sundays isn&apos;t a concept. It&apos;s already running. The Savanna Vybe Squad is already pulling crowds and building ritual. We are now scaling what works—mainstream bars for volume and premium spots for positioning. The squad is proven. The infrastructure is built.
             </p>
           </div>
@@ -41,7 +41,7 @@ export const TheGap = () => {
       <div className="pt-8 border-t border-white/5">
         <div className="flex items-center justify-center gap-3 mb-8">
           <Sparkles className="text-brand-gold/40" size={16} />
-          <span className="font-body text-[10px] tracking-[5px] text-brand-gold uppercase font-bold">Evidence of reach</span>
+          <span className="font-body text-[var(--text-xs)] tracking-[5px] text-brand-gold uppercase font-bold">Evidence of reach</span>
           <Sparkles className="text-brand-gold/40" size={16} />
         </div>
         
@@ -54,8 +54,8 @@ export const TheGap = () => {
                   {img && <Image src={img.imageUrl} alt={stat.label} fill className="object-contain" />}
                 </div>
                 <div className="text-center">
-                  <div className="font-headline text-5xl text-brand-gold leading-none">{stat.value}</div>
-                  <div className="font-body text-[10px] uppercase tracking-[4px] text-brand-gold/60 font-bold mt-1">{stat.label}</div>
+                  <div className="font-headline text-[var(--text-4xl)] text-brand-gold leading-none">{stat.value}</div>
+                  <div className="font-body text-[var(--text-xs)] uppercase tracking-[4px] text-brand-gold/60 font-bold mt-1">{stat.label}</div>
                 </div>
               </div>
             );

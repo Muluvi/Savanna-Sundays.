@@ -14,7 +14,6 @@ import { DualActivationModel } from '@/components/sections/DualModel';
 import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
 import { TheNumbersSection } from '@/components/sections/TheNumbersSection';
 import { MusicProgrammingSection } from '@/components/sections/MusicProgramming';
-import { ExperienceDesignSection as ExperienceDesignPillar } from '@/components/sections/ExperienceDesign';
 
 const sectionsData = [
   { id: 'the-gap', label: '01 — The Opportunity', title: "The Expansion", component: <TheGap /> },
@@ -22,7 +21,7 @@ const sectionsData = [
   { id: 'the-ritual', label: '03 — The Ritual', title: 'The Vybe', component: (
     <div className="space-y-12">
       <MusicProgrammingSection />
-      <ExperienceDesignPillar />
+      <ExperienceDesignSection />
     </div>
   ) },
   { id: 'the-numbers', label: '04 — The Investment', title: 'The Capital', component: <TheNumbersSection /> },
@@ -37,7 +36,6 @@ export default function Home() {
     setIsMounted(true);
   }, []);
 
-  // Prevent initial flash/hydration noise for high-fidelity animations
   if (!isMounted) return <div className="min-h-screen bg-brand-green" />;
 
   return (
@@ -65,23 +63,23 @@ export default function Home() {
 
             <div className="space-y-1 animate-fade-in-up [animation-delay:200ms]">
               <h1 className="flex flex-col items-center leading-[0.95] tracking-tighter">
-                <span className="text-brand-gold text-[clamp(4rem,15vw,9rem)] font-headline uppercase">Savanna</span>
-                <span className="text-brand-gold text-[clamp(4rem,15vw,9rem)] font-headline uppercase">Sundays</span>
+                <span className="text-brand-gold text-[var(--text-display)] font-headline uppercase">Savanna</span>
+                <span className="text-brand-gold text-[var(--text-display)] font-headline uppercase">Sundays</span>
               </h1>
-              <p className="font-body text-brand-gold text-lg md:text-xl uppercase tracking-[6px] font-bold">
+              <p className="font-body text-brand-gold text-[var(--text-lg)] md:text-[var(--text-xl)] uppercase tracking-[6px] font-bold">
                 Already live. Now scaling to Nairobi.
               </p>
             </div>
             
             <div className="max-w-3xl border-t border-brand-gold/20 pt-6 animate-fade-in-up [animation-delay:400ms]">
-              <p className="font-body text-brand-cream text-sm md:text-base uppercase tracking-[1px] font-bold leading-relaxed opacity-80">
+              <p className="font-body text-brand-cream text-[var(--text-sm)] md:text-[var(--text-base)] uppercase tracking-[1px] font-bold leading-relaxed opacity-80">
                 The Savanna Vybe Squad is already on the ground. The movement is real. Now we&apos;re taking it to mainstream venues, premium spots, and a city-wide audience.
               </p>
             </div>
           </div>
 
           <div className="absolute bottom-10 flex flex-col items-center gap-3 animate-bounce">
-            <p className="font-body text-[9px] text-brand-gold tracking-[0.5em] uppercase font-bold opacity-60">
+            <p className="font-body text-[var(--text-xs)] text-brand-gold tracking-[0.5em] uppercase font-bold opacity-60">
               Presented by Firefly Management
             </p>
             <ChevronDown className="text-brand-gold" size={20} />
@@ -102,7 +100,7 @@ export default function Home() {
         {/* Brand Closing - The Scale Mandate */}
         <div className="py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-brand-ink">
           <div className="max-w-4xl mx-auto space-y-10 relative z-10">
-            <p className="font-serif italic text-2xl md:text-3xl text-brand-cream leading-snug">
+            <p className="font-serif italic text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-cream leading-snug">
               Savanna Sundays is already live. The Savanna Vybe Squad is on the ground. Thirteen venues. Three resident DJs. Five influencers. One brand owning the day. Let&apos;s scale Sunday.
             </p>
 
@@ -111,7 +109,7 @@ export default function Home() {
               className="btn-primary inline-flex h-16 px-12 items-center gap-6 group"
               suppressHydrationWarning
             >
-              <span className="font-headline text-xl tracking-widest uppercase">Scale Sunday</span>
+              <span className="font-headline text-[var(--text-xl)] tracking-widest uppercase">Scale Sunday</span>
               <span className="group-hover:translate-x-2 transition-transform">→</span>
             </a>
 
@@ -123,14 +121,14 @@ export default function Home() {
                   </div>
                 )}
                 <div className="h-10 w-[1px] bg-white/10" />
-                <p className="font-headline text-3xl text-white tracking-widest uppercase">Firefly</p>
+                <p className="font-headline text-[var(--text-2xl)] text-white tracking-widest uppercase">Firefly</p>
               </div>
 
               <div className="space-y-3 max-w-xl">
-                <p className="font-body text-[9px] text-brand-gold uppercase tracking-[3px] font-bold opacity-60">
+                <p className="font-body text-[var(--text-xs)] text-brand-gold uppercase tracking-[3px] font-bold opacity-60">
                   Prepared by Firefly Management for Kenya Wine Agencies Limited
                 </p>
-                <p className="font-body text-[9px] text-brand-gold/30 uppercase tracking-[1px] leading-relaxed">
+                <p className="font-body text-[var(--text-xs)] text-brand-gold/30 uppercase tracking-[1px] leading-relaxed">
                   Excessive alcohol consumption is harmful to your health. Not for sale to persons under the age of 18 years.
                 </p>
               </div>

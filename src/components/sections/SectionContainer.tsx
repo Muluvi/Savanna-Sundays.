@@ -31,7 +31,6 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Constrain translateX and only apply after mount to avoid hydration mismatch
   const translateX = isMounted ? (scrollProgress - 0.5) * 15 : 0; 
 
   return (
@@ -49,7 +48,7 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
         <div className="mb-6 md:mb-10 text-center md:text-left relative">
           <span className="section-label mb-1">{label}</span>
           <h2 
-            className="section-title"
+            className="section-title text-[var(--text-4xl)] md:text-[var(--text-6xl)]"
             style={{ transform: `translateX(${translateX}px)` }}
           >
             {title}
