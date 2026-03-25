@@ -17,19 +17,19 @@ const residentDJs: DJProfile[] = [
   { 
     name: "DJ MOONS", 
     role: "Resident DJ — Savanna Vybe Squad", 
-    handle: "@dj_moons", // Placeholder handle
+    handle: "@dj_moons", 
     imageUrl: undefined 
   },
   { 
     name: "DJ MAIN PATT", 
     role: "Resident DJ — Savanna Vybe Squad", 
-    handle: "@djmainpatt", // Placeholder handle
+    handle: "@djmainpatt", 
     imageUrl: undefined 
   },
   { 
     name: "SAMEER", 
     role: "Resident DJ — Savanna Vybe Squad", 
-    handle: "@sameer_official", // Placeholder handle
+    handle: "@sameer_official", 
     imageUrl: undefined 
   },
 ];
@@ -41,9 +41,10 @@ const squadRoles = [
     body: "Proven Nairobi talent with massive digital reach. Multi-cam recorded for the Sunday Mix Series."
   },
   {
-    role: "1 MC",
+    role: "MC — THE SAVANNA VOICE",
     icon: <Mic2 className="w-8 h-8" />,
-    body: "A crowd-pulling ambassador running crowd interactions and real-time engagement."
+    body: "The MC is the voice of Savanna on the ground. A crowd-puller in their own right — running crowd interactions, brand shout-outs, competition call-outs, venue hype, and real-time engagement moments. They keep energy high, drive Savanna mentions naturally, and create content-worthy moments throughout every session."
+    // MC photo and handle placeholder to be added here if named later
   },
   {
     role: "5 Influencers",
@@ -63,10 +64,8 @@ const DJCard = ({ dj }: { dj: DJProfile }) => {
   return (
     <div className="group relative flex flex-col items-center p-8 rounded-[40px] transition-all duration-500 hover:scale-105"
          style={{ backgroundColor: '#1A1208' }}>
-      {/* Subtle Gold Glow on Hover */}
       <div className="absolute inset-0 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_40px_rgba(244,197,66,0.15)] pointer-events-none" />
       
-      {/* Circular Photo Frame */}
       <div className="relative w-32 h-32 rounded-full border-2 border-brand-gold overflow-hidden mb-6 bg-brand-green/20">
         {dj.imageUrl ? (
           <Image src={dj.imageUrl} alt={dj.name} fill className="object-cover" />
@@ -96,7 +95,6 @@ const DJCard = ({ dj }: { dj: DJProfile }) => {
 export const MusicProgrammingSection = () => {
   return (
     <div className="space-y-16">
-      {/* Header Context */}
       <div className="max-w-4xl space-y-6">
         <div className="section-label">03C: Sonic Architecture</div>
         <h3 className="font-headline text-5xl md:text-8xl text-brand-gold uppercase leading-none tracking-tighter">
@@ -110,7 +108,6 @@ export const MusicProgrammingSection = () => {
         </p>
       </div>
 
-      {/* RESIDENT DJs SUB-SECTION */}
       <div className="space-y-10 pt-4">
         <div className="flex items-center gap-4">
           <div className="h-[1px] w-12 bg-brand-gold/30" />
@@ -130,7 +127,6 @@ export const MusicProgrammingSection = () => {
         </div>
       </div>
 
-      {/* SQUAD ROLES GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-8 border-t border-white/5">
         {squadRoles.map((role, i) => (
           <div key={i} className="space-y-4 group">
