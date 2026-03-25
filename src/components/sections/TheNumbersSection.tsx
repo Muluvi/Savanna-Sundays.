@@ -15,8 +15,8 @@ import {
 const lineItems = [
   { item: "DJ 1 opens with a warm-up set across Bongo, R&B, and Afrobeats.", cost: "50,000" },
   { item: "DJ 2 takes peak time with high-energy Bongo, amapiano, and crowd requests.", cost: "50,000" },
-  { item: "MC / Brand Host — The Savanna Voice", cost: "40,000" },
-  { id: "influencer", item: "Influencer Pool (5 PAX)", cost: "100,000" },
+  { item: "MC / Brand Host — The Savanna Voice (Savanna Vybe Squad)", cost: "40,000" },
+  { id: "influencer", item: "The Savanna Vybe Squad Influencer Pool (5 PAX)", cost: "100,000" },
   { item: "Content Production Crew", cost: "41,250" },
   { item: "Strategic Logistics", cost: "54,918" },
 ];

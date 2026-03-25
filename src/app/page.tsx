@@ -15,6 +15,7 @@ import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign'
 import { TheNumbersSection } from '@/components/sections/TheNumbersSection';
 import { MusicProgrammingSection } from '@/components/sections/MusicProgramming';
 import { InfluencerPacksSection } from '@/components/sections/InfluencerPacks';
+import { InfluencerLineup } from '@/components/sections/InfluencerLineup';
 
 const sectionsData = [
   { id: 'the-gap', label: '01 — The Opportunity', title: "The Gap", component: <TheGap /> },
@@ -24,6 +25,7 @@ const sectionsData = [
       <MusicProgrammingSection />
       <ExperienceDesignSection />
       <InfluencerPacksSection />
+      <InfluencerLineup />
     </div>
   ) },
   { id: 'the-numbers', label: '04 — The Investment', title: 'The Numbers', component: <TheNumbersSection /> },
