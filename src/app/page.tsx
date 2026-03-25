@@ -75,7 +75,7 @@ export default function Home() {
                 Already live. Now scaling to every corner of Nairobi.
               </p>
               <p className="font-body text-brand-cream/80 text-xs md:text-lg uppercase tracking-[3px] font-bold leading-relaxed max-w-xl mx-auto border-t border-brand-gold/20 pt-6">
-                The Savanna Vybe Squad is on the ground. The movement is real. Now we&apos;re taking it to mainstream venues, premium spots, and a bigger audience.
+                The Savanna Vybe Squad is already on the ground. The movement is real. Now we&apos;re taking it to mainstream venues, premium spots, and a bigger audience.
               </p>
             </div>
           </div>
@@ -102,11 +102,11 @@ export default function Home() {
 
         {/* Brand Closing Section - Expansion Commitment */}
         <div className="py-24 px-6 text-center bg-brand-green border-t border-white/5 relative overflow-hidden">
-          <div className="max-w-4xl mx-auto space-y-12 relative z-10">
+          <div className="max-w-6xl mx-auto space-y-12 relative z-10">
             {isMounted ? (
               <>
-                <p className="font-serif italic text-2xl md:text-5xl text-brand-cream leading-tight max-w-2xl mx-auto">
-                  Savanna Sundays is already live and thriving. The Savanna Vybe Squad is on the ground. The venues are mapped. All that&apos;s needed is the green light to scale.
+                <p className="font-serif italic text-2xl md:text-5xl text-brand-cream leading-tight max-w-4xl mx-auto">
+                  Savanna Sundays is already live. The Savanna Vybe Squad is on the ground. The content engine is producing. The crowd is growing. Now it&apos;s time to take this to every corner of Nairobi — mainstream bars, premium venues, and everything in between. Thirteen venues. Three resident DJs. Five influencers dropping every Sunday at noon. One brand owning the day. Let&apos;s scale Sunday.
                 </p>
 
                 <a 
@@ -115,7 +115,7 @@ export default function Home() {
                     "btn-primary inline-flex h-20 px-16 items-center gap-8 text-xl hover:scale-105 transition-all"
                   )}
                 >
-                  <span>Let&apos;s own Sunday</span>
+                  <span>Scale Sunday &rarr;</span>
                 </a>
               </>
             ) : (
