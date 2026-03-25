@@ -12,6 +12,7 @@ const sections = [
   { id: 'the-engine', label: '02 — The Venue Network' },
   { id: 'the-ritual', label: '03 — The Ritual' },
   { id: 'the-numbers', label: '04 — The Investment' },
+  { id: 'the-partnership', label: '05 — The Partnership' },
 ];
 
 export const AppSidebar = () => {

@@ -19,6 +19,8 @@ import { TheNumbersSection } from '@/components/sections/TheNumbersSection';
 import { TalentMarquee } from '@/components/sections/TalentMarquee';
 import { Tier1Marquee, Tier2Marquee } from '@/components/sections/VenueMarquee';
 import { InfluencerLineup } from '@/components/sections/InfluencerLineup';
+import { LeadCapture } from '@/components/sections/LeadCapture';
+import { StrategicAdvisor } from '@/components/ai/StrategicAdvisor';
 
 const closingSentences = [
   "Savanna Sundays is already live.",
@@ -140,7 +142,7 @@ export default function Home() {
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           )}>
             <div className="flex flex-col items-center gap-6">
-              <span className="font-body text-[var(--text-sm)] tracking-[4px] text-brand-gold/80 uppercase font-bold">Presented by</span>
+              <span className="font-body text-[var(--text-base)] tracking-[4px] text-brand-gold uppercase font-bold">Presented by</span>
               <div className="flex items-center gap-10">
                 <div className="h-[1px] w-16 bg-brand-gold/30" />
                 {fireflyLogo && (
@@ -183,6 +185,14 @@ export default function Home() {
         {/* Section 04 — The Investment */}
         <SectionContainer id="the-numbers" label="04 — The Investment" title="The Capital">
           <TheNumbersSection />
+        </SectionContainer>
+
+        {/* Section 05 — The Partnership */}
+        <SectionContainer id="the-partnership" label="05 — The Partnership" title="Next Steps">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            <LeadCapture />
+            <StrategicAdvisor />
+          </div>
         </SectionContainer>
 
         {/* Closing */}
