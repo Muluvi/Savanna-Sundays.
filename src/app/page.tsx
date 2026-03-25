@@ -17,7 +17,7 @@ import { MusicProgrammingSection } from '@/components/sections/MusicProgramming'
 
 const sectionsData = [
   { id: 'the-gap', label: '01 — The Opportunity', title: "The Gap", component: <TheGap /> },
-  { id: 'the-engine', label: '02 — The Engine', title: 'The Dual Model', component: <DualActivationModel /> },
+  { id: 'the-engine', label: '02 — The Engine', title: 'The Venue Network', component: <DualActivationModel /> },
   { id: 'the-ritual', label: '03 — The Ritual', title: 'The Experience', component: (
     <div className="space-y-12">
       <MusicProgrammingSection />

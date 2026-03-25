@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 
 const sections = [
   { id: 'the-gap', label: 'The Opportunity', num: '01' },
-  { id: 'the-engine', label: 'The Engine', num: '02' },
+  { id: 'the-engine', label: 'The Venue Network', num: '02' },
   { id: 'the-ritual', label: 'The Ritual', num: '03' },
   { id: 'the-numbers', label: 'The Investment', num: '04' },
 ];

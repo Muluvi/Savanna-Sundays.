@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -9,9 +8,8 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const sections = [
   { id: 'the-gap', label: 'The Opportunity' },
-  { id: 'the-engine', label: 'The Engine' },
+  { id: 'the-engine', label: 'The Venue Network' },
   { id: 'the-ritual', label: 'The Ritual' },
-  { id: 'the-data', label: 'The Feedback' },
   { id: 'the-numbers', label: 'The Investment' },
 ];
 
