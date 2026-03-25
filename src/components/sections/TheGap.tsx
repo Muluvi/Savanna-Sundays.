@@ -8,9 +8,9 @@ import { cl } from '@/lib/cloudinary';
 
 /**
  * High-fidelity counter for strategic metrics.
- * Triggers exactly when the element enters the viewport.
+ * Triggers sequentially based on the delay prop.
  */
-const StatCounter = ({ value, className }: { value: string; className?: string }) => {
+const StatCounter = ({ value, delay = 0, className }: { value: string; delay?: number; className?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,7 +27,9 @@ const StatCounter = ({ value, className }: { value: string; className?: string }
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
-          startAnimation();
+          setTimeout(() => {
+            startAnimation();
+          }, delay);
         }
       },
       { threshold: 0.1 }
@@ -52,7 +54,7 @@ const StatCounter = ({ value, className }: { value: string; className?: string }
     };
 
     return () => observer.disconnect();
-  }, [target, hasAnimated]);
+  }, [target, hasAnimated, delay]);
 
   return (
     <div ref={containerRef} className={cn("font-headline tracking-tighter leading-none drop-shadow-[0_0_20px_rgba(244,197,66,0.35)]", className)}>
@@ -65,9 +67,9 @@ const StatCounter = ({ value, className }: { value: string; className?: string }
 export const TheGap = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   const socialIcons = [
-    { id: 'social-fb', label: 'Facebook Reach', value: '603K' },
-    { id: 'social-ig', label: 'Instagram Reach', value: '6.1K' },
-    { id: 'social-x', label: 'X (Twitter) Reach', value: '1.1K' },
+    { id: 'social-fb', label: 'Facebook Reach', value: '603K', delay: 0 },
+    { id: 'social-ig', label: 'Instagram Reach', value: '6.1K', delay: 400 },
+    { id: 'social-x', label: 'X (Twitter) Reach', value: '1.1K', delay: 800 },
   ];
 
   return (
@@ -106,24 +108,25 @@ export const TheGap = () => {
           <Sparkles className="text-brand-gold/60" size={18} />
         </div>
         
-        <div className="max-w-3xl mx-auto space-y-12">
+        <div className="max-w-4xl mx-auto space-y-12">
           {socialIcons.map((stat) => {
             const img = PlaceHolderImages.find(i => i.id === stat.id);
             return (
-              <div key={stat.id} className="flex items-center gap-10 md:gap-16 group transition-all duration-500">
+              <div key={stat.id} className="flex items-center gap-10 md:gap-20 group transition-all duration-500">
                 {img && (
-                  <div className="shrink-0 flex items-center justify-center w-20 h-20 md:w-28 md:h-28">
+                  <div className="shrink-0 flex items-center justify-center w-20 h-20 md:w-32 md:h-32">
                     <img 
-                      src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_300')} 
+                      src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
                       alt={stat.label} 
-                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
                     />
                   </div>
                 )}
-                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-10 flex-1 border-b border-white/5 pb-6">
+                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-12 flex-1 border-b border-white/10 pb-8">
                   <StatCounter 
                     value={stat.value} 
-                    className="text-brand-gold text-5xl md:text-8xl" 
+                    delay={stat.delay}
+                    className="text-brand-gold text-5xl md:text-9xl" 
                   />
                   <div className="font-body text-[11px] md:text-sm uppercase tracking-[4px] text-brand-gold/45 font-bold">
                     {stat.label}
