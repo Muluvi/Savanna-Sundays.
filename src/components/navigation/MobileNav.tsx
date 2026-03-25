@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Menu, X, ChevronRight, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const sections = [
@@ -32,11 +32,12 @@ export const MobileNav = () => {
       </button>
 
       <div className={cn(
-        "fixed inset-0 bg-brand-green z-[105] transition-all duration-700 flex flex-col p-10 pt-24",
-        isOpen ? "translate-y-0" : "-translate-y-full"
+        "fixed inset-0 z-[105] transition-all duration-700 flex flex-col p-10 pt-24",
+        "bg-[#0E1A10]/88 backdrop-blur-[24px] backdrop-saturate-[1.4]",
+        isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       )}>
         <div className="relative z-10 space-y-1 mb-12">
-          <p className="font-body text-[var(--text-xs)] tracking-[4px] text-brand-gold uppercase font-bold opacity-40">Strategic Deck</p>
+          <p className="font-body text-[var(--text-xs)] tracking-[4px] text-brand-gold uppercase font-bold opacity-40">Strategic Proposal</p>
           <h3 className="font-headline text-[var(--text-4xl)] text-white uppercase tracking-tighter">Navigation</h3>
         </div>
 
@@ -60,6 +61,13 @@ export const MobileNav = () => {
             ))}
           </ul>
         </nav>
+
+        <div className="mt-auto pt-8 border-t border-white/5 space-y-4">
+          <p className="font-headline text-[var(--text-xl)] text-brand-gold tracking-widest uppercase opacity-60">Firefly Management</p>
+          <p className="font-body text-[var(--text-xs)] text-white/20 uppercase tracking-[2px] leading-relaxed">
+            Confidential Strategic Document. <br/>All session data recorded.
+          </p>
+        </div>
       </div>
     </>
   );
