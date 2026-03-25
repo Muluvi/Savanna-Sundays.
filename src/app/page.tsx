@@ -197,9 +197,9 @@ export default function Home() {
         </SectionContainer>
 
         {/* Closing */}
-        <div ref={closingRef} id="closing" className="py-40 px-6 text-center border-t border-white/5 relative overflow-hidden bg-[#0A140B]">
+        <div ref={closingRef} id="closing" className="py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-[#0A140B]">
           <CiderFizz className="opacity-[0.05]" />
-          <div className="max-w-4xl mx-auto space-y-20 relative z-10">
+          <div className="max-w-4xl mx-auto space-y-12 relative z-10">
             <p className="font-serif italic text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-cream leading-snug">
               {closingSentences.map((sentence, i) => (
                 <span key={i} style={{ transitionDelay: `${i * 120}ms` }} className={cn("reveal-on-scroll inline-block mr-2 mb-2", closingVisible && "reveal-visible")}>
@@ -208,10 +208,10 @@ export default function Home() {
               ))}
             </p>
             <div className={cn("reveal-on-scroll", closingVisible && "reveal-visible")} style={{ transitionDelay: '1400ms' }}>
-              <a href="mailto:partner@firefly.co.ke" className="btn-scale-sunday-glow group h-24">
-                <div className="relative z-10 flex items-center gap-10 px-20 h-full text-brand-ink">
-                  <span className="font-headline text-[var(--text-2xl)] tracking-widest uppercase">Scale Sunday</span>
-                  <ArrowRight className="group-hover:translate-x-4 transition-transform" size={32} />
+              <a href="mailto:partner@firefly.co.ke" className="btn-scale-sunday-glow group h-20">
+                <div className="relative z-10 flex items-center gap-8 px-12 h-full text-brand-ink">
+                  <span className="font-headline text-[var(--text-xl)] tracking-widest uppercase">Scale Sunday</span>
+                  <ArrowRight className="group-hover:translate-x-4 transition-transform" size={28} />
                 </div>
               </a>
             </div>

@@ -57,7 +57,7 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
       ref={sectionRef}
       id={id} 
       className={cn(
-        "py-24 md:py-48 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center border-b border-white/5"
+        "py-16 md:py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center border-b border-white/5"
       )}
     >
       <div className="noise-overlay" />
@@ -68,7 +68,7 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
         "max-w-6xl mx-auto w-full relative z-10 reveal-on-scroll",
         isVisible && "reveal-visible"
       )}>
-        <div className="mb-20 md:mb-32 text-center md:text-left relative">
+        <div className="mb-12 md:mb-16 text-center md:text-left relative">
           <span className="section-label">{label}</span>
           <h2 
             className="section-title text-glow-gold"
