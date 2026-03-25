@@ -16,26 +16,26 @@ export const TheGap = () => {
   ];
 
   return (
-    <div className="space-y-16">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <p className="font-serif italic text-[var(--text-lg)] md:text-[var(--text-4xl)] text-brand-gold leading-tight border-l-[6px] border-brand-gold/40 animate-border-breathe pl-8 py-4">
+    <div className="space-y-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="space-y-8">
+          <p className="font-serif italic text-[var(--text-lg)] md:text-[var(--text-4xl)] text-brand-gold leading-tight border-l-[6px] border-brand-gold/40 animate-border-breathe pl-10 py-6">
             We&apos;re already building Nairobi&apos;s Sunday culture — now it&apos;s time to scale city-wide.
           </p>
         </div>
 
-        <div className="glass-tile p-8 md:p-12 rounded-[40px] relative overflow-hidden group border-brand-gold/10">
-          <div className="absolute top-0 right-0 p-8 z-0 opacity-10">
+        <div className="glass-tile p-10 md:p-14 rounded-[48px] relative overflow-hidden group border-brand-gold/10 shadow-2xl">
+          <div className="absolute top-0 right-0 p-10 z-0 opacity-10 group-hover:scale-110 transition-transform duration-1000">
             {savannaLogo && (
               <img 
-                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_300')} 
+                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
                 alt="" 
-                style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
+                style={{ height: '120px', width: 'auto', objectFit: 'contain' }}
               />
             )}
           </div>
-          <div className="relative z-10 space-y-4">
-            <h4 className="font-headline text-[var(--text-xl)] text-brand-gold uppercase tracking-[4px]">The expansion mandate</h4>
+          <div className="relative z-10 space-y-6">
+            <h4 className="font-headline text-[var(--text-2xl)] text-brand-gold uppercase tracking-[4px] leading-none">The expansion mandate</h4>
             <p className="font-body text-brand-cream/80 text-[var(--text-base)] leading-relaxed">
               Savanna Sundays isn&apos;t a concept. It&apos;s already running. The Savanna Vybe Squad is already pulling crowds and building ritual. We are now scaling what works—mainstream bars for volume and premium spots for positioning.
             </p>
@@ -43,34 +43,34 @@ export const TheGap = () => {
         </div>
       </div>
 
-      <div className="pt-16 border-t border-white/5 space-y-16">
-        <div className="flex items-center justify-center gap-4">
-          <Sparkles className="text-brand-gold/60" size={18} />
+      <div className="pt-24 border-t border-white/5 space-y-20">
+        <div className="flex items-center justify-center gap-6">
+          <Sparkles className="text-brand-gold/60" size={20} />
           <span className="font-body text-[var(--text-xs)] tracking-[4px] text-brand-gold uppercase font-bold">Evidence of reach</span>
-          <Sparkles className="text-brand-gold/60" size={18} />
+          <Sparkles className="text-brand-gold/60" size={20} />
         </div>
         
-        <div className="max-w-5xl mx-auto space-y-12">
+        <div className="max-w-5xl mx-auto space-y-16">
           {socialIcons.map((stat) => {
             const img = PlaceHolderImages.find(i => i.id === stat.id);
             return (
-              <div key={stat.id} className="flex items-center gap-8 md:gap-24 group transition-all duration-700">
+              <div key={stat.id} className="flex items-center gap-10 md:gap-32 group transition-all duration-700">
                 {img && (
-                  <div className="shrink-0 flex items-center justify-center w-20 h-20 md:w-44 md:h-44 relative">
+                  <div className="shrink-0 flex items-center justify-center w-24 h-24 md:w-56 md:h-56 relative">
                     <img 
-                      src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
+                      src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_800')} 
                       alt={stat.label} 
-                      className="w-full h-full object-contain transition-all duration-700 group-hover:scale-110 drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] filter brightness-110"
+                      className="w-full h-full object-contain transition-all duration-700 group-hover:scale-115 drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)] filter brightness-110"
                     />
                   </div>
                 )}
-                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-16 flex-1 border-b border-white/10 pb-8 md:pb-12">
+                <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-24 flex-1 border-b border-white/10 pb-12 md:pb-16">
                   <AnimatedCounter 
                     value={stat.value} 
                     delay={stat.delay}
-                    className="text-brand-gold text-5xl md:text-display font-headline tracking-tighter leading-none drop-shadow-[0_0_35px_rgba(244,197,66,0.45)]" 
+                    className="text-brand-gold text-6xl md:text-display font-headline tracking-tighter leading-none drop-shadow-[0_0_45px_rgba(244,197,66,0.4)]" 
                   />
-                  <div className="font-body text-[10px] md:text-[var(--text-sm)] uppercase tracking-[4px] text-brand-gold/45 font-bold">
+                  <div className="font-body text-[11px] md:text-[var(--text-base)] uppercase tracking-[4px] text-brand-gold/45 font-bold">
                     {stat.label}
                   </div>
                 </div>

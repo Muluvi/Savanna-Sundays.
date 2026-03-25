@@ -129,14 +129,14 @@ export default function Home() {
               </div>
               
               <div className="flex justify-center pt-8">
-                 <div className="w-14 h-14 rounded-full border border-brand-gold/30 flex items-center justify-center animate-bounce shadow-[0_0_20px_rgba(244,197,66,0.2)]">
+                 <div className="w-14 h-14 rounded-full border border-brand-gold/30 flex items-center justify-center animate-bounce shadow-[0_0_20px_rgba(244,197,66,0.2)] cursor-pointer" onClick={() => document.getElementById('the-gap')?.scrollIntoView({ behavior: 'smooth' })}>
                     <ChevronDown className="text-brand-gold" size={24} />
                  </div>
               </div>
             </div>
           </div>
 
-          {/* Footer Attribution */}
+          {/* Footer Attribution - Proportional Scaling */}
           <div className={cn(
             "relative z-10 flex flex-col items-center gap-8 transition-all duration-1000 delay-[1200ms]",
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
@@ -147,7 +147,7 @@ export default function Home() {
                 <div className="h-[1px] w-16 bg-brand-gold/30" />
                 {fireflyLogo && (
                   <img 
-                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
+                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_800')} 
                     alt="Firefly Management" 
                     className="opacity-100 hover:scale-105 transition-all duration-500 drop-shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
                     style={{ height: '72px', width: 'auto', objectFit: 'contain' }}
@@ -189,14 +189,14 @@ export default function Home() {
 
         {/* Section 05 — The Partnership */}
         <SectionContainer id="the-partnership" label="05 — The Partnership" title="Next Steps">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <LeadCapture />
             <StrategicAdvisor />
           </div>
         </SectionContainer>
 
         {/* Closing */}
-        <div ref={closingRef} id="closing" className="py-24 px-6 text-center border-t border-white/5 relative overflow-hidden bg-brand-ink">
+        <div ref={closingRef} id="closing" className="py-32 px-6 text-center border-t border-white/5 relative overflow-hidden bg-brand-ink">
           <div className="max-w-4xl mx-auto space-y-16 relative z-10">
             <p className="font-serif italic text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-cream leading-snug">
               {closingSentences.map((sentence, i) => (
@@ -206,10 +206,10 @@ export default function Home() {
               ))}
             </p>
             <div className={cn("reveal-on-scroll", closingVisible && "reveal-visible")} style={{ transitionDelay: '1200ms' }}>
-              <a href="mailto:partner@firefly.co.ke" className="btn-scale-sunday-glow group h-16">
-                <div className="relative z-10 flex items-center gap-6 px-12 h-full text-brand-ink">
-                  <span className="font-headline text-[var(--text-xl)] tracking-widest uppercase">Scale Sunday</span>
-                  <ArrowRight className="group-hover:translate-x-2 transition-transform" size={24} />
+              <a href="mailto:partner@firefly.co.ke" className="btn-scale-sunday-glow group h-20">
+                <div className="relative z-10 flex items-center gap-8 px-16 h-full text-brand-ink">
+                  <span className="font-headline text-[var(--text-2xl)] tracking-widest uppercase">Scale Sunday</span>
+                  <ArrowRight className="group-hover:translate-x-3 transition-transform" size={28} />
                 </div>
               </a>
             </div>
