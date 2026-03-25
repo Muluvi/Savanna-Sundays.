@@ -1,8 +1,10 @@
+
 "use client";
 
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { cl } from '@/lib/cloudinary';
+import { CheckCircle2 } from 'lucide-react';
 
 interface MarqueeRowProps {
   name: string;
@@ -11,9 +13,10 @@ interface MarqueeRowProps {
   duration: string;
   reverse?: boolean;
   isFirstRow?: boolean;
+  isVerified?: boolean;
 }
 
-const MarqueeRow = ({ name, role, images, duration, reverse = false, isFirstRow = false }: MarqueeRowProps) => {
+const MarqueeRow = ({ name, role, images, duration, reverse = false, isFirstRow = false, isVerified = false }: MarqueeRowProps) => {
   // Duplicate images for seamless loop
   const displayImages = [...images, ...images];
   const transformation = 'q_auto:best,f_auto,dpr_2.0,h_680,c_limit';
@@ -21,10 +24,13 @@ const MarqueeRow = ({ name, role, images, duration, reverse = false, isFirstRow 
   return (
     <div className="space-y-4 group/row">
       <div className="text-center space-y-1">
-        <h4 className="font-headline text-[13px] tracking-[4px] text-brand-gold uppercase leading-none">
-          {name}
-        </h4>
-        <p className="font-body text-[10px] tracking-[4px] text-[#F8F5E6]/40 uppercase font-bold">
+        <div className="flex items-center justify-center gap-2">
+           <h4 className="font-headline text-[13px] md:text-[15px] tracking-[4px] text-brand-gold uppercase leading-none">
+            {name}
+          </h4>
+          {isVerified && <CheckCircle2 className="text-blue-400 w-3 h-3 md:w-4 md:h-4 fill-blue-400/10" />}
+        </div>
+        <p className="font-body text-[9px] md:text-[10px] tracking-[4px] text-[#F8F5E6]/40 uppercase font-bold max-w-2xl mx-auto px-4">
           {role}
         </p>
       </div>
@@ -113,10 +119,11 @@ export const TalentMarquee = () => {
       <div className="space-y-8">
         <MarqueeRow 
           name="DJ MOONS" 
-          role="Resident DJ • 70,000 Cumulative Followers (Socials & Streaming)"
+          role="@djmoons.ke • Artist | Artpreneur • 10.1K IG Followers • 70,000 Cumulative Reach • YouTube: @Djmoons"
           images={djMoonsImages} 
           duration="28s"
           isFirstRow 
+          isVerified
         />
         
         <TalentDivider />
