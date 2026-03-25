@@ -28,21 +28,26 @@ const productionDays = [
 export const ExperienceDesignSection = () => {
   return (
     <div className="space-y-12">
-      {/* 03B: The Content Harvest (New Primary Feature) */}
+      {/* 03B: The Content Harvest */}
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-2">
           <Sparkles className="text-brand-gold" size={20} />
           <div className="section-label mb-0">03B: The Content Harvest</div>
         </div>
         
-        <p className="font-body text-brand-cream/80 text-lg leading-relaxed max-w-2xl">
-          One Sunday of production feeds a full week of digital dominance. We transform high-energy moments into a permanent strategic asset library.
-        </p>
+        <div className="space-y-4 max-w-2xl">
+          <p className="font-body text-brand-cream/80 text-lg leading-relaxed">
+            One Sunday of production feeds a full week of digital dominance. We transform high-energy moments into a permanent strategic asset library.
+          </p>
+          <p className="font-body text-brand-gold/60 text-sm italic border-l-2 border-brand-gold/20 pl-4">
+            Sets reflect Nairobi’s mainstream sound — Bongo-led, genre-fluid, crowd-first.
+          </p>
+        </div>
 
         <ContentHarvestMetrics />
       </div>
 
-      {/* 03C: The Publishing Rhythm (Formerly 03B) */}
+      {/* 03C: The Publishing Rhythm */}
       <div className="space-y-6 pt-8 border-t border-white/5">
         <div className="flex items-center gap-3 mb-2">
           <CalendarDays className="text-brand-gold" size={20} />

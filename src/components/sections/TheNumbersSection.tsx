@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -14,8 +13,9 @@ import {
 } from 'lucide-react';
 
 const lineItems = [
-  { item: "DJ Talent (Warm-up + Peak)", cost: "100,000" },
-  { item: "MC / Brand Host", cost: "40,000" },
+  { item: "DJ 1 opens with a warm-up set across Bongo, R&B, and Afrobeats.", cost: "50,000" },
+  { item: "DJ 2 takes peak time with high-energy Bongo, amapiano, and crowd requests.", cost: "50,000" },
+  { item: "MC / Brand Host — The Savanna Voice", cost: "40,000" },
   { id: "influencer", item: "Influencer Pool (5 PAX)", cost: "100,000" },
   { item: "Content Production Crew", cost: "41,250" },
   { item: "Strategic Logistics", cost: "54,918" },

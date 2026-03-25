@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
@@ -49,7 +48,6 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
 
     if (containerRef.current) observer.observe(containerRef.current);
 
-    // Fallback: Force start if not animated after 3s
     const fallback = setTimeout(() => {
       if (!hasAnimated) {
         setHasAnimated(true);
@@ -95,7 +93,7 @@ export const TheGap = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
         <div className="space-y-4 flex flex-col justify-center">
           <p className="font-serif italic text-xl md:text-3xl text-brand-gold leading-tight border-l-4 border-brand-gold/40 pl-8 py-2">
-            Converting music lovers and lovers of experiential events from digital platforms and loyal Savanna fans into a physical community through consistent, high-fidelity Sunday experiences.
+            Converting the premium lifestyle crowd and the mainstream Bongo-loving audience into a physical community through consistent, high-fidelity Sunday experiences.
           </p>
         </div>
 
@@ -107,7 +105,7 @@ export const TheGap = () => {
           </div>
           <span className="section-label mb-2 text-brand-gold opacity-100">The Opportunity</span>
           <p className="font-body text-lg text-brand-cream leading-relaxed relative z-10">
-            Savanna Sundays is the bridge. We turn massive digital reach into deep brand loyalty through a physical Sunday ritual that Nairobi can finally own.
+            Savanna Sundays is the bridge. We turn massive digital reach into deep brand loyalty through a physical Sunday ritual that Nairobi's diverse audience can finally own.
           </p>
         </div>
       </div>

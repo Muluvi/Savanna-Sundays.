@@ -38,13 +38,12 @@ const squadRoles = [
   {
     role: "2 DJs",
     icon: <Music className="w-8 h-8" />,
-    body: "Proven Nairobi talent with massive digital reach. Multi-cam recorded for the Sunday Mix Series."
+    body: "Delivering all-rounded sets spanning Bongo, Afrobeats, amapiano, and whatever the room needs — with a consistent Bongo foundation."
   },
   {
     role: "MC — THE SAVANNA VOICE",
     icon: <Mic2 className="w-8 h-8" />,
     body: "The MC is the voice of Savanna on the ground. A crowd-puller in their own right — running crowd interactions, brand shout-outs, competition call-outs, venue hype, and real-time engagement moments. They keep energy high, drive Savanna mentions naturally, and create content-worthy moments throughout every session."
-    // MC photo and handle placeholder to be added here if named later
   },
   {
     role: "5 Influencers",
