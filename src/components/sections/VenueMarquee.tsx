@@ -23,36 +23,45 @@ const mainstreamVenues = [
 ];
 
 const VenueDivider = () => (
-  <div className="w-[1px] h-[40px] bg-[rgba(244,197,66,0.12)] shrink-0 self-center" />
+  <div className="w-[1px] h-[60px] bg-brand-gold/20 shrink-0 self-center" />
 );
 
 export const Tier1Marquee = () => {
   const displayVenues = [...premiumVenues, ...premiumVenues];
-  const transformation = 'q_auto:best,f_auto,dpr_2.0,h_140';
+  const transformation = 'q_auto:best,f_auto,dpr_2.0,h_300,c_limit';
 
   return (
-    <div className="bg-[#0E1A10] py-6 overflow-hidden w-full relative z-20 border-b border-white/5">
-      <div className="text-center mb-4">
-        <h4 className="font-headline text-[9px] tracking-[0.5em] text-brand-gold uppercase leading-none opacity-80">
+    <div className="bg-[#0E1A10] py-12 overflow-hidden w-full relative z-20 border-b border-white/5">
+      <div className="text-center mb-8">
+        <h4 className="font-headline text-[11px] tracking-[0.5em] text-brand-gold uppercase leading-none font-bold">
           TIER 1 — PREMIUM CIRCUIT
         </h4>
       </div>
-      <div className="relative w-full overflow-hidden group" style={{ maskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)' }}>
-        <div className="flex gap-12 w-max items-center py-2 group-hover:[animation-play-state:paused]" style={{ animation: 'scrollL 25s linear infinite' }}>
+      <div 
+        className="relative w-full overflow-hidden group" 
+        style={{ 
+          maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)', 
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)' 
+        }}
+      >
+        <div 
+          className="flex gap-16 w-max items-center py-4 group-hover:[animation-play-state:paused]" 
+          style={{ animation: 'scrollL 30s linear infinite' }}
+        >
           {displayVenues.map((venue, i) => {
             const logo = PlaceHolderImages.find(p => p.id === venue.logoId);
             return (
               <React.Fragment key={`${venue.name}-${i}`}>
-                <div className="flex flex-col items-center gap-3 shrink-0">
+                <div className="flex flex-col items-center gap-4 shrink-0 transition-transform duration-500 hover:scale-105">
                   {logo && (
                     <img 
                       src={cl(logo.imageUrl, transformation)} 
                       alt={venue.name}
-                      className="h-[60px] w-auto block flex-shrink-0 object-contain"
+                      className="h-[110px] md:h-[130px] w-auto block flex-shrink-0 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]"
                       loading="lazy"
                     />
                   )}
-                  <span className="font-headline text-[9px] tracking-[0.3em] text-white/40 uppercase">{venue.name}</span>
+                  <span className="font-headline text-[10px] tracking-[0.3em] text-white/60 uppercase">{venue.name}</span>
                 </div>
                 {i < displayVenues.length - 1 && <VenueDivider />}
               </React.Fragment>
@@ -66,27 +75,36 @@ export const Tier1Marquee = () => {
 
 export const Tier2Marquee = () => {
   const displayVenues = [...mainstreamVenues, ...mainstreamVenues];
-  const transformation = 'q_auto:best,f_auto,dpr_2.0,h_140';
+  const transformation = 'q_auto:best,f_auto,dpr_2.0,h_240,c_limit';
 
   return (
-    <div className="bg-[#0E1A10] py-6 overflow-hidden w-full relative z-20">
-      <div className="text-center mb-4">
-        <h4 className="font-headline text-[9px] tracking-[0.5em] text-[rgba(244,197,66,0.35)] uppercase leading-none">
+    <div className="bg-[#0E1A10] py-10 overflow-hidden w-full relative z-20">
+      <div className="text-center mb-6">
+        <h4 className="font-headline text-[11px] tracking-[0.5em] text-brand-gold/40 uppercase leading-none font-bold">
           TIER 2 — MAINSTREAM CIRCUIT
         </h4>
       </div>
-      <div className="relative w-full overflow-hidden group" style={{ maskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)' }}>
-        <div className="flex gap-12 w-max items-center py-2 group-hover:[animation-play-state:paused]" style={{ animation: 'scrollR 28s linear infinite' }}>
+      <div 
+        className="relative w-full overflow-hidden group" 
+        style={{ 
+          maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)', 
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)' 
+        }}
+      >
+        <div 
+          className="flex gap-16 w-max items-center py-4 group-hover:[animation-play-state:paused]" 
+          style={{ animation: 'scrollR 35s linear infinite' }}
+        >
           {displayVenues.map((venue, i) => (
             <React.Fragment key={`${venue.name}-${i}`}>
-              <div className="flex flex-col items-center gap-3 shrink-0">
+              <div className="flex flex-col items-center gap-4 shrink-0 transition-transform duration-500 hover:scale-105">
                 <img 
                   src={cl(venue.url, transformation)} 
                   alt={venue.name}
-                  className="h-[60px] w-auto block flex-shrink-0 object-contain transition-all duration-500"
+                  className="h-[90px] md:h-[110px] w-auto block flex-shrink-0 object-contain transition-all duration-500 drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]"
                   loading="lazy"
                 />
-                <span className="font-headline text-[9px] tracking-[0.3em] text-brand-gold/30 uppercase">{venue.name}</span>
+                <span className="font-headline text-[10px] tracking-[0.3em] text-brand-gold/30 uppercase">{venue.name}</span>
               </div>
               {i < displayVenues.length - 1 && <VenueDivider />}
             </React.Fragment>
