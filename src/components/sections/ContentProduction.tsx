@@ -90,9 +90,21 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
 
 const ContentHarvestMetrics = () => {
   const deliverables = [
-    { label: "YouTube sets", value: "4", body: "Hi-Fi DJ Production" },
-    { label: "Recap reels", value: "16", body: "Algorithm Optimized" },
-    { label: "HD photography", value: "Unlimited", body: "Lifestyle Asset Harvest" }
+    { 
+      label: "DJ SETS", 
+      value: "1", 
+      body: "1 full DJ set per week. Multi-camera, board-feed audio. All-rounded music with a Bongo foundation. Broadcast-mastered and uploaded to the performing DJ’s YouTube channel. Branded intro/outro, Savanna watermark, lower-thirds. KWAL has final say on channel strategy." 
+    },
+    { 
+      label: "REELS", 
+      value: "4", 
+      body: "4 Reels per week. Hero recap, DJ moment clip, crowd/lifestyle cut, influencer highlight. Bongo-energy moments prioritised. Every Reel carries Savanna watermark and tags @SavannaCider_EA." 
+    },
+    { 
+      label: "PHOTOS", 
+      value: "Unlimited", 
+      body: "Unlimited edited photos per week. Colour-graded in Savanna’s warm gold palette. Covers crowd energy, product moments, venue atmosphere, and influencer highlights." 
+    }
   ];
 
   return (
@@ -100,22 +112,22 @@ const ContentHarvestMetrics = () => {
       {deliverables.map((item, i) => (
         <div 
           key={i} 
-          className="relative group p-8 rounded-[32px] bg-white/[0.03] border border-brand-gold/10 overflow-hidden transition-all duration-700 hover:bg-white/[0.08] hover:border-brand-gold/40 hover:-translate-y-2 shadow-2xl"
+          className="relative group p-8 rounded-[32px] bg-white/[0.03] border border-brand-gold/10 overflow-hidden transition-all duration-700 hover:bg-white/[0.08] hover:border-brand-gold/40 hover:-translate-y-2 shadow-2xl flex flex-col items-center"
           style={{ animationDelay: `${i * 150}ms` }}
         >
           <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
           
-          <div className="relative z-10 flex flex-col items-center text-center space-y-4">
+          <div className="relative z-10 flex flex-col items-center text-center space-y-6">
             <RollingCounter value={item.value} />
             
-            <div className="space-y-2">
+            <div className="space-y-3">
               <div className="font-body text-[10px] text-brand-gold/80 font-bold uppercase tracking-[4px]">
-                per month
+                Weekly Deliverable
               </div>
               <h5 className="font-headline text-3xl text-white uppercase tracking-widest leading-none group-hover:text-brand-gold transition-colors">
                 {item.label}
               </h5>
-              <p className="font-body text-brand-cream/40 text-[9px] leading-tight font-bold uppercase tracking-[2px]">
+              <p className="font-body text-brand-cream/60 text-[10px] leading-relaxed font-bold uppercase tracking-[1px] max-w-[280px] mx-auto">
                 {item.body}
               </p>
             </div>
