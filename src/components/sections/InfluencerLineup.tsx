@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -23,16 +22,16 @@ const placeholderInfluencers: Influencer[] = [
     id: 1, 
     name: "SQUAD ANCHOR 01", 
     handle: "@vybesquad_alpha", 
-    followers: 70000, 
+    followers: 10100, 
     niche: "Premium Lifestyle",
     imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442878/IMG_3496_fgwbly.jpg"
   },
   { 
     id: 2, 
-    name: "OO MLEIKA", 
-    handle: "@oo_mleika", 
-    followers: 70000, 
-    niche: "Nightlife Culture",
+    name: "JOJO MLEIKA", 
+    handle: "@jojo_mleika", 
+    followers: 29700, 
+    niche: "Fashion | Lifestyle",
     imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442877/IMG-20260325-WA0045_rwvb6u.jpg",
     isVerified: true
   },
@@ -76,7 +75,7 @@ export const InfluencerLineup = () => {
           THE SQUAD AMPLIFIERS
         </h4>
         <p className="font-body text-brand-gold/40 text-[10px] uppercase tracking-[4px] font-bold">
-          CUMULATIVE CROSS-PLATFORM REACH: 70,000+ PER NODE
+          CUMULATIVE CROSS-PLATFORM REACH: VERIFIED VIA FIREFLY INTELLIGENCE
         </p>
       </div>
 
@@ -116,7 +115,7 @@ export const InfluencerLineup = () => {
                 <div className="space-y-4">
                   <AnimatedCounter 
                     value={inf.followers} 
-                    suffix="+"
+                    suffix=""
                     className="font-headline text-5xl md:text-8xl text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_25px_rgba(244,197,66,0.4)]"
                   />
                   <div className="flex justify-center items-center gap-8">
