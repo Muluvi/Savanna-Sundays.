@@ -29,21 +29,22 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const translateX = (scrollProgress - 0.5) * 10; 
+  // Constrain translateX to prevent overlapping
+  const translateX = (scrollProgress - 0.5) * 20; 
 
   return (
     <section 
       ref={sectionRef}
       id={id} 
       className={cn(
-        "py-12 md:py-20 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center"
+        "py-16 md:py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center border-b border-white/5"
       )}
     >
       <div className="noise-overlay" />
-      <CiderFizz className="opacity-[0.03]" />
+      <CiderFizz className="opacity-[0.04] z-0" />
       
       <div className="max-w-6xl mx-auto w-full relative z-10">
-        <div className="mb-6 md:mb-10 text-center md:text-left">
+        <div className="mb-8 md:mb-12 text-center md:text-left relative">
           <span className="section-label">{label}</span>
           <h2 
             className="section-title"
@@ -53,7 +54,7 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
           </h2>
         </div>
         
-        <div className="w-full">
+        <div className="w-full relative">
           {children}
         </div>
       </div>
