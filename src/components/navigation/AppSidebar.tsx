@@ -7,10 +7,10 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const sections = [
-  { id: 'the-gap', label: 'The Opportunity' },
-  { id: 'the-engine', label: 'The Venue Network' },
-  { id: 'the-ritual', label: 'The Ritual' },
-  { id: 'the-numbers', label: 'The Investment' },
+  { id: 'the-gap', label: '01 The Opportunity' },
+  { id: 'the-engine', label: '02 The Venue Network' },
+  { id: 'the-ritual', label: '03 The Ritual' },
+  { id: 'the-numbers', label: '04 The Investment' },
 ];
 
 export const AppSidebar = () => {

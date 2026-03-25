@@ -5,10 +5,10 @@ import { Menu, X, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const sections = [
-  { id: 'the-gap', label: 'The Opportunity', num: '01' },
-  { id: 'the-engine', label: 'The Venue Network', num: '02' },
-  { id: 'the-ritual', label: 'The Ritual', num: '03' },
-  { id: 'the-numbers', label: 'The Investment', num: '04' },
+  { id: 'the-gap', label: '01 The Opportunity', num: '01' },
+  { id: 'the-engine', label: '02 The Venue Network', num: '02' },
+  { id: 'the-ritual', label: '03 The Ritual', num: '03' },
+  { id: 'the-numbers', label: '04 The Investment', num: '04' },
 ];
 
 export const MobileNav = () => {
@@ -74,7 +74,7 @@ export const MobileNav = () => {
                   <div className="flex items-center gap-8">
                     <span className="font-headline text-[var(--text-lg)] md:text-[var(--text-xl)] text-brand-gold/40">{section.num}</span>
                     <span className="font-headline text-[var(--text-2xl)] md:text-[var(--text-4xl)] text-white tracking-wide uppercase group-hover:text-brand-gold transition-colors">
-                      {section.label}
+                      {section.label.replace(/^\d+\s/, '')}
                     </span>
                   </div>
                   <ChevronRight className="text-brand-gold opacity-40" size={24} />

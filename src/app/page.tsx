@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect, useRef } from 'react';
 import { MobileNav } from '@/components/navigation/MobileNav';
@@ -17,15 +17,15 @@ import { TheNumbersSection } from '@/components/sections/TheNumbersSection';
 import { MusicProgrammingSection } from '@/components/sections/MusicProgramming';
 
 const sectionsData = [
-  { id: 'the-gap', label: '01 — The Opportunity', title: "The Expansion", component: <TheGap /> },
-  { id: 'the-engine', label: '02 — The Engine', title: 'The Network', component: <DualActivationModel /> },
-  { id: 'the-ritual', label: '03 — The Ritual', title: 'The Vybe', component: (
+  { id: 'the-gap', label: '01 The Opportunity', title: "The Expansion", component: <TheGap /> },
+  { id: 'the-engine', label: '02 The Venue Network', title: 'The Network', component: <DualActivationModel /> },
+  { id: 'the-ritual', label: '03 The Ritual', title: 'The Vybe', component: (
     <div className="space-y-12">
       <MusicProgrammingSection />
       <ExperienceDesignSection />
     </div>
   ) },
-  { id: 'the-numbers', label: '04 — The Investment', title: 'The Capital', component: <TheNumbersSection /> },
+  { id: 'the-numbers', label: '04 The Investment', title: 'The Capital', component: <TheNumbersSection /> },
 ];
 
 export default function Home() {
@@ -59,7 +59,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-brand-green text-foreground overflow-x-hidden selection:bg-brand-gold selection:text-brand-green">
-      <div className="noise-overlay fixed inset-0 pointer-events-none opacity-[0.015] z-[100]" />
+      <div className="noise-overlay fixed inset-0 pointer-events-none opacity-[0.05] z-0" />
       <MobileNav />
       <MobileProgressBar />
       
@@ -128,7 +128,7 @@ export default function Home() {
         <div id="closing" className="py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-brand-ink">
           <div className="max-w-4xl mx-auto space-y-10 relative z-10">
             <p className="font-serif italic text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-cream leading-snug">
-              Savanna Sundays is already live. The Savanna Vybe Squad is on the ground. Thirteen venues. Three resident DJs. Five influencers. One brand owning the day. Let&apos;s scale Sunday.
+              Savanna Sundays is already live. The Savanna Vybe Squad is on the ground. Thirteen venues. Three resident DJs. Five influencers dropping every Sunday at noon. One brand owning the day. Let&apos;s scale Sunday.
             </p>
 
             <a 

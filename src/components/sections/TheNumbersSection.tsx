@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -11,15 +11,6 @@ const lineItems = [
   { item: "Influencer Pool (5 PAX)", cost: "100,000" },
   { item: "Content Production Crew", cost: "41,250" },
   { item: "Strategic Logistics", cost: "54,918" },
-];
-
-const checklistItems = [
-  { label: "Branded Venues", desc: "Visual dominance.", icon: <ShieldCheck size={20} /> },
-  { label: "Squad Activation", desc: "Live talent.", icon: <Zap size={20} /> },
-  { label: "Music Harvest", desc: "YouTube sets.", icon: <Music size={20} /> },
-  { label: "Social Content", desc: "Optimized Reels.", icon: <Video size={20} /> },
-  { label: "HD Photography", desc: "Lifestyle assets.", icon: <Camera size={20} /> },
-  { label: "Data Capture", desc: "CRM entry.", icon: <QrCode size={20} /> }
 ];
 
 export const TheNumbersSection = () => {
