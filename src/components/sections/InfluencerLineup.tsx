@@ -20,11 +20,12 @@ interface Influencer {
 const placeholderInfluencers: Influencer[] = [
   { 
     id: 1, 
-    name: "BARAKEILLA", 
-    handle: "@barakeilla", 
-    followers: 10100, 
-    niche: "Premium Lifestyle",
-    imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442878/IMG_3496_fgwbly.jpg"
+    name: "MISSBARAKEILLA", 
+    handle: "@missbarakeilla", 
+    followers: 63700, 
+    niche: "Fashion Model | Chef",
+    imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442878/IMG_3496_fgwbly.jpg",
+    isVerified: true
   },
   { 
     id: 2, 
