@@ -107,10 +107,10 @@ export default function Home() {
           )}>
             {savannaLogo && (
               <img 
-                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
+                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
                 alt="Savanna Premium Cider" 
                 className="logo-shimmer"
-                style={{ width: 'clamp(140px, 15vw, 220px)', height: 'auto', objectFit: 'contain' }}
+                style={{ width: 'clamp(160px, 20vw, 280px)', height: 'auto', objectFit: 'contain' }}
                 loading="eager"
                 fetchPriority="high"
               />
@@ -159,10 +159,10 @@ export default function Home() {
               <div className="h-[1px] w-8 bg-brand-gold/20" />
               {fireflyLogo && (
                 <img 
-                  src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_200')} 
+                  src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
                   alt="Firefly Management" 
                   className="opacity-60 hover:opacity-100 transition-opacity"
-                  style={{ height: '24px', width: 'auto', objectFit: 'contain' }}
+                  style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
                 />
               )}
             </div>
@@ -258,3 +258,4 @@ export default function Home() {
   );
 }
 
+    

@@ -1,10 +1,10 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Music, Users, Camera, Clock, CalendarDays, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ContentHarvestMetrics } from './ContentProduction';
-import { InfluencerLineup } from './InfluencerLineup';
 
 /**
  * Live Countdown Clock
@@ -110,10 +110,6 @@ export const ExperienceDesignSection = () => {
         <ContentHarvestMetrics />
       </div>
 
-      <div className="space-y-6 pt-12">
-        <InfluencerLineup />
-      </div>
-
       <div className="space-y-6 pt-8 border-t border-white/5 relative">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
@@ -150,7 +146,7 @@ export const ExperienceDesignSection = () => {
               {productionDays.map((p, i) => (
                 <div key={i} className={cn(
                   "flex-1 p-6 rounded-[32px] flex flex-col gap-4 border transition-all", 
-                  p.anchor ? "bg-brand-gold text-brand-green scale-105 shadow-[0_0_40px_rgba(244,197,66,0.3)]" : "bg-white/5 border-white/5 opacity-40 hover:opacity-100"
+                  p.anchor ? "bg-brand-gold text-brand-green scale-105 shadow-[0_0_40px_rgba(244,197,66,0.3)]" : "bg-white/5 border-white/10 opacity-40 hover:opacity-100"
                 )}>
                   <div className="flex items-center justify-between">
                     <span className="font-headline text-[var(--text-sm)] md:text-[var(--text-base)] uppercase tracking-widest">{p.day}</span>
@@ -177,3 +173,5 @@ export const ExperienceDesignSection = () => {
     </div>
   );
 };
+
+    
