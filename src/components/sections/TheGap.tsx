@@ -10,7 +10,7 @@ import { cl } from '@/lib/cloudinary';
  * High-fidelity counter for strategic metrics.
  * Triggers exactly when the element enters the viewport.
  */
-const StatCounter = ({ value }: { value: string }) => {
+const StatCounter = ({ value, className }: { value: string; className?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -33,9 +33,7 @@ const StatCounter = ({ value }: { value: string }) => {
       { threshold: 0.1 }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
+    if (containerRef.current) observer.observe(containerRef.current);
 
     const startAnimation = () => {
       let startTime: number | null = null;
@@ -57,7 +55,7 @@ const StatCounter = ({ value }: { value: string }) => {
   }, [target, hasAnimated]);
 
   return (
-    <div ref={containerRef} className="font-headline text-[var(--text-6xl)] md:text-[var(--text-display)] text-brand-gold leading-[1.0] tracking-tighter drop-shadow-[0_0_30px_rgba(244,197,66,0.3)]">
+    <div ref={containerRef} className={cn("font-headline tracking-tighter leading-none drop-shadow-[0_0_20px_rgba(244,197,66,0.2)]", className)}>
       {isDecimal ? displayValue.toFixed(1) : Math.floor(displayValue)}
       {suffix}
     </div>
@@ -73,59 +71,63 @@ export const TheGap = () => {
   ];
 
   return (
-    <div className="space-y-24">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8">
-          <p className="font-serif italic text-[var(--text-lg)] md:text-[var(--text-4xl)] text-brand-gold leading-tight border-l-[6px] border-brand-gold/40 animate-border-breathe pl-10 py-6">
+    <div className="space-y-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="space-y-6">
+          <p className="font-serif italic text-[var(--text-lg)] md:text-[var(--text-4xl)] text-brand-gold leading-tight border-l-[6px] border-brand-gold/40 animate-border-breathe pl-8 py-4">
             We&apos;re already building Nairobi&apos;s Sunday culture — now it&apos;s time to scale city-wide.
           </p>
         </div>
 
-        <div className="glass-tile p-10 md:p-16 rounded-[48px] relative overflow-hidden group border-brand-gold/10">
-          <div className="absolute top-0 right-0 p-10 z-0 opacity-10">
+        <div className="glass-tile p-8 md:p-12 rounded-[40px] relative overflow-hidden group border-brand-gold/10">
+          <div className="absolute top-0 right-0 p-8 z-0 opacity-10">
             {savannaLogo && (
               <img 
-                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
+                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_300')} 
                 alt="" 
-                style={{ height: '140px', width: 'auto', objectFit: 'contain' }}
+                style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
               />
             )}
           </div>
-          <div className="relative z-10 space-y-6">
-            <h4 className="font-headline text-[var(--text-2xl)] text-brand-gold uppercase tracking-tight">The expansion mandate</h4>
-            <p className="font-body text-brand-cream/80 text-[var(--text-base)] leading-relaxed">
-              Savanna Sundays isn&apos;t a concept. It&apos;s already running. The Savanna Vybe Squad is already pulling crowds and building ritual. We are now scaling what works—mainstream bars for volume and premium spots for positioning. The squad is proven. The infrastructure is built.
+          <div className="relative z-10 space-y-4">
+            <h4 className="font-headline text-[var(--text-xl)] text-brand-gold uppercase tracking-tight">The expansion mandate</h4>
+            <p className="font-body text-brand-cream/80 text-[var(--text-sm)] md:text-[var(--text-base)] leading-relaxed">
+              Savanna Sundays isn&apos;t a concept. It&apos;s already running. The Savanna Vybe Squad is already pulling crowds and building ritual. We are now scaling what works—mainstream bars for volume and premium spots for positioning.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="pt-32 border-t border-white/5">
-        <div className="flex items-center justify-center gap-6 mb-24">
-          <Sparkles className="text-brand-gold" size={24} />
-          <span className="font-body text-[var(--text-xs)] tracking-[10px] text-brand-gold uppercase font-bold">Evidence of reach</span>
-          <Sparkles className="text-brand-gold" size={24} />
+      {/* Compact Evidence of Reach */}
+      <div className="pt-12 border-t border-white/5 space-y-12">
+        <div className="flex items-center justify-center gap-4">
+          <Sparkles className="text-brand-gold/60" size={18} />
+          <span className="font-body text-[var(--text-xs)] tracking-[6px] text-brand-gold uppercase font-bold">Evidence of reach</span>
+          <Sparkles className="text-brand-gold/60" size={18} />
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-20 md:gap-12">
+        <div className="max-w-3xl mx-auto space-y-8">
           {socialIcons.map((stat) => {
             const img = PlaceHolderImages.find(i => i.id === stat.id);
             return (
-              <div key={stat.id} className="flex flex-col items-center gap-12 group hover:-translate-y-4 transition-all duration-700">
+              <div key={stat.id} className="flex items-center gap-8 md:gap-12 group transition-all duration-500">
                 {img && (
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-brand-gold/20 blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="shrink-0">
                     <img 
-                      src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_320')} 
+                      src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_240')} 
                       alt={stat.label} 
-                      className="relative z-10 transition-transform duration-1000 group-hover:scale-110"
-                      style={{ width: '100px', height: '100px', objectFit: 'contain' }}
+                      className="w-16 h-16 md:w-20 md:h-20 object-contain transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
                 )}
-                <div className="text-center space-y-4">
-                  <StatCounter value={stat.value} />
-                  <div className="font-body text-[var(--text-xs)] uppercase tracking-[10px] text-brand-gold/40 font-bold">{stat.label}</div>
+                <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-6 flex-1 border-b border-white/5 pb-4">
+                  <StatCounter 
+                    value={stat.value} 
+                    className="text-brand-gold text-[var(--text-2xl)] md:text-[var(--text-4xl)]" 
+                  />
+                  <div className="font-body text-[10px] uppercase tracking-[4px] text-brand-gold/40 font-bold">
+                    {stat.label}
+                  </div>
                 </div>
               </div>
             );

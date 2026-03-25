@@ -23,7 +23,6 @@ export const MobileProgressBar = () => {
         const sectionHeight = el.offsetHeight;
 
         // Calculate how much of the section has been scrolled past the top of the viewport
-        // 0 when section top is at top of screen, 1 when section bottom is at top of screen
         const scrolled = -rect.top;
         const progress = Math.min(1, Math.max(0, scrolled / sectionHeight));
         
