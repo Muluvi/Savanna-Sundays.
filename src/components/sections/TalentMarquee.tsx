@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -29,7 +30,8 @@ const MarqueeTrack = ({
     >
       <div 
         className={cn(
-          "flex gap-4 w-max motion-safe:animate-none",
+          "flex gap-4 w-max",
+          "motion-safe:animate-none", // Reset base animation to let tailwind classes handle it
           reverse ? "animate-scrollRight" : "animate-scrollLeft",
           "group-hover/track:[animation-play-state:paused]",
           "motion-reduce:animate-none motion-reduce:overflow-x-auto motion-reduce:w-full motion-reduce:scrollbar-hide"
@@ -49,6 +51,7 @@ const MarqueeTrack = ({
               width={600}
               className="h-full w-auto object-cover block"
               priority={i < 4}
+              unoptimized // Preserve Cloudinary raw quality
             />
           </div>
         ))}
@@ -58,12 +61,13 @@ const MarqueeTrack = ({
 };
 
 export const TalentMarquee = () => {
-  // Mapping available placeholder images to the requested talent tracks
+  // Hardcoded High-Fidelity URLs for DJ Moons
   const djMoonsImages = [
-    PlaceHolderImages.find(p => p.id === 'dj-iv-1')?.imageUrl || '',
-    PlaceHolderImages.find(p => p.id === 'dj-iv-2')?.imageUrl || '',
-    PlaceHolderImages.find(p => p.id === 'dj-iv-3')?.imageUrl || '',
-  ].filter(Boolean);
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774435240/IMG_1744_dboqfs.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774435239/IMG_1746_st88dv.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774435194/IMG_1497_aiud8c.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774435182/20fb5d79-d30b-405e-8a3a-4f434dbe8dc8_fgroxz.jpg"
+  ];
 
   const djMainPattImages = [
     PlaceHolderImages.find(p => p.id === 'dj-mgm-1')?.imageUrl || '',
@@ -73,16 +77,17 @@ export const TalentMarquee = () => {
   ].filter(Boolean);
 
   const sameerImages = [
+    PlaceHolderImages.find(p => p.id === 'dj-iv-1')?.imageUrl || '',
+    PlaceHolderImages.find(p => p.id === 'dj-iv-2')?.imageUrl || '',
     PlaceHolderImages.find(p => p.id === 'dj-iv-3')?.imageUrl || '',
     PlaceHolderImages.find(p => p.id === 'dj-mgm-1')?.imageUrl || '',
-    PlaceHolderImages.find(p => p.id === 'dj-iv-2')?.imageUrl || '',
-    PlaceHolderImages.find(p => p.id === 'dj-mgm-4')?.imageUrl || '',
   ].filter(Boolean);
 
   const mcImages = [
     PlaceHolderImages.find(p => p.id === 'dj-mgm-2')?.imageUrl || '',
     PlaceHolderImages.find(p => p.id === 'dj-iv-1')?.imageUrl || '',
     PlaceHolderImages.find(p => p.id === 'dj-mgm-3')?.imageUrl || '',
+    PlaceHolderImages.find(p => p.id === 'dj-iv-2')?.imageUrl || '',
   ].filter(Boolean);
 
   const influencerImages = [
