@@ -1,9 +1,60 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Music, Users, Camera, Clock, CalendarDays, Sparkles } from 'lucide-react';
 import { ContentHarvestMetrics } from './ContentProduction';
+
+/**
+ * Live Countdown Clock
+ * Calculates time remaining until the next Sunday at 12:00 PM EAT (UTC+3).
+ * EAT (East Africa Time) is UTC+3.
+ */
+const CountdownClock = () => {
+  const [timeLeft, setTimeLeft] = useState<string | null>(null);
+
+  useEffect(() => {
+    const calculateTime = () => {
+      const nowUTC = Date.now();
+      const dateUTC = new Date(nowUTC);
+      
+      // Target: Sunday 12:00 PM EAT = 09:00 AM UTC
+      let daysTillSun = (7 - dateUTC.getUTCDay()) % 7;
+      
+      const nextSunUTC = new Date(Date.UTC(
+        dateUTC.getUTCFullYear(),
+        dateUTC.getUTCMonth(),
+        dateUTC.getUTCDate() + daysTillSun,
+        9, 0, 0, 0
+      ));
+
+      // If Sunday 9 AM UTC has already passed today, target the next Sunday
+      if (nextSunUTC.getTime() <= nowUTC) {
+        nextSunUTC.setUTCDate(nextSunUTC.getUTCDate() + 7);
+      }
+
+      const diff = nextSunUTC.getTime() - nowUTC;
+      
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+
+      setTimeLeft(`${d}d ${h}h ${m}m`);
+    };
+
+    calculateTime();
+    const interval = setInterval(calculateTime, 60000); // Update every minute
+    return () => clearInterval(interval);
+  }, []);
+
+  if (!timeLeft) return null;
+
+  return (
+    <div className="font-headline text-[var(--text-lg)] md:text-[var(--text-xl)] text-[#F8F5E6] opacity-70 uppercase tracking-widest mt-1">
+      T-MINUS: {timeLeft}
+    </div>
+  );
+};
 
 const productionDays = [
   { day: "SUN 12 PM", title: "INFLUENCER PACK DROP", body: "Coordinated posting across all influencer channels.", icon: <Clock size={14} />, anchor: true },
@@ -27,7 +78,8 @@ export const ExperienceDesignSection = () => {
           <h3 className="font-headline text-[var(--text-xl)] md:text-[var(--text-4xl)] text-[#1A1208] leading-none uppercase tracking-tighter">
             SUNDAY 12:00 PM: INFLUENCER PACK DROP
           </h3>
-          <p className="font-body text-[#1A1208] font-bold text-[var(--text-xs)] md:text-[var(--text-sm)] uppercase tracking-widest max-w-2xl">
+          <CountdownClock />
+          <p className="font-body text-[#1A1208] font-bold text-[var(--text-xs)] md:text-[var(--text-sm)] uppercase tracking-widest max-w-2xl mt-4">
             Synchronized Savanna content wave hits Nairobi's feeds at the stroke of noon.
           </p>
         </div>
