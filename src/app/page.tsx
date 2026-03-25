@@ -88,9 +88,9 @@ export default function Home() {
           <WaterDroplets className="opacity-15 z-0" />
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_45%,rgba(244,197,66,0.18)_0%,transparent_75%)]" />
 
-          {/* Logo Reveal */}
+          {/* Logo Reveal - High Priority Loading */}
           <div className={cn(
-            "relative z-10 transition-all duration-[1500ms] ease-out",
+            "relative z-10 transition-all duration-[1500ms] ease-out will-change-transform",
             heroVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-8 scale-95"
           )}>
             {savannaLogo && (
@@ -101,6 +101,7 @@ export default function Home() {
                 style={{ width: 'clamp(140px, 18vw, 240px)', height: 'auto', objectFit: 'contain' }}
                 loading="eager"
                 fetchPriority="high"
+                decoding="async"
               />
             )}
           </div>
@@ -109,11 +110,11 @@ export default function Home() {
           <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center text-center">
             <h1 className="flex flex-col items-center leading-[0.85] tracking-tighter">
               <span className={cn(
-                "text-brand-gold text-[clamp(3.5rem,14vw,10.5rem)] font-headline uppercase block transition-all duration-[1400ms] delay-300 text-glow-gold",
+                "text-brand-gold text-[clamp(3.5rem,14vw,10.5rem)] font-headline uppercase block transition-all duration-[1400ms] delay-300 text-glow-gold will-change-transform",
                 heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
               )}>SAVANNA</span>
               <span className={cn(
-                "text-brand-gold text-[clamp(3.5rem,14vw,10.5rem)] font-headline uppercase block transition-all duration-[1400ms] delay-500 text-glow-gold",
+                "text-brand-gold text-[clamp(3.5rem,14vw,10.5rem)] font-headline uppercase block transition-all duration-[1400ms] delay-500 text-glow-gold will-change-transform",
                 heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
               )}>SUNDAYS</span>
             </h1>
@@ -137,7 +138,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Footer Attribution */}
+          {/* Footer Attribution - High Priority */}
           <div className={cn(
             "relative z-10 flex flex-col items-center gap-4 md:gap-6 transition-all duration-1200 delay-[1200ms]",
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -152,6 +153,9 @@ export default function Home() {
                     alt="Firefly Management" 
                     className="opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-700 drop-shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
                     style={{ height: 'clamp(40px, 6vh, 56px)', width: 'auto', objectFit: 'contain' }}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
                   />
                 )}
                 <div className="h-[1px] w-8 md:w-12 bg-brand-gold/15" />

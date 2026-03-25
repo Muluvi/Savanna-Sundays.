@@ -109,7 +109,8 @@ const MarqueeRow = ({
               src={cl(url, transformation)} 
               alt={`${name} performing live`}
               loading={isFirstRow && i === 0 ? "eager" : "lazy"}
-              className="h-[280px] md:h-[520px] w-auto block flex-shrink-0 grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+              decoding="async"
+              className="h-[280px] md:h-[520px] w-auto block flex-shrink-0 grayscale-[0.2] hover:grayscale-0 transition-all duration-700 will-change-transform"
               style={{ borderRadius: 0, border: 'none', boxShadow: 'none' }}
             />
           ))}

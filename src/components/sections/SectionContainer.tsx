@@ -14,7 +14,7 @@ interface SectionProps {
 /**
  * Optimized Section Container
  * Standardized spacing: py-10 (mobile) to py-16 (desktop)
- * Maintains premium horizontal margins for executive feel.
+ * Added hardware acceleration hints for the scroll-driven title animation.
  */
 export const SectionContainer = ({ id, label, title, children }: SectionProps) => {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -40,7 +40,7 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1 } 
+      { threshold: 0.05 } // Lower threshold for faster reveal on mobile
     );
 
     if (sectionRef.current) {
@@ -75,7 +75,7 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
         <div className="mb-6 md:mb-10 text-center md:text-left relative">
           <span className="section-label">{label}</span>
           <h2 
-            className="section-title text-glow-gold"
+            className="section-title text-glow-gold will-change-transform"
             style={{ 
               transform: `translateX(${translateX}px)`,
               transition: 'transform 0.4s cubic-bezier(0.23, 1, 0.32, 1)' 

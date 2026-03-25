@@ -1,4 +1,3 @@
-
 "use client"
 
 import React from 'react';
@@ -29,7 +28,7 @@ const VenueDivider = () => (
 
 export const Tier1Marquee = () => {
   const displayVenues = [...premiumVenues, ...premiumVenues, ...premiumVenues];
-  const transformation = 'q_auto:best,f_auto,dpr_2.0,h_300,c_limit';
+  const transformation = 'q_auto:best,f_auto,dpr_2.0,h_260,c_limit';
 
   return (
     <div className="bg-[#0E1A10] py-12 overflow-hidden w-full relative z-20 border-b border-white/5">
@@ -53,13 +52,14 @@ export const Tier1Marquee = () => {
             const logo = PlaceHolderImages.find(p => p.id === venue.logoId);
             return (
               <React.Fragment key={`${venue.name}-${i}`}>
-                <div className="flex flex-col items-center gap-4 shrink-0 transition-transform duration-500 hover:scale-105">
+                <div className="flex flex-col items-center gap-4 shrink-0 transition-transform duration-500 hover:scale-105 will-change-transform">
                   {logo && (
                     <img 
                       src={cl(logo.imageUrl, transformation)} 
                       alt={venue.name}
                       className="h-[110px] md:h-[130px] w-auto block flex-shrink-0 object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
                       loading="lazy"
+                      decoding="async"
                     />
                   )}
                   <span className="font-headline text-[10px] tracking-[4px] text-white/60 uppercase">{venue.name}</span>
@@ -76,7 +76,7 @@ export const Tier1Marquee = () => {
 
 export const Tier2Marquee = () => {
   const displayVenues = [...mainstreamVenues, ...mainstreamVenues, ...mainstreamVenues];
-  const transformation = 'q_auto:best,f_auto,dpr_2.0,h_240,c_limit';
+  const transformation = 'q_auto:best,f_auto,dpr_2.0,h_220,c_limit';
 
   return (
     <div className="bg-[#0E1A10] py-10 overflow-hidden w-full relative z-20">
@@ -98,12 +98,13 @@ export const Tier2Marquee = () => {
         >
           {displayVenues.map((venue, i) => (
             <React.Fragment key={`${venue.name}-${i}`}>
-              <div className="flex flex-col items-center gap-4 shrink-0 transition-transform duration-500 hover:scale-105">
+              <div className="flex flex-col items-center gap-4 shrink-0 transition-transform duration-500 hover:scale-105 will-change-transform">
                 <img 
                   src={cl(venue.url, transformation)} 
                   alt={venue.name}
                   className="h-[90px] md:h-[110px] w-auto block flex-shrink-0 object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
                   loading="lazy"
+                  decoding="async"
                 />
                 <span className="font-headline text-[10px] tracking-[4px] text-brand-gold/30 uppercase">{venue.name}</span>
               </div>

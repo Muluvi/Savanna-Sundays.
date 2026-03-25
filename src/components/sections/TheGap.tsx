@@ -9,6 +9,7 @@ import { AnimatedCounter } from '@/components/ui/animated-counter';
 /**
  * Optimized The Gap (Opportunity)
  * Tightened internal spacing for higher narrative density.
+ * Added performance hints for critical evidence imagery.
  */
 export const TheGap = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
@@ -35,6 +36,8 @@ export const TheGap = () => {
                 src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
                 alt="" 
                 style={{ height: 'clamp(60px, 10vh, 100px)', width: 'auto', objectFit: 'contain' }}
+                loading="lazy"
+                decoding="async"
               />
             )}
           </div>
@@ -62,9 +65,11 @@ export const TheGap = () => {
                 {img && (
                   <div className="shrink-0 flex items-center justify-center w-14 h-14 md:w-32 md:h-32 relative">
                     <img 
-                      src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_800')} 
+                      src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
                       alt={stat.label} 
                       className="w-full h-full object-contain transition-all duration-700 group-hover:scale-115 drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)] filter brightness-110"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 )}
