@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -111,6 +112,10 @@ export default {
         marquee: {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
+        },
+        'marquee-reverse': {
+          from: { transform: 'translateX(-50%)' },
+          to: { transform: 'translateX(0)' },
         }
       },
       animation: {
@@ -119,6 +124,7 @@ export default {
         'pulse-gold': 'pulse-gold 2s infinite',
         'fizz': 'fizz 5s linear infinite',
         'marquee': 'marquee 20.8s linear infinite',
+        'marquee-reverse': 'marquee-reverse 20.8s linear infinite',
         'spin-slow': 'spin 30s linear infinite',
       },
     },
