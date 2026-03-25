@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -65,7 +66,7 @@ const StatCounter = ({ value }: { value: string }) => {
   }, [target, hasAnimated]);
 
   return (
-    <div ref={containerRef} className="font-headline text-[var(--text-6xl)] text-brand-gold leading-none tracking-tighter">
+    <div ref={containerRef} className="font-headline text-[var(--text- display)] md:text-[clamp(5rem,10vw,8rem)] text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_30px_rgba(244,197,66,0.3)]">
       {isDecimal ? displayValue.toFixed(1) : Math.floor(displayValue)}
       {suffix}
     </div>
@@ -119,20 +120,20 @@ export const TheGap = () => {
           {socialIcons.map((stat) => {
             const img = PlaceHolderImages.find(i => i.id === stat.id);
             return (
-              <div key={stat.id} className="glass-tile p-10 rounded-[40px] flex flex-col items-center gap-8 group hover:-translate-y-2 hover:bg-white/[0.04] transition-all duration-500">
+              <div key={stat.id} className="glass-tile p-12 rounded-[56px] flex flex-col items-center gap-10 group hover:-translate-y-2 hover:bg-white/[0.04] transition-all duration-500 shadow-2xl">
                 {img && (
-                  <div className="p-4 rounded-3xl bg-white/[0.03] group-hover:bg-brand-gold/10 transition-colors">
+                  <div className="p-6 rounded-[32px] bg-white/[0.03] group-hover:bg-brand-gold/10 transition-all duration-500">
                     <img 
                       src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_200')} 
                       alt={stat.label} 
-                      className="transition-transform duration-700 group-hover:scale-110"
-                      style={{ width: '80px', height: '80px', objectFit: 'contain' }}
+                      className="transition-transform duration-700 group-hover:scale-125"
+                      style={{ width: '100px', height: '100px', objectFit: 'contain' }}
                     />
                   </div>
                 )}
-                <div className="text-center space-y-2">
+                <div className="text-center space-y-4">
                   <StatCounter value={stat.value} />
-                  <div className="font-body text-[var(--text-xs)] uppercase tracking-[6px] text-brand-gold/60 font-bold">{stat.label}</div>
+                  <div className="font-body text-[var(--text-xs)] uppercase tracking-[8px] text-brand-gold/60 font-bold">{stat.label}</div>
                 </div>
               </div>
             );

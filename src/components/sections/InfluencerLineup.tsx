@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -9,6 +10,7 @@ import { Sparkles } from 'lucide-react';
 
 /**
  * High-fidelity rolling counter for influencer reach.
+ * Calibrated for maximum visual impact (text-6xl).
  */
 const RollingCounter = ({ targetValue, suffix = "+" }: { targetValue: number, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -50,7 +52,7 @@ const RollingCounter = ({ targetValue, suffix = "+" }: { targetValue: number, su
   }, [targetValue, hasAnimated]);
 
   return (
-    <div ref={containerRef} className="font-headline text-[var(--text-4xl)] text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(244,197,66,0.4)]">
+    <div ref={containerRef} className="font-headline text-[clamp(2.5rem,6vw,5rem)] text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_30px_rgba(244,197,66,0.3)]">
       {Math.floor(displayValue).toLocaleString()}{suffix}
     </div>
   );
@@ -80,7 +82,7 @@ export const InfluencerLineup = () => {
   const ytLogo = PlaceHolderImages.find(p => p.id === 'social-yt');
 
   return (
-    <div className="space-y-16 py-24 border-t border-white/5 relative overflow-hidden">
+    <div className="space-y-16 py-24 border-t border-white/5 relative overflow-hidden bg-[#0E1A10]">
       {/* Background Proportional Accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-gold/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -95,7 +97,7 @@ export const InfluencerLineup = () => {
             PROVEN CULTURAL REACH
           </h4>
           <p className="font-body text-brand-gold/60 text-xs md:text-base uppercase tracking-[6px] font-bold max-w-3xl mx-auto">
-            Each squad member commands a verified cross-platform audience of <span className="text-brand-gold">70,000+</span> decision makers.
+            Each squad member commands a verified cross-platform audience of <span className="text-brand-gold underline decoration-brand-gold/20 underline-offset-8">70,000+</span> decision makers.
           </p>
         </div>
 
@@ -104,11 +106,10 @@ export const InfluencerLineup = () => {
             {placeholderInfluencers.map((inf) => (
               <div 
                 key={inf.id} 
-                className="group relative flex flex-col items-center p-10 rounded-[56px] transition-all duration-700 hover:bg-white/[0.04] border border-white/5 hover:border-brand-gold/30 shadow-2xl"
-                style={{ backgroundColor: '#0E1A10' }}
+                className="group relative flex flex-col items-center p-10 rounded-[56px] transition-all duration-700 hover:bg-white/[0.04] border border-white/5 hover:border-brand-gold/30 shadow-2xl bg-[#0E1A10]"
               >
                 {/* Profile Image Container - Proportional Anchor */}
-                <div className="relative w-40 h-40 rounded-full border-4 border-brand-gold/20 overflow-hidden mb-8 bg-brand-green/20 flex items-center justify-center group-hover:border-brand-gold transition-all duration-700 shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+                <div className="relative w-44 h-44 rounded-full border-4 border-brand-gold/20 overflow-hidden mb-8 bg-brand-green/20 flex items-center justify-center group-hover:border-brand-gold transition-all duration-700 shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
                   {inf.imageUrl ? (
                     <img 
                       src={cl(inf.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400,h_400,c_fill')} 
@@ -140,16 +141,16 @@ export const InfluencerLineup = () => {
                   </div>
 
                   {/* Reach Stats - The "Pop" Element */}
-                  <div className="py-6 border-y border-white/10 space-y-2 group-hover:bg-white/5 transition-colors rounded-2xl">
-                    <span className="font-headline text-[11px] tracking-[4px] text-brand-gold/40 uppercase block">Cumulative Reach</span>
+                  <div className="py-8 border-y border-white/10 space-y-3 group-hover:bg-white/5 transition-colors rounded-[32px]">
+                    <span className="font-body text-[9px] tracking-[4px] text-brand-gold/40 uppercase block font-bold">Cumulative Reach</span>
                     <RollingCounter targetValue={inf.followers} />
                   </div>
 
-                  {/* Platform Proof - Logos made more prominent */}
-                  <div className="flex justify-center items-center gap-6 py-4 opacity-40 group-hover:opacity-100 transition-all duration-500">
-                    {igLogo && <img src={cl(igLogo.imageUrl, 'w_60')} alt="IG" className="h-6 w-auto grayscale brightness-200 group-hover:grayscale-0 group-hover:brightness-100 transition-all" />}
-                    {ttLogo && <img src={cl(ttLogo.imageUrl, 'w_60')} alt="TikTok" className="h-6 w-auto grayscale brightness-200 group-hover:grayscale-0 group-hover:brightness-100 transition-all" />}
-                    {ytLogo && <img src={cl(ytLogo.imageUrl, 'w_60')} alt="YT" className="h-6 w-auto grayscale brightness-200 group-hover:grayscale-0 group-hover:brightness-100 transition-all" />}
+                  {/* Platform Proof - Large High-Fidelity Logos */}
+                  <div className="flex justify-center items-center gap-8 py-4 opacity-40 group-hover:opacity-100 transition-all duration-500">
+                    {igLogo && <img src={cl(igLogo.imageUrl, 'w_120')} alt="IG" className="h-8 w-auto grayscale brightness-200 group-hover:grayscale-0 group-hover:brightness-100 transition-all" />}
+                    {ttLogo && <img src={cl(ttLogo.imageUrl, 'w_120')} alt="TikTok" className="h-8 w-auto grayscale brightness-200 group-hover:grayscale-0 group-hover:brightness-100 transition-all" />}
+                    {ytLogo && <img src={cl(ytLogo.imageUrl, 'w_120')} alt="YT" className="h-8 w-auto grayscale brightness-200 group-hover:grayscale-0 group-hover:brightness-100 transition-all" />}
                   </div>
 
                   <Badge className="bg-brand-gold text-brand-green border-none text-[10px] uppercase font-bold tracking-[4px] px-6 py-2 rounded-full shadow-2xl group-hover:scale-110 transition-transform">
@@ -163,9 +164,8 @@ export const InfluencerLineup = () => {
 
         <div className="max-w-4xl mx-auto text-center pt-12 px-6">
           <p className="font-body text-[12px] text-brand-gold/40 italic uppercase tracking-[4px] font-bold leading-relaxed">
-            The Influencer Pool is curated by Firefly for maximum resonance. <br className="hidden md:block" />
-            Selection criteria: Nairobi-based creators with a cumulative <span className="text-brand-gold/60">70,000+</span> cross-platform following <br className="hidden md:block" />
-            and high-engagement story conversion rates.
+            Every influencer pools a cumulative <span className="text-brand-gold">70,000+</span> cross-platform following. <br className="hidden md:block" />
+            Selection criteria: Verified high-engagement story conversion rates and lifestyle resonance.
           </p>
         </div>
       </div>
