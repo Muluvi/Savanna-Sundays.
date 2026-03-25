@@ -56,7 +56,10 @@ export const DualActivationModel = () => {
       </Card>
 
       <div className="space-y-8">
-        <Badge className="bg-brand-teal text-white font-headline text-[var(--text-xs)] px-4 py-1.5 tracking-widest uppercase rounded-full border-none">
+        <Badge className="bg-brand-teal text-white font-headline text-[var(--text-xs)] px-4 py-1.5 tracking-widest uppercase rounded-full border-none flex items-center gap-2 w-fit">
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+            <path d="M1 11L2.5 3L5.5 7L8 1L10.5 7L13.5 3L15 11H1Z" fill="#F4C542"/>
+          </svg>
           TIER 1 — PREMIUM CIRCUIT
         </Badge>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -80,7 +83,10 @@ export const DualActivationModel = () => {
       </div>
 
       <div className="space-y-8">
-        <Badge className="bg-brand-gold text-brand-green font-headline text-[var(--text-xs)] px-4 py-1.5 tracking-widest uppercase rounded-full border-none">
+        <Badge className="bg-brand-ink-soft text-brand-gold font-headline text-[var(--text-xs)] px-4 py-1.5 tracking-widest uppercase rounded-full border-none flex items-center gap-2 w-fit shadow-lg">
+          <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+            <path d="M7 0L0 9H5V16L12 7H7V0Z" fill="#F4C542"/>
+          </svg>
           TIER 2 — MAINSTREAM CIRCUIT
         </Badge>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
