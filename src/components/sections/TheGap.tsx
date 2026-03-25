@@ -1,10 +1,75 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 import { Sparkles } from 'lucide-react';
+
+/**
+ * High-fidelity counter for strategic metrics.
+ * Animates from 0 to target value using requestAnimationFrame with ease-out.
+ */
+const StatCounter = ({ value }: { value: string }) => {
+  const [displayValue, setDisplayValue] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Parse the number and the suffix (e.g., "603K" -> 603, "K")
+  const numericMatch = value.match(/[\d.]+/);
+  const suffixMatch = value.match(/[a-zA-Z%]+/);
+  
+  const target = numericMatch ? parseFloat(numericMatch[0]) : 0;
+  const suffix = suffixMatch ? suffixMatch[0] : '';
+  const isDecimal = numericMatch ? numericMatch[0].includes('.') : false;
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          startAnimation();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    const startAnimation = () => {
+      let startTime: number | null = null;
+      const duration = 1200; // 1.2 seconds as requested
+
+      const animate = (timestamp: number) => {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Quadratic ease-out curve
+        const easeOut = 1 - Math.pow(1 - progress, 2);
+        
+        setDisplayValue(easeOut * target);
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+
+      requestAnimationFrame(animate);
+    };
+
+    return () => observer.disconnect();
+  }, [target, hasAnimated]);
+
+  return (
+    <div ref={containerRef} className="font-headline text-[var(--text-4xl)] text-brand-gold leading-none">
+      {isDecimal ? displayValue.toFixed(1) : Math.floor(displayValue)}
+      {suffix}
+    </div>
+  );
+};
 
 export const TheGap = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
@@ -54,7 +119,7 @@ export const TheGap = () => {
                   {img && <Image src={img.imageUrl} alt={stat.label} fill className="object-contain" />}
                 </div>
                 <div className="text-center">
-                  <div className="font-headline text-[var(--text-4xl)] text-brand-gold leading-none">{stat.value}</div>
+                  <StatCounter value={stat.value} />
                   <div className="font-body text-[var(--text-xs)] uppercase tracking-[4px] text-brand-gold/60 font-bold mt-1">{stat.label}</div>
                 </div>
               </div>
