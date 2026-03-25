@@ -1,19 +1,14 @@
-
 'use client';
 
 import React from 'react';
-import { Globe, Sparkles } from 'lucide-react';
+import { Globe } from 'lucide-react';
 
 /**
  * Compact high-fidelity venue network overview.
- * Focuses on the "Venue Network" scale.
+ * Focuses on the strategic description of the "Venue Network" scale.
+ * Marquee functionality is handled by Tier1Marquee and Tier2Marquee for maximum impact.
  */
 export const DualActivationModel = () => {
-  const allVenueNames = [
-    "Muze", "The Alchemist", "Black Samurai", "KODA", "Masshouse", 
-    "Tin N Lit", "Alcapone", "Capital Noir", "Volt Lounge", "Covo Nairobi", "The Tunnel"
-  ];
-
   return (
     <div className="space-y-8">
       <div className="max-w-4xl space-y-4">
@@ -29,30 +24,6 @@ export const DualActivationModel = () => {
         <p className="font-body text-brand-cream/80 text-sm md:text-base leading-relaxed">
           Savanna Sundays doesn't choose one audience — it meets them all where they already are, mapping the brand identity onto Nairobi's existing high-energy Sunday properties.
         </p>
-      </div>
-
-      {/* The scrolling text marquee remains for a text-heavy branding layer */}
-      <div 
-        className="relative overflow-hidden py-6 border-y border-white/5 -mx-6 md:-mx-12 lg:-mx-24"
-        style={{ 
-          maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)'
-        }}
-      >
-        <div className="flex w-fit animate-marquee space-x-12 px-12 items-center">
-          {[...Array(3)].map((_, listIdx) => (
-            <React.Fragment key={listIdx}>
-              {allVenueNames.map((name, i) => (
-                <div key={`${listIdx}-${i}`} className="flex items-center gap-4 shrink-0 group">
-                  <Sparkles className="text-brand-gold/20 group-hover:text-brand-gold" size={10} />
-                  <span className="font-headline text-2xl text-brand-cream/10 uppercase tracking-widest group-hover:text-brand-gold transition-all duration-500">
-                    {name}
-                  </span>
-                </div>
-              ))}
-            </React.Fragment>
-          ))}
-        </div>
       </div>
     </div>
   );
