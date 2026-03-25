@@ -70,6 +70,23 @@ const productionDays = [
 export const ExperienceDesignSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const handleScroll = () => {
     if (!scrollRef.current) return;
@@ -88,30 +105,34 @@ export const ExperienceDesignSection = () => {
   };
 
   return (
-    <div className="space-y-8">
-      {/* influencer Pack Drop Banner - Compacted */}
-      <div className="w-full bg-brand-gold p-6 md:p-8 rounded-3xl flex flex-col md:flex-row items-center gap-6 shadow-xl relative overflow-hidden group">
-        <div className="shrink-0 w-16 h-16 rounded-full bg-brand-green/10 flex items-center justify-center text-[#1A1208] border border-[#1A1208]/10">
+    <div ref={sectionRef} className="space-y-8">
+      {/* influencer Pack Drop Banner */}
+      <div className={cn(
+        "w-full bg-brand-gold p-6 md:p-8 rounded-3xl flex flex-col md:flex-row items-center gap-6 shadow-xl relative overflow-hidden group transition-all duration-1000",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      )}>
+        <div className="shrink-0 w-16 h-16 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green border border-brand-green/10">
           <Clock size={32} className="animate-pulse" />
         </div>
         <div className="space-y-1 text-center md:text-left relative z-10 flex-1">
-          <h3 className="font-headline text-[var(--text-xl)] md:text-[var(--text-2xl)] text-[#1A1208] leading-none uppercase tracking-tighter">
+          <h3 className="font-headline text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-green leading-none uppercase tracking-tighter">
             SUNDAY 12:00 PM: INFLUENCER PACK DROP
           </h3>
           <CountdownClock />
-          <p className="font-body text-[#1A1208] font-bold text-[10px] uppercase tracking-widest max-w-xl mt-2 opacity-80">
+          <p className="font-body text-brand-green font-bold text-[10px] uppercase tracking-widest max-w-xl mt-2 opacity-80">
             Synchronized Savanna content wave hits Nairobi's feeds at the stroke of noon.
           </p>
         </div>
+        <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
       </div>
 
-      {/* Content Harvest Metrics - Compacted */}
+      {/* Content Harvest Metrics */}
       <div className="space-y-4">
         <div className="section-label">03B — The Content Harvest</div>
         <ContentHarvestMetrics />
       </div>
 
-      {/* Publishing Rhythm - Compacted */}
+      {/* Publishing Rhythm */}
       <div className="space-y-4 pt-6 border-t border-white/5 relative">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
@@ -122,17 +143,17 @@ export const ExperienceDesignSection = () => {
           <div className="hidden md:flex items-center gap-2">
             <button 
               onClick={() => scroll('left')}
-              className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-brand-gold hover:bg-white/5 transition-colors"
+              className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-green transition-all"
               aria-label="Scroll Left"
             >
-              <ChevronLeft size={16} />
+              <ChevronLeft size={20} />
             </button>
             <button 
               onClick={() => scroll('right')}
-              className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-brand-gold hover:bg-white/5 transition-colors"
+              className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-green transition-all"
               aria-label="Scroll Right"
             >
-              <ChevronRight size={16} />
+              <ChevronRight size={20} />
             </button>
           </div>
         </div>
@@ -141,30 +162,52 @@ export const ExperienceDesignSection = () => {
           <div 
             ref={scrollRef}
             onScroll={handleScroll}
-            className="overflow-x-auto scrollbar-hide -mx-6 px-6"
+            className="overflow-x-auto scrollbar-hide -mx-6 px-6 snap-x snap-mandatory"
+            style={{ scrollBehavior: 'smooth' }}
           >
-            <div className="flex gap-3 min-w-[1000px] pb-4 pt-1">
+            <div className="flex gap-4 min-w-[1200px] pb-8 pt-4">
               {productionDays.map((p, i) => (
-                <div key={i} className={cn(
-                  "flex-1 p-5 rounded-2xl flex flex-col gap-3 border transition-all", 
-                  p.anchor ? "bg-brand-gold text-brand-green scale-105 shadow-lg" : "bg-white/5 border-white/10 opacity-40 hover:opacity-100"
-                )}>
+                <div 
+                  key={i} 
+                  className={cn(
+                    "flex-1 p-6 rounded-2xl flex flex-col gap-4 border transition-all duration-500 snap-center", 
+                    "hover:-translate-y-2 hover:shadow-2xl hover:border-brand-gold/40",
+                    p.anchor 
+                      ? "bg-brand-gold text-brand-green border-brand-gold shadow-[0_20px_40px_rgba(244,197,66,0.2)]" 
+                      : "bg-white/5 border-white/10 text-white hover:bg-white/[0.08]",
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                  )}
+                  style={{ 
+                    transitionDelay: `${i * 100}ms`,
+                    boxShadow: p.anchor ? '0 20px 40px -10px rgba(244, 197, 66, 0.3)' : 'none'
+                  }}
+                >
                   <div className="flex items-center justify-between">
-                    <span className="font-headline text-[11px] uppercase tracking-widest">{p.day}</span>
-                    <div className={cn("p-1.5 rounded-lg", p.anchor ? "bg-brand-green/10" : "bg-white/10")}>{p.icon}</div>
+                    <span className="font-headline text-sm uppercase tracking-widest opacity-60">{p.day}</span>
+                    <div className={cn(
+                      "p-2.5 rounded-xl transition-transform group-hover:scale-110", 
+                      p.anchor ? "bg-brand-green/10" : "bg-brand-gold/10 text-brand-gold"
+                    )}>
+                      {p.icon}
+                    </div>
                   </div>
-                  <div className="space-y-0.5">
-                    <h5 className="font-headline text-lg uppercase leading-none">{p.title}</h5>
-                    <p className="font-body text-[9px] font-bold uppercase tracking-widest opacity-80">{p.body}</p>
+                  <div className="space-y-1">
+                    <h5 className="font-headline text-xl md:text-2xl uppercase leading-tight tracking-tight">{p.title}</h5>
+                    <p className={cn(
+                      "font-body text-[10px] font-bold uppercase tracking-wider leading-relaxed",
+                      p.anchor ? "text-brand-green/70" : "text-white/40"
+                    )}>
+                      {p.body}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="w-full h-[1px] bg-brand-gold/10 rounded-full overflow-hidden">
+          <div className="w-full h-[2px] bg-white/5 rounded-full overflow-hidden">
             <div 
-              className="h-full bg-brand-gold transition-transform duration-100 ease-out origin-left"
+              className="h-full bg-brand-gold transition-transform duration-300 ease-out origin-left"
               style={{ transform: `scaleX(${scrollProgress / 100})` }}
             />
           </div>
