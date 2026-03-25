@@ -31,31 +31,62 @@ const sectionsData = [
   { id: 'the-numbers', label: '04 The Investment', title: 'The Capital', component: <TheNumbersSection /> },
 ];
 
+const closingSentences = [
+  "Savanna Sundays is already live.",
+  "The Savanna Vybe Squad is on the ground.",
+  "The content engine is producing.",
+  "The crowd is growing.",
+  "Now it's time to take this to every corner of Nairobi — mainstream bars, premium venues, and everything in between.",
+  "Thirteen venues.",
+  "Three resident DJs.",
+  "Five influencers dropping every Sunday at noon.",
+  "One brand owning the day.",
+  "Let's scale Sunday."
+];
+
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
   const [heroVisible, setHeroVisible] = useState(false);
+  const [closingVisible, setClosingVisible] = useState(false);
+  
   const heroRef = useRef<HTMLElement>(null);
+  const closingRef = useRef<HTMLDivElement>(null);
+  
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   useAnalyticsTracker();
 
   useEffect(() => {
     setIsMounted(true);
     
-    const observer = new IntersectionObserver(
+    // Hero Observer
+    const heroObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setHeroVisible(true);
-          observer.unobserve(entry.target);
+          heroObserver.unobserve(entry.target);
         }
       },
       { threshold: 0.12 }
     );
 
-    if (heroRef.current) {
-      observer.observe(heroRef.current);
-    }
+    // Closing Observer
+    const closingObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setClosingVisible(true);
+          closingObserver.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
 
-    return () => observer.disconnect();
+    if (heroRef.current) heroObserver.observe(heroRef.current);
+    if (closingRef.current) closingObserver.observe(closingRef.current);
+
+    return () => {
+      heroObserver.disconnect();
+      closingObserver.disconnect();
+    };
   }, []);
 
   if (!isMounted) return <div className="min-h-screen bg-brand-green" />;
@@ -180,24 +211,47 @@ export default function Home() {
         ))}
 
         {/* Brand Closing - The Scale Mandate */}
-        <div id="closing" className="py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-brand-ink">
-          <div className="max-w-4xl mx-auto space-y-10 relative z-10">
+        <div 
+          ref={closingRef}
+          id="closing" 
+          className="py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-brand-ink"
+        >
+          <div className="max-w-4xl mx-auto space-y-12 relative z-10">
             <p className="font-serif italic text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-cream leading-snug">
-              Savanna Sundays is already live. The Savanna Vybe Squad is on the ground. The content engine is producing. The crowd is growing. Now it&apos;s time to take this to every corner of Nairobi — mainstream bars, premium venues, and everything in between. Thirteen venues. Three resident DJs. Five influencers dropping every Sunday at noon. One brand owning the day. Let&apos;s scale Sunday.
+              {closingSentences.map((sentence, i) => (
+                <span 
+                  key={i}
+                  style={{ transitionDelay: `${i * 100}ms` }}
+                  className={cn(
+                    "reveal-on-scroll inline-block mr-1.5",
+                    closingVisible && "reveal-visible"
+                  )}
+                >
+                  {sentence}
+                </span>
+              ))}
             </p>
 
-            <a 
-              href="mailto:partner@firefly.co.ke" 
-              className="btn-scale-sunday-glow group h-16"
-              suppressHydrationWarning
-            >
-              <div className="relative z-10 flex items-center gap-6 px-12 h-full text-brand-ink">
-                <span className="font-headline text-[var(--text-xl)] tracking-widest uppercase">Scale Sunday</span>
-                <span className="group-hover:translate-x-2 transition-transform">→</span>
-              </div>
-            </a>
+            <div className={cn(
+              "reveal-on-scroll",
+              closingVisible && "reveal-visible"
+            )} style={{ transitionDelay: '1200ms' }}>
+              <a 
+                href="mailto:partner@firefly.co.ke" 
+                className="btn-scale-sunday-glow group h-16"
+                suppressHydrationWarning
+              >
+                <div className="relative z-10 flex items-center gap-6 px-12 h-full text-brand-ink">
+                  <span className="font-headline text-[var(--text-xl)] tracking-widest uppercase">Scale Sunday</span>
+                  <span className="group-hover:translate-x-2 transition-transform">→</span>
+                </div>
+              </a>
+            </div>
 
-            <div className="pt-16 space-y-8 flex flex-col items-center">
+            <div className={cn(
+              "pt-16 space-y-8 flex flex-col items-center reveal-on-scroll",
+              closingVisible && "reveal-visible"
+            )} style={{ transitionDelay: '1500ms' }}>
               <div className="flex items-center gap-10">
                 {savannaLogo && (
                   <div className="relative h-14 w-40">
