@@ -39,13 +39,13 @@ export const CiderFizz = ({ className }: { className?: string }) => {
   }[]>([]);
 
   useEffect(() => {
-    // Generate 12 strategic bubbles
-    const generated = [...Array(12)].map(() => ({
-      size: `${Math.floor(Math.random() * 7) + 4}px`, // 4px - 10px
-      left: `${Math.floor(Math.random() * 81) + 10}%`, // 10% - 90%
-      delay: `${Math.random() * 5}s`,
-      duration: `${Math.floor(Math.random() * 7) + 4}s`, // 4s - 10s
-      opacity: Math.random() * 0.15 + 0.15 // 0.15 - 0.30
+    // Generate 16 cinematic bubbles with varied dynamics
+    const generated = [...Array(16)].map(() => ({
+      size: `${Math.floor(Math.random() * 8) + 4}px`, // 4px - 12px
+      left: `${Math.floor(Math.random() * 91) + 5}%`, // 5% - 95%
+      delay: `${Math.random() * 8}s`,
+      duration: `${Math.floor(Math.random() * 8) + 5}s`, // 5s - 13s
+      opacity: Math.random() * 0.2 + 0.15 // 0.15 - 0.35
     }));
     setBubbles(generated);
   }, []);
@@ -55,16 +55,15 @@ export const CiderFizz = ({ className }: { className?: string }) => {
       {bubbles.map((bubble, i) => (
         <div 
           key={i} 
-          className="absolute rounded-full bg-brand-gold animate-rise"
+          className="absolute rounded-full bg-brand-gold animate-rise shadow-[0_0_10px_rgba(244,197,66,0.3)]"
           style={{
             width: bubble.size,
             height: bubble.size,
             left: bubble.left,
             animationDelay: bubble.delay,
             animationDuration: bubble.duration,
-            // Pass opacity as a CSS variable for the keyframe
             ['--bubble-opacity' as any]: bubble.opacity,
-            opacity: 0, // Initial opacity until animation starts
+            opacity: 0,
           }}
         />
       ))}
@@ -80,16 +79,18 @@ export const WaterDroplets = ({ className }: { className?: string }) => {
     left: string;
     backgroundColor: string;
     opacity: number;
+    blur: string;
   }[]>([]);
 
   useEffect(() => {
-    const generated = [...Array(20)].map(() => ({
-      width: `${Math.random() * 6 + 2}px`,
-      height: `${Math.random() * 6 + 2}px`,
+    const generated = [...Array(24)].map(() => ({
+      width: `${Math.random() * 8 + 3}px`,
+      height: `${Math.random() * 8 + 3}px`,
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
-      backgroundColor: Math.random() > 0.5 ? '#F4C542' : '#2D8C7F',
-      opacity: Math.random() * 0.35 + 0.3
+      backgroundColor: Math.random() > 0.6 ? '#F4C542' : '#2D8C7F',
+      opacity: Math.random() * 0.4 + 0.2,
+      blur: `${Math.random() * 2}px`
     }));
     setDroplets(generated);
   }, []);
@@ -100,7 +101,10 @@ export const WaterDroplets = ({ className }: { className?: string }) => {
         <div 
           key={i} 
           className="absolute rounded-full"
-          style={style}
+          style={{
+            ...style,
+            filter: `blur(${style.blur})`
+          }}
         />
       ))}
     </div>

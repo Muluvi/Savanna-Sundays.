@@ -9,7 +9,7 @@ import { ChevronDown, ArrowRight } from 'lucide-react';
 import { useAnalyticsTracker } from '@/hooks/use-analytics-tracker';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
-import { CiderFizz } from '@/components/brand/VisualElements';
+import { CiderFizz, WaterDroplets } from '@/components/brand/VisualElements';
 import { cl } from '@/lib/cloudinary';
 
 import { TheGap } from '@/components/sections/TheGap';
@@ -84,19 +84,20 @@ export default function Home() {
           className="relative h-screen flex flex-col justify-between items-center px-6 py-16 overflow-hidden bg-brand-green"
         >
           {/* Visual Layers */}
-          <CiderFizz className="opacity-40 z-0" />
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_45%,rgba(244,197,66,0.18)_0%,transparent_70%)]" />
+          <CiderFizz className="opacity-50 z-0" />
+          <WaterDroplets className="opacity-20 z-0" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_45%,rgba(244,197,66,0.22)_0%,transparent_75%)]" />
 
           {/* Logo Reveal */}
           <div className={cn(
-            "relative z-10 transition-all duration-[1200ms] ease-out",
-            heroVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-12"
+            "relative z-10 transition-all duration-[1500ms] ease-out",
+            heroVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-12 scale-95"
           )}>
             {savannaLogo && (
               <img 
                 src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
                 alt="Savanna" 
-                className="logo-shimmer drop-shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
+                className="logo-shimmer drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
                 style={{ width: 'clamp(180px, 20vw, 300px)', height: 'auto', objectFit: 'contain' }}
                 loading="eager"
                 fetchPriority="high"
@@ -108,11 +109,11 @@ export default function Home() {
           <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center text-center">
             <h1 className="flex flex-col items-center leading-[0.82] tracking-tighter">
               <span className={cn(
-                "text-brand-gold text-[clamp(4.5rem,18vw,14rem)] font-headline uppercase block transition-all duration-[1400ms] delay-300",
+                "text-brand-gold text-[clamp(4.5rem,18vw,14rem)] font-headline uppercase block transition-all duration-[1400ms] delay-300 text-glow-gold",
                 heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-24"
               )}>SAVANNA</span>
               <span className={cn(
-                "text-brand-gold text-[clamp(4.5rem,18vw,14rem)] font-headline uppercase block transition-all duration-[1400ms] delay-500",
+                "text-brand-gold text-[clamp(4.5rem,18vw,14rem)] font-headline uppercase block transition-all duration-[1400ms] delay-500 text-glow-gold",
                 heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-24"
               )}>SUNDAYS</span>
             </h1>
@@ -125,35 +126,35 @@ export default function Home() {
                 <p className="font-body text-brand-gold text-[var(--text-base)] uppercase tracking-[4px] font-bold">
                   Already live. Now scaling.
                 </p>
-                <div className="h-[1px] w-12 bg-brand-gold/20 mx-auto" />
+                <div className="h-[1px] w-12 bg-brand-gold/30 mx-auto" />
               </div>
               
               <div className="flex justify-center pt-8">
-                 <div className="w-14 h-14 rounded-full border border-brand-gold/30 flex items-center justify-center animate-bounce shadow-[0_0_20px_rgba(244,197,66,0.2)] cursor-pointer" onClick={() => document.getElementById('the-gap')?.scrollIntoView({ behavior: 'smooth' })}>
-                    <ChevronDown className="text-brand-gold" size={24} />
+                 <div className="w-16 h-16 rounded-full border border-brand-gold/30 flex items-center justify-center animate-bounce shadow-[0_0_30px_rgba(244,197,66,0.25)] cursor-pointer group hover:bg-brand-gold/10 transition-colors" onClick={() => document.getElementById('the-gap')?.scrollIntoView({ behavior: 'smooth' })}>
+                    <ChevronDown className="text-brand-gold group-hover:scale-110 transition-transform" size={28} />
                  </div>
               </div>
             </div>
           </div>
 
-          {/* Footer Attribution - Proportional Scaling */}
+          {/* Footer Attribution */}
           <div className={cn(
-            "relative z-10 flex flex-col items-center gap-8 transition-all duration-1000 delay-[1200ms]",
+            "relative z-10 flex flex-col items-center gap-8 transition-all duration-1200 delay-[1200ms]",
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           )}>
             <div className="flex flex-col items-center gap-6">
-              <span className="font-body text-[var(--text-lg)] tracking-[4px] text-brand-gold uppercase font-bold">Presented by</span>
+              <span className="font-body text-[var(--text-lg)] tracking-[4px] text-brand-gold uppercase font-bold opacity-80">Presented by</span>
               <div className="flex items-center gap-10">
-                <div className="h-[1px] w-16 bg-brand-gold/30" />
+                <div className="h-[1px] w-16 bg-brand-gold/20" />
                 {fireflyLogo && (
                   <img 
                     src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_800')} 
                     alt="Firefly Management" 
-                    className="opacity-100 hover:scale-105 transition-all duration-500 drop-shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
+                    className="opacity-100 hover:scale-110 transition-all duration-700 drop-shadow-[0_15px_40px_rgba(0,0,0,0.5)]"
                     style={{ height: '72px', width: 'auto', objectFit: 'contain' }}
                   />
                 )}
-                <div className="h-[1px] w-16 bg-brand-gold/30" />
+                <div className="h-[1px] w-16 bg-brand-gold/20" />
               </div>
             </div>
           </div>
@@ -196,20 +197,21 @@ export default function Home() {
         </SectionContainer>
 
         {/* Closing */}
-        <div ref={closingRef} id="closing" className="py-32 px-6 text-center border-t border-white/5 relative overflow-hidden bg-brand-ink">
-          <div className="max-w-4xl mx-auto space-y-16 relative z-10">
+        <div ref={closingRef} id="closing" className="py-40 px-6 text-center border-t border-white/5 relative overflow-hidden bg-[#0A140B]">
+          <CiderFizz className="opacity-[0.05]" />
+          <div className="max-w-4xl mx-auto space-y-20 relative z-10">
             <p className="font-serif italic text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-cream leading-snug">
               {closingSentences.map((sentence, i) => (
-                <span key={i} style={{ transitionDelay: `${i * 100}ms` }} className={cn("reveal-on-scroll inline-block mr-2 mb-2", closingVisible && "reveal-visible")}>
+                <span key={i} style={{ transitionDelay: `${i * 120}ms` }} className={cn("reveal-on-scroll inline-block mr-2 mb-2", closingVisible && "reveal-visible")}>
                   {sentence}
                 </span>
               ))}
             </p>
-            <div className={cn("reveal-on-scroll", closingVisible && "reveal-visible")} style={{ transitionDelay: '1200ms' }}>
-              <a href="mailto:partner@firefly.co.ke" className="btn-scale-sunday-glow group h-20">
-                <div className="relative z-10 flex items-center gap-8 px-16 h-full text-brand-ink">
+            <div className={cn("reveal-on-scroll", closingVisible && "reveal-visible")} style={{ transitionDelay: '1400ms' }}>
+              <a href="mailto:partner@firefly.co.ke" className="btn-scale-sunday-glow group h-24">
+                <div className="relative z-10 flex items-center gap-10 px-20 h-full text-brand-ink">
                   <span className="font-headline text-[var(--text-2xl)] tracking-widest uppercase">Scale Sunday</span>
-                  <ArrowRight className="group-hover:translate-x-3 transition-transform" size={28} />
+                  <ArrowRight className="group-hover:translate-x-4 transition-transform" size={32} />
                 </div>
               </a>
             </div>

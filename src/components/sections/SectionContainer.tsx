@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { CiderFizz } from '@/components/brand/VisualElements';
+import { CiderFizz, WaterDroplets } from '@/components/brand/VisualElements';
 
 interface SectionProps {
   id: string;
@@ -35,7 +35,7 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.08 } // Slightly lower threshold for smoother reveals
     );
 
     if (sectionRef.current) {
@@ -49,28 +49,33 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
     };
   }, []);
 
-  const translateX = isMounted ? (scrollProgress - 0.5) * 40 : 0; 
+  // Kinetic Parallax Text
+  const translateX = isMounted ? (scrollProgress - 0.5) * 60 : 0; 
 
   return (
     <section 
       ref={sectionRef}
       id={id} 
       className={cn(
-        "py-24 md:py-40 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center border-b border-white/5"
+        "py-24 md:py-48 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center border-b border-white/5"
       )}
     >
       <div className="noise-overlay" />
-      <CiderFizz className="opacity-[0.03] z-0" />
+      <CiderFizz className="opacity-[0.04] z-0" />
+      <WaterDroplets className="opacity-[0.05] z-0" />
       
       <div className={cn(
         "max-w-6xl mx-auto w-full relative z-10 reveal-on-scroll",
         isVisible && "reveal-visible"
       )}>
-        <div className="mb-16 md:mb-24 text-center md:text-left relative">
+        <div className="mb-20 md:mb-32 text-center md:text-left relative">
           <span className="section-label">{label}</span>
           <h2 
-            className="section-title"
-            style={{ transform: `translateX(${translateX}px)` }}
+            className="section-title text-glow-gold"
+            style={{ 
+              transform: `translateX(${translateX}px)`,
+              transition: 'transform 0.4s cubic-bezier(0.23, 1, 0.32, 1)' 
+            }}
           >
             {title}
           </h2>
