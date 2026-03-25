@@ -48,7 +48,7 @@ export const Tier1Marquee = () => {
                     <img 
                       src={cl(logo.imageUrl, transformation)} 
                       alt={venue.name}
-                      className="h-[60px] w-auto block flex-shrink-0 object-contain brightness-125"
+                      className="h-[60px] w-auto block flex-shrink-0 object-contain"
                       loading="lazy"
                     />
                   )}
@@ -83,7 +83,7 @@ export const Tier2Marquee = () => {
                 <img 
                   src={cl(venue.url, transformation)} 
                   alt={venue.name}
-                  className="h-[60px] w-auto block flex-shrink-0 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                  className="h-[60px] w-auto block flex-shrink-0 object-contain transition-all duration-500"
                   loading="lazy"
                 />
                 <span className="font-headline text-[9px] tracking-[0.3em] text-brand-gold/30 uppercase">{venue.name}</span>

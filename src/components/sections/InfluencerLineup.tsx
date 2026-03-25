@@ -133,7 +133,7 @@ export const InfluencerLineup = () => {
                 className="group relative flex flex-col items-center gap-10 transition-all duration-700 hover:-translate-y-4"
               >
                 {/* Profile Image - Unconstrained standard img */}
-                <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-brand-gold/20 overflow-hidden bg-brand-green/10 flex items-center justify-center group-hover:border-brand-gold transition-all duration-700 shadow-[0_40px_80px_rgba(0,0,0,0.7)]">
+                <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-brand-gold/20 overflow-hidden bg-brand-green/10 flex items-center justify-center transition-all duration-700 shadow-[0_40px_80px_rgba(0,0,0,0.7)]">
                   <img 
                     src={cl(inf.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_800,h_800,c_fill')} 
                     alt={inf.name} 
@@ -159,10 +159,10 @@ export const InfluencerLineup = () => {
                   </div>
 
                   {/* Platform Proof - Scaled Up */}
-                  <div className="flex justify-center items-center gap-12 py-6 opacity-60 group-hover:opacity-100 transition-all duration-500">
-                    {igLogo && <img src={cl(igLogo.imageUrl, 'w_160')} alt="IG" className="h-12 w-auto grayscale group-hover:grayscale-0 brightness-200 group-hover:brightness-100 transition-all" />}
-                    {ttLogo && <img src={cl(ttLogo.imageUrl, 'w_160')} alt="TikTok" className="h-12 w-auto grayscale group-hover:grayscale-0 brightness-200 group-hover:brightness-100 transition-all" />}
-                    {ytLogo && <img src={cl(ytLogo.imageUrl, 'w_160')} alt="YT" className="h-12 w-auto grayscale group-hover:grayscale-0 brightness-200 group-hover:brightness-100 transition-all" />}
+                  <div className="flex justify-center items-center gap-12 py-6 transition-all duration-500">
+                    {igLogo && <img src={cl(igLogo.imageUrl, 'w_160')} alt="IG" className="h-12 w-auto transition-all" />}
+                    {ttLogo && <img src={cl(ttLogo.imageUrl, 'w_160')} alt="TikTok" className="h-12 w-auto transition-all" />}
+                    {ytLogo && <img src={cl(ytLogo.imageUrl, 'w_160')} alt="YT" className="h-12 w-auto transition-all" />}
                   </div>
 
                   <Badge className="bg-brand-gold text-brand-green border-none text-[12px] uppercase font-bold tracking-[6px] px-10 py-3 rounded-full shadow-2xl">

@@ -111,7 +111,6 @@ export const WhyFireflySection = () => {
               <img 
                 src={cl(logo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
                 alt="Firefly" 
-                className="opacity-40"
                 style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
               />
             )}

@@ -144,7 +144,7 @@ export default function Home() {
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}>
             <div className="flex items-center gap-4">
-              <span className="font-body text-[10px] tracking-[4px] text-brand-gold/40 uppercase font-bold">Presented by</span>
+              <span className="font-body text-[10px] tracking-[4px] text-brand-gold uppercase font-bold">Presented by</span>
               <div className="h-[1px] w-8 bg-brand-gold/20" />
               {fireflyLogo && (
                 <img 

@@ -132,7 +132,7 @@ function LoginPage() {
           </div>
           <div className="space-y-1">
             <h1 className="font-headline text-5xl text-white tracking-tighter uppercase leading-none">PRIVATE ACCESS</h1>
-            <p className="font-body text-[10px] text-brand-gold uppercase tracking-[4px] font-bold opacity-60">Savanna Sundays x Firefly Management</p>
+            <p className="font-body text-[10px] text-brand-gold uppercase tracking-[4px] font-bold">Savanna Sundays x Firefly Management</p>
           </div>
         </div>
 

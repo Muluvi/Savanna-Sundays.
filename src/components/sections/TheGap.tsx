@@ -90,7 +90,7 @@ export const TheGap = () => {
         </div>
 
         <div className="glass-tile p-10 rounded-[48px] relative overflow-hidden group border-brand-gold/10">
-          <div className="absolute top-0 right-0 p-10 opacity-10 group-hover:scale-110 transition-transform duration-1000">
+          <div className="absolute top-0 right-0 p-10 z-0">
             {savannaLogo && (
               <img 
                 src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 

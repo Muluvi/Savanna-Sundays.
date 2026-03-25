@@ -67,7 +67,6 @@ export const AppSidebar = () => {
               <img 
                 src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
                 alt="Firefly" 
-                className="opacity-60"
                 style={{ height: '24px', width: 'auto', objectFit: 'contain' }}
               />
             )}
