@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
@@ -7,7 +8,7 @@ import { cn } from '@/lib/utils';
 
 const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   
@@ -17,30 +18,50 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
 
   useEffect(() => {
     setIsMounted(true);
-    const observer = new IntersectionObserver(([entry]) => { 
-      if (entry.isIntersecting) setIsVisible(true); 
-    }, { threshold: 0.5 });
-    if (containerRef.current) observer.observe(containerRef.current);
-    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
-    if (!isVisible) return;
-    let startTime: number;
-    const duration = 2500;
+    if (!isMounted || hasAnimated) return;
 
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      
-      const easeOutQuart = (t: number) => 1 - (--t) * t * t * t;
-      setDisplayValue(easeOutQuart(progress) * target);
-      
-      if (progress < 1) requestAnimationFrame(animate);
+    const startAnimation = () => {
+      let startTime: number;
+      const duration = 2500;
+
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        const easeOutQuart = (t: number) => 1 - (--t) * t * t * t;
+        setDisplayValue(easeOutQuart(progress) * target);
+        
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
     };
-    requestAnimationFrame(animate);
-  }, [isVisible, target]);
+
+    const observer = new IntersectionObserver(([entry]) => { 
+      if (entry.isIntersecting && !hasAnimated) {
+        setHasAnimated(true);
+        startAnimation();
+      }
+    }, { threshold: 0.1, rootMargin: '50px' });
+
+    if (containerRef.current) observer.observe(containerRef.current);
+
+    // Fallback: Force start if not animated after 3s
+    const fallback = setTimeout(() => {
+      if (!hasAnimated) {
+        setHasAnimated(true);
+        startAnimation();
+      }
+    }, 3000);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallback);
+    };
+  }, [isMounted, hasAnimated, target]);
 
   if (!isMounted) {
     return (
@@ -65,7 +86,7 @@ export const TheGap = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   const socialIcons = [
     { id: 'social-fb', label: 'Facebook', value: '603K', size: 'h-20 w-60' },
-    { id: 'social-ig', label: 'Instagram', value: '6K', size: 'h-20 w-20' },
+    { id: 'social-ig', label: 'Instagram', value: '6121', size: 'h-20 w-20' },
     { id: 'social-x', label: 'X (Twitter)', value: '1115', size: 'h-16 w-16' },
   ];
 
@@ -95,7 +116,6 @@ export const TheGap = () => {
         <div className="section-label text-center mb-0 text-brand-gold/80">Market Presence</div>
         
         <div className="relative overflow-hidden py-12 glass-tile rounded-[32px] border-brand-gold/10 bg-white/[0.02]">
-          {/* Edge Masking for 4K Marquee */}
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-green to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-green to-transparent z-10 pointer-events-none" />
           

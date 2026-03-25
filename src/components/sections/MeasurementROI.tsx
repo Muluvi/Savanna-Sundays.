@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
@@ -6,52 +7,61 @@ import { ArrowRight, Users, Zap, ShoppingBag, Share2 } from 'lucide-react';
 
 const Counter = ({ value, prefix = "", suffix = "" }: { value: string, prefix?: string, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const containerRef = useRef<HTMLSpanElement>(null);
   const target = parseFloat(value.replace(/[^0-9.]/g, ''));
-  const hasLoaded = useRef(false);
 
   useEffect(() => {
     setIsMounted(true);
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasLoaded.current) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (containerRef.current) observer.observe(containerRef.current);
-    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
-    if (!isVisible || hasLoaded.current) return;
+    if (!isMounted || hasAnimated) return;
     
-    let startTime: number;
-    const duration = 2000;
+    const startAnimation = () => {
+      let startTime: number;
+      const duration = 2000;
 
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      
-      const easeOutQuad = (t: number) => t * (2 - t);
-      const current = easeOutQuad(progress) * target;
-      
-      setDisplayValue(current);
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        const easeOutQuad = (t: number) => t * (2 - t);
+        setDisplayValue(easeOutQuad(progress) * target);
 
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        hasLoaded.current = true;
-      }
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+      requestAnimationFrame(animate);
     };
 
-    requestAnimationFrame(animate);
-  }, [isVisible, target]);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          startAnimation();
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    if (containerRef.current) observer.observe(containerRef.current);
+
+    const fallback = setTimeout(() => {
+      if (!hasAnimated) {
+        setHasAnimated(true);
+        startAnimation();
+      }
+    }, 3000);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallback);
+    };
+  }, [isMounted, hasAnimated, target]);
 
   if (!isMounted) {
     return <span>{prefix}0{suffix}</span>;
