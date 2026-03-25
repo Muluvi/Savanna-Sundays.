@@ -4,11 +4,21 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { cl } from '@/lib/cloudinary';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Instagram, Youtube, Users, Zap } from 'lucide-react';
+import { AnimatedCounter } from '@/components/ui/animated-counter';
+
+interface TalentMetric {
+  label: string;
+  value: string;
+  suffix?: string;
+  icon?: React.ReactNode;
+}
 
 interface MarqueeRowProps {
   name: string;
-  role: string;
+  handle: string;
+  bio: string;
+  metrics: TalentMetric[];
   images: string[];
   duration: string;
   reverse?: boolean;
@@ -16,25 +26,67 @@ interface MarqueeRowProps {
   isVerified?: boolean;
 }
 
-const MarqueeRow = ({ name, role, images, duration, reverse = false, isFirstRow = false, isVerified = false }: MarqueeRowProps) => {
-  // Duplicate images for seamless loop
+const StatBadge = ({ metric }: { metric: TalentMetric }) => (
+  <div className="flex flex-col items-center md:items-start gap-1 px-4 md:px-6 border-l border-brand-gold/10 first:border-l-0">
+    <div className="flex items-center gap-2">
+      <span className="text-brand-gold/40">{metric.icon}</span>
+      <span className="font-body text-[8px] md:text-[9px] tracking-[3px] text-brand-gold/60 uppercase font-bold">
+        {metric.label}
+      </span>
+    </div>
+    <div className="font-headline text-2xl md:text-4xl text-brand-gold leading-none tracking-tighter">
+      <AnimatedCounter value={metric.value} suffix={metric.suffix} />
+    </div>
+  </div>
+);
+
+const MarqueeRow = ({ 
+  name, 
+  handle, 
+  bio, 
+  metrics, 
+  images, 
+  duration, 
+  reverse = false, 
+  isFirstRow = false, 
+  isVerified = false 
+}: MarqueeRowProps) => {
   const displayImages = [...images, ...images];
   const transformation = 'q_auto:best,f_auto,dpr_2.0,h_680,c_limit';
 
   return (
-    <div className="space-y-4 group/row">
-      <div className="text-center space-y-1">
-        <div className="flex items-center justify-center gap-2">
-           <h4 className="font-headline text-[13px] md:text-[15px] tracking-[4px] text-brand-gold uppercase leading-none">
-            {name}
-          </h4>
-          {isVerified && <CheckCircle2 className="text-blue-400 w-3 h-3 md:w-4 md:h-4 fill-blue-400/10" />}
+    <div className="space-y-8 group/row">
+      {/* Dynamic Header Section */}
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-end">
+        <div className="text-center lg:text-left space-y-4">
+          <div className="space-y-1">
+            <div className="flex items-center justify-center lg:justify-start gap-3">
+              <h4 className="font-headline text-[2.5rem] md:text-[4rem] tracking-tighter text-brand-gold uppercase leading-none">
+                {name}
+              </h4>
+              {isVerified && <CheckCircle2 className="text-blue-400 w-6 h-6 md:w-8 md:h-8 fill-blue-400/10" />}
+            </div>
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+              <span className="font-headline text-xs md:text-sm tracking-[4px] text-white/80 uppercase">
+                {handle}
+              </span>
+              <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-brand-gold/20" />
+              <p className="font-body text-[10px] md:text-[11px] tracking-[2px] text-brand-cream/40 uppercase font-bold">
+                {bio}
+              </p>
+            </div>
+          </div>
         </div>
-        <p className="font-body text-[9px] md:text-[10px] tracking-[4px] text-[#F8F5E6]/40 uppercase font-bold max-w-2xl mx-auto px-4">
-          {role}
-        </p>
+
+        {/* Figures Form */}
+        <div className="flex justify-center lg:justify-end items-center bg-white/[0.02] border border-white/5 p-4 md:p-6 rounded-[32px] backdrop-blur-sm">
+          {metrics.map((m, i) => (
+            <StatBadge key={i} metric={m} />
+          ))}
+        </div>
       </div>
       
+      {/* Visual Marquee Track */}
       <div 
         className="relative w-full overflow-hidden group/track"
         style={{
@@ -61,7 +113,7 @@ const MarqueeRow = ({ name, role, images, duration, reverse = false, isFirstRow 
               src={cl(url, transformation)} 
               alt={`${name} performing live`}
               loading={isFirstRow && i === 0 ? "eager" : "lazy"}
-              className="h-[260px] md:h-[340px] w-auto block flex-shrink-0"
+              className="h-[260px] md:h-[420px] w-auto block flex-shrink-0 grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
               style={{ borderRadius: 0, border: 'none', boxShadow: 'none' }}
             />
           ))}
@@ -72,13 +124,9 @@ const MarqueeRow = ({ name, role, images, duration, reverse = false, isFirstRow 
 };
 
 const TalentDivider = () => (
-  <div className="w-[48px] h-[1px] bg-brand-gold/20 mx-auto mt-8 mb-8" />
+  <div className="w-[80px] h-[1px] bg-brand-gold/20 mx-auto mt-16 mb-16" />
 );
 
-/**
- * Talent Marquee Section.
- * Showcases the resident DJ and MC talent with verified reach metrics. 
- */
 export const TalentMarquee = () => {
   const djMoonsImages = [
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774435240/IMG_1744_dboqfs.jpg",
@@ -106,22 +154,32 @@ export const TalentMarquee = () => {
   ];
 
   return (
-    <div className="bg-[#0E1A10] py-[56px] overflow-hidden w-full relative z-20">
-      <div className="text-center mb-12">
-        <p className="font-headline text-[11px] tracking-[4px] text-brand-gold/45 uppercase mb-2">
-          03 — THE RITUAL
-        </p>
-        <h3 className="font-headline text-[clamp(2.5rem,8vw,5rem)] text-brand-gold uppercase tracking-tighter leading-none mb-[48px]">
-          THE SAVANNA VYBE SQUAD
+    <div className="bg-[#0A140B] py-32 overflow-hidden w-full relative z-20">
+      <div className="text-center mb-24 px-6">
+        <div className="flex items-center justify-center gap-3 mb-4">
+           <Zap className="text-brand-gold animate-pulse" size={16} />
+           <p className="font-headline text-xs tracking-[6px] text-brand-gold uppercase">
+            03 — THE RITUAL
+          </p>
+           <Zap className="text-brand-gold animate-pulse" size={16} />
+        </div>
+        <h3 className="font-headline text-[clamp(3.5rem,12vw,8rem)] text-brand-gold uppercase tracking-tighter leading-[0.85]">
+          THE SAVANNA <br className="hidden md:block" /> VYBE SQUAD
         </h3>
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-32">
         <MarqueeRow 
           name="DJ MOONS" 
-          role="@djmoons.ke • Artist | Artpreneur • 10.1K IG Followers • 70,000 Cumulative Reach • YouTube: @Djmoons"
+          handle="@djmoons.ke"
+          bio="Artist | Artpreneur | Kenya's Most Versatile"
+          metrics={[
+            { label: "IG Followers", value: "10100", suffix: "", icon: <Instagram size={12} /> },
+            { label: "Youtube", value: "1500", suffix: "+", icon: <Youtube size={12} /> },
+            { label: "Impact Reach", value: "70000", suffix: "+", icon: <Users size={12} /> }
+          ]}
           images={djMoonsImages} 
-          duration="28s"
+          duration="45s"
           isFirstRow 
           isVerified
         />
@@ -129,10 +187,15 @@ export const TalentMarquee = () => {
         <TalentDivider />
         
         <MarqueeRow 
-          name="DJ MAIN PATT 🇰🇪" 
-          role="@djmainpatt • DJ | Versatile | @topboynationent • 14.6K IG Followers • Resident DJ"
+          name="DJ MAIN PATT" 
+          handle="@djmainpatt"
+          bio="DJ | Versatile | Top Boy Nation Entertainment"
+          metrics={[
+            { label: "IG Followers", value: "14600", suffix: "", icon: <Instagram size={12} /> },
+            { label: "Engagement", value: "8500", suffix: "+", icon: <Zap size={12} /> }
+          ]}
           images={djMainPattImages} 
-          duration="34s" 
+          duration="55s" 
           reverse
         />
         
@@ -140,15 +203,20 @@ export const TalentMarquee = () => {
         
         <MarqueeRow 
           name="SAMEER BRY" 
-          role="@sameerbry • MC • The Savanna Voice • 42,000 IG Followers • Kababaye 🐂🇰🇪"
+          handle="@sameerbry"
+          bio="MC | The Savanna Voice | Kababaye 🐂🇰🇪"
+          metrics={[
+            { label: "IG Followers", value: "42000", suffix: "", icon: <Instagram size={12} /> },
+            { label: "Live Impact", value: "100", suffix: "%", icon: <Zap size={12} /> }
+          ]}
           images={sameerMCImages} 
-          duration="30s" 
+          duration="50s" 
           reverse
         />
 
-        <div className="text-center mt-12">
-          <p className="font-headline text-[11px] tracking-[4px] text-brand-gold/28 uppercase">
-            Hover any row to pause
+        <div className="text-center mt-24">
+          <p className="font-body text-[10px] tracking-[4px] text-brand-gold/30 uppercase font-bold">
+            Interactive metrics. Hover any track to pause activation.
           </p>
         </div>
       </div>
