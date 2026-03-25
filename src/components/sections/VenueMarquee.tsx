@@ -28,7 +28,7 @@ const VenueDivider = () => (
 
 export const Tier1Marquee = () => {
   const displayVenues = [...premiumVenues, ...premiumVenues, ...premiumVenues];
-  const transformation = 'q_auto:best,f_auto,dpr_2.0,h_260,c_limit';
+  const transformation = 'q_auto:best,f_auto,dpr_2.0,h_360,c_limit';
 
   return (
     <div className="bg-[#0E1A10] py-12 overflow-hidden w-full relative z-20 border-b border-white/5">
@@ -52,12 +52,12 @@ export const Tier1Marquee = () => {
             const logo = PlaceHolderImages.find(p => p.id === venue.logoId);
             return (
               <React.Fragment key={`${venue.name}-${i}`}>
-                <div className="flex flex-col items-center gap-4 shrink-0 transition-transform duration-500 hover:scale-105 will-change-transform">
+                <div className="flex flex-col items-center gap-4 shrink-0 transition-transform duration-500 hover:scale-115 will-change-transform">
                   {logo && (
                     <img 
                       src={cl(logo.imageUrl, transformation)} 
                       alt={venue.name}
-                      className="h-[110px] md:h-[130px] w-auto block flex-shrink-0 object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.8)] brightness-105"
+                      className="h-[120px] md:h-[180px] w-auto block flex-shrink-0 object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)] brightness-115"
                       loading="lazy"
                       decoding="async"
                     />

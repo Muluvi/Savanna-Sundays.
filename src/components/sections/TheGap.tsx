@@ -80,11 +80,11 @@ export const TheGap = () => {
             
             return (
               <div key={stat.id} className="flex items-center gap-6 md:gap-24 group transition-all duration-700 hover:bg-white/[0.02] p-4 rounded-3xl">
-                <div className="shrink-0 flex items-center justify-center w-14 h-14 md:w-32 md:h-32 relative">
+                <div className="shrink-0 flex items-center justify-center w-14 h-14 md:w-48 md:h-48 relative">
                   {/* High-fidelity background glow */}
                   <div className="absolute inset-0 bg-brand-gold/5 blur-3xl rounded-full scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   <img 
-                    src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
+                    src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
                     alt={stat.label} 
                     className="w-full h-full object-contain transition-all duration-700 group-hover:scale-110 drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] relative z-10 brightness-110"
                     loading="lazy"
