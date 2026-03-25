@@ -114,13 +114,13 @@ export const InfluencerLineup = () => {
       <div className="text-center space-y-4 px-6 relative z-10">
         <div className="flex items-center justify-center gap-3">
            <Sparkles className="text-brand-gold animate-pulse" size={16} />
-           <div className="section-label mb-0 text-brand-gold tracking-[8px]">03E — PROVEN REACH</div>
+           <div className="section-label mb-0 text-brand-gold tracking-[4px]">03E — PROVEN REACH</div>
            <Sparkles className="text-brand-gold animate-pulse" size={16} />
         </div>
-        <h4 className="font-headline text-[var(--text-4xl)] md:text-[var(--text-6xl)] text-brand-gold uppercase leading-none tracking-tighter">
+        <h4 className="font-headline text-[var(--text-4xl)] md:text-[var(--text-6xl)] text-brand-gold uppercase tracking-tighter leading-none">
           THE SQUAD AMPLIFIERS
         </h4>
-        <p className="font-body text-brand-gold/40 text-[10px] uppercase tracking-[6px] font-bold">
+        <p className="font-body text-brand-gold/40 text-[10px] uppercase tracking-[4px] font-bold">
           CUMULATIVE CROSS-PLATFORM REACH: 70,000+ PER NODE
         </p>
       </div>
@@ -154,7 +154,7 @@ export const InfluencerLineup = () => {
               {/* Data Stack - Vertically Compact */}
               <div className="text-center space-y-6 w-full">
                 <div className="space-y-1">
-                  <h4 className="font-headline text-2xl md:text-3xl text-white tracking-widest uppercase leading-none">{inf.name}</h4>
+                  <h4 className="font-headline text-2xl md:text-3xl text-white tracking-[4px] uppercase leading-none">{inf.name}</h4>
                   <p className="font-body text-[10px] text-brand-gold/60 font-bold tracking-[4px] uppercase">{inf.handle}</p>
                 </div>
 
@@ -177,7 +177,7 @@ export const InfluencerLineup = () => {
       </div>
 
       <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
-        <p className="font-body text-[10px] text-brand-gold/20 italic uppercase tracking-[6px] font-bold leading-relaxed">
+        <p className="font-body text-[10px] text-brand-gold/20 italic uppercase tracking-[4px] font-bold leading-relaxed">
           Reach metrics verified via Firefly Intelligence. Figures animate as they roll onto screen.
         </p>
       </div>

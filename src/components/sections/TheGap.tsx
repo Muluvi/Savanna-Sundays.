@@ -90,7 +90,7 @@ export const TheGap = () => {
             )}
           </div>
           <div className="relative z-10 space-y-4">
-            <h4 className="font-headline text-[var(--text-xl)] text-brand-gold uppercase tracking-tight">The expansion mandate</h4>
+            <h4 className="font-headline text-[var(--text-xl)] text-brand-gold uppercase tracking-tighter">The expansion mandate</h4>
             <p className="font-body text-brand-cream/80 text-[var(--text-sm)] md:text-[var(--text-base)] leading-relaxed">
               Savanna Sundays isn&apos;t a concept. It&apos;s already running. The Savanna Vybe Squad is already pulling crowds and building ritual. We are now scaling what works—mainstream bars for volume and premium spots for positioning.
             </p>
@@ -102,7 +102,7 @@ export const TheGap = () => {
       <div className="pt-12 border-t border-white/5 space-y-12">
         <div className="flex items-center justify-center gap-4">
           <Sparkles className="text-brand-gold/60" size={18} />
-          <span className="font-body text-[var(--text-xs)] tracking-[6px] text-brand-gold uppercase font-bold">Evidence of reach</span>
+          <span className="font-body text-[var(--text-xs)] tracking-[4px] text-brand-gold uppercase font-bold">Evidence of reach</span>
           <Sparkles className="text-brand-gold/60" size={18} />
         </div>
         
@@ -125,7 +125,7 @@ export const TheGap = () => {
                     value={stat.value} 
                     className="text-brand-gold text-5xl md:text-8xl" 
                   />
-                  <div className="font-body text-[11px] md:text-sm uppercase tracking-[5px] text-brand-gold/45 font-bold">
+                  <div className="font-body text-[11px] md:text-sm uppercase tracking-[4px] text-brand-gold/45 font-bold">
                     {stat.label}
                   </div>
                 </div>

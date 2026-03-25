@@ -90,8 +90,8 @@ export const TheNumbersSection = () => {
         <Table className="table-fixed md:table-auto">
           <TableHeader className="bg-brand-gold">
             <TableRow className="border-none hover:bg-brand-gold">
-              <TableHead className="text-brand-green font-headline tracking-widest py-6 px-4 md:px-10 text-[var(--text-sm)] uppercase w-2/3 md:w-auto">Breakdown</TableHead>
-              <TableHead className="text-brand-green font-headline tracking-widest text-right px-4 md:px-10 text-[var(--text-sm)] uppercase">KSh</TableHead>
+              <TableHead className="text-brand-green font-headline tracking-[4px] py-6 px-4 md:px-10 text-[var(--text-sm)] uppercase w-2/3 md:w-auto">Breakdown</TableHead>
+              <TableHead className="text-brand-green font-headline tracking-[4px] text-right px-4 md:px-10 text-[var(--text-sm)] uppercase">KSh</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -100,7 +100,7 @@ export const TheNumbersSection = () => {
                 key={i} 
                 className="border-white/5 transition-all duration-200 hover:bg-white/5"
               >
-                <TableCell className="font-body font-bold text-[10px] md:text-[var(--text-sm)] py-6 px-4 md:px-10 text-brand-cream/90 uppercase tracking-widest leading-relaxed">
+                <TableCell className="font-body font-bold text-[10px] md:text-[var(--text-sm)] py-6 px-4 md:px-10 text-brand-cream/90 uppercase tracking-[2px] leading-relaxed">
                   {row.item}
                 </TableCell>
                 <TableCell className="font-headline text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-gold text-right px-4 md:px-10">

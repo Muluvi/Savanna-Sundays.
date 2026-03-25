@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -22,10 +21,10 @@ const MarqueeRow = ({ name, role, images, duration, reverse = false, isFirstRow 
   return (
     <div className="space-y-4 group/row">
       <div className="text-center space-y-1">
-        <h4 className="font-headline text-[13px] tracking-[0.35em] text-brand-gold uppercase leading-none">
+        <h4 className="font-headline text-[13px] tracking-[4px] text-brand-gold uppercase leading-none">
           {name}
         </h4>
-        <p className="font-body text-[10px] tracking-[0.25em] text-[#F8F5E6]/40 uppercase font-bold">
+        <p className="font-body text-[10px] tracking-[4px] text-[#F8F5E6]/40 uppercase font-bold">
           {role}
         </p>
       </div>
@@ -73,7 +72,6 @@ const TalentDivider = () => (
 /**
  * Talent Marquee Section.
  * Showcases the resident DJ and MC talent. 
- * Note: Repetitive Influencer Pool row removed as it is now consolidated in InfluencerLineup.tsx
  */
 export const TalentMarquee = () => {
   const djMoonsImages = [
@@ -104,10 +102,10 @@ export const TalentMarquee = () => {
   return (
     <div className="bg-[#0E1A10] py-[56px] overflow-hidden w-full relative z-20">
       <div className="text-center mb-12">
-        <p className="font-headline text-[11px] tracking-[0.45em] text-brand-gold/45 uppercase mb-2">
+        <p className="font-headline text-[11px] tracking-[4px] text-brand-gold/45 uppercase mb-2">
           03 — THE RITUAL
         </p>
-        <h3 className="font-headline text-[clamp(2.5rem,8vw,5rem)] text-brand-gold uppercase leading-none mb-[48px]">
+        <h3 className="font-headline text-[clamp(2.5rem,8vw,5rem)] text-brand-gold uppercase tracking-tighter leading-none mb-[48px]">
           THE SAVANNA VYBE SQUAD
         </h3>
       </div>
@@ -142,7 +140,7 @@ export const TalentMarquee = () => {
         />
 
         <div className="text-center mt-12">
-          <p className="font-headline text-[11px] tracking-[0.3em] text-brand-gold/28 uppercase">
+          <p className="font-headline text-[11px] tracking-[4px] text-brand-gold/28 uppercase">
             Hover any row to pause
           </p>
         </div>

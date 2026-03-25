@@ -126,7 +126,7 @@ export default function Home() {
               "mt-8 space-y-4 transition-all duration-1000 delay-500",
               heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             )}>
-              <p className="font-body text-brand-gold text-[var(--text-sm)] md:text-[var(--text-base)] uppercase tracking-[8px] font-bold">
+              <p className="font-body text-brand-gold text-[var(--text-sm)] md:text-[var(--text-base)] uppercase tracking-[4px] font-bold">
                 Already live. Now scaling.
               </p>
               <div className="flex justify-center pt-8">
