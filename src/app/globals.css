@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-angle {
+  to { --angle: 360deg; }
+}
+
 @layer base {
   :root {
     --background: 154 42% 10%; /* Deeper Savanna Green */
@@ -75,6 +85,26 @@
 
   .btn-primary {
     @apply relative overflow-hidden bg-brand-gold text-brand-green font-headline text-[var(--text-lg)] tracking-widest py-3 px-8 rounded-full transition-all active:scale-95 shadow-[0_10px_30px_rgba(244,197,66,0.3)] hover:-translate-y-0.5 z-10;
+  }
+
+  .btn-scale-sunday-glow {
+    @apply relative inline-flex items-center justify-center rounded-full transition-all active:scale-95 z-0 overflow-hidden p-[3px] shadow-[0_10px_40px_rgba(244,197,66,0.3)];
+  }
+
+  .btn-scale-sunday-glow::before {
+    content: '';
+    @apply absolute inset-[-100%] z-[-2];
+    background: conic-gradient(from var(--angle), #F4C542, #2D8C7F, #F4C542);
+    animation: rotate-angle 3s linear infinite;
+  }
+
+  .btn-scale-sunday-glow::after {
+    content: '';
+    @apply absolute inset-[3px] bg-brand-gold rounded-full z-[-1] transition-colors duration-300;
+  }
+
+  .btn-scale-sunday-glow:hover::after {
+    background: #E5B635; /* Subtle hover state for the solid background */
   }
 
   .glass-tile {

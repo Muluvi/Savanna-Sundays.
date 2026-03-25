@@ -188,11 +188,13 @@ export default function Home() {
 
             <a 
               href="mailto:partner@firefly.co.ke" 
-              className="btn-primary inline-flex h-16 px-12 items-center gap-6 group"
+              className="btn-scale-sunday-glow group h-16"
               suppressHydrationWarning
             >
-              <span className="font-headline text-[var(--text-xl)] tracking-widest uppercase">Scale Sunday</span>
-              <span className="group-hover:translate-x-2 transition-transform">→</span>
+              <div className="relative z-10 flex items-center gap-6 px-12 h-full text-brand-ink">
+                <span className="font-headline text-[var(--text-xl)] tracking-widest uppercase">Scale Sunday</span>
+                <span className="group-hover:translate-x-2 transition-transform">→</span>
+              </div>
             </a>
 
             <div className="pt-16 space-y-8 flex flex-col items-center">
