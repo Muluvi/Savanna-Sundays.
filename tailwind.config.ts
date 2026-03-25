@@ -1,4 +1,3 @@
-
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -109,11 +108,11 @@ export default {
           '80%': { opacity: '0.2' },
           '100%': { transform: 'translateY(-100vh)', opacity: '0' },
         },
-        marquee: {
+        scrollLeft: {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
-        'marquee-reverse': {
+        scrollRight: {
           from: { transform: 'translateX(-50%)' },
           to: { transform: 'translateX(0)' },
         }
@@ -123,8 +122,8 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'pulse-gold': 'pulse-gold 2s infinite',
         'fizz': 'fizz 5s linear infinite',
-        'marquee': 'marquee 20.8s linear infinite',
-        'marquee-reverse': 'marquee-reverse 20.8s linear infinite',
+        'scrollLeft': 'scrollLeft linear infinite',
+        'scrollRight': 'scrollRight linear infinite',
         'spin-slow': 'spin 30s linear infinite',
       },
     },

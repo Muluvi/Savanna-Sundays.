@@ -7,21 +7,21 @@ import { cn } from '@/lib/utils';
 
 /**
  * High-fidelity infinite marquee track.
- * Fades edges via CSS mask to prevent hard clipping.
- * Renders images at natural aspect ratio with fixed height.
+ * Features edge-fading via CSS masks and hover-to-pause logic.
+ * Supports prefers-reduced-motion with a static scrollable fallback.
  */
 const MarqueeTrack = ({ 
   images, 
-  speed = "35s", 
+  duration = "30s", 
   reverse = false 
 }: { 
   images: string[], 
-  speed?: string, 
+  duration?: string, 
   reverse?: boolean 
 }) => {
   return (
     <div 
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden group/track"
       style={{
         maskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
         WebkitMaskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)'
@@ -29,10 +29,12 @@ const MarqueeTrack = ({
     >
       <div 
         className={cn(
-          "flex gap-4 w-max",
-          reverse ? "animate-marquee-reverse" : "animate-marquee"
+          "flex gap-4 w-max motion-safe:animate-none",
+          reverse ? "animate-scrollRight" : "animate-scrollLeft",
+          "group-hover/track:[animation-play-state:paused]",
+          "motion-reduce:animate-none motion-reduce:overflow-x-auto motion-reduce:w-full motion-reduce:scrollbar-hide"
         )}
-        style={{ animationDuration: speed }}
+        style={{ animationDuration: duration }}
       >
         {/* Render two sets for a seamless infinite loop */}
         {[...images, ...images].map((src, i) => (
@@ -44,7 +46,7 @@ const MarqueeTrack = ({
               src={src} 
               alt="Talent in Action" 
               height={340}
-              width={600} // width auto will preserve aspect ratio
+              width={600}
               className="h-full w-auto object-cover block"
               priority={i < 4}
             />
@@ -56,30 +58,46 @@ const MarqueeTrack = ({
 };
 
 export const TalentMarquee = () => {
-  const djIvImages = [
+  // Mapping available placeholder images to the requested talent tracks
+  const djMoonsImages = [
     PlaceHolderImages.find(p => p.id === 'dj-iv-1')?.imageUrl || '',
     PlaceHolderImages.find(p => p.id === 'dj-iv-2')?.imageUrl || '',
     PlaceHolderImages.find(p => p.id === 'dj-iv-3')?.imageUrl || '',
   ].filter(Boolean);
 
-  const djMgmImages = [
+  const djMainPattImages = [
     PlaceHolderImages.find(p => p.id === 'dj-mgm-1')?.imageUrl || '',
     PlaceHolderImages.find(p => p.id === 'dj-mgm-2')?.imageUrl || '',
     PlaceHolderImages.find(p => p.id === 'dj-mgm-3')?.imageUrl || '',
     PlaceHolderImages.find(p => p.id === 'dj-mgm-4')?.imageUrl || '',
   ].filter(Boolean);
 
-  const squadImages = [
+  const sameerImages = [
     PlaceHolderImages.find(p => p.id === 'dj-iv-3')?.imageUrl || '',
     PlaceHolderImages.find(p => p.id === 'dj-mgm-1')?.imageUrl || '',
     PlaceHolderImages.find(p => p.id === 'dj-iv-2')?.imageUrl || '',
     PlaceHolderImages.find(p => p.id === 'dj-mgm-4')?.imageUrl || '',
   ].filter(Boolean);
 
+  const mcImages = [
+    PlaceHolderImages.find(p => p.id === 'dj-mgm-2')?.imageUrl || '',
+    PlaceHolderImages.find(p => p.id === 'dj-iv-1')?.imageUrl || '',
+    PlaceHolderImages.find(p => p.id === 'dj-mgm-3')?.imageUrl || '',
+  ].filter(Boolean);
+
+  const influencerImages = [
+    PlaceHolderImages.find(p => p.id === 'dj-iv-2')?.imageUrl || '',
+    PlaceHolderImages.find(p => p.id === 'dj-mgm-4')?.imageUrl || '',
+    PlaceHolderImages.find(p => p.id === 'dj-iv-3')?.imageUrl || '',
+    PlaceHolderImages.find(p => p.id === 'dj-mgm-1')?.imageUrl || '',
+  ].filter(Boolean);
+
   const talents = [
-    { name: "DJ IV", images: djIvImages, speed: "40s", reverse: false },
-    { name: "DJ MGM", images: djMgmImages, speed: "30s", reverse: true },
-    { name: "THE SQUAD", images: squadImages, speed: "50s", reverse: false },
+    { name: "DJ MOONS", images: djMoonsImages, duration: "28s", reverse: false },
+    { name: "DJ MAIN PATT", images: djMainPattImages, duration: "34s", reverse: true },
+    { name: "SAMEER", images: sameerImages, duration: "32s", reverse: false },
+    { name: "MC VOICE", images: mcImages, duration: "30s", reverse: true },
+    { name: "INFLUENCER SQUAD", images: influencerImages, duration: "38s", reverse: false },
   ];
 
   return (
@@ -99,7 +117,11 @@ export const TalentMarquee = () => {
             <h4 className="font-headline text-[13px] tracking-[0.35em] text-brand-gold uppercase text-center">
               {talent.name}
             </h4>
-            <MarqueeTrack images={talent.images} speed={talent.speed} reverse={talent.reverse} />
+            <MarqueeTrack 
+              images={talent.images} 
+              duration={talent.duration} 
+              reverse={talent.reverse} 
+            />
           </div>
         ))}
       </div>
