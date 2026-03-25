@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { MobileNav } from '@/components/navigation/MobileNav';
+import { MobileProgressBar } from '@/components/navigation/MobileProgressBar';
 import { SectionContainer } from '@/components/sections/SectionContainer';
 import { ChevronDown } from 'lucide-react';
 import { useAnalyticsTracker } from '@/hooks/use-analytics-tracker';
@@ -60,6 +61,7 @@ export default function Home() {
     <div className="relative min-h-screen bg-brand-green text-foreground overflow-x-hidden selection:bg-brand-gold selection:text-brand-green">
       <div className="noise-overlay fixed inset-0 pointer-events-none opacity-[0.015] z-[100]" />
       <MobileNav />
+      <MobileProgressBar />
       
       <main>
         {/* Cinematic Hero - Expansion Mandate */}
@@ -123,7 +125,7 @@ export default function Home() {
         ))}
 
         {/* Brand Closing - The Scale Mandate */}
-        <div className="py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-brand-ink">
+        <div id="closing" className="py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-brand-ink">
           <div className="max-w-4xl mx-auto space-y-10 relative z-10">
             <p className="font-serif italic text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-cream leading-snug">
               Savanna Sundays is already live. The Savanna Vybe Squad is on the ground. Thirteen venues. Three resident DJs. Five influencers. One brand owning the day. Let&apos;s scale Sunday.
