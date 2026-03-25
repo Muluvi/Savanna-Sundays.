@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Sparkles, Globe, RotateCcw, Zap } from 'lucide-react';
+import { MapPin, Sparkles, Globe, RotateCcw, Zap, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card } from '@/components/ui/card';
@@ -63,12 +63,16 @@ export const DualActivationModel = () => {
           {premiumVenues.map((venue, i) => {
             const logo = PlaceHolderImages.find(p => p.id === venue.logoId);
             return (
-              <div key={i} className="group relative aspect-square glass-tile rounded-[32px] flex items-center justify-center p-6 transition-all duration-500 hover:-translate-y-1">
+              <div 
+                key={i} 
+                className="group relative aspect-square glass-tile rounded-[32px] flex items-center justify-center p-6 transition-all duration-500 hover:bg-brand-gold/8 hover:border-l-2 hover:border-brand-gold hover:translate-x-1"
+              >
                 {logo && (
                   <div className="relative w-full h-full">
                     <Image src={logo.imageUrl} alt={venue.name} fill className="object-contain filter transition-all duration-500 group-hover:scale-110" />
                   </div>
                 )}
+                <ArrowRight className="absolute bottom-4 right-4 text-brand-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" size={14} />
               </div>
             );
           })}
@@ -81,9 +85,13 @@ export const DualActivationModel = () => {
         </Badge>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {mainstreamVenues.map((venue, i) => (
-            <div key={i} className="group glass-tile p-6 rounded-[24px] flex flex-col items-center justify-center text-center gap-3 transition-all duration-500 hover:-translate-y-1 bg-white/[0.02]">
+            <div 
+              key={i} 
+              className="group relative glass-tile p-6 rounded-[24px] flex flex-col items-center justify-center text-center gap-3 transition-all duration-500 bg-white/[0.02] hover:bg-brand-gold/8 hover:border-l-2 hover:border-brand-gold hover:translate-x-1"
+            >
               <MapPin className="text-brand-gold/40 group-hover:text-brand-gold transition-colors" size={16} />
               <h5 className="font-headline text-[var(--text-lg)] md:text-[var(--text-xl)] text-brand-gold uppercase leading-tight tracking-tight">{venue}</h5>
+              <ArrowRight className="absolute bottom-4 right-4 text-brand-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" size={14} />
             </div>
           ))}
         </div>
