@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -13,6 +13,7 @@ const sections = [
 
 export const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const touchStartX = useRef<number>(0);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -20,6 +21,20 @@ export const MobileNav = () => {
       window.scrollTo({ top: el.offsetTop - 20, behavior: 'smooth' });
     }
     setIsOpen(false);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const distance = touchStartX.current - touchEndX;
+
+    // Horizontal swipe-left distance exceeds 60px
+    if (distance > 60) {
+      setIsOpen(false);
+    }
   };
 
   return (
@@ -31,11 +46,18 @@ export const MobileNav = () => {
         {isOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
 
-      <div className={cn(
-        "fixed inset-0 z-[105] transition-all duration-700 flex flex-col p-10 pt-24",
-        "bg-[#0E1A10]/88 backdrop-blur-[24px] backdrop-saturate-[1.4]",
-        isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-      )}>
+      <div 
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        className={cn(
+          "fixed inset-0 z-[105] transition-all duration-700 flex flex-col p-10 pt-24",
+          "bg-[#0E1A10]/88 backdrop-blur-[24px] backdrop-saturate-[1.4]",
+          isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        )}
+      >
+        {/* Subtle drag handle pill */}
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-1 rounded-full bg-brand-gold opacity-30 pointer-events-none" />
+
         <div className="relative z-10 space-y-1 mb-12">
           <p className="font-body text-[var(--text-xs)] tracking-[4px] text-brand-gold uppercase font-bold opacity-40">Strategic Proposal</p>
           <h3 className="font-headline text-[var(--text-4xl)] text-white uppercase tracking-tighter">Navigation</h3>
