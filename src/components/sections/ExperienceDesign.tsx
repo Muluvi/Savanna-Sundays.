@@ -16,7 +16,7 @@ import {
 import { ContentHarvestMetrics } from './ContentProduction';
 
 const productionDays = [
-  { day: "Sun", title: "Shoot", body: "Capture at squad venue.", icon: <Camera size={14} />, highlight: false },
+  { day: "Sun", title: "Shoot", body: "Capture at The Savanna Vybe Squad venue.", icon: <Camera size={14} />, highlight: false },
   { day: "Mon", title: "Review", body: "Raw review. Reel edit starts.", icon: <Scissors size={14} />, highlight: false },
   { day: "Tue", title: "Hero", body: "Reel 1 published (Recap).", icon: <Upload size={14} />, highlight: true },
   { day: "Wed", title: "Music", body: "Reel 2 (DJ Highlight).", icon: <Music size={14} />, highlight: true },

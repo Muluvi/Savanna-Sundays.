@@ -47,7 +47,7 @@ export const DualActivationModel = () => {
           Premium and mainstream. The brand shows up everywhere the crowd is.
         </p>
         <p className="font-body text-brand-cream/80 text-lg leading-relaxed max-w-2xl">
-          Savanna is premium, but the mainstream crowd loves it too. Savanna Sundays doesn&apos;t choose one audience — it meets them both where they already are. The mainstream circuit brings volume. The premium circuit brings positioning. Together, they build a brand that&apos;s everywhere on Sunday.
+          Savanna is premium, but the mainstream crowd loves it too. Savanna Sundays doesn't choose one audience — it meets them both where they already are. The mainstream circuit brings volume. The premium circuit brings positioning. Together, they build a brand that's everywhere on Sunday.
         </p>
       </div>
 
@@ -63,7 +63,7 @@ export const DualActivationModel = () => {
           </div>
           <h5 className="font-headline text-3xl text-white uppercase tracking-tight">How it works</h5>
           <p className="font-body text-brand-cream/70 text-base leading-relaxed max-w-3xl">
-            The <span className="text-brand-gold font-bold">Savanna Vybe Squad</span> — resident DJs, MC, influencers, and content crew — activates one venue per Sunday. All other venues on the schedule carry full Savanna branding (bar wraps, signage, glassware, QR points, staff tees). Firefly recommends the squad venue each week based on crowd potential, venue availability, and content opportunities. The squad rotates across both mainstream and premium circuits.
+            The <span className="text-brand-gold font-bold">Savanna Vybe Squad</span> — resident DJs, MC, influencers, and content crew — activates one venue per Sunday. All other venues on the schedule carry full Savanna branding (bar wraps, signage, glassware, QR points, staff tees). Firefly recommends The Savanna Vybe Squad venue each week based on crowd potential, venue availability, and content opportunities. The squad rotates across both mainstream and premium circuits.
           </p>
         </div>
       </Card>

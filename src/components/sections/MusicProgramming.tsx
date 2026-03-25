@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -45,9 +44,12 @@ export const MusicProgrammingSection = () => {
     <div className="space-y-12">
       <div className="max-w-4xl space-y-4">
         <div className="section-label">03C: Sonic Architecture</div>
-        <h3 className="font-headline text-5xl md:text-8xl text-brand-gold uppercase leading-none tracking-tighter">Elite Talent</h3>
+        <h3 className="font-headline text-5xl md:text-8xl text-brand-gold uppercase leading-none tracking-tighter">THE SAVANNA VYBE SQUAD</h3>
+        <p className="font-body text-brand-gold/60 text-xs md:text-sm uppercase tracking-[4px] font-bold leading-none">
+          The faces of Savanna Sundays. Every Sunday. Every venue.
+        </p>
         <p className="font-body text-brand-cream/80 text-base md:text-lg leading-relaxed">
-          The following artists represent the caliber of elite talent Firefly and KWAL have collaborated with previously. These illustrate the benchmark of quality we will deploy for Savanna Sundays.
+          The Savanna Vybe Squad is the engine behind every activation. A tight crew of resident DJs, influencers, and content creators who are already running this movement. This isn’t a concept — it’s a collective effort that’s already live. Now it’s scaling to new venues, new crowds, and a bigger footprint.
         </p>
       </div>
 

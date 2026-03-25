@@ -73,7 +73,7 @@ export const VisualIdentitySection = () => {
             <div className="flex items-center gap-3">
               <Zap className="text-brand-gold" size={28} />
               <h4 className="font-headline text-3xl md:text-5xl text-brand-gold uppercase tracking-widest leading-none">
-                Squad additions
+                The Savanna Vybe Squad additions
               </h4>
             </div>
             <p className="font-body text-brand-gold/60 uppercase tracking-[4px] font-bold text-[9px] mt-1">

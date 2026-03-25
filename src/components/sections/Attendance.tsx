@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -23,7 +22,7 @@ export const AttendanceDemandSection = () => {
         
         <div className="relative py-4 flex flex-col items-center justify-center text-center">
           <h3 className="font-serif italic text-xl md:text-3xl text-brand-gold/80 leading-relaxed px-4">
-            "We don't just sell tickets; <br className="hidden md:block" />we curate the squad."
+            "We don't just sell tickets; <br className="hidden md:block" />we curate the Savanna Vybe Squad."
           </h3>
         </div>
       </div>
