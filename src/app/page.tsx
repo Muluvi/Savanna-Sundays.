@@ -46,13 +46,13 @@ export default function Home() {
       <MobileNav />
       
       <main>
-        {/* Cinematic Brand Hero Section */}
+        {/* Cinematic Brand Hero Section - Expansion Narrative */}
         <section id="hero" className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.15)_0%,transparent_70%)]" />
 
           <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-2 text-center">
             {savannaLogo && (
-              <div className="relative h-72 md:h-[500px] w-full max-w-[800px] flex items-center justify-center animate-intense-glow mb-4">
+              <div className="relative h-64 md:h-[450px] w-full max-w-[800px] flex items-center justify-center animate-intense-glow mb-4">
                 <Image 
                   src={savannaLogo.imageUrl} 
                   alt="Savanna Premium Cider" 
@@ -70,9 +70,14 @@ export default function Home() {
               </h1>
             </div>
             
-            <p className="font-serif italic text-lg md:text-2xl text-brand-cream/90 leading-relaxed max-w-lg mt-4 text-center">
-              One brand. Multiple venues. Every Sunday.
-            </p>
+            <div className="space-y-6 max-w-2xl mt-6 animate-fade-in-up">
+              <p className="font-serif italic text-xl md:text-3xl text-brand-gold leading-tight drop-shadow-lg">
+                Already live. Now scaling to every corner of Nairobi.
+              </p>
+              <p className="font-body text-brand-cream/80 text-xs md:text-lg uppercase tracking-[3px] font-bold leading-relaxed max-w-xl mx-auto border-t border-brand-gold/20 pt-6">
+                The Savanna Vybe Squad is already on the ground. The movement is real. Now we&apos;re taking it to mainstream venues, premium spots, and a bigger audience.
+              </p>
+            </div>
           </div>
 
           {/* High-Fidelity Attribution at Absolute Bottom */}
@@ -95,13 +100,13 @@ export default function Home() {
           </SectionContainer>
         ))}
 
-        {/* Brand Closing Section */}
+        {/* Brand Closing Section - Expansion Commitment */}
         <div className="py-24 px-6 text-center bg-brand-green border-t border-white/5 relative overflow-hidden">
           <div className="max-w-4xl mx-auto space-y-12 relative z-10">
             {isMounted ? (
               <>
                 <p className="font-serif italic text-2xl md:text-5xl text-brand-cream leading-tight max-w-2xl mx-auto">
-                  Savanna Sundays is built. The Savanna Vybe Squad is assembled. The venues are mapped. All that's needed is the green light.
+                  Savanna Sundays is already live and thriving. The Savanna Vybe Squad is on the ground. The venues are mapped. All that&apos;s needed is the green light to scale.
                 </p>
 
                 <a 
@@ -110,7 +115,7 @@ export default function Home() {
                     "btn-primary inline-flex h-20 px-16 items-center gap-8 text-xl hover:scale-105 transition-all"
                   )}
                 >
-                  <span>Let's own Sunday</span>
+                  <span>Let&apos;s own Sunday</span>
                 </a>
               </>
             ) : (
