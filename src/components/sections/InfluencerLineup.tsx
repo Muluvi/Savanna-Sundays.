@@ -36,8 +36,8 @@ const placeholderInfluencers: Influencer[] = [
   },
   { 
     id: 3, 
-    name: "SQUAD ANCHOR 03", 
-    handle: "@vybesquad_gamma", 
+    name: "LOCKEY WILLIS KING", 
+    handle: "@lockey_willis_king", 
     followers: 70000, 
     niche: "Fashion & Style",
     imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442876/IMG-20260325-WA0046_yizii9.jpg"
