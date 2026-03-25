@@ -20,8 +20,8 @@ interface Influencer {
 const placeholderInfluencers: Influencer[] = [
   { 
     id: 1, 
-    name: "SQUAD ANCHOR 01", 
-    handle: "@vybesquad_alpha", 
+    name: "BARAKEILLA", 
+    handle: "@barakeilla", 
     followers: 10100, 
     niche: "Premium Lifestyle",
     imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442878/IMG_3496_fgwbly.jpg"
