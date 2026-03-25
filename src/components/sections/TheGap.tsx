@@ -1,5 +1,4 @@
-
-'use client';
+"use client";
 
 import React from 'react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -55,9 +54,9 @@ export const TheGap = () => {
           {socialIcons.map((stat) => {
             const img = PlaceHolderImages.find(i => i.id === stat.id);
             return (
-              <div key={stat.id} className="flex items-center gap-12 md:gap-24 group transition-all duration-700">
+              <div key={stat.id} className="flex items-center gap-8 md:gap-24 group transition-all duration-700">
                 {img && (
-                  <div className="shrink-0 flex items-center justify-center w-24 h-24 md:w-44 md:h-44 relative">
+                  <div className="shrink-0 flex items-center justify-center w-20 h-20 md:w-44 md:h-44 relative">
                     <img 
                       src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
                       alt={stat.label} 
@@ -65,13 +64,13 @@ export const TheGap = () => {
                     />
                   </div>
                 )}
-                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-16 flex-1 border-b border-white/10 pb-12">
+                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-16 flex-1 border-b border-white/10 pb-8 md:pb-12">
                   <AnimatedCounter 
                     value={stat.value} 
                     delay={stat.delay}
-                    className="text-brand-gold text-7xl md:text-display font-headline tracking-tighter leading-none drop-shadow-[0_0_35px_rgba(244,197,66,0.45)]" 
+                    className="text-brand-gold text-5xl md:text-display font-headline tracking-tighter leading-none drop-shadow-[0_0_35px_rgba(244,197,66,0.45)]" 
                   />
-                  <div className="font-body text-[11px] md:text-sm uppercase tracking-[4px] text-brand-gold/45 font-bold">
+                  <div className="font-body text-[10px] md:text-[var(--text-sm)] uppercase tracking-[4px] text-brand-gold/45 font-bold">
                     {stat.label}
                   </div>
                 </div>

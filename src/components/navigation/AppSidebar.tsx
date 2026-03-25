@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -40,12 +39,12 @@ export const AppSidebar = () => {
 
   return (
     <>
-      <aside className="fixed left-0 top-0 h-screen w-64 bg-brand-green hidden md:flex flex-col z-50 border-r border-white/5">
+      <aside className="fixed left-0 top-0 h-screen w-64 bg-[#0A140B]/90 backdrop-blur-2xl hidden md:flex flex-col z-50 border-r border-white/5">
         <div className="p-8 pb-4 space-y-8">
           <div className="flex flex-col gap-6">
             {savannaLogo && (
               <img 
-                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
+                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr:2.0,w_400')} 
                 alt="Savanna" 
                 style={{ height: '56px', width: 'auto', objectFit: 'contain' }}
               />
@@ -56,7 +55,7 @@ export const AppSidebar = () => {
             </div>
             {fireflyLogo && (
               <img 
-                src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
+                src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr:2.0,w_400')} 
                 alt="Firefly Management" 
                 className="opacity-100 hover:scale-105 transition-transform"
                 style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
@@ -76,7 +75,7 @@ export const AppSidebar = () => {
                 <button
                   onClick={() => scrollTo(section.id)}
                   className={cn(
-                    "w-full text-left py-4 px-8 text-[var(--text-xs)] tracking-[4px] font-bold uppercase transition-all border-l-4",
+                    "w-full text-left py-5 px-8 text-[var(--text-xs)] tracking-[4px] font-bold uppercase transition-all border-l-4",
                     activeId === section.id 
                       ? "bg-white/5 text-brand-gold border-brand-gold" 
                       : "text-brand-cream/40 border-transparent hover:text-brand-cream hover:bg-white/5"
@@ -88,6 +87,15 @@ export const AppSidebar = () => {
             ))}
           </ul>
         </nav>
+
+        <div className="p-8 border-t border-white/5">
+           <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-brand-gold transition-all duration-300" 
+                style={{ width: `${progress}%` }}
+              />
+           </div>
+        </div>
       </aside>
 
       <button

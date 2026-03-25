@@ -1,9 +1,9 @@
-
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { MobileProgressBar } from '@/components/navigation/MobileProgressBar';
+import { AppSidebar } from '@/components/navigation/AppSidebar';
 import { SectionContainer } from '@/components/sections/SectionContainer';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { useAnalyticsTracker } from '@/hooks/use-analytics-tracker';
@@ -48,7 +48,6 @@ export default function Home() {
 
   useEffect(() => {
     setIsMounted(true);
-    // Staggered hero entrance
     const timer = setTimeout(() => setHeroVisible(true), 150);
 
     const closingObserver = new IntersectionObserver(
@@ -75,9 +74,10 @@ export default function Home() {
     <div className="relative min-h-screen bg-brand-green text-foreground overflow-x-hidden selection:bg-brand-gold selection:text-brand-green">
       <div className="noise-overlay fixed inset-0 pointer-events-none opacity-[0.05] z-0" />
       <MobileNav />
+      <AppSidebar />
       <MobileProgressBar />
       
-      <main>
+      <main className="md:pl-64">
         {/* Cinematic Hero Section */}
         <section 
           id="hero" 
@@ -136,13 +136,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Footer Attribution - High Impact Brand Signature */}
+          {/* Footer Attribution */}
           <div className={cn(
             "relative z-10 flex flex-col items-center gap-8 transition-all duration-1000 delay-[1200ms]",
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           )}>
             <div className="flex flex-col items-center gap-6">
-              <span className="font-body text-[var(--text-base)] tracking-[4px] text-brand-gold uppercase font-bold">Presented by</span>
+              <span className="font-body text-[var(--text-lg)] tracking-[4px] text-brand-gold uppercase font-bold">Presented by</span>
               <div className="flex items-center gap-10">
                 <div className="h-[1px] w-16 bg-brand-gold/30" />
                 {fireflyLogo && (
