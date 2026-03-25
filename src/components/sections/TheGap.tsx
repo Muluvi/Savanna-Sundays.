@@ -8,7 +8,8 @@ import { Sparkles } from 'lucide-react';
 
 /**
  * High-fidelity counter for strategic metrics.
- * Animates from 0 to target value using requestAnimationFrame with ease-out.
+ * Animates from 0 to target value using requestAnimationFrame with an ease-out curve.
+ * Triggers exactly when the element enters the viewport.
  */
 const StatCounter = ({ value }: { value: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -40,15 +41,15 @@ const StatCounter = ({ value }: { value: string }) => {
 
     const startAnimation = () => {
       let startTime: number | null = null;
-      const duration = 1200; // 1.2 seconds as requested
+      const duration = 1200; // 1.2 seconds duration
 
       const animate = (timestamp: number) => {
         if (!startTime) startTime = timestamp;
         const elapsed = timestamp - startTime;
         const progress = Math.min(elapsed / duration, 1);
 
-        // Quadratic ease-out curve
-        const easeOut = 1 - Math.pow(1 - progress, 2);
+        // Quadratic ease-out curve: f(t) = t * (2 - t)
+        const easeOut = progress * (2 - progress);
         
         setDisplayValue(easeOut * target);
 
@@ -91,7 +92,13 @@ export const TheGap = () => {
         <div className="glass-tile p-8 rounded-[32px] relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-8 opacity-20 group-hover:scale-110 transition-transform duration-1000">
             {savannaLogo && (
-              <Image src={savannaLogo.imageUrl} alt="" width={200} height={200} className="object-contain" />
+              <Image 
+                src={savannaLogo.imageUrl} 
+                alt="" 
+                width={200} 
+                height={200} 
+                className="object-contain" 
+              />
             )}
           </div>
           <div className="relative z-10 space-y-4">
@@ -116,7 +123,14 @@ export const TheGap = () => {
             return (
               <div key={stat.id} className="glass-tile p-6 rounded-3xl flex flex-col items-center gap-4 group hover:-translate-y-1">
                 <div className={cn("relative transition-transform duration-500 group-hover:scale-110", stat.size)}>
-                  {img && <Image src={img.imageUrl} alt={stat.label} fill className="object-contain" />}
+                  {img && (
+                    <Image 
+                      src={img.imageUrl} 
+                      alt={stat.label} 
+                      fill 
+                      className="object-contain" 
+                    />
+                  )}
                 </div>
                 <div className="text-center">
                   <StatCounter value={stat.value} />
