@@ -3,7 +3,6 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Sparkles, Globe, RotateCcw, Zap, ArrowRight } from 'lucide-react';
-import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card } from '@/components/ui/card';
 
@@ -71,8 +70,12 @@ export const DualActivationModel = () => {
                 className="group relative aspect-square glass-tile rounded-[32px] flex items-center justify-center p-6 transition-all duration-500 hover:bg-brand-gold/8 hover:border-l-2 hover:border-brand-gold hover:translate-x-1"
               >
                 {logo && (
-                  <div className="relative w-full h-full">
-                    <Image src={logo.imageUrl} alt={venue.name} fill className="object-contain filter transition-all duration-500 group-hover:scale-110" />
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <img 
+                      src={logo.imageUrl} 
+                      alt={venue.name} 
+                      className="max-h-full max-w-full object-contain filter transition-all duration-500 group-hover:scale-110" 
+                    />
                   </div>
                 )}
                 <ArrowRight className="absolute bottom-4 right-4 text-brand-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" size={14} />

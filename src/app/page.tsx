@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -7,7 +6,6 @@ import { MobileProgressBar } from '@/components/navigation/MobileProgressBar';
 import { SectionContainer } from '@/components/sections/SectionContainer';
 import { ChevronDown } from 'lucide-react';
 import { useAnalyticsTracker } from '@/hooks/use-analytics-tracker';
-import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 import { CiderFizz } from '@/components/brand/VisualElements';
@@ -114,7 +112,12 @@ export default function Home() {
                 "relative h-40 md:h-[280px] w-full max-w-[500px] flex items-center justify-center reveal-on-scroll logo-shimmer",
                 heroVisible && "reveal-visible"
               )}>
-                <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain" priority />
+                <img 
+                  src={savannaLogo.imageUrl} 
+                  alt="Savanna" 
+                  className="h-full w-auto object-contain" 
+                  style={{ maxWidth: '100%' }}
+                />
               </div>
             )}
 

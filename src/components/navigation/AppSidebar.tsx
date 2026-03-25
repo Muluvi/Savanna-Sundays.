@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ChevronUp } from 'lucide-react';
-import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const sections = [
@@ -53,8 +52,8 @@ export const AppSidebar = () => {
         <div className="p-8 pb-4 space-y-6">
           <div className="flex flex-col gap-4">
             {savannaLogo && (
-              <div className="relative h-12 w-full">
-                <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain object-left" />
+              <div className="relative h-12 w-full flex items-center">
+                <img src={savannaLogo.imageUrl} alt="Savanna" className="h-full w-auto object-contain" />
               </div>
             )}
             <div className="flex items-center gap-2">
@@ -62,8 +61,8 @@ export const AppSidebar = () => {
               <div className="text-[var(--text-xs)] tracking-[3px] text-brand-teal uppercase font-bold">Managed by</div>
             </div>
             {fireflyLogo && (
-              <div className="relative h-6 w-full opacity-60">
-                <Image src={fireflyLogo.imageUrl} alt="Firefly" fill className="object-contain object-left" />
+              <div className="relative h-6 w-full opacity-60 flex items-center">
+                <img src={fireflyLogo.imageUrl} alt="Firefly" className="h-full w-auto object-contain" />
               </div>
             )}
           </div>

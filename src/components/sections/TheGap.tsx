@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 import { Sparkles } from 'lucide-react';
@@ -75,9 +74,9 @@ const StatCounter = ({ value }: { value: string }) => {
 export const TheGap = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   const socialIcons = [
-    { id: 'social-fb', label: 'Facebook', value: '603K', size: 'h-16 w-48' },
-    { id: 'social-ig', label: 'Instagram', value: '6.1K', size: 'h-16 w-16' },
-    { id: 'social-x', label: 'X (Twitter)', value: '1.1K', size: 'h-14 w-14' },
+    { id: 'social-fb', label: 'Facebook', value: '603K', size: 'h-16' },
+    { id: 'social-ig', label: 'Instagram', value: '6.1K', size: 'h-16' },
+    { id: 'social-x', label: 'X (Twitter)', value: 'h-14' },
   ];
 
   return (
@@ -92,12 +91,10 @@ export const TheGap = () => {
         <div className="glass-tile p-8 rounded-[32px] relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-8 opacity-20 group-hover:scale-110 transition-transform duration-1000">
             {savannaLogo && (
-              <Image 
+              <img 
                 src={savannaLogo.imageUrl} 
                 alt="" 
-                width={200} 
-                height={200} 
-                className="object-contain" 
+                className="h-32 w-auto object-contain" 
               />
             )}
           </div>
@@ -124,16 +121,15 @@ export const TheGap = () => {
               <div key={stat.id} className="glass-tile p-6 rounded-3xl flex flex-col items-center gap-4 group hover:-translate-y-1">
                 <div className={cn("relative transition-transform duration-500 group-hover:scale-110", stat.size)}>
                   {img && (
-                    <Image 
+                    <img 
                       src={img.imageUrl} 
                       alt={stat.label} 
-                      fill 
-                      className="object-contain" 
+                      className="h-full w-auto object-contain" 
                     />
                   )}
                 </div>
                 <div className="text-center">
-                  <StatCounter value={stat.value} />
+                  {stat.value ? <StatCounter value={stat.value} /> : <div className="font-headline text-[var(--text-4xl)] text-brand-gold leading-none">1.1K</div>}
                   <div className="font-body text-[var(--text-xs)] uppercase tracking-[4px] text-brand-gold/60 font-bold mt-1">{stat.label}</div>
                 </div>
               </div>

@@ -1,8 +1,6 @@
-
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { Instagram, Users } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -45,18 +43,16 @@ export const InfluencerLineup = () => {
               >
                 <div className="absolute inset-0 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_40px_rgba(244,197,66,0.15)] pointer-events-none" />
                 
-                <div className="relative w-24 h-24 rounded-full border-2 border-brand-gold overflow-hidden mb-6 bg-brand-green/20">
+                <div className="relative w-24 h-24 rounded-full border-2 border-brand-gold overflow-hidden mb-6 bg-brand-green/20 flex items-center justify-center">
                   {inf.imageUrl ? (
-                    <Image src={inf.imageUrl} alt={inf.name} fill className="object-cover" />
+                    <img src={inf.imageUrl} alt={inf.name} className="h-full w-full object-cover" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center p-4 opacity-20">
                       {savannaLogo && (
-                        <Image 
+                        <img 
                           src={savannaLogo.imageUrl} 
                           alt="Savanna" 
-                          width={40} 
-                          height={40} 
-                          className="object-contain" 
+                          className="h-10 w-auto object-contain" 
                         />
                       )}
                     </div>
