@@ -11,9 +11,8 @@ const sections = [
   { id: 'the-engine', label: '02 — The Venue Network' },
   { id: 'the-ritual', label: '03 — The Ritual' },
   { id: 'the-numbers', label: '04 — The Investment' },
-  { id: 'why-firefly', label: '05 — Why Firefly' },
-  { id: 'growth-plan', label: '06 — Growth Plan' },
-  { id: 'infrastructure', label: '07 — Infrastructure' },
+  { id: 'growth-plan', label: '05 — The Roadmap' },
+  { id: 'infrastructure', label: '06 — Infrastructure' },
 ];
 
 export const AppSidebar = () => {
