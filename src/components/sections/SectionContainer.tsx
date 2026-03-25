@@ -14,21 +14,41 @@ interface SectionProps {
 export const SectionContainer = ({ id, label, title, children }: SectionProps) => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setIsMounted(true);
+    
+    // Scroll progress for title parallax
     const handleScroll = () => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      
       const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + rect.height)));
       setScrollProgress(progress);
     };
 
+    // Standardized Reveal Observer
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.12 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   const translateX = isMounted ? (scrollProgress - 0.5) * 15 : 0; 
@@ -44,7 +64,10 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
       <div className="noise-overlay" />
       <CiderFizz className="opacity-[0.03] z-0" />
       
-      <div className="max-w-6xl mx-auto w-full relative z-10">
+      <div className={cn(
+        "max-w-6xl mx-auto w-full relative z-10 reveal-on-scroll",
+        isVisible && "reveal-visible"
+      )}>
         <div className="mb-6 md:mb-10 text-center md:text-left relative">
           <span className="section-label mb-1">{label}</span>
           <h2 

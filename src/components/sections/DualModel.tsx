@@ -23,7 +23,7 @@ const allVenueNames = [...premiumVenues.map(v => v.name), ...mainstreamVenues];
 
 export const DualActivationModel = () => {
   return (
-    <div className="space-y-16 animate-fade-in-up">
+    <div className="space-y-16">
       <div className="max-w-4xl space-y-6">
         <div className="flex items-center gap-3">
           <Globe className="text-brand-gold animate-pulse" size={24} />

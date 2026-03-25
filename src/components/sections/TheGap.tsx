@@ -32,7 +32,7 @@ export const TheGap = () => {
           <div className="relative z-10 space-y-4">
             <h4 className="font-headline text-[var(--text-xl)] text-brand-gold uppercase tracking-tight">The expansion mandate</h4>
             <p className="font-body text-brand-cream/90 text-[var(--text-sm)] md:text-[var(--text-base)] leading-relaxed">
-              Savanna Sundays isn&apos;t a concept. It&apos;s already running. The Savanna Vybe Squad is already pulling crowds and building ritual. We are now scaling what works—mainstream bars for volume and premium spots for positioning. The squad is proven. The infrastructure is built.
+              Savanna Sundays isn&apos;t a concept. It&apos;s already running. The Savanna Vybe Squad is already pulling crowds and building ritual. We are now scaling what works—mainstream bars for volume and premium spots for positioning. The squad is proven. The infrastructure is built. This proposal is about scaling what works.
             </p>
           </div>
         </div>

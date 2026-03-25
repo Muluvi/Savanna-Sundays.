@@ -98,10 +98,6 @@ export default {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
-        'fade-in-up': {
-          '0%': { opacity: '0', transform: 'translateY(22px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
         'pulse-gold': {
           '0%, 100%': { boxShadow: '0 0 0 0 rgba(244, 197, 66, 0.4)' },
           '50%': { boxShadow: '0 0 0 15px rgba(244, 197, 66, 0)' },
@@ -120,7 +116,6 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'fade-in-up': 'fade-in-up 0.7s ease-out forwards',
         'pulse-gold': 'pulse-gold 2s infinite',
         'fizz': 'fizz 5s linear infinite',
         'marquee': 'marquee 25s linear infinite',

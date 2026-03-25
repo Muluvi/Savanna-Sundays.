@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { SectionContainer } from '@/components/sections/SectionContainer';
 import { ChevronDown } from 'lucide-react';
@@ -29,11 +29,29 @@ const sectionsData = [
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
+  const [heroVisible, setHeroVisible] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   useAnalyticsTracker();
 
   useEffect(() => {
     setIsMounted(true);
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHeroVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.12 }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   if (!isMounted) return <div className="min-h-screen bg-brand-green" />;
@@ -45,12 +63,19 @@ export default function Home() {
       
       <main>
         {/* Cinematic Hero - Expansion Mandate */}
-        <section id="hero" className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
+        <section 
+          ref={heroRef}
+          id="hero" 
+          className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden"
+        >
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.15)_0%,transparent_75%)]" />
 
-          <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center gap-4 text-center">
+          <div className={cn(
+            "relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center gap-4 text-center reveal-on-scroll",
+            heroVisible && "reveal-visible"
+          )}>
             {savannaLogo && (
-              <div className="relative h-40 md:h-[280px] w-full max-w-[500px] flex items-center justify-center animate-fade-in-up">
+              <div className="relative h-40 md:h-[280px] w-full max-w-[500px] flex items-center justify-center">
                 <Image 
                   src={savannaLogo.imageUrl} 
                   alt="Savanna Premium Cider" 
@@ -61,7 +86,7 @@ export default function Home() {
               </div>
             )}
 
-            <div className="space-y-1 animate-fade-in-up [animation-delay:200ms]">
+            <div className="space-y-1">
               <h1 className="flex flex-col items-center leading-[0.95] tracking-tighter">
                 <span className="text-brand-gold text-[var(--text-display)] font-headline uppercase">Savanna</span>
                 <span className="text-brand-gold text-[var(--text-display)] font-headline uppercase">Sundays</span>
@@ -71,7 +96,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="max-w-3xl border-t border-brand-gold/20 pt-6 animate-fade-in-up [animation-delay:400ms]">
+            <div className="max-w-3xl border-t border-brand-gold/20 pt-6">
               <p className="font-body text-brand-cream text-[var(--text-sm)] md:text-[var(--text-base)] uppercase tracking-[1px] font-bold leading-relaxed opacity-80">
                 The Savanna Vybe Squad is already on the ground. The movement is real. Now we&apos;re taking it to mainstream venues, premium spots, and a city-wide audience.
               </p>
