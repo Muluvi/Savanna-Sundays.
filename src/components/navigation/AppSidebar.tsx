@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -47,30 +48,31 @@ export const AppSidebar = () => {
   return (
     <>
       <aside className="fixed left-0 top-0 h-screen w-64 bg-brand-green hidden md:flex flex-col z-50 border-r border-white/5">
-        <div className="p-8 pb-4 space-y-6">
-          <div className="flex flex-col gap-4">
+        <div className="p-8 pb-4 space-y-8">
+          <div className="flex flex-col gap-6">
             {savannaLogo && (
               <img 
                 src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
                 alt="Savanna" 
-                style={{ height: '48px', width: 'auto', objectFit: 'contain' }}
+                style={{ height: '56px', width: 'auto', objectFit: 'contain' }}
               />
             )}
             <div className="flex items-center gap-2">
-              <div className="h-[1px] w-4 bg-white/20" />
-              <div className="text-[var(--text-xs)] tracking-[4px] text-brand-teal uppercase font-bold">Managed by</div>
+              <div className="h-[1px] w-6 bg-brand-gold/30" />
+              <div className="text-[var(--text-xs)] tracking-[4px] text-brand-gold uppercase font-bold">Managed by</div>
             </div>
             {fireflyLogo && (
               <img 
                 src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
-                alt="Firefly" 
-                style={{ height: '24px', width: 'auto', objectFit: 'contain' }}
+                alt="Firefly Management" 
+                className="opacity-100 hover:scale-105 transition-transform"
+                style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
               />
             )}
           </div>
-          <div className="pt-2">
-            <div className="text-[var(--text-xs)] tracking-[4px] text-brand-teal uppercase mb-1 font-bold">Proposal</div>
-            <div className="font-headline text-[var(--text-xl)] text-brand-gold leading-none">Savanna Sundays</div>
+          <div className="pt-4 border-t border-white/5">
+            <div className="text-[var(--text-xs)] tracking-[4px] text-brand-gold/60 uppercase mb-2 font-bold">Strategic Proposal</div>
+            <div className="font-headline text-[var(--text-2xl)] text-brand-gold leading-none tracking-tight">Savanna Sundays</div>
           </div>
         </div>
         

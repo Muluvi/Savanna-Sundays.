@@ -95,7 +95,7 @@ export default function Home() {
                 src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
                 alt="Savanna" 
                 className="logo-shimmer drop-shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
-                style={{ width: 'clamp(160px, 18vw, 260px)', height: 'auto', objectFit: 'contain' }}
+                style={{ width: 'clamp(180px, 20vw, 300px)', height: 'auto', objectFit: 'contain' }}
                 loading="eager"
                 fetchPriority="high"
               />
@@ -134,24 +134,24 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Footer Attribution - Proportional Calibration */}
+          {/* Footer Attribution - High Impact Brand Signature */}
           <div className={cn(
-            "relative z-10 flex flex-col items-center gap-6 transition-all duration-1000 delay-[1200ms]",
+            "relative z-10 flex flex-col items-center gap-8 transition-all duration-1000 delay-[1200ms]",
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           )}>
-            <div className="flex flex-col items-center gap-4">
-              <span className="font-body text-[var(--text-xs)] tracking-[4px] text-brand-gold/60 uppercase font-bold">Presented by</span>
-              <div className="flex items-center gap-6">
-                <div className="h-[1px] w-12 bg-brand-gold/20" />
+            <div className="flex flex-col items-center gap-6">
+              <span className="font-body text-[var(--text-sm)] tracking-[4px] text-brand-gold/80 uppercase font-bold">Presented by</span>
+              <div className="flex items-center gap-10">
+                <div className="h-[1px] w-16 bg-brand-gold/30" />
                 {fireflyLogo && (
                   <img 
-                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
-                    alt="Firefly" 
-                    className="opacity-90 hover:opacity-100 transition-all duration-500 hover:scale-105"
-                    style={{ height: '48px', width: 'auto', objectFit: 'contain' }}
+                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
+                    alt="Firefly Management" 
+                    className="opacity-100 hover:scale-105 transition-all duration-500 drop-shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
+                    style={{ height: '72px', width: 'auto', objectFit: 'contain' }}
                   />
                 )}
-                <div className="h-[1px] w-12 bg-brand-gold/20" />
+                <div className="h-[1px] w-16 bg-brand-gold/30" />
               </div>
             </div>
           </div>
