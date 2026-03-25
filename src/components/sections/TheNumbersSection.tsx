@@ -61,12 +61,11 @@ const StatCounter = ({ value }: { value: string }) => {
 };
 
 const lineItems = [
-  { item: "DJ 1 opens with warm-up (Bongo, R&B, Afrobeats)", cost: "50,000" },
-  { item: "DJ 2 takes peak time (High-energy Bongo, amapiano)", cost: "50,000" },
+  { item: "DJs / Performing Artists (Bongo, R&B, Afrobeats, Amapiano)", cost: "100,000" },
   { item: "MC / Brand Host — The Savanna Voice", cost: "40,000" },
-  { item: "Influencer Pool (5 PAX)", cost: "100,000" },
-  { item: "Content Production Crew", cost: "41,250" },
-  { item: "Strategic Logistics", cost: "54,918" },
+  { item: "Influencer Pool (5 PAX) • Cumulative Reach: 70k+", cost: "100,000" },
+  { item: "Content Production Crew (Video/Photo/Social)", cost: "48,000" },
+  { item: "Firefly Management Fee (16%)", cost: "46,080" },
 ];
 
 const checklistItems = [
@@ -89,7 +88,7 @@ export const TheNumbersSection = () => {
           </h4>
         </div>
         <p className="font-body text-brand-cream/80 text-[var(--text-sm)] md:text-[var(--text-base)]">
-          Transparent fixed-rate model city-wide.
+          Transparent weekly activation model city-wide.
         </p>
       </div>
 
@@ -122,7 +121,7 @@ export const TheNumbersSection = () => {
                 Weekly total
               </TableCell>
               <TableCell className="font-headline text-[var(--text-4xl)] md:text-[var(--text-6xl)] text-brand-gold text-right px-8 tracking-tighter">
-                <StatCounter value="336,168" />
+                <StatCounter value="334,080" />
               </TableCell>
             </TableRow>
           </TableBody>
@@ -141,7 +140,6 @@ export const TheNumbersSection = () => {
               key={i} 
               className="group relative p-6 rounded-[32px] bg-white/[0.03] border border-white/10 overflow-hidden transition-all duration-500 hover:bg-white/[0.08] hover:border-brand-gold/40 hover:-translate-y-1 shadow-xl"
             >
-              {/* Subtle background glow on hover */}
               <div className="absolute inset-0 bg-brand-gold/5 opacity-0 group-hover:opacity-100 transition-opacity blur-2xl" />
               
               <div className="relative z-10 flex flex-col items-center text-center gap-4">
@@ -153,7 +151,6 @@ export const TheNumbersSection = () => {
                     {item.label}
                   </p>
                   
-                  {/* Revealable Description: Visible on mobile, hidden -> expanded on desktop hover */}
                   <div className="overflow-hidden transition-all duration-500 max-h-10 md:max-h-0 md:group-hover:max-h-10">
                     <p className="font-body text-brand-cream/50 text-[10px] leading-relaxed font-bold uppercase tracking-[2px] pt-1">
                       {item.desc}
