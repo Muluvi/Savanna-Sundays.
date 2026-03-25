@@ -66,7 +66,7 @@ export const DualActivationModel = () => {
         </div>
       </div>
 
-      {/* High-Impact Unboxed Venue Marquee - 4K Optimized Edge Masking */}
+      {/* High-Impact Unboxed Venue Marquee - Edge Masking Applied */}
       <div className="py-12 md:py-20 overflow-hidden relative group">
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-green to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-green to-transparent z-10 pointer-events-none" />
@@ -105,7 +105,7 @@ export const DualActivationModel = () => {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
         {squadRoles.map((role, i) => (
           <div key={i} className="space-y-3 group border-l border-brand-gold/10 pl-4">
-            <div className="text-brand-gold group-hover:text-brand-gold group-hover:scale-110 transition-all duration-500">
+            <div className="text-brand-gold transition-all duration-500">
               {role.icon}
             </div>
             <div className="space-y-1">

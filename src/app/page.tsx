@@ -1,11 +1,13 @@
 'use client';
 
+import React, { useState, useEffect } from 'react';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { SectionContainer } from '@/components/sections/SectionContainer';
 import { ChevronDown } from 'lucide-react';
 import { useAnalyticsTracker } from '@/hooks/use-analytics-tracker';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { cn } from '@/lib/utils';
 
 import { TheGap } from '@/components/sections/TheGap';
 import { DualActivationModel } from '@/components/sections/DualModel';
@@ -26,12 +28,17 @@ const sectionsData = [
 ];
 
 export default function Home() {
+  const [isMounted, setIsMounted] = useState(false);
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   useAnalyticsTracker();
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-brand-green text-foreground selection:bg-brand-gold selection:text-brand-green">
-      <div className="noise-overlay fixed inset-0 pointer-events-none opacity-[0.035] z-[100]" />
+      <div className="noise-overlay fixed inset-0 pointer-events-none opacity-[0.02] z-[100]" />
       <MobileNav />
       
       <main>
@@ -87,13 +94,22 @@ export default function Home() {
         {/* Brand Closing Section */}
         <div className="py-24 px-6 text-center bg-brand-green border-t border-white/5 relative overflow-hidden">
           <div className="max-w-4xl mx-auto space-y-12 relative z-10">
-            <p className="font-serif italic text-2xl md:text-5xl text-brand-cream leading-tight max-w-2xl mx-auto">
-              Savanna Sundays is built. The squad is assembled. The venues are mapped. All that&apos;s needed is the green light.
-            </p>
+            {isMounted && (
+              <>
+                <p className="font-serif italic text-2xl md:text-5xl text-brand-cream leading-tight max-w-2xl mx-auto">
+                  Savanna Sundays is built. The squad is assembled. The venues are mapped. All that&apos;s needed is the green light.
+                </p>
 
-            <a href="mailto:partner@firefly.co.ke" className="btn-primary inline-flex h-20 px-16 items-center gap-8 text-xl hover:scale-105 transition-all">
-              <span>Let&apos;s own Sunday</span>
-            </a>
+                <a 
+                  href="mailto:partner@firefly.co.ke" 
+                  className={cn(
+                    "btn-primary inline-flex h-20 px-16 items-center gap-8 text-xl hover:scale-105 transition-all"
+                  )}
+                >
+                  <span>Let&apos;s own Sunday</span>
+                </a>
+              </>
+            )}
 
             <div className="pt-16 space-y-8">
               <div className="flex items-center justify-center gap-12">
