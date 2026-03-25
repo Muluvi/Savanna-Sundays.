@@ -14,7 +14,7 @@ interface MarqueeRowProps {
 }
 
 const MarqueeRow = ({ name, role, images, duration, reverse = false, isFirstRow = false }: MarqueeRowProps) => {
-  // Duplicate images for seamless loop
+  // Duplicate images for seamless loop (X2 as requested)
   const displayImages = [...images, ...images];
   const transformation = 'q_auto:best,f_auto,dpr_2.0,h_680,c_limit';
 
@@ -87,11 +87,19 @@ export const TalentMarquee = () => {
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439548/IMG-20260325-WA0021_ws8z0m.jpg"
   ];
 
-  const sameerImages = [
+  const sameerDJImages = [
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441116/IMG-20260325-WA0042_oyhkzv.jpg",
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441114/IMG-20260325-WA0040_bhwb4z.jpg",
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441114/IMG-20260325-WA0041_b2a1sa.jpg",
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441113/IMG-20260325-WA0043_ykqagw.jpg"
+  ];
+
+  const sameerMCImages = [
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441116/IMG-20260325-WA0042_oyhkzv.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441114/IMG-20260325-WA0040_bhwb4z.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441114/IMG-20260325-WA0041_b2a1sa.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441113/IMG-20260325-WA0043_ykqagw.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441113/IMG-20260325-WA0044_iar1fi.jpg"
   ];
 
   return (
@@ -129,21 +137,19 @@ export const TalentMarquee = () => {
         <MarqueeRow 
           name="SAMEER" 
           role="Resident DJ • Sonic Architecture • Bongo & Global Afrobeats"
-          images={sameerImages} 
+          images={sameerDJImages} 
           duration="32s" 
         />
         
         <TalentDivider />
         
-        <div className="opacity-20 grayscale pointer-events-none">
-          <MarqueeRow 
-            name="THE VOICE" 
-            role="Squad MC • Crowd Elevation • Narrative Anchor"
-            images={Array(4).fill("https://images.unsplash.com/photo-1514525253361-bee8a187449a?q=80&w=1000&auto=format&fit=crop")} 
-            duration="30s" 
-            reverse
-          />
-        </div>
+        <MarqueeRow 
+          name="SAMEER" 
+          role="MC • The Savanna Voice"
+          images={sameerMCImages} 
+          duration="30s" 
+          reverse
+        />
       </div>
     </div>
   );
