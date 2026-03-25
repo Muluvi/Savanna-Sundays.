@@ -102,6 +102,13 @@ export const TalentMarquee = () => {
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441113/IMG-20260325-WA0044_iar1fi.jpg"
   ];
 
+  const influencerImages = [
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442878/IMG_3496_fgwbly.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442877/IMG-20260325-WA0045_rwvb6u.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442876/IMG-20260325-WA0046_yizii9.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442875/IMG-20260325-WA0047_browth.jpg"
+  ];
+
   return (
     <div className="bg-[#0E1A10] py-[56px] overflow-hidden w-full relative z-20">
       <div className="text-center mb-12">
@@ -150,6 +157,21 @@ export const TalentMarquee = () => {
           duration="30s" 
           reverse
         />
+
+        <TalentDivider />
+        
+        <MarqueeRow 
+          name="THE INFLUENCER POOL" 
+          role="5 PAX • Sunday Content Amplification"
+          images={influencerImages} 
+          duration="38s" 
+        />
+
+        <div className="text-center mt-12">
+          <p className="font-headline text-[11px] tracking-[0.3em] text-brand-gold/28 uppercase">
+            Hover any row to pause
+          </p>
+        </div>
       </div>
     </div>
   );
