@@ -23,7 +23,6 @@ import { TalentMarquee } from '@/components/sections/TalentMarquee';
 const sectionsData = [
   { id: 'the-gap', label: '01 — The Opportunity', title: "The Expansion", component: <TheGap /> },
   { id: 'the-engine', label: '02 — The Venue Network', title: 'The Network', component: <DualActivationModel /> },
-  // Section 03 is handled specially below for full-bleed TalentMarquee
   { id: 'the-numbers', label: '04 — The Investment', title: 'The Capital', component: <TheNumbersSection /> },
   { id: 'why-firefly', label: '05 — Why Firefly', title: 'The Agency', component: <WhyFireflySection /> },
   { id: 'growth-plan', label: '06 — Growth Plan', title: 'The Roadmap', component: <GrowthRoadmapSection /> },
