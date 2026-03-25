@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, TrendingUp } from 'lucide-react';
 import { cl } from '@/lib/cloudinary';
 import { AnimatedCounter } from '@/components/ui/animated-counter';
 
@@ -10,16 +10,15 @@ import { AnimatedCounter } from '@/components/ui/animated-counter';
  * Optimized The Gap (Opportunity)
  * Tightened internal spacing for higher narrative density.
  * Enhanced with 4K visual fidelity and high-impact logo "pop" effects.
+ * Reflects current Savanna Cider Kenya social metrics as a baseline for Firefly growth.
  */
 export const TheGap = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   
   const socialIcons = [
     { id: 'social-fb', label: 'Facebook Reach', value: '603000', delay: 100 },
-    { id: 'social-ig', label: 'Instagram Reach', value: '6100', delay: 800 },
-    { id: 'social-tt', label: 'TikTok Reach', value: '15000', delay: 1200 },
-    { id: 'social-yt', label: 'YouTube Reach', value: '25000', delay: 1800 },
-    { id: 'social-x', label: 'X (Twitter) Reach', value: '1100', delay: 2400 },
+    { id: 'social-ig', label: 'Instagram Reach', value: '6100', delay: 400 },
+    { id: 'social-x', label: 'X (Twitter) Reach', value: '1100', delay: 700 },
   ];
 
   return (
@@ -35,7 +34,7 @@ export const TheGap = () => {
           <div className="absolute top-0 right-0 p-6 md:p-8 z-0 opacity-10 group-hover:scale-110 transition-transform duration-1000">
             {savannaLogo && (
               <img 
-                src={cl(savannaLogo.imageUrl, 'q_auto,f_auto,dpr_2.0,w_400')} 
+                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
                 alt="" 
                 style={{ height: 'clamp(60px, 10vh, 100px)', width: 'auto', objectFit: 'contain' }}
                 loading="lazy"
@@ -53,10 +52,25 @@ export const TheGap = () => {
       </div>
 
       <div className="pt-8 md:pt-12 border-t border-white/5 space-y-8 md:space-y-12">
-        <div className="flex items-center justify-center gap-3 md:gap-4">
-          <Sparkles className="text-brand-gold/60" size={14} />
-          <span className="font-body text-[var(--text-xs)] tracking-[4px] text-brand-gold uppercase font-bold">Evidence of reach</span>
-          <Sparkles className="text-brand-gold/60" size={14} />
+        <div className="flex flex-col items-center gap-6 text-center max-w-3xl mx-auto">
+          <div className="flex items-center justify-center gap-3 md:gap-4">
+            <Sparkles className="text-brand-gold/60" size={14} />
+            <span className="font-body text-[var(--text-xs)] tracking-[4px] text-brand-gold uppercase font-bold">Evidence of reach</span>
+            <Sparkles className="text-brand-gold/60" size={14} />
+          </div>
+          
+          <div className="space-y-4 px-6">
+            <p className="font-body text-brand-cream/60 text-[10px] md:text-[12px] uppercase tracking-[3px] font-bold leading-relaxed">
+              These figures reflect the current social media reach of <span className="text-brand-gold">Savanna Cider Kenya</span>. 
+              This audience represents the <span className="text-white">immediate potential</span> for Savanna Sundays—a foundation we will dominate.
+            </p>
+            <div className="flex items-center justify-center gap-3 text-brand-gold/40">
+              <TrendingUp size={16} />
+              <p className="font-serif italic text-sm md:text-base">
+                Firefly Management will leverage this footprint to cultivate an even larger, more engaged community.
+              </p>
+            </div>
+          </div>
         </div>
         
         <div className="max-w-5xl mx-auto space-y-4 md:space-y-6">
@@ -70,7 +84,7 @@ export const TheGap = () => {
                   {/* High-fidelity background glow */}
                   <div className="absolute inset-0 bg-brand-gold/5 blur-3xl rounded-full scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   <img 
-                    src={cl(img.imageUrl, 'q_auto,f_auto,dpr_2.0,w_400')} 
+                    src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
                     alt={stat.label} 
                     className="w-full h-full object-contain transition-all duration-700 group-hover:scale-110 drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] relative z-10 brightness-110"
                     loading="lazy"
