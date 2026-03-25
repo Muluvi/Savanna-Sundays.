@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -51,7 +50,7 @@ const CountdownClock = () => {
   if (!timeLeft) return null;
 
   return (
-    <div className="font-headline text-[var(--text-lg)] md:text-[var(--text-xl)] text-[#F8F5E6] opacity-70 uppercase tracking-widest mt-1">
+    <div className="font-headline text-[var(--text-lg)] text-[#F8F5E6] opacity-70 uppercase tracking-widest mt-1">
       T-MINUS: {timeLeft}
     </div>
   );
@@ -89,49 +88,51 @@ export const ExperienceDesignSection = () => {
   };
 
   return (
-    <div className="space-y-12">
-      <div className="w-full bg-brand-gold p-8 md:p-12 rounded-[40px] flex flex-col md:row items-center gap-8 shadow-2xl relative overflow-hidden group">
-        <div className="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-full bg-brand-green/10 flex items-center justify-center text-[#1A1208] border-2 border-[#1A1208]/10">
-          <Clock size={40} className="animate-pulse" />
+    <div className="space-y-8">
+      {/* influencer Pack Drop Banner - Compacted */}
+      <div className="w-full bg-brand-gold p-6 md:p-8 rounded-3xl flex flex-col md:flex-row items-center gap-6 shadow-xl relative overflow-hidden group">
+        <div className="shrink-0 w-16 h-16 rounded-full bg-brand-green/10 flex items-center justify-center text-[#1A1208] border border-[#1A1208]/10">
+          <Clock size={32} className="animate-pulse" />
         </div>
-        <div className="space-y-2 text-center md:text-left relative z-10">
-          <h3 className="font-headline text-[var(--text-xl)] md:text-[var(--text-4xl)] text-[#1A1208] leading-none uppercase tracking-tighter">
+        <div className="space-y-1 text-center md:text-left relative z-10 flex-1">
+          <h3 className="font-headline text-[var(--text-xl)] md:text-[var(--text-2xl)] text-[#1A1208] leading-none uppercase tracking-tighter">
             SUNDAY 12:00 PM: INFLUENCER PACK DROP
           </h3>
           <CountdownClock />
-          <p className="font-body text-[#1A1208] font-bold text-[var(--text-xs)] md:text-[var(--text-sm)] uppercase tracking-widest max-w-2xl mt-4">
+          <p className="font-body text-[#1A1208] font-bold text-[10px] uppercase tracking-widest max-w-xl mt-2 opacity-80">
             Synchronized Savanna content wave hits Nairobi's feeds at the stroke of noon.
           </p>
         </div>
       </div>
 
-      <div className="space-y-6">
+      {/* Content Harvest Metrics - Compacted */}
+      <div className="space-y-4">
         <div className="section-label">03B — The Content Harvest</div>
         <ContentHarvestMetrics />
       </div>
 
-      <div className="space-y-6 pt-8 border-t border-white/5 relative">
+      {/* Publishing Rhythm - Compacted */}
+      <div className="space-y-4 pt-6 border-t border-white/5 relative">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <CalendarDays className="text-brand-gold" size={20} />
+            <CalendarDays className="text-brand-gold" size={18} />
             <div className="section-label mb-0">03C — Publishing Rhythm</div>
           </div>
           
-          {/* Desktop Navigation Buttons */}
           <div className="hidden md:flex items-center gap-2">
             <button 
               onClick={() => scroll('left')}
-              className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-brand-gold hover:bg-white/5 transition-colors"
+              className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-brand-gold hover:bg-white/5 transition-colors"
               aria-label="Scroll Left"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={16} />
             </button>
             <button 
               onClick={() => scroll('right')}
-              className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-brand-gold hover:bg-white/5 transition-colors"
+              className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-brand-gold hover:bg-white/5 transition-colors"
               aria-label="Scroll Right"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={16} />
             </button>
           </div>
         </div>
@@ -142,27 +143,26 @@ export const ExperienceDesignSection = () => {
             onScroll={handleScroll}
             className="overflow-x-auto scrollbar-hide -mx-6 px-6"
           >
-            <div className="flex gap-3 min-w-[1200px] pb-6 pt-2">
+            <div className="flex gap-3 min-w-[1000px] pb-4 pt-1">
               {productionDays.map((p, i) => (
                 <div key={i} className={cn(
-                  "flex-1 p-6 rounded-[32px] flex flex-col gap-4 border transition-all", 
-                  p.anchor ? "bg-brand-gold text-brand-green scale-105 shadow-[0_0_40px_rgba(244,197,66,0.3)]" : "bg-white/5 border-white/10 opacity-40 hover:opacity-100"
+                  "flex-1 p-5 rounded-2xl flex flex-col gap-3 border transition-all", 
+                  p.anchor ? "bg-brand-gold text-brand-green scale-105 shadow-lg" : "bg-white/5 border-white/10 opacity-40 hover:opacity-100"
                 )}>
                   <div className="flex items-center justify-between">
-                    <span className="font-headline text-[var(--text-sm)] md:text-[var(--text-base)] uppercase tracking-widest">{p.day}</span>
-                    <div className={cn("p-2 rounded-xl", p.anchor ? "bg-brand-green/10" : "bg-white/10")}>{p.icon}</div>
+                    <span className="font-headline text-[11px] uppercase tracking-widest">{p.day}</span>
+                    <div className={cn("p-1.5 rounded-lg", p.anchor ? "bg-brand-green/10" : "bg-white/10")}>{p.icon}</div>
                   </div>
-                  <div className="space-y-1">
-                    <h5 className="font-headline text-[var(--text-lg)] md:text-[var(--text-xl)] uppercase leading-none">{p.title}</h5>
-                    <p className="font-body text-[var(--text-xs)] font-bold uppercase tracking-widest opacity-80">{p.body}</p>
+                  <div className="space-y-0.5">
+                    <h5 className="font-headline text-lg uppercase leading-none">{p.title}</h5>
+                    <p className="font-body text-[9px] font-bold uppercase tracking-widest opacity-80">{p.body}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Mobile Scroll Progress Indicator */}
-          <div className="w-full h-[2px] bg-brand-gold/10 rounded-full overflow-hidden mt-2">
+          <div className="w-full h-[1px] bg-brand-gold/10 rounded-full overflow-hidden">
             <div 
               className="h-full bg-brand-gold transition-transform duration-100 ease-out origin-left"
               style={{ transform: `scaleX(${scrollProgress / 100})` }}
@@ -173,5 +173,3 @@ export const ExperienceDesignSection = () => {
     </div>
   );
 };
-
-    

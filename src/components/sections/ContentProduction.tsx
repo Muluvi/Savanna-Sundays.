@@ -46,7 +46,7 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
 
   return (
     <span ref={containerRef} className="relative inline-block">
-      <span className="font-headline text-6xl md:text-8xl text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(244,197,66,0.4)]">
+      <span className="font-headline text-4xl md:text-5xl text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_10px_rgba(244,197,66,0.3)]">
         {Math.floor(displayValue)}{suffix}
       </span>
     </span>
@@ -60,7 +60,7 @@ const ContentHarvestMetrics = () => {
       value: "4", 
       period: "per month",
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4C542" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4C542" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
           <line x1="7" y1="3" x2="7" y2="21"/>
           <line x1="17" y1="3" x2="17" y2="21"/>
@@ -69,14 +69,14 @@ const ContentHarvestMetrics = () => {
           <line x1="3" y1="17" x2="21" y2="17"/>
         </svg>
       ),
-      body: "Full multi-camera sets. Broadcast-mastered audio. Bongo-led foundations." 
+      body: "Full multi-camera sets. Broadcast-mastered audio. The very best in multiple genres." 
     },
     { 
       label: "Algorithm Loops", 
       value: "16", 
       period: "per month",
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4C542" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4C542" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M17 2l4 4-4 4"/>
           <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
           <path d="M7 22l-4-4 4-4"/>
@@ -90,7 +90,7 @@ const ContentHarvestMetrics = () => {
       value: "28", 
       period: "per month",
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4C542" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4C542" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="10"/>
           <line x1="14.31" y1="8" x2="20.05" y2="17.94"/>
           <line x1="9.69" y1="8" x2="21.17" y2="8"/>
@@ -105,35 +105,34 @@ const ContentHarvestMetrics = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
       {deliverables.map((item, i) => (
         <div 
           key={i} 
-          className="relative group p-6 rounded-[32px] glass-tile overflow-hidden flex flex-col items-center text-center animate-float shadow-xl"
-          style={{ animationDelay: `${i * 0.3}s` }}
+          className="relative group p-4 rounded-2xl glass-tile overflow-hidden flex flex-col items-center text-center transition-all hover:-translate-y-1 shadow-lg"
         >
-          <div className="absolute top-4 right-4 p-2 opacity-40 z-0">
+          <div className="absolute top-3 right-3 p-1 opacity-30 z-0">
             {item.icon}
           </div>
           
-          <div className="relative z-10 space-y-4 flex flex-col items-center w-full">
+          <div className="relative z-10 space-y-3 flex flex-col items-center w-full">
             <div className="flex flex-col items-center">
               <RollingCounter value={item.value} />
-              <span className="font-headline text-lg text-brand-gold uppercase tracking-widest mt-1">
+              <span className="font-headline text-xs text-brand-gold uppercase tracking-[3px] mt-0.5">
                 {item.period}
               </span>
             </div>
             
-            <div className="space-y-2">
-              <h5 className="font-headline text-2xl text-white uppercase tracking-tight group-hover:text-brand-gold transition-colors">
+            <div className="space-y-1">
+              <h5 className="font-headline text-xl text-white uppercase tracking-tight group-hover:text-brand-gold transition-colors">
                 {item.label}
               </h5>
-              <p className="font-body text-brand-cream text-[10px] leading-relaxed font-bold uppercase tracking-wider max-w-[200px] mx-auto opacity-70">
+              <p className="font-body text-brand-cream text-[9px] leading-relaxed font-bold uppercase tracking-wider max-w-[180px] mx-auto opacity-60">
                 {item.body}
               </p>
             </div>
           </div>
-          <div className="absolute inset-x-0 bottom-0 h-1 bg-brand-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center" />
+          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-brand-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
         </div>
       ))}
     </div>
