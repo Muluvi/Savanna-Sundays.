@@ -30,11 +30,11 @@ const Counter = ({ value, prefix = "", suffix = "" }: { value: string, prefix?: 
   useEffect(() => {
     if (!isVisible || hasLoaded.current) return;
     
-    let start = 0;
+    let startTime: number;
     const duration = 2000;
-    const startTime = performance.now();
 
     const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       
@@ -53,10 +53,11 @@ const Counter = ({ value, prefix = "", suffix = "" }: { value: string, prefix?: 
     requestAnimationFrame(animate);
   }, [isVisible, target]);
 
-  // Use a deterministic value during hydration
-  const formatted = isMounted 
-    ? displayValue.toLocaleString(undefined, { maximumFractionDigits: value.includes('.') ? 1 : 0 })
-    : Math.floor(displayValue).toString();
+  if (!isMounted) {
+    return <span>{prefix}0{suffix}</span>;
+  }
+
+  const formatted = displayValue.toLocaleString(undefined, { maximumFractionDigits: value.includes('.') ? 1 : 0 });
 
   return <span ref={containerRef}>{prefix}{formatted}{suffix}</span>;
 };

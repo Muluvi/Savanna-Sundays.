@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
-import { cn } from '@/lib/utils';
 
 const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -38,15 +37,22 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
     requestAnimationFrame(animate);
   }, [isVisible, target]);
 
-  // Use a deterministic value during hydration
-  const displayString = isMounted 
-    ? Math.floor(displayValue).toLocaleString() 
-    : Math.floor(displayValue).toString();
+  if (!isMounted) {
+    return (
+      <span className="relative inline-block">
+        <span className="font-headline text-[clamp(4rem,12vw,7rem)] text-brand-gold leading-none tracking-tighter">
+          0{suffix}
+        </span>
+      </span>
+    );
+  }
+
+  const displayString = Math.floor(displayValue).toLocaleString();
 
   return (
     <span ref={containerRef} className="relative inline-block">
       <span className="font-headline text-[clamp(4rem,12vw,7rem)] text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(244,197,66,0.3)]">
-        {displayString}
+        {displayString}{suffix}
       </span>
       <span className="absolute -inset-2 bg-brand-gold/5 blur-2xl rounded-full -z-10 animate-pulse" />
     </span>
@@ -65,7 +71,7 @@ const ContentHarvestMetrics = () => {
       {deliverables.map((item, i) => (
         <div 
           key={i} 
-          className="relative group p-8 rounded-[32px] bg-white/[0.03] border border-brand-gold/10 overflow-hidden transition-all duration-700 hover:bg-white/[0.08] hover:border-brand-gold/40 hover:-translate-y-2 shadow-2xl animate-fade-in-up"
+          className="relative group p-8 rounded-[32px] bg-white/[0.03] border border-brand-gold/10 overflow-hidden transition-all duration-700 hover:bg-white/[0.08] hover:border-brand-gold/40 hover:-translate-y-2 shadow-2xl"
           style={{ animationDelay: `${i * 150}ms` }}
         >
           {/* Subtle Glossy Glow */}
@@ -75,7 +81,7 @@ const ContentHarvestMetrics = () => {
             <RollingCounter value={item.value} />
             
             <div className="space-y-2">
-              <div className="font-body text-[10px] text-brand-gold/60 font-bold uppercase tracking-[4px]">
+              <div className="font-body text-[10px] text-brand-gold/80 font-bold uppercase tracking-[4px]">
                 per month
               </div>
               <h5 className="font-headline text-3xl text-white uppercase tracking-widest leading-none group-hover:text-brand-gold transition-colors">

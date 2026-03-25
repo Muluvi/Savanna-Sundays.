@@ -42,20 +42,21 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
     requestAnimationFrame(animate);
   }, [isVisible, target]);
 
-  // Use deterministic display string during hydration
-  let displayString = "0";
-  if (isMounted) {
-    displayString = isKFormat 
-      ? (displayValue / 1000).toFixed(0) + 'K' 
-      : Math.floor(displayValue).toLocaleString();
-  } else {
-    displayString = isKFormat ? "0K" : "0";
+  if (!isMounted) {
+    return (
+      <div className="font-headline text-4xl md:text-7xl text-brand-gold leading-none tracking-tighter">
+        0{suffix}
+      </div>
+    );
   }
+
+  const displayString = isKFormat 
+    ? (displayValue / 1000).toFixed(0) + 'K' 
+    : Math.floor(displayValue).toLocaleString();
 
   return (
     <div ref={containerRef} className="font-headline text-4xl md:text-7xl text-brand-gold leading-none tracking-tighter">
-      {displayString}
-      {suffix}
+      {displayString}{suffix}
     </div>
   );
 };
@@ -73,7 +74,7 @@ export const TheGap = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
         <div className="space-y-4 flex flex-col justify-center">
           <p className="font-serif italic text-xl md:text-3xl text-brand-gold leading-tight border-l-4 border-brand-gold/40 pl-8 py-2">
-            Converting music lovers and lovers of experiential events from digital platforms and loyal savanna cider fans into a physical community through consistent, high-fidelity Sunday experiences.
+            Converting music lovers and lovers of experiential events from digital platforms and loyal Savanna fans into a physical community through consistent, high-fidelity Sunday experiences.
           </p>
         </div>
 
