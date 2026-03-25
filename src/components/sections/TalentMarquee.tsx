@@ -71,7 +71,7 @@ const TalentDivider = () => (
 
 /**
  * Talent Marquee Section.
- * Showcases the resident DJ and MC talent. 
+ * Showcases the resident DJ and MC talent with verified reach metrics. 
  */
 export const TalentMarquee = () => {
   const djMoonsImages = [
@@ -113,7 +113,7 @@ export const TalentMarquee = () => {
       <div className="space-y-8">
         <MarqueeRow 
           name="DJ MOONS" 
-          role="Resident DJ • Bongo-led open format"
+          role="Resident DJ • 70,000 Cumulative Followers (Socials & Streaming)"
           images={djMoonsImages} 
           duration="28s"
           isFirstRow 
@@ -123,7 +123,7 @@ export const TalentMarquee = () => {
         
         <MarqueeRow 
           name="DJ MAIN PATT" 
-          role="Resident DJ • Bongo & Amapiano transitions"
+          role="Resident DJ • 70,000 Cumulative Followers (Socials & Streaming)"
           images={djMainPattImages} 
           duration="34s" 
           reverse
@@ -133,7 +133,7 @@ export const TalentMarquee = () => {
         
         <MarqueeRow 
           name="SAMEER" 
-          role="MC • The Savanna Voice"
+          role="MC • The Savanna Voice • 70,000 Cumulative Followers (Socials)"
           images={sameerMCImages} 
           duration="30s" 
           reverse
