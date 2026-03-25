@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ReceiptText } from 'lucide-react';
 
@@ -12,6 +12,60 @@ const lineItems = [
   { item: "Content Production Crew", cost: "41,250" },
   { item: "Strategic Logistics", cost: "54,918" },
 ];
+
+/**
+ * High-fidelity counter for the investment total.
+ * Animates from 0 to target value on scroll entry using an ease-out curve.
+ */
+const StatCounter = ({ value }: { value: string }) => {
+  const [displayValue, setDisplayValue] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const containerRef = useRef<HTMLSpanElement>(null);
+
+  const target = parseFloat(value.replace(/,/g, ''));
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          startAnimation();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    const startAnimation = () => {
+      let startTime: number | null = null;
+      const duration = 1200;
+
+      const animate = (timestamp: number) => {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Quadratic ease-out: f(t) = t * (2 - t)
+        const easeOut = progress * (2 - progress);
+        
+        setDisplayValue(easeOut * target);
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+
+      requestAnimationFrame(animate);
+    };
+
+    return () => observer.disconnect();
+  }, [target, hasAnimated]);
+
+  return <span ref={containerRef}>{Math.floor(displayValue).toLocaleString()}</span>;
+};
 
 export const TheNumbersSection = () => {
   return (
@@ -28,7 +82,7 @@ export const TheNumbersSection = () => {
         </p>
       </div>
 
-      <div className="glass-tile rounded-[24px] overflow-hidden border border-white/5">
+      <div className="glass-tile rounded-[24px] overflow-hidden border border-white/5 shadow-2xl">
         <Table>
           <TableHeader className="bg-brand-gold">
             <TableRow className="border-none hover:bg-brand-gold">
@@ -50,12 +104,14 @@ export const TheNumbersSection = () => {
                 </TableCell>
               </TableRow>
             ))}
-            <TableRow className="bg-brand-gold/10 border-none hover:bg-brand-gold/20">
+            
+            {/* Summary Row - High Fidelity Separation */}
+            <TableRow className="bg-brand-gold/[0.12] border-t border-brand-gold/30 border-b border-brand-gold/30 hover:bg-brand-gold/20 transition-colors">
               <TableCell className="font-headline text-[var(--text-2xl)] md:text-[var(--text-4xl)] py-6 px-8 text-brand-gold uppercase tracking-tighter">
                 Weekly total
               </TableCell>
               <TableCell className="font-headline text-[var(--text-4xl)] md:text-[var(--text-6xl)] text-brand-gold text-right px-8 tracking-tighter">
-                336,168
+                <StatCounter value="336,168" />
               </TableCell>
             </TableRow>
           </TableBody>
