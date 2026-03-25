@@ -93,7 +93,7 @@ export const TheGap = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
         <div className="space-y-4 flex flex-col justify-center">
           <p className="font-serif italic text-xl md:text-3xl text-brand-gold leading-tight border-l-4 border-brand-gold/40 pl-8 py-2">
-            Converting the premium lifestyle crowd and the mainstream Bongo-loving audience into a physical community through consistent, high-fidelity Sunday experiences.
+            We&apos;re already building Nairobi&apos;s Sunday culture — now it&apos;s time to scale the movement city-wide.
           </p>
         </div>
 
@@ -104,14 +104,14 @@ export const TheGap = () => {
             )}
           </div>
           <span className="section-label mb-2 text-brand-gold opacity-100">The Opportunity</span>
-          <p className="font-body text-lg text-brand-cream leading-relaxed relative z-10">
-            Savanna Sundays is the bridge. We turn massive digital reach into deep brand loyalty through a physical Sunday ritual that Nairobi's diverse audience can finally own.
+          <p className="font-body text-base md:text-lg text-brand-cream leading-relaxed relative z-10">
+            Savanna Sundays isn&apos;t a concept. It&apos;s already running. The Savanna Vybe Squad is already pulling crowds, creating content, and building a Sunday ritual. But right now, we&apos;re in a handful of venues. The opportunity is to take what&apos;s already working and deploy it across Nairobi — mainstream bars where the volume is, premium spots where the positioning matters. The audience is there. The squad is proven. The infrastructure is built. This proposal is about scaling what works.
           </p>
         </div>
       </div>
 
       <div className="space-y-4 pt-6">
-        <div className="section-label text-center mb-0 text-brand-gold/80">Market Presence</div>
+        <div className="section-label text-center mb-0 text-brand-gold/80">Market Presence (Evidence of Reach)</div>
         
         <div className="relative overflow-hidden py-12 glass-tile rounded-[32px] border-brand-gold/10 bg-white/[0.02]">
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-green to-transparent z-10 pointer-events-none" />
