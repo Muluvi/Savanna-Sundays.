@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -44,7 +45,7 @@ export const AppSidebar = () => {
           <div className="flex flex-col gap-8">
             {savannaLogo && (
               <img 
-                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr:2.0,w_600')} 
+                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
                 alt="Savanna" 
                 className="drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)] logo-shimmer"
                 style={{ height: '72px', width: 'auto', objectFit: 'contain' }}
@@ -56,10 +57,10 @@ export const AppSidebar = () => {
             </div>
             {fireflyLogo && (
               <img 
-                src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr:2.0,w_1000')} 
+                src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_1000')} 
                 alt="Firefly Management" 
                 className="opacity-100 hover:scale-105 transition-transform drop-shadow-[0_15px_35px_rgba(0,0,0,0.6)] brightness-125"
-                style={{ height: '80px', width: 'auto', objectFit: 'contain' }}
+                style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
               />
             )}
           </div>

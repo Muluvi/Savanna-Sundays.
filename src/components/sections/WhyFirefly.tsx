@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -112,7 +113,7 @@ export const WhyFireflySection = () => {
                 src={cl(logo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_1200')} 
                 alt="Firefly" 
                 className="mx-auto brightness-125 drop-shadow-[0_15px_50px_rgba(0,0,0,0.8)]"
-                style={{ height: '120px', width: 'auto', objectFit: 'contain' }}
+                style={{ height: '160px', width: 'auto', objectFit: 'contain' }}
               />
             )}
           </div>

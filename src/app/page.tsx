@@ -150,7 +150,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Premium Footer Attribution */}
+          {/* Premium Footer Attribution - Increased Firefly Logo Size */}
           <div className={cn(
             "relative z-10 flex flex-col items-center gap-6 md:gap-10 transition-all duration-1500 delay-[1400ms]",
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
@@ -165,10 +165,10 @@ export default function Home() {
                 <div className="h-[1px] w-16 md:w-48 bg-brand-gold/20" />
                 {fireflyLogo && (
                   <img 
-                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr:2.0,w_1200')} 
+                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_1200')} 
                     alt="Firefly Management" 
                     className="logo-shimmer hover:scale-110 transition-all duration-1000 drop-shadow-[0_25px_60px_rgba(0,0,0,0.8)] brightness-125"
-                    style={{ height: 'clamp(140px, 18vh, 220px)', width: 'auto', objectFit: 'contain' }}
+                    style={{ height: 'clamp(180px, 22vh, 280px)', width: 'auto', objectFit: 'contain' }}
                     loading="eager"
                     fetchPriority="high"
                     decoding="async"
@@ -239,10 +239,10 @@ export default function Home() {
             <div className={cn("reveal-on-scroll pt-16 md:pt-24", closingVisible && "reveal-visible")} style={{ transitionDelay: '1600ms' }}>
                {fireflyLogo && (
                   <img 
-                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr:2.0,w_1200')} 
+                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_1200')} 
                     alt="Firefly Management" 
                     className="mx-auto brightness-125 drop-shadow-[0_20px_60px_rgba(0,0,0,0.7)] opacity-95 hover:scale-110 transition-all duration-1000"
-                    style={{ height: '120px', width: 'auto', objectFit: 'contain' }}
+                    style={{ height: '160px', width: 'auto', objectFit: 'contain' }}
                   />
                 )}
             </div>
