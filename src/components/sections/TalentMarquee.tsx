@@ -10,9 +10,10 @@ interface MarqueeRowProps {
   images: string[];
   duration: string;
   reverse?: boolean;
+  isFirstRow?: boolean;
 }
 
-const MarqueeRow = ({ name, role, images, duration, reverse = false }: MarqueeRowProps) => {
+const MarqueeRow = ({ name, role, images, duration, reverse = false, isFirstRow = false }: MarqueeRowProps) => {
   // Duplicate images for seamless loop
   const displayImages = [...images, ...images];
   const transformation = 'q_auto:best,f_auto,dpr_2.0,h_680,c_limit';
@@ -53,7 +54,7 @@ const MarqueeRow = ({ name, role, images, duration, reverse = false }: MarqueeRo
               key={`${name}-${i}`} 
               src={cl(url, transformation)} 
               alt={`${name} performing live`}
-              loading={i === 0 && name === "DJ MOONS" ? "eager" : "lazy"}
+              loading={isFirstRow && i === 0 ? "eager" : "lazy"}
               className="h-[260px] md:h-[340px] w-auto block flex-shrink-0"
               style={{ borderRadius: 0, border: 'none', boxShadow: 'none' }}
             />
@@ -86,6 +87,13 @@ export const TalentMarquee = () => {
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439548/IMG-20260325-WA0021_ws8z0m.jpg"
   ];
 
+  const sameerImages = [
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441116/IMG-20260325-WA0042_oyhkzv.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441114/IMG-20260325-WA0040_bhwb4z.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441114/IMG-20260325-WA0041_b2a1sa.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441113/IMG-20260325-WA0043_ykqagw.jpg"
+  ];
+
   return (
     <div className="bg-[#0E1A10] py-[56px] overflow-hidden w-full relative z-20">
       <div className="text-center mb-12">
@@ -102,7 +110,8 @@ export const TalentMarquee = () => {
           name="DJ MOONS" 
           role="Resident DJ • Bongo-led open format"
           images={djMoonsImages} 
-          duration="28s" 
+          duration="28s"
+          isFirstRow 
         />
         
         <TalentDivider />
@@ -117,12 +126,22 @@ export const TalentMarquee = () => {
         
         <TalentDivider />
         
+        <MarqueeRow 
+          name="SAMEER" 
+          role="Resident DJ • Sonic Architecture • Bongo & Global Afrobeats"
+          images={sameerImages} 
+          duration="32s" 
+        />
+        
+        <TalentDivider />
+        
         <div className="opacity-20 grayscale pointer-events-none">
           <MarqueeRow 
-            name="COMING SOON" 
-            role="Squad Talent • Visual Identity Pending"
+            name="THE VOICE" 
+            role="Squad MC • Crowd Elevation • Narrative Anchor"
             images={Array(4).fill("https://images.unsplash.com/photo-1514525253361-bee8a187449a?q=80&w=1000&auto=format&fit=crop")} 
-            duration="40s" 
+            duration="30s" 
+            reverse
           />
         </div>
       </div>
