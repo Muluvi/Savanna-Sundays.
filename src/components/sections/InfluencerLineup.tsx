@@ -47,11 +47,12 @@ const placeholderInfluencers: Influencer[] = [
   },
   { 
     id: 4, 
-    name: "SQUAD ANCHOR 04", 
-    handle: "@vybesquad_delta", 
-    followers: 70000, 
-    niche: "Mainstream Energy",
-    imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442875/IMG-20260325-WA0047_browth.jpg"
+    name: "ZAKI MANDUVE", 
+    handle: "@zaki_manduve", 
+    followers: 55000, 
+    niche: "Lifestyle | Content",
+    imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774456144/IMG-20260325-WA0057_v6fxg7.jpg",
+    isVerified: false
   },
 ];
 
