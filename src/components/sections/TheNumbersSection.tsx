@@ -7,10 +7,10 @@ import { AnimatedCounter } from '@/components/ui/animated-counter';
 
 const lineItems = [
   { item: "DJs / Performing Artists (Bongo, R&B, Afrobeats, Amapiano)", cost: "100,000" },
-  { item: "MC / Brand Host — The Savanna Voice", cost: "40,000" },
+  { item: "MC / Brand Host — The Savanna Voice", cost: "50,000" },
   { item: "Influencer Pool (5 PAX) • Cumulative Reach: 70k+", cost: "100,000" },
   { item: "Content Production Crew (Video/Photo/Social)", cost: "48,000" },
-  { item: "Firefly Management Fee (16%)", cost: "46,080" },
+  { item: "Firefly Management Fee (16%)", cost: "47,680" },
 ];
 
 const checklistItems = [
@@ -65,7 +65,7 @@ export const TheNumbersSection = () => {
                 Weekly total
               </TableCell>
               <TableCell className="font-headline text-[var(--text-3xl)] md:text-[var(--text-6xl)] text-brand-gold text-right px-8 md:px-12 tracking-tighter">
-                <AnimatedCounter value="334080" />
+                <AnimatedCounter value="345680" />
               </TableCell>
             </TableRow>
           </TableBody>

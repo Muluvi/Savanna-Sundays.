@@ -33,7 +33,7 @@ const placeholderInfluencers: Influencer[] = [
     handle: "@jojo_mleika", 
     followers: 29700, 
     niche: "Fashion | Lifestyle",
-    imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442877/IMG-20260325-WA0045_rwvb6u.jpg",
+    imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442875/IMG-20260325-WA0047_browth.jpg",
     isVerified: true
   },
   { 
