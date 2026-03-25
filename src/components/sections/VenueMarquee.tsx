@@ -57,7 +57,7 @@ export const Tier1Marquee = () => {
                     <img 
                       src={cl(logo.imageUrl, transformation)} 
                       alt={venue.name}
-                      className="h-[110px] md:h-[130px] w-auto block flex-shrink-0 object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
+                      className="h-[110px] md:h-[130px] w-auto block flex-shrink-0 object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.8)] brightness-105"
                       loading="lazy"
                       decoding="async"
                     />
@@ -102,7 +102,7 @@ export const Tier2Marquee = () => {
                 <img 
                   src={cl(venue.url, transformation)} 
                   alt={venue.name}
-                  className="h-[90px] md:h-[110px] w-auto block flex-shrink-0 object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
+                  className="h-[90px] md:h-[110px] w-auto block flex-shrink-0 object-contain drop-shadow-[0_12px_30px_rgba(0,0,0,0.7)] brightness-105"
                   loading="lazy"
                   decoding="async"
                 />

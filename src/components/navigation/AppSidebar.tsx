@@ -46,7 +46,7 @@ export const AppSidebar = () => {
               <img 
                 src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr:2.0,w_400')} 
                 alt="Savanna" 
-                className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
+                className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] logo-shimmer"
                 style={{ height: '64px', width: 'auto', objectFit: 'contain' }}
               />
             )}
@@ -58,7 +58,7 @@ export const AppSidebar = () => {
               <img 
                 src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr:2.0,w_400')} 
                 alt="Firefly Management" 
-                className="opacity-100 hover:scale-105 transition-transform drop-shadow-[0_5px_15px_rgba(0,0,0,0.3)]"
+                className="opacity-100 hover:scale-105 transition-transform drop-shadow-[0_5px_15px_rgba(0,0,0,0.3)] brightness-110"
                 style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
               />
             )}
