@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -11,6 +10,8 @@ import { WaterDroplets } from '@/components/brand/VisualElements';
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 import { useToast } from '@/hooks/use-toast';
 import { Lock, ArrowRight, ShieldCheck, Mail } from 'lucide-react';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { cl } from '@/lib/cloudinary';
 
 /**
  * Protects the prospectus by ensuring only whitelisted users can enter.
@@ -80,6 +81,7 @@ function LoginPage() {
   const [password, setPassword] = useState('');
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
 
   const handleGoogleLogin = async () => {
     if (!auth) return;
@@ -116,6 +118,15 @@ function LoginPage() {
       
       <Card className="w-full max-w-md bg-white/5 border-white/10 p-10 backdrop-blur-2xl relative z-10 space-y-8 rounded-[40px] shadow-2xl">
         <div className="text-center space-y-4">
+          {savannaLogo && (
+            <div className="flex justify-center mb-6">
+              <img 
+                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')}
+                alt="Savanna"
+                style={{ width: 'clamp(120px, 18vw, 200px)', height: 'auto', objectFit: 'contain' }}
+              />
+            </div>
+          )}
           <div className="w-20 h-20 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center mx-auto mb-2 border border-brand-gold/20">
             <ShieldCheck size={40} className="animate-pulse" />
           </div>

@@ -53,26 +53,23 @@ export const AppSidebar = () => {
         <div className="p-8 pb-4 space-y-6">
           <div className="flex flex-col gap-4">
             {savannaLogo && (
-              <div className="relative h-12 w-full flex items-center">
-                <img 
-                  src={cl(savannaLogo.imageUrl)} 
-                  alt="Savanna" 
-                  className="h-full w-auto object-contain" 
-                />
-              </div>
+              <img 
+                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
+                alt="Savanna" 
+                style={{ height: '48px', width: 'auto', objectFit: 'contain' }}
+              />
             )}
             <div className="flex items-center gap-2">
               <div className="h-[1px] w-4 bg-white/20" />
               <div className="text-[var(--text-xs)] tracking-[3px] text-brand-teal uppercase font-bold">Managed by</div>
             </div>
             {fireflyLogo && (
-              <div className="relative h-6 w-full opacity-60 flex items-center">
-                <img 
-                  src={cl(fireflyLogo.imageUrl)} 
-                  alt="Firefly" 
-                  className="h-full w-auto object-contain" 
-                />
-              </div>
+              <img 
+                src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
+                alt="Firefly" 
+                className="opacity-60"
+                style={{ height: '24px', width: 'auto', objectFit: 'contain' }}
+              />
             )}
           </div>
           <div className="pt-2">

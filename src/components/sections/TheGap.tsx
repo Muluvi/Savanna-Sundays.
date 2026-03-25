@@ -75,9 +75,9 @@ const StatCounter = ({ value }: { value: string }) => {
 export const TheGap = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   const socialIcons = [
-    { id: 'social-fb', label: 'Facebook', value: '603K', size: 'h-16' },
-    { id: 'social-ig', label: 'Instagram', value: '6.1K', size: 'h-16' },
-    { id: 'social-x', label: 'X (Twitter)', value: 'h-14' },
+    { id: 'social-fb', label: 'Facebook', value: '603K' },
+    { id: 'social-ig', label: 'Instagram', value: '6.1K' },
+    { id: 'social-x', label: 'X (Twitter)', value: '1.1K' },
   ];
 
   return (
@@ -93,9 +93,9 @@ export const TheGap = () => {
           <div className="absolute top-0 right-0 p-8 opacity-20 group-hover:scale-110 transition-transform duration-1000">
             {savannaLogo && (
               <img 
-                src={cl(savannaLogo.imageUrl)} 
+                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
                 alt="" 
-                className="h-32 w-auto object-contain" 
+                style={{ height: '128px', width: 'auto', objectFit: 'contain' }}
               />
             )}
           </div>
@@ -120,17 +120,16 @@ export const TheGap = () => {
             const img = PlaceHolderImages.find(i => i.id === stat.id);
             return (
               <div key={stat.id} className="glass-tile p-6 rounded-3xl flex flex-col items-center gap-4 group hover:-translate-y-1">
-                <div className={cn("relative transition-transform duration-500 group-hover:scale-110", stat.size)}>
-                  {img && (
-                    <img 
-                      src={cl(img.imageUrl)} 
-                      alt={stat.label} 
-                      className="h-full w-auto object-contain" 
-                    />
-                  )}
-                </div>
+                {img && (
+                  <img 
+                    src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_80')} 
+                    alt={stat.label} 
+                    className="transition-transform duration-500 group-hover:scale-110"
+                    style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+                  />
+                )}
                 <div className="text-center">
-                  {stat.value ? <StatCounter value={stat.value} /> : <div className="font-headline text-[var(--text-4xl)] text-brand-gold leading-none">1.1K</div>}
+                  <StatCounter value={stat.value} />
                   <div className="font-body text-[var(--text-xs)] uppercase tracking-[4px] text-brand-gold/60 font-bold mt-1">{stat.label}</div>
                 </div>
               </div>

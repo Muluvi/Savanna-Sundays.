@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -70,13 +69,12 @@ export const DualActivationModel = () => {
                 className="group relative aspect-square glass-tile rounded-[32px] flex items-center justify-center p-6 transition-all duration-500 hover:bg-brand-gold/8 hover:border-l-2 hover:border-brand-gold hover:translate-x-1"
               >
                 {logo && (
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <img 
-                      src={cl(logo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,h_200')} 
-                      alt={venue.name} 
-                      className="max-h-full max-w-full object-contain filter transition-all duration-500 group-hover:scale-110" 
-                    />
-                  </div>
+                  <img 
+                    src={cl(logo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_300')} 
+                    alt={venue.name} 
+                    className="filter transition-all duration-500 group-hover:scale-110"
+                    style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
+                  />
                 )}
                 <ArrowRight className="absolute bottom-4 right-4 text-brand-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" size={14} />
               </div>

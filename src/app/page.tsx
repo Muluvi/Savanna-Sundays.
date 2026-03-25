@@ -108,17 +108,17 @@ export default function Home() {
 
           <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center gap-4 text-center">
             {savannaLogo && (
-              <div className={cn(
-                "relative h-40 md:h-[280px] w-full max-w-[500px] flex items-center justify-center reveal-on-scroll logo-shimmer",
-                heroVisible && "reveal-visible"
-              )}>
-                <img 
-                  src={cl(savannaLogo.imageUrl)} 
-                  alt="Savanna" 
-                  className="h-full w-auto object-contain" 
-                  style={{ maxWidth: '100%' }}
-                />
-              </div>
+              <img 
+                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
+                alt="Savanna" 
+                className={cn(
+                  "reveal-on-scroll logo-shimmer transition-all duration-1000",
+                  heroVisible ? "reveal-visible" : "opacity-0 scale-95"
+                )}
+                style={{ width: 'clamp(160px, 20vw, 280px)', height: 'auto', objectFit: 'contain' }}
+                loading="eager"
+                fetchPriority="high"
+              />
             )}
 
             <div className="space-y-1">
@@ -184,7 +184,7 @@ export default function Home() {
         ))}
 
         {/* Section 03 — The Ritual (Full Bleed Talent Marquee) */}
-        <div id="the-ritual" className="relative w-full">
+        <div id="the-ritual" className="relative w-full overflow-hidden">
           <TalentMarquee />
           <SectionContainer 
             id="the-ritual-details"

@@ -107,9 +107,14 @@ export const WhyFireflySection = () => {
         <div className="flex flex-col items-center gap-8 pt-4 pb-8">
           <div className="text-center space-y-2">
             <h4 className="font-headline text-3xl md:text-5xl text-white uppercase tracking-tighter">The Cider is Dry.</h4>
-            <p className="font-serif italic text-xl md:text-2xl text-brand-gold">
-              "Together, we define the next decade."
-            </p>
+            {logo && (
+              <img 
+                src={cl(logo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
+                alt="Firefly" 
+                className="opacity-40"
+                style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
+              />
+            )}
           </div>
 
           <button className="btn-primary flex items-center gap-4 scale-100 md:scale-110 transition-all shadow-[0_0_30px_rgba(244,197,66,0.1)] group animate-glow-pulse">
