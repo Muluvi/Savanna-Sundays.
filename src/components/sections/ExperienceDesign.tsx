@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { Music, Users, Camera, Clock, CalendarDays, Sparkles } from 'lucide-react';
+import { Music, Users, Camera, Clock, CalendarDays, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ContentHarvestMetrics } from './ContentProduction';
 
 /**
@@ -68,6 +68,25 @@ const productionDays = [
 ];
 
 export const ExperienceDesignSection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+    const progress = (scrollLeft / (scrollWidth - clientWidth)) * 100;
+    setScrollProgress(progress);
+  };
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (!scrollRef.current) return;
+    const scrollAmount = 400;
+    scrollRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div className="space-y-12">
       <div className="w-full bg-brand-gold p-8 md:p-12 rounded-[40px] flex flex-col md:flex-row items-center gap-8 shadow-2xl relative overflow-hidden group">
@@ -90,28 +109,63 @@ export const ExperienceDesignSection = () => {
         <ContentHarvestMetrics />
       </div>
 
-      <div className="space-y-6 pt-8 border-t border-white/5">
-        <div className="flex items-center gap-3">
-          <CalendarDays className="text-brand-gold" size={20} />
-          <div className="section-label mb-0">03C Publishing Rhythm</div>
+      <div className="space-y-6 pt-8 border-t border-white/5 relative">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <CalendarDays className="text-brand-gold" size={20} />
+            <div className="section-label mb-0">03C Publishing Rhythm</div>
+          </div>
+          
+          {/* Desktop Navigation Buttons */}
+          <div className="hidden md:flex items-center gap-2">
+            <button 
+              onClick={() => scroll('left')}
+              className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-brand-gold hover:bg-white/5 transition-colors"
+              aria-label="Scroll Left"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button 
+              onClick={() => scroll('right')}
+              className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-brand-gold hover:bg-white/5 transition-colors"
+              aria-label="Scroll Right"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
         </div>
-        <div className="overflow-x-auto scrollbar-hide -mx-6 px-6">
-          <div className="flex gap-3 min-w-[1200px] pb-4">
-            {productionDays.map((p, i) => (
-              <div key={i} className={cn(
-                "flex-1 p-6 rounded-[32px] flex flex-col gap-4 border transition-all", 
-                p.anchor ? "bg-brand-gold text-brand-green scale-105 shadow-[0_0_40px_rgba(244,197,66,0.3)]" : "bg-white/5 border-white/5 opacity-40"
-              )}>
-                <div className="flex items-center justify-between">
-                  <span className="font-headline text-[var(--text-sm)] md:text-[var(--text-base)] uppercase tracking-widest">{p.day}</span>
-                  <div className={cn("p-2 rounded-xl", p.anchor ? "bg-brand-green/10" : "bg-white/10")}>{p.icon}</div>
+
+        <div className="relative">
+          <div 
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className="overflow-x-auto scrollbar-hide -mx-6 px-6"
+          >
+            <div className="flex gap-3 min-w-[1200px] pb-6 pt-2">
+              {productionDays.map((p, i) => (
+                <div key={i} className={cn(
+                  "flex-1 p-6 rounded-[32px] flex flex-col gap-4 border transition-all", 
+                  p.anchor ? "bg-brand-gold text-brand-green scale-105 shadow-[0_0_40px_rgba(244,197,66,0.3)]" : "bg-white/5 border-white/5 opacity-40 hover:opacity-100"
+                )}>
+                  <div className="flex items-center justify-between">
+                    <span className="font-headline text-[var(--text-sm)] md:text-[var(--text-base)] uppercase tracking-widest">{p.day}</span>
+                    <div className={cn("p-2 rounded-xl", p.anchor ? "bg-brand-green/10" : "bg-white/10")}>{p.icon}</div>
+                  </div>
+                  <div className="space-y-1">
+                    <h5 className="font-headline text-[var(--text-lg)] md:text-[var(--text-xl)] uppercase leading-none">{p.title}</h5>
+                    <p className="font-body text-[var(--text-xs)] font-bold uppercase tracking-widest opacity-80">{p.body}</p>
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <h5 className="font-headline text-[var(--text-lg)] md:text-[var(--text-xl)] uppercase leading-none">{p.title}</h5>
-                  <p className="font-body text-[var(--text-xs)] font-bold uppercase tracking-widest opacity-80">{p.body}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Scroll Progress Indicator */}
+          <div className="w-full h-[2px] bg-brand-gold/10 rounded-full overflow-hidden mt-2">
+            <div 
+              className="h-full bg-brand-gold transition-transform duration-100 ease-out origin-left"
+              style={{ transform: `scaleX(${scrollProgress / 100})` }}
+            />
           </div>
         </div>
       </div>
