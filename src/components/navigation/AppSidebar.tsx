@@ -56,10 +56,10 @@ export const AppSidebar = () => {
             </div>
             {fireflyLogo && (
               <img 
-                src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr:2.0,w_800')} 
+                src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr:2.0,w_1000')} 
                 alt="Firefly Management" 
-                className="opacity-100 hover:scale-105 transition-transform drop-shadow-[0_10px_25px_rgba(0,0,0,0.5)] brightness-125"
-                style={{ height: '56px', width: 'auto', objectFit: 'contain' }}
+                className="opacity-100 hover:scale-105 transition-transform drop-shadow-[0_15px_35px_rgba(0,0,0,0.6)] brightness-125"
+                style={{ height: '80px', width: 'auto', objectFit: 'contain' }}
               />
             )}
           </div>

@@ -138,27 +138,27 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Footer Attribution - High Priority */}
+          {/* Footer Attribution - High Priority Branding */}
           <div className={cn(
-            "relative z-10 flex flex-col items-center gap-4 md:gap-6 transition-all duration-1200 delay-[1200ms]",
+            "relative z-10 flex flex-col items-center gap-4 md:gap-8 transition-all duration-1200 delay-[1200ms]",
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}>
-            <div className="flex flex-col items-center gap-3 md:gap-4">
+            <div className="flex flex-col items-center gap-4 md:gap-6">
               <span className="font-body text-[var(--text-xs)] tracking-[4px] text-brand-gold uppercase font-bold opacity-60">Presented by</span>
-              <div className="flex items-center gap-4 md:gap-6">
-                <div className="h-[1px] w-12 md:w-24 bg-brand-gold/25" />
+              <div className="flex items-center gap-6 md:gap-10">
+                <div className="h-[1px] w-12 md:w-32 bg-brand-gold/25" />
                 {fireflyLogo && (
                   <img 
-                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_1000')} 
+                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_1200')} 
                     alt="Firefly Management" 
-                    className="logo-shimmer hover:scale-110 transition-all duration-700 drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)] brightness-110"
-                    style={{ height: 'clamp(60px, 8vh, 90px)', width: 'auto', objectFit: 'contain' }}
+                    className="logo-shimmer hover:scale-105 transition-all duration-700 drop-shadow-[0_20px_60px_rgba(0,0,0,0.8)] brightness-125"
+                    style={{ height: 'clamp(120px, 15vh, 200px)', width: 'auto', objectFit: 'contain' }}
                     loading="eager"
                     fetchPriority="high"
                     decoding="async"
                   />
                 )}
-                <div className="h-[1px] w-12 md:w-24 bg-brand-gold/25" />
+                <div className="h-[1px] w-12 md:w-32 bg-brand-gold/25" />
               </div>
             </div>
           </div>
@@ -200,10 +200,10 @@ export default function Home() {
           </div>
         </SectionContainer>
 
-        {/* Optimized Closing */}
-        <div ref={closingRef} id="closing" className="py-10 md:py-16 px-6 text-center border-t border-white/5 relative overflow-hidden bg-[#0A140B]">
+        {/* Optimized Closing with Prominent Branding */}
+        <div ref={closingRef} id="closing" className="py-12 md:py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-[#0A140B]">
           <CiderFizz className="opacity-[0.04]" />
-          <div className="max-w-4xl mx-auto space-y-8 md:space-y-10 relative z-10">
+          <div className="max-w-4xl mx-auto space-y-10 md:space-y-14 relative z-10">
             <p className="font-serif italic text-[var(--text-lg)] md:text-[var(--text-xl)] text-brand-cream/90 leading-snug">
               {closingSentences.map((sentence, i) => (
                 <span key={i} style={{ transitionDelay: `${i * 100}ms` }} className={cn("reveal-on-scroll inline-block mr-2 mb-1", closingVisible && "reveal-visible")}>
@@ -220,13 +220,13 @@ export default function Home() {
               </a>
             </div>
             
-            <div className={cn("reveal-on-scroll pt-8 md:pt-12", closingVisible && "reveal-visible")} style={{ transitionDelay: '1400ms' }}>
+            <div className={cn("reveal-on-scroll pt-12 md:pt-16", closingVisible && "reveal-visible")} style={{ transitionDelay: '1400ms' }}>
                {fireflyLogo && (
                   <img 
-                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_800')} 
+                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_1200')} 
                     alt="Firefly Management" 
-                    className="mx-auto brightness-110 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] opacity-80"
-                    style={{ height: '56px', width: 'auto', objectFit: 'contain' }}
+                    className="mx-auto brightness-125 drop-shadow-[0_15px_45px_rgba(0,0,0,0.6)] opacity-90 hover:scale-105 transition-transform duration-700"
+                    style={{ height: '90px', width: 'auto', objectFit: 'contain' }}
                   />
                 )}
             </div>

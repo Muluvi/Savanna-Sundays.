@@ -199,10 +199,10 @@ function LoginPage() {
           </p>
           {fireflyLogo && (
             <img 
-              src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_800')}
+              src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_1000')}
               alt="Firefly"
-              className="mx-auto brightness-125 drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
-              style={{ height: '56px', width: 'auto', objectFit: 'contain' }}
+              className="mx-auto brightness-125 drop-shadow-[0_15px_40px_rgba(0,0,0,0.6)]"
+              style={{ height: '80px', width: 'auto', objectFit: 'contain' }}
             />
           )}
         </div>

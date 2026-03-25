@@ -105,14 +105,14 @@ export const WhyFireflySection = () => {
         </div>
 
         <div className="flex flex-col items-center gap-8 pt-4 pb-8">
-          <div className="text-center space-y-4">
+          <div className="text-center space-y-6">
             <h4 className="font-headline text-3xl md:text-5xl text-white uppercase tracking-tighter">The Cider is Dry.</h4>
             {logo && (
               <img 
-                src={cl(logo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_800')} 
+                src={cl(logo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_1200')} 
                 alt="Firefly" 
-                className="mx-auto brightness-110 drop-shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
-                style={{ height: '64px', width: 'auto', objectFit: 'contain' }}
+                className="mx-auto brightness-125 drop-shadow-[0_15px_50px_rgba(0,0,0,0.8)]"
+                style={{ height: '120px', width: 'auto', objectFit: 'contain' }}
               />
             )}
           </div>
