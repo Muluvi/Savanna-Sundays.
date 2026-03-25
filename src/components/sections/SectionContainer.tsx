@@ -35,7 +35,7 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.08 } // Slightly lower threshold for smoother reveals
+      { threshold: 0.1 } 
     );
 
     if (sectionRef.current) {
@@ -49,26 +49,25 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
     };
   }, []);
 
-  // Kinetic Parallax Text
-  const translateX = isMounted ? (scrollProgress - 0.5) * 60 : 0; 
+  const translateX = isMounted ? (scrollProgress - 0.5) * 40 : 0; 
 
   return (
     <section 
       ref={sectionRef}
       id={id} 
       className={cn(
-        "py-16 md:py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center border-b border-white/5"
+        "py-12 md:py-20 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center border-b border-white/5"
       )}
     >
       <div className="noise-overlay" />
-      <CiderFizz className="opacity-[0.04] z-0" />
-      <WaterDroplets className="opacity-[0.05] z-0" />
+      <CiderFizz className="opacity-[0.03] z-0" />
+      <WaterDroplets className="opacity-[0.04] z-0" />
       
       <div className={cn(
         "max-w-6xl mx-auto w-full relative z-10 reveal-on-scroll",
         isVisible && "reveal-visible"
       )}>
-        <div className="mb-12 md:mb-16 text-center md:text-left relative">
+        <div className="mb-8 md:mb-12 text-center md:text-left relative">
           <span className="section-label">{label}</span>
           <h2 
             className="section-title text-glow-gold"

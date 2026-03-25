@@ -57,7 +57,7 @@ export default function Home() {
           closingObserver.unobserve(entry.target);
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.1 }
     );
 
     if (closingRef.current) closingObserver.observe(closingRef.current);
@@ -81,24 +81,24 @@ export default function Home() {
         {/* Cinematic Hero Section */}
         <section 
           id="hero" 
-          className="relative h-screen flex flex-col justify-between items-center px-6 py-16 overflow-hidden bg-brand-green"
+          className="relative h-screen flex flex-col justify-between items-center px-6 py-12 md:py-16 overflow-hidden bg-brand-green"
         >
           {/* Visual Layers */}
-          <CiderFizz className="opacity-50 z-0" />
-          <WaterDroplets className="opacity-20 z-0" />
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_45%,rgba(244,197,66,0.22)_0%,transparent_75%)]" />
+          <CiderFizz className="opacity-40 z-0" />
+          <WaterDroplets className="opacity-15 z-0" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_45%,rgba(244,197,66,0.18)_0%,transparent_75%)]" />
 
           {/* Logo Reveal */}
           <div className={cn(
             "relative z-10 transition-all duration-[1500ms] ease-out",
-            heroVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-12 scale-95"
+            heroVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-8 scale-95"
           )}>
             {savannaLogo && (
               <img 
-                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
+                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_500')} 
                 alt="Savanna" 
-                className="logo-shimmer drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
-                style={{ width: 'clamp(180px, 20vw, 300px)', height: 'auto', objectFit: 'contain' }}
+                className="logo-shimmer drop-shadow-[0_15px_40px_rgba(0,0,0,0.5)]"
+                style={{ width: 'clamp(140px, 18vw, 240px)', height: 'auto', objectFit: 'contain' }}
                 loading="eager"
                 fetchPriority="high"
               />
@@ -107,31 +107,31 @@ export default function Home() {
 
           {/* Headline Stack */}
           <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center text-center">
-            <h1 className="flex flex-col items-center leading-[0.82] tracking-tighter">
+            <h1 className="flex flex-col items-center leading-[0.85] tracking-tighter">
               <span className={cn(
-                "text-brand-gold text-[clamp(4.5rem,18vw,14rem)] font-headline uppercase block transition-all duration-[1400ms] delay-300 text-glow-gold",
-                heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-24"
+                "text-brand-gold text-[clamp(3.5rem,14vw,10.5rem)] font-headline uppercase block transition-all duration-[1400ms] delay-300 text-glow-gold",
+                heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
               )}>SAVANNA</span>
               <span className={cn(
-                "text-brand-gold text-[clamp(4.5rem,18vw,14rem)] font-headline uppercase block transition-all duration-[1400ms] delay-500 text-glow-gold",
-                heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-24"
+                "text-brand-gold text-[clamp(3.5rem,14vw,10.5rem)] font-headline uppercase block transition-all duration-[1400ms] delay-500 text-glow-gold",
+                heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
               )}>SUNDAYS</span>
             </h1>
             
             <div className={cn(
-              "mt-10 space-y-6 transition-all duration-1000 delay-1000",
-              heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              "mt-8 space-y-4 transition-all duration-1000 delay-1000",
+              heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             )}>
-              <div className="space-y-2">
-                <p className="font-body text-brand-gold text-[var(--text-base)] uppercase tracking-[4px] font-bold">
+              <div className="space-y-1">
+                <p className="font-body text-brand-gold text-[var(--text-sm)] uppercase tracking-[3px] font-bold opacity-80">
                   Already live. Now scaling.
                 </p>
-                <div className="h-[1px] w-12 bg-brand-gold/30 mx-auto" />
+                <div className="h-[1px] w-10 bg-brand-gold/30 mx-auto" />
               </div>
               
-              <div className="flex justify-center pt-8">
-                 <div className="w-16 h-16 rounded-full border border-brand-gold/30 flex items-center justify-center animate-bounce shadow-[0_0_30px_rgba(244,197,66,0.25)] cursor-pointer group hover:bg-brand-gold/10 transition-colors" onClick={() => document.getElementById('the-gap')?.scrollIntoView({ behavior: 'smooth' })}>
-                    <ChevronDown className="text-brand-gold group-hover:scale-110 transition-transform" size={28} />
+              <div className="flex justify-center pt-4">
+                 <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-brand-gold/20 flex items-center justify-center animate-bounce shadow-[0_0_20px_rgba(244,197,66,0.2)] cursor-pointer group hover:bg-brand-gold/10 transition-colors" onClick={() => document.getElementById('the-gap')?.scrollIntoView({ behavior: 'smooth' })}>
+                    <ChevronDown className="text-brand-gold group-hover:scale-110 transition-transform" size={24} />
                  </div>
               </div>
             </div>
@@ -139,22 +139,22 @@ export default function Home() {
 
           {/* Footer Attribution */}
           <div className={cn(
-            "relative z-10 flex flex-col items-center gap-8 transition-all duration-1200 delay-[1200ms]",
-            heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+            "relative z-10 flex flex-col items-center gap-6 transition-all duration-1200 delay-[1200ms]",
+            heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}>
-            <div className="flex flex-col items-center gap-6">
-              <span className="font-body text-[var(--text-lg)] tracking-[4px] text-brand-gold uppercase font-bold opacity-80">Presented by</span>
-              <div className="flex items-center gap-10">
-                <div className="h-[1px] w-16 bg-brand-gold/20" />
+            <div className="flex flex-col items-center gap-4">
+              <span className="font-body text-[var(--text-xs)] tracking-[3px] text-brand-gold uppercase font-bold opacity-60">Presented by</span>
+              <div className="flex items-center gap-6">
+                <div className="h-[1px] w-12 bg-brand-gold/15" />
                 {fireflyLogo && (
                   <img 
-                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_800')} 
+                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
                     alt="Firefly Management" 
-                    className="opacity-100 hover:scale-110 transition-all duration-700 drop-shadow-[0_15px_40px_rgba(0,0,0,0.5)]"
-                    style={{ height: '72px', width: 'auto', objectFit: 'contain' }}
+                    className="opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-700 drop-shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
+                    style={{ height: '56px', width: 'auto', objectFit: 'contain' }}
                   />
                 )}
-                <div className="h-[1px] w-16 bg-brand-gold/20" />
+                <div className="h-[1px] w-12 bg-brand-gold/15" />
               </div>
             </div>
           </div>
@@ -190,28 +190,28 @@ export default function Home() {
 
         {/* Section 05 — The Partnership */}
         <SectionContainer id="the-partnership" label="05 — The Partnership" title="Next Steps">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             <LeadCapture />
             <StrategicAdvisor />
           </div>
         </SectionContainer>
 
         {/* Closing */}
-        <div ref={closingRef} id="closing" className="py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-[#0A140B]">
-          <CiderFizz className="opacity-[0.05]" />
-          <div className="max-w-4xl mx-auto space-y-12 relative z-10">
-            <p className="font-serif italic text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-cream leading-snug">
+        <div ref={closingRef} id="closing" className="py-12 md:py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-[#0A140B]">
+          <CiderFizz className="opacity-[0.04]" />
+          <div className="max-w-4xl mx-auto space-y-10 relative z-10">
+            <p className="font-serif italic text-[var(--text-lg)] md:text-[var(--text-xl)] text-brand-cream/90 leading-snug">
               {closingSentences.map((sentence, i) => (
-                <span key={i} style={{ transitionDelay: `${i * 120}ms` }} className={cn("reveal-on-scroll inline-block mr-2 mb-2", closingVisible && "reveal-visible")}>
+                <span key={i} style={{ transitionDelay: `${i * 100}ms` }} className={cn("reveal-on-scroll inline-block mr-2 mb-1", closingVisible && "reveal-visible")}>
                   {sentence}
                 </span>
               ))}
             </p>
-            <div className={cn("reveal-on-scroll", closingVisible && "reveal-visible")} style={{ transitionDelay: '1400ms' }}>
-              <a href="mailto:partner@firefly.co.ke" className="btn-scale-sunday-glow group h-20">
-                <div className="relative z-10 flex items-center gap-8 px-12 h-full text-brand-ink">
-                  <span className="font-headline text-[var(--text-xl)] tracking-widest uppercase">Scale Sunday</span>
-                  <ArrowRight className="group-hover:translate-x-4 transition-transform" size={28} />
+            <div className={cn("reveal-on-scroll", closingVisible && "reveal-visible")} style={{ transitionDelay: '1200ms' }}>
+              <a href="mailto:partner@firefly.co.ke" className="btn-scale-sunday-glow group h-16 md:h-20">
+                <div className="relative z-10 flex items-center gap-6 px-10 h-full text-brand-ink">
+                  <span className="font-headline text-[var(--text-lg)] md:text-[var(--text-xl)] tracking-widest uppercase">Scale Sunday</span>
+                  <ArrowRight className="group-hover:translate-x-3 transition-transform" size={24} />
                 </div>
               </a>
             </div>
