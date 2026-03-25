@@ -123,10 +123,10 @@ function LoginPage() {
           {savannaLogo && (
             <div className="flex justify-center mb-4">
               <img 
-                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')}
+                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')}
                 alt="Savanna"
-                className="drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
-                style={{ width: 'clamp(140px, 20vw, 220px)', height: 'auto', objectFit: 'contain' }}
+                className="drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+                style={{ width: 'clamp(180px, 25vw, 260px)', height: 'auto', objectFit: 'contain' }}
               />
             </div>
           )}
@@ -193,16 +193,16 @@ function LoginPage() {
           Sign in with Google
         </Button>
 
-        <div className="text-center space-y-4 pt-4 border-t border-white/5">
+        <div className="text-center space-y-6 pt-6 border-t border-white/5">
           <p className="font-body text-[9px] text-white/20 uppercase tracking-[3px] leading-relaxed">
             CONFIDENTIAL STRATEGIC DOCUMENT. <br/>ALL SESSION DATA RECORDED VIA FIREFLY ANALYTICS.
           </p>
           {fireflyLogo && (
             <img 
-              src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')}
+              src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_800')}
               alt="Firefly"
-              className="mx-auto opacity-40 grayscale"
-              style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
+              className="mx-auto brightness-125 drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
+              style={{ height: '56px', width: 'auto', objectFit: 'contain' }}
             />
           )}
         </div>

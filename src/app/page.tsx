@@ -95,10 +95,10 @@ export default function Home() {
           )}>
             {savannaLogo && (
               <img 
-                src={cl(savannaLogo.imageUrl, 'q_auto,f_auto,dpr_2.0,w_500')} 
+                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_800')} 
                 alt="Savanna" 
                 className="logo-shimmer drop-shadow-[0_25px_60px_rgba(0,0,0,0.7)]"
-                style={{ width: 'clamp(140px, 18vw, 240px)', height: 'auto', objectFit: 'contain' }}
+                style={{ width: 'clamp(180px, 22vw, 320px)', height: 'auto', objectFit: 'contain' }}
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
@@ -144,21 +144,21 @@ export default function Home() {
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}>
             <div className="flex flex-col items-center gap-3 md:gap-4">
-              <span className="font-body text-[var(--text-xs)] tracking-[3px] text-brand-gold uppercase font-bold opacity-60">Presented by</span>
+              <span className="font-body text-[var(--text-xs)] tracking-[4px] text-brand-gold uppercase font-bold opacity-60">Presented by</span>
               <div className="flex items-center gap-4 md:gap-6">
-                <div className="h-[1px] w-8 md:w-12 bg-brand-gold/15" />
+                <div className="h-[1px] w-12 md:w-24 bg-brand-gold/25" />
                 {fireflyLogo && (
                   <img 
-                    src={cl(fireflyLogo.imageUrl, 'q_auto,f_auto,dpr_2.0,w_600')} 
+                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_1000')} 
                     alt="Firefly Management" 
-                    className="opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-700 drop-shadow-[0_15px_40px_rgba(0,0,0,0.6)] brightness-110"
-                    style={{ height: 'clamp(40px, 6vh, 56px)', width: 'auto', objectFit: 'contain' }}
+                    className="logo-shimmer hover:scale-110 transition-all duration-700 drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)] brightness-110"
+                    style={{ height: 'clamp(60px, 8vh, 90px)', width: 'auto', objectFit: 'contain' }}
                     loading="eager"
                     fetchPriority="high"
                     decoding="async"
                   />
                 )}
-                <div className="h-[1px] w-8 md:w-12 bg-brand-gold/15" />
+                <div className="h-[1px] w-12 md:w-24 bg-brand-gold/25" />
               </div>
             </div>
           </div>
@@ -218,6 +218,17 @@ export default function Home() {
                   <ArrowRight className="group-hover:translate-x-3 transition-transform" size={20} />
                 </div>
               </a>
+            </div>
+            
+            <div className={cn("reveal-on-scroll pt-8 md:pt-12", closingVisible && "reveal-visible")} style={{ transitionDelay: '1400ms' }}>
+               {fireflyLogo && (
+                  <img 
+                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_800')} 
+                    alt="Firefly Management" 
+                    className="mx-auto brightness-110 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] opacity-80"
+                    style={{ height: '56px', width: 'auto', objectFit: 'contain' }}
+                  />
+                )}
             </div>
           </div>
         </div>
