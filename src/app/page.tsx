@@ -19,6 +19,8 @@ import { WhyFireflySection } from '@/components/sections/WhyFirefly';
 import { GrowthRoadmapSection } from '@/components/sections/GrowthRoadmap';
 import { DigitalInfrastructureSection } from '@/components/sections/DigitalInfrastructure';
 import { TalentMarquee } from '@/components/sections/TalentMarquee';
+import { VenueMarquee } from '@/components/sections/VenueMarquee';
+import { InfluencerLineup } from '@/components/sections/InfluencerLineup';
 
 const sectionsData = [
   { id: 'the-gap', label: '01 — The Opportunity', title: "The Expansion", component: <TheGap /> },
@@ -56,6 +58,9 @@ export default function Home() {
   useEffect(() => {
     setIsMounted(true);
     
+    // Safety timeout to ensure visibility even if observer misses
+    const timer = setTimeout(() => setHeroVisible(true), 1500);
+
     const heroObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -63,7 +68,7 @@ export default function Home() {
           heroObserver.unobserve(entry.target);
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.1 }
     );
 
     const closingObserver = new IntersectionObserver(
@@ -82,6 +87,7 @@ export default function Home() {
     return () => {
       heroObserver.disconnect();
       closingObserver.disconnect();
+      clearTimeout(timer);
     };
   }, []);
 
@@ -112,8 +118,8 @@ export default function Home() {
                 src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
                 alt="Savanna" 
                 className={cn(
-                  "reveal-on-scroll logo-shimmer transition-all duration-1000",
-                  heroVisible ? "reveal-visible" : "opacity-0 scale-95"
+                  "logo-shimmer transition-all duration-1000",
+                  heroVisible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-4"
                 )}
                 style={{ width: 'clamp(160px, 20vw, 280px)', height: 'auto', objectFit: 'contain' }}
                 loading="eager"
@@ -153,8 +159,8 @@ export default function Home() {
                 </div>
               </h1>
               <p className={cn(
-                "font-body text-brand-gold text-[var(--text-lg)] md:text-[var(--text-xl)] uppercase tracking-[6px] font-bold reveal-on-scroll",
-                heroVisible && "reveal-visible"
+                "font-body text-brand-gold text-[var(--text-lg)] md:text-[var(--text-xl)] uppercase tracking-[6px] font-bold transition-all duration-1000 delay-500",
+                heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               )}>
                 Already live. Now scaling to Nairobi.
               </p>
@@ -171,21 +177,31 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Sections 01 & 02 */}
-        {sectionsData.slice(0, 2).map((section) => (
-          <SectionContainer 
-            key={section.id}
-            id={section.id}
-            label={section.label}
-            title={section.title}
-          >
-            {section.component}
-          </SectionContainer>
-        ))}
+        {/* Section 01 */}
+        <SectionContainer 
+          id="the-gap"
+          label="01 — The Opportunity"
+          title="The Expansion"
+        >
+          <TheGap />
+        </SectionContainer>
 
-        {/* Section 03 — The Ritual (Full Bleed Talent Marquee) */}
+        {/* Section 02 — The Engine */}
+        <div id="the-engine" className="relative w-full">
+          <SectionContainer 
+            id="the-engine-details"
+            label="02 — The Venue Network"
+            title="The Network"
+          >
+            <DualActivationModel />
+          </SectionContainer>
+          <VenueMarquee />
+        </div>
+
+        {/* Section 03 — The Ritual (Full Bleed Marquees) */}
         <div id="the-ritual" className="relative w-full overflow-hidden">
           <TalentMarquee />
+          <InfluencerLineup />
           <SectionContainer 
             id="the-ritual-details"
             label="03 — The Ritual"

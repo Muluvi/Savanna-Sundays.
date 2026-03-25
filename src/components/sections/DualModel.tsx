@@ -6,7 +6,6 @@ import { Globe, RotateCcw, Zap, ArrowRight, Sparkles } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card } from '@/components/ui/card';
 import { cl } from '@/lib/cloudinary';
-import { VenueMarquee } from './VenueMarquee';
 
 const premiumVenues = [
   { name: "Muze (Westlands)", logoId: "venue-muze" },
@@ -81,11 +80,6 @@ export const DualActivationModel = () => {
             );
           })}
         </div>
-      </div>
-
-      {/* Tier 2 - Mainstream Marquee (Forced Full-Bleed) */}
-      <div className="-mx-6 md:-mx-12 lg:-mx-24">
-        <VenueMarquee />
       </div>
 
       {/* All Venues Scrolling Names */}
