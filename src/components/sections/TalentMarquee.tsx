@@ -139,8 +139,8 @@ export const TalentMarquee = () => {
         <TalentDivider />
         
         <MarqueeRow 
-          name="SAMEER" 
-          role="MC • The Savanna Voice • 70,000 Cumulative Followers (Socials)"
+          name="SAMEER BRY" 
+          role="@sameerbry • MC • The Savanna Voice • 42,000 IG Followers • Kababaye 🐂🇰🇪"
           images={sameerMCImages} 
           duration="30s" 
           reverse
