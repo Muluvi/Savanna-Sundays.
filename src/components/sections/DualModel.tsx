@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -6,6 +7,7 @@ import { MapPin, Sparkles, Globe, RotateCcw, Zap, ArrowRight } from 'lucide-reac
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card } from '@/components/ui/card';
 import { cl } from '@/lib/cloudinary';
+import { VenueMarquee } from './VenueMarquee';
 
 const premiumVenues = [
   { name: "Muze (Westlands)", logoId: "venue-muze" },
@@ -15,11 +17,7 @@ const premiumVenues = [
   { name: "Masshouse (Industrial Area)", logoId: "venue-masshouse" }
 ];
 
-const mainstreamVenues = [
-  "Tin N Lit", "Alcapone", "Capital Noir", "Volt Lounge", "Covo Kahawa Sukari", "Covo Nairobi", "The Tunnel", "Kettle House"
-];
-
-const allVenueNames = [...premiumVenues.map(v => v.name), ...mainstreamVenues];
+const allVenueNames = [...premiumVenues.map(v => v.name), "Tin N Lit", "Alcapone", "Capital Noir", "Volt Lounge", "Covo Nairobi", "The Tunnel"];
 
 export const DualActivationModel = () => {
   return (
@@ -55,6 +53,7 @@ export const DualActivationModel = () => {
         </div>
       </Card>
 
+      {/* Tier 1 - Premium Grid */}
       <div className="space-y-8">
         <Badge className="bg-brand-teal text-white font-headline text-[var(--text-xs)] px-4 py-1.5 tracking-widest uppercase rounded-full border-none flex items-center gap-2 w-fit">
           <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
@@ -73,7 +72,7 @@ export const DualActivationModel = () => {
                 {logo && (
                   <div className="relative w-full h-full flex items-center justify-center">
                     <img 
-                      src={cl(logo.imageUrl)} 
+                      src={cl(logo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,h_200')} 
                       alt={venue.name} 
                       className="max-h-full max-w-full object-contain filter transition-all duration-500 group-hover:scale-110" 
                     />
@@ -86,27 +85,12 @@ export const DualActivationModel = () => {
         </div>
       </div>
 
-      <div className="space-y-8">
-        <Badge className="bg-brand-ink-soft text-brand-gold font-headline text-[var(--text-xs)] px-4 py-1.5 tracking-widest uppercase rounded-full border-none flex items-center gap-2 w-fit shadow-lg">
-          <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
-            <path d="M7 0L0 9H5V16L12 7H7V0Z" fill="#F4C542"/>
-          </svg>
-          TIER 2 — MAINSTREAM CIRCUIT
-        </Badge>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {mainstreamVenues.map((venue, i) => (
-            <div 
-              key={i} 
-              className="group relative glass-tile p-6 rounded-[24px] flex flex-col items-center justify-center text-center gap-3 transition-all duration-500 bg-white/[0.02] hover:bg-brand-gold/8 hover:border-l-2 hover:border-brand-gold hover:translate-x-1"
-            >
-              <MapPin className="text-brand-gold/40 group-hover:text-brand-gold transition-colors" size={16} />
-              <h5 className="font-headline text-[var(--text-lg)] md:text-[var(--text-xl)] text-brand-gold uppercase leading-tight tracking-tight">{venue}</h5>
-              <ArrowRight className="absolute bottom-4 right-4 text-brand-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" size={14} />
-            </div>
-          ))}
-        </div>
+      {/* Tier 2 - Mainstream Marquee */}
+      <div className="-mx-6 md:-mx-12 lg:-mx-24">
+        <VenueMarquee />
       </div>
 
+      {/* All Venues Scrolling Names */}
       <div 
         className="relative overflow-hidden py-8 -mx-6 md:-mx-12 lg:-mx-24"
         style={{ 
