@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,24 +15,24 @@
 
 @layer base {
   :root {
-    --background: 154 42% 10%; /* Deeper Savanna Green */
+    --background: 154 42% 8%; /* Darker for better pop */
     --foreground: 50 48% 94%;
-    --card: 154 42% 12%;
+    --card: 154 42% 10%;
     --card-foreground: 50 48% 94%;
-    --popover: 154 42% 12%;
+    --popover: 154 42% 10%;
     --popover-foreground: 50 48% 94%;
     --primary: 43 89% 61%; /* Savanna Gold */
     --primary-foreground: 154 42% 10%;
     --secondary: 171 51% 36%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 154 42% 8%;
+    --muted: 154 42% 6%;
     --muted-foreground: 50 48% 85%;
     --accent: 43 89% 61%;
     --accent-foreground: 154 42% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 43 89% 61% / 0.3;
-    --input: 43 89% 61% / 0.3;
+    --border: 43 89% 61% / 0.25;
+    --input: 43 89% 61% / 0.25;
     --ring: 43 89% 61%;
     --radius: 12px;
 
@@ -60,7 +61,7 @@
 
   body::before {
     content: "";
-    @apply fixed inset-0 pointer-events-none opacity-[0.06] z-0;
+    @apply fixed inset-0 pointer-events-none opacity-[0.08] z-0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 }
@@ -77,7 +78,7 @@
 
 @layer components {
   .noise-overlay {
-    @apply absolute inset-0 pointer-events-none opacity-[0.015] z-[1];
+    @apply absolute inset-0 pointer-events-none opacity-[0.02] z-[1];
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
@@ -87,15 +88,15 @@
 
   .section-title {
     @apply font-headline text-[var(--text-6xl)] text-brand-gold relative leading-[1.0] mb-6 tracking-tighter uppercase;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-shadow: 0 10px 30px rgba(0,0,0,0.4);
   }
 
   .btn-primary {
-    @apply relative overflow-hidden bg-brand-gold text-brand-green font-headline text-[var(--text-lg)] tracking-widest py-3 px-8 rounded-full transition-all active:scale-95 shadow-[0_10px_25px_rgba(244,197,66,0.25)] hover:-translate-y-0.5 z-10;
+    @apply relative overflow-hidden bg-brand-gold text-brand-green font-headline text-[var(--text-lg)] tracking-widest py-3 px-10 rounded-full transition-all active:scale-95 shadow-[0_15px_35px_rgba(244,197,66,0.3)] hover:-translate-y-1 z-10;
   }
 
   .btn-scale-sunday-glow {
-    @apply relative inline-flex items-center justify-center rounded-full transition-all active:scale-95 z-0 overflow-hidden p-[2px] shadow-[0_10px_30px_rgba(244,197,66,0.25)];
+    @apply relative inline-flex items-center justify-center rounded-full transition-all active:scale-95 z-0 overflow-hidden p-[2px] shadow-[0_15px_40px_rgba(244,197,66,0.3)];
   }
 
   .btn-scale-sunday-glow::before {
@@ -107,17 +108,17 @@
 
   .btn-scale-sunday-glow::after {
     content: '';
-    @apply absolute inset-[2px] bg-brand-gold rounded-full z-[-1];
+    @apply absolute inset-[3px] bg-brand-gold rounded-full z-[-1];
   }
 
   .glass-tile {
-    @apply bg-white/[0.04] border border-white/10 backdrop-blur-xl transition-all duration-500 hover:border-brand-gold/30 hover:bg-white/[0.06] relative z-10;
+    @apply bg-white/[0.05] border border-white/15 backdrop-blur-2xl transition-all duration-700 hover:border-brand-gold/40 hover:bg-white/[0.08] relative z-10;
   }
 
   .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(24px) scale(0.99);
-    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(32px) scale(0.98);
+    transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1);
     will-change: opacity, transform;
   }
 
@@ -133,15 +134,15 @@
   .logo-shimmer::after {
     content: "";
     @apply absolute inset-0 pointer-events-none z-20;
-    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
+    background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.4) 50%, transparent 65%);
     background-size: 200% 100%;
-    animation: shimmer-sweep 5s infinite linear;
+    animation: shimmer-sweep 6s infinite linear;
   }
 }
 
 @keyframes shimmer-sweep {
   0% { background-position: -200% 0; }
-  60% { background-position: 200% 0; }
+  70% { background-position: 200% 0; }
   100% { background-position: 200% 0; }
 }
 
@@ -149,7 +150,7 @@
   0% { bottom: -20px; opacity: 0; transform: translateY(0) scale(0.8); }
   20% { opacity: var(--bubble-opacity, 0.3); }
   80% { opacity: var(--bubble-opacity, 0.3); }
-  100% { bottom: 120%; opacity: 0; transform: translateY(-20px) scale(1.2); }
+  100% { bottom: 120%; opacity: 0; transform: translateY(-30px) scale(1.3); }
 }
 
 .animate-rise {
@@ -162,7 +163,7 @@
 }
 
 .animate-border-breathe {
-  animation: border-breathe 3s ease-in-out infinite;
+  animation: border-breathe 3.5s ease-in-out infinite;
   transform-origin: left;
 }
 
@@ -175,5 +176,5 @@
 }
 
 .text-glow-gold {
-  text-shadow: 0 0 20px rgba(244, 197, 66, 0.4), 0 0 40px rgba(244, 197, 66, 0.2);
+  text-shadow: 0 0 25px rgba(244, 197, 66, 0.5), 0 0 50px rgba(244, 197, 66, 0.25);
 }
