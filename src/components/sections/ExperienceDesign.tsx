@@ -17,13 +17,63 @@ import {
 import { ContentHarvestMetrics } from './ContentProduction';
 
 const productionDays = [
-  { day: "Sun", title: "Shoot", body: "Capture at The Savanna Vybe Squad venue.", icon: <Camera size={14} />, highlight: false },
-  { day: "Mon", title: "Review", body: "Raw review. Reel edit starts.", icon: <Scissors size={14} />, highlight: false },
-  { day: "Tue", title: "Hero", body: "Reel 1 published (Recap).", icon: <Upload size={14} />, highlight: true },
-  { day: "Wed", title: "Music", body: "Reel 2 (DJ Highlight).", icon: <Music size={14} />, highlight: true },
-  { day: "Thu", title: "Style", body: "Reel 3 (Crowd/Lifestyle).", icon: <Video size={14} />, highlight: true },
-  { day: "Fri", title: "Vibe", body: "Reel 4 (Influencers).", icon: <Users size={14} />, highlight: true },
-  { day: "Sat", title: "Loop", body: "UGC Roundup & Teaser.", icon: <Share2 size={14} />, highlight: true },
+  { 
+    day: "SUN 12:00 PM", 
+    title: "THE DROP", 
+    body: "Coordinated influencer pack release.", 
+    icon: <Clock size={14} />, 
+    highlight: true, 
+    anchor: true 
+  },
+  { 
+    day: "SUN 2-9PM", 
+    title: "LIVE OPS", 
+    body: "Content captured at squad venue.", 
+    icon: <Camera size={14} />, 
+    highlight: false 
+  },
+  { 
+    day: "MON", 
+    title: "REVIEW", 
+    body: "Raw review. Reel editing begins.", 
+    icon: <Scissors size={14} />, 
+    highlight: false 
+  },
+  { 
+    day: "TUE", 
+    title: "HERO", 
+    body: "Reel 1 (Recap) + photo batch.", 
+    icon: <Upload size={14} />, 
+    highlight: true 
+  },
+  { 
+    day: "WED", 
+    title: "MUSIC", 
+    body: "Reel 2 (DJ highlight) + photos.", 
+    icon: <Music size={14} />, 
+    highlight: true 
+  },
+  { 
+    day: "THU", 
+    title: "STYLE", 
+    body: "Reel 3 (Crowd/lifestyle).", 
+    icon: <Video size={14} />, 
+    highlight: true 
+  },
+  { 
+    day: "FRI", 
+    title: "VYBE", 
+    body: "Reel 4 (Influencers) + YouTube set.", 
+    icon: <Users size={14} />, 
+    highlight: true 
+  },
+  { 
+    day: "SAT", 
+    title: "LOOP", 
+    body: "UGC roundup & next Sunday teaser.", 
+    icon: <Share2 size={14} />, 
+    highlight: true 
+  },
 ];
 
 export const ExperienceDesignSection = () => {
@@ -76,27 +126,29 @@ export const ExperienceDesignSection = () => {
         </div>
 
         <div className="overflow-x-auto scrollbar-hide -mx-6 px-6">
-          <div className="flex gap-3 min-w-[900px] pb-4">
+          <div className="flex gap-3 min-w-[1100px] pb-4">
             {productionDays.map((p, i) => (
               <div 
                 key={i} 
                 className={cn(
                   "flex-1 p-6 rounded-[32px] flex flex-col gap-4 border transition-all duration-700",
-                  p.highlight 
-                    ? "bg-white/[0.04] border-brand-gold/30 shadow-[0_0_30px_rgba(244,197,66,0.05)]" 
-                    : "bg-white/5 border-white/5 opacity-30"
+                  p.anchor
+                    ? "bg-brand-gold border-brand-gold text-brand-green scale-105 shadow-[0_0_40px_rgba(244,197,66,0.2)]"
+                    : p.highlight 
+                      ? "bg-white/[0.04] border-brand-gold/30 shadow-[0_0_30px_rgba(244,197,66,0.05)]" 
+                      : "bg-white/5 border-white/5 opacity-30"
                 )}
               >
                 <div className="flex items-center justify-between">
                   <span className={cn(
                     "font-headline text-lg uppercase tracking-widest",
-                    p.highlight ? "text-brand-gold" : "text-brand-cream/40"
+                    p.anchor ? "text-brand-green" : p.highlight ? "text-brand-gold" : "text-brand-cream/40"
                   )}>
                     {p.day}
                   </span>
                   <div className={cn(
                     "p-2 rounded-xl",
-                    p.highlight ? "bg-brand-gold text-brand-green" : "bg-white/5 text-brand-gold/40"
+                    p.anchor ? "bg-brand-green/10 text-brand-green" : p.highlight ? "bg-brand-gold text-brand-green" : "bg-white/5 text-brand-gold/40"
                   )}>
                     {p.icon}
                   </div>
@@ -105,18 +157,29 @@ export const ExperienceDesignSection = () => {
                 <div className="space-y-1">
                   <h5 className={cn(
                     "font-headline text-xl uppercase leading-none",
-                    p.highlight ? "text-brand-gold" : "text-brand-cream"
+                    p.anchor ? "text-brand-green" : p.highlight ? "text-brand-gold" : "text-brand-cream"
                   )}>
                     {p.title}
                   </h5>
-                  <p className="font-body text-[9px] text-brand-gold/60 leading-tight font-bold uppercase tracking-widest">
+                  <p className={cn(
+                    "font-body text-[9px] leading-tight font-bold uppercase tracking-widest",
+                    p.anchor ? "text-brand-green/80" : "text-brand-gold/60"
+                  )}>
                     {p.body}
                   </p>
                 </div>
                 
-                {p.highlight && (
-                  <div className="mt-auto pt-3 border-t border-brand-gold/10">
-                    <span className="font-body text-[8px] text-brand-gold font-bold uppercase tracking-[3px] animate-pulse">LIVE RELEASE</span>
+                {(p.highlight || p.anchor) && (
+                  <div className={cn(
+                    "mt-auto pt-3 border-t",
+                    p.anchor ? "border-brand-green/20" : "border-brand-gold/10"
+                  )}>
+                    <span className={cn(
+                      "font-body text-[8px] font-bold uppercase tracking-[3px]",
+                      p.anchor ? "text-brand-green" : "text-brand-gold animate-pulse"
+                    )}>
+                      {p.anchor ? "ANCHOR DROP" : "LIVE RELEASE"}
+                    </span>
                   </div>
                 )}
               </div>
