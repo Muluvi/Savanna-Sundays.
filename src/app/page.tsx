@@ -75,7 +75,7 @@ export default function Home() {
                 Already live. Now scaling to every corner of Nairobi.
               </p>
               <p className="font-body text-brand-cream/80 text-xs md:text-lg uppercase tracking-[3px] font-bold leading-relaxed max-w-xl mx-auto border-t border-brand-gold/20 pt-6">
-                The Savanna Vybe Squad is already on the ground. The movement is real. Now we&apos;re taking it to mainstream venues, premium spots, and a bigger audience.
+                The Savanna Vybe Squad is on the ground. The movement is real. Now we&apos;re taking it to mainstream venues, premium spots, and a bigger audience.
               </p>
             </div>
           </div>

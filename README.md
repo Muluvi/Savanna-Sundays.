@@ -1,6 +1,6 @@
 # Savanna Sundays | Firefly Management Strategic Prospectus
 
-This is a high-fidelity, mobile-first React pitch deck built for Firefly Management to present the "Savanna Sundays" activation proposal for Savanna Premium Cider.
+This is a high-fidelity, mobile-first React pitch deck built for Firefly Management to present the city-wide expansion proposal for the live "Savanna Sundays" movement for Savanna Premium Cider.
 
 ## Integrated Firebase & AI Services
 
@@ -26,7 +26,7 @@ The following services are fully configured and integrated into the application:
 
 ### 4. Genkit AI (Strategic Advisor)
 - **Model**: `gemini-1.5-flash`.
-- **Purpose**: Answering stakeholder questions about ROI, scalability, and execution.
+- **Purpose**: Answering stakeholder questions about ROI, scalability, and city-wide expansion.
 - **Reliability**: Features a 10-second auto-retry logic for 429 rate-limiting errors.
 
 ### 5. Firebase Hosting

@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -14,9 +13,9 @@ export const GrowthRoadmapSection = () => {
             <Rocket className="text-brand-gold" size={20} />
             <div className="section-label mb-0">Scaling The Vibe</div>
           </div>
-          <h3 className="font-headline text-4xl text-brand-gold uppercase leading-none">Pilot to market dominance.</h3>
+          <h3 className="font-headline text-4xl text-brand-gold uppercase leading-none">Scaling from pilot to market dominance.</h3>
           <p className="font-body text-brand-cream/80 text-base leading-relaxed">
-            Our 3-phase roadmap ensures Savanna Sundays evolves into a permanent fixture of Nairobi's lifestyle landscape.
+            Our 3-phase roadmap ensures Savanna Sundays scales into a permanent fixture of Nairobi's lifestyle landscape.
           </p>
         </div>
         
@@ -32,10 +31,10 @@ export const GrowthRoadmapSection = () => {
         <Card className="glass-tile p-8 space-y-6 border-l-4 border-l-brand-gold">
           <div className="space-y-1">
             <span className="font-body font-bold text-[10px] tracking-[4px] text-brand-gold uppercase">Months 1-3</span>
-            <h6 className="font-headline text-4xl text-brand-cream leading-none uppercase">IGNITION</h6>
+            <h6 className="font-headline text-4xl text-brand-cream leading-none uppercase">CONSOLIDATION</h6>
           </div>
           <ul className="space-y-4">
-            {["Venue stabilisation", "Content engine launch", "Data portal rollout"].map((item, i) => (
+            {["Circuit expansion", "Content engine scaling", "Data portal rollout"].map((item, i) => (
               <li key={i} className="flex gap-4 items-center">
                 <CheckCircle2 size={16} className="text-brand-gold shrink-0" />
                 <span className="font-body text-xs text-brand-cream/70 uppercase tracking-widest font-bold">{item}</span>
@@ -51,7 +50,7 @@ export const GrowthRoadmapSection = () => {
             <h6 className="font-headline text-4xl text-brand-cream leading-none uppercase">TRACTION</h6>
           </div>
           <ul className="space-y-4">
-            {["2 monthly editions", "Ambassador launch", "Merchandise drop"].map((item, i) => (
+            {["2 monthly editions", "Ambassador scale-up", "Merchandise drop"].map((item, i) => (
               <li key={i} className="flex gap-4 items-center">
                 <TrendingUp size={16} className="text-brand-teal shrink-0" />
                 <span className="font-body text-xs text-brand-cream/70 uppercase tracking-widest font-bold">{item}</span>
