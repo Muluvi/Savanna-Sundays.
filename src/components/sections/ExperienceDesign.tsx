@@ -11,7 +11,8 @@ import {
   Video,
   Share2,
   CalendarDays,
-  Sparkles
+  Sparkles,
+  Clock
 } from 'lucide-react';
 import { ContentHarvestMetrics } from './ContentProduction';
 
@@ -27,7 +28,27 @@ const productionDays = [
 
 export const ExperienceDesignSection = () => {
   return (
-    <div className="space-y-12">
+    <div className="space-y-16">
+      {/* HIGH-INTENSITY STRATEGIC BANNER */}
+      <div className="w-full bg-brand-gold py-10 px-8 md:px-16 rounded-[40px] flex flex-col md:flex-row items-center gap-8 md:gap-16 shadow-[0_20px_60px_rgba(244,197,66,0.25)] relative overflow-hidden group animate-fade-in-up">
+        <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform duration-1000">
+          <Clock size={180} className="text-[#1A1208]" />
+        </div>
+        
+        <div className="shrink-0 flex items-center justify-center w-20 h-20 md:w-28 md:h-28 rounded-full bg-[#1A1208]/5 text-[#1A1208] border-2 border-[#1A1208]/10">
+          <Clock size={48} strokeWidth={2.5} className="md:scale-125" />
+        </div>
+
+        <div className="space-y-3 text-center md:text-left relative z-10">
+          <h3 className="font-headline text-[clamp(2.5rem,8vw,5.5rem)] text-[#1A1208] leading-[0.85] tracking-tighter">
+            EVERY SUNDAY. NOON. THE DROP.
+          </h3>
+          <p className="font-body text-[#1A1208] font-bold text-sm md:text-xl uppercase tracking-widest max-w-3xl opacity-90 leading-tight">
+            All influencers post at 12:00 PM every Sunday — a coordinated Savanna content wave hits Nairobi's feeds before the first guest walks in. By the time doors open, the conversation is already Savanna.
+          </p>
+        </div>
+      </div>
+
       {/* 03B: The Content Harvest */}
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-2">
@@ -40,7 +61,7 @@ export const ExperienceDesignSection = () => {
             One Sunday of production feeds a full week of digital dominance. We transform high-energy moments into a permanent strategic asset library.
           </p>
           <p className="font-body text-brand-gold/60 text-sm italic border-l-2 border-brand-gold/20 pl-4">
-            Sets reflect Nairobi’s mainstream sound — Bongo-led, genre-fluid, crowd-first.
+            Sets reflect Nairobi's mainstream sound — Bongo-led, genre-fluid, crowd-first.
           </p>
         </div>
 
