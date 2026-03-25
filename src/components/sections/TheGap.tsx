@@ -10,18 +10,15 @@ import { cl } from '@/lib/cloudinary';
 /**
  * High-fidelity counter for strategic metrics.
  * Triggers sequentially based on the delay prop.
+ * Now supports full numerical formatting with commas for dramatic effect.
  */
 const StatCounter = ({ value, delay = 0, className }: { value: string; delay?: number; className?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const numericMatch = value.match(/[\d.]+/);
-  const suffixMatch = value.match(/[a-zA-Z%]+/);
-  
-  const target = numericMatch ? parseFloat(numericMatch[0]) : 0;
-  const suffix = suffixMatch ? suffixMatch[0] : '';
-  const isDecimal = numericMatch ? numericMatch[0].includes('.') : false;
+  // Parse the numeric value from the string (handles commas if present)
+  const target = parseFloat(value.replace(/,/g, ''));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,14 +37,17 @@ const StatCounter = ({ value, delay = 0, className }: { value: string; delay?: n
 
     const startAnimation = () => {
       let startTime: number | null = null;
-      const duration = 1500;
+      const duration = 2000; // Slightly longer for more dramatic build
 
       const animate = (timestamp: number) => {
         if (!startTime) startTime = timestamp;
         const elapsed = timestamp - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        const easeOut = progress * (2 - progress);
-        setDisplayValue(easeOut * target);
+        
+        // Use a more dramatic ease-out curve
+        const easeOutQuint = 1 - Math.pow(1 - progress, 5);
+        
+        setDisplayValue(easeOutQuint * target);
         if (progress < 1) requestAnimationFrame(animate);
       };
 
@@ -58,19 +58,20 @@ const StatCounter = ({ value, delay = 0, className }: { value: string; delay?: n
   }, [target, hasAnimated, delay]);
 
   return (
-    <div ref={containerRef} className={cn("font-headline tracking-tighter leading-none drop-shadow-[0_0_20px_rgba(244,197,66,0.35)]", className)}>
-      {isDecimal ? displayValue.toFixed(1) : Math.floor(displayValue).toLocaleString()}
-      {suffix}
+    <div ref={containerRef} className={cn("font-headline tracking-tighter leading-none drop-shadow-[0_0_35px_rgba(244,197,66,0.45)]", className)}>
+      {Math.floor(displayValue).toLocaleString()}
     </div>
   );
 };
 
 export const TheGap = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
+  
+  // Full numbers for dramatic effect, staggered delays
   const socialIcons = [
-    { id: 'social-fb', label: 'Facebook Reach', value: '603K', delay: 100 },
-    { id: 'social-ig', label: 'Instagram Reach', value: '6.1K', delay: 500 },
-    { id: 'social-x', label: 'X (Twitter) Reach', value: '1.1K', delay: 900 },
+    { id: 'social-fb', label: 'Facebook Reach', value: '603000', delay: 100 },
+    { id: 'social-ig', label: 'Instagram Reach', value: '6100', delay: 800 },
+    { id: 'social-x', label: 'X (Twitter) Reach', value: '1100', delay: 1500 },
   ];
 
   return (
@@ -93,7 +94,7 @@ export const TheGap = () => {
             )}
           </div>
           <div className="relative z-10 space-y-4">
-            <h4 className="font-headline text-[var(--text-xl)] text-brand-gold uppercase tracking-tighter">The expansion mandate</h4>
+            <h4 className="font-headline text-[var(--text-xl)] text-brand-gold uppercase tracking-[4px]">The expansion mandate</h4>
             <p className="font-body text-brand-cream/80 text-[var(--text-sm)] md:text-[var(--text-base)] leading-relaxed">
               Savanna Sundays isn&apos;t a concept. It&apos;s already running. The Savanna Vybe Squad is already pulling crowds and building ritual. We are now scaling what works—mainstream bars for volume and premium spots for positioning.
             </p>
@@ -101,33 +102,33 @@ export const TheGap = () => {
         </div>
       </div>
 
-      {/* Compact Evidence of Reach */}
-      <div className="pt-12 border-t border-white/5 space-y-12">
+      {/* Compact Evidence of Reach with Dramatized Stats */}
+      <div className="pt-16 border-t border-white/5 space-y-16">
         <div className="flex items-center justify-center gap-4">
           <Sparkles className="text-brand-gold/60" size={18} />
           <span className="font-body text-[var(--text-xs)] tracking-[4px] text-brand-gold uppercase font-bold">Evidence of reach</span>
           <Sparkles className="text-brand-gold/60" size={18} />
         </div>
         
-        <div className="max-w-4xl mx-auto space-y-12">
+        <div className="max-w-5xl mx-auto space-y-12">
           {socialIcons.map((stat) => {
             const img = PlaceHolderImages.find(i => i.id === stat.id);
             return (
-              <div key={stat.id} className="flex items-center gap-10 md:gap-20 group transition-all duration-500">
+              <div key={stat.id} className="flex items-center gap-12 md:gap-24 group transition-all duration-700">
                 {img && (
-                  <div className="shrink-0 flex items-center justify-center w-24 h-24 md:w-40 md:h-40 relative">
+                  <div className="shrink-0 flex items-center justify-center w-24 h-24 md:w-44 md:h-44 relative">
                     <img 
                       src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
                       alt={stat.label} 
-                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_15px_40px_rgba(0,0,0,0.7)]"
+                      className="w-full h-full object-contain transition-all duration-700 group-hover:scale-110 drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] filter brightness-110"
                     />
                   </div>
                 )}
-                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-12 flex-1 border-b border-white/10 pb-8">
+                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-16 flex-1 border-b border-white/10 pb-12">
                   <StatCounter 
                     value={stat.value} 
                     delay={stat.delay}
-                    className="text-brand-gold text-6xl md:text-display" 
+                    className="text-brand-gold text-7xl md:text-display" 
                   />
                   <div className="font-body text-[11px] md:text-sm uppercase tracking-[4px] text-brand-gold/45 font-bold">
                     {stat.label}
