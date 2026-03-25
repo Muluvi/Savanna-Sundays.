@@ -38,7 +38,6 @@ const MarqueeRow = ({ name, role, images, duration, reverse = false }: MarqueeRo
         <div 
           className={cn(
             "flex gap-4 w-max",
-            reverse ? "animate-scrollRight" : "animate-scrollLeft",
             "group-hover/track:[animation-play-state:paused]",
             "motion-reduce:animate-none motion-reduce:overflow-x-auto motion-reduce:w-full motion-reduce:scrollbar-hide"
           )}
@@ -61,10 +60,13 @@ const MarqueeRow = ({ name, role, images, duration, reverse = false }: MarqueeRo
           ))}
         </div>
       </div>
-      <div className="w-[48px] h-[1px] bg-brand-gold/20 mx-auto mt-8 mb-8" />
     </div>
   );
 };
+
+const TalentDivider = () => (
+  <div className="w-[48px] h-[1px] bg-brand-gold/20 mx-auto mt-8 mb-8" />
+);
 
 export const TalentMarquee = () => {
   const djMoonsImages = [
@@ -72,6 +74,16 @@ export const TalentMarquee = () => {
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774435239/IMG_1746_st88dv.jpg",
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774435194/IMG_1497_aiud8c.jpg",
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774435182/20fb5d79-d30b-405e-8a3a-4f434dbe8dc8_fgroxz.jpg"
+  ];
+
+  const djMainPattImages = [
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439551/IMG-20260325-WA0028_xg0xmg.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439550/IMG-20260325-WA0025_hejydl.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439550/IMG-20260325-WA0029_xkfd0g.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439549/IMG-20260325-WA0026_vfggnh.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439549/IMG-20260325-WA0024_oagwdk.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439549/IMG-20260325-WA0020_pyiaoj.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439548/IMG-20260325-WA0021_ws8z0m.jpg"
   ];
 
   return (
@@ -93,14 +105,24 @@ export const TalentMarquee = () => {
           duration="28s" 
         />
         
-        {/* Placeholders for upcoming talent tracks */}
+        <TalentDivider />
+        
+        <MarqueeRow 
+          name="DJ MAIN PATT" 
+          role="Resident DJ • Bongo & Amapiano transitions"
+          images={djMainPattImages} 
+          duration="34s" 
+          reverse
+        />
+        
+        <TalentDivider />
+        
         <div className="opacity-20 grayscale pointer-events-none">
           <MarqueeRow 
             name="COMING SOON" 
             role="Squad Talent • Visual Identity Pending"
             images={Array(4).fill("https://images.unsplash.com/photo-1514525253361-bee8a187449a?q=80&w=1000&auto=format&fit=crop")} 
             duration="40s" 
-            reverse
           />
         </div>
       </div>
