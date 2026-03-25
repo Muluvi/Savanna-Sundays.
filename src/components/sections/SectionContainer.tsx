@@ -29,21 +29,21 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const translateX = (scrollProgress - 0.5) * 15; 
+  const translateX = (scrollProgress - 0.5) * 10; 
 
   return (
     <section 
       ref={sectionRef}
       id={id} 
       className={cn(
-        "py-6 md:py-8 px-6 md:px-12 lg:px-24 relative overflow-hidden dark-section"
+        "py-12 md:py-20 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center"
       )}
     >
       <div className="noise-overlay" />
-      <CiderFizz className="opacity-[0.05]" />
+      <CiderFizz className="opacity-[0.03]" />
       
       <div className="max-w-6xl mx-auto w-full relative z-10">
-        <div className="mb-4 md:mb-6">
+        <div className="mb-6 md:mb-10 text-center md:text-left">
           <span className="section-label">{label}</span>
           <h2 
             className="section-title"

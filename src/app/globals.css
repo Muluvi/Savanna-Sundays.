@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    --background: 154 42% 15%; /* Savanna Deep Green (#1F4D3A) */
-    --foreground: 50 48% 94%; /* Savanna Cream (#F8F5E6) */
-    --card: 154 42% 18%;
+    --background: 154 42% 10%; /* Deeper Savanna Green */
+    --foreground: 50 48% 94%;
+    --card: 154 42% 12%;
     --card-foreground: 50 48% 94%;
-    --popover: 154 42% 18%;
+    --popover: 154 42% 12%;
     --popover-foreground: 50 48% 94%;
-    --primary: 43 89% 61%; /* Savanna Gold (#F4C542) */
-    --primary-foreground: 154 42% 15%;
-    --secondary: 171 51% 36%; /* Savanna Teal (#2D8C7F) */
+    --primary: 43 89% 61%; /* Savanna Gold */
+    --primary-foreground: 154 42% 10%;
+    --secondary: 171 51% 36%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 154 42% 12%;
-    --muted-foreground: 41 23% 63%;
+    --muted: 154 42% 8%;
+    --muted-foreground: 50 48% 80%;
     --accent: 43 89% 61%;
-    --accent-foreground: 154 42% 15%;
+    --accent-foreground: 154 42% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 43 89% 61% / 0.15;
-    --input: 43 89% 61% / 0.15;
+    --border: 43 89% 61% / 0.2;
+    --input: 43 89% 61% / 0.2;
     --ring: 43 89% 61%;
-    --radius: 20px;
+    --radius: 12px;
   }
 }
 
@@ -39,69 +39,49 @@
 
 @layer components {
   .noise-overlay {
-    @apply absolute inset-0 pointer-events-none opacity-[0.02] z-[1];
+    @apply absolute inset-0 pointer-events-none opacity-[0.015] z-[1];
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
-  .dark-section {
-    @apply relative overflow-hidden flex flex-col justify-center py-4 md:py-6;
-    background: radial-gradient(circle at 50% 50%, rgba(244,197,66,0.03) 0%, transparent 80%);
-  }
-
-  .glass-tile {
-    @apply bg-white/[0.04] border border-brand-gold/20 backdrop-blur-2xl shadow-2xl transition-all duration-500 hover:border-brand-gold/40;
-  }
-
   .section-label {
-    @apply font-body font-bold text-[9px] tracking-[5px] uppercase text-brand-gold mb-1 block opacity-100;
+    @apply font-body font-bold text-[10px] md:text-[12px] tracking-[4px] uppercase text-brand-gold mb-2 block opacity-90;
   }
 
   .section-title {
-    @apply font-headline text-[clamp(2.5rem,8vw,6rem)] text-brand-gold relative leading-[0.85] mb-2 tracking-tighter;
+    @apply font-headline text-[clamp(2.5rem,8vw,5.5rem)] text-brand-gold relative leading-[0.9] mb-4 tracking-tighter uppercase;
+  }
+
+  .section-subtitle {
+    @apply font-body text-brand-cream/90 text-sm md:text-base leading-relaxed max-w-2xl;
   }
 
   .btn-primary {
-    @apply relative overflow-hidden bg-brand-gold text-brand-green font-headline text-lg tracking-widest py-3 px-8 rounded-full transition-all active:scale-95 shadow-[0_10px_30px_rgba(244,197,66,0.2)] hover:-translate-y-0.5;
+    @apply relative overflow-hidden bg-brand-gold text-brand-green font-headline text-lg tracking-widest py-3 px-8 rounded-full transition-all active:scale-95 shadow-[0_10px_30px_rgba(244,197,66,0.3)] hover:-translate-y-0.5;
+  }
+
+  .glass-tile {
+    @apply bg-white/[0.03] border border-white/10 backdrop-blur-xl transition-all duration-500 hover:border-brand-gold/30 hover:bg-white/[0.05];
   }
 }
 
-html {
-  scroll-behavior: smooth;
-  @apply bg-brand-green;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-::-webkit-scrollbar {
-  width: 2px;
-}
-::-webkit-scrollbar-track {
-  @apply bg-brand-green;
-}
-::-webkit-scrollbar-thumb {
-  @apply bg-brand-gold/30 rounded-full;
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
-.animate-marquee {
-  animation: marquee 25s linear infinite;
-}
-
-@keyframes intense-glow {
-  0%, 100% {
-    filter: drop-shadow(0 0 15px rgba(244,197,66,0.3)) brightness(1);
-    transform: scale(1);
-  }
-  50% {
-    filter: drop-shadow(0 0 45px rgba(244,197,66,0.7)) brightness(1.2);
-    transform: scale(1.02);
-  }
-}
-
-.animate-intense-glow {
-  animation: intense-glow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(244,197,66,0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
