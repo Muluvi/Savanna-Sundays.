@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -20,7 +19,7 @@ import { WhyFireflySection } from '@/components/sections/WhyFirefly';
 import { GrowthRoadmapSection } from '@/components/sections/GrowthRoadmap';
 import { DigitalInfrastructureSection } from '@/components/sections/DigitalInfrastructure';
 import { TalentMarquee } from '@/components/sections/TalentMarquee';
-import { VenueMarquee } from '@/components/sections/VenueMarquee';
+import { Tier1Marquee, Tier2Marquee } from '@/components/sections/VenueMarquee';
 import { InfluencerLineup } from '@/components/sections/InfluencerLineup';
 
 const sectionsData = [
@@ -37,10 +36,9 @@ const closingSentences = [
   "The Savanna Vybe Squad is on the ground.",
   "The content engine is producing.",
   "The crowd is growing.",
-  "Now it's time to take this to every corner of Nairobi — mainstream bars, premium venues, and everything in between.",
+  "Now it's time to take this to every corner of Nairobi.",
   "Thirteen venues.",
   "Three resident DJs.",
-  "Five influencers dropping every Sunday at noon.",
   "One brand owning the day.",
   "Let's scale Sunday."
 ];
@@ -60,8 +58,6 @@ export default function Home() {
 
   useEffect(() => {
     setIsMounted(true);
-    
-    // Immediate trigger for hero reveal
     const timer = setTimeout(() => setHeroVisible(true), 100);
 
     const closingObserver = new IntersectionObserver(
@@ -91,7 +87,7 @@ export default function Home() {
       <MobileProgressBar />
       
       <main>
-        {/* Proportional Hero Section */}
+        {/* Hero Section */}
         <section 
           ref={heroRef}
           id="hero" 
@@ -100,7 +96,6 @@ export default function Home() {
           <CiderFizz className="opacity-30 z-0" />
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.12)_0%,transparent_70%)]" />
 
-          {/* Top Anchor: Brand Logo */}
           <div className={cn(
             "relative z-10 transition-all duration-1000 ease-out",
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
@@ -108,7 +103,7 @@ export default function Home() {
             {savannaLogo && (
               <img 
                 src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
-                alt="Savanna Premium Cider" 
+                alt="Savanna" 
                 className="logo-shimmer"
                 style={{ width: 'clamp(160px, 20vw, 280px)', height: 'auto', objectFit: 'contain' }}
                 loading="eager"
@@ -117,21 +112,16 @@ export default function Home() {
             )}
           </div>
 
-          {/* Centerpiece: Hero Typography */}
           <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center text-center">
-            <h1 className="flex flex-col items-center leading-[0.85] tracking-tighter" aria-label="SAVANNA SUNDAYS">
+            <h1 className="flex flex-col items-center leading-[0.85] tracking-tighter">
               <span className={cn(
-                "text-brand-gold text-[clamp(4.5rem,18vw,14rem)] font-headline uppercase block transition-all duration-[1200ms] cubic-bezier(0.22, 1, 0.36, 1)",
+                "text-brand-gold text-[clamp(4.5rem,18vw,14rem)] font-headline uppercase block transition-all duration-[1200ms]",
                 heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-              )}>
-                SAVANNA
-              </span>
+              )}>SAVANNA</span>
               <span className={cn(
-                "text-brand-gold text-[clamp(4.5rem,18vw,14rem)] font-headline uppercase block transition-all duration-[1200ms] delay-150 cubic-bezier(0.22, 1, 0.36, 1)",
+                "text-brand-gold text-[clamp(4.5rem,18vw,14rem)] font-headline uppercase block transition-all duration-[1200ms] delay-150",
                 heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-              )}>
-                SUNDAYS
-              </span>
+              )}>SUNDAYS</span>
             </h1>
             
             <div className={cn(
@@ -139,7 +129,7 @@ export default function Home() {
               heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             )}>
               <p className="font-body text-brand-gold text-[var(--text-base)] md:text-[var(--text-lg)] uppercase tracking-[8px] font-bold">
-                Already live. Now scaling to Nairobi.
+                Already live. Now scaling.
               </p>
               <div className="flex justify-center pt-8">
                  <div className="w-12 h-12 rounded-full border border-brand-gold/20 flex items-center justify-center animate-bounce">
@@ -149,7 +139,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Bottom Anchor: Presentation Signature */}
           <div className={cn(
             "relative z-10 flex flex-col items-center gap-4 transition-all duration-1000 delay-700",
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -160,8 +149,7 @@ export default function Home() {
               {fireflyLogo && (
                 <img 
                   src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
-                  alt="Firefly Management" 
-                  className="opacity-60 hover:opacity-100 transition-opacity"
+                  alt="Firefly" 
                   style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
                 />
               )}
@@ -170,81 +158,47 @@ export default function Home() {
         </section>
 
         {/* Section 01 */}
-        <SectionContainer 
-          id="the-gap"
-          label="01 — The Opportunity"
-          title="The Expansion"
-        >
+        <SectionContainer id="the-gap" label="01 — The Opportunity" title="The Expansion">
           <TheGap />
         </SectionContainer>
 
         {/* Section 02 — The Engine */}
         <div id="the-engine" className="relative w-full">
-          <SectionContainer 
-            id="the-engine-details"
-            label="02 — The Venue Network"
-            title="The Network"
-          >
+          <SectionContainer id="the-engine-details" label="02 — The Venue Network" title="The Network">
             <DualActivationModel />
           </SectionContainer>
-          <VenueMarquee />
+          <Tier1Marquee />
+          <Tier2Marquee />
         </div>
 
-        {/* Section 03 — The Ritual (Full Bleed Marquees) */}
+        {/* Section 03 — The Ritual */}
         <div id="the-ritual" className="relative w-full overflow-hidden">
           <TalentMarquee />
           <InfluencerLineup />
-          <SectionContainer 
-            id="the-ritual-details"
-            label="03 — The Ritual"
-            title="The Content Flow"
-          >
+          <SectionContainer id="the-ritual-details" label="03 — The Ritual" title="The Content Flow">
             <ExperienceDesignSection />
           </SectionContainer>
         </div>
 
-        {/* Sections 04 - 07 */}
+        {/* Other Sections */}
         {sectionsData.slice(2).map((section) => (
-          <SectionContainer 
-            key={section.id}
-            id={section.id}
-            label={section.label}
-            title={section.title}
-          >
+          <SectionContainer key={section.id} id={section.id} label={section.label} title={section.title}>
             {section.component}
           </SectionContainer>
         ))}
 
-        {/* Brand Closing */}
-        <div 
-          ref={closingRef}
-          id="closing" 
-          className="py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-brand-ink"
-        >
+        {/* Closing */}
+        <div ref={closingRef} id="closing" className="py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-brand-ink">
           <div className="max-w-4xl mx-auto space-y-12 relative z-10">
             <p className="font-serif italic text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-cream leading-snug">
               {closingSentences.map((sentence, i) => (
-                <span 
-                  key={i}
-                  style={{ transitionDelay: `${i * 100}ms` }}
-                  className={cn(
-                    "reveal-on-scroll inline-block mr-1.5",
-                    closingVisible && "reveal-visible"
-                  )}
-                >
+                <span key={i} style={{ transitionDelay: `${i * 100}ms` }} className={cn("reveal-on-scroll inline-block mr-1.5", closingVisible && "reveal-visible")}>
                   {sentence}
                 </span>
               ))}
             </p>
-
-            <div className={cn(
-              "reveal-on-scroll",
-              closingVisible && "reveal-visible"
-            )} style={{ transitionDelay: '1200ms' }}>
-              <a 
-                href="mailto:partner@firefly.co.ke" 
-                className="btn-scale-sunday-glow group h-16"
-              >
+            <div className={cn("reveal-on-scroll", closingVisible && "reveal-visible")} style={{ transitionDelay: '1200ms' }}>
+              <a href="mailto:partner@firefly.co.ke" className="btn-scale-sunday-glow group h-16">
                 <div className="relative z-10 flex items-center gap-6 px-12 h-full text-brand-ink">
                   <span className="font-headline text-[var(--text-xl)] tracking-widest uppercase">Scale Sunday</span>
                   <ArrowRight className="group-hover:translate-x-2 transition-transform" size={24} />
@@ -257,5 +211,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
