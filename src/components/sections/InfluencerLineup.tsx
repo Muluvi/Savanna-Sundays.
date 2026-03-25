@@ -1,58 +1,12 @@
+
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cl } from '@/lib/cloudinary';
-import { cn } from '@/lib/utils';
 import { Sparkles } from 'lucide-react';
-
-/**
- * High-fidelity rolling counter for influencer reach.
- * Calibrated to animate whenever it enters the screen, ensuring visibility in the marquee.
- */
-const RollingCounter = ({ targetValue, suffix = "+" }: { targetValue: number, suffix?: string }) => {
-  const [displayValue, setDisplayValue] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Reset and animate every time it becomes visible
-          setDisplayValue(0);
-          startAnimation();
-        }
-      },
-      { threshold: 0.2, rootMargin: '0px' }
-    );
-
-    if (containerRef.current) observer.observe(containerRef.current);
-
-    const startAnimation = () => {
-      let startTime: number | null = null;
-      const duration = 2000;
-
-      const animate = (timestamp: number) => {
-        if (!startTime) startTime = timestamp;
-        const elapsed = timestamp - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeOut = progress * (2 - progress);
-        setDisplayValue(easeOut * targetValue);
-        if (progress < 1) requestAnimationFrame(animate);
-      };
-      requestAnimationFrame(animate);
-    };
-
-    return () => observer.disconnect();
-  }, [targetValue]);
-
-  return (
-    <div ref={containerRef} className="font-headline text-5xl md:text-8xl text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_25px_rgba(244,197,66,0.4)]">
-      {Math.floor(displayValue).toLocaleString()}{suffix}
-    </div>
-  );
-};
+import { AnimatedCounter } from '@/components/ui/animated-counter';
 
 interface Influencer {
   id: number;
@@ -103,12 +57,10 @@ export const InfluencerLineup = () => {
   const ttLogo = PlaceHolderImages.find(p => p.id === 'social-tt');
   const ytLogo = PlaceHolderImages.find(p => p.id === 'social-yt');
 
-  // Duplicate influencers for seamless loop
   const displayInfluencers = [...placeholderInfluencers, ...placeholderInfluencers, ...placeholderInfluencers];
 
   return (
     <div className="space-y-12 py-16 md:py-24 border-t border-white/5 relative overflow-hidden bg-[#0E1A10]">
-      {/* Background Proportional Accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand-gold/[0.02] blur-[150px] rounded-full pointer-events-none" />
 
       <div className="text-center space-y-4 px-6 relative z-10">
@@ -125,7 +77,6 @@ export const InfluencerLineup = () => {
         </p>
       </div>
 
-      {/* Automated Marquee Track */}
       <div 
         className="relative w-full overflow-hidden group"
         style={{ 
@@ -142,7 +93,6 @@ export const InfluencerLineup = () => {
               key={`${inf.id}-${i}`} 
               className="relative flex flex-col items-center gap-8 w-[280px] md:w-[380px] shrink-0"
             >
-              {/* Profile Image - Fixed HD Size */}
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-brand-gold/20 overflow-hidden bg-brand-green/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] group-hover:border-brand-gold transition-all duration-700">
                 <img 
                   src={cl(inf.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_800,h_800,c_fill')} 
@@ -151,7 +101,6 @@ export const InfluencerLineup = () => {
                 />
               </div>
 
-              {/* Data Stack - Vertically Compact */}
               <div className="text-center space-y-6 w-full">
                 <div className="space-y-1">
                   <h4 className="font-headline text-2xl md:text-3xl text-white tracking-[4px] uppercase leading-none">{inf.name}</h4>
@@ -159,7 +108,11 @@ export const InfluencerLineup = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <RollingCounter targetValue={inf.followers} />
+                  <AnimatedCounter 
+                    value={inf.followers} 
+                    suffix="+"
+                    className="font-headline text-5xl md:text-8xl text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_25px_rgba(244,197,66,0.4)]"
+                  />
                   <div className="flex justify-center items-center gap-8">
                     {igLogo && <img src={cl(igLogo.imageUrl, 'w_150')} alt="IG" className="h-8 md:h-10 w-auto object-contain drop-shadow-[0_5px_10px_rgba(0,0,0,0.3)]" />}
                     {ttLogo && <img src={cl(ttLogo.imageUrl, 'w_150')} alt="TikTok" className="h-8 md:h-10 w-auto object-contain drop-shadow-[0_5px_10px_rgba(0,0,0,0.3)]" />}

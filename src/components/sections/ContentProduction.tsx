@@ -1,57 +1,8 @@
+
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
-
-const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
-  const [displayValue, setDisplayValue] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const containerRef = useRef<HTMLSpanElement>(null);
-  
-  const target = parseFloat(value.replace(/,/g, ''));
-  const isNumeric = !isNaN(target);
-
-  useEffect(() => {
-    if (!isNumeric || hasAnimated) return;
-
-    const startAnimation = () => {
-      let startTime: number;
-      const duration = 2500;
-
-      const animate = (currentTime: number) => {
-        if (!startTime) startTime = currentTime;
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        const easeOutElastic = (x: number): number => {
-          const c4 = (2 * Math.PI) / 3;
-          return x === 0 ? 0 : x === 1 ? 1 : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1;
-        };
-
-        setDisplayValue(easeOutElastic(progress) * target);
-        if (progress < 1) requestAnimationFrame(animate);
-      };
-      requestAnimationFrame(animate);
-    };
-
-    const observer = new IntersectionObserver(([entry]) => { 
-      if (entry.isIntersecting && !hasAnimated) {
-        setHasAnimated(true);
-        startAnimation();
-      }
-    }, { threshold: 0.3 });
-
-    if (containerRef.current) observer.observe(containerRef.current);
-    return () => observer.disconnect();
-  }, [isNumeric, hasAnimated, target]);
-
-  return (
-    <span ref={containerRef} className="relative inline-block">
-      <span className="font-headline text-4xl md:text-5xl text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_10px_rgba(244,197,66,0.3)]">
-        {Math.floor(displayValue)}{suffix}
-      </span>
-    </span>
-  );
-};
+import React from 'react';
+import { AnimatedCounter } from '@/components/ui/animated-counter';
 
 const ContentHarvestMetrics = () => {
   const deliverables = [
@@ -117,8 +68,11 @@ const ContentHarvestMetrics = () => {
           
           <div className="relative z-10 space-y-3 flex flex-col items-center w-full">
             <div className="flex flex-col items-center">
-              <RollingCounter value={item.value} />
-              <span className="font-headline text-xs text-brand-gold uppercase tracking-[3px] mt-0.5">
+              <AnimatedCounter 
+                value={item.value} 
+                className="font-headline text-4xl md:text-5xl text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_10px_rgba(244,197,66,0.3)]"
+              />
+              <span className="font-headline text-xs text-brand-gold uppercase tracking-[4px] mt-0.5">
                 {item.period}
               </span>
             </div>
@@ -127,7 +81,7 @@ const ContentHarvestMetrics = () => {
               <h5 className="font-headline text-xl text-white uppercase tracking-tight group-hover:text-brand-gold transition-colors">
                 {item.label}
               </h5>
-              <p className="font-body text-brand-cream text-[9px] leading-relaxed font-bold uppercase tracking-wider max-w-[180px] mx-auto opacity-60">
+              <p className="font-body text-brand-cream text-[9px] leading-relaxed font-bold uppercase tracking-[4px] max-w-[180px] mx-auto opacity-60">
                 {item.body}
               </p>
             </div>

@@ -6,14 +6,7 @@ import { cn } from '@/lib/utils';
 import { ChevronUp } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cl } from '@/lib/cloudinary';
-
-const sections = [
-  { id: 'the-gap', label: '01 — The Opportunity' },
-  { id: 'the-engine', label: '02 — The Venue Network' },
-  { id: 'the-ritual', label: '03 — The Ritual' },
-  { id: 'the-numbers', label: '04 — The Investment' },
-  { id: 'the-partnership', label: '05 — The Partnership' },
-];
+import { APP_SECTIONS } from '@/lib/sections';
 
 export const AppSidebar = () => {
   const [activeId, setActiveId] = useState('');
@@ -27,17 +20,16 @@ export const AppSidebar = () => {
       const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
       setProgress((scrollPos / windowHeight) * 100);
 
-      const sectionElements = sections.map(s => document.getElementById(s.id));
-      for (let i = sectionElements.length - 1; i >= 0; i--) {
-        const el = sectionElements[i];
+      for (let i = APP_SECTIONS.length - 1; i >= 0; i--) {
+        const el = document.getElementById(APP_SECTIONS[i].id);
         if (el && el.offsetTop - 150 <= scrollPos) {
-          setActiveId(sections[i].id);
+          setActiveId(APP_SECTIONS[i].id);
           break;
         }
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -73,13 +65,13 @@ export const AppSidebar = () => {
           </div>
           <div className="pt-4 border-t border-white/5">
             <div className="text-[var(--text-xs)] tracking-[4px] text-brand-gold/60 uppercase mb-2 font-bold">Strategic Proposal</div>
-            <div className="font-headline text-[var(--text-2xl)] text-brand-gold leading-none tracking-tight">Savanna Sundays</div>
+            <div className="font-headline text-[var(--text-2xl)] text-brand-gold leading-none tracking-tighter">Savanna Sundays</div>
           </div>
         </div>
         
         <nav className="flex-1 overflow-y-auto py-8 px-0 scrollbar-hide">
           <ul className="space-y-1">
-            {sections.map((section) => (
+            {APP_SECTIONS.map((section) => (
               <li key={section.id}>
                 <button
                   onClick={() => scrollTo(section.id)}

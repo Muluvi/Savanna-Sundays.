@@ -1,58 +1,10 @@
+
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ReceiptText, ShieldCheck, Zap, Music, Video, Camera, QrCode } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { cl } from '@/lib/cloudinary';
-
-/**
- * High-fidelity counter for the investment total.
- * Animates from 0 to target value on scroll entry using an ease-out curve.
- */
-const StatCounter = ({ value }: { value: string }) => {
-  const [displayValue, setDisplayValue] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const containerRef = useRef<HTMLSpanElement>(null);
-
-  const target = parseFloat(value.replace(/,/g, ''));
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          startAnimation();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    const startAnimation = () => {
-      let startTime: number | null = null;
-      const duration = 1200;
-
-      const animate = (timestamp: number) => {
-        if (!startTime) startTime = timestamp;
-        const elapsed = timestamp - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeOut = progress * (2 - progress);
-        setDisplayValue(easeOut * target);
-        if (progress < 1) requestAnimationFrame(animate);
-      };
-
-      requestAnimationFrame(animate);
-    };
-
-    return () => observer.disconnect();
-  }, [target, hasAnimated]);
-
-  return <span ref={containerRef}>{Math.floor(displayValue).toLocaleString()}</span>;
-};
+import { AnimatedCounter } from '@/components/ui/animated-counter';
 
 const lineItems = [
   { item: "DJs / Performing Artists (Bongo, R&B, Afrobeats, Amapiano)", cost: "100,000" },
@@ -114,7 +66,7 @@ export const TheNumbersSection = () => {
                 Weekly total
               </TableCell>
               <TableCell className="font-headline text-[var(--text-4xl)] md:text-[var(--text-6xl)] text-brand-gold text-right px-4 md:px-10 tracking-tighter">
-                <StatCounter value="334,080" />
+                <AnimatedCounter value="334080" />
               </TableCell>
             </TableRow>
           </TableBody>
@@ -143,7 +95,7 @@ export const TheNumbersSection = () => {
                   <p className="font-headline text-[var(--text-xl)] md:text-[var(--text-2xl)] text-white uppercase tracking-tight leading-tight group-hover:text-brand-gold transition-colors">
                     {item.label}
                   </p>
-                  <p className="font-body text-brand-cream/50 text-[var(--text-xs)] leading-relaxed font-bold uppercase tracking-[2px]">
+                  <p className="font-body text-brand-cream/50 text-[var(--text-xs)] leading-relaxed font-bold uppercase tracking-[4px]">
                     {item.desc}
                   </p>
                 </div>

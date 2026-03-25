@@ -1,73 +1,15 @@
 
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { cn } from '@/lib/utils';
 import { Sparkles } from 'lucide-react';
 import { cl } from '@/lib/cloudinary';
-
-/**
- * High-fidelity counter for strategic metrics.
- * Triggers sequentially based on the delay prop.
- * Now supports full numerical formatting with commas for dramatic effect.
- */
-const StatCounter = ({ value, delay = 0, className }: { value: string; delay?: number; className?: string }) => {
-  const [displayValue, setDisplayValue] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Parse the numeric value from the string (handles commas if present)
-  const target = parseFloat(value.replace(/,/g, ''));
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          setTimeout(() => {
-            startAnimation();
-          }, delay);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (containerRef.current) observer.observe(containerRef.current);
-
-    const startAnimation = () => {
-      let startTime: number | null = null;
-      const duration = 2000; // Slightly longer for more dramatic build
-
-      const animate = (timestamp: number) => {
-        if (!startTime) startTime = timestamp;
-        const elapsed = timestamp - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        // Use a more dramatic ease-out curve
-        const easeOutQuint = 1 - Math.pow(1 - progress, 5);
-        
-        setDisplayValue(easeOutQuint * target);
-        if (progress < 1) requestAnimationFrame(animate);
-      };
-
-      requestAnimationFrame(animate);
-    };
-
-    return () => observer.disconnect();
-  }, [target, hasAnimated, delay]);
-
-  return (
-    <div ref={containerRef} className={cn("font-headline tracking-tighter leading-none drop-shadow-[0_0_35px_rgba(244,197,66,0.45)]", className)}>
-      {Math.floor(displayValue).toLocaleString()}
-    </div>
-  );
-};
+import { AnimatedCounter } from '@/components/ui/animated-counter';
 
 export const TheGap = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   
-  // Full numbers for dramatic effect, staggered delays
   const socialIcons = [
     { id: 'social-fb', label: 'Facebook Reach', value: '603000', delay: 100 },
     { id: 'social-ig', label: 'Instagram Reach', value: '6100', delay: 800 },
@@ -95,14 +37,13 @@ export const TheGap = () => {
           </div>
           <div className="relative z-10 space-y-4">
             <h4 className="font-headline text-[var(--text-xl)] text-brand-gold uppercase tracking-[4px]">The expansion mandate</h4>
-            <p className="font-body text-brand-cream/80 text-[var(--text-sm)] md:text-[var(--text-base)] leading-relaxed">
+            <p className="font-body text-brand-cream/80 text-[var(--text-base)] leading-relaxed">
               Savanna Sundays isn&apos;t a concept. It&apos;s already running. The Savanna Vybe Squad is already pulling crowds and building ritual. We are now scaling what works—mainstream bars for volume and premium spots for positioning.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Compact Evidence of Reach with Dramatized Stats */}
       <div className="pt-16 border-t border-white/5 space-y-16">
         <div className="flex items-center justify-center gap-4">
           <Sparkles className="text-brand-gold/60" size={18} />
@@ -125,10 +66,10 @@ export const TheGap = () => {
                   </div>
                 )}
                 <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-16 flex-1 border-b border-white/10 pb-12">
-                  <StatCounter 
+                  <AnimatedCounter 
                     value={stat.value} 
                     delay={stat.delay}
-                    className="text-brand-gold text-7xl md:text-display" 
+                    className="text-brand-gold text-7xl md:text-display font-headline tracking-tighter leading-none drop-shadow-[0_0_35px_rgba(244,197,66,0.45)]" 
                   />
                   <div className="font-body text-[11px] md:text-sm uppercase tracking-[4px] text-brand-gold/45 font-bold">
                     {stat.label}
