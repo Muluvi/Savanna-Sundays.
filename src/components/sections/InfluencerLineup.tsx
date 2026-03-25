@@ -47,10 +47,10 @@ const placeholderInfluencers: Influencer[] = [
   },
   { 
     id: 4, 
-    name: "ZAKI MANDUVE", 
-    handle: "@zaki_manduve", 
-    followers: 55000, 
-    niche: "Lifestyle | Content",
+    name: "ZAKI MANDUVE MATASI", 
+    handle: "@manduve18", 
+    followers: 5919, 
+    niche: "Football Player | Actor",
     imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774456144/IMG-20260325-WA0057_v6fxg7.jpg",
     isVerified: false
   },
