@@ -13,9 +13,11 @@ interface SectionProps {
 
 export const SectionContainer = ({ id, label, title, children }: SectionProps) => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    setIsMounted(true);
     const handleScroll = () => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
@@ -29,23 +31,23 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Constrain translateX to prevent overlapping
-  const translateX = (scrollProgress - 0.5) * 20; 
+  // Constrain translateX and only apply after mount to avoid hydration mismatch
+  const translateX = isMounted ? (scrollProgress - 0.5) * 15 : 0; 
 
   return (
     <section 
       ref={sectionRef}
       id={id} 
       className={cn(
-        "py-16 md:py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center border-b border-white/5"
+        "py-12 md:py-20 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center border-b border-white/5"
       )}
     >
       <div className="noise-overlay" />
-      <CiderFizz className="opacity-[0.04] z-0" />
+      <CiderFizz className="opacity-[0.03] z-0" />
       
       <div className="max-w-6xl mx-auto w-full relative z-10">
-        <div className="mb-8 md:mb-12 text-center md:text-left relative">
-          <span className="section-label">{label}</span>
+        <div className="mb-6 md:mb-10 text-center md:text-left relative">
+          <span className="section-label mb-1">{label}</span>
           <h2 
             className="section-title"
             style={{ transform: `translateX(${translateX}px)` }}
