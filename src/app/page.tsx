@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -15,22 +16,15 @@ import { TheGap } from '@/components/sections/TheGap';
 import { DualActivationModel } from '@/components/sections/DualModel';
 import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
 import { TheNumbersSection } from '@/components/sections/TheNumbersSection';
-import { MusicProgrammingSection } from '@/components/sections/MusicProgramming';
-import { InfluencerLineup } from '@/components/sections/InfluencerLineup';
 import { WhyFireflySection } from '@/components/sections/WhyFirefly';
 import { GrowthRoadmapSection } from '@/components/sections/GrowthRoadmap';
 import { DigitalInfrastructureSection } from '@/components/sections/DigitalInfrastructure';
+import { TalentMarquee } from '@/components/sections/TalentMarquee';
 
 const sectionsData = [
   { id: 'the-gap', label: '01 — The Opportunity', title: "The Expansion", component: <TheGap /> },
   { id: 'the-engine', label: '02 — The Venue Network', title: 'The Network', component: <DualActivationModel /> },
-  { id: 'the-ritual', label: '03 — The Ritual', title: 'The Vybe', component: (
-    <div className="space-y-12">
-      <MusicProgrammingSection />
-      <InfluencerLineup />
-      <ExperienceDesignSection />
-    </div>
-  ) },
+  // Section 03 is handled specially below for full-bleed TalentMarquee
   { id: 'the-numbers', label: '04 — The Investment', title: 'The Capital', component: <TheNumbersSection /> },
   { id: 'why-firefly', label: '05 — Why Firefly', title: 'The Agency', component: <WhyFireflySection /> },
   { id: 'growth-plan', label: '06 — Growth Plan', title: 'The Roadmap', component: <GrowthRoadmapSection /> },
@@ -64,7 +58,6 @@ export default function Home() {
   useEffect(() => {
     setIsMounted(true);
     
-    // Standardized G4 Hero Observer
     const heroObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -75,7 +68,6 @@ export default function Home() {
       { threshold: 0.12 }
     );
 
-    // Standardized G4 Closing Observer
     const closingObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -107,40 +99,27 @@ export default function Home() {
       <MobileProgressBar />
       
       <main>
-        {/* Cinematic Hero - Expansion Mandate */}
+        {/* Cinematic Hero */}
         <section 
           ref={heroRef}
           id="hero" 
           className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden"
         >
-          {/* Carbonation Effect */}
           <CiderFizz className="opacity-40 z-0" />
-          
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.15)_0%,transparent_75%)]" />
 
-          <div className={cn(
-            "relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center gap-4 text-center"
-          )}>
+          <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center gap-4 text-center">
             {savannaLogo && (
               <div className={cn(
                 "relative h-40 md:h-[280px] w-full max-w-[500px] flex items-center justify-center reveal-on-scroll logo-shimmer",
                 heroVisible && "reveal-visible"
               )}>
-                <Image 
-                  src={savannaLogo.imageUrl} 
-                  alt="Savanna Premium Cider" 
-                  fill 
-                  className="object-contain" 
-                  priority 
-                />
+                <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain" priority />
               </div>
             )}
 
             <div className="space-y-1">
-              <h1 
-                className="flex flex-col items-center leading-[0.95] tracking-tighter"
-                aria-label="SAVANNA SUNDAYS"
-              >
+              <h1 className="flex flex-col items-center leading-[0.95] tracking-tighter" aria-label="SAVANNA SUNDAYS">
                 <div className="flex overflow-hidden">
                   {savannaText.map((char, i) => (
                     <span 
@@ -177,27 +156,11 @@ export default function Home() {
                 Already live. Now scaling to Nairobi.
               </p>
             </div>
-            
-            <div className={cn(
-              "max-w-3xl border-t border-brand-gold/20 pt-6 reveal-on-scroll",
-              heroVisible && "reveal-visible"
-            )}>
-              <p className="font-body text-brand-cream text-[var(--text-sm)] md:text-[var(--text-base)] uppercase tracking-[1px] font-bold leading-relaxed opacity-80">
-                The Savanna Vybe Squad is already on the ground. The movement is real. Now we&apos;re taking it to mainstream venues, premium spots, and a city-wide audience.
-              </p>
-            </div>
           </div>
 
           <div className="absolute bottom-10 flex flex-col items-center gap-6">
-            <p className="font-body text-[var(--text-xs)] text-brand-gold tracking-[0.5em] uppercase font-bold opacity-40">
-              Presented by Firefly Management
-            </p>
-            
             <div className="relative flex items-center justify-center">
-              {/* Outer Pulsing Ring */}
               <div className="absolute w-12 h-12 rounded-full border border-brand-gold animate-pulse-ring" />
-              
-              {/* Inner Static Ring */}
               <div className="relative w-12 h-12 rounded-full border border-brand-gold/30 flex items-center justify-center">
                 <ChevronDown className="text-brand-gold" size={20} />
               </div>
@@ -205,7 +168,8 @@ export default function Home() {
           </div>
         </section>
 
-        {sectionsData.map((section) => (
+        {/* Sections 01 & 02 */}
+        {sectionsData.slice(0, 2).map((section) => (
           <SectionContainer 
             key={section.id}
             id={section.id}
@@ -216,7 +180,31 @@ export default function Home() {
           </SectionContainer>
         ))}
 
-        {/* Brand Closing - The Scale Mandate */}
+        {/* Section 03 — The Ritual (Full Bleed Talent Marquee) */}
+        <div id="the-ritual" className="relative w-full">
+          <TalentMarquee />
+          <SectionContainer 
+            id="the-ritual-details"
+            label="03 — The Ritual"
+            title="The Content Flow"
+          >
+            <ExperienceDesignSection />
+          </SectionContainer>
+        </div>
+
+        {/* Sections 04 - 07 */}
+        {sectionsData.slice(2).map((section) => (
+          <SectionContainer 
+            key={section.id}
+            id={section.id}
+            label={section.label}
+            title={section.title}
+          >
+            {section.component}
+          </SectionContainer>
+        ))}
+
+        {/* Brand Closing */}
         <div 
           ref={closingRef}
           id="closing" 
@@ -245,37 +233,12 @@ export default function Home() {
               <a 
                 href="mailto:partner@firefly.co.ke" 
                 className="btn-scale-sunday-glow group h-16"
-                suppressHydrationWarning
               >
                 <div className="relative z-10 flex items-center gap-6 px-12 h-full text-brand-ink">
                   <span className="font-headline text-[var(--text-xl)] tracking-widest uppercase">Scale Sunday</span>
                   <span className="group-hover:translate-x-2 transition-transform">→</span>
                 </div>
               </a>
-            </div>
-
-            <div className={cn(
-              "pt-16 space-y-8 flex flex-col items-center reveal-on-scroll",
-              closingVisible && "reveal-visible"
-            )} style={{ transitionDelay: '1500ms' }}>
-              <div className="flex items-center gap-10">
-                {savannaLogo && (
-                  <div className="relative h-14 w-40">
-                    <Image src={savannaLogo.imageUrl} alt="Savanna" fill className="object-contain" />
-                  </div>
-                )}
-                <div className="h-10 w-[1px] bg-white/10" />
-                <p className="font-body text-white font-headline text-[var(--text-2xl)] tracking-widest uppercase">Firefly</p>
-              </div>
-
-              <div className="space-y-3 max-w-xl">
-                <p className="font-body text-[var(--text-xs)] text-brand-gold uppercase tracking-[3px] font-bold opacity-60">
-                  Prepared by Firefly Management for Kenya Wine Agencies Limited
-                </p>
-                <p className="font-body text-[var(--text-xs)] text-brand-gold/30 uppercase tracking-[1px] leading-relaxed">
-                  Excessive alcohol consumption is harmful to your health. Not for sale to persons under the age of 18 years.
-                </p>
-              </div>
             </div>
           </div>
         </div>
