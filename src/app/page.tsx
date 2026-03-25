@@ -15,8 +15,6 @@ import { TheGap } from '@/components/sections/TheGap';
 import { DualActivationModel } from '@/components/sections/DualModel';
 import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
 import { TheNumbersSection } from '@/components/sections/TheNumbersSection';
-import { GrowthRoadmapSection } from '@/components/sections/GrowthRoadmap';
-import { DigitalInfrastructureSection } from '@/components/sections/DigitalInfrastructure';
 import { TalentMarquee } from '@/components/sections/TalentMarquee';
 import { Tier1Marquee, Tier2Marquee } from '@/components/sections/VenueMarquee';
 import { InfluencerLineup } from '@/components/sections/InfluencerLineup';
@@ -25,8 +23,6 @@ const sectionsData = [
   { id: 'the-gap', label: '01 — The Opportunity', title: "The Expansion", component: <TheGap /> },
   { id: 'the-engine', label: '02 — The Venue Network', title: 'The Network', component: <DualActivationModel /> },
   { id: 'the-numbers', label: '04 — The Investment', title: 'The Capital', component: <TheNumbersSection /> },
-  { id: 'growth-plan', label: '05 — The Roadmap', title: 'The Roadmap', component: <GrowthRoadmapSection /> },
-  { id: 'infrastructure', label: '06 — Infrastructure', title: 'The Intelligence', component: <DigitalInfrastructureSection /> },
 ];
 
 const closingSentences = [
@@ -178,8 +174,8 @@ export default function Home() {
           </SectionContainer>
         </div>
 
-        {/* Other Sections */}
-        {sectionsData.slice(2).map((section) => (
+        {/* Other Sections - Only The Investment */}
+        {sectionsData.filter(s => s.id === 'the-numbers').map((section) => (
           <SectionContainer key={section.id} id={section.id} label={section.label} title={section.title}>
             {section.component}
           </SectionContainer>

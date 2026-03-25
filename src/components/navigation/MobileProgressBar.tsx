@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
-const sections = ['hero', 'the-gap', 'the-engine', 'the-ritual', 'the-numbers', 'growth-plan', 'infrastructure', 'closing'];
+const sections = ['hero', 'the-gap', 'the-engine', 'the-ritual', 'the-numbers', 'closing'];
 
 /**
  * High-fidelity mobile progress bar.

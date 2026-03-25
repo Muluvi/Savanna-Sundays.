@@ -11,8 +11,6 @@ const sections = [
   { id: 'the-engine', label: '02 — The Venue Network' },
   { id: 'the-ritual', label: '03 — The Ritual' },
   { id: 'the-numbers', label: '04 — The Investment' },
-  { id: 'growth-plan', label: '05 — The Roadmap' },
-  { id: 'infrastructure', label: '06 — Infrastructure' },
 ];
 
 export const AppSidebar = () => {
@@ -60,7 +58,7 @@ export const AppSidebar = () => {
             )}
             <div className="flex items-center gap-2">
               <div className="h-[1px] w-4 bg-white/20" />
-              <div className="text-[var(--text-xs)] tracking-[3px] text-brand-teal uppercase font-bold">Managed by</div>
+              <div className="text-[var(--text-xs)] tracking-[4px] text-brand-teal uppercase font-bold">Managed by</div>
             </div>
             {fireflyLogo && (
               <img 
@@ -71,7 +69,7 @@ export const AppSidebar = () => {
             )}
           </div>
           <div className="pt-2">
-            <div className="text-[var(--text-xs)] tracking-[5px] text-brand-teal uppercase mb-1 font-bold">Proposal</div>
+            <div className="text-[var(--text-xs)] tracking-[4px] text-brand-teal uppercase mb-1 font-bold">Proposal</div>
             <div className="font-headline text-[var(--text-xl)] text-brand-gold leading-none">Savanna Sundays</div>
           </div>
         </div>
@@ -83,7 +81,7 @@ export const AppSidebar = () => {
                 <button
                   onClick={() => scrollTo(section.id)}
                   className={cn(
-                    "w-full text-left py-4 px-8 text-[var(--text-xs)] tracking-[2px] font-bold uppercase transition-all border-l-4",
+                    "w-full text-left py-4 px-8 text-[var(--text-xs)] tracking-[4px] font-bold uppercase transition-all border-l-4",
                     activeId === section.id 
                       ? "bg-white/5 text-brand-gold border-brand-gold" 
                       : "text-brand-cream/40 border-transparent hover:text-brand-cream hover:bg-white/5"

@@ -9,8 +9,6 @@ const sections = [
   { id: 'the-engine', label: '02 — The Venue Network', num: '02' },
   { id: 'the-ritual', label: '03 — The Ritual', num: '03' },
   { id: 'the-numbers', label: '04 — The Investment', num: '04' },
-  { id: 'growth-plan', label: '05 — The Roadmap', num: '05' },
-  { id: 'infrastructure', label: '06 — Infrastructure', num: '06' },
 ];
 
 export const MobileNav = () => {
@@ -87,8 +85,8 @@ export const MobileNav = () => {
         </nav>
 
         <div className="mt-auto pt-8 border-t border-white/5 space-y-4">
-          <p className="font-headline text-[var(--text-xl)] text-brand-gold tracking-widest uppercase opacity-60">Firefly Management</p>
-          <p className="font-body text-[var(--text-xs)] text-white/20 uppercase tracking-[2px] leading-relaxed">
+          <p className="font-headline text-[var(--text-xl)] text-brand-gold tracking-[4px] uppercase opacity-60">Firefly Management</p>
+          <p className="font-body text-[var(--text-xs)] text-white/20 uppercase tracking-[4px] leading-relaxed">
             Confidential Strategic Document. <br/>All session data recorded.
           </p>
         </div>
