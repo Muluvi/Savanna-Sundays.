@@ -29,11 +29,12 @@ const placeholderInfluencers: Influencer[] = [
   },
   { 
     id: 2, 
-    name: "SQUAD ANCHOR 02", 
-    handle: "@vybesquad_beta", 
+    name: "OO MLEIKA", 
+    handle: "@oo_mleika", 
     followers: 70000, 
     niche: "Nightlife Culture",
-    imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442877/IMG-20260325-WA0045_rwvb6u.jpg"
+    imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442877/IMG-20260325-WA0045_rwvb6u.jpg",
+    isVerified: true
   },
   { 
     id: 3, 
