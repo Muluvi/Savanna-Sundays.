@@ -87,13 +87,6 @@ export const TalentMarquee = () => {
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439548/IMG-20260325-WA0021_ws8z0m.jpg"
   ];
 
-  const sameerDJImages = [
-    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441116/IMG-20260325-WA0042_oyhkzv.jpg",
-    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441114/IMG-20260325-WA0040_bhwb4z.jpg",
-    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441114/IMG-20260325-WA0041_b2a1sa.jpg",
-    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441113/IMG-20260325-WA0043_ykqagw.jpg"
-  ];
-
   const sameerMCImages = [
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441116/IMG-20260325-WA0042_oyhkzv.jpg",
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774441114/IMG-20260325-WA0040_bhwb4z.jpg",
@@ -137,15 +130,6 @@ export const TalentMarquee = () => {
           images={djMainPattImages} 
           duration="34s" 
           reverse
-        />
-        
-        <TalentDivider />
-        
-        <MarqueeRow 
-          name="SAMEER" 
-          role="Resident DJ • Sonic Architecture • Bongo & Global Afrobeats"
-          images={sameerDJImages} 
-          duration="32s" 
         />
         
         <TalentDivider />
