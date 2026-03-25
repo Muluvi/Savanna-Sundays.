@@ -65,6 +65,16 @@
   }
 }
 
+@keyframes scrollL {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes scrollR {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
 @layer components {
   .noise-overlay {
     @apply absolute inset-0 pointer-events-none opacity-[0.015] z-[1];
