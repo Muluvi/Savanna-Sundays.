@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -67,9 +68,9 @@ const StatCounter = ({ value, delay = 0, className }: { value: string; delay?: n
 export const TheGap = () => {
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
   const socialIcons = [
-    { id: 'social-fb', label: 'Facebook Reach', value: '603K', delay: 0 },
-    { id: 'social-ig', label: 'Instagram Reach', value: '6.1K', delay: 400 },
-    { id: 'social-x', label: 'X (Twitter) Reach', value: '1.1K', delay: 800 },
+    { id: 'social-fb', label: 'Facebook Reach', value: '603K', delay: 100 },
+    { id: 'social-ig', label: 'Instagram Reach', value: '6.1K', delay: 500 },
+    { id: 'social-x', label: 'X (Twitter) Reach', value: '1.1K', delay: 900 },
   ];
 
   return (
@@ -114,11 +115,11 @@ export const TheGap = () => {
             return (
               <div key={stat.id} className="flex items-center gap-10 md:gap-20 group transition-all duration-500">
                 {img && (
-                  <div className="shrink-0 flex items-center justify-center w-20 h-20 md:w-32 md:h-32">
+                  <div className="shrink-0 flex items-center justify-center w-24 h-24 md:w-40 md:h-40 relative">
                     <img 
-                      src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
+                      src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
                       alt={stat.label} 
-                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_15px_40px_rgba(0,0,0,0.7)]"
                     />
                   </div>
                 )}
@@ -126,7 +127,7 @@ export const TheGap = () => {
                   <StatCounter 
                     value={stat.value} 
                     delay={stat.delay}
-                    className="text-brand-gold text-5xl md:text-9xl" 
+                    className="text-brand-gold text-6xl md:text-display" 
                   />
                   <div className="font-body text-[11px] md:text-sm uppercase tracking-[4px] text-brand-gold/45 font-bold">
                     {stat.label}

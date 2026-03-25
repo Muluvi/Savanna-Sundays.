@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -94,7 +95,7 @@ export default function Home() {
                 src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
                 alt="Savanna" 
                 className="logo-shimmer drop-shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
-                style={{ width: 'clamp(140px, 15vw, 240px)', height: 'auto', objectFit: 'contain' }}
+                style={{ width: 'clamp(160px, 18vw, 260px)', height: 'auto', objectFit: 'contain' }}
                 loading="eager"
                 fetchPriority="high"
               />
@@ -119,36 +120,39 @@ export default function Home() {
               heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             )}>
               <div className="space-y-2">
-                <p className="font-body text-brand-gold text-[var(--text-sm)] md:text-[var(--text-base)] uppercase tracking-[4px] font-bold">
+                <p className="font-body text-brand-gold text-[var(--text-base)] uppercase tracking-[4px] font-bold">
                   Already live. Now scaling.
                 </p>
                 <div className="h-[1px] w-12 bg-brand-gold/20 mx-auto" />
               </div>
               
               <div className="flex justify-center pt-8">
-                 <div className="w-12 h-12 rounded-full border border-brand-gold/30 flex items-center justify-center animate-bounce shadow-[0_0_20px_rgba(244,197,66,0.2)]">
-                    <ChevronDown className="text-brand-gold" size={20} />
+                 <div className="w-14 h-14 rounded-full border border-brand-gold/30 flex items-center justify-center animate-bounce shadow-[0_0_20px_rgba(244,197,66,0.2)]">
+                    <ChevronDown className="text-brand-gold" size={24} />
                  </div>
               </div>
             </div>
           </div>
 
-          {/* Footer Attribution */}
+          {/* Footer Attribution - Proportional Calibration */}
           <div className={cn(
-            "relative z-10 flex flex-col items-center gap-4 transition-all duration-1000 delay-[1200ms]",
+            "relative z-10 flex flex-col items-center gap-6 transition-all duration-1000 delay-[1200ms]",
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           )}>
-            <div className="flex items-center gap-4">
-              <span className="font-body text-[10px] tracking-[4px] text-brand-gold/40 uppercase font-bold">Presented by</span>
-              <div className="h-[1px] w-8 bg-brand-gold/10" />
-              {fireflyLogo && (
-                <img 
-                  src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
-                  alt="Firefly" 
-                  className="opacity-60 hover:opacity-100 transition-opacity"
-                  style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
-                />
-              )}
+            <div className="flex flex-col items-center gap-4">
+              <span className="font-body text-[var(--text-xs)] tracking-[4px] text-brand-gold/60 uppercase font-bold">Presented by</span>
+              <div className="flex items-center gap-6">
+                <div className="h-[1px] w-12 bg-brand-gold/20" />
+                {fireflyLogo && (
+                  <img 
+                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
+                    alt="Firefly" 
+                    className="opacity-90 hover:opacity-100 transition-all duration-500 hover:scale-105"
+                    style={{ height: '48px', width: 'auto', objectFit: 'contain' }}
+                  />
+                )}
+                <div className="h-[1px] w-12 bg-brand-gold/20" />
+              </div>
             </div>
           </div>
         </section>
