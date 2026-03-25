@@ -84,7 +84,7 @@ export default function Home() {
           )}>
             {savannaLogo && (
               <div className={cn(
-                "relative h-40 md:h-[280px] w-full max-w-[500px] flex items-center justify-center reveal-on-scroll",
+                "relative h-40 md:h-[280px] w-full max-w-[500px] flex items-center justify-center reveal-on-scroll logo-shimmer",
                 heroVisible && "reveal-visible"
               )}>
                 <Image 

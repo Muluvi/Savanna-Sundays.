@@ -93,6 +93,25 @@
     opacity: 1 !important;
     transform: translateY(0) !important;
   }
+
+  /* Logo Shimmer Sweep */
+  .logo-shimmer {
+    @apply relative overflow-hidden;
+  }
+
+  .logo-shimmer::after {
+    content: "";
+    @apply absolute inset-0 pointer-events-none z-20;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%);
+    background-size: 200% 100%;
+    animation: shimmer-sweep 6s infinite linear;
+  }
+}
+
+@keyframes shimmer-sweep {
+  0% { background-position: -200% 0; }
+  58% { background-position: 200% 0; } /* Animates for ~3.5s of the 6s loop */
+  100% { background-position: 200% 0; }
 }
 
 @keyframes rise {
