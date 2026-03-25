@@ -2,10 +2,11 @@
 
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Sparkles, Globe } from 'lucide-react';
+import { MapPin, Sparkles, Globe, RotateCcw, Zap } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
+import { Card } from '@/components/ui/card';
 
 const premiumVenues = [
   { name: "Muze (Westlands)", logoId: "venue-muze" },
@@ -46,9 +47,26 @@ export const DualActivationModel = () => {
           Premium and mainstream. The brand shows up everywhere the crowd is.
         </p>
         <p className="font-body text-brand-cream/80 text-lg leading-relaxed max-w-2xl">
-          Savanna is premium, but the mainstream crowd loves it too. Savanna Sundays meets them both where they already are. The mainstream circuit brings volume. The premium circuit brings positioning. Together, they build a brand that is everywhere on Sunday.
+          Savanna is premium, but the mainstream crowd loves it too. Savanna Sundays doesn&apos;t choose one audience — it meets them both where they already are. The mainstream circuit brings volume. The premium circuit brings positioning. Together, they build a brand that&apos;s everywhere on Sunday.
         </p>
       </div>
+
+      {/* Operational Note: The Rotation Model */}
+      <Card className="p-8 md:p-10 bg-white/[0.03] border border-brand-gold/20 rounded-[40px] shadow-2xl relative overflow-hidden group">
+        <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:rotate-180 transition-transform duration-1000">
+          <RotateCcw size={120} />
+        </div>
+        <div className="relative z-10 space-y-4">
+          <div className="flex items-center gap-3">
+            <Zap className="text-brand-gold animate-pulse" size={20} />
+            <span className="font-body text-[10px] text-brand-gold uppercase tracking-[4px] font-bold">Operational Model</span>
+          </div>
+          <h5 className="font-headline text-3xl text-white uppercase tracking-tight">How it works</h5>
+          <p className="font-body text-brand-cream/70 text-base leading-relaxed max-w-3xl">
+            The <span className="text-brand-gold font-bold">Savanna Vybe Squad</span> — resident DJs, MC, influencers, and content crew — activates one venue per Sunday. All other venues on the schedule carry full Savanna branding (bar wraps, signage, glassware, QR points, staff tees). Firefly recommends the squad venue each week based on crowd potential, venue availability, and content opportunities. The squad rotates across both mainstream and premium circuits.
+          </p>
+        </div>
+      </Card>
 
       {/* Premium Group */}
       <div className="space-y-8">
@@ -79,7 +97,7 @@ export const DualActivationModel = () => {
                   <span className="font-headline text-xl text-brand-gold text-center leading-none">{venue.name}</span>
                 )}
                 <div className="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="font-body text-[8px] text-brand-teal font-bold uppercase tracking-widest">STAKEHOLDER PARTNER</span>
+                  <span className="font-body text-[8px] text-brand-teal font-bold uppercase tracking-widest">POSITIONING PARTNER</span>
                 </div>
               </div>
             );
