@@ -1,3 +1,4 @@
+
 "use client"
 
 import React from 'react';
@@ -6,6 +7,8 @@ import { cl } from '@/lib/cloudinary';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const premiumVenues = [
+  { name: "Muze (Westlands)", logoId: "venue-muze" },
+  { name: "The Alchemist (Westlands)", logoId: "venue-alchemist" },
   { name: "Black Samurai (Westlands)", logoId: "venue-black-samurai" },
   { name: "KODA (Kilimani)", logoId: "venue-koda" },
   { name: "Masshouse (Industrial Area)", logoId: "venue-masshouse" }
@@ -30,7 +33,7 @@ export const Tier1Marquee = () => {
 
   return (
     <div className="bg-[#0E1A10] py-12 overflow-hidden w-full relative z-20 border-b border-white/5">
-      <div className="text-center mb-8">
+      <div className="text-center mb-8 px-6">
         <h4 className="font-headline text-[11px] tracking-[4px] text-brand-gold uppercase leading-none font-bold">
           TIER 1 — PREMIUM CIRCUIT
         </h4>
@@ -77,7 +80,7 @@ export const Tier2Marquee = () => {
 
   return (
     <div className="bg-[#0E1A10] py-10 overflow-hidden w-full relative z-20">
-      <div className="text-center mb-6">
+      <div className="text-center mb-6 px-6">
         <h4 className="font-headline text-[11px] tracking-[4px] text-brand-gold/40 uppercase leading-none font-bold">
           TIER 2 — MAINSTREAM CIRCUIT
         </h4>

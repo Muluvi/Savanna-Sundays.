@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -5,11 +6,11 @@ import { Globe, Sparkles } from 'lucide-react';
 
 /**
  * Compact high-fidelity venue network overview.
- * Focuses on the "Venue Network" scale with minimal vertical footprint.
+ * Focuses on the "Venue Network" scale.
  */
 export const DualActivationModel = () => {
   const allVenueNames = [
-    "Black Samurai", "KODA", "Masshouse", 
+    "Muze", "The Alchemist", "Black Samurai", "KODA", "Masshouse", 
     "Tin N Lit", "Alcapone", "Capital Noir", "Volt Lounge", "Covo Nairobi", "The Tunnel"
   ];
 
@@ -26,7 +27,7 @@ export const DualActivationModel = () => {
           Premium and mainstream. Everywhere the crowd is.
         </p>
         <p className="font-body text-brand-cream/80 text-sm md:text-base leading-relaxed">
-          Savanna is premium, but the mainstream crowd loves it too. Savanna Sundays doesn't choose one audience — it meets them both where they already are.
+          Savanna Sundays doesn't choose one audience — it meets them all where they already are, mapping the brand identity onto Nairobi's existing high-energy Sunday properties.
         </p>
       </div>
 
