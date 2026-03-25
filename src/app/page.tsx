@@ -16,6 +16,7 @@ import { DualActivationModel } from '@/components/sections/DualModel';
 import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
 import { TheNumbersSection } from '@/components/sections/TheNumbersSection';
 import { MusicProgrammingSection } from '@/components/sections/MusicProgramming';
+import { InfluencerLineup } from '@/components/sections/InfluencerLineup';
 
 const sectionsData = [
   { id: 'the-gap', label: '01 The Opportunity', title: "The Expansion", component: <TheGap /> },
@@ -23,6 +24,7 @@ const sectionsData = [
   { id: 'the-ritual', label: '03 The Ritual', title: 'The Vybe', component: (
     <div className="space-y-12">
       <MusicProgrammingSection />
+      <InfluencerLineup />
       <ExperienceDesignSection />
     </div>
   ) },
