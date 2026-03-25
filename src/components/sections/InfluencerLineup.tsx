@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -31,7 +32,7 @@ export const InfluencerLineup = () => {
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-2">
           <Users className="text-brand-gold" size={24} />
-          <div className="section-label mb-0">03E: The Influencer Lineup</div>
+          <div className="section-label mb-0">03E — The Influencer Lineup</div>
         </div>
 
         <div className="overflow-x-auto scrollbar-hide -mx-6 px-6">

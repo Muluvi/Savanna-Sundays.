@@ -19,16 +19,16 @@ import { MusicProgrammingSection } from '@/components/sections/MusicProgramming'
 import { InfluencerLineup } from '@/components/sections/InfluencerLineup';
 
 const sectionsData = [
-  { id: 'the-gap', label: '01 The Opportunity', title: "The Expansion", component: <TheGap /> },
-  { id: 'the-engine', label: '02 The Venue Network', title: 'The Network', component: <DualActivationModel /> },
-  { id: 'the-ritual', label: '03 The Ritual', title: 'The Vybe', component: (
+  { id: 'the-gap', label: '01 — The Opportunity', title: "The Expansion", component: <TheGap /> },
+  { id: 'the-engine', label: '02 — The Venue Network', title: 'The Network', component: <DualActivationModel /> },
+  { id: 'the-ritual', label: '03 — The Ritual', title: 'The Vybe', component: (
     <div className="space-y-12">
       <MusicProgrammingSection />
       <InfluencerLineup />
       <ExperienceDesignSection />
     </div>
   ) },
-  { id: 'the-numbers', label: '04 The Investment', title: 'The Capital', component: <TheNumbersSection /> },
+  { id: 'the-numbers', label: '04 — The Investment', title: 'The Capital', component: <TheNumbersSection /> },
 ];
 
 const closingSentences = [

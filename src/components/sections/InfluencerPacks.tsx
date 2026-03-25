@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -28,7 +29,7 @@ export const InfluencerPacksSection = () => {
       <div className="space-y-6">
         <div className="flex items-center gap-3">
           <CalendarDays className="text-brand-gold" size={24} />
-          <div className="section-label mb-0">03D: Influencer Pack Drops</div>
+          <div className="section-label mb-0">03D — Influencer Pack Drops</div>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">

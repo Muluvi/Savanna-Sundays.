@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -89,7 +90,7 @@ export const ExperienceDesignSection = () => {
 
   return (
     <div className="space-y-12">
-      <div className="w-full bg-brand-gold p-8 md:p-12 rounded-[40px] flex flex-col md:flex-row items-center gap-8 shadow-2xl relative overflow-hidden group">
+      <div className="w-full bg-brand-gold p-8 md:p-12 rounded-[40px] flex flex-col md:row items-center gap-8 shadow-2xl relative overflow-hidden group">
         <div className="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-full bg-brand-green/10 flex items-center justify-center text-[#1A1208] border-2 border-[#1A1208]/10">
           <Clock size={40} className="animate-pulse" />
         </div>
@@ -105,7 +106,7 @@ export const ExperienceDesignSection = () => {
       </div>
 
       <div className="space-y-6">
-        <div className="section-label">03B The Content Harvest</div>
+        <div className="section-label">03B — The Content Harvest</div>
         <ContentHarvestMetrics />
       </div>
 
@@ -113,7 +114,7 @@ export const ExperienceDesignSection = () => {
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <CalendarDays className="text-brand-gold" size={20} />
-            <div className="section-label mb-0">03C Publishing Rhythm</div>
+            <div className="section-label mb-0">03C — Publishing Rhythm</div>
           </div>
           
           {/* Desktop Navigation Buttons */}
