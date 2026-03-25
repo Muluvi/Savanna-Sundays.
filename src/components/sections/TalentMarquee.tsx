@@ -129,8 +129,8 @@ export const TalentMarquee = () => {
         <TalentDivider />
         
         <MarqueeRow 
-          name="DJ MAIN PATT" 
-          role="Resident DJ • 70,000 Cumulative Followers (Socials & Streaming)"
+          name="DJ MAIN PATT 🇰🇪" 
+          role="@djmainpatt • DJ | Versatile | @topboynationent • 14.6K IG Followers • Resident DJ"
           images={djMainPattImages} 
           duration="34s" 
           reverse
