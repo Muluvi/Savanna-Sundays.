@@ -106,6 +106,10 @@
     background-size: 200% 100%;
     animation: shimmer-sweep 6s infinite linear;
   }
+
+  .animate-border-breathe {
+    animation: border-breathe 3s ease-in-out infinite;
+  }
 }
 
 @keyframes shimmer-sweep {
@@ -119,6 +123,11 @@
   20% { opacity: var(--bubble-opacity, 0.3); }
   80% { opacity: var(--bubble-opacity, 0.3); }
   100% { bottom: 120%; opacity: 0; transform: translateY(-20px); }
+}
+
+@keyframes border-breathe {
+  0%, 100% { border-left-color: rgba(244, 197, 66, 0.4); }
+  50% { border-left-color: rgba(244, 197, 66, 1); }
 }
 
 .animate-rise {

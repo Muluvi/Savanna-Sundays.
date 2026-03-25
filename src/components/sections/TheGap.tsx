@@ -84,7 +84,7 @@ export const TheGap = () => {
     <div className="space-y-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         <div className="space-y-4">
-          <p className="font-serif italic text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-gold leading-snug border-l-4 border-brand-gold pl-8 py-2">
+          <p className="font-serif italic text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-gold leading-snug border-l-4 border-brand-gold/40 animate-border-breathe pl-8 py-2">
             We&apos;re already building Nairobi&apos;s Sunday culture — now it&apos;s time to scale city-wide.
           </p>
         </div>
