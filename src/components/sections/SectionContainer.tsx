@@ -11,6 +11,11 @@ interface SectionProps {
   children?: React.ReactNode;
 }
 
+/**
+ * Optimized Section Container
+ * Standardized spacing: py-10 (mobile) to py-16 (desktop)
+ * Maintains premium horizontal margins for executive feel.
+ */
 export const SectionContainer = ({ id, label, title, children }: SectionProps) => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
@@ -56,7 +61,7 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
       ref={sectionRef}
       id={id} 
       className={cn(
-        "py-12 md:py-20 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center border-b border-white/5"
+        "py-10 md:py-16 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center border-b border-white/5"
       )}
     >
       <div className="noise-overlay" />
@@ -67,7 +72,7 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
         "max-w-6xl mx-auto w-full relative z-10 reveal-on-scroll",
         isVisible && "reveal-visible"
       )}>
-        <div className="mb-8 md:mb-12 text-center md:text-left relative">
+        <div className="mb-6 md:mb-10 text-center md:text-left relative">
           <span className="section-label">{label}</span>
           <h2 
             className="section-title text-glow-gold"

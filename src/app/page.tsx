@@ -78,10 +78,10 @@ export default function Home() {
       <MobileProgressBar />
       
       <main className="md:pl-64">
-        {/* Cinematic Hero Section */}
+        {/* Cinematic Hero Section - Responsive Scaling */}
         <section 
           id="hero" 
-          className="relative h-screen flex flex-col justify-between items-center px-6 py-12 md:py-16 overflow-hidden bg-brand-green"
+          className="relative min-h-screen flex flex-col justify-between items-center px-6 py-10 md:py-12 overflow-hidden bg-brand-green"
         >
           {/* Visual Layers */}
           <CiderFizz className="opacity-40 z-0" />
@@ -119,17 +119,17 @@ export default function Home() {
             </h1>
             
             <div className={cn(
-              "mt-8 space-y-4 transition-all duration-1000 delay-1000",
+              "mt-6 md:mt-8 space-y-4 transition-all duration-1000 delay-1000",
               heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             )}>
               <div className="space-y-1">
-                <p className="font-body text-brand-gold text-[var(--text-sm)] uppercase tracking-[3px] font-bold opacity-80">
+                <p className="font-body text-brand-gold text-[var(--text-xs)] md:text-[var(--text-sm)] uppercase tracking-[3px] font-bold opacity-80">
                   Already live. Now scaling.
                 </p>
                 <div className="h-[1px] w-10 bg-brand-gold/30 mx-auto" />
               </div>
               
-              <div className="flex justify-center pt-4">
+              <div className="flex justify-center pt-2 md:pt-4">
                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-brand-gold/20 flex items-center justify-center animate-bounce shadow-[0_0_20px_rgba(244,197,66,0.2)] cursor-pointer group hover:bg-brand-gold/10 transition-colors" onClick={() => document.getElementById('the-gap')?.scrollIntoView({ behavior: 'smooth' })}>
                     <ChevronDown className="text-brand-gold group-hover:scale-110 transition-transform" size={24} />
                  </div>
@@ -139,22 +139,22 @@ export default function Home() {
 
           {/* Footer Attribution */}
           <div className={cn(
-            "relative z-10 flex flex-col items-center gap-6 transition-all duration-1200 delay-[1200ms]",
+            "relative z-10 flex flex-col items-center gap-4 md:gap-6 transition-all duration-1200 delay-[1200ms]",
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}>
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-3 md:gap-4">
               <span className="font-body text-[var(--text-xs)] tracking-[3px] text-brand-gold uppercase font-bold opacity-60">Presented by</span>
-              <div className="flex items-center gap-6">
-                <div className="h-[1px] w-12 bg-brand-gold/15" />
+              <div className="flex items-center gap-4 md:gap-6">
+                <div className="h-[1px] w-8 md:w-12 bg-brand-gold/15" />
                 {fireflyLogo && (
                   <img 
                     src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
                     alt="Firefly Management" 
                     className="opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-700 drop-shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
-                    style={{ height: '56px', width: 'auto', objectFit: 'contain' }}
+                    style={{ height: 'clamp(40px, 6vh, 56px)', width: 'auto', objectFit: 'contain' }}
                   />
                 )}
-                <div className="h-[1px] w-12 bg-brand-gold/15" />
+                <div className="h-[1px] w-8 md:w-12 bg-brand-gold/15" />
               </div>
             </div>
           </div>
@@ -190,16 +190,16 @@ export default function Home() {
 
         {/* Section 05 — The Partnership */}
         <SectionContainer id="the-partnership" label="05 — The Partnership" title="Next Steps">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-start">
             <LeadCapture />
             <StrategicAdvisor />
           </div>
         </SectionContainer>
 
-        {/* Closing */}
-        <div ref={closingRef} id="closing" className="py-12 md:py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-[#0A140B]">
+        {/* Optimized Closing */}
+        <div ref={closingRef} id="closing" className="py-10 md:py-16 px-6 text-center border-t border-white/5 relative overflow-hidden bg-[#0A140B]">
           <CiderFizz className="opacity-[0.04]" />
-          <div className="max-w-4xl mx-auto space-y-10 relative z-10">
+          <div className="max-w-4xl mx-auto space-y-8 md:space-y-10 relative z-10">
             <p className="font-serif italic text-[var(--text-lg)] md:text-[var(--text-xl)] text-brand-cream/90 leading-snug">
               {closingSentences.map((sentence, i) => (
                 <span key={i} style={{ transitionDelay: `${i * 100}ms` }} className={cn("reveal-on-scroll inline-block mr-2 mb-1", closingVisible && "reveal-visible")}>
@@ -208,10 +208,10 @@ export default function Home() {
               ))}
             </p>
             <div className={cn("reveal-on-scroll", closingVisible && "reveal-visible")} style={{ transitionDelay: '1200ms' }}>
-              <a href="mailto:partner@firefly.co.ke" className="btn-scale-sunday-glow group h-16 md:h-20">
-                <div className="relative z-10 flex items-center gap-6 px-10 h-full text-brand-ink">
-                  <span className="font-headline text-[var(--text-lg)] md:text-[var(--text-xl)] tracking-widest uppercase">Scale Sunday</span>
-                  <ArrowRight className="group-hover:translate-x-3 transition-transform" size={24} />
+              <a href="mailto:partner@firefly.co.ke" className="btn-scale-sunday-glow group h-14 md:h-18">
+                <div className="relative z-10 flex items-center gap-4 md:gap-6 px-8 md:px-10 h-full text-brand-ink">
+                  <span className="font-headline text-[var(--text-base)] md:text-[var(--text-lg)] tracking-widest uppercase">Scale Sunday</span>
+                  <ArrowRight className="group-hover:translate-x-3 transition-transform" size={20} />
                 </div>
               </a>
             </div>
