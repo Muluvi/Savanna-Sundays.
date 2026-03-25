@@ -5,7 +5,7 @@ import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cl } from '@/lib/cloudinary';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, CheckCircle2 } from 'lucide-react';
 import { AnimatedCounter } from '@/components/ui/animated-counter';
 
 interface Influencer {
@@ -15,6 +15,7 @@ interface Influencer {
   followers: number;
   niche: string;
   imageUrl: string;
+  isVerified?: boolean;
 }
 
 const placeholderInfluencers: Influencer[] = [
@@ -37,10 +38,11 @@ const placeholderInfluencers: Influencer[] = [
   { 
     id: 3, 
     name: "LOCKEY WILLIS KING", 
-    handle: "@lockey_willis_king", 
-    followers: 70000, 
-    niche: "Fashion & Style",
-    imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442876/IMG-20260325-WA0046_yizii9.jpg"
+    handle: "@lockey_fashion_trend", 
+    followers: 60200, 
+    niche: "Award Winning Stylist",
+    imageUrl: "https://res.cloudinary.com/da5j0zjok/image/upload/v1774442876/IMG-20260325-WA0046_yizii9.jpg",
+    isVerified: true
   },
   { 
     id: 4, 
@@ -103,7 +105,10 @@ export const InfluencerLineup = () => {
 
               <div className="text-center space-y-6 w-full">
                 <div className="space-y-1">
-                  <h4 className="font-headline text-2xl md:text-3xl text-white tracking-[4px] uppercase leading-none">{inf.name}</h4>
+                  <div className="flex items-center justify-center gap-2">
+                    <h4 className="font-headline text-2xl md:text-3xl text-white tracking-[4px] uppercase leading-none">{inf.name}</h4>
+                    {inf.isVerified && <CheckCircle2 className="text-blue-400 w-4 h-4 fill-blue-400/10" />}
+                  </div>
                   <p className="font-body text-[10px] text-brand-gold/60 font-bold tracking-[4px] uppercase">{inf.handle}</p>
                 </div>
 
