@@ -87,11 +87,11 @@ export const TheNumbersSection = () => {
       </div>
 
       <div className="glass-tile rounded-[32px] overflow-hidden border border-white/5 shadow-2xl">
-        <Table>
+        <Table className="table-fixed md:table-auto">
           <TableHeader className="bg-brand-gold">
             <TableRow className="border-none hover:bg-brand-gold">
-              <TableHead className="text-brand-green font-headline tracking-widest py-6 px-10 text-[var(--text-sm)] uppercase">Breakdown</TableHead>
-              <TableHead className="text-brand-green font-headline tracking-widest text-right px-10 text-[var(--text-sm)] uppercase">KSh</TableHead>
+              <TableHead className="text-brand-green font-headline tracking-widest py-6 px-4 md:px-10 text-[var(--text-sm)] uppercase w-2/3 md:w-auto">Breakdown</TableHead>
+              <TableHead className="text-brand-green font-headline tracking-widest text-right px-4 md:px-10 text-[var(--text-sm)] uppercase">KSh</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -100,20 +100,20 @@ export const TheNumbersSection = () => {
                 key={i} 
                 className="border-white/5 transition-all duration-200 hover:bg-white/5"
               >
-                <TableCell className="font-body font-bold text-[var(--text-xs)] md:text-[var(--text-sm)] py-6 px-10 text-brand-cream/90 uppercase tracking-widest">
+                <TableCell className="font-body font-bold text-[10px] md:text-[var(--text-sm)] py-6 px-4 md:px-10 text-brand-cream/90 uppercase tracking-widest leading-relaxed">
                   {row.item}
                 </TableCell>
-                <TableCell className="font-headline text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-gold text-right px-10">
+                <TableCell className="font-headline text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-gold text-right px-4 md:px-10">
                   {row.cost}
                 </TableCell>
               </TableRow>
             ))}
             
             <TableRow className="bg-brand-gold/[0.12] border-y border-brand-gold/30 hover:bg-brand-gold/20 transition-colors">
-              <TableCell className="font-headline text-[var(--text-2xl)] md:text-[var(--text-4xl)] py-8 px-10 text-brand-gold uppercase tracking-tighter">
+              <TableCell className="font-headline text-[var(--text-2xl)] md:text-[var(--text-4xl)] py-8 px-4 md:px-10 text-brand-gold uppercase tracking-tighter">
                 Weekly total
               </TableCell>
-              <TableCell className="font-headline text-[var(--text-4xl)] md:text-[var(--text-6xl)] text-brand-gold text-right px-10 tracking-tighter">
+              <TableCell className="font-headline text-[var(--text-4xl)] md:text-[var(--text-6xl)] text-brand-gold text-right px-4 md:px-10 tracking-tighter">
                 <StatCounter value="334,080" />
               </TableCell>
             </TableRow>

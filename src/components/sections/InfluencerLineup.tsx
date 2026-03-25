@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -10,22 +9,22 @@ import { Sparkles } from 'lucide-react';
 
 /**
  * High-fidelity rolling counter for influencer reach.
- * Calibrated for high visibility within the marquee.
+ * Calibrated to animate whenever it enters the screen, ensuring visibility in the marquee.
  */
 const RollingCounter = ({ targetValue, suffix = "+" }: { targetValue: number, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
+        if (entry.isIntersecting) {
+          // Reset and animate every time it becomes visible
+          setDisplayValue(0);
           startAnimation();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.2, rootMargin: '0px' }
     );
 
     if (containerRef.current) observer.observe(containerRef.current);
@@ -46,10 +45,10 @@ const RollingCounter = ({ targetValue, suffix = "+" }: { targetValue: number, su
     };
 
     return () => observer.disconnect();
-  }, [targetValue, hasAnimated]);
+  }, [targetValue]);
 
   return (
-    <div ref={containerRef} className="font-headline text-[var(--text-4xl)] md:text-[var(--text-6xl)] text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_20px_rgba(244,197,66,0.3)]">
+    <div ref={containerRef} className="font-headline text-5xl md:text-8xl text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_25px_rgba(244,197,66,0.4)]">
       {Math.floor(displayValue).toLocaleString()}{suffix}
     </div>
   );
@@ -141,10 +140,10 @@ export const InfluencerLineup = () => {
           {displayInfluencers.map((inf, i) => (
             <div 
               key={`${inf.id}-${i}`} 
-              className="relative flex flex-col items-center gap-6 w-[280px] md:w-[340px] shrink-0"
+              className="relative flex flex-col items-center gap-8 w-[280px] md:w-[380px] shrink-0"
             >
               {/* Profile Image - Fixed HD Size */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-brand-gold/20 overflow-hidden bg-brand-green/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] group-hover:border-brand-gold/60 transition-all duration-700">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-brand-gold/20 overflow-hidden bg-brand-green/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] group-hover:border-brand-gold transition-all duration-700">
                 <img 
                   src={cl(inf.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_800,h_800,c_fill')} 
                   alt={inf.name} 
@@ -153,22 +152,22 @@ export const InfluencerLineup = () => {
               </div>
 
               {/* Data Stack - Vertically Compact */}
-              <div className="text-center space-y-4 w-full">
+              <div className="text-center space-y-6 w-full">
                 <div className="space-y-1">
-                  <h4 className="font-headline text-2xl text-white tracking-widest uppercase leading-none">{inf.name}</h4>
-                  <p className="font-body text-[9px] text-brand-gold/60 font-bold tracking-[4px] uppercase">{inf.handle}</p>
+                  <h4 className="font-headline text-2xl md:text-3xl text-white tracking-widest uppercase leading-none">{inf.name}</h4>
+                  <p className="font-body text-[10px] text-brand-gold/60 font-bold tracking-[4px] uppercase">{inf.handle}</p>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <RollingCounter targetValue={inf.followers} />
-                  <div className="flex justify-center items-center gap-6">
-                    {igLogo && <img src={cl(igLogo.imageUrl, 'w_100')} alt="IG" className="h-6 w-auto object-contain" />}
-                    {ttLogo && <img src={cl(ttLogo.imageUrl, 'w_100')} alt="TikTok" className="h-6 w-auto object-contain" />}
-                    {ytLogo && <img src={cl(ytLogo.imageUrl, 'w_100')} alt="YouTube" className="h-6 w-auto object-contain" />}
+                  <div className="flex justify-center items-center gap-8">
+                    {igLogo && <img src={cl(igLogo.imageUrl, 'w_150')} alt="IG" className="h-8 md:h-10 w-auto object-contain drop-shadow-[0_5px_10px_rgba(0,0,0,0.3)]" />}
+                    {ttLogo && <img src={cl(ttLogo.imageUrl, 'w_150')} alt="TikTok" className="h-8 md:h-10 w-auto object-contain drop-shadow-[0_5px_10px_rgba(0,0,0,0.3)]" />}
+                    {ytLogo && <img src={cl(ytLogo.imageUrl, 'w_150')} alt="YouTube" className="h-8 md:h-10 w-auto object-contain drop-shadow-[0_5px_10px_rgba(0,0,0,0.3)]" />}
                   </div>
                 </div>
 
-                <Badge className="bg-brand-gold text-brand-green border-none text-[9px] uppercase font-bold tracking-[4px] px-6 py-2 rounded-full">
+                <Badge className="bg-brand-gold text-brand-green border-none text-[10px] uppercase font-bold tracking-[4px] px-8 py-2.5 rounded-full shadow-lg">
                   {inf.niche}
                 </Badge>
               </div>
@@ -178,8 +177,8 @@ export const InfluencerLineup = () => {
       </div>
 
       <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
-        <p className="font-body text-[9px] text-brand-gold/20 italic uppercase tracking-[6px] font-bold leading-relaxed">
-          Reach metrics verified via Firefly Intelligence. Hover to pause marquee.
+        <p className="font-body text-[10px] text-brand-gold/20 italic uppercase tracking-[6px] font-bold leading-relaxed">
+          Reach metrics verified via Firefly Intelligence. Figures animate as they roll onto screen.
         </p>
       </div>
     </div>

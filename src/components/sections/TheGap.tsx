@@ -55,8 +55,8 @@ const StatCounter = ({ value, className }: { value: string; className?: string }
   }, [target, hasAnimated]);
 
   return (
-    <div ref={containerRef} className={cn("font-headline tracking-tighter leading-none drop-shadow-[0_0_20px_rgba(244,197,66,0.2)]", className)}>
-      {isDecimal ? displayValue.toFixed(1) : Math.floor(displayValue)}
+    <div ref={containerRef} className={cn("font-headline tracking-tighter leading-none drop-shadow-[0_0_20px_rgba(244,197,66,0.35)]", className)}>
+      {isDecimal ? displayValue.toFixed(1) : Math.floor(displayValue).toLocaleString()}
       {suffix}
     </div>
   );
@@ -106,26 +106,26 @@ export const TheGap = () => {
           <Sparkles className="text-brand-gold/60" size={18} />
         </div>
         
-        <div className="max-w-3xl mx-auto space-y-8">
+        <div className="max-w-3xl mx-auto space-y-12">
           {socialIcons.map((stat) => {
             const img = PlaceHolderImages.find(i => i.id === stat.id);
             return (
-              <div key={stat.id} className="flex items-center gap-8 md:gap-12 group transition-all duration-500">
+              <div key={stat.id} className="flex items-center gap-10 md:gap-16 group transition-all duration-500">
                 {img && (
-                  <div className="shrink-0">
+                  <div className="shrink-0 flex items-center justify-center w-20 h-20 md:w-28 md:h-28">
                     <img 
-                      src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_240')} 
+                      src={cl(img.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_300')} 
                       alt={stat.label} 
-                      className="w-16 h-16 md:w-20 md:h-20 object-contain transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
                     />
                   </div>
                 )}
-                <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-6 flex-1 border-b border-white/5 pb-4">
+                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-10 flex-1 border-b border-white/5 pb-6">
                   <StatCounter 
                     value={stat.value} 
-                    className="text-brand-gold text-[var(--text-2xl)] md:text-[var(--text-4xl)]" 
+                    className="text-brand-gold text-5xl md:text-8xl" 
                   />
-                  <div className="font-body text-[10px] uppercase tracking-[4px] text-brand-gold/40 font-bold">
+                  <div className="font-body text-[11px] md:text-sm uppercase tracking-[5px] text-brand-gold/45 font-bold">
                     {stat.label}
                   </div>
                 </div>
