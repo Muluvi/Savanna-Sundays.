@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { ReceiptText, ShieldCheck, Zap, Music, Video, Camera, QrCode } from 'lucide-react';
+import { ReceiptText } from 'lucide-react';
 
 const lineItems = [
   { item: "DJ 1 opens with warm-up (Bongo, R&B, Afrobeats)", cost: "50,000" },
@@ -28,24 +28,35 @@ export const TheNumbersSection = () => {
         </p>
       </div>
 
-      <div className="glass-tile rounded-[24px] overflow-hidden">
+      <div className="glass-tile rounded-[24px] overflow-hidden border border-white/5">
         <Table>
           <TableHeader className="bg-brand-gold">
-            <TableRow className="border-none">
+            <TableRow className="border-none hover:bg-brand-gold">
               <TableHead className="text-brand-green font-headline tracking-widest py-4 px-8 text-[var(--text-xs)] md:text-[var(--text-sm)] uppercase">Breakdown</TableHead>
               <TableHead className="text-brand-green font-headline tracking-widest text-right px-8 text-[var(--text-xs)] md:text-[var(--text-sm)] uppercase">KSh</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {lineItems.map((row, i) => (
-              <TableRow key={i} className="border-white/5">
-                <TableCell className="font-body font-bold text-[var(--text-xs)] py-4 px-8 text-brand-cream/80 uppercase tracking-widest">{row.item}</TableCell>
-                <TableCell className="font-headline text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-gold text-right px-8">{row.cost}</TableCell>
+              <TableRow 
+                key={i} 
+                className="border-white/5 transition-all duration-200 odd:bg-brand-gold/[0.04] even:bg-transparent hover:bg-brand-gold/[0.08] hover:border-r-2 hover:border-brand-gold group"
+              >
+                <TableCell className="font-body font-bold text-[var(--text-xs)] py-4 px-8 text-brand-cream/80 uppercase tracking-widest">
+                  {row.item}
+                </TableCell>
+                <TableCell className="font-headline text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-gold text-right px-8">
+                  {row.cost}
+                </TableCell>
               </TableRow>
             ))}
-            <TableRow className="bg-brand-gold/10 border-none">
-              <TableCell className="font-headline text-[var(--text-2xl)] md:text-[var(--text-4xl)] py-6 px-8 text-brand-gold uppercase tracking-tighter">Weekly total</TableCell>
-              <TableCell className="font-headline text-[var(--text-4xl)] md:text-[var(--text-6xl)] text-brand-gold text-right px-8 tracking-tighter">336,168</TableCell>
+            <TableRow className="bg-brand-gold/10 border-none hover:bg-brand-gold/20">
+              <TableCell className="font-headline text-[var(--text-2xl)] md:text-[var(--text-4xl)] py-6 px-8 text-brand-gold uppercase tracking-tighter">
+                Weekly total
+              </TableCell>
+              <TableCell className="font-headline text-[var(--text-4xl)] md:text-[var(--text-6xl)] text-brand-gold text-right px-8 tracking-tighter">
+                336,168
+              </TableCell>
             </TableRow>
           </TableBody>
         </Table>
