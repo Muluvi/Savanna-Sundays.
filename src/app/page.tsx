@@ -1,10 +1,11 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
 import { MobileNav } from '@/components/navigation/MobileNav';
 import { MobileProgressBar } from '@/components/navigation/MobileProgressBar';
 import { SectionContainer } from '@/components/sections/SectionContainer';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ArrowRight } from 'lucide-react';
 import { useAnalyticsTracker } from '@/hooks/use-analytics-tracker';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
@@ -53,23 +54,15 @@ export default function Home() {
   const closingRef = useRef<HTMLDivElement>(null);
   
   const savannaLogo = PlaceHolderImages.find(p => p.id === 'savanna-logo');
+  const fireflyLogo = PlaceHolderImages.find(p => p.id === 'firefly-logo');
+  
   useAnalyticsTracker();
 
   useEffect(() => {
     setIsMounted(true);
     
-    // Safety timeout to ensure visibility even if observer misses
-    const timer = setTimeout(() => setHeroVisible(true), 1500);
-
-    const heroObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHeroVisible(true);
-          heroObserver.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
+    // Immediate trigger for hero reveal
+    const timer = setTimeout(() => setHeroVisible(true), 100);
 
     const closingObserver = new IntersectionObserver(
       ([entry]) => {
@@ -81,20 +74,15 @@ export default function Home() {
       { threshold: 0.12 }
     );
 
-    if (heroRef.current) heroObserver.observe(heroRef.current);
     if (closingRef.current) closingObserver.observe(closingRef.current);
 
     return () => {
-      heroObserver.disconnect();
       closingObserver.disconnect();
       clearTimeout(timer);
     };
   }, []);
 
   if (!isMounted) return <div className="min-h-screen bg-brand-green" />;
-
-  const savannaText = "SAVANNA".split("");
-  const sundaysText = "SUNDAYS".split("");
 
   return (
     <div className="relative min-h-screen bg-brand-green text-foreground overflow-x-hidden selection:bg-brand-gold selection:text-brand-green">
@@ -103,76 +91,80 @@ export default function Home() {
       <MobileProgressBar />
       
       <main>
-        {/* Cinematic Hero */}
+        {/* Proportional Hero Section */}
         <section 
           ref={heroRef}
           id="hero" 
-          className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden"
+          className="relative h-screen flex flex-col justify-between items-center px-6 py-12 overflow-hidden bg-brand-green"
         >
-          <CiderFizz className="opacity-40 z-0" />
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.15)_0%,transparent_75%)]" />
+          <CiderFizz className="opacity-30 z-0" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.12)_0%,transparent_70%)]" />
 
-          <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center gap-4 text-center">
+          {/* Top Anchor: Brand Logo */}
+          <div className={cn(
+            "relative z-10 transition-all duration-1000 ease-out",
+            heroVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
+          )}>
             {savannaLogo && (
               <img 
-                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
-                alt="Savanna" 
-                className={cn(
-                  "logo-shimmer transition-all duration-1000",
-                  heroVisible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-4"
-                )}
-                style={{ width: 'clamp(160px, 20vw, 280px)', height: 'auto', objectFit: 'contain' }}
+                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_400')} 
+                alt="Savanna Premium Cider" 
+                className="logo-shimmer"
+                style={{ width: 'clamp(140px, 15vw, 220px)', height: 'auto', objectFit: 'contain' }}
                 loading="eager"
                 fetchPriority="high"
               />
             )}
+          </div>
 
-            <div className="space-y-1">
-              <h1 className="flex flex-col items-center leading-[0.95] tracking-tighter" aria-label="SAVANNA SUNDAYS">
-                <div className="flex overflow-hidden">
-                  {savannaText.map((char, i) => (
-                    <span 
-                      key={`savanna-${i}`}
-                      style={{ transitionDelay: `${i * 30}ms` }}
-                      className={cn(
-                        "text-brand-gold text-[var(--text-display)] font-headline uppercase inline-block transition-all duration-700 cubic-bezier(0.22, 1, 0.36, 1)",
-                        heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[40px]"
-                      )}
-                    >
-                      {char}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex overflow-hidden">
-                  {sundaysText.map((char, i) => (
-                    <span 
-                      key={`sundays-${i}`}
-                      style={{ transitionDelay: `${(i + 7) * 30}ms` }}
-                      className={cn(
-                        "text-brand-gold text-[var(--text-display)] font-headline uppercase inline-block transition-all duration-700 cubic-bezier(0.22, 1, 0.36, 1)",
-                        heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[40px]"
-                      )}
-                    >
-                      {char}
-                    </span>
-                  ))}
-                </div>
-              </h1>
-              <p className={cn(
-                "font-body text-brand-gold text-[var(--text-lg)] md:text-[var(--text-xl)] uppercase tracking-[6px] font-bold transition-all duration-1000 delay-500",
-                heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          {/* Centerpiece: Hero Typography */}
+          <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center text-center">
+            <h1 className="flex flex-col items-center leading-[0.85] tracking-tighter" aria-label="SAVANNA SUNDAYS">
+              <span className={cn(
+                "text-brand-gold text-[clamp(4.5rem,18vw,14rem)] font-headline uppercase block transition-all duration-[1200ms] cubic-bezier(0.22, 1, 0.36, 1)",
+                heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
               )}>
+                SAVANNA
+              </span>
+              <span className={cn(
+                "text-brand-gold text-[clamp(4.5rem,18vw,14rem)] font-headline uppercase block transition-all duration-[1200ms] delay-150 cubic-bezier(0.22, 1, 0.36, 1)",
+                heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+              )}>
+                SUNDAYS
+              </span>
+            </h1>
+            
+            <div className={cn(
+              "mt-6 space-y-4 transition-all duration-1000 delay-500",
+              heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            )}>
+              <p className="font-body text-brand-gold text-[var(--text-base)] md:text-[var(--text-lg)] uppercase tracking-[8px] font-bold">
                 Already live. Now scaling to Nairobi.
               </p>
+              <div className="flex justify-center pt-8">
+                 <div className="w-12 h-12 rounded-full border border-brand-gold/20 flex items-center justify-center animate-bounce">
+                    <ChevronDown className="text-brand-gold/40" size={20} />
+                 </div>
+              </div>
             </div>
           </div>
 
-          <div className="absolute bottom-10 flex flex-col items-center gap-6">
-            <div className="relative flex items-center justify-center">
-              <div className="absolute w-12 h-12 rounded-full border border-brand-gold animate-pulse-ring" />
-              <div className="relative w-12 h-12 rounded-full border border-brand-gold/30 flex items-center justify-center">
-                <ChevronDown className="text-brand-gold" size={20} />
-              </div>
+          {/* Bottom Anchor: Presentation Signature */}
+          <div className={cn(
+            "relative z-10 flex flex-col items-center gap-4 transition-all duration-1000 delay-700",
+            heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          )}>
+            <div className="flex items-center gap-4">
+              <span className="font-body text-[10px] tracking-[4px] text-brand-gold/40 uppercase font-bold">Presented by</span>
+              <div className="h-[1px] w-8 bg-brand-gold/20" />
+              {fireflyLogo && (
+                <img 
+                  src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_200')} 
+                  alt="Firefly Management" 
+                  className="opacity-60 hover:opacity-100 transition-opacity"
+                  style={{ height: '24px', width: 'auto', objectFit: 'contain' }}
+                />
+              )}
             </div>
           </div>
         </section>
@@ -255,7 +247,7 @@ export default function Home() {
               >
                 <div className="relative z-10 flex items-center gap-6 px-12 h-full text-brand-ink">
                   <span className="font-headline text-[var(--text-xl)] tracking-widest uppercase">Scale Sunday</span>
-                  <span className="group-hover:translate-x-2 transition-transform">→</span>
+                  <ArrowRight className="group-hover:translate-x-2 transition-transform" size={24} />
                 </div>
               </a>
             </div>
@@ -265,3 +257,4 @@ export default function Home() {
     </div>
   );
 }
+
