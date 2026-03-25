@@ -20,7 +20,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className="font-body antialiased bg-brand-green text-foreground">
+      <body className="font-body antialiased bg-brand-green text-foreground relative">
+        {/* Strategic Header Accent */}
+        <div className="fixed top-0 left-0 w-full h-[3px] z-[100] bg-[linear-gradient(to_right,#F4C542,transparent_60%)] pointer-events-none" />
+        
         <FirebaseClientProvider>
           {children}
           <Toaster />
