@@ -17,6 +17,9 @@ import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign'
 import { TheNumbersSection } from '@/components/sections/TheNumbersSection';
 import { MusicProgrammingSection } from '@/components/sections/MusicProgramming';
 import { InfluencerLineup } from '@/components/sections/InfluencerLineup';
+import { WhyFireflySection } from '@/components/sections/WhyFirefly';
+import { GrowthRoadmapSection } from '@/components/sections/GrowthRoadmap';
+import { DigitalInfrastructureSection } from '@/components/sections/DigitalInfrastructure';
 
 const sectionsData = [
   { id: 'the-gap', label: '01 — The Opportunity', title: "The Expansion", component: <TheGap /> },
@@ -29,6 +32,9 @@ const sectionsData = [
     </div>
   ) },
   { id: 'the-numbers', label: '04 — The Investment', title: 'The Capital', component: <TheNumbersSection /> },
+  { id: 'why-firefly', label: '05 — Why Firefly', title: 'The Agency', component: <WhyFireflySection /> },
+  { id: 'growth-plan', label: '06 — Growth Plan', title: 'The Roadmap', component: <GrowthRoadmapSection /> },
+  { id: 'infrastructure', label: '07 — Infrastructure', title: 'The Intelligence', component: <DigitalInfrastructureSection /> },
 ];
 
 const closingSentences = [

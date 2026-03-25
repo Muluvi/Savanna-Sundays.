@@ -5,7 +5,6 @@ import { WaterDroplets, BrushStroke } from '@/components/brand/VisualElements';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight, Zap, ShieldCheck, CheckCircle2, Award } from 'lucide-react';
 import { Card } from '@/components/ui/card';
-import { GrowthRoadmapSection } from './GrowthRoadmap';
 
 export const WhyFireflySection = () => {
   const logo = PlaceHolderImages.find(img => img.id === 'firefly-logo');
@@ -15,13 +14,9 @@ export const WhyFireflySection = () => {
       <WaterDroplets className="opacity-10" />
       
       <div className="relative z-10 space-y-8">
-        <GrowthRoadmapSection />
-
-        <div className="w-8 h-[1px] bg-brand-gold/20 mx-auto opacity-20" />
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
           <div className="space-y-4">
-            <div className="section-label">07B: The Content-First Mandate</div>
+            <div className="section-label">05A: The Content-First Mandate</div>
             <h4 className="font-headline text-2xl md:text-4xl text-brand-gold uppercase leading-tight">We aren't an events company.</h4>
             <p className="font-body text-xs md:text-base text-brand-text-muted leading-relaxed">
               Firefly is a <strong>content-first activation agency</strong>. We use physical events as our primary production set to generate narrative assets.

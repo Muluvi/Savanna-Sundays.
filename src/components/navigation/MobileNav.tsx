@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useRef } from 'react';
@@ -10,6 +9,9 @@ const sections = [
   { id: 'the-engine', label: '02 — The Venue Network', num: '02' },
   { id: 'the-ritual', label: '03 — The Ritual', num: '03' },
   { id: 'the-numbers', label: '04 — The Investment', num: '04' },
+  { id: 'why-firefly', label: '05 — Why Firefly', num: '05' },
+  { id: 'growth-plan', label: '06 — Growth Plan', num: '06' },
+  { id: 'infrastructure', label: '07 — Infrastructure', num: '07' },
 ];
 
 export const MobileNav = () => {
