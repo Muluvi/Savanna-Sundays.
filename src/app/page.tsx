@@ -91,7 +91,7 @@ export default function Home() {
         <section 
           ref={heroRef}
           id="hero" 
-          className="relative h-screen flex flex-col justify-between items-center px-6 py-12 overflow-hidden bg-brand-green"
+          className="relative h-screen flex flex-col justify-between items-center px-6 py-16 overflow-hidden bg-brand-green"
         >
           <CiderFizz className="opacity-30 z-0" />
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.12)_0%,transparent_70%)]" />
@@ -105,7 +105,7 @@ export default function Home() {
                 src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
                 alt="Savanna" 
                 className="logo-shimmer"
-                style={{ width: 'clamp(160px, 20vw, 280px)', height: 'auto', objectFit: 'contain' }}
+                style={{ width: 'clamp(140px, 15vw, 240px)', height: 'auto', objectFit: 'contain' }}
                 loading="eager"
                 fetchPriority="high"
               />
@@ -125,10 +125,10 @@ export default function Home() {
             </h1>
             
             <div className={cn(
-              "mt-6 space-y-4 transition-all duration-1000 delay-500",
+              "mt-8 space-y-4 transition-all duration-1000 delay-500",
               heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             )}>
-              <p className="font-body text-brand-gold text-[var(--text-base)] md:text-[var(--text-lg)] uppercase tracking-[8px] font-bold">
+              <p className="font-body text-brand-gold text-[var(--text-sm)] md:text-[var(--text-base)] uppercase tracking-[8px] font-bold">
                 Already live. Now scaling.
               </p>
               <div className="flex justify-center pt-8">
@@ -172,7 +172,7 @@ export default function Home() {
         </div>
 
         {/* Section 03 — The Ritual */}
-        <div id="the-ritual" className="relative w-full overflow-hidden">
+        <div id="the-ritual" className="relative w-full">
           <TalentMarquee />
           <InfluencerLineup />
           <SectionContainer id="the-ritual-details" label="03 — The Ritual" title="The Content Flow">
@@ -188,11 +188,11 @@ export default function Home() {
         ))}
 
         {/* Closing */}
-        <div ref={closingRef} id="closing" className="py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-brand-ink">
-          <div className="max-w-4xl mx-auto space-y-12 relative z-10">
+        <div ref={closingRef} id="closing" className="py-24 px-6 text-center border-t border-white/5 relative overflow-hidden bg-brand-ink">
+          <div className="max-w-4xl mx-auto space-y-16 relative z-10">
             <p className="font-serif italic text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-cream leading-snug">
               {closingSentences.map((sentence, i) => (
-                <span key={i} style={{ transitionDelay: `${i * 100}ms` }} className={cn("reveal-on-scroll inline-block mr-1.5", closingVisible && "reveal-visible")}>
+                <span key={i} style={{ transitionDelay: `${i * 100}ms` }} className={cn("reveal-on-scroll inline-block mr-2 mb-2", closingVisible && "reveal-visible")}>
                   {sentence}
                 </span>
               ))}

@@ -20,7 +20,6 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
   useEffect(() => {
     setIsMounted(true);
     
-    // Scroll progress for title parallax
     const handleScroll = () => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
@@ -29,7 +28,6 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
       setScrollProgress(progress);
     };
 
-    // Standardized G4 Reveal Observer
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -51,14 +49,14 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
     };
   }, []);
 
-  const translateX = isMounted ? (scrollProgress - 0.5) * 15 : 0; 
+  const translateX = isMounted ? (scrollProgress - 0.5) * 30 : 0; 
 
   return (
     <section 
       ref={sectionRef}
       id={id} 
       className={cn(
-        "py-12 md:py-20 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center border-b border-white/5"
+        "py-20 md:py-32 px-6 md:px-12 lg:px-24 relative overflow-hidden flex flex-col justify-center border-b border-white/5"
       )}
     >
       <div className="noise-overlay" />
@@ -68,10 +66,10 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
         "max-w-6xl mx-auto w-full relative z-10 reveal-on-scroll",
         isVisible && "reveal-visible"
       )}>
-        <div className="mb-6 md:mb-10 text-center md:text-left relative">
-          <span className="section-label mb-1">{label}</span>
+        <div className="mb-12 md:mb-20 text-center md:text-left relative">
+          <span className="section-label">{label}</span>
           <h2 
-            className="section-title text-[var(--text-4xl)] md:text-[var(--text-6xl)]"
+            className="section-title"
             style={{ transform: `translateX(${translateX}px)` }}
           >
             {title}
