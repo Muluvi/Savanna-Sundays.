@@ -103,7 +103,13 @@ export const DualActivationModel = () => {
         </div>
       </div>
 
-      <div className="relative overflow-hidden py-8 -mx-6 md:-mx-12 lg:-mx-24">
+      <div 
+        className="relative overflow-hidden py-8 -mx-6 md:-mx-12 lg:-mx-24"
+        style={{ 
+          maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)'
+        }}
+      >
         <div className="flex w-fit animate-marquee space-x-12 px-12 items-center">
           {[...Array(3)].map((_, listIdx) => (
             <React.Fragment key={listIdx}>

@@ -118,7 +118,7 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'pulse-gold': 'pulse-gold 2s infinite',
         'fizz': 'fizz 5s linear infinite',
-        'marquee': 'marquee 25s linear infinite',
+        'marquee': 'marquee 20.8s linear infinite',
         'spin-slow': 'spin 30s linear infinite',
       },
     },
