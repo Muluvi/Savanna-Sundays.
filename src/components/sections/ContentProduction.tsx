@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
-import { Video, Camera, Youtube } from 'lucide-react';
 
 const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -60,21 +59,47 @@ const ContentHarvestMetrics = () => {
       label: "Hi-Fi DJ Sets", 
       value: "4", 
       period: "per month",
-      icon: <Youtube className="text-brand-gold" size={24} />,
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4C542" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+          <line x1="7" y1="3" x2="7" y2="21"/>
+          <line x1="17" y1="3" x2="17" y2="21"/>
+          <line x1="3" y1="7" x2="21" y2="7"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="17" x2="21" y2="17"/>
+        </svg>
+      ),
       body: "Full multi-camera sets. Broadcast-mastered audio. Bongo-led foundations." 
     },
     { 
       label: "Algorithm Loops", 
       value: "16", 
       period: "per month",
-      icon: <Video className="text-brand-gold" size={24} />,
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4C542" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M17 2l4 4-4 4"/>
+          <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+          <path d="M7 22l-4-4 4-4"/>
+          <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+        </svg>
+      ),
       body: "High-impact recap reels, DJ highlights, and lifestyle cuts. Genre-fluid energy." 
     },
     { 
       label: "Lifestyle Assets", 
       value: "28", 
       period: "per month",
-      icon: <Camera className="text-brand-gold" size={24} />,
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4C542" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="14.31" y1="8" x2="20.05" y2="17.94"/>
+          <line x1="9.69" y1="8" x2="21.17" y2="8"/>
+          <line x1="7.38" y1="12" x2="13.12" y2="2.06"/>
+          <line x1="9.69" y1="16" x2="3.95" y2="6.06"/>
+          <line x1="14.31" y1="16" x2="2.83" y2="16"/>
+          <line x1="16.62" y1="12" x2="10.88" y2="21.94"/>
+        </svg>
+      ),
       body: "Color-graded HD photography batch covering crowd energy and brand ritual." 
     }
   ];
