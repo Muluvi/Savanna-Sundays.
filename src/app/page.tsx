@@ -95,9 +95,9 @@ export default function Home() {
           )}>
             {savannaLogo && (
               <img 
-                src={cl(savannaLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_500')} 
+                src={cl(savannaLogo.imageUrl, 'q_auto,f_auto,dpr_2.0,w_500')} 
                 alt="Savanna" 
-                className="logo-shimmer drop-shadow-[0_15px_40px_rgba(0,0,0,0.5)]"
+                className="logo-shimmer drop-shadow-[0_25px_60px_rgba(0,0,0,0.7)]"
                 style={{ width: 'clamp(140px, 18vw, 240px)', height: 'auto', objectFit: 'contain' }}
                 loading="eager"
                 fetchPriority="high"
@@ -149,9 +149,9 @@ export default function Home() {
                 <div className="h-[1px] w-8 md:w-12 bg-brand-gold/15" />
                 {fireflyLogo && (
                   <img 
-                    src={cl(fireflyLogo.imageUrl, 'q_auto:best,f_auto,dpr_2.0,w_600')} 
+                    src={cl(fireflyLogo.imageUrl, 'q_auto,f_auto,dpr_2.0,w_600')} 
                     alt="Firefly Management" 
-                    className="opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-700 drop-shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
+                    className="opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-700 drop-shadow-[0_15px_40px_rgba(0,0,0,0.6)] brightness-110"
                     style={{ height: 'clamp(40px, 6vh, 56px)', width: 'auto', objectFit: 'contain' }}
                     loading="eager"
                     fetchPriority="high"
