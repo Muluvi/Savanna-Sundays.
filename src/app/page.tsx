@@ -149,11 +149,20 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="absolute bottom-10 flex flex-col items-center gap-3 animate-bounce">
-            <p className="font-body text-[var(--text-xs)] text-brand-gold tracking-[0.5em] uppercase font-bold opacity-60">
+          <div className="absolute bottom-10 flex flex-col items-center gap-6">
+            <p className="font-body text-[var(--text-xs)] text-brand-gold tracking-[0.5em] uppercase font-bold opacity-40">
               Presented by Firefly Management
             </p>
-            <ChevronDown className="text-brand-gold" size={20} />
+            
+            <div className="relative flex items-center justify-center">
+              {/* Outer Pulsing Ring */}
+              <div className="absolute w-12 h-12 rounded-full border border-brand-gold animate-pulse-ring" />
+              
+              {/* Inner Static Ring */}
+              <div className="relative w-12 h-12 rounded-full border border-brand-gold/30 flex items-center justify-center">
+                <ChevronDown className="text-brand-gold" size={20} />
+              </div>
+            </div>
           </div>
         </section>
 
