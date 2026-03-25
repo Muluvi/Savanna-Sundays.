@@ -31,7 +31,7 @@ const MarqueeTrack = ({
       <div 
         className={cn(
           "flex gap-4 w-max",
-          "motion-safe:animate-none", // Reset base animation to let tailwind classes handle it
+          "motion-safe:animate-none", 
           reverse ? "animate-scrollRight" : "animate-scrollLeft",
           "group-hover/track:[animation-play-state:paused]",
           "motion-reduce:animate-none motion-reduce:overflow-x-auto motion-reduce:w-full motion-reduce:scrollbar-hide"
@@ -51,7 +51,7 @@ const MarqueeTrack = ({
               width={600}
               className="h-full w-auto object-cover block"
               priority={i < 4}
-              unoptimized // Preserve Cloudinary raw quality
+              unoptimized 
             />
           </div>
         ))}
@@ -69,12 +69,16 @@ export const TalentMarquee = () => {
     "https://res.cloudinary.com/da5j0zjok/image/upload/v1774435182/20fb5d79-d30b-405e-8a3a-4f434dbe8dc8_fgroxz.jpg"
   ];
 
+  // Hardcoded High-Fidelity URLs for DJ Main Patt
   const djMainPattImages = [
-    PlaceHolderImages.find(p => p.id === 'dj-mgm-1')?.imageUrl || '',
-    PlaceHolderImages.find(p => p.id === 'dj-mgm-2')?.imageUrl || '',
-    PlaceHolderImages.find(p => p.id === 'dj-mgm-3')?.imageUrl || '',
-    PlaceHolderImages.find(p => p.id === 'dj-mgm-4')?.imageUrl || '',
-  ].filter(Boolean);
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439551/IMG-20260325-WA0028_xg0xmg.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439550/IMG-20260325-WA0025_hejydl.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439550/IMG-20260325-WA0029_xkfd0g.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439549/IMG-20260325-WA0026_vfggnh.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439549/IMG-20260325-WA0024_oagwdk.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439549/IMG-20260325-WA0020_pyiaoj.jpg",
+    "https://res.cloudinary.com/da5j0zjok/image/upload/v1774439548/IMG-20260325-WA0021_ws8z0m.jpg"
+  ];
 
   const sameerImages = [
     PlaceHolderImages.find(p => p.id === 'dj-iv-1')?.imageUrl || '',
