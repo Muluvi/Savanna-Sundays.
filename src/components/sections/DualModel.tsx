@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Sparkles, Globe, RotateCcw, Zap, ArrowRight } from 'lucide-react';
+import { Globe, RotateCcw, Zap, ArrowRight, Sparkles } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card } from '@/components/ui/card';
 import { cl } from '@/lib/cloudinary';
@@ -83,7 +83,7 @@ export const DualActivationModel = () => {
         </div>
       </div>
 
-      {/* Tier 2 - Mainstream Marquee */}
+      {/* Tier 2 - Mainstream Marquee (Forced Full-Bleed) */}
       <div className="-mx-6 md:-mx-12 lg:-mx-24">
         <VenueMarquee />
       </div>

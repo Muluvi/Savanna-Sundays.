@@ -14,7 +14,7 @@ interface MarqueeRowProps {
 }
 
 const MarqueeRow = ({ name, role, images, duration, reverse = false, isFirstRow = false }: MarqueeRowProps) => {
-  // Duplicate images for seamless loop (X2 as requested)
+  // Duplicate images for seamless loop
   const displayImages = [...images, ...images];
   const transformation = 'q_auto:best,f_auto,dpr_2.0,h_680,c_limit';
 

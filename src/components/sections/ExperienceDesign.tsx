@@ -1,10 +1,10 @@
-
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Music, Users, Camera, Clock, CalendarDays, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ContentHarvestMetrics } from './ContentProduction';
+import { InfluencerLineup } from './InfluencerLineup';
 
 /**
  * Live Countdown Clock
@@ -108,6 +108,10 @@ export const ExperienceDesignSection = () => {
       <div className="space-y-6">
         <div className="section-label">03B — The Content Harvest</div>
         <ContentHarvestMetrics />
+      </div>
+
+      <div className="space-y-6 pt-12">
+        <InfluencerLineup />
       </div>
 
       <div className="space-y-6 pt-8 border-t border-white/5 relative">

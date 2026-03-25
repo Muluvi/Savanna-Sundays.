@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ReceiptText, ShieldCheck, Zap, Music, Video, Camera, QrCode } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { cl } from '@/lib/cloudinary';
 
 /**
  * High-fidelity counter for the investment total.
