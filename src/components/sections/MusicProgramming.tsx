@@ -16,19 +16,19 @@ interface DJProfile {
 const residentDJs: DJProfile[] = [
   { 
     name: "DJ MOONS", 
-    role: "Resident DJ — Savanna Vybe Squad", 
+    role: "Resident DJ — The Savanna Vybe Squad", 
     handle: "@dj_moons", 
     imageUrl: undefined 
   },
   { 
     name: "DJ MAIN PATT", 
-    role: "Resident DJ — Savanna Vybe Squad", 
+    role: "Resident DJ — The Savanna Vybe Squad", 
     handle: "@djmainpatt", 
     imageUrl: undefined 
   },
   { 
     name: "SAMEER", 
-    role: "Resident DJ — Savanna Vybe Squad", 
+    role: "Resident DJ — The Savanna Vybe Squad", 
     handle: "@sameer_official", 
     imageUrl: undefined 
   },
@@ -95,7 +95,7 @@ export const MusicProgrammingSection = () => {
   return (
     <div className="space-y-16">
       <div className="max-w-4xl space-y-6">
-        <div className="section-label">03C: Sonic Architecture</div>
+        <div className="section-label">03A: Sonic Architecture</div>
         <h3 className="font-headline text-5xl md:text-8xl text-brand-gold uppercase leading-none tracking-tighter">
           THE SAVANNA VYBE SQUAD
         </h3>

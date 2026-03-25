@@ -14,6 +14,7 @@ import { DualActivationModel } from '@/components/sections/DualModel';
 import { ExperienceDesignSection } from '@/components/sections/ExperienceDesign';
 import { TheNumbersSection } from '@/components/sections/TheNumbersSection';
 import { MusicProgrammingSection } from '@/components/sections/MusicProgramming';
+import { InfluencerPacksSection } from '@/components/sections/InfluencerPacks';
 
 const sectionsData = [
   { id: 'the-gap', label: '01 — The Opportunity', title: "The Gap", component: <TheGap /> },
@@ -22,6 +23,7 @@ const sectionsData = [
     <div className="space-y-12">
       <MusicProgrammingSection />
       <ExperienceDesignSection />
+      <InfluencerPacksSection />
     </div>
   ) },
   { id: 'the-numbers', label: '04 — The Investment', title: 'The Numbers', component: <TheNumbersSection /> },
@@ -66,7 +68,7 @@ export default function Home() {
               </h1>
             </div>
             
-            <p className="font-serif italic text-lg md:text-2xl text-brand-cream/90 leading-relaxed max-w-lg mt-4">
+            <p className="font-serif italic text-lg md:text-2xl text-brand-cream/90 leading-relaxed max-w-lg mt-4 text-center">
               One brand. Multiple venues. Every Sunday.
             </p>
           </div>
@@ -94,7 +96,7 @@ export default function Home() {
         {/* Brand Closing Section */}
         <div className="py-24 px-6 text-center bg-brand-green border-t border-white/5 relative overflow-hidden">
           <div className="max-w-4xl mx-auto space-y-12 relative z-10">
-            {isMounted && (
+            {isMounted ? (
               <>
                 <p className="font-serif italic text-2xl md:text-5xl text-brand-cream leading-tight max-w-2xl mx-auto">
                   Savanna Sundays is built. The Savanna Vybe Squad is assembled. The venues are mapped. All that's needed is the green light.
@@ -109,6 +111,10 @@ export default function Home() {
                   <span>Let's own Sunday</span>
                 </a>
               </>
+            ) : (
+              <div className="h-64 flex items-center justify-center">
+                <div className="w-12 h-12 border-2 border-brand-gold/20 border-t-brand-gold rounded-full animate-spin" />
+              </div>
             )}
 
             <div className="pt-16 space-y-8">
