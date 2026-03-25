@@ -6,11 +6,13 @@ import { cn } from '@/lib/utils';
 const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const containerRef = useRef<HTMLSpanElement>(null);
   
   const target = parseFloat(value.replace(/,/g, ''));
 
   useEffect(() => {
+    setIsMounted(true);
     const observer = new IntersectionObserver(([entry]) => { 
       if (entry.isIntersecting) setIsVisible(true); 
     }, { threshold: 0.5 });
@@ -36,10 +38,15 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
     requestAnimationFrame(animate);
   }, [isVisible, target]);
 
+  // Use a deterministic value during hydration
+  const displayString = isMounted 
+    ? Math.floor(displayValue).toLocaleString() 
+    : Math.floor(displayValue).toString();
+
   return (
     <span ref={containerRef} className="relative inline-block">
       <span className="font-headline text-[clamp(4rem,12vw,7rem)] text-brand-gold leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(244,197,66,0.3)]">
-        {Math.floor(displayValue).toLocaleString()}
+        {displayString}
       </span>
       <span className="absolute -inset-2 bg-brand-gold/5 blur-2xl rounded-full -z-10 animate-pulse" />
     </span>

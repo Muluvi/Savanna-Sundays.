@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   
   const cleanValue = value.replace(/,/g, '').replace(/K/g, '000');
@@ -15,6 +16,7 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
   const isKFormat = value.includes('K') && target >= 1000;
 
   useEffect(() => {
+    setIsMounted(true);
     const observer = new IntersectionObserver(([entry]) => { 
       if (entry.isIntersecting) setIsVisible(true); 
     }, { threshold: 0.5 });
@@ -40,9 +42,19 @@ const RollingCounter = ({ value, suffix = "" }: { value: string, suffix?: string
     requestAnimationFrame(animate);
   }, [isVisible, target]);
 
+  // Use deterministic display string during hydration
+  let displayString = "0";
+  if (isMounted) {
+    displayString = isKFormat 
+      ? (displayValue / 1000).toFixed(0) + 'K' 
+      : Math.floor(displayValue).toLocaleString();
+  } else {
+    displayString = isKFormat ? "0K" : "0";
+  }
+
   return (
     <div ref={containerRef} className="font-headline text-4xl md:text-7xl text-brand-gold leading-none tracking-tighter">
-      {isKFormat ? (displayValue / 1000).toFixed(0) + 'K' : Math.floor(displayValue).toLocaleString()}
+      {displayString}
       {suffix}
     </div>
   );

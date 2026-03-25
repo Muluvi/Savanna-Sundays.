@@ -91,11 +91,11 @@ export default function Home() {
           <div className="noise-overlay" />
           <div className="max-w-4xl mx-auto space-y-12 relative z-10">
             <p className="font-serif italic text-2xl md:text-5xl text-brand-cream leading-tight max-w-2xl mx-auto">
-              Savanna Sundays is built. The squad is assembled. The venues are mapped. All that’s needed is the green light.
+              Savanna Sundays is built. The squad is assembled. The venues are mapped. All that's needed is the green light.
             </p>
 
             <a href="mailto:partner@firefly.co.ke" className="btn-primary inline-flex h-20 px-16 items-center gap-8 text-xl hover:scale-105 transition-all">
-              <span>Let&apos;s own Sunday</span>
+              <span>Let's own Sunday</span>
             </a>
 
             <div className="pt-16 space-y-8">

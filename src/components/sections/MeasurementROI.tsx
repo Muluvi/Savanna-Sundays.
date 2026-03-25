@@ -7,11 +7,13 @@ import { ArrowRight, Users, Zap, ShoppingBag, Share2 } from 'lucide-react';
 const Counter = ({ value, prefix = "", suffix = "" }: { value: string, prefix?: string, suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const containerRef = useRef<HTMLSpanElement>(null);
   const target = parseFloat(value.replace(/[^0-9.]/g, ''));
   const hasLoaded = useRef(false);
 
   useEffect(() => {
+    setIsMounted(true);
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasLoaded.current) {
@@ -51,9 +53,10 @@ const Counter = ({ value, prefix = "", suffix = "" }: { value: string, prefix?: 
     requestAnimationFrame(animate);
   }, [isVisible, target]);
 
-  const formatted = displayValue.toLocaleString(undefined, { 
-    maximumFractionDigits: value.includes('.') ? 1 : 0 
-  });
+  // Use a deterministic value during hydration
+  const formatted = isMounted 
+    ? displayValue.toLocaleString(undefined, { maximumFractionDigits: value.includes('.') ? 1 : 0 })
+    : Math.floor(displayValue).toString();
 
   return <span ref={containerRef}>{prefix}{formatted}{suffix}</span>;
 };
