@@ -9,6 +9,7 @@ import { useAnalyticsTracker } from '@/hooks/use-analytics-tracker';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 import { CiderFizz } from '@/components/brand/VisualElements';
+import { cl } from '@/lib/cloudinary';
 
 import { TheGap } from '@/components/sections/TheGap';
 import { DualActivationModel } from '@/components/sections/DualModel';
@@ -113,7 +114,7 @@ export default function Home() {
                 heroVisible && "reveal-visible"
               )}>
                 <img 
-                  src={savannaLogo.imageUrl} 
+                  src={cl(savannaLogo.imageUrl)} 
                   alt="Savanna" 
                   className="h-full w-auto object-contain" 
                   style={{ maxWidth: '100%' }}

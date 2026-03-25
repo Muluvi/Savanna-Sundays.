@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 import { Sparkles } from 'lucide-react';
+import { cl } from '@/lib/cloudinary';
 
 /**
  * High-fidelity counter for strategic metrics.
@@ -92,7 +93,7 @@ export const TheGap = () => {
           <div className="absolute top-0 right-0 p-8 opacity-20 group-hover:scale-110 transition-transform duration-1000">
             {savannaLogo && (
               <img 
-                src={savannaLogo.imageUrl} 
+                src={cl(savannaLogo.imageUrl)} 
                 alt="" 
                 className="h-32 w-auto object-contain" 
               />
@@ -122,7 +123,7 @@ export const TheGap = () => {
                 <div className={cn("relative transition-transform duration-500 group-hover:scale-110", stat.size)}>
                   {img && (
                     <img 
-                      src={img.imageUrl} 
+                      src={cl(img.imageUrl)} 
                       alt={stat.label} 
                       className="h-full w-auto object-contain" 
                     />

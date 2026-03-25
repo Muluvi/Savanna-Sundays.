@@ -5,6 +5,7 @@ import { WaterDroplets, BrushStroke } from '@/components/brand/VisualElements';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight, Zap, ShieldCheck, CheckCircle2, Award } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { cl } from '@/lib/cloudinary';
 
 export const WhyFireflySection = () => {
   const logo = PlaceHolderImages.find(img => img.id === 'firefly-logo');
@@ -16,7 +17,7 @@ export const WhyFireflySection = () => {
       <div className="relative z-10 space-y-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
           <div className="space-y-4">
-            <div className="section-label">05A: The Content-First Mandate</div>
+            <div className="section-label">05 — Why Firefly</div>
             <h4 className="font-headline text-2xl md:text-4xl text-brand-gold uppercase leading-tight">We aren't an events company.</h4>
             <p className="font-body text-xs md:text-base text-brand-text-muted leading-relaxed">
               Firefly is a <strong>content-first activation agency</strong>. We use physical events as our primary production set to generate narrative assets.
@@ -41,8 +42,9 @@ export const WhyFireflySection = () => {
           </Card>
         </div>
 
+        {/* Dynamic Flywheel Node */}
         <div className="py-8 flex flex-col items-center">
-          <div className="section-label text-center mb-12">The Growth Flywheel</div>
+          <div className="section-label text-center mb-12">05B — The Growth Flywheel</div>
           
           <div className="relative w-full max-w-[280px] aspect-square flex items-center justify-center">
             <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-brand-gold shadow-[0_0_50px_rgba(244,197,66,0.3)] flex items-center justify-center z-20 animate-pulse-gold relative">

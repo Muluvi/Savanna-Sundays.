@@ -1,8 +1,8 @@
-
 "use client";
 
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { cl } from '@/lib/cloudinary';
 
 interface TalentMarqueeProps {
   name: string;
@@ -12,7 +12,7 @@ interface TalentMarqueeProps {
 }
 
 const MarqueeTrack = ({ name, images, duration, reverse = false }: TalentMarqueeProps) => {
-  // If no images provided, render placeholders per the mandate
+  // Seamless loop requires duplicating the track
   const content = images && images.length > 0 
     ? [...images, ...images] 
     : Array(10).fill(null);
@@ -43,7 +43,7 @@ const MarqueeTrack = ({ name, images, duration, reverse = false }: TalentMarquee
             item ? (
               <img 
                 key={i} 
-                src={item} 
+                src={cl(item)} 
                 alt={`${name} in action`}
                 className="h-[260px] md:h-[340px] w-auto block flex-shrink-0"
               />

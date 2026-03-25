@@ -4,6 +4,7 @@ import React from 'react';
 import { Instagram, Users } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { cl } from '@/lib/cloudinary';
 
 interface Influencer {
   id: number;
@@ -45,12 +46,16 @@ export const InfluencerLineup = () => {
                 
                 <div className="relative w-24 h-24 rounded-full border-2 border-brand-gold overflow-hidden mb-6 bg-brand-green/20 flex items-center justify-center">
                   {inf.imageUrl ? (
-                    <img src={inf.imageUrl} alt={inf.name} className="h-full w-full object-cover" />
+                    <img 
+                      src={cl(inf.imageUrl)} 
+                      alt={inf.name} 
+                      className="h-full w-full object-cover" 
+                    />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center p-4 opacity-20">
                       {savannaLogo && (
                         <img 
-                          src={savannaLogo.imageUrl} 
+                          src={cl(savannaLogo.imageUrl)} 
                           alt="Savanna" 
                           className="h-10 w-auto object-contain" 
                         />

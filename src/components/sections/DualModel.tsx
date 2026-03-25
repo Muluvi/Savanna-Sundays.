@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { MapPin, Sparkles, Globe, RotateCcw, Zap, ArrowRight } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card } from '@/components/ui/card';
+import { cl } from '@/lib/cloudinary';
 
 const premiumVenues = [
   { name: "Muze (Westlands)", logoId: "venue-muze" },
@@ -72,7 +73,7 @@ export const DualActivationModel = () => {
                 {logo && (
                   <div className="relative w-full h-full flex items-center justify-center">
                     <img 
-                      src={logo.imageUrl} 
+                      src={cl(logo.imageUrl)} 
                       alt={venue.name} 
                       className="max-h-full max-w-full object-contain filter transition-all duration-500 group-hover:scale-110" 
                     />

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ChevronUp } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { cl } from '@/lib/cloudinary';
 
 const sections = [
   { id: 'the-gap', label: '01 — The Opportunity' },
@@ -53,7 +54,11 @@ export const AppSidebar = () => {
           <div className="flex flex-col gap-4">
             {savannaLogo && (
               <div className="relative h-12 w-full flex items-center">
-                <img src={savannaLogo.imageUrl} alt="Savanna" className="h-full w-auto object-contain" />
+                <img 
+                  src={cl(savannaLogo.imageUrl)} 
+                  alt="Savanna" 
+                  className="h-full w-auto object-contain" 
+                />
               </div>
             )}
             <div className="flex items-center gap-2">
@@ -62,7 +67,11 @@ export const AppSidebar = () => {
             </div>
             {fireflyLogo && (
               <div className="relative h-6 w-full opacity-60 flex items-center">
-                <img src={fireflyLogo.imageUrl} alt="Firefly" className="h-full w-auto object-contain" />
+                <img 
+                  src={cl(fireflyLogo.imageUrl)} 
+                  alt="Firefly" 
+                  className="h-full w-auto object-contain" 
+                />
               </div>
             )}
           </div>
