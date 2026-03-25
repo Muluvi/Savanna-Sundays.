@@ -57,6 +57,9 @@ export default function Home() {
 
   if (!isMounted) return <div className="min-h-screen bg-brand-green" />;
 
+  const savannaText = "SAVANNA".split("");
+  const sundaysText = "SUNDAYS".split("");
+
   return (
     <div className="relative min-h-screen bg-brand-green text-foreground overflow-x-hidden selection:bg-brand-gold selection:text-brand-green">
       <div className="noise-overlay fixed inset-0 pointer-events-none opacity-[0.05] z-0" />
@@ -73,11 +76,13 @@ export default function Home() {
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.15)_0%,transparent_75%)]" />
 
           <div className={cn(
-            "relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center gap-4 text-center reveal-on-scroll",
-            heroVisible && "reveal-visible"
+            "relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center gap-4 text-center"
           )}>
             {savannaLogo && (
-              <div className="relative h-40 md:h-[280px] w-full max-w-[500px] flex items-center justify-center">
+              <div className={cn(
+                "relative h-40 md:h-[280px] w-full max-w-[500px] flex items-center justify-center reveal-on-scroll",
+                heroVisible && "reveal-visible"
+              )}>
                 <Image 
                   src={savannaLogo.imageUrl} 
                   alt="Savanna Premium Cider" 
@@ -89,16 +94,51 @@ export default function Home() {
             )}
 
             <div className="space-y-1">
-              <h1 className="flex flex-col items-center leading-[0.95] tracking-tighter">
-                <span className="text-brand-gold text-[var(--text-display)] font-headline uppercase">Savanna</span>
-                <span className="text-brand-gold text-[var(--text-display)] font-headline uppercase">Sundays</span>
+              <h1 
+                className="flex flex-col items-center leading-[0.95] tracking-tighter"
+                aria-label="SAVANNA SUNDAYS"
+              >
+                <div className="flex overflow-hidden">
+                  {savannaText.map((char, i) => (
+                    <span 
+                      key={`savanna-${i}`}
+                      style={{ transitionDelay: `${i * 30}ms` }}
+                      className={cn(
+                        "text-brand-gold text-[var(--text-display)] font-headline uppercase inline-block transition-all duration-700 cubic-bezier(0.22, 1, 0.36, 1)",
+                        heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[40px]"
+                      )}
+                    >
+                      {char}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex overflow-hidden">
+                  {sundaysText.map((char, i) => (
+                    <span 
+                      key={`sundays-${i}`}
+                      style={{ transitionDelay: `${(i + 7) * 30}ms` }}
+                      className={cn(
+                        "text-brand-gold text-[var(--text-display)] font-headline uppercase inline-block transition-all duration-700 cubic-bezier(0.22, 1, 0.36, 1)",
+                        heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[40px]"
+                      )}
+                    >
+                      {char}
+                    </span>
+                  ))}
+                </div>
               </h1>
-              <p className="font-body text-brand-gold text-[var(--text-lg)] md:text-[var(--text-xl)] uppercase tracking-[6px] font-bold">
+              <p className={cn(
+                "font-body text-brand-gold text-[var(--text-lg)] md:text-[var(--text-xl)] uppercase tracking-[6px] font-bold reveal-on-scroll",
+                heroVisible && "reveal-visible"
+              )}>
                 Already live. Now scaling to Nairobi.
               </p>
             </div>
             
-            <div className="max-w-3xl border-t border-brand-gold/20 pt-6">
+            <div className={cn(
+              "max-w-3xl border-t border-brand-gold/20 pt-6 reveal-on-scroll",
+              heroVisible && "reveal-visible"
+            )}>
               <p className="font-body text-brand-cream text-[var(--text-sm)] md:text-[var(--text-base)] uppercase tracking-[1px] font-bold leading-relaxed opacity-80">
                 The Savanna Vybe Squad is already on the ground. The movement is real. Now we&apos;re taking it to mainstream venues, premium spots, and a city-wide audience.
               </p>
@@ -128,7 +168,7 @@ export default function Home() {
         <div id="closing" className="py-20 px-6 text-center border-t border-white/5 relative overflow-hidden bg-brand-ink">
           <div className="max-w-4xl mx-auto space-y-10 relative z-10">
             <p className="font-serif italic text-[var(--text-xl)] md:text-[var(--text-2xl)] text-brand-cream leading-snug">
-              Savanna Sundays is already live. The Savanna Vybe Squad is on the ground. Thirteen venues. Three resident DJs. Five influencers dropping every Sunday at noon. One brand owning the day. Let&apos;s scale Sunday.
+              Savanna Sundays is already live. The Savanna Vybe Squad is on the ground. The content engine is producing. The crowd is growing. Now it&apos;s time to take this to every corner of Nairobi — mainstream bars, premium venues, and everything in between. Thirteen venues. Three resident DJs. Five influencers dropping every Sunday at noon. One brand owning the day. Let&apos;s scale Sunday.
             </p>
 
             <a 
