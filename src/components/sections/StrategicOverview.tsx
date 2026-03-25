@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -8,7 +7,7 @@ import { BrushStroke } from '@/components/brand/VisualElements';
 
 export const StrategicOverview = () => {
   return (
-    <div className="space-y-6 md:space-y-8 animate-fade-in-up">
+    <div className="space-y-6 md:space-y-8">
       {/* 01: Market Intelligence Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card className="glass-tile p-6 flex items-center gap-5 group">

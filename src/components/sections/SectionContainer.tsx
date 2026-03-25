@@ -29,7 +29,7 @@ export const SectionContainer = ({ id, label, title, children }: SectionProps) =
       setScrollProgress(progress);
     };
 
-    // Standardized Reveal Observer
+    // Standardized G4 Reveal Observer
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

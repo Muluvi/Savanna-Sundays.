@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -18,7 +17,7 @@ export const EventProductionSection = () => {
   return (
     <div className="space-y-12 md:space-y-24">
       {/* Strategic Intro - Proportional Anchor */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center animate-fade-in-up">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="space-y-6">
           <div className="section-label">11A: Execution Excellence</div>
           <h3 className="font-headline text-3xl md:text-5xl text-brand-green uppercase leading-tight">
@@ -40,7 +39,7 @@ export const EventProductionSection = () => {
       </div>
 
       {/* 11B: AV Standards Matrix */}
-      <div className="space-y-8 animate-fade-in-up [animation-delay:200ms]">
+      <div className="space-y-8">
         <div className="section-label">11B: AV & Stage Standards</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           <Card className="p-8 bg-white border border-brand-green/5 rounded-[32px] flex flex-col items-center text-center gap-4 hover:border-brand-gold transition-all group">
@@ -76,7 +75,7 @@ export const EventProductionSection = () => {
       </div>
 
       {/* 11C: Human Infrastructure */}
-      <div className="space-y-8 animate-fade-in-up [animation-delay:400ms]">
+      <div className="space-y-8">
         <div className="section-label">11C: The Human Infrastructure</div>
         <div className="bg-white rounded-[32px] overflow-hidden border border-brand-green/5 shadow-xl">
           <Table>

@@ -111,7 +111,7 @@
     @apply bg-white/[0.04] border border-white/10 backdrop-blur-xl transition-all duration-500 hover:border-brand-gold/40 hover:bg-white/[0.08] relative z-10;
   }
 
-  /* Standardized Reveal System */
+  /* Standardized Reveal System (G4 Spec) */
   .reveal-on-scroll {
     opacity: 0;
     transform: translateY(24px);

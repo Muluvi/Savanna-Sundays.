@@ -8,7 +8,7 @@ import { Award, Zap } from 'lucide-react';
 
 export const AttendanceDemandSection = () => {
   return (
-    <div className="space-y-8 animate-fade-in-up">
+    <div className="space-y-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <div className="space-y-4">
           <div className="flex items-center gap-3">

@@ -58,7 +58,7 @@ export default function Home() {
   useEffect(() => {
     setIsMounted(true);
     
-    // Hero Observer
+    // Standardized G4 Hero Observer
     const heroObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -69,7 +69,7 @@ export default function Home() {
       { threshold: 0.12 }
     );
 
-    // Closing Observer
+    // Standardized G4 Closing Observer
     const closingObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -77,7 +77,7 @@ export default function Home() {
           closingObserver.unobserve(entry.target);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.12 }
     );
 
     if (heroRef.current) heroObserver.observe(heroRef.current);

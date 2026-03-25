@@ -19,7 +19,7 @@ export const WhyFireflySection = () => {
 
         <div className="w-8 h-[1px] bg-brand-gold/20 mx-auto opacity-20" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start animate-fade-in-up">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
           <div className="space-y-4">
             <div className="section-label">07B: The Content-First Mandate</div>
             <h4 className="font-headline text-2xl md:text-4xl text-brand-gold uppercase leading-tight">We aren't an events company.</h4>
@@ -46,7 +46,7 @@ export const WhyFireflySection = () => {
           </Card>
         </div>
 
-        <div className="py-8 flex flex-col items-center animate-fade-in-up [animation-delay:500ms]">
+        <div className="py-8 flex flex-col items-center">
           <div className="section-label text-center mb-12">The Growth Flywheel</div>
           
           <div className="relative w-full max-w-[280px] aspect-square flex items-center justify-center">
@@ -82,7 +82,7 @@ export const WhyFireflySection = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 animate-fade-in-up [animation-delay:400ms]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
            {[
              { label: "Content That Works Hard", desc: "Competitor-proof narrative assets.", icon: <Award size={18} /> },
              { label: "Community Layer", desc: "Organic distribution at scale.", icon: <CheckCircle2 size={18} /> },
@@ -98,7 +98,7 @@ export const WhyFireflySection = () => {
            ))}
         </div>
 
-        <div className="relative py-8 md:py-12 flex flex-col items-center justify-center animate-fade-in-up [animation-delay:600ms]">
+        <div className="relative py-8 md:py-12 flex flex-col items-center justify-center">
           <div className="relative z-10 max-w-4xl text-center">
             <BrushStroke className="w-32 h-auto opacity-20 -rotate-2 -translate-y-4 mx-auto" color="#F4C542" />
             <h3 className="font-serif italic text-2xl md:text-5xl text-brand-gold leading-tight px-4">
@@ -107,7 +107,7 @@ export const WhyFireflySection = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-8 pt-4 pb-8 animate-fade-in-up [animation-delay:800ms]">
+        <div className="flex flex-col items-center gap-8 pt-4 pb-8">
           <div className="text-center space-y-2">
             <h4 className="font-headline text-3xl md:text-5xl text-white uppercase tracking-tighter">The Cider is Dry.</h4>
             <p className="font-serif italic text-xl md:text-2xl text-brand-gold">
