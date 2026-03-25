@@ -9,6 +9,7 @@ import { useAnalyticsTracker } from '@/hooks/use-analytics-tracker';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
+import { CiderFizz } from '@/components/brand/VisualElements';
 
 import { TheGap } from '@/components/sections/TheGap';
 import { DualActivationModel } from '@/components/sections/DualModel';
@@ -73,6 +74,9 @@ export default function Home() {
           id="hero" 
           className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden"
         >
+          {/* Carbonation Effect */}
+          <CiderFizz className="opacity-40 z-0" />
+          
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(244,197,66,0.15)_0%,transparent_75%)]" />
 
           <div className={cn(
@@ -188,7 +192,7 @@ export default function Home() {
                   </div>
                 )}
                 <div className="h-10 w-[1px] bg-white/10" />
-                <p className="font-headline text-[var(--text-2xl)] text-white tracking-widest uppercase">Firefly</p>
+                <p className="font-body text-white font-headline text-[var(--text-2xl)] tracking-widest uppercase">Firefly</p>
               </div>
 
               <div className="space-y-3 max-w-xl">

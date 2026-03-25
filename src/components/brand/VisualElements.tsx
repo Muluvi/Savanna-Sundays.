@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -36,14 +35,17 @@ export const CiderFizz = ({ className }: { className?: string }) => {
     left: string;
     delay: string;
     duration: string;
+    opacity: number;
   }[]>([]);
 
   useEffect(() => {
-    const generated = [...Array(15)].map(() => ({
-      size: `${Math.random() * 4 + 2}px`,
-      left: `${Math.random() * 100}%`,
+    // Generate 12 strategic bubbles
+    const generated = [...Array(12)].map(() => ({
+      size: `${Math.floor(Math.random() * 7) + 4}px`, // 4px - 10px
+      left: `${Math.floor(Math.random() * 81) + 10}%`, // 10% - 90%
       delay: `${Math.random() * 5}s`,
-      duration: `${Math.random() * 3 + 4}s`
+      duration: `${Math.floor(Math.random() * 7) + 4}s`, // 4s - 10s
+      opacity: Math.random() * 0.15 + 0.15 // 0.15 - 0.30
     }));
     setBubbles(generated);
   }, []);
@@ -53,13 +55,16 @@ export const CiderFizz = ({ className }: { className?: string }) => {
       {bubbles.map((bubble, i) => (
         <div 
           key={i} 
-          className="absolute bottom-0 rounded-full bg-brand-gold opacity-30 animate-fizz"
+          className="absolute rounded-full bg-brand-gold animate-rise"
           style={{
             width: bubble.size,
             height: bubble.size,
             left: bubble.left,
             animationDelay: bubble.delay,
-            animationDuration: bubble.duration
+            animationDuration: bubble.duration,
+            // Pass opacity as a CSS variable for the keyframe
+            ['--bubble-opacity' as any]: bubble.opacity,
+            opacity: 0, // Initial opacity until animation starts
           }}
         />
       ))}
